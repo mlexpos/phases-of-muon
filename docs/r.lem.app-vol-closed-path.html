@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.19 (Path decomposition)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.19 (Path decomposition)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-lemma" id="L-lem:app-vol-closed-path"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-closed-path.html" data-label="lem:app-vol-closed-path">Lemma SD.19</a> <span class="thm-title">(Path decomposition)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmaout,\Sigmain\ne0\)</span>, and let <span class="mi">\(s,u\ge s_R\)</span>. The family <span class="mi">\(\{Z(T)\operatorname{val}(T,\mathfrak a):a_1,a_2\ge0,\ T\in\mathcal T_{a_1,a_2},\ \mathfrak a\}\)</span> is absolutely summable, and its sum is</div>
+<div class="md">\[
+\mathfrak k^{J,R}_\ell[F,G](s,u)\defeq\mathfrak R^{J,R}_\ell[F,G](\iota_s,\iota_u).
+\]</div>
+<div class="p">This sum equals <span class="mi">\(\mathfrak K^{J,R}[F,G](s,u)\)</span> of <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-profile-kernel" data-label="eqn:app-vol-closed-profile-kernel">(SD.69)</a>, formed with the branch point of <span class="mi">\(\xi_1\)</span> at <span class="mi">\(s\)</span> and of <span class="mi">\(\xi_2\)</span> at <span class="mi">\(u\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Summability and identification with the kernel.</em> For <span class="mi">\(T\in\mathcal T_{a_1,a_2}\)</span>, as in <a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a>,</div>
+<div class="md">\[
+\sum_{\mathfrak a}\abs{\operatorname{val}(T,\mathfrak a)}\le\norm F\norm G\,\gamma_1(\gamma_1C_1R_1)^k .
+\]</div>
+<div class="p">For a latent vertex, <span class="mi">\(\abs{\sum_\alpha\EE\prod\xi}\le R^{\deg}\sum_\alpha\varpi_{l,\alpha}\le R_1^{\deg}\)</span> for either label <span class="mi">\(l\)</span> that occurs, since all coefficients are at most one. With <span class="mi">\(\abs{\mathcal T_{a_1,a_2}}\le4^k\)</span> and <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-Z" data-label="eqn:app-vol-closed-Z">(SD.71)</a>, the total is at most</div>
+<div class="md">\[
+\gamma_1\norm F\norm G\sum_{a_1,a_2\ge0}\Big(\frac{16\gamma_1^2C_1^2R_1^2}s\Big)^{a_1+1}\Big(\frac{16\gamma_1^2C_1^2R_1^2}u\Big)^{a_2+1}\le\frac{\gamma_1\norm F\norm G}9 .
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-vol-closed-encoding.html" data-label="lem:app-vol-closed-encoding">Lemma SD.17</a>, <span class="mi">\(\sum_{T\in\mathcal T_{a_1,a_2}}\sum_{\mathfrak a}\operatorname{val}(T,\mathfrak a)=\mathfrak R^{J,R}_\ell[F,G](x^{2a_1+1},x^{2a_2+1})\)</span>. Since <span class="mi">\(s&gt;D_R^2\)</span>, the series <span class="mi">\(\iota_s(x)=\sum_a(-1)^as^{-a-1}x^{2a+1}\)</span> converges uniformly on <span class="mi">\([-D_R,D_R]\)</span>, and likewise for <span class="mi">\(\iota_u\)</span>. By the bound and the bilinearity of <a class="ref" href="r.lem.app-vol-tree-extension.html" data-label="lem:app-vol-tree-extension">Lemma SD.10</a>(i),(ii) and by <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-Z" data-label="eqn:app-vol-closed-Z">(SD.71)</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\mathfrak k^{J,R}_\ell[F,G](s,u)&amp;=\sum_{a_1,a_2}(-1)^{a_1+a_2}s^{-a_1-1}u^{-a_2-1}\mathfrak R^{J,R}_\ell[F,G](x^{2a_1+1},x^{2a_2+1})\\
+&amp;=\sum Z(T)\operatorname{val}(T,\mathfrak a).
+\end{aligned}
+\]</div>
+<div class="p"><em>Decomposition along the path.</em> For <span class="mi">\(T\)</span> in <span class="mi">\(\mathcal T\defeq\bigcup_{a_1,a_2}\mathcal T_{a_1,a_2}\)</span>, let <span class="mi">\(x_0=\mathrm{root},y_1,x_1,\dots,y_m,x_m=G\)</span>-vertex be the ancestor path of the <span class="mi">\(G\)</span>-vertex, with <span class="mi">\(m\ge1\)</span>, <span class="mi">\(x_r\)</span> external and <span class="mi">\(y_r\)</span> latent. For a path vertex <span class="mi">\(v\ne x_m\)</span> with path child <span class="mi">\(v^+\)</span>, its list of children is <span class="mi">\((L_1(v),v^+,L_2(v))\)</span>. For <span class="mi">\(x_m\)</span>, the time <span class="mi">\(p_*\)</span> is the corner after its <span class="mi">\(n_G\)</span>-th child for some <span class="mi">\(n_G\ge0\)</span>; let <span class="mi">\(L_1(x_m)\)</span> be its first <span class="mi">\(n_G\)</span> children and <span class="mi">\(L_2(x_m)\)</span> the rest. By the recursive definition of the contour, the times before <span class="mi">\(p_*\)</span> visit exactly the path edges, downward, and the subtrees in the lists <span class="mi">\(L_1\)</span>; the times after <span class="mi">\(p_*\)</span> visit the path edges, upward, and the subtrees in the lists <span class="mi">\(L_2\)</span>. Conversely, the following data assemble to a unique <span class="mi">\(T\in\mathcal T\)</span> with its marked time: the types <span class="mi">\(\mathsf t_r\)</span> of the <span class="mi">\(x_r\)</span>, with <span class="mi">\(\mathsf t_0=\mathrm o\)</span> and <span class="mi">\(\mathsf t_m=\mathrm{in}\)</span>, and lists <span class="mi">\(L_1(v),L_2(v)\)</span> of subtrees consistent with the typing. At a latent path vertex <span class="mi">\(y_r\)</span> the typing requires <span class="mi">\((x_{r-1},L_1(y_r),x_r,L_2(y_r))\)</span> to alternate cyclically. So <span class="mi">\(\abs{L_1(y_r)}\)</span> and <span class="mi">\(\abs{L_2(y_r)}\)</span> are even if <span class="mi">\(\mathsf t_{r-1}\ne\mathsf t_r\)</span> and odd if <span class="mi">\(\mathsf t_{r-1}=\mathsf t_r\)</span>, and the types inside the lists are forced.</div>
+<div class="p">The corners of path vertices split by arc. An external path vertex has <span class="mi">\(\abs{L_1}+1\)</span> corners in arc 1 and <span class="mi">\(\abs{L_2}+1\)</span> in arc 2; for the root and the <span class="mi">\(G\)</span>-vertex the shared corner, at time <span class="mi">\(0\equiv2k\)</span> respectively <span class="mi">\(p_*\)</span>, is counted in both arcs, matching the count in <span class="mi">\(Z(T)\)</span>. A latent path vertex has <span class="mi">\(\abs{L_1}+1\)</span> corners of label <span class="mi">\(1\)</span> and <span class="mi">\(\abs{L_2}+1\)</span> of label <span class="mi">\(2\)</span>. Subtrees in <span class="mi">\(L_l\)</span> lie in arc <span class="mi">\(l\)</span>. Hence <span class="mi">\(Z(T)\operatorname{val}(T,\mathfrak a)\)</span> is the product of the following local factors, where <span class="mi">\(\deg_Px\in\{1,2\}\)</span> is the number of path edges at <span class="mi">\(x\)</span>:</div>
+<ul class="itemize"><li><span class="li-mark">•</span><div class="li-body"><div class="p">at an external path vertex <span class="mi">\(x\)</span> of type <span class="mi">\(\mathsf t\)</span> and index <span class="mi">\(i\)</span>: <span class="mi">\(B^{-1}\mathsf k_i^{\deg_Px}F_i^{[x=x_0]}G_i^{[x=x_m]}\zeta_1^{\abs{L_1}+1}\zeta_2^{\abs{L_2}+1}\)</span>, times, for each <span class="mi">\(Y\in L_l(x)\)</span>, the factor <span class="mi">\(\mathsf k_i\)</span> and the one-buffer weight of the latent-rooted subtree <span class="mi">\(Y\)</span>;</div></div></li><li><span class="li-mark">•</span><div class="li-body"><div class="p">at a latent path vertex with label <span class="mi">\(\alpha\)</span>: <span class="mi">\(\EE\big[\xi_{1,\alpha}^{\abs{L_1}+1}\xi_{2,\alpha}^{\abs{L_2}+1}\big]\)</span>, times, for each <span class="mi">\(X'\in L_l(y)\)</span> with root <span class="mi">\(x'\)</span>, the factor <span class="mi">\(B^{-1}\mathsf k_{x'}\operatorname{val}_l(X',\mathfrak a)\)</span>.</div></div></li></ul>
+<div class="p"><em>Summation of the local factors.</em> By absolute summability, the sums may be taken factor by factor. At an external path vertex, the recursion of <a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a> sums the subtrees in each list to <span class="mi">\(\eta_{\mathsf t,l}\)</span>, and the sum over the list lengths gives <span class="mi">\(\sum_n\zeta_l^{n+1}(\mathsf k_i\eta_{\mathsf t,l})^n=g_{\mathsf t,l}(i)\)</span>. So the external factor sums to</div>
+<div class="md">\[
+\frac1B\mathsf k_i^{\deg_Px}F_i^{[x=x_0]}G_i^{[x=x_m]}\,g_{\mathsf t,1}(i)\,g_{\mathsf t,2}(i).
+\]</div>
+<div class="p">At a latent path vertex between the types <span class="mi">\((\mathsf t_{r-1},\mathsf t_r)\)</span>, a list of even length <span class="mi">\(2p\)</span> between opposite types contributes <span class="mi">\((m_{\mathrm o,l}m_{\mathrm{in},l})^p=(-q_l)^p\)</span>, and a list of odd length <span class="mi">\(2p+1\)</span> between two <span class="mi">\(\mathrm o\)</span> vertices contributes <span class="mi">\(m_{\mathrm{in},l}(-q_l)^p\)</span>, where <span class="mi">\(q_l=-m_{\mathrm o,l}m_{\mathrm{in},l}\)</span> is the branch value of <a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a>. Summing the geometric series, which converge because <span class="mi">\(\abs{q_l\xi^2}\le1/16\)</span>, the latent factor sums to the entry <span class="mi">\(\mathsf Y_{\mathsf t_{r-1}\mathsf t_r}\)</span> of</div>
+<div class="md">\[
+\mathsf Y\defeq\begin{pmatrix}\mathsf a&amp;b\\ b&amp;\mathsf d\end{pmatrix},\qquad
+\mathsf a\defeq m_{\mathrm{in},1}m_{\mathrm{in},2}\,e,\qquad \mathsf d\defeq m_{\mathrm o,1}m_{\mathrm o,2}\,e,
+\]</div>
+<div class="p">indexed by <span class="mi">\((\mathrm o,\mathrm{in})\)</span>, with <span class="mi">\(b=b(q_1,q_2)\)</span> and <span class="mi">\(e=e(q_1,q_2)\)</span>. For example, between opposite types,</div>
+<div class="md">\[
+\sum_\alpha\EE\sum_{p_1,p_2\ge0}\xi_{1,\alpha}^{2p_1+1}\xi_{2,\alpha}^{2p_2+1}(-q_1)^{p_1}(-q_2)^{p_2}
+=\sum_\alpha\EE\frac{\xi_{1,\alpha}\xi_{2,\alpha}}{(1+q_1\xi_{1,\alpha}^2)(1+q_2\xi_{2,\alpha}^2)}=b .
+\]</div>
+<div class="p">Put</div>
+<div class="md">\[
+f_{\mathrm o}\defeq\frac1B\sum_iF_i\mu_i\,g_{\mathrm o,1}(i)g_{\mathrm o,2}(i),\qquad
+f_{\mathrm{in}}\defeq\frac1B\sum_jG_j\lambda_j\,g_{\mathrm{in},1}(j)g_{\mathrm{in},2}(j),
+\]</div>
+<div class="md">\[
+p_{\mathrm o}\defeq\frac1B\sum_i\mu_i^2\,g_{\mathrm o,1}(i)g_{\mathrm o,2}(i),\qquad
+p_{\mathrm{in}}\defeq\frac1B\sum_j\lambda_j^2\,g_{\mathrm{in},1}(j)g_{\mathrm{in},2}(j),\qquad
+\mathsf P\defeq\operatorname{diag}(p_{\mathrm o},p_{\mathrm{in}}).
+\]</div>
+<div class="p">Summing over the path length <span class="mi">\(m\)</span> and the intermediate types,</div>
+<div class="md">\[
+\begin{aligned}
+\sum Z(T)\operatorname{val}(T,\mathfrak a)&amp;=f_{\mathrm o}\Big[\sum_{m\ge1}\mathsf Y(\mathsf P\mathsf Y)^{m-1}\Big]_{\mathrm o,\mathrm{in}}f_{\mathrm{in}}
+=f_{\mathrm o}\big[\mathsf Y(\Id-\mathsf P\mathsf Y)^{-1}\big]_{\mathrm o,\mathrm{in}}f_{\mathrm{in}}\\
+&amp;=\frac{f_{\mathrm o}f_{\mathrm{in}}\,b}{(1-p_{\mathrm o}\mathsf a)(1-p_{\mathrm{in}}\mathsf d)-p_{\mathrm o}p_{\mathrm{in}}b^2}.
+\end{aligned}
+\]</div>
+<div class="p">The Neumann series converges. Indeed <span class="mi">\(\abs g\le2/\sqrt t\)</span> gives <span class="mi">\(\abs{p_{\mathsf t}}\le4\gamma_1C_1^2/\sqrt{su}\le1/16\)</span>, while <span class="mi">\(\abs b\le1\)</span> and <span class="mi">\(\abs{\mathsf a},\abs{\mathsf d}\le\delta_s\delta_uR^2\le1/16\)</span>, so <span class="mi">\(\norm{\mathsf P\mathsf Y}_\infty&lt;1/8\)</span>. The last equality is <span class="mi">\(2\times2\)</span> inversion: the <span class="mi">\((\mathrm o,\mathrm{in})\)</span> entry of <span class="mi">\(\mathsf Y\operatorname{adj}(\Id-\mathsf P\mathsf Y)\)</span> is <span class="mi">\(\mathsf a\,p_{\mathrm o}b+b(1-p_{\mathrm o}\mathsf a)=b\)</span>.</div>
+<div class="p"><em>Conversion to real variables.</em> By <a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a> at <span class="mi">\(s\)</span> for <span class="mi">\(l=1\)</span> and at <span class="mi">\(u\)</span> for <span class="mi">\(l=2\)</span>,</div>
+<div class="md">\[
+g_{\mathrm o,1}(i)g_{\mathrm o,2}(i)=\frac{-\sqrt{su}}{(s+\tilde s_1\mu_i)(u+\tilde s_1'\mu_i)},\qquad
+g_{\mathrm{in},1}(j)g_{\mathrm{in},2}(j)=\frac{-\sqrt{su}}{(s+s_1\lambda_j)(u+s_1'\lambda_j)} .
+\]</div>
+<div class="p">Hence</div>
+<div class="md">\[
+f_{\mathrm o}=-\sqrt{su}\,\mathcal T^{\mathrm{out}}[F],\quad f_{\mathrm{in}}=-\sqrt{su}\,\mathcal T^{\mathrm{in}}[G],\quad
+p_{\mathrm o}=-\sqrt{su}\,\mathsf U,\quad p_{\mathrm{in}}=-\sqrt{su}\,\mathsf V,
+\]</div>
+<div class="p"><span class="mi">\(\mathsf a=-\sqrt{su}\,\tilde\sigma\tilde\sigma'e\)</span>, <span class="mi">\(\mathsf d=-\sqrt{su}\,\sigma\sigma'e\)</span>, <span class="mi">\(q_1=q\)</span> and <span class="mi">\(q_2=q'\)</span>. Substituting gives <span class="mi">\(su\,b\,\mathcal T^{\mathrm{out}}[F]\mathcal T^{\mathrm{in}}[G]/\Delta^{J,R}=\mathfrak K^{J,R}[F,G](s,u)\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a> <span class=muted>One-buffer sums are the branch</span></li><li><a class="ref" href="r.lem.app-vol-closed-encoding.html" data-label="lem:app-vol-closed-encoding">Lemma SD.17</a> <span class=muted>Encoding of retained pairings</span></li><li><a class="ref" href="r.lem.app-vol-tree-extension.html" data-label="lem:app-vol-tree-extension">Lemma SD.10</a> <span class=muted>Extension to continuous filters</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_path_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Path.lean#L6449">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_path_i {Ω : Type} [MeasurableSpace Ω] {m n B : ℕ}
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ) (Fp : FrozenParams m n B)
+    (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0)
+    {P : Measure Ω} [IsProbabilityMeasure P] (ℓ J : ℕ) (R : ℝ)
+    {g : ℤ → Ω → ℝ} (hg : IsStdGaussianFamily P g)
+    (Fd : Fin m → ℝ) (Gd : Fin n → ℝ) (s u : ℝ)
+    (hs : sRad cert γstar CSig R ≤ s) (hu : sRad cert γstar CSig R ≤ u) :
+    Summable (fun q : PathIdx m n J ℓ =&gt;
+        ‖pathTerm P Fp.β ℓ J R B Fd Gd S.μ S.lam g s u q‖) ∧
+    ∑' q : PathIdx m n J ℓ, pathTerm P Fp.β ℓ J R B Fd Gd S.μ S.lam g s u q =
+      ((lagRespCut cert γstar CSig Fp.β ℓ J R B S.μ S.lam Fd Gd (iotaF s) (iotaF u) : ℝ) : ℂ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_path_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Path.lean#L10829">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_path_ii {Ω : Type} [MeasurableSpace Ω] {m n B : ℕ}
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ) (Fp : FrozenParams m n B)
+    (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0)
+    {P : Measure Ω} [IsProbabilityMeasure P] (ℓ J : ℕ) (R : ℝ)
+    {g : ℤ → Ω → ℝ} (hg : IsStdGaussianFamily P g)
+    (Fd : Fin m → ℝ) (Gd : Fin n → ℝ)
+    (Fm : Matrix (Fin m) (Fin m) ℝ) (Gm : Matrix (Fin n) (Fin n) ℝ)
+    (hFd : Fm = S.uOut * Matrix.diagonal Fd * S.uOutᵀ)
+    (hGd : Gm = S.vIn * Matrix.diagonal Gd * S.vInᵀ)
+    (s u : ℝ) (hs : sRad cert γstar CSig R ≤ s) (hu : sRad cert γstar CSig R ≤ u) :
+    ∑' q : PathIdx m n J ℓ, pathTerm P Fp.β ℓ J R B Fd Gd S.μ S.lam g s u q =
+        ((profileKernel P Fp.C B (cutoffXi Fp.β ℓ J R 1 g) (cutoffXi Fp.β ℓ J R 2 g) Fm Gm s u : ℝ) : ℂ) ∧
+    profileDelta P Fp.C B (cutoffXi Fp.β ℓ J R 1 g) (cutoffXi Fp.β ℓ J R 2 g) s u ≠ 0 := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

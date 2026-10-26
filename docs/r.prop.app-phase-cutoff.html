@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.7 (A family outside the windows)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.7 (A family outside the windows)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-cutoff"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-cutoff.html" data-label="prop:app-phase-cutoff">Proposition SI.7</a> <span class="thm-title">(A family outside the windows)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(0&lt;\alpha&lt;1\)</span>, <span class="mi">\(\texp=1\)</span>, <span class="mi">\(\alpha&lt;\omega&lt;1\)</span> and <span class="mi">\(T\ge4\)</span>, let <span class="mi">\(\epsilon_N\defeq N^{-\omega}\)</span>, and let <span class="mi">\(B_N\ge N\)</span> be arbitrary integers. Then <span class="mi">\(\epsilon_NN\to\infty\)</span>, and</div>
+<div class="md">\begin{gather*}
+\frac{t^{\text{s-SVD}}_{T\epsilon_N}}{\mathcal S_{\text{s-SVD}}T_0^{\text{s-SVD}}\,\epsilon_N^{-1/2}\log(1/\epsilon_N)/(4\sqrt{8q_{\text{s-SVD}}})}\longrightarrow\frac\alpha{\omega}&lt;1,\\
+\frac{t^{\text{s-SGD}}_{T\epsilon_N}}{\mathcal S_{\text{s-SGD}}T_0^{\text{s-SGD}}\,\epsilon_N^{-1}}\asymp N^{-(\omega-\alpha)/2}\longrightarrow0 ,
+\end{gather*}</div>
+<div class="p">with constants depending only on <span class="mi">\(\alpha\)</span>, <span class="mi">\(\omega\)</span> and <span class="mi">\(T\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-phase-cutoff.html" data-label="prop:app-phase-cutoff">Proposition SI.7</a>.</div><div class="p">Both kernels are finite exponential mixtures with rates <span class="mi">\(2i^{-q_j}\)</span> and weights summing to one: for <span class="sc">SignSVD</span> the weights are <span class="mi">\(i^{-q}/H_N(q)\)</span> with <span class="mi">\(q=\alpha/2\)</span>, and for <span class="sc">SignSGD</span> they are <span class="mi">\((1-\frac2\pi)/N\)</span> and <span class="mi">\(2i^{-\alpha}/(\pi H_N(\alpha))\)</span>. Every forcing and kernel rate is at least <span class="mi">\(b_{\min}\defeq2N^{-q_j}\)</span>, and <span class="mi">\(F_0=\frac12H_N(p)\in[\frac12,\frac12Z_p]\)</span>. For <span class="mi">\(N&gt;(2T)^{1/\omega}\)</span> one has <span class="mi">\(\epsilon_N&lt;1/(2T)\le F_0/T\)</span>, so <a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> applies, with</div>
+<div class="md">\[
+H\le N^{q_j}L^*_N,\qquad \mathsf d\le N^{q_j-\omega/2}L^*_N,\qquad L^*_N\defeq\omega\log N+\log Z_p .
+\]</div>
+<div class="p">Write <span class="mi">\(\mathsf I_j\defeq\int_0^{\hat u_j}\sqrt{Y_j}\)</span> and <span class="mi">\(\delta_1\defeq(\omega-\alpha)/2&gt;0\)</span>; by <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-time" data-label="eqn:app-phase-time">(SI.30)</a>, <span class="mi">\(t^j_{T\epsilon_N}=\mathcal S_jT_0^j\mathsf I_j/(2\sqrt{\epsilon_N})\)</span>.</div>
+<div class="p">For <span class="sc">SignSVD</span>, <span class="mi">\(q=\alpha/2\)</span> and <span class="mi">\(p=\alpha+1=2q+1\)</span>. <a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> gives</div>
+<div class="md">\[
+J_N(p,q)-\mathsf I\le\sqrt T\,N^{-\delta_1},\qquad
+\mathsf I-J_N(p,q)\le2\sqrt{N^{-\delta_1}L^*_NJ_N(p,q)}+N^{-\delta_1}L^*_N ,
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a>(i) gives <span class="mi">\(J_N(p,q)=a_qq\log N+O(1)\)</span>. Hence <span class="mi">\(\mathsf I=a_qq\log N+O(1)\)</span>. The ratio in the statement equals <span class="mi">\(2\mathsf I/(a_q\log(1/\epsilon_N))\)</span>, and <span class="mi">\(\log(1/\epsilon_N)=\omega\log N\)</span>, so it tends to <span class="mi">\(2q/\omega=\alpha/\omega\)</span>.</div>
+<div class="p">For <span class="sc">SignSGD</span>, <span class="mi">\(q=\alpha\)</span> and <span class="mi">\(p=q+1\)</span>. For <span class="mi">\(N\ge4\cdot4^{1/\alpha}\)</span>, <a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a>(ii) gives <span class="mi">\(c_1'N^{\alpha/2}\le J_N(p,\alpha)\le c_2'N^{\alpha/2}\)</span> with <span class="mi">\(c_1'=\sqrt A\,4^{-\alpha/2}\)</span> and <span class="mi">\(c_2'=3C_{p,\alpha}\)</span>. <a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> gives</div>
+<div class="md">\[
+\frac{J_N-\mathsf I}{J_N}\le\frac{\sqrt T}{c_1'}N^{-\delta_1},\qquad
+\frac{\mathsf I-J_N}{J_N}\le2\sqrt{\frac{N^{-\delta_1}L^*_N}{c_1'}}+\frac{N^{-\delta_1}L^*_N}{c_1'} ,
+\]</div>
+<div class="p">so <span class="mi">\(\mathsf I/J_N\to1\)</span> and <span class="mi">\(\mathsf I\asymp N^{\alpha/2}\)</span>. Then</div>
+<div class="md">\[
+\frac{t^{\text{s-SGD}}_{T\epsilon_N}}{\mathcal S_{\text{s-SGD}}T_0^{\text{s-SGD}}\epsilon_N^{-1}}=\frac12\sqrt{\epsilon_N}\,\mathsf I\asymp N^{(\alpha-\omega)/2} .
+\]</div>
+<div class="p">Finally <span class="mi">\(\epsilon_NN=N^{1-\omega}\to\infty\)</span>. None of the bounds involves <span class="mi">\(B\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> <span class=muted>Finite exponential mixtures</span></li><li><a class="ref" href="r.prop.app-phase-prefactors.html" data-label="prop:app-phase-prefactors">Proposition SI.4</a> <span class=muted>Noise constants, kernels and clocks</span></li><li><a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a> <span class=muted>Two finite forcing integrals</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-phase-windows.html" data-label="rem:app-phase-windows">Remark SI.3</a> <span class=muted>The windows cannot be dropped</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_cutoff</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L3561">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_cutoff (α ω T : ℝ) (hα : 0 &lt; α) (hα1 : α &lt; 1) (hω : α &lt; ω)
+    (hω1 : ω &lt; 1) (hT : 4 ≤ T) :
+    Tendsto (fun N : ℕ =&gt; powerEps ω N * (N : ℝ)) atTop atTop ∧
+    (∀ (Nseq Bseq : ℕ → ℕ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α 1 Nseq Bseq (fun n =&gt; powerEps ω (Nseq n)) mS mG QS QG →
+      Tendsto (fun n =&gt; (stepHit (mS n) (QS n) T (powerEps ω (Nseq n))).toReal /
+          ((svdArrays α 1 (Nseq n) (Bseq n)).S * svdT0 (Nseq n) (Bseq n) *
+            powerEps ω (Nseq n) ^ (-(1 / 2 : ℝ)) * Real.log (1 / powerEps ω (Nseq n)) /
+            (4 * Real.sqrt (8 * (α / 2)))))
+        atTop (𝓝 (α / ω))) ∧
+    α / ω &lt; 1 ∧
+    ∃ cLo cHi : ℝ, 0 &lt; cLo ∧ cLo ≤ cHi ∧
+      ∀ (Nseq Bseq : ℕ → ℕ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+        (QS QG : ∀ n, ℝ → ℝ),
+        MatchedSeq α 1 Nseq Bseq (fun n =&gt; powerEps ω (Nseq n)) mS mG QS QG →
+        (∀ᶠ n in atTop,
+          cLo * (Nseq n : ℝ) ^ (-(ω - α) / 2) ≤
+              (stepHit (mG n) (QG n) T (powerEps ω (Nseq n))).toReal /
+                ((sgdArrays α 1 (Nseq n) (Bseq n)).S * sgdT0 α (Nseq n) (Bseq n) *
+                  powerEps ω (Nseq n) ^ (-(1 : ℝ))) ∧
+              (stepHit (mG n) (QG n) T (powerEps ω (Nseq n))).toReal /
+                ((sgdArrays α 1 (Nseq n) (Bseq n)).S * sgdT0 α (Nseq n) (Bseq n) *
+                  powerEps ω (Nseq n) ^ (-(1 : ℝ))) ≤
+              cHi * (Nseq n : ℝ) ^ (-(ω - α) / 2)) ∧
+        Tendsto (fun n =&gt; (stepHit (mG n) (QG n) T (powerEps ω (Nseq n))).toReal /
+            ((sgdArrays α 1 (Nseq n) (Bseq n)).S * sgdT0 α (Nseq n) (Bseq n) *
+              powerEps ω (Nseq n) ^ (-(1 : ℝ))))
+          atTop (𝓝 0) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

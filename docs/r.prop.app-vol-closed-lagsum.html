@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SD.2 (Lag dependence)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SD.2 (Lag dependence)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-proposition" id="L-prop:app-vol-closed-lagsum"><div class="thm-head"><a class="thm-name" href="r.prop.app-vol-closed-lagsum.html" data-label="prop:app-vol-closed-lagsum">Proposition SD.2</a> <span class="thm-title">(Lag dependence)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(F,G\)</span> be diagonal tests and <span class="mi">\(s,u,\ridge&gt;0\)</span>. With the lag-independent quantities</div>
+<div class="md">\[
+A_{\mathrm o}\defeq su\,\mathsf U\tilde\sigma\tilde\sigma',\qquad A_{\mathrm{in}}\defeq su\,\mathsf V\sigma\sigma',\qquad A_\times\defeq su\,\mathsf U\mathsf V,
+\]</div>
+<div class="p">for every <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md">\[
+\mathfrak k_\ell[F,G](s,u)=su\,\mathcal T^{\mathrm{out}}[F]\,\mathcal T^{\mathrm{in}}[G]\,\frac{b_\ell}{1-(A_{\mathrm o}+A_{\mathrm{in}})e_\ell+A_{\mathrm o}A_{\mathrm{in}}e_\ell^2-A_\times b_\ell^2},
+\]</div>
+<div class="md">\[
+b_\ell=\sum_{j\ge0}\EE\big[\phi_q(\emaw jg)\,\phi_{q'}(\emaw{j+\ell}g)\big],\qquad
+e_\ell=\sum_{j\ge0}\EE\big[\psi_q(\emaw jg)\,\psi_{q'}(\emaw{j+\ell}g)\big].
+\]</div>
+<div class="p">Moreover <span class="mi">\(\sum_\ell c_\ell\,\mathfrak k_\ell[F,G](\ridge+x^2,\ridge+y^2)\)</span> converges absolutely for all <span class="mi">\(x,y\ge0\)</span>, and</div>
+<div class="md">\[
+\overline\Gamma[F,G](\ridge,\ridge)=\frac4{\pi^2}\int_0^\infty\!\!\int_0^\infty\sum_{\ell\ge0}c_\ell\,\mathfrak k_\ell[F,G](\ridge+x^2,\ridge+y^2)\,dx\,dy,
+\]</div>
+<div class="p">with <span class="mi">\(\overline\Gamma\)</span> of <a class="ref" href="r.thm.app-vol-integrated.html#L-eqn:app-vol-Gammabar" data-label="eqn:app-vol-Gammabar">(SD.54)</a>, the double integral converging absolutely.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-vol-closed-lagsum.html" data-label="prop:app-vol-closed-lagsum">Proposition SD.2</a>.</div><div class="p">The branch, <span class="mi">\(\mathcal T^{\mathrm{out}}[F]\)</span>, <span class="mi">\(\mathcal T^{\mathrm{in}}[G]\)</span>, <span class="mi">\(\mathsf U\)</span> and <span class="mi">\(\mathsf V\)</span> do not depend on <span class="mi">\(\ell\)</span>. Expanding <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-Delta" data-label="eqn:app-vol-closed-Delta">(SD.57)</a> gives</div>
+<div class="md">\[
+\Delta_\ell=1-(A_{\mathrm o}+A_{\mathrm{in}})e_\ell+A_{\mathrm o}A_{\mathrm{in}}e_\ell^2-A_\times b_\ell^2,
+\]</div>
+<div class="p">and <a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a>(ii) then gives the first display. The identity <span class="mi">\(\emaw{j+\ell}=\bmom^\ell\emaw j\)</span> turns <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-objects" data-label="eqn:app-vol-closed-objects">(SD.55)</a> into the forms with <span class="mi">\(\phi_q\)</span> and <span class="mi">\(\psi_q\)</span>. For the lag sum, <a class="ref" href="r.thm.app-vol-closed-filtered.html#L-eqn:app-vol-closed-majorant" data-label="eqn:app-vol-closed-majorant">(SD.74)</a> with <span class="mi">\(\ridge=\ridge'\)</span> gives</div>
+<div class="md">\[
+\abs{c_\ell\,\mathfrak k_\ell[F,G](\ridge+x^2,\ridge+y^2)}\le\frac{2M_\ell}{(\ridge+x^2)(\ridge+y^2)},\qquad \sum_\ell M_\ell&lt;\infty .
+\]</div>
+<div class="p">So the series converges absolutely, its sum is dominated by an integrable function, and Fubini’s theorem exchanges <span class="mi">\(\sum_\ell\)</span> with the double integral in <span class="mi">\(\overline\Gamma[F,G](\ridge,\ridge)=\sum_\ell c_\ell\,\overline C_\ell[F,G](\ridge,\ridge)\)</span>, each term being given by <a class="ref" href="r.thm.app-vol-closed-filtered.html" data-label="thm:app-vol-closed-filtered">Theorem SD.6</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.thm.app-vol-closed-filtered.html" data-label="thm:app-vol-closed-filtered">Theorem SD.6</a> <span class=muted>Filtered lag coefficients</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.prop_app_vol_closed_lagsum_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L3709">source</a></summary><pre class="lean no-mj">theorem prop_app_vol_closed_lagsum_i (γstar CSig : ℝ) {m n B : ℕ} (C : Muon.Covariances m n)
+    (hB : 0 &lt; B) (hS : SizeFin C B γstar CSig) {Ω : Type} [MeasurableSpace Ω]
+    {P : Measure Ω} [IsProbabilityMeasure P] {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) (ℓ : ℕ)
+    {g : ℕ ⊕ Fin ℓ → Ω → ℝ} (hg : IsStdGaussianFamily P g) (Fm : Mat m m) (Gm : Mat n n)
+    (s u : ℝ) (hs : 0 &lt; s) (hu : 0 &lt; u) :
+    profileKernel P C B (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) Fm Gm s u =
+      s * u * toutT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u Fm *
+          tinT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u Gm *
+          emaLagB P β ℓ g (s * (emaBr1 P C B β ℓ g s).1 * (emaBr1 P C B β ℓ g s).2.1)
+            (u * (emaBr2 P C B β ℓ g u).1 * (emaBr2 P C B β ℓ g u).2.1) /
+        (1 -
+          (s * u * toutT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sout *
+              (emaBr1 P C B β ℓ g s).2.1 * (emaBr2 P C B β ℓ g u).2.1 +
+            s * u * tinT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sin *
+              (emaBr1 P C B β ℓ g s).1 * (emaBr2 P C B β ℓ g u).1) *
+            emaLagE P β ℓ g (s * (emaBr1 P C B β ℓ g s).1 * (emaBr1 P C B β ℓ g s).2.1)
+              (u * (emaBr2 P C B β ℓ g u).1 * (emaBr2 P C B β ℓ g u).2.1) +
+          (s * u * toutT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sout *
+              (emaBr1 P C B β ℓ g s).2.1 * (emaBr2 P C B β ℓ g u).2.1) *
+            (s * u * tinT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sin *
+              (emaBr1 P C B β ℓ g s).1 * (emaBr2 P C B β ℓ g u).1) *
+            emaLagE P β ℓ g (s * (emaBr1 P C B β ℓ g s).1 * (emaBr1 P C B β ℓ g s).2.1)
+              (u * (emaBr2 P C B β ℓ g u).1 * (emaBr2 P C B β ℓ g u).2.1) ^ 2 -
+          (s * u * toutT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sout *
+              tinT C B (emaBr1 P C B β ℓ g s) (emaBr2 P C B β ℓ g u) s u C.Sin) *
+            emaLagB P β ℓ g (s * (emaBr1 P C B β ℓ g s).1 * (emaBr1 P C B β ℓ g s).2.1)
+              (u * (emaBr2 P C B β ℓ g u).1 * (emaBr2 P C B β ℓ g u).2.1) ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.prop_app_vol_closed_lagsum_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L3779">source</a></summary><pre class="lean no-mj">theorem prop_app_vol_closed_lagsum_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (Fd : Fin m → ℝ) (Gd : Fin n → ℝ) (ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    (∀ x y : ℝ, 0 ≤ x → 0 ≤ y →
+        Summable (fun ℓ : ℕ =&gt;
+          lagCoef ℓ * lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd
+            (iotaF (ϱ + x ^ 2)) (iotaF (ϱ + y ^ 2)))) ∧
+      IntegrableOn
+        (fun p : ℝ × ℝ =&gt; ∑' ℓ : ℕ, lagCoef ℓ * lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd
+          (iotaF (ϱ + p.1 ^ 2)) (iotaF (ϱ + p.2 ^ 2)))
+        (Ioi 0 ×ˢ Ioi 0) ∧
+      lagGammaBar cert γstar CSig Fp.β B S.μ S.lam Fd Gd ϱ ϱ =
+        (4 / Real.pi ^ 2) * ∫ x in Ioi (0 : ℝ), ∫ y in Ioi (0 : ℝ),
+          ∑' ℓ : ℕ, lagCoef ℓ * lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd
+            (iotaF (ϱ + x ^ 2)) (iotaF (ϱ + y ^ 2)) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.2 (Small shifts)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.2 (Small shifts)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-shift"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-shift.html" data-label="lem:app-sgd-shift">Lemma SJ.2</a> <span class="thm-title">(Small shifts)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(X\)</span> have an even density <span class="mi">\(f\)</span>, and put <span class="mi">\(h(x)\defeq\EE\sign(X+x)\)</span> for real <span class="mi">\(x\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every real <span class="mi">\(x\)</span>, with oriented integrals,</div>
+<div class="md">\[
+h(x)=2\int_0^xf(y)\,\dif y .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(a&gt;0\)</span>, <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(L_f\ge0\)</span> and <span class="mi">\(\abs{f(y)-f(0)}\le L_f\abs y^\alpha\)</span> for <span class="mi">\(\abs y\le a\)</span>, then</div>
+<div class="md">\[
+\abs{h(x)-2xf(0)}\le\frac{2L_f}{\alpha+1}\abs x^{\alpha+1}\qquad(\abs x\le a).
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(f\)</span> is continuously differentiable on <span class="mi">\([-a,a]\)</span> with a <span class="mi">\(K_f\)</span>-Lipschitz derivative, then <span class="mi">\(\abs{h(x)-2xf(0)}\le\frac{K_f}3\abs x^3\)</span> for <span class="mi">\(\abs x\le a\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(X\sim\mathcal N(0,\sigma^2)\)</span> with <span class="mi">\(\sigma&gt;0\)</span>, then for every real <span class="mi">\(x\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-gauss-shift"></span>\begin{equation}\tag{SJ.6}
+\Big|h(x)-\sqrt{\frac2\pi}\,\frac x\sigma\Big|\le\frac{\abs x^3}{3\sqrt{2\pi}\,\sigma^3}.
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The identity (i) splits the law at the shifted origin. Symmetry puts mass <span class="mi">\(\frac12\)</span> on each half-line, so</div>
+<div class="md">\[
+h(x)=\PP(X&gt;-x)-\PP(X&lt;-x)=1-2\,\PP(X&lt;-x)=2\int_{-x}^0f(y)\,\dif y=2\int_0^xf(y)\,\dif y .
+\]</div>
+<div class="p">The bound (ii) integrates the modulus of <span class="mi">\(f\)</span> in (i):</div>
+<div class="md">\[
+\abs{h(x)-2xf(0)}\le2\Big|\int_0^x\abs{f(y)-f(0)}\,\dif y\Big|\le2L_f\int_0^{\abs x}y^\alpha\,\dif y=\frac{2L_f}{\alpha+1}\abs x^{\alpha+1}.
+\]</div>
+<div class="p">For (iii), evenness forces <span class="mi">\(f'(0)=0\)</span>. The Lipschitz bound then gives <span class="mi">\(\abs{f'(y)}\le K_f\abs y\)</span>, and integrating once,</div>
+<div class="md">\[
+\abs{f(y)-f(0)}\le\frac{K_f}2\,y^2\qquad(\abs y\le a).
+\]</div>
+<div class="p">This is (ii) with <span class="mi">\(\alpha=2\)</span> and <span class="mi">\(L_f=K_f/2\)</span>.</div>
+<div class="p">For (iv), the Gaussian density <span class="mi">\(f_\sigma(y)=f_\sigma(0)e^{-y^2/(2\sigma^2)}\)</span> satisfies, by <span class="mi">\(0\le1-e^{-u}\le u\)</span> for <span class="mi">\(u\ge0\)</span>,</div>
+<div class="md">\[
+\abs{f_\sigma(y)-f_\sigma(0)}\le\frac{f_\sigma(0)}{2\sigma^2}\,y^2\qquad(y\in\R).
+\]</div>
+<div class="p">This is (ii) with <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(L_f=f_\sigma(0)/(2\sigma^2)\)</span> and every <span class="mi">\(a\)</span>, and <span class="mi">\(2f_\sigma(0)=\sqrt{2/\pi}/\sigma\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_shift_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/ShiftArcsine.lean#L378">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_shift_i {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (X : Ω → ℝ) (f : ℝ → ℝ) (hf : Measurable f)
+    (hf_nn : ∀ y, 0 ≤ f y) (hf_even : ∀ y, f (-y) = f y)
+    (hX : P.map X = volume.withDensity (fun y =&gt; ENNReal.ofReal (f y))) (x : ℝ) :
+    signShiftMean P X x = 2 * ∫ y in (0:ℝ)..x, f y := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_shift_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/ShiftArcsine.lean#L430">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_shift_ii {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (X : Ω → ℝ) (f : ℝ → ℝ) (hf : Measurable f)
+    (hf_nn : ∀ y, 0 ≤ f y) (hf_even : ∀ y, f (-y) = f y)
+    (hX : P.map X = volume.withDensity (fun y =&gt; ENNReal.ofReal (f y)))
+    (a α L : ℝ) (ha : 0 &lt; a) (hα : 0 &lt; α) (hL : 0 ≤ L)
+    (hlip : ∀ y : ℝ, |y| ≤ a → |f y - f 0| ≤ L * |y| ^ α) :
+    ∀ x : ℝ, |x| ≤ a →
+      |signShiftMean P X x - 2 * x * f 0| ≤ 2 * L / (α + 1) * |x| ^ (α + 1) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_shift_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/ShiftArcsine.lean#L491">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_shift_iii {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (X : Ω → ℝ) (f : ℝ → ℝ) (hf : Measurable f)
+    (hf_nn : ∀ y, 0 ≤ f y) (hf_even : ∀ y, f (-y) = f y)
+    (hX : P.map X = volume.withDensity (fun y =&gt; ENNReal.ofReal (f y)))
+    (a K : ℝ) (hC1 : ContDiffOn ℝ 1 f (Icc (-a) a))
+    (hLip : ∀ y ∈ Icc (-a) a, ∀ z ∈ Icc (-a) a,
+      |derivWithin f (Icc (-a) a) y - derivWithin f (Icc (-a) a) z| ≤ K * |y - z|) :
+    ∀ x : ℝ, |x| ≤ a → |signShiftMean P X x - 2 * x * f 0| ≤ K / 3 * |x| ^ 3 := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_shift_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/ShiftArcsine.lean#L631">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_shift_iv {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (X : Ω → ℝ) (σ : ℝ) (hσ : 0 &lt; σ)
+    (hX : P.map X = gaussianReal 0 (σ ^ 2).toNNReal) :
+    ∀ x : ℝ, |signShiftMean P X x - Real.sqrt (2 / Real.pi) * x / σ|
+      ≤ |x| ^ 3 / (3 * Real.sqrt (2 * Real.pi) * σ ^ 3) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Section SJ: SignSGD: drift and volatility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-section">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="section" data-title="Section SJ: SignSGD: drift and volatility">
+<article class="sec-page"><nav class="secnav"><a class="" href="s.SA.html">SA</a><a class="" href="s.SB.html">SB</a><a class="" href="s.SC.html">SC</a><a class="" href="s.SD.html">SD</a><a class="" href="s.SE.html">SE</a><a class="" href="s.SF.html">SF</a><a class="" href="s.SG.html">SG</a><a class="" href="s.SH.html">SH</a><a class="" href="s.SI.html">SI</a><a class="on" href="s.SJ.html">SJ</a><a class="" href="s.SK.html">SK</a><a class="" href="s.SL.html">SL</a><a class="" href="s.SM.html">SM</a><a class="" href="s.SN.html">SN</a></nav><h1><span class="h-num">SJ</span> <span class="sc">SignSGD</span>: drift and volatility</h1><ol class=toc><li class="lvl2"><a href="#L-sec:app-sgd-setup">SJ.1 The update and its risk identity</a></li><li class="lvl2"><a href="#L-sec:app-sgd-tools">SJ.2 Gaussian sign tools</a></li><li class="lvl2"><a href="#L-sec:SignSGD_isotropic_data">SJ.3 Isotropic drift</a></li><li class="lvl2"><a href="#L-sec:SignSGD_anisotropic_data">SJ.4 Half-anisotropic data</a></li></ol><div class="p"><span class="anchor" id="L-sec:signsgd"></span></div>
+<div class="p">This section computes the drift and the volatility of one step of <span class="sc">SignSGD</span>, the comparator of the main text, defined in <a class="ref" href="paper.pdf#equation.1.5" data-label="eq:main_signSGD">(5)</a>. <span class="sc">SignSGD</span> is <span class="sc">Adam</span> at <span class="mi">\(\beta_1=\beta_2=0\)</span>; it keeps no buffer, so this section has no momentum version, and the momentum <span class="mi">\(\bmom\)</span> of the other sections of the appendix does not enter it. Every statement concerns one step from a given state with one fresh batch; none is a statement about a trajectory. <a class="ref" href="s.SJ.html#L-sec:app-sgd-setup" data-label="sec:app-sgd-setup">Section SJ.1</a> fixes the update and its exact risk identity. <a class="ref" href="s.SJ.html#L-sec:app-sgd-tools" data-label="sec:app-sgd-tools">Section SJ.2</a> proves the Gaussian sign tools, among them the bounds on the batch constant <span class="mi">\(\mathcal N_B\)</span> and the exact isotropic volatility. <a class="ref" href="s.SJ.html#L-sec:SignSGD_isotropic_data" data-label="sec:SignSGD_isotropic_data">Section SJ.3</a> proves the isotropic drift for the actual batch with an explicit error and deduces the isotropic recursion <a class="ref" href="r.prop.app-sgd-iso.html#L-prop:signsgd-recursion-B" data-label="prop:signsgd-recursion-B">Proposition SJ.4</a>. <a class="ref" href="s.SJ.html#L-sec:SignSGD_anisotropic_data" data-label="sec:SignSGD_anisotropic_data">Section SJ.4</a> introduces an explicit law for the state in a Haar eigenbasis (<a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a>) and proves under it the half-anisotropic drift (<a class="ref" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a>), the covariance-weighted volatility (<a class="ref" href="r.thm.app-sgd-half-volatility.html" data-label="thm:app-sgd-half-volatility">Theorem SJ.3</a>) and the corrected row volatility (<a class="ref" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a>), and from them the half-anisotropic recursion <a class="ref" href="r.prop.signsgd-recursion-anisotropic.html" data-label="prop:signsgd-recursion-anisotropic">Proposition SJ.8</a>.</div>
+<div class="p"><strong class="runin">Standing conventions.</strong>  The sign of a real number is <span class="mi">\(1\)</span>, <span class="mi">\(-1\)</span> or <span class="mi">\(0\)</span> according as the number is positive, negative or zero, and <span class="mi">\(\sign\)</span> of a matrix acts entrywise. The model, risk and moment identities are those of <a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a>, <a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a> and <a class="ref" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a>, and the conventions of <a class="ref" href="s.SA.html#L-sec:app-setup-conventions" data-label="sec:app-setup-conventions">Section SA.1</a> apply. Outer products are written <span class="mi">\(x\tensor y\)</span>. For a matrix <span class="mi">\(\Delta\)</span> we write <span class="mi">\(\Delta_{i\cdot}\)</span> for its <span class="mi">\(i\)</span>th row and <span class="mi">\(\Delta_{\cdot j}\)</span> for its <span class="mi">\(j\)</span>th column, both as vectors. The step <span class="mi">\(\lr\ge0\)</span> is deterministic. Unless a subscript says otherwise, an expectation integrates the fresh batch and, in <a class="ref" href="s.SJ.html#L-sec:SignSGD_anisotropic_data" data-label="sec:SignSGD_anisotropic_data">Section SJ.4</a>, also the Haar matrix <span class="mi">\(U\)</span>; such expectations are called annealed. A constant is called universal if it does not depend on any parameter of the model.</div>
+<h3 id="L-sec:app-sgd-setup"><span class="h-num">SJ.1</span> The update and its risk identity</h3>
+<div class="p">For a state <span class="mi">\(\Delta\in\R^{\Nout\times\Nin}\)</span> and a batch <span class="mi">\((\Xin^{(a)},\Xout^{(a)})_{a\le B}\)</span> as in <a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a>, the physical gradient is <span class="mi">\(G^\circ=\frac1B\sum_ad_a^\circ\,\Xout^{(a)}\tensor\Xin^{(a)}\)</span> with <span class="mi">\(d_a^\circ=(\Xout^{(a)})^\T\Delta\Xin^{(a)}\)</span>, as in <a class="ref" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a>(ii).</div><div class="thm thm-definition" id="L-def:app-sgd-update"><div class="thm-head"><a class="thm-name" href="r.def.app-sgd-update.html" data-label="def:app-sgd-update">Definition SJ.1</a> <span class="thm-title">(<span class="sc">SignSGD</span> step)</span></div><div class="thm-body"><div class="p">The <span class="sc">SignSGD</span> step from the state <span class="mi">\(\Delta\)</span> with step <span class="mi">\(\lr\ge0\)</span> is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-update"></span>\begin{equation}\tag{SJ.1}
+\Delta^+\defeq\Delta-\lr S,\qquad S\defeq\sign(G^\circ).
+\end{equation}</div></div></div><div class="p">The sign does not see positive scalars, so <span class="mi">\(S=\sign(\Gt)\)</span> for the normalized gradient of <a class="ref" href="s.SA.html#L-eqn:app-setup-normalized" data-label="eqn:app-setup-normalized">(SA.10)</a> whenever the risk is positive. The update <span class="mi">\(S\)</span> is determined by the state and the batch, and <span class="mi">\(\norm S_\F^2\le\Nout\Nin\)</span>. Hence <a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> applies to it, with <span class="mi">\(S\)</span> as the update, and gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-risk"></span><span class="anchor" id="L-eqn:app-sgd-row"></span>\begin{align}
+\EE_t\big[\cR(t+1)\big]&amp;=\cR(t)-\lr\big\langle\Dt,\EE_tS\big\rangle_\Sigma+\frac{\lr^2}2\,\EE_t\norm S_\Sigma^2,\tag{SJ.2}\\
+\EE_t\big[\CMscr Q_i(\Delta_{t+1})\big]&amp;=\CMscr Q_i(\Dt)-2\lr\,\EE_t\big\langle\Dt^\T u_i,S^\T u_i\big\rangle+\lr^2\,\EE_t\norm{S^\T u_i}^2.\tag{SJ.3}
+\end{align}</div>
+<div class="p">The second line is <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-row" data-label="eqn:app-setup-row">(SA.21)</a> with <span class="mi">\(\sum_j\cD_{ij}(t)=\EE_t\langle\Dt^\T u_i,S^\T u_i\rangle\)</span> and <span class="mi">\(\sum_j\cV_{ij}(t)=\EE_t\norm{S^\T u_i}^2\)</span>. The row energy is unhalved, so its quadratic term carries <span class="mi">\(\lr^2\)</span> and not <span class="mi">\(\lr^2/2\)</span>.</div>
+<div class="p">The batch constant of the main text is</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-Nb"></span>\begin{equation}\tag{SJ.4}
+\mathcal N_B\defeq\EE\Big[\Big(\sum_{b=1}^Bx_b^2y_b^2\Big)^{1/2}\Big],\qquad x_b,y_b\ \text{independent standard Gaussian}.
+\end{equation}</div>
+<h3 id="L-sec:app-sgd-tools"><span class="h-num">SJ.2</span> Gaussian sign tools</h3><div class="thm thm-lemma" id="L-lem:app-sgd-arcsine"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-arcsine.html" data-label="lem:app-sgd-arcsine">Lemma SJ.1</a> <span class="thm-title">(Arcsine law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\((g_1,g_2)\)</span> be a centered jointly Gaussian pair with variances <span class="mi">\(v_1,v_2&gt;0\)</span> and correlation <span class="mi">\(\rho=\EE[g_1g_2]/\sqrt{v_1v_2}\in[-1,1]\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-arcsin"></span>\begin{equation}\tag{SJ.5}
+\EE\big[\sign(g_1)\sign(g_2)\big]=\frac2\pi\arcsin\rho .
+\end{equation}</div>
+<div class="p">If <span class="mi">\(v_1=0\)</span> or <span class="mi">\(v_2=0\)</span>, the left side is <span class="mi">\(0\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Sheppard’s formula [<a class="cite" href="bibliography.html#bib-sheppard1899application">60</a>], in the form of [<a class="cite" href="bibliography.html#bib-tan2012barbados">64</a>, Theorem 40], states that for <span class="mi">\(\rho\)</span>-correlated standard Gaussians <span class="mi">\(g,h\)</span> one has</div>
+<div class="md">\[
+\PP\big(\sign(g)\ne\sign(h)\big)=\frac{\arccos\rho}\pi .
+\]</div>
+<div class="p">Its hypothesis holds for <span class="mi">\(g=g_1/\sqrt{v_1}\)</span> and <span class="mi">\(h=g_2/\sqrt{v_2}\)</span>, and dividing by the positive standard deviations does not change the signs. Each <span class="mi">\(g_i\)</span> has a density, so the signs are <span class="mi">\(\pm1\)</span> almost surely and</div>
+<div class="md">\[
+\EE\big[\sign(g_1)\sign(g_2)\big]=1-2\,\PP\big(\sign(g_1)\ne\sign(g_2)\big)=1-\frac2\pi\arccos\rho=\frac2\pi\arcsin\rho .
+\]</div>
+<div class="p">A centered Gaussian of variance zero vanishes almost surely, and its sign is then <span class="mi">\(0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-sgd-shift"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-shift.html" data-label="lem:app-sgd-shift">Lemma SJ.2</a> <span class="thm-title">(Small shifts)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(X\)</span> have an even density <span class="mi">\(f\)</span>, and put <span class="mi">\(h(x)\defeq\EE\sign(X+x)\)</span> for real <span class="mi">\(x\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every real <span class="mi">\(x\)</span>, with oriented integrals,</div>
+<div class="md">\[
+h(x)=2\int_0^xf(y)\,\dif y .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(a&gt;0\)</span>, <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(L_f\ge0\)</span> and <span class="mi">\(\abs{f(y)-f(0)}\le L_f\abs y^\alpha\)</span> for <span class="mi">\(\abs y\le a\)</span>, then</div>
+<div class="md">\[
+\abs{h(x)-2xf(0)}\le\frac{2L_f}{\alpha+1}\abs x^{\alpha+1}\qquad(\abs x\le a).
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(f\)</span> is continuously differentiable on <span class="mi">\([-a,a]\)</span> with a <span class="mi">\(K_f\)</span>-Lipschitz derivative, then <span class="mi">\(\abs{h(x)-2xf(0)}\le\frac{K_f}3\abs x^3\)</span> for <span class="mi">\(\abs x\le a\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(X\sim\mathcal N(0,\sigma^2)\)</span> with <span class="mi">\(\sigma&gt;0\)</span>, then for every real <span class="mi">\(x\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-gauss-shift"></span>\begin{equation}\tag{SJ.6}
+\Big|h(x)-\sqrt{\frac2\pi}\,\frac x\sigma\Big|\le\frac{\abs x^3}{3\sqrt{2\pi}\,\sigma^3}.
+\end{equation}</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The identity (i) splits the law at the shifted origin. Symmetry puts mass <span class="mi">\(\frac12\)</span> on each half-line, so</div>
+<div class="md">\[
+h(x)=\PP(X&gt;-x)-\PP(X&lt;-x)=1-2\,\PP(X&lt;-x)=2\int_{-x}^0f(y)\,\dif y=2\int_0^xf(y)\,\dif y .
+\]</div>
+<div class="p">The bound (ii) integrates the modulus of <span class="mi">\(f\)</span> in (i):</div>
+<div class="md">\[
+\abs{h(x)-2xf(0)}\le2\Big|\int_0^x\abs{f(y)-f(0)}\,\dif y\Big|\le2L_f\int_0^{\abs x}y^\alpha\,\dif y=\frac{2L_f}{\alpha+1}\abs x^{\alpha+1}.
+\]</div>
+<div class="p">For (iii), evenness forces <span class="mi">\(f'(0)=0\)</span>. The Lipschitz bound then gives <span class="mi">\(\abs{f'(y)}\le K_f\abs y\)</span>, and integrating once,</div>
+<div class="md">\[
+\abs{f(y)-f(0)}\le\frac{K_f}2\,y^2\qquad(\abs y\le a).
+\]</div>
+<div class="p">This is (ii) with <span class="mi">\(\alpha=2\)</span> and <span class="mi">\(L_f=K_f/2\)</span>.</div>
+<div class="p">For (iv), the Gaussian density <span class="mi">\(f_\sigma(y)=f_\sigma(0)e^{-y^2/(2\sigma^2)}\)</span> satisfies, by <span class="mi">\(0\le1-e^{-u}\le u\)</span> for <span class="mi">\(u\ge0\)</span>,</div>
+<div class="md">\[
+\abs{f_\sigma(y)-f_\sigma(0)}\le\frac{f_\sigma(0)}{2\sigma^2}\,y^2\qquad(y\in\R).
+\]</div>
+<div class="p">This is (ii) with <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(L_f=f_\sigma(0)/(2\sigma^2)\)</span> and every <span class="mi">\(a\)</span>, and <span class="mi">\(2f_\sigma(0)=\sqrt{2/\pi}/\sigma\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-sgd-shift"><div class="thm-head"><a class="thm-name" href="r.rem.app-sgd-shift.html" data-label="rem:app-sgd-shift">Remark SJ.1</a> <span class="thm-title">(Why a regularity hypothesis)</span></div><div class="thm-body"><div class="p">Symmetry alone gives a quadratic error at best. For the Laplace density <span class="mi">\(f(y)=\frac12e^{-\abs y}\)</span>, (i) gives <span class="mi">\(h(x)=\sign(x)(1-e^{-\abs x})\)</span>, and</div>
+<div class="md">\[
+\frac{h(x)-2xf(0)}{x^2}=\frac{1-e^{-x}-x}{x^2}\longrightarrow-\frac12\qquad(x\downarrow0).
+\]</div></div></div><div class="thm thm-proposition" id="L-prop:app-sgd-batch-coefficient"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> <span class="thm-title">(The batch constant)</span></div><div class="thm-body"><div class="p">For every integer <span class="mi">\(B\ge1\)</span>, the constant <a class="ref" href="s.SJ.html#L-eqn:signsgd-Nb" data-label="eqn:signsgd-Nb">(SJ.4)</a> satisfies <span class="mi">\(\mathcal N_1=2/\pi\)</span> and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-NB"></span>\begin{equation}\tag{SJ.7}
+\max\Big\{\frac2\pi\sqrt B,\ \sqrt B-\frac4{\sqrt B}\Big\}\le\mathcal N_B\le\sqrt B,\qquad
+0\le1-\frac{\mathcal N_B}{\sqrt B}\le\frac4B .
+\end{equation}</div>
+<div class="p">In particular <span class="mi">\(\mathcal N_B/\sqrt B\to1\)</span> as <span class="mi">\(B\to\infty\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(T_B\defeq\sum_bx_b^2y_b^2\)</span>, so that <span class="mi">\(\mathcal N_B=\EE\sqrt{T_B}\)</span>. A standard Gaussian <span class="mi">\(g\)</span> has <span class="mi">\(\EE\abs g=\sqrt{2/\pi}\)</span>, and independence gives</div>
+<div class="md">\[
+\mathcal N_1=\EE\abs{x_1}\,\EE\abs{y_1}=\frac2\pi .
+\]</div>
+<div class="p">The normalized sum <span class="mi">\(T_B/B\)</span> has mean <span class="mi">\(1\)</span> and variance <span class="mi">\(8/B\)</span>. Indeed the summands <span class="mi">\(x_b^2y_b^2\)</span> are independent with mean <span class="mi">\(1\)</span> and second moment <span class="mi">\((\EE x_b^4)(\EE y_b^4)=9\)</span>, so</div>
+<div class="md">\[
+\EE\frac{T_B}B=1,\qquad \EE\Big(\frac{T_B}B-1\Big)^2=\frac{9-1}B=\frac8B .
+\]</div>
+<div class="p">The upper bound is Jensen’s inequality: <span class="mi">\(\mathcal N_B\le(\EE T_B)^{1/2}=\sqrt B\)</span>.</div>
+<div class="p">The Jensen deficit is at most half the variance. For every <span class="mi">\(s\ge0\)</span>, rationalizing <span class="mi">\(\sqrt s-1\)</span> gives the identity</div>
+<div class="md">\[
+\sqrt s=1+\frac{s-1}2-\frac{(s-1)^2}{2(\sqrt s+1)^2}.
+\]</div>
+<div class="p">The last term lies between <span class="mi">\(0\)</span> and <span class="mi">\((s-1)^2/2\)</span>. Take <span class="mi">\(s=T_B/B\)</span> and expectations; the linear term has mean zero, so</div>
+<div class="md">\[
+0\le1-\EE\sqrt{T_B/B}\le\frac12\cdot\frac8B=\frac4B ,
+\]</div>
+<div class="p">which is the second part of <a class="ref" href="r.prop.app-sgd-batch-coefficient.html#L-eqn:app-sgd-NB" data-label="eqn:app-sgd-NB">(SJ.7)</a> and gives <span class="mi">\(\mathcal N_B\ge\sqrt B-4/\sqrt B\)</span>.</div>
+<div class="p">The remaining lower bound compares the Euclidean and the <span class="mi">\(\ell^1\)</span> norms. For real <span class="mi">\(z_1,\dots,z_B\)</span>,</div>
+<div class="md">\[
+\Big(\sum_bz_b^2\Big)^{1/2}\ge\frac1{\sqrt B}\sum_b\abs{z_b}.
+\]</div>
+<div class="p">With <span class="mi">\(z_b=x_by_b\)</span> and expectations, <span class="mi">\(\mathcal N_B\ge B^{-1/2}\cdot B\cdot\frac2\pi=\frac2\pi\sqrt B\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The isotropic volatility is exact. It needs every gradient entry to be nonzero, which follows from the fact that the zero set of a real polynomial on <span class="mi">\(\R^d\)</span> that is not identically zero has Lebesgue measure zero; this is the polynomial case of [<a class="cite" href="bibliography.html#bib-mityagin2020zero">46</a>], since polynomials are real analytic.</div><div class="thm thm-proposition" id="L-prop:app-sgd-iso-volatility"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-iso-volatility.html" data-label="prop:app-sgd-iso-volatility">Proposition SJ.2</a> <span class="thm-title">(Isotropic volatility)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(\Sigmaout=\Idout\)</span> in <a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a>, let <span class="mi">\(\Delta\in\R^{\Nout\times\Nin}\)</span> be deterministic, and let <span class="mi">\(S=\sign(G^\circ)\)</span> for a batch of size <span class="mi">\(B\ge1\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-vol-exact"></span>\begin{equation}\tag{SJ.8}
+\EE\norm S_\Sigma^2=\EE\norm S_\F^2=\begin{cases}\Nin\Nout,&amp;\Delta\ne0,\\ 0,&amp;\Delta=0.\end{cases}
+\end{equation}</div>
+<div class="p">In particular the step <a class="ref" href="r.def.app-sgd-update.html#L-eqn:app-sgd-update" data-label="eqn:app-sgd-update">(SJ.1)</a> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-risk"></span>\begin{equation}\tag{SJ.9}
+\EE\,\cR(\Delta^+)=\cR(\Delta)-\lr\,\langle\Delta,\EE S\rangle_\F+\frac{\lr^2}2\,\Nin\Nout\,\mathbf 1_{\{\Delta\ne0\}} .
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">With identity covariances, <span class="mi">\(\norm S_\Sigma^2=\Tr(SS^\T)=\norm S_\F^2\)</span> by <a class="ref" href="r.def.app-setup-model.html#L-eqn:app-setup-pairing" data-label="eqn:app-setup-pairing">(SA.2)</a>, so the first equality holds pointwise.</div>
+<div class="p">If <span class="mi">\(\Delta=0\)</span> then <span class="mi">\(G^\circ=0\)</span> and <span class="mi">\(S=0\)</span>.</div>
+<div class="p">If <span class="mi">\(\Delta\ne0\)</span>, every entry of <span class="mi">\(G^\circ\)</span> is nonzero almost surely. Indeed <span class="mi">\(BG^\circ_{ij}\)</span> is a polynomial in the batch coordinates. Setting all samples but the first to zero leaves the polynomial</div>
+<div class="md">\[
+(z_1)_i\,(w_1)_j\,\big(z_1^\T\Delta w_1\big),
+\]</div>
+<div class="p">a product of three polynomials that are not identically zero, the last one because some <span class="mi">\(\Delta_{kl}\ne0\)</span>. A product of polynomials that are not identically zero is not identically zero. The batch has a Gaussian density, so the zero set of this polynomial has probability zero [<a class="cite" href="bibliography.html#bib-mityagin2020zero">46</a>]. A finite union over the entries shows that <span class="mi">\(\norm S_\F^2=\Nin\Nout\)</span> almost surely.</div>
+<div class="p">The risk identity is <a class="ref" href="s.SJ.html#L-eqn:app-sgd-risk" data-label="eqn:app-sgd-risk">(SJ.2)</a> at a deterministic state, with <span class="mi">\(\langle\Delta,\EE S\rangle_\Sigma=\langle\Delta,\EE S\rangle_\F\)</span> for identity covariances.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h3 id="L-sec:SignSGD_isotropic_data"><span class="h-num">SJ.3</span> Isotropic drift</h3>
+<div class="p">Throughout this subsection <span class="mi">\(\Sigmain=\Idin\)</span>, <span class="mi">\(\Sigmaout=\Idout\)</span>, the state <span class="mi">\(\Delta\ne0\)</span> is deterministic, and</div>
+<div class="md">\[
+F\defeq\norm\Delta_\F=\sqrt{2\cR(\Delta)},\qquad G^\circ=\frac1B\sum_{a=1}^B\big(z_a^\T\Delta w_a\big)\,z_a\tensor w_a .
+\]</div>
+<div class="p">Fix an entry <span class="mi">\((i,j)\)</span>. Write <span class="mi">\(\bar\Delta\)</span> for <span class="mi">\(\Delta\)</span> with row <span class="mi">\(i\)</span> and column <span class="mi">\(j\)</span> deleted, <span class="mi">\(r\defeq(\Delta_{il})_{l\ne j}\)</span> for the rest of row <span class="mi">\(i\)</span> and <span class="mi">\(q\defeq(\Delta_{kj})_{k\ne i}\)</span> for the rest of column <span class="mi">\(j\)</span>. For one sample <span class="mi">\((z,w)\)</span> write <span class="mi">\(\xi\defeq z_i\)</span>, <span class="mi">\(\zeta\defeq w_j\)</span>, and <span class="mi">\(z'\)</span>, <span class="mi">\(w'\)</span> for the remaining coordinates; the four blocks <span class="mi">\(\xi,\zeta,z',w'\)</span> are independent standard Gaussian. The single-sample coordinate is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-coordinate"></span>\begin{equation}\tag{SJ.10}
+X\defeq\big(z^\T\Delta w\big)\,\xi\zeta=\Delta_{ij}\,\xi^2\zeta^2+\xi^2\zeta\,(r^\T w')+\xi\zeta^2\,(q^\T z')+\xi\zeta\,\big(z'^\T\bar\Delta w'\big),
+\end{equation}</div>
+<div class="p">and <span class="mi">\(BG^\circ_{ij}\)</span> is the sum of <span class="mi">\(B\)</span> independent copies of <span class="mi">\(X\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-sgd-moments"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> <span class="thm-title">(Moments of one coordinate)</span></div><div class="thm-body"><div class="p">The coordinate <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> has mean <span class="mi">\(\EE X=\Delta_{ij}\)</span>, variance</div>
+<div class="md">\[
+s^2\defeq\Var X=F^2+2\norm{\Delta_{i\cdot}}^2+2\norm{\Delta_{\cdot j}}^2+3\Delta_{ij}^2,\qquad F^2\le s^2\le8F^2,
+\]</div>
+<div class="p">and third centered moment</div>
+<div class="md">\[
+m_3\defeq\EE(X-\Delta_{ij})^3=24\Delta_{ij}\norm{\bar\Delta}_\F^2+126\Delta_{ij}\big(\norm r^2+\norm q^2\big)+200\Delta_{ij}^3+54\,q^\T\bar\Delta r,
+\]</div>
+<div class="p">so that <span class="mi">\(\abs{m_3}\le200\abs{\Delta_{ij}}F^2+54F\norm r\norm q\)</span>. For every integer <span class="mi">\(p\ge1\)</span>, <span class="mi">\(\EE\abs X^p\le((2p-1)!!)^2F^p\)</span>, and the standardized coordinate <span class="mi">\(Y\defeq(X-\Delta_{ij})/s\)</span> satisfies <span class="mi">\(\EE Y^4\le88208\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Call the four terms of <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> <span class="mi">\(T_1,\dots,T_4\)</span>. The moments are Gaussian pairings [<a class="cite" href="bibliography.html#bib-isserlis1918formula">29</a>]; a product with an odd total degree in one of the independent blocks has mean zero. Only <span class="mi">\(T_1\)</span> has even degree in every block, so <span class="mi">\(\EE X=\Delta_{ij}\EE\xi^2\EE\zeta^2=\Delta_{ij}\)</span>.</div>
+<div class="p">The second moment is the sum of the four squares, because every cross product has odd degree in <span class="mi">\(z'\)</span> or in <span class="mi">\(w'\)</span>:</div>
+<div class="md">\[
+\EE X^2=9\Delta_{ij}^2+3\norm r^2+3\norm q^2+\norm{\bar\Delta}_\F^2 .
+\]</div>
+<div class="p">With <span class="mi">\(F^2=\norm{\bar\Delta}_\F^2+\norm r^2+\norm q^2+\Delta_{ij}^2\)</span>, <span class="mi">\(\norm{\Delta_{i\cdot}}^2=\norm r^2+\Delta_{ij}^2\)</span> and <span class="mi">\(\norm{\Delta_{\cdot j}}^2=\norm q^2+\Delta_{ij}^2\)</span>, subtracting <span class="mi">\(\Delta_{ij}^2\)</span> gives the formula for <span class="mi">\(s^2\)</span>. Each added term is at most <span class="mi">\(F^2\)</span> times its coefficient, so <span class="mi">\(F^2\le s^2\le8F^2\)</span>.</div>
+<div class="p">The third moment keeps <span class="mi">\(T_1^3\)</span>, the terms <span class="mi">\(3T_1T_k^2\)</span> for <span class="mi">\(k=2,3,4\)</span>, and <span class="mi">\(6T_2T_3T_4\)</span>. With <span class="mi">\(\EE\xi^4=3\)</span> and <span class="mi">\(\EE\xi^6=15\)</span>,</div>
+<div class="md">\[
+\EE X^3=225\Delta_{ij}^3+135\Delta_{ij}\big(\norm r^2+\norm q^2\big)+27\Delta_{ij}\norm{\bar\Delta}_\F^2+54\,q^\T\bar\Delta r .
+\]</div>
+<div class="p">Here <span class="mi">\(54=6\,\EE\xi^4\EE\zeta^4\)</span> and <span class="mi">\(\EE[(r^\T w')(q^\T z')(z'^\T\bar\Delta w')]=q^\T\bar\Delta r\)</span>. The centered moment is <span class="mi">\(m_3=\EE X^3-3\Delta_{ij}\EE X^2+2\Delta_{ij}^3\)</span>, which gives the stated formula. Its coefficients <span class="mi">\(24,126,200\)</span> are at most <span class="mi">\(200\)</span>, and <span class="mi">\(\abs{q^\T\bar\Delta r}\le F\norm q\norm r\)</span>, which gives the bound.</div>
+<div class="p">For the absolute moments, put <span class="mi">\(d=z^\T\Delta w\)</span>. Conditionally on <span class="mi">\(w\)</span>, <span class="mi">\(d\)</span> is centered Gaussian with variance <span class="mi">\(\norm{\Delta w}^2\)</span>, so</div>
+<div class="md">\[
+\EE d^{2p}=(2p-1)!!\,\EE\norm{\Delta w}^{2p}\le\big((2p-1)!!\big)^2F^{2p}.
+\]</div>
+<div class="p">The inequality holds because <span class="mi">\(\norm{\Delta w}^2=F^2\sum_l\pi_lg_l^2\)</span> for weights <span class="mi">\(\pi_l\ge0\)</span> summing to <span class="mi">\(1\)</span> (the normalized eigenvalues of <span class="mi">\(\Delta^\T\Delta\)</span>) and independent standard Gaussian <span class="mi">\(g_l\)</span>, and Jensen’s inequality gives <span class="mi">\((\sum_l\pi_lg_l^2)^p\le\sum_l\pi_lg_l^{2p}\)</span>. The Cauchy–Schwarz inequality, which needs no independence of <span class="mi">\(d\)</span> and <span class="mi">\(\xi\zeta\)</span>, gives</div>
+<div class="md">\[
+\EE\abs X^p\le\big(\EE d^{2p}\,\EE\abs{\xi\zeta}^{2p}\big)^{1/2}\le\big((2p-1)!!\big)^2F^p .
+\]</div>
+<div class="p">Finally <span class="mi">\((a+b)^4\le8(a^4+b^4)\)</span>, <span class="mi">\(\EE X^4\le105^2F^4=11025F^4\)</span> and <span class="mi">\(s\ge F\)</span> give</div>
+<div class="md">\[
+\EE Y^4\le\frac{8\,(\EE X^4+\Delta_{ij}^4)}{s^4}\le8\,(11025+1)=88208 .\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The characteristic function of <span class="mi">\(Y\)</span> decays at a rate that depends only on the size of the deleted block <span class="mi">\(\bar\Delta\)</span>. Let <span class="mi">\(\xi,\zeta,g\)</span> be independent standard Gaussian scalars and put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-psi"></span>\begin{equation}\tag{SJ.11}
+\psi(x)\defeq\EE\big(1+x^2\xi^2\zeta^2\big)^{-1/2}\quad(x\ge0),\qquad
+C_{\rm ch}\defeq\sqrt8\,\big(\EE\abs g^{-1/2}\big)^2 .
+\end{equation}</div>
+<div class="p">The function <span class="mi">\(\psi\)</span> is nonincreasing, <span class="mi">\(\psi(x)&lt;1\)</span> for <span class="mi">\(x&gt;0\)</span>, and <span class="mi">\(\EE\abs g^{-1/2}=2^{-1/4}\Gamma(1/4)/\sqrt\pi\)</span> is finite.</div><div class="thm thm-lemma" id="L-lem:app-sgd-decay"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-decay.html" data-label="lem:app-sgd-decay">Lemma SJ.4</a> <span class="thm-title">(Decay of the characteristic function)</span></div><div class="thm-body"><div class="p">If <span class="mi">\(\norm{\bar\Delta}_\F\ge F/2\)</span>, then <span class="mi">\(\phi_Y(t)\defeq\EE e^{\mathrm i tY}\)</span> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-decay"></span>\begin{equation}\tag{SJ.12}
+\abs{\phi_Y(t)}\le\psi\big(\abs t/8\big)\le\min\big\{1,\ C_{\rm ch}\abs t^{-1/2}\big\}\qquad(t\ne0).
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The coordinate is conditionally Gaussian in <span class="mi">\(z'\)</span>. Given <span class="mi">\(\xi,\zeta,w'\)</span>, the terms of <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> containing <span class="mi">\(z'\)</span> are <span class="mi">\(\xi\zeta\,z'^\T(\bar\Delta w'+\zeta q)\)</span>, a centered Gaussian of variance <span class="mi">\(\xi^2\zeta^2\norm{\bar\Delta w'+\zeta q}^2\)</span>. Integrating <span class="mi">\(z'\)</span> first and taking absolute values gives</div>
+<div class="md">\[
+\abs{\EE e^{\mathrm itX}}\le\EE\exp\Big(-\frac{t^2\xi^2\zeta^2}2\,\norm{\bar\Delta w'+\zeta q}^2\Big).
+\]</div>
+<div class="p">The integral over <span class="mi">\(w'\)</span> is bounded by the Frobenius norm of <span class="mi">\(\bar\Delta\)</span>. For <span class="mi">\(\lambda\ge0\)</span> and a fixed vector <span class="mi">\(h\)</span>, write <span class="mi">\(\bar\Delta=\sum_l\sigma_l\,a_l\tensor b_l\)</span> in singular value form. The coordinates <span class="mi">\(b_l^\T w'\)</span> are independent standard Gaussian, and completing the square gives, for one of them,</div>
+<div class="md">\[
+\EE\,e^{-\lambda(\sigma_lg+c)^2/2}=(1+\lambda\sigma_l^2)^{-1/2}\,e^{-\lambda c^2/(2(1+\lambda\sigma_l^2))}\le(1+\lambda\sigma_l^2)^{-1/2}.
+\]</div>
+<div class="p">Directions orthogonal to the <span class="mi">\(a_l\)</span> contribute a factor at most <span class="mi">\(1\)</span>, so</div>
+<div class="md">\[
+\EE_{w'}e^{-\lambda\norm{\bar\Delta w'+h}^2/2}\le\prod_l(1+\lambda\sigma_l^2)^{-1/2}\le\big(1+\lambda\norm{\bar\Delta}_\F^2\big)^{-1/2}.
+\]</div>
+<div class="p">With <span class="mi">\(\lambda=t^2\xi^2\zeta^2\)</span> this gives</div>
+<div class="md">\[
+\abs{\EE e^{\mathrm itX}}\le\psi\big(\abs t\,\norm{\bar\Delta}_\F\big).
+\]</div>
+<div class="p">Centering multiplies the characteristic function by a phase, so <span class="mi">\(\abs{\phi_Y(t)}=\abs{\EE e^{\mathrm itX/s}}\le\psi(\abs t\norm{\bar\Delta}_\F/s)\)</span>. By <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a>, <span class="mi">\(\norm{\bar\Delta}_\F/s\ge(F/2)/(\sqrt8F)&gt;1/8\)</span>, and <span class="mi">\(\psi\)</span> is nonincreasing, which gives the first inequality. The second follows from <span class="mi">\((1+x^2)^{-1/2}\le x^{-1/2}\)</span>:</div>
+<div class="md">\[
+\psi(x)\le x^{-1/2}\,\EE\abs\xi^{-1/2}\,\EE\abs\zeta^{-1/2},
+\]</div>
+<div class="p">evaluated at <span class="mi">\(x=\abs t/8\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The following lemma compares a normalized batch sum with a Gaussian. It compares expected signs directly, uniformly in the shift, and uses only the characteristic function.</div><div class="thm thm-lemma" id="L-lem:app-sgd-comparison"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a> <span class="thm-title">(Sign comparison)</span></div><div class="thm-body"><div class="p">There is a universal constant <span class="mi">\(C_2\)</span> such that the following holds with <span class="mi">\(C_1\defeq4\sqrt{2\pi}/(3\pi)\)</span>. Let <span class="mi">\(Y\)</span> be centered with variance <span class="mi">\(1\)</span>, <span class="mi">\(\EE Y^4\le88208\)</span>, and characteristic function satisfying <a class="ref" href="r.lem.app-sgd-decay.html#L-eqn:app-sgd-decay" data-label="eqn:app-sgd-decay">(SJ.12)</a>. Let <span class="mi">\(Y_1,\dots,Y_B\)</span> be independent copies of <span class="mi">\(Y\)</span>, <span class="mi">\(B\ge4\)</span>, and <span class="mi">\(g\)</span> standard Gaussian. Then for every real <span class="mi">\(x\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-comparison"></span>\begin{equation}\tag{SJ.13}
+\Big|\EE\sign\Big(\frac1{\sqrt B}\sum_{a=1}^BY_a+x\Big)-\EE\sign(g+x)\Big|\le\frac{C_1\abs{\EE Y^3}}{\sqrt B}+\frac{C_2}B .
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(M_4\defeq88208\)</span>, <span class="mi">\(\varkappa_3\defeq\EE Y^3\)</span>, <span class="mi">\(\phi\defeq\phi_Y\)</span>, <span class="mi">\(V\defeq B^{-1/2}\sum_aY_a\)</span>, and put</div>
+<div class="md">\[
+\delta\defeq\min\big\{1,\sqrt{3/(2M_4)}\big\},\qquad \rho_0\defeq\psi(\delta/8)\in(0,1),\qquad C_4\defeq\frac{M_4}{24}+\frac18 .
+\]</div>
+<div class="p"><em>Expected signs through the characteristic function.</em> For <span class="mi">\(\varepsilon&gt;0\)</span> and real <span class="mi">\(v\)</span>,</div>
+<div class="md">\[
+\frac2\pi\int_0^\infty e^{-\varepsilon u}\,\frac{\sin(uv)}u\,\dif u=\frac2\pi\arctan\frac v\varepsilon ,
+\]</div>
+<div class="p">since both sides vanish at <span class="mi">\(v=0\)</span> and have the same derivative <span class="mi">\(\frac2\pi\varepsilon/(\varepsilon^2+v^2)\)</span> in <span class="mi">\(v\)</span>. Apply this at <span class="mi">\(v=V+x\)</span> and at <span class="mi">\(v=g+x\)</span>, take expectations and subtract. The shift contributes the phase <span class="mi">\(e^{\mathrm iux}\)</span>, so</div>
+<div class="md">\[
+\Big|\EE\frac2\pi\arctan\frac{V+x}\varepsilon-\EE\frac2\pi\arctan\frac{g+x}\varepsilon\Big|\le\frac2\pi\int_0^\infty\big|\phi(u/\sqrt B)^B-e^{-u^2/2}\big|\,\frac{\dif u}u .
+\]</div>
+<div class="p">As <span class="mi">\(\varepsilon\downarrow0\)</span> the arctangents tend to the signs, including the value <span class="mi">\(0\)</span> at <span class="mi">\(0\)</span>, and dominated convergence turns the left side into the left side of <a class="ref" href="r.lem.app-sgd-comparison.html#L-eqn:app-sgd-comparison" data-label="eqn:app-sgd-comparison">(SJ.13)</a>. It remains to bound the integral.</div>
+<div class="p"><em>Small frequencies.</em> Symmetrization bounds <span class="mi">\(\abs\phi\)</span> near the origin. For an independent copy <span class="mi">\(Y'\)</span>, <span class="mi">\(\abs{\phi(t)}^2=\EE\cos(t(Y-Y'))\)</span>, <span class="mi">\(\EE(Y-Y')^2=2\)</span> and <span class="mi">\(\EE(Y-Y')^4=2\EE Y^4+6\le8M_4\)</span>. The inequality <span class="mi">\(\cos y\le1-y^2/2+y^4/24\)</span> gives, for <span class="mi">\(\abs t\le\delta\)</span>,</div>
+<div class="md">\[
+\abs{\phi(t)}^2\le1-t^2+\frac{M_4}3t^4\le1-\frac{t^2}2,\qquad\text{hence}\qquad\abs{\phi(t)}\le e^{-t^2/4}.
+\]</div>
+<div class="p">Taylor’s formula with remainder for <span class="mi">\(e^{\mathrm itY}\)</span> to third order and for <span class="mi">\(e^{-t^2/2}\)</span> to second order gives</div>
+<div class="md">\[
+\abs{\phi(t)-e^{-t^2/2}}\le\frac{\abs{\varkappa_3}}6\abs t^3+C_4t^4 .
+\]</div>
+<div class="p">Telescoping the <span class="mi">\(B\)</span>th powers, with both factors bounded by <span class="mi">\(e^{-t^2/4}\)</span> and <span class="mi">\((B-1)/(4B)\ge1/8\)</span>, gives for <span class="mi">\(0\le u\le\delta\sqrt B\)</span></div>
+<div class="md">\[
+\big|\phi(u/\sqrt B)^B-e^{-u^2/2}\big|\le e^{-u^2/8}\Big(\frac{\abs{\varkappa_3}u^3}{6\sqrt B}+\frac{C_4u^4}B\Big).
+\]</div>
+<div class="p">With <span class="mi">\(\int_0^\infty u^2e^{-u^2/8}\dif u=4\sqrt{2\pi}\)</span> and <span class="mi">\(\int_0^\infty u^3e^{-u^2/8}\dif u=32\)</span>, the integral over <span class="mi">\([0,\delta\sqrt B]\)</span> against <span class="mi">\(\dif u/u\)</span> is at most</div>
+<div class="md">\[
+\frac{4\sqrt{2\pi}\,\abs{\varkappa_3}}{6\sqrt B}+\frac{32C_4}B .
+\]</div>
+<div class="p"><em>Large frequencies.</em> For <span class="mi">\(\abs t\ge\delta\)</span>, <a class="ref" href="r.lem.app-sgd-decay.html#L-eqn:app-sgd-decay" data-label="eqn:app-sgd-decay">(SJ.12)</a> and the monotonicity of <span class="mi">\(\psi\)</span> give <span class="mi">\(\abs{\phi(t)}\le\rho_0\)</span> and <span class="mi">\(\abs{\phi(t)}^4\le\min\{1,C_{\rm ch}^4t^{-2}\}\)</span>. Hence</div>
+<div class="md">\[
+\int_{\delta\sqrt B}^\infty\abs{\phi(u/\sqrt B)}^B\frac{\dif u}u=\int_\delta^\infty\abs{\phi(t)}^B\frac{\dif t}t\le\rho_0^{B-4}\int_\delta^\infty\min\{1,C_{\rm ch}^4t^{-2}\}\frac{\dif t}t\le J\rho_0^{B-4},
+\]</div>
+<div class="p">where, with <span class="mi">\(S_0\defeq\max\{\delta,C_{\rm ch}^2\}\)</span>, <span class="mi">\(J\defeq\log(S_0/\delta)+C_{\rm ch}^4/(2S_0^2)\)</span>. Maximizing <span class="mi">\(y\mapsto y\rho_0^{y}\)</span> gives <span class="mi">\(B\rho_0^{B-4}\le\rho_0^{-4}/(e\abs{\log\rho_0})\)</span>. The Gaussian tail satisfies</div>
+<div class="md">\[
+\int_{\delta\sqrt B}^\infty e^{-u^2/2}\frac{\dif u}u\le\frac{e^{-\delta^2B/2}}{\delta^2B}\le\frac1{\delta^2B}.
+\]</div>
+<div class="p"><em>Conclusion.</em> Multiplying the three bounds by <span class="mi">\(2/\pi\)</span> gives <a class="ref" href="r.lem.app-sgd-comparison.html#L-eqn:app-sgd-comparison" data-label="eqn:app-sgd-comparison">(SJ.13)</a> with <span class="mi">\(C_1=\frac2\pi\cdot\frac{4\sqrt{2\pi}}6\)</span> and</div>
+<div class="md">\[
+C_2\defeq\frac2\pi\Big(32C_4+\frac{J\rho_0^{-4}}{e\abs{\log\rho_0}}+\delta^{-2}\Big).\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The coordinate drift follows by combining the comparison with the Gaussian shift <a class="ref" href="r.lem.app-sgd-shift.html#L-eqn:app-sgd-gauss-shift" data-label="eqn:app-sgd-gauss-shift">(SJ.6)</a> and the batch constant.</div><div class="thm thm-proposition" id="L-prop:app-sgd-coordinate"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class="thm-title">(Drift of one coordinate)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(B\ge4\)</span> and suppose <span class="mi">\(\norm{\bar\Delta}_\F\ge F/2\)</span> for the entry <span class="mi">\((i,j)\)</span>. With <span class="mi">\(s,m_3\)</span> from <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> and <span class="mi">\(C_1,C_2\)</span> from <a class="ref" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-coordinate-bound"></span>\begin{equation}\tag{SJ.14}
+\begin{aligned}
+\Big|\EE\sign(G^\circ_{ij})-\sqrt{\frac2\pi}\,\mathcal N_B\frac{\Delta_{ij}}F\Big|\le{}&amp;\frac{C_1\abs{m_3}}{s^3\sqrt B}+\frac{C_2}B+\frac{B^{3/2}\abs{\Delta_{ij}}^3}{3\sqrt{2\pi}\,s^3}\\
+&amp;+\sqrt{\frac2\pi}\,\frac{\sqrt B\,\abs{\Delta_{ij}}\,(s^2-F^2)}{sF(s+F)}+\sqrt{\frac2\pi}\,\frac{4\abs{\Delta_{ij}}}{F\sqrt B}.
+\end{aligned}
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The sign of <span class="mi">\(G^\circ_{ij}\)</span> is the sign of a shifted normalized sum. With <span class="mi">\(Y_a\)</span> the standardized copies of <span class="mi">\(X\)</span>,</div>
+<div class="md">\[
+\sign\big(G^\circ_{ij}\big)=\sign\Big(\frac1{\sqrt B}\sum_aY_a+\frac{\sqrt B\,\Delta_{ij}}s\Big).
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> and <a class="ref" href="r.lem.app-sgd-decay.html" data-label="lem:app-sgd-decay">Lemma SJ.4</a> verify the hypotheses of <a class="ref" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a>, with <span class="mi">\(\EE Y^3=m_3/s^3\)</span>. The comparison at <span class="mi">\(x=\sqrt B\Delta_{ij}/s\)</span> produces the first two terms. The Gaussian shift <a class="ref" href="r.lem.app-sgd-shift.html#L-eqn:app-sgd-gauss-shift" data-label="eqn:app-sgd-gauss-shift">(SJ.6)</a> with <span class="mi">\(\sigma=1\)</span> replaces <span class="mi">\(\EE\sign(g+x)\)</span> by <span class="mi">\(\sqrt{2/\pi}\,x\)</span> at the cost of the third term.</div>
+<div class="p">The last two terms replace <span class="mi">\(\sqrt B/s\)</span> by <span class="mi">\(\mathcal N_B/F\)</span>. By the triangle inequality and <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a>,</div>
+<div class="md">\[
+\Big|\frac{\sqrt B}s-\frac{\mathcal N_B}F\Big|\le\sqrt B\Big(\frac1F-\frac1s\Big)+\frac{\sqrt B-\mathcal N_B}F\le\frac{\sqrt B\,(s^2-F^2)}{sF(s+F)}+\frac4{F\sqrt B}.
+\]</div>
+<div class="p">Multiplying by <span class="mi">\(\sqrt{2/\pi}\,\abs{\Delta_{ij}}\)</span> gives the last two terms.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The isotropic regime is the regime in which every entry of the state is small, with explicit constants.</div><div class="thm thm-definition" id="L-def:app-sgd-iso-regime"><div class="thm-head"><a class="thm-name" href="r.def.app-sgd-iso-regime.html" data-label="def:app-sgd-iso-regime">Definition SJ.2</a> <span class="thm-title">(Isotropic regime)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(K\ge1\)</span>, <span class="mi">\(0&lt;f_-\le f_+\)</span> and <span class="mi">\(C_\Delta&gt;0\)</span>. A deterministic state <span class="mi">\(\Delta\)</span> with batch size <span class="mi">\(B\)</span> is in the isotropic regime if, with <span class="mi">\(k\defeq\min\{\Nout,\Nin,B\}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-regime"></span>\begin{equation}\tag{SJ.15}
+\max\{\Nout,\Nin,B\}\le Kk,\qquad f_-\le\norm\Delta_\F\le f_+,\qquad \max_{i,j}\abs{\Delta_{ij}}\le\frac{C_\Delta}k .
+\end{equation}</div></div></div><div class="thm thm-theorem" id="L-thm:app-sgd-iso-drift"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a> <span class="thm-title">(Isotropic drift)</span></div><div class="thm-body"><div class="p">There is a constant <span class="mi">\(C_r\)</span> depending only on <span class="mi">\(K,f_-,C_\Delta\)</span> such that, for every state in the isotropic regime with <span class="mi">\(k\ge k_0\defeq\max\{4,8KC_\Delta^2/f_-^2\}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-entry"></span>\begin{equation}\tag{SJ.16}
+\Big|\EE\sign(G^\circ_{ij})-\sqrt{\frac2\pi}\,\mathcal N_B\frac{\Delta_{ij}}F\Big|\le e_k\defeq\frac{C_2}B+\frac{C_r}{k^{3/2}}\qquad\text{for all }(i,j).
+\end{equation}</div>
+<div class="p">With <span class="mi">\(\mathsf D\defeq\langle\Delta,\EE S\rangle_\F\)</span> and <span class="mi">\(\mathsf D_0\defeq\sqrt{2/\pi}\,\mathcal N_BF=\mathcal N_B\sqrt{4\cR(\Delta)/\pi}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-sum"></span>\begin{equation}\tag{SJ.17}
+\abs{\mathsf D-\mathsf D_0}\le KF\Big(C_2+\frac{C_r}{\sqrt k}\Big),\qquad
+\Big|\frac{\mathsf D}{\mathsf D_0}-1\Big|\le\frac{K(C_2+C_r/\sqrt k)}{\sqrt{2/\pi}\,\mathcal N_B}\le\frac{\pi K(C_2+C_r)}{2\sqrt{2/\pi}\,\sqrt k}.
+\end{equation}</div>
+<div class="p">No hypothesis is made on the operator norm or the rank of <span class="mi">\(\Delta\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The entry bound makes the deleted block large. Every row and column has squared norm at most <span class="mi">\(KkC_\Delta^2/k^2=KC_\Delta^2/k\)</span>, so for <span class="mi">\(k\ge k_0\)</span></div>
+<div class="md">\[
+\norm{\bar\Delta}_\F^2\ge F^2-\frac{2KC_\Delta^2}k\ge\frac34F^2 ,
+\]</div>
+<div class="p">and <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> applies to every entry.</div>
+<div class="p">The four non-batch terms of <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> are of order <span class="mi">\(k^{-3/2}\)</span>. With <span class="mi">\(V\defeq(4K+3)C_\Delta^2\)</span> and <span class="mi">\(K_3\defeq200C_\Delta/f_-+54KC_\Delta^2/f_-^2\)</span>, <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> gives</div>
+<div class="md">\[
+0\le s^2-F^2\le\frac Vk,\qquad \frac{\abs{m_3}}{s^3}\le\frac{K_3}k .
+\]</div>
+<div class="p">Insert these, <span class="mi">\(k\le B\le Kk\)</span>, <span class="mi">\(\abs{\Delta_{ij}}\le C_\Delta/k\)</span> and <span class="mi">\(s\ge F\ge f_-\)</span> into <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a>. The result is <a class="ref" href="r.thm.app-sgd-iso-drift.html#L-eqn:app-sgd-iso-entry" data-label="eqn:app-sgd-iso-entry">(SJ.16)</a> with</div>
+<div class="md">\[
+C_r\defeq C_1K_3+\frac{K^{3/2}C_\Delta^3}{3\sqrt{2\pi}\,f_-^3}+\sqrt{\frac2\pi}\,\frac{\sqrt K\,C_\Delta V}{2f_-^3}+\sqrt{\frac2\pi}\,\frac{4C_\Delta}{f_-}.
+\]</div>
+<div class="p">The sum over entries costs the <span class="mi">\(\ell^1\)</span> norm of <span class="mi">\(\Delta\)</span>. Since <span class="mi">\(\sum_{ij}\Delta_{ij}^2/F=F\)</span>,</div>
+<div class="md">\[
+\abs{\mathsf D-\mathsf D_0}\le\sum_{i,j}\abs{\Delta_{ij}}\,e_k\le\sqrt{\Nout\Nin}\,F\,e_k\le KkF\Big(\frac{C_2}k+\frac{C_r}{k^{3/2}}\Big).
+\]</div>
+<div class="p">Dividing by <span class="mi">\(\mathsf D_0\)</span> and using <span class="mi">\(\mathcal N_B\ge\frac2\pi\sqrt B\ge\frac2\pi\sqrt k\)</span> from <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> gives the relative bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The summed error is of order one against a leading term of order <span class="mi">\(\sqrt k\)</span>. The isotropic recursion of the main text follows.</div><div class="thm thm-proposition" id="L-prop:app-sgd-iso"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-iso.html" data-label="prop:app-sgd-iso">Proposition SJ.4</a> <span class="thm-title">(Isotropic <span class="sc">SignSGD</span> recursion)</span></div><div class="thm-body"><div class="p"><span class="anchor" id="L-prop:signsgd-recursion-B"></span> Let <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(\Sigmaout=\Idout\)</span>, and let <span class="mi">\(\Dt\)</span> be the state at step <span class="mi">\(t\)</span>. Suppose that, almost surely, <span class="mi">\(\Dt\)</span> with the batch size <span class="mi">\(B\)</span> is in the isotropic regime of <a class="ref" href="r.def.app-sgd-iso-regime.html" data-label="def:app-sgd-iso-regime">Definition SJ.2</a> and <span class="mi">\(k\ge k_0\)</span>. Then the <span class="sc">SignSGD</span> step satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-risk-recursion-B"></span>\begin{equation}\tag{SJ.18}
+\EE_t\big[\cR(t+1)\big]=\cR(t)-\lr\,\mathcal N_B\sqrt{\frac{4\cR(t)}\pi}+\frac{\lr^2}2\,\Nin\Nout+E_t,\qquad
+\abs{E_t}\le\lr\,K\sqrt{2\cR(t)}\,\Big(C_2+\frac{C_r}{\sqrt k}\Big),
+\end{equation}</div>
+<div class="p">with <span class="mi">\(C_2\)</span> universal and <span class="mi">\(C_r\)</span> from <a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a>. The error is at most <span class="mi">\(\pi K(C_2+C_r)/(2\sqrt{2/\pi}\sqrt k)\)</span> times the drift term.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Conditionally on the past, <span class="mi">\(\Dt\)</span> is fixed and the batch has its unconditional law, because the batch is independent of the past. The identity <a class="ref" href="r.prop.app-sgd-iso-volatility.html#L-eqn:app-sgd-iso-risk" data-label="eqn:app-sgd-iso-risk">(SJ.9)</a> of <a class="ref" href="r.prop.app-sgd-iso-volatility.html" data-label="prop:app-sgd-iso-volatility">Proposition SJ.2</a> at <span class="mi">\(\Delta=\Dt\ne0\)</span> gives</div>
+<div class="md">\[
+\EE_t\big[\cR(t+1)\big]=\cR(t)-\lr\,\mathsf D+\frac{\lr^2}2\,\Nin\Nout .
+\]</div>
+<div class="p"><a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a> replaces <span class="mi">\(\mathsf D\)</span> by <span class="mi">\(\mathsf D_0=\mathcal N_B\sqrt{4\cR(t)/\pi}\)</span> with the stated error, since <span class="mi">\(F=\sqrt{2\cR(t)}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">In the main text’s notation, <a class="ref" href="r.prop.app-sgd-iso.html#L-eqn:signsgd-risk-recursion-B" data-label="eqn:signsgd-risk-recursion-B">(SJ.18)</a> is <a class="ref" href="paper.pdf#equation.3.8" data-label="eqn:comparison-general-form">(8)</a> with <span class="mi">\(\mathfrak d=\mathcal N_B/\sqrt\pi\)</span> and <span class="mi">\(\mathfrak v=\Nin\Nout\)</span>; the volatility is exact and the drift carries a relative error of order <span class="mi">\(k^{-1/2}\)</span>.</div>
+<h3 id="L-sec:SignSGD_anisotropic_data"><span class="h-num">SJ.4</span> Half-anisotropic data</h3>
+<div class="p"><span class="sc">SignSGD</span> depends on the basis in which the sign is taken. The main text draws the eigenbasis of <span class="mi">\(\Sigmaout\)</span> from the Haar measure (<a class="ref" href="paper.pdf#equation.4.13" data-label="eqn:half-aniso-unitary">(13)</a>). The following definition adds the law of the state that the proofs need.</div><div class="thm thm-definition" id="L-def:app-sgd-state-law"><div class="thm-head"><a class="thm-name" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> <span class="thm-title">(Haar state law)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(K\ge1\)</span>, <span class="mi">\(0&lt;c\le L\)</span>, <span class="mi">\(0&lt;f_-\le f_+\)</span> and <span class="mi">\(C_{\rm col}&gt;0\)</span>. Let <span class="mi">\(\Nout,\Nin,B\)</span> be positive integers with <span class="mi">\(k\defeq\min\{\Nout,\Nin,B\}\ge2\)</span> and <span class="mi">\(\max\{\Nout,\Nin,B\}\le Kk\)</span>. Let <span class="mi">\(\Lambda=\diag(\mu_1,\dots,\mu_{\Nout})\)</span> and <span class="mi">\(D\in\R^{\Nout\times\Nin}\)</span> be deterministic with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-state-bounds"></span>\begin{equation}\tag{SJ.19}
+c\,\Idout\preceq\Lambda\preceq L\,\Idout,\qquad f_-\le\norm D_\F\le f_+,\qquad \max_j\norm{D_{\cdot j}}^2\le\frac{C_{\rm col}}k .
+\end{equation}</div>
+<div class="p">Let <span class="mi">\(U\)</span> be Haar distributed on the orthogonal group <span class="mi">\(O(\Nout)\)</span> and independent of the whitened batch <span class="mi">\((z_b,w_b)_{b\le B}\)</span>. The half-anisotropic Haar model is</div>
+<div class="md">\[
+\Sigmaout=U\Lambda U^\T,\qquad \Sigmain=\Idin,\qquad \Delta=UD,\qquad
+\Xout^{(b)}=U\Lambda^{1/2}z_b,\qquad \Xin^{(b)}=w_b .
+\]</div></div></div><div class="p">In this model <span class="mi">\(u_i=Ue_i\)</span> is the eigenvector of <span class="mi">\(\mu_i\)</span>, the row energies are <span class="mi">\(\CMscr Q_i(\Delta)=\norm{u_i^\T\Delta}^2=\norm{D_{i\cdot}}^2\)</span>, and the risk is deterministic:</div>
+<div class="md">\[
+2\cR\defeq\norm\Delta_\Sigma^2=\Tr\big(\Lambda DD^\T\big).
+\]</div>
+<div class="p">This is the whitened form of <a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a>, and the residuals are <span class="mi">\(d_b^\circ=z_b^\T\Lambda^{1/2}Dw_b\)</span>, which do not involve <span class="mi">\(U\)</span>. We use</div>
+<div class="md">\[
+\bar\mu\defeq\frac{\Tr\Lambda}{\Nout},\qquad T_D\defeq\Lambda DD^\T\Lambda,\qquad
+L_B\defeq\sqrt{\frac2\pi}\,\frac{\mathcal N_B}{\sqrt{2\cR\,\bar\mu}}=\frac{\mathcal N_B}{\sqrt{\pi\cR\,\bar\mu}},
+\]</div>
+<div class="p">the fixed constants</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-constants"></span>\begin{equation}\tag{SJ.20}
+P_-\defeq cf_-^2,\quad P_+\defeq Lf_+^2,\quad H_0\defeq L^2f_+^2,\quad A_0\defeq\frac{H_0}c,\quad A_1\defeq\frac{L^2C_{\rm col}}c,\quad A_2\defeq LC_{\rm col},
+\end{equation}</div>
+<div class="p">which satisfy <span class="mi">\(P_-\le2\cR\le P_+\)</span>, <span class="mi">\(\Tr T_D\le H_0\)</span> and <span class="mi">\(c\le\bar\mu\le L\)</span>, and the batch mean of the update given the eigenbasis,</div>
+<div class="md">\[
+M(U)\defeq\EE\big[S\,\big|\,U\big],\qquad S=\sign(G^\circ),
+\]</div>
+<div class="p">whose entries lie in <span class="mi">\([-1,1]\)</span>. A constant is called admissible if it depends only on <span class="mi">\(K,c,L,f_-,f_+,C_{\rm col}\)</span>.</div>
+<div class="p">An entrywise bound of order <span class="mi">\(1/\min\{\Nout,\Nin,B\}\)</span> on the state does not make the residual of a deleted coordinate asymptotically Gaussian, which is why <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> prescribes the law of the state. For <span class="mi">\(\Delta=d^{-1}\mathbf 1\tensor\mathbf 1\in\R^{d\times d}\)</span> every entry is <span class="mi">\(1/d\)</span> and <span class="mi">\(\norm\Delta_\F=1\)</span>, but</div>
+<div class="md">\[
+z^\T\Delta w=\Big(d^{-1/2}\sum_iz_i\Big)\Big(d^{-1/2}\sum_jw_j\Big)
+\]</div>
+<div class="p">is a product of two independent standard Gaussians for every <span class="mi">\(d\)</span>.</div>
+<div class="p">The independence of <span class="mi">\(D\)</span> and <span class="mi">\(U\)</span> is used in every proof below. After one step the new state need not be of the form <span class="mi">\(UD'\)</span> with <span class="mi">\(D'\)</span> independent of <span class="mi">\(U\)</span>, so the results below do not iterate.</div>
+<h4 id="h-SJ.4.1"><span class="h-num">SJ.4.1</span> Haar tools</h4>
+<div class="p">For <span class="mi">\(q\ge1\)</span> put <span class="mi">\(d_q(n)\defeq n(n+2)\cdots(n+2q-2)\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-sgd-sphere"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> <span class="thm-title">(Spherical moments)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(v\)</span> be uniform on the unit sphere of <span class="mi">\(\R^n\)</span>, <span class="mi">\(n\ge2\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-l1"></span>\begin{equation}\tag{SJ.21}
+\EE\norm v_1^2=1+\frac{2(n-1)}\pi .
+\end{equation}</div>
+<div class="p">For a vector <span class="mi">\(a\)</span>, a positive semidefinite <span class="mi">\(T\)</span> and an integer <span class="mi">\(1\le q\le4\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-sphere"></span>\begin{equation}\tag{SJ.22}
+\EE\abs{v^\T a}^{2q}=\frac{(2q-1)!!\,\norm a^{2q}}{d_q(n)},\qquad \EE\big(v^\T Tv\big)^q\le\frac{(2q-1)!!\,(\Tr T)^q}{d_q(n)}.
+\end{equation}</div>
+<div class="p">For symmetric <span class="mi">\(H\)</span> with <span class="mi">\(\Tr H=0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-sphere-four"></span>\begin{equation}\tag{SJ.23}
+\EE\big(v^\T Hv\big)^4=\frac{12(\Tr H^2)^2+48\Tr H^4}{d_4(n)} .
+\end{equation}</div>
+<div class="p">In particular, if <span class="mi">\(c\Id\preceq\Lambda\preceq L\Id\)</span> in dimension <span class="mi">\(n\)</span> and <span class="mi">\(\bar\mu=\Tr\Lambda/n\)</span>, then <span class="mi">\(\EE(v^\T\Lambda v-\bar\mu)^4\le60L^4/n^2\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">A standard Gaussian vector <span class="mi">\(g\)</span> in <span class="mi">\(\R^n\)</span> is <span class="mi">\(g=Rv\)</span> with radius <span class="mi">\(R\)</span> and direction <span class="mi">\(v\)</span> independent, and <span class="mi">\(\EE R^{2q}=d_q(n)\)</span> by the Gaussian moments of <span class="mi">\(\norm g^2\)</span>. Every identity follows by computing a Gaussian moment and dividing by <span class="mi">\(\EE R^{2q}\)</span>.</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-l1" data-label="eqn:app-sgd-l1">(SJ.21)</a>, <span class="mi">\(\EE R^2=n\)</span>, and <span class="mi">\(\EE\abs{g_ig_j}=2/\pi\)</span> for <span class="mi">\(i\ne j\)</span> gives <span class="mi">\(\EE\abs{v_iv_j}=2/(\pi n)\)</span>. Expanding the square of the <span class="mi">\(\ell^1\)</span> norm,</div>
+<div class="md">\[
+\EE\norm v_1^2=\sum_i\EE v_i^2+\sum_{i\ne j}\EE\abs{v_iv_j}=1+n(n-1)\frac2{\pi n}.
+\]</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-sphere" data-label="eqn:app-sgd-sphere">(SJ.22)</a>, rotation invariance gives <span class="mi">\(\EE\abs{g^\T a}^{2q}=(2q-1)!!\norm a^{2q}\)</span>. For <span class="mi">\(T\)</span>, write <span class="mi">\(g^\T Tg=\Tr T\sum_l\pi_lg_l^2\)</span> with weights <span class="mi">\(\pi_l\ge0\)</span> summing to <span class="mi">\(1\)</span>; Jensen’s inequality gives <span class="mi">\(\EE(\sum_l\pi_lg_l^2)^q\le(2q-1)!!\)</span>.</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-sphere-four" data-label="eqn:app-sgd-sphere-four">(SJ.23)</a>, diagonalize <span class="mi">\(H\)</span> with eigenvalues <span class="mi">\(h_l\)</span> of sum zero. Then <span class="mi">\(g^\T Hg=\sum_lh_l(g_l^2-1)\)</span> is a sum of independent centered terms with <span class="mi">\(\EE(g_l^2-1)^2=2\)</span> and <span class="mi">\(\EE(g_l^2-1)^4=60\)</span>. Only multiplicities four and two-two survive in the fourth power:</div>
+<div class="md">\[
+\EE(g^\T Hg)^4=60\sum_lh_l^4+24\sum_{l&lt;l'}h_l^2h_{l'}^2=12(\Tr H^2)^2+48\Tr H^4 .
+\]</div>
+<div class="p">For <span class="mi">\(H=\Lambda-\bar\mu\Id\)</span>, <span class="mi">\(\norm H\le L\)</span>, so <span class="mi">\(\Tr H^2\le nL^2\)</span> and <span class="mi">\(\Tr H^4\le nL^4\)</span>, and <span class="mi">\(d_4(n)\ge n^4\)</span> gives the last bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-sgd-haar-sign"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> <span class="thm-title">(Haar sign matrix)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(U\)</span> be Haar on <span class="mi">\(O(n)\)</span>, <span class="mi">\(n\ge2\)</span>, let <span class="mi">\(a\in\R^n\)</span> be nonzero, and put <span class="mi">\(Y\defeq U^\T\sign(Ua)\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-haar-sign"></span>\begin{equation}\tag{SJ.24}
+\EE_U\big[Y\tensor Y\big]=\Big(1-\frac2\pi\Big)\Id+\frac{2n}\pi\,\frac{a\tensor a}{\norm a^2}.
+\end{equation}</div>
+<div class="p">The same holds conditionally on a random nonzero <span class="mi">\(a\)</span> independent of <span class="mi">\(U\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(v=a/\norm a\)</span>, so that <span class="mi">\(Y=U^\T\sign(Uv)\)</span>. The vector <span class="mi">\(Uv\)</span> is uniform on the sphere, so it has no zero coordinate almost surely, and <span class="mi">\(\norm Y^2=n\)</span>.</div>
+<div class="p">Invariance reduces the second moment to two numbers. If <span class="mi">\(Q\)</span> is orthogonal with <span class="mi">\(Qv=v\)</span>, then <span class="mi">\(UQ\)</span> is Haar and replacing <span class="mi">\(U\)</span> by <span class="mi">\(UQ\)</span> replaces <span class="mi">\(Y\)</span> by <span class="mi">\(Q^\T Y\)</span>. Hence <span class="mi">\(\EE[Y\tensor Y]\)</span> commutes with every such <span class="mi">\(Q\)</span>. In an orthonormal basis starting with <span class="mi">\(v\)</span>, reflections of single other basis vectors make the off-diagonal entries vanish, and permutations of the other basis vectors make their diagonal entries equal. Therefore</div>
+<div class="md">\[
+\EE[Y\tensor Y]=c_n\,v\tensor v+d_n(\Id-v\tensor v).
+\]</div>
+<div class="p">The two numbers follow from two scalar identities. First, <span class="mi">\(v^\T Y=(Uv)^\T\sign(Uv)=\norm{Uv}_1\)</span>, so <span class="mi">\(c_n=1+2(n-1)/\pi\)</span> by <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-l1" data-label="eqn:app-sgd-l1">(SJ.21)</a>. Second, the trace is <span class="mi">\(\EE\norm Y^2=n\)</span>, so <span class="mi">\(c_n+(n-1)d_n=n\)</span>. Solving gives <span class="mi">\(d_n=1-2/\pi\)</span> and <span class="mi">\(c_n-d_n=2n/\pi\)</span>. Conditioning on an independent <span class="mi">\(a\)</span> gives the last claim.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The arcsine law and the Haar sign matrix give the row volatility exactly for one sample. At this batch size the per-row volatility does not depend on the state, which may even be a function of the eigenbasis.</div><div class="thm thm-proposition" id="L-prop:app-sgd-one-sample"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-one-sample.html" data-label="prop:app-sgd-one-sample">Proposition SJ.5</a> <span class="thm-title">(One sample)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(B=1\)</span>, <span class="mi">\(\Nout\ge2\)</span>, <span class="mi">\(\Sigmaout=U\Lambda U^\T\)</span> with <span class="mi">\(U\)</span> Haar, <span class="mi">\(\Lambda=\diag(\mu_i)\succ0\)</span>, <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(u_i\defeq Ue_i\)</span>, and let the sample be <span class="mi">\(\Xout=U\Lambda^{1/2}z\)</span>, <span class="mi">\(\Xin=w\)</span> with <span class="mi">\((z,w)\)</span> standard Gaussian and independent of <span class="mi">\(U\)</span>. Let <span class="mi">\(\Delta\)</span> be any function of <span class="mi">\(U\)</span> with <span class="mi">\(\Delta\ne0\)</span> almost surely, and <span class="mi">\(S=\sign(G^\circ)\)</span>. Then</div>
+<div class="md">\[
+\EE\norm{S^\T u_i}^2=\Nin\,\EE\big[u_i^\T\Sigmaoutsign u_i\big]=\Nin\Big(1-\frac2\pi+\frac{2\Nout}\pi\,\EE\frac{\mu_ig_i^2}{\sum_l\mu_lg_l^2}\Big),
+\]</div>
+<div class="p">where <span class="mi">\((\Sigmaoutsign)_{kl}\defeq\frac2\pi\arcsin\big((\Sigmaout)_{kl}/\sqrt{(\Sigmaout)_{kk}(\Sigmaout)_{ll}}\big)\)</span> and <span class="mi">\(g\)</span> is a standard Gaussian vector in <span class="mi">\(\R^{\Nout}\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">For one sample the update factorizes. Given <span class="mi">\(U\)</span>, the vector <span class="mi">\(y=\Xout\)</span> has the nondegenerate law <span class="mi">\(\mathcal N(0,\Sigmaout)\)</span>, so its coordinates are nonzero almost surely, and so are those of <span class="mi">\(x=\Xin\)</span>. The residual <span class="mi">\(y^\T\Delta x\)</span> is, given <span class="mi">\(U\)</span> and <span class="mi">\(x\)</span>, Gaussian with variance <span class="mi">\(\norm{\Sigmaout^{1/2}\Delta x}^2\)</span>, which is positive almost surely because <span class="mi">\(\Delta\ne0\)</span>. Hence, entrywise,</div>
+<div class="md">\[
+S=\sign\big(y^\T\Delta x\big)\,\sign(y)\tensor\sign(x),
+\]</div>
+<div class="p">and therefore</div>
+<div class="md">\[
+\norm{S^\T u_i}^2=\big(u_i^\T\sign(y)\big)^2\norm{\sign(x)}^2=\Nin\big(u_i^\T\sign(y)\big)^2 .
+\]</div>
+<div class="p">The residual sign has disappeared, so the state no longer enters.</div>
+<div class="p">Given <span class="mi">\(U\)</span>, <a class="ref" href="r.lem.app-sgd-arcsine.html" data-label="lem:app-sgd-arcsine">Lemma SJ.1</a> applies to every pair of coordinates of <span class="mi">\(y\)</span>, whose variances <span class="mi">\((\Sigmaout)_{kk}\)</span> are positive, and gives <span class="mi">\(\EE[\sign(y)\tensor\sign(y)\mid U]=\Sigmaoutsign\)</span>. This is the first equality.</div>
+<div class="p">For the second, write <span class="mi">\(y=Ua\)</span> with <span class="mi">\(a=\Lambda^{1/2}g\)</span>, nonzero almost surely and independent of <span class="mi">\(U\)</span>. Then <span class="mi">\(u_i^\T\sign(y)=e_i^\T U^\T\sign(Ua)\)</span>, and <a class="ref" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> gives</div>
+<div class="md">\[
+\EE\big[(u_i^\T\sign(y))^2\,\big|\,g\big]=1-\frac2\pi+\frac{2\Nout}\pi\,\frac{\mu_ig_i^2}{\sum_l\mu_lg_l^2}.\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h4 id="h-SJ.4.2"><span class="h-num">SJ.4.2</span> Half-anisotropic drift</h4>
+<div class="p">The coordinate drift of an anisotropic gradient is the isotropic one for a whitened state. Let <span class="mi">\(\Sigmaout=\Sigma\)</span> be positive semidefinite in dimension <span class="mi">\(\Nout\)</span> and <span class="mi">\(\Sigmain=\Idin\)</span>, let <span class="mi">\(\Delta\)</span> be deterministic with <span class="mi">\(2\cR=\Tr(\Sigma\Delta\Delta^\T)&gt;0\)</span>, and fix an entry <span class="mi">\((p,j)\)</span> with <span class="mi">\(v_p\defeq\Sigma_{pp}&gt;0\)</span>. Put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-whitened-entries"></span>\begin{equation}\tag{SJ.25}
+\mu_{pj}\defeq\frac{(\Sigma\Delta)_{pj}}{\sqrt{v_p}},\qquad R_p\defeq\frac{\norm{(\Sigma\Delta)_{p\cdot}}^2}{v_p},\qquad C_j\defeq\Delta_{\cdot j}^\T\Sigma\Delta_{\cdot j}.
+\end{equation}</div><div class="thm thm-lemma" id="L-lem:app-sgd-whitening"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a> <span class="thm-title">(Whitening a coordinate)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(Q\)</span> be orthogonal with first column <span class="mi">\(\Sigma^{1/2}e_p/\sqrt{v_p}\)</span> and put <span class="mi">\(A\defeq Q^\T\Sigma^{1/2}\Delta\)</span>. Then <span class="mi">\(\norm A_\F^2=2\cR\)</span>, the entry <span class="mi">\(A_{1j}\)</span> equals <span class="mi">\(\mu_{pj}\)</span>, row <span class="mi">\(1\)</span> of <span class="mi">\(A\)</span> has squared norm <span class="mi">\(R_p\)</span>, column <span class="mi">\(j\)</span> of <span class="mi">\(A\)</span> has squared norm <span class="mi">\(C_j\)</span>, and <span class="mi">\(\sign(G^\circ_{pj})\)</span> has the law of <span class="mi">\(\sign(G^A_{1j})\)</span>, where <span class="mi">\(G^A\)</span> is the isotropic gradient of the state <span class="mi">\(A\)</span>. In particular <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> applies to <span class="mi">\((p,j)\)</span> with <span class="mi">\(F^2=2\cR\)</span>, <span class="mi">\(\Delta_{ij}\)</span> replaced by <span class="mi">\(\mu_{pj}\)</span>, and <span class="mi">\(\norm{\bar A}_\F^2=2\cR-R_p-C_j+\mu_{pj}^2\)</span>, whenever this is at least <span class="mi">\(\cR/2\)</span> and <span class="mi">\(B\ge4\)</span>; its comparison term is</div>
+<div class="md">\[
+\sqrt{\frac2\pi}\,\mathcal N_B\frac{\mu_{pj}}{\sqrt{2\cR}}=\frac{\mathcal N_B\,(\Sigma\Delta)_{pj}}{\sqrt{\pi\cR\,v_p}} .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Represent the output feature as <span class="mi">\(y=\Sigma^{1/2}Qz\)</span> with <span class="mi">\(z\)</span> standard Gaussian. Since <span class="mi">\(Q^\T\Sigma^{1/2}e_p=\sqrt{v_p}\,e_1\)</span>, the coordinate is <span class="mi">\(y_p=\sqrt{v_p}\,z_1\)</span>, and the residual is <span class="mi">\(y^\T\Delta x=z^\T Ax\)</span>. Hence</div>
+<div class="md">\[
+\big(y^\T\Delta x\big)\,y_px_j=\sqrt{v_p}\,\big(z^\T Ax\big)\,z_1x_j ,
+\]</div>
+<div class="p">and the positive factor <span class="mi">\(\sqrt{v_p}\)</span> does not change the sign of the batch sum. Row <span class="mi">\(1\)</span> of <span class="mi">\(A\)</span> is <span class="mi">\(e_p^\T\Sigma\Delta/\sqrt{v_p}\)</span> and column <span class="mi">\(j\)</span> has squared norm <span class="mi">\(\Delta_{\cdot j}^\T\Sigma\Delta_{\cdot j}\)</span>, and <span class="mi">\(\norm A_\F^2=\Tr(\Sigma\Delta\Delta^\T)\)</span>. The deleted block has the squared norm left after removing row <span class="mi">\(1\)</span> and column <span class="mi">\(j\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">In the Haar model, <span class="mi">\(\Sigma\Delta=U\Lambda D\)</span>. Write <span class="mi">\(\omega_p\defeq U^\T e_p\)</span> for the <span class="mi">\(p\)</span>th row of <span class="mi">\(U\)</span>, a uniform unit vector, so that</div>
+<div class="md">\[
+v_p=\omega_p^\T\Lambda\omega_p\in[c,L],\qquad \mu_{pj}=\frac{\omega_p^\T\Lambda D_{\cdot j}}{\sqrt{v_p}},\qquad R_p=\frac{\omega_p^\T T_D\omega_p}{v_p},\qquad C_j=D_{\cdot j}^\T\Lambda D_{\cdot j}\le\frac{A_2}k .
+\]</div>
+<div class="p">The last quantity is deterministic.</div><div class="thm thm-lemma" id="L-lem:app-sgd-deletion"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-deletion.html" data-label="lem:app-sgd-deletion">Lemma SJ.9</a> <span class="thm-title">(Deletion estimates)</span></div><div class="thm-body"><div class="p">In the Haar model put</div>
+<div class="md">\[
+Q_0\defeq105\Big(\frac{4A_0}{P_-}\Big)^4,\qquad k_*\defeq\max\{4,\lceil4A_2/P_-\rceil\},
+\]</div>
+<div class="p">and let <span class="mi">\(k\ge k_*\)</span>. On the event <span class="mi">\(\mathcal A_p\defeq\{R_p\le P_-/4\}\)</span>, the deleted block of <a class="ref" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a> has squared norm at least <span class="mi">\(\cR\)</span>. For <span class="mi">\(1\le q\le4\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-deletion"></span>\begin{equation}\tag{SJ.26}
+\EE R_p^q\le\frac{(2q-1)!!\,A_0^q}{\Nout^q},\qquad \EE\abs{\mu_{pj}}^{2q}\le\frac{(2q-1)!!\,A_1^q}{\Nout^qk^q},\qquad \PP(\mathcal A_p^c)\le\frac{Q_0}{\Nout^4}.
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Ellipticity removes the random denominator: <span class="mi">\(v_p\ge c\)</span>. Then <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-sphere" data-label="eqn:app-sgd-sphere">(SJ.22)</a> with <span class="mi">\(T=T_D\)</span>, <span class="mi">\(\Tr T_D\le H_0\)</span>, and with <span class="mi">\(a=\Lambda D_{\cdot j}\)</span>, <span class="mi">\(\norm a^2\le L\,C_j\le L^2C_{\rm col}/k\)</span>, together with <span class="mi">\(d_q(\Nout)\ge\Nout^q\)</span>, gives the two moment bounds. On <span class="mi">\(\mathcal A_p\)</span>, <span class="mi">\(R_p+C_j\le P_-/4+A_2/k\le P_-/2\le\cR\)</span>, so the deleted block has squared norm <span class="mi">\(2\cR-R_p-C_j+\mu_{pj}^2\ge\cR\)</span>. Markov’s inequality for <span class="mi">\(R_p^4\)</span> gives the probability bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-proposition" id="L-prop:app-sgd-coordinate-sum"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> <span class="thm-title">(Coordinate errors in Frobenius norm)</span></div><div class="thm-body"><div class="p">In the Haar model with <span class="mi">\(k\ge k_*\)</span>, let <span class="mi">\(D_v\defeq\diag(v_1,\dots,v_{\Nout})\)</span> and</div>
+<div class="md">\[
+E\defeq M(U)-\sqrt{\frac2\pi}\,\frac{\mathcal N_B}{\sqrt{2\cR}}\,D_v^{-1/2}U\Lambda D .
+\]</div>
+<div class="p">There is an admissible constant <span class="mi">\(C_E\)</span> such that <span class="mi">\(\EE_U\norm E_\F^2\le C_E\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The entry <span class="mi">\(E_{pj}\)</span> is the error of <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> for the whitened state of <a class="ref" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a>. We square and sum the five terms of <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> before averaging over <span class="mi">\(U\)</span>; this keeps the batch remainder at the scale of the whole matrix.</div>
+<div class="p"><em>Good events.</em> On <span class="mi">\(\mathcal A_p\)</span> the bound <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> applies, with <span class="mi">\(F^2=2\cR\ge P_-\)</span>. Call its five terms <span class="mi">\(t_1,\dots,t_5\)</span>, so that <span class="mi">\(E_{pj}^2\mathbf 1_{\mathcal A_p}\le5\sum_lt_l^2\)</span>. Here <span class="mi">\(s^3\ge(2\cR)^{3/2}\)</span>,</div>
+<div class="md">\[
+m_3^2\le80000\,\mu_{pj}^2(2\cR)^2+5832\,(2\cR)R_pC_j,\qquad s^2-2\cR\le5(R_p+C_j),
+\]</div>
+<div class="p">the last because <span class="mi">\(\mu_{pj}^2\le R_p\)</span>. Summing over the <span class="mi">\(\Nout\Nin\)</span> entries with <a class="ref" href="r.lem.app-sgd-deletion.html#L-eqn:app-sgd-deletion" data-label="eqn:app-sgd-deletion">(SJ.26)</a> and <span class="mi">\(\Nout,\Nin,B\in[k,Kk]\)</span> gives</div>
+<div class="md">\[
+\begin{aligned}
+\sum_{p,j}\EE t_1^2&amp;\le\frac{KC_1^2}{kP_-^3}\big(80000P_+^2A_1+5832P_+A_2A_0\big),&amp;
+\sum_{p,j}t_2^2&amp;\le\frac{\Nout\Nin C_2^2}{B^2}\le K^2C_2^2,\\
+\sum_{p,j}\EE t_3^2&amp;\le\frac{15K^4A_1^3}{18\pi P_-^3k},&amp;
+\sum_{p,j}\EE t_5^2&amp;\le\frac{16\cdot\frac2\pi\,KA_1}{P_-k}.
+\end{aligned}
+\]</div>
+<div class="p">For <span class="mi">\(t_4\)</span> the correlated moment is bounded by Cauchy–Schwarz, <span class="mi">\(\EE[\mu_{pj}^2R_p^2]\le(\EE\mu_{pj}^4\,\EE R_p^4)^{1/2}\le\sqrt{315}A_1A_0^2/(\Nout^3k)\)</span>, and <span class="mi">\(C_j^2\EE\mu_{pj}^2\le A_2^2A_1/(\Nout k^3)\)</span>, so</div>
+<div class="md">\[
+\sum_{p,j}\EE t_4^2\le\frac{25\cdot\frac2\pi\,K^2A_1}{2P_-^3k}\big(\sqrt{315}A_0^2+A_2^2\big).
+\]</div>
+<div class="p">Only <span class="mi">\(t_2\)</span> contributes a term that does not decay; it is bounded.</div>
+<div class="p"><em>Bad events.</em> On every event <span class="mi">\(\abs{M_{pj}}\le1\)</span> and <span class="mi">\(\mathcal N_B^2\le B\)</span>, so <span class="mi">\(E_{pj}^2\le2+\frac4\pi B\mu_{pj}^2/P_-\)</span>. Cauchy–Schwarz gives <span class="mi">\(\EE[\mu_{pj}^2\mathbf 1_{\mathcal A_p^c}]\le\sqrt{3Q_0}A_1/(\Nout^3k)\)</span>, and</div>
+<div class="md">\[
+\sum_{p,j}\EE\big[E_{pj}^2\mathbf 1_{\mathcal A_p^c}\big]\le\frac{2KQ_0}{k^2}+\frac{\frac4\pi\sqrt{3Q_0}A_1K^2}{P_-k}.
+\]</div>
+<div class="p">No independence between different rows of <span class="mi">\(U\)</span> is used. Adding five times the good-event sums to the bad-event sum gives the claim with an admissible <span class="mi">\(C_E\)</span>, since <span class="mi">\(k\ge1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-theorem" id="L-thm:app-sgd-half-drift"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a> <span class="thm-title">(Half-anisotropic drift)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> with <span class="mi">\(k\ge k_*\)</span>, there is an admissible constant <span class="mi">\(C_*\)</span> such that</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-half-drift"></span>\begin{equation}\tag{SJ.27}
+\EE_U\big\|U^\T M(U)-L_B\,\Lambda D\big\|_\F^2\le C_* ,
+\end{equation}</div>
+<div class="p">while the leading term satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-half-leading"></span>\begin{equation}\tag{SJ.28}
+b_-B\le\norm{L_B\Lambda D}_\F^2\le b_+B,\qquad b_-\defeq\frac{8c^2f_-^2}{\pi^3L^2f_+^2},\quad b_+\defeq\frac{2L^2f_+^2}{\pi c^2f_-^2}.
+\end{equation}</div>
+<div class="p">In particular the relative error of the mean update in <span class="mi">\(L^2(U)\)</span> Frobenius norm is at most <span class="mi">\(\sqrt{C_*/(b_-B)}\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The diagonal normalization of <a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> is replaced by the constant <span class="mi">\(\bar\mu\)</span>. Since <span class="mi">\(U^\T U\Lambda D=\Lambda D\)</span> and <span class="mi">\(\sqrt{2/\pi}\,\mathcal N_B/\sqrt{2\cR\bar\mu}=L_B\)</span>,</div>
+<div class="md">\[
+U^\T M-L_B\Lambda D=U^\T E+U^\T N,\qquad N\defeq\sqrt{\frac2\pi}\,\frac{\mathcal N_B}{\sqrt{2\cR}}\big(D_v^{-1/2}-\bar\mu^{-1/2}\Id\big)U\Lambda D .
+\]</div>
+<div class="p">The correction <span class="mi">\(N\)</span> is controlled by the fluctuation of the diagonal of <span class="mi">\(\Sigmaout\)</span>. On <span class="mi">\([c,L]\)</span> the derivative of <span class="mi">\(x^{-1/2}\)</span> is at most <span class="mi">\(\frac12c^{-3/2}\)</span> in absolute value, and the <span class="mi">\(p\)</span>th row of <span class="mi">\(U\Lambda D\)</span> has squared norm <span class="mi">\(e_p\defeq\omega_p^\T T_D\omega_p\)</span>. Hence</div>
+<div class="md">\[
+\EE_U\norm N_\F^2\le\frac{\frac2\pi B}{4P_-c^3}\sum_p\EE_U\big[(v_p-\bar\mu)^2e_p\big].
+\]</div>
+<div class="p">The two factors are dependent, and Cauchy–Schwarz with <a class="ref" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> gives</div>
+<div class="md">\[
+\EE_U\big[(v_p-\bar\mu)^2e_p\big]\le\big(\EE_U(v_p-\bar\mu)^4\,\EE_Ue_p^2\big)^{1/2}\le\Big(\frac{60L^4}{\Nout^2}\cdot\frac{3H_0^2}{\Nout^2}\Big)^{1/2}=\frac{\sqrt{180}\,L^2H_0}{\Nout^2}.
+\]</div>
+<div class="p">Summing over <span class="mi">\(\Nout\)</span> rows and using <span class="mi">\(B\le K\Nout\)</span> gives <span class="mi">\(\EE_U\norm N_\F^2\le C_N\defeq\frac2\pi K\sqrt{180}L^2H_0/(4P_-c^3)\)</span>.</div>
+<div class="p">Orthogonal invariance of the Frobenius norm, <span class="mi">\(\norm{X+Y}_\F^2\le2\norm X_\F^2+2\norm Y_\F^2\)</span> and <a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> give <a class="ref" href="r.thm.app-sgd-half-drift.html#L-eqn:app-sgd-half-drift" data-label="eqn:app-sgd-half-drift">(SJ.27)</a> with <span class="mi">\(C_*\defeq2C_E+2C_N\)</span>.</div>
+<div class="p">For <a class="ref" href="r.thm.app-sgd-half-drift.html#L-eqn:app-sgd-half-leading" data-label="eqn:app-sgd-half-leading">(SJ.28)</a>, write</div>
+<div class="md">\[
+\norm{L_B\Lambda D}_\F^2=\frac2\pi\,\frac{\mathcal N_B^2\,\norm{\Lambda D}_\F^2}{2\cR\,\bar\mu},
+\]</div>
+<div class="p">and use <span class="mi">\(c^2f_-^2\le\norm{\Lambda D}_\F^2\le L^2f_+^2\)</span>, <span class="mi">\(c^2f_-^2\le2\cR\bar\mu\le L^2f_+^2\)</span>, and <span class="mi">\(4B/\pi^2\le\mathcal N_B^2\le B\)</span> from <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-corollary" id="L-cor:app-sgd-half-pairings"><div class="thm-head"><a class="thm-name" href="r.cor.app-sgd-half-pairings.html" data-label="cor:app-sgd-half-pairings">Corollary SJ.1</a> <span class="thm-title">(Row and risk drift)</span></div><div class="thm-body"><div class="p">Under the hypotheses of <a class="ref" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-row-drift"></span><span class="anchor" id="L-eqn:app-sgd-risk-drift"></span>\begin{align}
+\sum_{i=1}^{\Nout}\Big|\EE\big\langle\Delta^\T u_i,S^\T u_i\big\rangle-L_B\,\mu_i\,\CMscr Q_i(\Delta)\Big|&amp;\le f_+\sqrt{C_*},\tag{SJ.29}\\
+\Big|\EE\big\langle\Delta,S\big\rangle_\Sigma-L_B\,\norm{\Lambda D}_\F^2\Big|&amp;\le Lf_+\sqrt{C_*},\tag{SJ.30}
+\end{align}</div>
+<div class="p">and the leading total satisfies <span class="mi">\(L_B\norm{\Lambda D}_\F^2\ge d_-\sqrt B\)</span> with <span class="mi">\(d_-\defeq2\sqrt{2/\pi}\,c^2f_-^2/(\pi Lf_+)\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(T_U\defeq U^\T M(U)-L_B\Lambda D\)</span>. The row pairing given <span class="mi">\(U\)</span> is <span class="mi">\(\langle D_{i\cdot},(U^\T M)_{i\cdot}\rangle\)</span>, because <span class="mi">\(u_i^\T\Delta=D_{i\cdot}\)</span> and <span class="mi">\(u_i^\T M=(U^\T M)_{i\cdot}\)</span>, and <span class="mi">\(L_B\mu_i\norm{D_{i\cdot}}^2=\langle D_{i\cdot},(L_B\Lambda D)_{i\cdot}\rangle\)</span>. Cauchy–Schwarz in the row sum gives</div>
+<div class="md">\[
+\sum_i\abs{\langle D_{i\cdot},(T_U)_{i\cdot}\rangle}\le\norm D_\F\norm{T_U}_\F ,
+\]</div>
+<div class="p">and <span class="mi">\(\EE_U\norm{T_U}_\F\le\sqrt{C_*}\)</span> by <a class="ref" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a>. Since <span class="mi">\(D\)</span> is deterministic, averaging over <span class="mi">\(U\)</span> gives <a class="ref" href="r.cor.app-sgd-half-pairings.html#L-eqn:app-sgd-row-drift" data-label="eqn:app-sgd-row-drift">(SJ.29)</a>. For <a class="ref" href="r.cor.app-sgd-half-pairings.html#L-eqn:app-sgd-risk-drift" data-label="eqn:app-sgd-risk-drift">(SJ.30)</a>, <span class="mi">\(\langle\Delta,S\rangle_\Sigma=\langle U\Lambda D,S\rangle_\F\)</span>, whose batch mean is <span class="mi">\(\langle\Lambda D,U^\T M\rangle_\F\)</span>, and <span class="mi">\(\norm{\Lambda D}_\F\le Lf_+\)</span>. The lower bound uses <span class="mi">\(\mathcal N_B\ge\frac2\pi\sqrt B\)</span>, <span class="mi">\(\norm{\Lambda D}_\F^2\ge c^2f_-^2\)</span> and <span class="mi">\(\sqrt{2\cR\bar\mu}\le Lf_+\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The relative error of the total drift is therefore at most <span class="mi">\(Lf_+\sqrt{C_*}/(d_-\sqrt B)\)</span>. In the notation of the main text, <span class="mi">\(L_B\mu_i\CMscr Q_i=\mathfrak d_i\CMscr Q_i/\sqrt{\cR}\)</span> with <span class="mi">\(\mathfrak d_i=\mu_i\mathcal N_B/\sqrt{\pi\bar\mu}\)</span>, which is the tabulated drift <span class="mi">\(\mu_i\sqrt{B/(\pi\bar\mu)}\)</span> with <span class="mi">\(\sqrt B\)</span> replaced by <span class="mi">\(\mathcal N_B\)</span>; by <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> the two differ by a factor in <span class="mi">\([1-4/B,1]\)</span>.</div>
+<h4 id="h-SJ.4.3"><span class="h-num">SJ.4.3</span> Half-anisotropic volatility</h4>
+<div class="p">The update factors through the eigenbasis. With <span class="mi">\(A\defeq\Lambda^{1/2}D\)</span>, which is <span class="mi">\(U^\T\At\)</span> for the rotated error of <a class="ref" href="s.SA.html#L-eqn:app-setup-whitened" data-label="eqn:app-setup-whitened">(SA.9)</a>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-H"></span>\begin{equation}\tag{SJ.31}
+G^\circ=UH,\qquad H\defeq\frac1B\sum_{b=1}^B\big(z_b^\T Aw_b\big)\,\Lambda^{1/2}z_b\tensor w_b ,
+\end{equation}</div>
+<div class="p">and <span class="mi">\(H\)</span> is independent of <span class="mi">\(U\)</span>. Its <span class="mi">\(j\)</span>th column is the mean <span class="mi">\(h_j=\frac1B\sum_bX_b\)</span> of independent copies of</div>
+<div class="md">\[
+X\defeq\big(z^\T Aw\big)\,w_j\,\Lambda^{1/2}z\in\R^{\Nout},\qquad
+m_j\defeq\Lambda D_{\cdot j},\qquad Z\defeq X-m_j .
+\]</div><div class="thm thm-lemma" id="L-lem:app-sgd-column"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class="thm-title">(Column moments)</span></div><div class="thm-body"><div class="p">There are admissible constants <span class="mi">\(V_0\)</span>, <span class="mi">\(A_4\)</span>, <span class="mi">\(A_8\)</span> such that, for every column <span class="mi">\(j\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-cov"></span><span class="anchor" id="L-eqn:app-sgd-hh"></span><span class="anchor" id="L-eqn:app-sgd-HH"></span>\begin{align}
+\EE X&amp;=m_j,\qquad V_j\defeq\EE[Z\tensor Z]=(2\cR+2C_j)\Lambda+2T_D+3\,m_j\tensor m_j,\tag{SJ.32}\\
+\EE[h_j\tensor h_j]&amp;=\frac{2\cR+2C_j}B\,\Lambda+\frac2B\,T_D+\Big(1+\frac3B\Big)m_j\tensor m_j,\tag{SJ.33}\\
+\EE[HH^\T]&amp;=\frac{2\cR\,(\Nin+2)}B\,\Lambda+\Big(1+\frac{2\Nin+3}B\Big)T_D,\tag{SJ.34}
+\end{align}</div>
+<div class="p">with <span class="mi">\(C_j=D_{\cdot j}^\T\Lambda D_{\cdot j}\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-Vbound"></span><span class="anchor" id="L-eqn:app-sgd-dir"></span><span class="anchor" id="L-eqn:app-sgd-vec"></span>\begin{gather}
+V_j\succeq2\cR\,\Lambda,\qquad \norm{V_j}\le V_0,\qquad \norm{m_j}^2\le\frac{L^2C_{\rm col}}k,\tag{SJ.35}\\
+\EE\abs{a^\T Z}^4\le A_4\norm a^4,\quad \EE\abs{a^\T Z}^8\le A_8\norm a^8\quad(a\in\R^{\Nout}),\tag{SJ.36}\\
+\EE\norm Z^4\le A_4\Nout^2,\quad \EE\norm Z^8\le A_8\Nout^4 .\tag{SJ.37}
+\end{gather}</div>
+<div class="p">Every column <span class="mi">\(h_j\)</span> is nonzero almost surely.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Mean and covariance.</em> Put <span class="mi">\(y=\Lambda^{1/2}z\)</span>. Integrating <span class="mi">\(w\)</span> first with the Gaussian identities <span class="mi">\(\EE[(y^\T Dw)w_j]=y^\T D_{\cdot j}\)</span> and <span class="mi">\(\EE[(y^\T Dw)^2w_j^2]=y^\T DD^\T y+2(y^\T D_{\cdot j})^2\)</span>, and then <span class="mi">\(z\)</span> with the pairing identity <span class="mi">\(\EE[y\tensor y\,(y^\T My)]=\Tr(\Lambda M)\Lambda+2\Lambda M\Lambda\)</span> for symmetric <span class="mi">\(M\)</span> [<a class="cite" href="bibliography.html#bib-isserlis1918formula">29</a>], gives</div>
+<div class="md">\[
+\EE X=\Lambda D_{\cdot j},\qquad \EE[X\tensor X]=(2\cR+2C_j)\Lambda+2T_D+4\,m_j\tensor m_j .
+\]</div>
+<div class="p">Subtracting <span class="mi">\(m_j\tensor m_j\)</span> gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-cov" data-label="eqn:app-sgd-cov">(SJ.32)</a>. Averaging <span class="mi">\(B\)</span> independent copies gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-hh" data-label="eqn:app-sgd-hh">(SJ.33)</a>, and summing over <span class="mi">\(j\)</span> with <span class="mi">\(\sum_jC_j=2\cR\)</span> and <span class="mi">\(\sum_jm_j\tensor m_j=T_D\)</span> gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-HH" data-label="eqn:app-sgd-HH">(SJ.34)</a>.</div>
+<div class="p"><em>Bounds.</em> All terms of <span class="mi">\(V_j\)</span> are positive semidefinite, so <span class="mi">\(V_j\succeq2\cR\Lambda\)</span>. With <span class="mi">\(C_j\le LC_{\rm col}/k\)</span>, <span class="mi">\(\norm{m_j}^2\le L^2C_{\rm col}/k\)</span> and <span class="mi">\(\norm{T_D}\le\Tr T_D\le H_0\)</span>,</div>
+<div class="md">\[
+\norm{V_j}\le V_0\defeq LP_++2H_0+5L^2C_{\rm col}.
+\]</div>
+<div class="p"><em>Higher moments.</em> Put <span class="mi">\(r=z^\T Aw\)</span>. Conditionally on <span class="mi">\(w\)</span>, <span class="mi">\(r\)</span> is Gaussian with variance <span class="mi">\(\norm{Aw}^2\)</span>, and the convexity argument of <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> gives <span class="mi">\(\EE r^{2q}\le((2q-1)!!)^2(2\cR)^q\)</span>. For <span class="mi">\(p=4,8\)</span>, Hölder’s inequality on the three dependent factors of <span class="mi">\(a^\T X\)</span> gives</div>
+<div class="md">\[
+\EE\abs{a^\T X}^p\le\big(\EE\abs r^{3p}\,\EE\abs{w_j}^{3p}\,\EE\abs{a^\T\Lambda^{1/2}z}^{3p}\big)^{1/3}\le\big((3p-1)!!\big)^2P_+^{p/2}L^{p/2}\norm a^p .
+\]</div>
+<div class="p">Centering costs a factor <span class="mi">\(2^p\)</span>, which gives the directional bounds with <span class="mi">\(A_4\defeq16(11!!)^2P_+^2L^2\)</span> and <span class="mi">\(A_8\defeq256(23!!)^2P_+^4L^4\)</span>. The inequalities <span class="mi">\((\sum_lZ_l^2)^2\le\Nout\sum_lZ_l^4\)</span> and <span class="mi">\((\sum_lZ_l^2)^4\le\Nout^3\sum_lZ_l^8\)</span> give the vector bounds.</div>
+<div class="p"><em>Nonvanishing.</em> Some coordinate of <span class="mi">\(h_j\)</span> is a polynomial in the batch that is not identically zero. Indeed choose <span class="mi">\(w=e_j\)</span> if <span class="mi">\(D_{\cdot j}\ne0\)</span> and <span class="mi">\(w=e_j+e_l\)</span> with <span class="mi">\(D_{\cdot l}\ne0\)</span> otherwise, so that <span class="mi">\(w_j=1\)</span> and <span class="mi">\(Aw\ne0\)</span>. Taking <span class="mi">\(z=Aw\)</span> in the first sample and all other samples zero makes <span class="mi">\(h_j\)</span> a nonzero multiple of <span class="mi">\(\Lambda^{1/2}Aw\ne0\)</span>. The batch has a Gaussian density, so this coordinate is nonzero almost surely [<a class="cite" href="bibliography.html#bib-mityagin2020zero">46</a>].</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-proposition" id="L-prop:app-sgd-quadratic"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-quadratic.html" data-label="prop:app-sgd-quadratic">Proposition SJ.7</a> <span class="thm-title">(Quadratic forms of a column)</span></div><div class="thm-body"><div class="p">There are admissible constants <span class="mi">\(V_*\)</span> and <span class="mi">\(D_*\)</span> such that, for every symmetric <span class="mi">\(\Pi\in\R^{\Nout\times\Nout}\)</span> and every column <span class="mi">\(j\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-quadratic"></span>\begin{equation}\tag{SJ.38}
+\EE\Big|h_j^\T\Pi h_j-\frac{2\cR}B\Tr(\Pi\Lambda)\Big|\le\norm\Pi\Big(\sqrt{\frac{V_*}k}+\frac{D_*}k\Big).
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(W\defeq\frac1B\sum_bZ_b\)</span>, <span class="mi">\(V\defeq V_j\)</span> and <span class="mi">\(a\defeq\norm\Pi\)</span>, so that <span class="mi">\(h_j^\T\Pi h_j=m_j^\T\Pi m_j+2m_j^\T\Pi W+W^\T\Pi W\)</span>.</div>
+<div class="p"><em>The fluctuation.</em> The variance of the Gram term is</div>
+<div class="md">\[
+\Var\big(W^\T\Pi W\big)=\frac{\Var(Z_1^\T\Pi Z_1)}{B^3}+\frac{2(B-1)}{B^3}\Tr(\Pi V\Pi V).
+\]</div>
+<div class="p">To see this, expand <span class="mi">\(B^2W^\T\Pi W=\sum_bZ_b^\T\Pi Z_b+2\sum_{b&lt;b'}Z_b^\T\Pi Z_{b'}\)</span>. A covariance between two terms vanishes unless every sample index occurs in both, because an index that occurs once has a centered factor. The diagonal terms are independent, and each of the <span class="mi">\(B(B-1)/2\)</span> cross pairs has second moment <span class="mi">\(\Tr(\Pi V\Pi V)\)</span>. The two pieces are bounded by</div>
+<div class="md">\[
+\Var(Z_1^\T\Pi Z_1)\le a^2\EE\norm{Z}^4\le a^2A_4\Nout^2,\qquad \Tr(\Pi V\Pi V)=\norm{V^{1/2}\Pi V^{1/2}}_\F^2\le\Nout a^2V_0^2 .
+\]</div>
+<div class="p">The linear term has <span class="mi">\(\Var(2m_j^\T\Pi W)=4m_j^\T\Pi V\Pi m_j/B\le4a^2V_0\norm{m_j}^2/B\)</span>. With <span class="mi">\(\Var(X_1+X_2)\le2\Var X_1+2\Var X_2\)</span> and <span class="mi">\(\Nout\le Kk\le KB\)</span>,</div>
+<div class="md">\[
+\Var\big(h_j^\T\Pi h_j\big)\le a^2\Big[\frac{2A_4\Nout^2}{B^3}+\frac{4\Nout V_0^2}{B^2}+\frac{8V_0L^2C_{\rm col}}{kB}\Big]\le\frac{a^2V_*}k,
+\]</div>
+<div class="p">with <span class="mi">\(V_*\defeq2A_4K^2+4KV_0^2+8V_0L^2C_{\rm col}\)</span>.</div>
+<div class="p"><em>The bias.</em> The mean is <span class="mi">\(\Tr(\Pi V)/B+m_j^\T\Pi m_j\)</span>. By <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-cov" data-label="eqn:app-sgd-cov">(SJ.32)</a>, its difference from <span class="mi">\((2\cR/B)\Tr(\Pi\Lambda)\)</span> is at most</div>
+<div class="md">\[
+a\Big[\frac{2C_j\Tr\Lambda+2\Tr T_D+3\norm{m_j}^2}B+\norm{m_j}^2\Big]\le\frac ak\big(2L^2C_{\rm col}K+2H_0+4L^2C_{\rm col}\big)\defeq\frac{aD_*}k .
+\]</div>
+<div class="p">Cauchy–Schwarz bounds the mean absolute fluctuation by the square root of the variance, and adding the bias gives <a class="ref" href="r.prop.app-sgd-quadratic.html#L-eqn:app-sgd-quadratic" data-label="eqn:app-sgd-quadratic">(SJ.38)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The Haar sign matrix reduces the weighted volatility to the columns of <span class="mi">\(H\)</span>. Define the covariance-weighted volatility of the actual update and the corresponding sum for the main text’s array:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-Q"></span>\begin{equation}\tag{SJ.39}
+\begin{aligned}
+\mathcal Q&amp;\defeq\EE\norm S_\Sigma^2=\EE\Tr\big(\Sigmaout SS^\T\big),\\
+\mathcal Q_{\rm print}&amp;\defeq\Nin\Big[\Big(1-\frac2\pi\Big)\Tr\Lambda+\frac2\pi\,\Nout\,\frac{\Tr\Lambda^2}{\Tr\Lambda}\Big]=\sum_i\mu_i\,\mathfrak v_i^{\text{s-SGD}},
+\end{aligned}
+\end{equation}</div>
+<div class="p">where <span class="mi">\(\mathfrak v_i^{\text{s-SGD}}\defeq\Nin\big[1+\frac2\pi\big(\frac{\mu_i}{\bar\mu}-1\big)\big]\)</span> is the main text’s <span class="sc">SignSGD</span> row volatility, written for general <span class="mi">\(\Nout,\Nin\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-sgd-reduction"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a> <span class="thm-title">(Haar reduction)</span></div><div class="thm-body"><div class="p">In the Haar model, put <span class="mi">\(R_j\defeq h_j^\T\Lambda h_j/\norm{h_j}^2\)</span>. Then <span class="mi">\(c\le R_j\le L\)</span> almost surely, every entry of <span class="mi">\(G^\circ\)</span> is nonzero almost surely, <span class="mi">\(\norm S_\F^2=\Nout\Nin\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-reduction"></span>\begin{equation}\tag{SJ.40}
+\mathcal Q=\Nin\Big(1-\frac2\pi\Big)\Tr\Lambda+\frac2\pi\,\Nout\sum_{j=1}^{\Nin}\EE R_j,\qquad
+\EE\norm{S^\T u_i}^2=\Nin\Big(1-\frac2\pi\Big)+\frac2\pi\,\Nout\sum_{j=1}^{\Nin}\EE\frac{(h_j)_i^2}{\norm{h_j}^2}.
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Condition on <span class="mi">\(H\)</span>, which is independent of <span class="mi">\(U\)</span> and has nonzero columns almost surely by <a class="ref" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a>. The <span class="mi">\(j\)</span>th column of <span class="mi">\(U^\T S\)</span> is <span class="mi">\(U^\T\sign(Uh_j)\)</span>, and <a class="ref" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> applies to it. Taking the trace against <span class="mi">\(\Lambda\)</span>, and the <span class="mi">\((i,i)\)</span> entry, gives</div>
+<div class="md">\begin{gather*}
+\EE_U\big[\sign(Uh_j)^\T U\Lambda U^\T\sign(Uh_j)\big]=\Big(1-\frac2\pi\Big)\Tr\Lambda+\frac2\pi\Nout R_j,\\
+\EE_U\big[(e_i^\T U^\T\sign(Uh_j))^2\big]=1-\frac2\pi+\frac2\pi\Nout\frac{(h_j)_i^2}{\norm{h_j}^2}.
+\end{gather*}</div>
+<div class="p">Summing over <span class="mi">\(j\)</span> and averaging over <span class="mi">\(H\)</span> gives <a class="ref" href="r.lem.app-sgd-reduction.html#L-eqn:app-sgd-reduction" data-label="eqn:app-sgd-reduction">(SJ.40)</a>; no independence between columns is needed. A Haar rotation of a fixed nonzero vector has no zero coordinate almost surely, so every entry of <span class="mi">\(UH\)</span> is nonzero and <span class="mi">\(\norm S_\F^2=\Nout\Nin\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-theorem" id="L-thm:app-sgd-half-volatility"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-half-volatility.html" data-label="thm:app-sgd-half-volatility">Theorem SJ.3</a> <span class="thm-title">(Half-anisotropic weighted volatility)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> there is an admissible constant <span class="mi">\(C_{\rm vol}\)</span> such that</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-half-volatility"></span>\begin{equation}\tag{SJ.41}
+\abs{\mathcal Q-\mathcal Q_{\rm print}}\le C_{\rm vol}\,\frac{\Nout\Nin}{\sqrt k},
+\end{equation}</div>
+<div class="p">and both <span class="mi">\(\mathcal Q\)</span> and <span class="mi">\(\mathcal Q_{\rm print}\)</span> lie in <span class="mi">\([c\Nout\Nin,L\Nout\Nin]\)</span>. In particular <span class="mi">\(\abs{\mathcal Q/\mathcal Q_{\rm print}-1}\le C_{\rm vol}/(c\sqrt k)\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The ratio <span class="mi">\(R_j\)</span> is compared with <span class="mi">\(a_0\defeq\Tr\Lambda^2/\Tr\Lambda\in[c,L]\)</span> through a deterministic denominator. Put</div>
+<div class="md">\[
+x_0\defeq\frac{2\cR}B\Tr\Lambda,\qquad y_0\defeq\frac{2\cR}B\Tr\Lambda^2,\qquad x_-\defeq\frac{c^2f_-^2}K\le x_0 .
+\]</div>
+<div class="p">On the almost sure event <span class="mi">\(h_j\ne0\)</span>,</div>
+<div class="md">\[
+R_j-a_0=\frac{h_j^\T\Lambda h_j-y_0}{x_0}+R_j\,\frac{x_0-\norm{h_j}^2}{x_0}.
+\]</div>
+<div class="p">With <span class="mi">\(\abs{R_j}\le L\)</span> and <a class="ref" href="r.prop.app-sgd-quadratic.html#L-eqn:app-sgd-quadratic" data-label="eqn:app-sgd-quadratic">(SJ.38)</a> for <span class="mi">\(\Pi=\Lambda\)</span> and <span class="mi">\(\Pi=\Id\)</span>,</div>
+<div class="md">\[
+\abs{\EE R_j-a_0}\le\frac{2L}{x_-}\Big(\sqrt{\frac{V_*}k}+\frac{D_*}k\Big).
+\]</div>
+<div class="p">Inserting this in <a class="ref" href="r.lem.app-sgd-reduction.html#L-eqn:app-sgd-reduction" data-label="eqn:app-sgd-reduction">(SJ.40)</a>, summing over the <span class="mi">\(\Nin\)</span> columns and using <span class="mi">\(k^{-1}\le k^{-1/2}\)</span> gives <a class="ref" href="r.thm.app-sgd-half-volatility.html#L-eqn:app-sgd-half-volatility" data-label="eqn:app-sgd-half-volatility">(SJ.41)</a> with <span class="mi">\(C_{\rm vol}\defeq\frac{4L}{\pi x_-}(\sqrt{V_*}+D_*)\)</span>, since <span class="mi">\(\mathcal Q_{\rm print}=\Nin(1-\frac2\pi)\Tr\Lambda+\frac2\pi\Nout\Nin a_0\)</span>.</div>
+<div class="p">For the range, <span class="mi">\(\norm S_\F^2=\Nout\Nin\)</span> and <span class="mi">\(c\Id\preceq\Sigmaout\preceq L\Id\)</span> give the bounds on <span class="mi">\(\mathcal Q\)</span>. The quotient <span class="mi">\(\mathcal Q_{\rm print}/(\Nout\Nin)=(1-\frac2\pi)\bar\mu+\frac2\pi a_0\)</span> is a convex combination of two numbers in <span class="mi">\([c,L]\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-corollary" id="L-cor:app-sgd-half-risk"><div class="thm-head"><a class="thm-name" href="r.cor.app-sgd-half-risk.html" data-label="cor:app-sgd-half-risk">Corollary SJ.2</a> <span class="thm-title">(One step of the risk)</span></div><div class="thm-body"><div class="p">In the Haar model with <span class="mi">\(k\ge k_*\)</span>, for every deterministic <span class="mi">\(\lr\ge0\)</span>,</div>
+<div class="md">\[
+\EE\,\cR(\Delta-\lr S)=\cR-\lr L_B\norm{\Lambda D}_\F^2+\frac{\lr^2}2\,\mathcal Q_{\rm print}+\mathcal E_\lr,\qquad
+\abs{\mathcal E_\lr}\le\lr Lf_+\sqrt{C_*}+\frac{\lr^2}2\,C_{\rm vol}\frac{\Nout\Nin}{\sqrt k}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Given <span class="mi">\(U\)</span>, the data satisfy <a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a> with covariance <span class="mi">\(U\Lambda U^\T\)</span>, because the whitened batch is independent of <span class="mi">\(U\)</span>. The identity <a class="ref" href="s.SJ.html#L-eqn:app-sgd-risk" data-label="eqn:app-sgd-risk">(SJ.2)</a> applied given <span class="mi">\(U\)</span> and averaged over <span class="mi">\(U\)</span> gives</div>
+<div class="md">\[
+\EE\,\cR(\Delta-\lr S)=\cR-\lr\,\EE\langle\Delta,S\rangle_\Sigma+\frac{\lr^2}2\,\mathcal Q .
+\]</div>
+<div class="p"><a class="ref" href="r.cor.app-sgd-half-pairings.html" data-label="cor:app-sgd-half-pairings">Corollary SJ.1</a> and <a class="ref" href="r.thm.app-sgd-half-volatility.html" data-label="thm:app-sgd-half-volatility">Theorem SJ.3</a> give the two error terms.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h4 id="h-SJ.4.4"><span class="h-num">SJ.4.4</span> The corrected row volatility</h4>
+<div class="p">The weighted total of the main text’s row array is correct to leading order, but the individual rows are not: the actual row volatility depends on the state. The proof controls the random column norms in <a class="ref" href="r.lem.app-sgd-reduction.html#L-eqn:app-sgd-reduction" data-label="eqn:app-sgd-reduction">(SJ.40)</a> to fourth order.</div><div class="thm thm-lemma" id="L-lem:app-sgd-partition"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> <span class="thm-title">(Fourth moments of sums)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(Z\in\R^{\Nout}\)</span> be centered with covariance <span class="mi">\(V\)</span> and satisfy <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-dir" data-label="eqn:app-sgd-dir">(SJ.36)</a> and <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-vec" data-label="eqn:app-sgd-vec">(SJ.37)</a>, let <span class="mi">\(Z_1,\dots,Z_B\)</span> be independent copies, and put <span class="mi">\(S_s\defeq\sum_{b\le s}Z_b\)</span>,</div>
+<div class="md">\[
+\mathcal W\defeq\sum_{b\ne b'}\langle Z_b,Z_{b'}\rangle,\qquad \mathcal D_B\defeq\sum_{b=1}^B\big(\norm{Z_b}^2-\Tr V\big).
+\]</div>
+<div class="p">Then, for <span class="mi">\(0\le s\le B\)</span> and <span class="mi">\(a\in\R^{\Nout}\)</span>,</div>
+<div class="md">\begin{gather*}
+\EE\norm{S_s}^4\le3A_4s^2\Nout^2,\qquad \EE(a^\T S_s)^4\le3A_4s^2\norm a^4,\\
+\EE\mathcal W^4\le144A_4^2B^4\Nout^2,\qquad \EE\mathcal D_B^4\le(16A_8+3A_4^2)B^2\Nout^4 .
+\end{gather*}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Sums.</em> In the expansion of <span class="mi">\(\norm{S_s}^4\)</span>, a term in which some sample index occurs once has mean zero. The remaining terms give</div>
+<div class="md">\[
+\EE\norm{S_s}^4=s\,\EE\norm Z^4+s(s-1)\big[(\Tr V)^2+2\Tr V^2\big].
+\]</div>
+<div class="p">With <span class="mi">\(\Tr V\le\Nout\sqrt{A_4}\)</span> and <span class="mi">\(\Tr V^2\le\Nout A_4\)</span>, which follow from <span class="mi">\(a^\T Va\le(\EE\abs{a^\T Z}^4)^{1/2}\)</span>, this is at most <span class="mi">\(3A_4s^2\Nout^2\)</span>. The scalar case is <span class="mi">\(s\,\EE(a^\T Z)^4+3s(s-1)(a^\T Va)^2\le3A_4s^2\norm a^4\)</span>.</div>
+<div class="p"><em>The off-diagonal sum.</em> A random partition splits <span class="mi">\(\mathcal W\)</span> into independent sums. Let <span class="mi">\(\epsilon_1,\dots,\epsilon_B\)</span> be independent fair Bernoulli selectors, independent of the <span class="mi">\(Z_b\)</span>. For fixed vectors,</div>
+<div class="md">\[
+\mathcal W=4\,\EE_\epsilon\Big\langle\sum_b\epsilon_bZ_b,\ \sum_{b'}(1-\epsilon_{b'})Z_{b'}\Big\rangle ,
+\]</div>
+<div class="p">because diagonal coefficients vanish and each ordered off-diagonal pair has coefficient <span class="mi">\(\frac14\)</span> in mean. Jensen’s inequality gives a factor <span class="mi">\(4^4\)</span>. For a fixed partition into <span class="mi">\(s\)</span> and <span class="mi">\(s'\)</span> samples the two sums are independent; conditioning on the second and applying the two bounds above gives</div>
+<div class="md">\[
+\EE\abs{\langle S_s,S'_{s'}\rangle}^4\le3A_4s^2\,\EE\norm{S'_{s'}}^4\le9A_4^2s^2s'^2\Nout^2 .
+\]</div>
+<div class="p">With <span class="mi">\(ss'\le B^2/4\)</span>, the constant is <span class="mi">\(4^4\cdot9/16=144\)</span>.</div>
+<div class="p"><em>The diagonal sum.</em> For <span class="mi">\(Y\defeq\norm Z^2-\Tr V\)</span>, Jensen’s inequality gives <span class="mi">\(\EE Y^4\le16\,\EE\norm Z^8\le16A_8\Nout^4\)</span> and <span class="mi">\(\EE Y^2\le\EE\norm Z^4\le A_4\Nout^2\)</span>, and for independent centered summands <span class="mi">\(\EE\mathcal D_B^4=B\,\EE Y^4+3B(B-1)(\EE Y^2)^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-sgd-column-norm"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> <span class="thm-title">(Column norms)</span></div><div class="thm-body"><div class="p">In the Haar model put <span class="mi">\(x_0\defeq2\cR\Tr\Lambda/B\)</span>. There are admissible constants <span class="mi">\(C_{\rm good}\)</span>, <span class="mi">\(C_{\rm bad}\)</span> such that, for every column <span class="mi">\(j\)</span> and row <span class="mi">\(i\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-ratio"></span>\begin{equation}\tag{SJ.42}
+\EE\Big|\frac{(h_j)_i^2}{\norm{h_j}^2}-\frac{(h_j)_i^2}{x_0}\Big|\le\frac{C_{\rm good}}{k^{3/2}}+\frac{C_{\rm bad}}{k^2}.
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>The centered norm.</em> Write <span class="mi">\(h_j=m_j+S_B/B\)</span> with <span class="mi">\(S_B\)</span> as in <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> for <span class="mi">\(Z=X-m_j\)</span>. Then exactly</div>
+<div class="md">\[
+\norm{h_j}^2-\EE\norm{h_j}^2=\frac{2m_j^\T S_B}B+\frac{\mathcal D_B}{B^2}+\frac{\mathcal W}{B^2}.
+\]</div>
+<div class="p">The first term has fourth moment at most <span class="mi">\(48A_4\norm{m_j}^4/B^2\le48A_4H_0^2/k^2\)</span>. <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> and <span class="mi">\(\Nout\le Kk\le KB\)</span> bound the other two by <span class="mi">\((16A_8+3A_4^2)K^4/k^2\)</span> and <span class="mi">\(144A_4^2K^2/k^2\)</span>. With <span class="mi">\(\abs{x+y+z}^4\le27(x^4+y^4+z^4)\)</span>,</div>
+<div class="md">\[
+\EE\big(\norm{h_j}^2-\EE\norm{h_j}^2\big)^4\le\frac{F_4}{k^2},\qquad F_4\defeq27\big[48A_4H_0^2+(16A_8+3A_4^2)K^4+144A_4^2K^2\big].
+\]</div>
+<div class="p"><em>The bias.</em> Taking traces in <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-hh" data-label="eqn:app-sgd-hh">(SJ.33)</a>,</div>
+<div class="md">\[
+0\le\EE\norm{h_j}^2-x_0=\frac{2C_j\Tr\Lambda+2\Tr T_D}B+\Big(1+\frac3B\Big)\norm{m_j}^2\le\frac{b_0}k,
+\]</div>
+<div class="p">with <span class="mi">\(b_0\defeq2L^2KC_{\rm col}+2LP_++4L^2C_{\rm col}\)</span>. Hence, with <span class="mi">\(Q_4\defeq8(F_4+b_0^4)\)</span>,</div>
+<div class="md">\[
+\EE\big(\norm{h_j}^2-x_0\big)^4\le\frac{Q_4}{k^2},\qquad \EE\big(\norm{h_j}^2-x_0\big)^2\le\frac{\sqrt{Q_4}}k .
+\]</div>
+<div class="p">The same decomposition and <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> give <span class="mi">\(\EE(h_j)_i^4\le H_4/k^2\)</span> with <span class="mi">\(H_4\defeq8(L^4C_{\rm col}^2+3A_4)\)</span>. Also <span class="mi">\(x_0\ge a_0\defeq P_-c/K\)</span>.</div>
+<div class="p"><em>The ratio.</em> Put <span class="mi">\(\delta\defeq\norm{h_j}^2-x_0\)</span>. On <span class="mi">\(\{\norm{h_j}^2\ge x_0/2\}\)</span>,</div>
+<div class="md">\[
+(h_j)_i^2\,\Big|\frac1{\norm{h_j}^2}-\frac1{x_0}\Big|\le\frac{2}{a_0^2}\,(h_j)_i^2\abs\delta ,
+\]</div>
+<div class="p">whose mean is at most <span class="mi">\(2a_0^{-2}(H_4/k^2)^{1/2}(\sqrt{Q_4}/k)^{1/2}=C_{\rm good}k^{-3/2}\)</span> by Cauchy–Schwarz. Markov’s inequality gives <span class="mi">\(\PP(\norm{h_j}^2&lt;x_0/2)\le16Q_4/(a_0^4k^2)\defeq b_1/k^2\)</span>. On that event <span class="mi">\((h_j)_i^2/\norm{h_j}^2\le1\)</span>, and Cauchy–Schwarz gives</div>
+<div class="md">\[
+\frac1{x_0}\,\EE\big[(h_j)_i^2\,\mathbf 1_{\{\norm{h_j}^2&lt;x_0/2\}}\big]\le\frac{\sqrt{H_4b_1}}{a_0k^2}.
+\]</div>
+<div class="p">Adding the three contributions gives <a class="ref" href="r.lem.app-sgd-column-norm.html#L-eqn:app-sgd-ratio" data-label="eqn:app-sgd-ratio">(SJ.42)</a> with <span class="mi">\(C_{\rm bad}\defeq b_1+\sqrt{H_4b_1}/a_0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-theorem" id="L-thm:app-sgd-modes"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a> <span class="thm-title">(Corrected row volatility)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a>, define the raw annealed row volatility of the update and the corrected array</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-actual-row"></span><span class="anchor" id="L-eqn:app-sgd-corr"></span>\begin{align}
+\volraw_i&amp;\defeq\EE\norm{S^\T u_i}^2,\tag{SJ.43}\\
+\mathfrak v_i^{\rm corr}&amp;\defeq\Nin\Big(1-\frac2\pi\Big)+\frac2\pi\,\Nout\Big[\frac{(\Nin+2)\,\mu_i}{\Tr\Lambda}+\frac{(B+2\Nin+3)\,(T_D)_{ii}}{2\cR\,\Tr\Lambda}\Big].\tag{SJ.44}
+\end{align}</div>
+<div class="p">There is an admissible constant <span class="mi">\(C_{\rm row}\)</span> such that, for every <span class="mi">\(i\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-modes"></span>\begin{equation}\tag{SJ.45}
+\abs{\volraw_i-\mathfrak v_i^{\rm corr}}\le C_{\rm row}\,\frac{\Nin}{\sqrt k},\qquad
+\Big|\frac{\volraw_i}{\mathfrak v_i^{\rm corr}}-1\Big|\le\frac{C_{\rm row}}{(1-2/\pi)\sqrt k}.
+\end{equation}</div>
+<div class="p">The actual total is exact, <span class="mi">\(\sum_i\volraw_i=\Nout\Nin\)</span>, while</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-excess"></span>\begin{equation}\tag{SJ.46}
+\sum_i\mathfrak v_i^{\rm corr}-\Nout\Nin=\frac2\pi\,\Nout\Big[2+\frac{(B+2\Nin+3)\Tr T_D}{2\cR\,\Tr\Lambda}\Big]\in\Big(0,\ \frac2\pi\Nout\big[2+(3K+3)L/c\big]\Big].
+\end{equation}</div>
+<div class="p">The corrected array exceeds the main text’s array row by row:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-difference"></span>\begin{equation}\tag{SJ.47}
+\mathfrak v_i^{\rm corr}-\mathfrak v_i^{\text{s-SGD}}=\frac2\pi\,\Nout\Big[\frac{2\mu_i}{\Tr\Sigmaout}+\frac{(B+2\Nin+3)\,(\Lambda DD^\T\Lambda)_{ii}}{2\cR\,\Tr\Sigmaout}\Big]\ge0 .
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>The row volatility.</em> By <a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a>,</div>
+<div class="md">\[
+\volraw_i=\Nin\Big(1-\frac2\pi\Big)+\frac2\pi\,\Nout\sum_{j=1}^{\Nin}\EE\frac{(h_j)_i^2}{\norm{h_j}^2}.
+\]</div>
+<div class="p">Replacing each <span class="mi">\(\norm{h_j}^2\)</span> by <span class="mi">\(x_0\)</span> costs, by <a class="ref" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> and <span class="mi">\(\Nout\le Kk\)</span>, at most</div>
+<div class="md">\[
+\frac2\pi\,\Nout\Nin\Big(\frac{C_{\rm good}}{k^{3/2}}+\frac{C_{\rm bad}}{k^2}\Big)\le C_{\rm row}\frac{\Nin}{\sqrt k},\qquad C_{\rm row}\defeq\frac2\pi K(C_{\rm good}+C_{\rm bad}).
+\]</div>
+<div class="p">The replaced sum is <span class="mi">\(\sum_j\EE(h_j)_i^2/x_0=(\EE HH^\T)_{ii}/x_0\)</span>, and <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-HH" data-label="eqn:app-sgd-HH">(SJ.34)</a> with <span class="mi">\(x_0=2\cR\Tr\Lambda/B\)</span> identifies it:</div>
+<div class="md">\[
+\frac{(\EE HH^\T)_{ii}}{x_0}=\frac{(\Nin+2)\mu_i}{\Tr\Lambda}+\frac{(B+2\Nin+3)(T_D)_{ii}}{2\cR\Tr\Lambda}.
+\]</div>
+<div class="p">This proves the first bound in <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-modes" data-label="eqn:app-sgd-modes">(SJ.45)</a>. The relative bound follows from <span class="mi">\(\mathfrak v_i^{\rm corr}\ge\Nin(1-2/\pi)\)</span>.</div>
+<div class="p"><em>Totals.</em> By <a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a>, <span class="mi">\(\norm S_\F^2=\Nout\Nin\)</span>, and <span class="mi">\(\sum_i\norm{S^\T u_i}^2=\norm S_\F^2\)</span> by orthogonality. Summing <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-corr" data-label="eqn:app-sgd-corr">(SJ.44)</a> over <span class="mi">\(i\)</span> gives the identity in <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-excess" data-label="eqn:app-sgd-excess">(SJ.46)</a>. Its bracket is positive, and <span class="mi">\(\Tr T_D\le2\cR L\)</span>, <span class="mi">\(\Tr\Lambda\ge c\Nout\)</span> and <span class="mi">\(B+2\Nin+3\le(3K+3)\Nout\)</span> give the upper bound.</div>
+<div class="p"><em>The difference.</em> The main text’s array is <span class="mi">\(\mathfrak v_i^{\text{s-SGD}}=\Nin(1-\frac2\pi)+\frac2\pi\Nout\Nin\mu_i/\Tr\Lambda\)</span>. Subtracting it from <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-corr" data-label="eqn:app-sgd-corr">(SJ.44)</a> gives <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-difference" data-label="eqn:app-sgd-difference">(SJ.47)</a>, with <span class="mi">\(\Tr\Sigmaout=\Tr\Lambda\)</span> and <span class="mi">\(T_D=\Lambda DD^\T\Lambda\)</span>. Both terms are nonnegative.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">For <span class="mi">\(\Nout=\Nin=N\)</span> the total excess is of order <span class="mi">\(N\)</span> against a total <span class="mi">\(N^2\)</span>, and the weighted totals agree to leading order by <a class="ref" href="r.thm.app-sgd-half-volatility.html" data-label="thm:app-sgd-half-volatility">Theorem SJ.3</a>. For an individual row the state-dependent term can be of the same order as <span class="mi">\(\mathfrak v_i^{\text{s-SGD}}\)</span>: for <span class="mi">\(\Lambda=\Id\)</span>, <span class="mi">\(B=N\)</span> and <span class="mi">\(D=e_1\tensor\mathbf 1/\sqrt N\)</span>, the corrected coefficient of the first row is <span class="mi">\((1+\frac6\pi)N+\frac{10}\pi\)</span>, whereas <span class="mi">\(\mathfrak v_1^{\text{s-SGD}}=N\)</span>.</div><div class="thm thm-proposition" id="L-prop:signsgd-recursion-anisotropic"><div class="thm-head"><a class="thm-name" href="r.prop.signsgd-recursion-anisotropic.html" data-label="prop:signsgd-recursion-anisotropic">Proposition SJ.8</a> <span class="thm-title">(Half-anisotropic <span class="sc">SignSGD</span> recursion)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> with <span class="mi">\(k\ge k_*\)</span>, let <span class="mi">\(\lr\ge0\)</span> be deterministic and <span class="mi">\(\Delta^+=\Delta-\lr S\)</span>. Then, with <span class="mi">\(\mathfrak d_i\defeq\mu_i\mathcal N_B/\sqrt{\pi\bar\mu}\)</span>, there are real numbers <span class="mi">\(E_1,\dots,E_{\Nout}\)</span> such that</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-risk-recursion-anisotropic"></span>\begin{equation}\tag{SJ.48}
+\EE\,\CMscr Q_i(\Delta^+)=\CMscr Q_i(\Delta)-\frac{2\lr\,\mathfrak d_i}{\sqrt\cR}\,\CMscr Q_i(\Delta)+\lr^2\,\mathfrak v_i^{\rm corr}+E_i,\qquad
+\sum_i\abs{E_i}\le2\lr f_+\sqrt{C_*}+\lr^2C_{\rm row}\,\frac{\Nout\Nin}{\sqrt k}.
+\end{equation}</div>
+<div class="p">The risk satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-aniso-risk"></span>\begin{equation}\tag{SJ.49}
+\EE\,\cR(\Delta^+)=\cR-\lr\sum_i\frac{\mu_i\,\mathfrak d_i}{\sqrt\cR}\,\CMscr Q_i(\Delta)+\frac{\lr^2}2\sum_i\mu_i\,\mathfrak v_i^{\text{s-SGD}}+\mathcal E_\lr,
+\end{equation}</div>
+<div class="p">with <span class="mi">\(\mathcal E_\lr\)</span> bounded as in <a class="ref" href="r.cor.app-sgd-half-risk.html" data-label="cor:app-sgd-half-risk">Corollary SJ.2</a>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Given <span class="mi">\(U\)</span>, the state is fixed and the whitened batch is independent of <span class="mi">\(U\)</span>, so <a class="ref" href="s.SJ.html#L-eqn:app-sgd-row" data-label="eqn:app-sgd-row">(SJ.3)</a> applies given <span class="mi">\(U\)</span>. Averaging over <span class="mi">\(U\)</span> gives</div>
+<div class="md">\[
+\EE\,\CMscr Q_i(\Delta^+)=\CMscr Q_i(\Delta)-2\lr\,\EE\langle\Delta^\T u_i,S^\T u_i\rangle+\lr^2\volraw_i .
+\]</div>
+<div class="p">The identity <span class="mi">\(L_B\mu_i=\mathfrak d_i/\sqrt\cR\)</span> holds by the definition of <span class="mi">\(L_B\)</span>. Define <span class="mi">\(E_i\)</span> as <span class="mi">\(-2\lr\)</span> times the error in <a class="ref" href="r.cor.app-sgd-half-pairings.html#L-eqn:app-sgd-row-drift" data-label="eqn:app-sgd-row-drift">(SJ.29)</a> plus <span class="mi">\(\lr^2(\volraw_i-\mathfrak v_i^{\rm corr})\)</span>. <a class="ref" href="r.cor.app-sgd-half-pairings.html" data-label="cor:app-sgd-half-pairings">Corollary SJ.1</a> and <a class="ref" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a> bound the sum of their absolute values. The risk identity is <a class="ref" href="r.cor.app-sgd-half-risk.html" data-label="cor:app-sgd-half-risk">Corollary SJ.2</a>, since <span class="mi">\(L_B\norm{\Lambda D}_\F^2=\sum_iL_B\mu_i^2\norm{D_{i\cdot}}^2\)</span> and <span class="mi">\(\mathcal Q_{\rm print}=\sum_i\mu_i\mathfrak v_i^{\text{s-SGD}}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The proposition is the main text’s recursion <a class="ref" href="paper.pdf#equation.4.14" data-label="eqn:ri-recursion">(14)</a> for <span class="sc">SignSGD</span> at one step, with three differences that are part of its statement: the drift uses <span class="mi">\(\mathcal N_B\)</span>, which differs from <span class="mi">\(\sqrt B\)</span> by a factor in <span class="mi">\([1-4/B,1]\)</span>; the per-row volatility is the state-dependent <span class="mi">\(\mathfrak v_i^{\rm corr}\)</span>, and the main text’s array <span class="mi">\(\mathfrak v_i^{\text{s-SGD}}\)</span> is correct only in the covariance-weighted total <a class="ref" href="r.prop.signsgd-recursion-anisotropic.html#L-eqn:app-sgd-aniso-risk" data-label="eqn:app-sgd-aniso-risk">(SJ.49)</a>; and the hypotheses of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a>, among them a covariance bounded below by a fixed <span class="mi">\(c&gt;0\)</span> and a state independent of the eigenbasis, which hold at one step and are not shown to persist.</div><nav class="pn"><a href="s.SI.html">&larr; SI</a><a href="s.SK.html">SK &rarr;</a></nav></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

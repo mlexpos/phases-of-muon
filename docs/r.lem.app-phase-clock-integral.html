@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.10 (The clock integral)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.10 (The clock integral)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-clock-integral"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-clock-integral.html" data-label="lem:app-phase-clock-integral">Lemma SI.10</a> <span class="thm-title">(The clock integral)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(p&gt;1\)</span>, <span class="mi">\(q&gt;0\)</span> and <span class="mi">\(T\ge4\)</span>, and let <span class="mi">\(N\ge4\)</span> and <span class="mi">\(0&lt;\epsilon&lt;\epsilon_0(p,q,T)\)</span>. Let <span class="mi">\(Y\)</span> be continuous on <span class="mi">\([0,\infty)\)</span> with <span class="mi">\(Y\ge f_{N,q}\)</span>, and suppose that its first <span class="mi">\(T\epsilon\)</span> hit <span class="mi">\(\hat u\)</span> is attained, <span class="mi">\(0&lt;\hat u&lt;\infty\)</span> with <span class="mi">\(Y(\hat u)=T\epsilon\)</span>. Let <span class="mi">\(H\ge\hat u\)</span> and <span class="mi">\(\mathcal E\defeq\int_0^{\hat u}(\sqrt Y-\sqrt{f_{N,q}})\,\dif u\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">If <span class="mi">\(r&lt;1\)</span> and <span class="mi">\(H\le(N/4)^q\)</span>, then</div>
+<div class="md">\[
+\frac{\sqrt A}{2(1-r)}\Big(\frac AT\Big)^{(1-r)/(2r)}\epsilon^{-(1-r)/(2r)}\le\int_0^{\hat u}\sqrt Y\,\dif u\le C\,I_r(H)+\mathcal E .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(r=1\)</span> and <span class="mi">\(H\le(N/4)^q\)</span>, then <span class="mi">\(\int_0^{\hat u}\sqrt Y\,\dif u\ge\frac{\sqrt A}4\log\frac1\epsilon\)</span>, and</div>
+<div class="md">\[
+\Big|\int_0^{\hat u}\sqrt Y\,\dif u-\frac{a_q}2\log\frac1\epsilon\Big|\le K_{p,q,T}+a_q\log_+\big((1+H)\sqrt\epsilon\big)+\frac{HN^{-q}}{\sqrt{2(p-1)}}+\mathcal E ,
+\]</div>
+<div class="p">where <span class="mi">\(K_{p,q,T}\defeq C+a_q\log2+qM_{p,q}2^{-p/q}/a_q+\frac{a_q}2\log(T/A)\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(r&gt;1\)</span>, then <span class="mi">\(\frac1{2\sqrt2}\le\int_0^{\hat u}\sqrt Y\,\dif u\le J(p,q)+\mathcal E\)</span>, and</div>
+<div class="md">\begin{multline*}
+\Big|\int_0^{\hat u}\sqrt Y\,\dif u-J(p,q)\Big|\\
+\le\Big[\frac1{\sqrt{2(p-1)}}+\frac C{r-1}\Big]N^{-q(r-1)}+\frac C{r-1}\Big(1+\frac12\log\frac1{2T\epsilon}\Big)^{1-r}+\mathcal E .
+\end{multline*}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(f=f_{N,q}\)</span>. By definition,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-split"></span>\begin{equation}\tag{SI.52}
+\int_0^{\hat u}\sqrt Y\,\dif u=\int_0^{\hat u}\sqrt f\,\dif u+\mathcal E .
+\end{equation}</div>
+<div class="p">The level at the hit bounds the hit from below: <span class="mi">\(f(\hat u)\le Y(\hat u)=T\epsilon\)</span>.</div>
+<div class="p">For (i) and (ii), <span class="mi">\(\hat u\le H\le(N/4)^q\)</span>, so the lower envelope of <a class="ref" href="s.SI.html#L-eqn:app-phase-fNq" data-label="eqn:app-phase-fNq">(SI.23)</a> applies at <span class="mi">\(\hat u\)</span> and on <span class="mi">\([0,\hat u]\)</span>. At <span class="mi">\(\hat u\)</span> it gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-hit-lower"></span>\begin{equation}\tag{SI.53}
+1+\hat u\ge\Big(\frac A{T\epsilon}\Big)^{1/(2r)} .
+\end{equation}</div>
+<div class="p">For <span class="mi">\(r&lt;1\)</span>, integrating the lower envelope gives</div>
+<div class="md">\[
+\int_0^{\hat u}\sqrt f\,\dif u\ge\sqrt A\,I_r(\hat u)\ge\frac{\sqrt A}{1-r}\Big[\Big(\frac A{T\epsilon}\Big)^{(1-r)/(2r)}-1\Big]\ge\frac{\sqrt A}{2(1-r)}\Big(\frac AT\Big)^{(1-r)/(2r)}\epsilon^{-(1-r)/(2r)} ,
+\]</div>
+<div class="p">where the last step uses <span class="mi">\((A/(T\epsilon))^{(1-r)/(2r)}\ge2\)</span>, which is the last entry of <span class="mi">\(\epsilon_0\)</span>. The upper envelope gives <span class="mi">\(\int_0^{\hat u}\sqrt f\le C\,I_r(H)\)</span>, and <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-split" data-label="eqn:app-phase-split">(SI.52)</a> proves (i).</div>
+<div class="p">For <span class="mi">\(r=1\)</span>, integrating the lower envelope and using <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-hit-lower" data-label="eqn:app-phase-hit-lower">(SI.53)</a> gives</div>
+<div class="md">\[
+\int_0^{\hat u}\sqrt f\,\dif u\ge\sqrt A\log(1+\hat u)\ge\frac{\sqrt A}2\log\frac A{T\epsilon}\ge\frac{\sqrt A}4\log\frac1\epsilon ,
+\]</div>
+<div class="p">where the last step uses <span class="mi">\(\epsilon\le(A/T)^2\)</span>. For the constant, <span class="mi">\(r=1\)</span> means <span class="mi">\(p=2q+1\)</span>, so <span class="mi">\(d(p,q)=2\)</span> and <span class="mi">\(\Gamma(2)=1\)</span>. <a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a> with <span class="mi">\(2u\)</span> in place of <span class="mi">\(a\)</span>, divided by <span class="mi">\(2\)</span>, gives <span class="mi">\(\abs{f_{\infty,q}(u)-a_q^2u^{-2}}\le M_{p,q}(2u)^{-p/q}\)</span>. Dividing by <span class="mi">\(\sqrt{f_{\infty,q}}+a_q/u\ge a_q/u\)</span> gives, for <span class="mi">\(u\ge1\)</span>,</div>
+<div class="md">\[
+\Big|\sqrt{f_{\infty,q}(u)}-\frac{a_q}u\Big|\le\frac{M_{p,q}2^{-p/q}}{a_q}\,u^{-1-1/q} .
+\]</div>
+<div class="p">The right side has integral <span class="mi">\(qM_{p,q}2^{-p/q}/a_q\)</span> over <span class="mi">\([1,\infty)\)</span>, and <span class="mi">\(\sqrt{f_{\infty,q}}\le C\)</span> on <span class="mi">\([0,1]\)</span>. Together with <span class="mi">\(0\le\log(1+z)-\log z\le\log2\)</span> for <span class="mi">\(z\ge1\)</span>, this gives, for every <span class="mi">\(z\ge0\)</span>,</div>
+<div class="md">\[
+\Big|\int_0^z\sqrt{f_{\infty,q}}\,\dif u-a_q\log(1+z)\Big|\le C+a_q\log2+\frac{qM_{p,q}2^{-p/q}}{a_q} .
+\]</div>
+<div class="p">The finite sum differs from the infinite one by <span class="mi">\(0\le f_{\infty,q}-f\le N^{1-p}/(2(p-1))\)</span> (<a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a>), and <span class="mi">\(N^{(1-p)/2}=N^{-q}\)</span>, so</div>
+<div class="md">\[
+0\le\int_0^{\hat u}\big(\sqrt{f_{\infty,q}}-\sqrt f\big)\,\dif u\le\frac{\hat uN^{-q}}{\sqrt{2(p-1)}}\le\frac{HN^{-q}}{\sqrt{2(p-1)}} .
+\]</div>
+<div class="p">Finally <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-hit-lower" data-label="eqn:app-phase-hit-lower">(SI.53)</a> and <span class="mi">\(\hat u\le H\)</span> give</div>
+<div class="md">\[
+-\frac12\log\frac TA\le\log(1+\hat u)-\frac12\log\frac1\epsilon\le\log\big((1+H)\sqrt\epsilon\big) .
+\]</div>
+<div class="p">Combining the last three displays with <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-split" data-label="eqn:app-phase-split">(SI.52)</a> proves (ii).</div>
+<div class="p">For (iii), <span class="mi">\(\sqrt{f_{\infty,q}}\le C(1+u)^{-r}\)</span> is integrable and <span class="mi">\(J(p,q)&gt;0\)</span>. Since <span class="mi">\(f\ge\frac12e^{-2u}\)</span>, the level at the hit gives <span class="mi">\(\hat u\ge l_\epsilon\defeq\frac12\log\frac1{2T\epsilon}\)</span>, and <span class="mi">\(l_\epsilon\ge\log2\)</span> because <span class="mi">\(\epsilon\le1/(8T)\)</span>. Hence</div>
+<div class="md">\[
+\int_0^{\hat u}\sqrt Y\,\dif u\ge\int_0^{\log2}\frac{e^{-u}}{\sqrt2}\,\dif u=\frac1{2\sqrt2} .
+\]</div>
+<div class="p">The upper bound follows from <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-split" data-label="eqn:app-phase-split">(SI.52)</a> and <span class="mi">\(f\le f_{\infty,q}\)</span>. For the limit, split</div>
+<div class="md">\[
+J(p,q)-\int_0^{\hat u}\sqrt f\,\dif u=\big(J(p,q)-J_N(p,q)\big)+\int_{\hat u}^\infty\sqrt f\,\dif u .
+\]</div>
+<div class="p">On <span class="mi">\([0,N^q]\)</span> the pointwise bound <span class="mi">\(\sqrt{f_{\infty,q}}-\sqrt f\le N^{(1-p)/2}/\sqrt{2(p-1)}=N^{-qr}/\sqrt{2(p-1)}\)</span> holds, and on <span class="mi">\([N^q,\infty)\)</span> the integrand is at most <span class="mi">\(C(1+u)^{-r}\)</span>; hence</div>
+<div class="md">\[
+0\le J(p,q)-J_N(p,q)\le\Big[\frac1{\sqrt{2(p-1)}}+\frac C{r-1}\Big]N^{-q(r-1)} .
+\]</div>
+<div class="p">The upper envelope and <span class="mi">\(\hat u\ge l_\epsilon\)</span> give</div>
+<div class="md">\[
+0\le\int_{\hat u}^\infty\sqrt f\,\dif u\le\frac C{r-1}(1+l_\epsilon)^{1-r} .
+\]</div>
+<div class="p">With <a class="ref" href="r.lem.app-phase-clock-integral.html#L-eqn:app-phase-split" data-label="eqn:app-phase-split">(SI.52)</a> this proves (iii).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a> <span class=muted>Convergent power sums</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li><li><a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> <span class=muted>Main covariance range</span></li><li><a class="ref" href="r.thm.app-phase-C.html" data-label="thm:app-phase-C">Theorem SI.10</a> <span class=muted>Low covariance exponents</span></li><li><a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a> <span class=muted>Two finite forcing integrals</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1039">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_i
+    {p q T ε H û : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hT : 4 ≤ T) (N : ℕ) (hN : 4 ≤ N)
+    (hε : 0 &lt; ε) (hε0 : ε &lt; clockEps0 p q T)
+    {Y : ℝ → ℝ} (hYc : ContinuousOn Y (Ici 0))
+    (hYf : ∀ u ∈ Ici (0 : ℝ), fNq (N : ℕ∞) p q u ≤ Y u)
+    (hhit : firstHit Y (T * ε) = ENNReal.ofReal û) (hû0 : 0 &lt; û) (hYû : Y û = T * ε)
+    (hûH : û ≤ H) (hr : rq p q &lt; 1) (hHN : H ≤ ((N : ℝ) / 4) ^ q) :
+    Real.sqrt (Aconst p) / (2 * (1 - rq p q)) * (Aconst p / T) ^ ((1 - rq p q) / (2 * rq p q))
+        * ε ^ (-((1 - rq p q) / (2 * rq p q)))
+      ≤ ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ∧
+    ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ≤
+        Cpq p q * Ir (rq p q) H + ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (fNq (N : ℕ∞) p q u)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1281">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_ii
+    {p q T ε H û : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hT : 4 ≤ T) (N : ℕ) (hN : 4 ≤ N)
+    (hε : 0 &lt; ε) (hε0 : ε &lt; clockEps0 p q T)
+    {Y : ℝ → ℝ} (hYc : ContinuousOn Y (Ici 0))
+    (hYf : ∀ u ∈ Ici (0 : ℝ), fNq (N : ℕ∞) p q u ≤ Y u)
+    (hhit : firstHit Y (T * ε) = ENNReal.ofReal û) (hû0 : 0 &lt; û) (hYû : Y û = T * ε)
+    (hûH : û ≤ H) (hr : rq p q = 1) (hHN : H ≤ ((N : ℝ) / 4) ^ q) :
+    Real.sqrt (Aconst p) / 4 * Real.log (1 / ε) ≤ ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ∧
+    |(∫ u in (0 : ℝ)..û, Real.sqrt (Y u)) - aQ q / 2 * Real.log (1 / ε)| ≤
+        (Cpq p q + aQ q * Real.log 2 + q * Mpq p q * (2 : ℝ) ^ (-(p / q)) / aQ q
+          + aQ q / 2 * Real.log (T / Aconst p))
+        + aQ q * max (Real.log ((1 + H) * Real.sqrt ε)) 0
+        + H * (N : ℝ) ^ (-q) / Real.sqrt (2 * (p - 1))
+        + ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (fNq (N : ℕ∞) p q u)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1773">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_iii
+    {p q T ε H û : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hT : 4 ≤ T) (N : ℕ) (hN : 4 ≤ N)
+    (hε : 0 &lt; ε) (hε0 : ε &lt; clockEps0 p q T)
+    {Y : ℝ → ℝ} (hYc : ContinuousOn Y (Ici 0))
+    (hYf : ∀ u ∈ Ici (0 : ℝ), fNq (N : ℕ∞) p q u ≤ Y u)
+    (hhit : firstHit Y (T * ε) = ENNReal.ofReal û) (hû0 : 0 &lt; û) (hYû : Y û = T * ε)
+    (hûH : û ≤ H) (hr : 1 &lt; rq p q) :
+    1 / (2 * Real.sqrt 2) ≤ ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ∧
+    ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ≤
+        Jpq p q + ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (fNq (N : ℕ∞) p q u)) ∧
+    |(∫ u in (0 : ℝ)..û, Real.sqrt (Y u)) - Jpq p q| ≤
+        (1 / Real.sqrt (2 * (p - 1)) + Cpq p q / (rq p q - 1)) * (N : ℝ) ^ (-(q * (rq p q - 1)))
+        + Cpq p q / (rq p q - 1) * (1 + 1 / 2 * Real.log (1 / (2 * T * ε))) ^ (1 - rq p q)
+        + ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (fNq (N : ℕ∞) p q u)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_rate</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1910">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_rate
+    {p q : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hr : 1 &lt; rq p q) (N : ℕ) (hN : 4 ≤ N) :
+    0 ≤ Jpq p q - JN N p q ∧
+      Jpq p q - JN N p q ≤
+        (1 / Real.sqrt (2 * (p - 1)) + Cpq p q / (rq p q - 1)) * (N : ℝ) ^ (-(q * (rq p q - 1))) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_r1_inf</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1938">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_r1_inf
+    {p q : ℝ} (hq : 0 &lt; q) (hp : p = 2 * q + 1) {z : ℝ} (hz : 0 ≤ z) :
+    |(∫ u in (0 : ℝ)..z, Real.sqrt (fNq ⊤ p q u)) - aQ q * Real.log (1 + z)| ≤
+      Cpq p q + aQ q * Real.log 2 + q * Mpq p q * (2 : ℝ) ^ (-(p / q)) / aQ q := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_clock_integral_r1_diff</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L1961">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_clock_integral_r1_diff
+    {p q : ℝ} (hq : 0 &lt; q) (hp : p = 2 * q + 1) (N : ℕ) (hN : 1 ≤ N) {z : ℝ} (hz : 0 ≤ z) :
+    0 ≤ (∫ u in (0 : ℝ)..z, (Real.sqrt (fNq ⊤ p q u) - Real.sqrt (fNq (N : ℕ∞) p q u))) ∧
+      (∫ u in (0 : ℝ)..z, (Real.sqrt (fNq ⊤ p q u) - Real.sqrt (fNq (N : ℕ∞) p q u))) ≤
+        z * (N : ℝ) ^ (-q) / Real.sqrt (2 * (p - 1)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

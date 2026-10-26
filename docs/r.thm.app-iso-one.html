@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.6 (The constant at aspect ratio one)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.6 (The constant at aspect ratio one)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-one"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-one.html" data-label="thm:app-iso-one">Theorem SF.6</a> <span class="thm-title">(The constant at aspect ratio one)</span></div><div class="thm-body"><div class="p">The constant <a class="ref" href="s.SF.html#L-eqn:app-iso-C" data-label="eqn:app-iso-C">(SF.21)</a> at <span class="mi">\(\gin=\gout=1\)</span> is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-C1"></span>\begin{equation}\tag{SF.43}
+C(1)=\frac{1+\log(1+\sqrt2)/\sqrt2}{2\sqrt\pi},
+\end{equation}</div>
+<div class="p">and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-C1-interpolation"></span>\begin{equation}\tag{SF.44}
+C(1)&gt;\frac{3}{4\sqrt\pi}&gt;\Big[\pi\Big(1+\frac{9\pi}{32}\Big)\Big]^{-1/2}.
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof changes variables from <span class="mi">\(t\)</span> to the closure variable <span class="mi">\(\xi\)</span> and then evaluates a Gaussian double integral.</div>
+<div class="p">At <span class="mi">\(\gin=\gout=1\)</span> the two transforms coincide, <span class="mi">\(\sigma=\tilde\sigma\)</span>, by <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-anchors" data-label="eqn:app-iso-anchors">(SF.6)</a>, and the closure <a class="ref" href="s.SF.html#L-eqn:app-iso-psi-zero" data-label="eqn:app-iso-psi-zero">(SF.24)</a> reads</div>
+<div class="md">\[
+\psi(t)=1-t\,\sigma(-t)=\Phi\big(t\,\sigma(-t)^2\big).
+\]</div>
+<div class="p">Put <span class="mi">\(\xi(t)\defeq(2t\sigma(-t)^2)^{-1/2}\)</span> and, for <span class="mi">\(\xi&gt;0\)</span>,</div>
+<div class="md">\[
+\bar f(\xi)\defeq1-f(\xi)=\EE\frac{2\xi^2}{V^2+2\xi^2}\qquad(V\sim\mathcal N(0,1)).
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(i), <span class="mi">\(\psi(t)=f(\xi(t))\)</span>, so that <span class="mi">\(t\sigma(-t)=\bar f(\xi(t))\)</span>. Dividing the square of this identity by <span class="mi">\(t\sigma(-t)^2=1/(2\xi(t)^2)\)</span> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-one-t"></span>\begin{equation}\tag{SF.45}
+\sqrt t=\sqrt2\,\xi(t)\,\bar f(\xi(t)).
+\end{equation}</div>
+<div class="p">The map <span class="mi">\(\xi\mapsto\sqrt2\,\xi\bar f(\xi)\)</span> is a smooth increasing bijection of <span class="mi">\((0,\infty)\)</span>. Indeed <span class="mi">\(\bar f(\xi)=1-\Phi(1/(2\xi^2))\)</span> is smooth and strictly increasing, by <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(ii) and <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(ii), and it tends to <span class="mi">\(0\)</span> as <span class="mi">\(\xi\downarrow0\)</span> and to <span class="mi">\(1\)</span> as <span class="mi">\(\xi\to\infty\)</span>, by <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(iv). By <a class="ref" href="r.thm.app-iso-one.html#L-eqn:app-iso-one-t" data-label="eqn:app-iso-one-t">(SF.45)</a>, <span class="mi">\(t\mapsto\xi(t)\)</span> is its inverse composed with <span class="mi">\(\sqrt t\)</span>.</div>
+<div class="p">The constant becomes an integral in <span class="mi">\(\xi\)</span>. By <a class="ref" href="r.prop.app-iso-zero.html#L-eqn:app-iso-C-t" data-label="eqn:app-iso-C-t">(SF.23)</a> at <span class="mi">\(\gin=\gout=1\)</span> and the substitution <span class="mi">\(t=2\xi^2\bar f(\xi)^2\)</span>, for which <span class="mi">\(t^{-1/2}\,\dif t=2\sqrt2\,(\xi\bar f)'\,\dif\xi\)</span>,</div>
+<div class="md">\[
+C(1)=\frac{1}{\sqrt2\,\pi}\int_0^\infty t^{-1/2}\psi(t)\,\dif t
+=\frac2\pi\int_0^\infty\big(1-\bar f(\xi)\big)\big(\xi\bar f(\xi)\big)'\,\dif\xi .
+\]</div>
+<div class="p">Two integrations by parts simplify the integrand. Since</div>
+<div class="md">\[
+(1-\bar f)(\xi\bar f)'=\big[(1-\bar f)\,\xi\bar f\big]'+\xi\bar f\bar f',\qquad
+\xi\bar f\bar f'=\tfrac12\big[\xi(\bar f^2-1)\big]'+\tfrac12\big(1-\bar f^2\big),
+\]</div>
+<div class="p">and the boundary terms vanish,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-one-xi"></span>\begin{equation}\tag{SF.46}
+C(1)=\frac1\pi\int_0^\infty\big(1-\bar f(\xi)^2\big)\,\dif\xi .
+\end{equation}</div>
+<div class="p">The boundary terms are at most <span class="mi">\(\xi\)</span> and <span class="mi">\(\xi\)</span> in absolute value near <span class="mi">\(0\)</span>, and at most <span class="mi">\(1/(2\xi)\)</span> and <span class="mi">\(1/\xi\)</span> near infinity, because <span class="mi">\(1-\bar f(\xi)=f(\xi)=\Phi(1/(2\xi^2))\le1/(2\xi^2)\)</span> by <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(iii).</div>
+<div class="p">The square of <span class="mi">\(\bar f\)</span> is a Gaussian double expectation. Let <span class="mi">\(U,V\)</span> be independent standard Gaussian variables, and put <span class="mi">\(\mathsf a\defeq\abs U/\sqrt2\)</span> and <span class="mi">\(\mathsf b\defeq\abs V/\sqrt2\)</span>. Then <span class="mi">\(\bar f(\xi)=\EE[\xi^2/(\xi^2+\mathsf a^2)]\)</span>, and independence gives</div>
+<div class="md">\[
+1-\bar f(\xi)^2=\EE\Big[1-\frac{\xi^4}{(\xi^2+\mathsf a^2)(\xi^2+\mathsf b^2)}\Big]
+=\EE\Big[\frac{(\mathsf a^2+\mathsf b^2)\xi^2+\mathsf a^2\mathsf b^2}{(\xi^2+\mathsf a^2)(\xi^2+\mathsf b^2)}\Big].
+\]</div>
+<div class="p">For <span class="mi">\(\mathsf a\ne\mathsf b\)</span>, which holds with probability one, partial fractions give</div>
+<div class="md">\[
+\frac{(\mathsf a^2+\mathsf b^2)\xi^2+\mathsf a^2\mathsf b^2}{(\xi^2+\mathsf a^2)(\xi^2+\mathsf b^2)}
+=\frac{1}{\mathsf a^2-\mathsf b^2}\Big(\frac{\mathsf a^4}{\xi^2+\mathsf a^2}-\frac{\mathsf b^4}{\xi^2+\mathsf b^2}\Big),
+\]</div>
+<div class="p">and with <span class="mi">\(\int_0^\infty(\xi^2+c^2)^{-1}\dif\xi=\pi/(2c)\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\frac{(\mathsf a^2+\mathsf b^2)\xi^2+\mathsf a^2\mathsf b^2}{(\xi^2+\mathsf a^2)(\xi^2+\mathsf b^2)}\,\dif\xi
+=\frac\pi2\,\frac{\mathsf a^3-\mathsf b^3}{\mathsf a^2-\mathsf b^2}=\frac\pi2\,\frac{\mathsf a^2+\mathsf a\mathsf b+\mathsf b^2}{\mathsf a+\mathsf b}.
+\]</div>
+<div class="p">Inserting this in <a class="ref" href="r.thm.app-iso-one.html#L-eqn:app-iso-one-xi" data-label="eqn:app-iso-one-xi">(SF.46)</a> gives</div>
+<div class="md">\[
+C(1)=\frac12\,\EE\frac{\mathsf a^2+\mathsf a\mathsf b+\mathsf b^2}{\mathsf a+\mathsf b}
+=\frac{1}{2\sqrt2}\,\EE\frac{U^2+\abs{UV}+V^2}{\abs U+\abs V}.
+\]</div>
+<div class="p">The expectation is computed in polar coordinates. Write <span class="mi">\((\abs U,\abs V)=R(\cos\vartheta,\sin\vartheta)\)</span>. By the Gaussian density in polar coordinates, <span class="mi">\(R\)</span> has density <span class="mi">\(re^{-r^2/2}\)</span> on <span class="mi">\((0,\infty)\)</span>, <span class="mi">\(\vartheta\)</span> is uniform on <span class="mi">\([0,\pi/2]\)</span>, and the two are independent. An integration by parts gives</div>
+<div class="md">\[
+\EE R=\int_0^\infty r^2e^{-r^2/2}\,\dif r=\int_0^\infty e^{-r^2/2}\,\dif r=\sqrt{\frac\pi2},
+\]</div>
+<div class="p">and the ratio is <span class="mi">\(R(1+\cos\vartheta\sin\vartheta)/(\cos\vartheta+\sin\vartheta)\)</span>, so</div>
+<div class="md">\[
+C(1)=\frac{1}{2\sqrt2}\sqrt{\frac\pi2}\cdot\frac2\pi\int_0^{\pi/2}\frac{1+\cos\vartheta\sin\vartheta}{\cos\vartheta+\sin\vartheta}\,\dif\vartheta
+=\frac{1}{2\sqrt\pi}\int_0^{\pi/2}\frac{1+\cos\vartheta\sin\vartheta}{\cos\vartheta+\sin\vartheta}\,\dif\vartheta .
+\]</div>
+<div class="p">Since <span class="mi">\(1+\cos\vartheta\sin\vartheta=\frac12\big((\cos\vartheta+\sin\vartheta)^2+1\big)\)</span> and <span class="mi">\(\int_0^{\pi/2}(\cos\vartheta+\sin\vartheta)\,\dif\vartheta=2\)</span>, the last integral is</div>
+<div class="md">\[
+1+\frac12\int_0^{\pi/2}\frac{\dif\vartheta}{\cos\vartheta+\sin\vartheta}
+=1+\frac{1}{2\sqrt2}\int_{\pi/4}^{3\pi/4}\frac{\dif\vartheta'}{\sin\vartheta'}
+=1+\frac{1}{2\sqrt2}\log\frac{\tan(3\pi/8)}{\tan(\pi/8)}=1+\frac{\log(1+\sqrt2)}{\sqrt2},
+\]</div>
+<div class="p">using <span class="mi">\(\cos\vartheta+\sin\vartheta=\sqrt2\sin(\vartheta+\pi/4)\)</span> with <span class="mi">\(\vartheta'=\vartheta+\pi/4\)</span>, the antiderivative <span class="mi">\(\log\tan(\vartheta'/2)\)</span> of <span class="mi">\(1/\sin\vartheta'\)</span>, and <span class="mi">\(\tan(3\pi/8)=1+\sqrt2=1/\tan(\pi/8)\)</span>. This proves <a class="ref" href="r.thm.app-iso-one.html#L-eqn:app-iso-C1" data-label="eqn:app-iso-C1">(SF.43)</a>.</div>
+<div class="p">For <a class="ref" href="r.thm.app-iso-one.html#L-eqn:app-iso-C1-interpolation" data-label="eqn:app-iso-C1-interpolation">(SF.44)</a>, the derivative of <span class="mi">\(\log(t+\sqrt{1+t^2})\)</span> is <span class="mi">\((1+t^2)^{-1/2}\)</span>, so</div>
+<div class="md">\[
+\log(1+\sqrt2)=\int_0^1\frac{\dif t}{\sqrt{1+t^2}}&gt;\frac{1}{\sqrt2},
+\]</div>
+<div class="p">because the integrand exceeds <span class="mi">\(1/\sqrt2\)</span> on <span class="mi">\([0,1)\)</span>. Hence <span class="mi">\(C(1)&gt;(1+\frac12)/(2\sqrt\pi)=3/(4\sqrt\pi)\)</span>. The second inequality is equivalent to <span class="mi">\(16/9&lt;1+9\pi/32\)</span>, that is, to <span class="mi">\(\pi&gt;224/81\)</span>, which holds because <span class="mi">\(224/81&lt;3&lt;\pi\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a> <span class=muted>Isotropic closure</span></li><li><a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a> <span class=muted>The Gaussian scalar</span></li><li><a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class=muted>Properties of the scalar functions</span></li><li><a class="ref" href="r.prop.app-iso-zero.html" data-label="prop:app-iso-zero">Proposition SF.5</a> <span class=muted>The zero-ridge constant</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-phase-iso-one.html" data-label="cor:app-phase-iso-one">Corollary SI.1</a> <span class=muted>The value at <span class="mi">\(\gamma=1\)</span></span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_one</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/One.lean#L860">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_one :
+    Cbeta 0 1 1 = (1 + Real.log (1 + Real.sqrt 2) / Real.sqrt 2) / (2 * Real.sqrt Real.pi) ∧
+    3 / (4 * Real.sqrt Real.pi) &lt; Cbeta 0 1 1 ∧
+    (Real.pi * (1 + 9 * Real.pi / 32)) ^ (-(1 / 2 : ℝ)) &lt; 3 / (4 * Real.sqrt Real.pi) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

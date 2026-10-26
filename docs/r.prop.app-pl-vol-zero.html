@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SG.4 (Volatility at zero ridge)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SG.4 (Volatility at zero ridge)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-proposition" id="L-prop:app-pl-vol-zero"><div class="thm-head"><a class="thm-name" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class="thm-title">(Volatility at zero ridge)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(0&lt;\bar z\le z_1\)</span> and <span class="mi">\(E_i\defeq A_N\bar z^{-1/2}+2\sqrt{D_i}\,\bar z^{1/4}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ell\ge0\)</span> the limit <span class="mi">\(\overline C_{i,\ell}(0)\defeq\lim_{\ridge\downarrow0}\overline C_{i,\ell}(\ridge)\)</span> exists, <span class="mi">\(\overline C_{i,0}(0)=1\)</span>, and <span class="mi">\(\abs{\overline C_{i,\ell}(\ridge)}\le E_i\,\bmom^{\ell/3}\)</span> for <span class="mi">\(0\le\ridge\le\bar z\)</span> and <span class="mi">\(\ell\ge1\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The series <span class="mi">\(\mathfrak v_i(0)\defeq1+2\sum_{\ell\ge1}\overline C_{i,\ell}(0)\)</span> converges absolutely, <span class="mi">\(\mathfrak v_i(\ridge)\to\mathfrak v_i(0)\)</span> as <span class="mi">\(\ridge\downarrow0\)</span>, and for every integer <span class="mi">\(H\ge0\)</span> and <span class="mi">\(0&lt;\ridge\le\bar z\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-vol-ridge"></span>\begin{equation}\tag{SG.21}
+\abs{\mathfrak v_i(\ridge)-\mathfrak v_i(0)}\le2(1+2H)\sqrt{D_i}\,\ridge^{1/4}+\frac{4E_i\,\bmom^{(H+1)/3}}{1-\bmom^{1/3}} .
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-vol-zero"></span>\begin{equation}\tag{SG.22}
+\overline C_{i,\ell}(0)=\frac4{\pi^2}\int_0^\infty\!\!\int_0^\infty\mathfrak k_{i,\ell}(x^2,y^2)\,\dif x\,\dif y
+=\frac1{\pi^2}\int_0^\gamma\!\!\int_0^\gamma W_i(m_1)W_i(m_2)\,\frac{\mathsf D_\ell}{\Delta_\ell^N}\,\dif m_1\,\dif m_2 ,
+\end{equation}</div>
+<div class="p">all terms are nonnegative, and <span class="mi">\(\mathfrak v_i(0)=\sum_{\ell\in\mathbb Z}\overline C_{i,\ell}(0)\ge1\)</span> with <span class="mi">\(\overline C_{i,-\ell}(0)\defeq\overline C_{i,\ell}(0)\)</span>, which is the integral <a class="ref" href="r.prop.app-pl-vol-zero.html#L-eqn:app-pl-vol-zero" data-label="eqn:app-pl-vol-zero">(SG.22)</a> with the kernels of the lag <span class="mi">\(-\ell\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) combines the two bounds of <a class="ref" href="r.lem.app-pl-two-ridge.html" data-label="lem:app-pl-two-ridge">Lemma SG.3</a> with the deficit <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-deficit" data-label="eqn:app-pl-deficit">(SG.11)</a>. For <span class="mi">\(0&lt;\eta\le\ridge\le z_1\)</span>,</div>
+<div class="md">\[
+\abs{\overline C_{i,\ell}(\eta)-\overline C_{i,\ell}(\ridge)}\le2\sqrt{D_i}\,\ridge^{1/4},
+\]</div>
+<div class="p">so the family is Cauchy as <span class="mi">\(\ridge\downarrow0\)</span>, uniformly in <span class="mi">\(\ell\)</span>, and the limit satisfies <span class="mi">\(\abs{\overline C_{i,\ell}(0)-\overline C_{i,\ell}(\ridge)}\le2\sqrt{D_i}\,\ridge^{1/4}\)</span>. At <span class="mi">\(\ell=0\)</span> the limit is <span class="mi">\(\lim_{\ridge\downarrow0}\volraw_i(\ridge)=1\)</span>, by <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-deficit" data-label="eqn:app-pl-deficit">(SG.11)</a>. For the envelope fix <span class="mi">\(\ell\ge1\)</span> and put <span class="mi">\(\ridge_\ell\defeq\bar z\,\bmom^{4\ell/3}\)</span>. If <span class="mi">\(\ridge\le\ridge_\ell\)</span>, comparison with <span class="mi">\(\ridge_\ell\)</span> and <a class="ref" href="r.lem.app-pl-two-ridge.html#L-eqn:app-pl-envelope" data-label="eqn:app-pl-envelope">(SG.19)</a> give</div>
+<div class="md">\[
+\abs{\overline C_{i,\ell}(\ridge)}\le\frac{A_N\bmom^\ell}{\sqrt{\ridge_\ell}}+2\sqrt{D_i}\,\ridge_\ell^{1/4}
+=\big(A_N\bar z^{-1/2}+2\sqrt{D_i}\,\bar z^{1/4}\big)\bmom^{\ell/3}=E_i\bmom^{\ell/3}.
+\]</div>
+<div class="p">If <span class="mi">\(\ridge_\ell&lt;\ridge\le\bar z\)</span>, <a class="ref" href="r.lem.app-pl-two-ridge.html#L-eqn:app-pl-envelope" data-label="eqn:app-pl-envelope">(SG.19)</a> alone gives <span class="mi">\(A_N\bmom^\ell\ridge^{-1/2}\le A_N\bmom^\ell\ridge_\ell^{-1/2}\le E_i\bmom^{\ell/3}\)</span>.</div>
+<div class="p">Part (ii) splits the lag sum at <span class="mi">\(H\)</span>. The first <span class="mi">\(1+2H\)</span> terms of <span class="mi">\(\mathfrak v_i(\ridge)-\mathfrak v_i(0)\)</span> are bounded by the comparison of part (i), and the remaining ones by the envelope:</div>
+<div class="md">\[
+\abs{\mathfrak v_i(\ridge)-\mathfrak v_i(0)}\le(1+2H)\,2\sqrt{D_i}\,\ridge^{1/4}+4E_i\sum_{\ell&gt;H}\bmom^{\ell/3},
+\]</div>
+<div class="p">which is <a class="ref" href="r.prop.app-pl-vol-zero.html#L-eqn:app-pl-vol-ridge" data-label="eqn:app-pl-vol-ridge">(SG.21)</a>. Letting <span class="mi">\(\ridge\downarrow0\)</span> and then <span class="mi">\(H\to\infty\)</span> gives the convergence.</div>
+<div class="p">Part (iii) compares the regularized filter with a truncated resolvent filter at zero ridge. For <span class="mi">\(0&lt;d&lt;T\)</span> let <span class="mi">\(f_{d,T}(x)\defeq\frac2\pi\int_d^T\iota_{y^2}(x)\,\dif y\)</span>, an odd function with <span class="mi">\(0\le f_{d,T}\le1\)</span> on <span class="mi">\([0,\infty)\)</span> and Lipschitz constant at most <span class="mi">\(2/(\pi d)\)</span>. For <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+0\le1-f_{d,T}(x)=\frac2\pi\arctan\frac dx+\frac2\pi\arctan\frac xT\le\frac2\pi\arctan\frac dx+\frac{2x}{\pi T},\\
+\Big(\frac2\pi\arctan\frac dx\Big)^2\le\frac{2d^2}{x^2+d^2}=2\big(1-\omega_{d^2}(x)^2\big),
+\end{gathered}
+\]</div>
+<div class="p">the last inequality by the bound <span class="mi">\(1\)</span> when <span class="mi">\(x\le d\)</span> and <span class="mi">\(\arctan(d/x)\le d/x\)</span> when <span class="mi">\(x&gt;d\)</span>. Both <span class="mi">\(\omega_\eta\)</span> and <span class="mi">\(f_{d,T}\)</span> vanish at <span class="mi">\(x=0\)</span>, and on <span class="mi">\(x&gt;0\)</span>, <span class="mi">\(\abs{\omega_\eta-f_{d,T}}\le(1-\omega_\eta)+(1-f_{d,T})\)</span>. Squaring and using <span class="mi">\((1-\omega_\eta)^2\le1-\omega_\eta^2\)</span>, functional calculus gives</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\big(\Qridge\eta(K)-f_{d,T}^\sharp(K)\big)\big(\Qridge\eta(K)-f_{d,T}^\sharp(K)\big)^\T\\
+&amp;\qquad\preceq2\big(\Id-\Qridge\eta(K)\Qridge\eta(K)^\T\big)+8\big(\Id-\Qridge{d^2}(K)\Qridge{d^2}(K)^\T\big)+\frac{16}{\pi^2T^2}KK^\T .
+\end{aligned}
+\]</div>
+<div class="p">The argument of <a class="ref" href="r.lem.app-pl-two-ridge.html" data-label="lem:app-pl-two-ridge">Lemma SG.3</a> applies to the pair of filters <span class="mi">\((\omega_\eta,f_{d,T})\)</span>: the closure <a class="ref" href="r.thm.app-vol-lag-kernel.html#L-eqn:app-vol-lag-closure" data-label="eqn:app-vol-lag-closure">(SD.52)</a> holds for the fixed odd bounded Lipschitz filter <span class="mi">\(f_{d,T}\)</span> by <a class="ref" href="r.rem.app-vol-other-filters.html" data-label="rem:app-vol-other-filters">Remark SD.2</a>, and the independent model has the exact row moment <span class="mi">\(\EE\,(M^{\mathrm g}_tM^{\mathrm g\,\T}_t)_{ii}=\gamma\sw2\mu_i\)</span>. In the limit,</div>
+<div class="md">\[
+\Big|\overline C_{i,\ell}(\eta)-B\,\mathfrak R_\ell[u_i\tensor u_i,\Id](f_{d,T},f_{d,T})\Big|
+\le2\Big(2\big(1-\volraw_i(\eta)\big)+8\big(1-\volraw_i(d^2)\big)+\frac{16\gamma\sw2\mu_i}{\pi^2T^2}\Big)^{1/2},
+\]</div>
+<div class="p">where <span class="mi">\(\mathfrak R_\ell\)</span> is the response of <a class="ref" href="r.thm.app-vol-lag-kernel.html#L-eqn:app-vol-Phi" data-label="eqn:app-vol-Phi">(SD.49)</a>. By the bilinearity and the sup-norm bound of the response (<a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a>), and the uniform continuity of <span class="mi">\(y\mapsto\iota_{y^2}\)</span> in the supremum norm on <span class="mi">\([d,T]\)</span>, the response of <span class="mi">\(f_{d,T}\)</span> is the integral of the responses of the resolvent filters,</div>
+<div class="md">\[
+B\,\mathfrak R_\ell[u_i\tensor u_i,\Id](f_{d,T},f_{d,T})=\frac4{\pi^2}\int_d^T\!\!\int_d^T\mathfrak k_{i,\ell}(x^2,y^2)\,\dif x\,\dif y .
+\]</div>
+<div class="p">Let <span class="mi">\(\eta\downarrow0\)</span>, then <span class="mi">\(d\downarrow0\)</span> and <span class="mi">\(T\to\infty\)</span>. The right side of the error bound tends to zero by <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-deficit" data-label="eqn:app-pl-deficit">(SG.11)</a>, the left side tends to <span class="mi">\(\overline C_{i,\ell}(0)\)</span> by (i), and the double integrals of the nonnegative kernel (<a class="ref" href="r.prop.app-pl-response.html" data-label="prop:app-pl-response">Proposition SG.3</a>) increase to the integral over <span class="mi">\((0,\infty)^2\)</span>. This proves the first equality of <a class="ref" href="r.prop.app-pl-vol-zero.html#L-eqn:app-pl-vol-zero" data-label="eqn:app-pl-vol-zero">(SG.22)</a>.</div>
+<div class="p">The second equality is the change of variables <span class="mi">\(x^2=s_N(m_1)\)</span>, <span class="mi">\(y^2=s_N(m_2)\)</span>. By <a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a>(i), <span class="mi">\(\dif x=\frac12\sqrt{s_N(m_1)}\,\vartheta_N(m_1)\,\dif m_1\)</span> in absolute value, so</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\frac4{\pi^2}\int\!\!\int\mathfrak k_{i,\ell}(x^2,y^2)\,\dif x\,\dif y\\
+&amp;\qquad=\frac1{\pi^2}\int_0^\gamma\!\!\int_0^\gamma\mathfrak k_{i,\ell}(s_1',s_2')\sqrt{s_1's_2'}\,\vartheta_N(m_1)\vartheta_N(m_2)\,\dif m_1\,\dif m_2,\qquad s_k'\defeq s_N(m_k).
+\end{aligned}
+\]</div>
+<div class="p">In the coordinates of <a class="ref" href="r.prop.app-pl-branch.html#L-eqn:app-pl-branch" data-label="eqn:app-pl-branch">(SG.6)</a> at <span class="mi">\(s=s_N(m)\)</span>, writing <span class="mi">\(\Lambda=\Lambda_N(m)\)</span> and using <span class="mi">\(\tilde s_1=s\Lambda=(\gamma-m)m/Q_m\)</span>,</div>
+<div class="md">\[
+\frac{s}{s+s_1}=\frac{\gamma-m}{\gamma},\qquad
+\frac{\sqrt{\mu_i}\,\sqrt s}{s+\tilde s_1\mu_i}=\frac{\sqrt{\mu_i}}{\sqrt s\,(1+\Lambda\mu_i)}
+=\sqrt{\frac{Q_m}{\gamma-m}}\cdot\frac{\sqrt{\mu_i\Lambda}}{\sqrt m\,(1+\Lambda\mu_i)} .
+\]</div>
+<div class="p">Inserting these in <a class="ref" href="r.prop.app-pl-response.html#L-eqn:app-pl-response" data-label="eqn:app-pl-response">(SG.16)</a>, multiplied by <span class="mi">\(\sqrt{ss'}\)</span>, gives</div>
+<div class="md">\[
+\mathfrak k_{i,\ell}(s_1',s_2')\sqrt{s_1's_2'}\,\vartheta_N(m_1)\vartheta_N(m_2)=W_i(m_1)W_i(m_2)\,\frac{\sqrt{q_1q_2}\,b_\ell}{\Delta_\ell}.
+\]</div>
+<div class="p">The scalars of <span class="mi">\(\Delta_\ell\)</span> transform in the same way. Since <span class="mi">\(\mu_j/(s+\tilde s_1\mu_j)=f_j(m)/\tilde s_1\)</span>, <span class="mi">\(s\tilde\sigma=\gamma-m\)</span> and <span class="mi">\(\sigma=m/\tilde s_1=Q_m/(\gamma-m)\)</span>,</div>
+<div class="md">\[
+ss'\,\mathsf U\tilde\sigma\tilde\sigma'=\frac{\mathsf T_N\,q_1q_2}{m_1m_2},\qquad
+ss'\,\mathsf V\sigma\sigma'=\frac{q_1q_2}{\gamma},\qquad
+ss'\,\mathsf U\mathsf V=\frac{\mathsf T_N\,q_1q_2}{\gamma\,m_1m_2}.
+\]</div>
+<div class="p">With <span class="mi">\(\mathsf D_\ell=\sqrt{q_1q_2}\,b_\ell\)</span> and <span class="mi">\(\mathsf M_\ell=q_1q_2e_\ell\)</span> this gives <span class="mi">\(\Delta_\ell=\Delta_\ell^N\)</span>, which proves the second equality.</div>
+<div class="p">For the lag sum, the negative lags are defined by the transposed kernels, whose integrals over the symmetric square equal those of the positive lags. Absolute convergence and the bound <span class="mi">\(\mathfrak v_i(0)\ge\overline C_{i,0}(0)=1\)</span> follow from (i) and the nonnegativity of every term.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-pl-two-ridge.html" data-label="lem:app-pl-two-ridge">Lemma SG.3</a> <span class=muted>Two ridges and the lag envelope</span></li><li><a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class=muted>Drift at zero ridge</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.rem.app-vol-other-filters.html" data-label="rem:app-vol-other-filters">Remark SD.2</a> <span class=muted>Other filters</span></li><li><a class="ref" href="r.prop.app-pl-response.html" data-label="prop:app-pl-response">Proposition SG.3</a> <span class=muted>Two-time row response</span></li><li><a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class=muted>The branch in participation coordinates</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a> <span class=muted>Isotropic lag response</span></li><li><a class="ref" href="r.def.app-pl-coefficients.html" data-label="def:app-pl-coefficients">Definition SG.2</a> <span class=muted>Coefficients at zero normalized ridge</span></li><li><a class="ref" href="r.lem.app-pl-amplitude.html" data-label="lem:app-pl-amplitude">Lemma SG.4</a> <span class=muted>Spectral amplitude</span></li><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li><li><a class="ref" href="r.prop.app-pl-ridge.html" data-label="prop:app-pl-ridge">Proposition SG.7</a> <span class=muted>Negligible ridge</span></li><li><a class="ref" href="r.lem.app-pl-age.html" data-label="lem:app-pl-age">Lemma SG.15</a> <span class=muted>Age factorization</span></li><li><a class="ref" href="r.lem.app-pl-pieces.html" data-label="lem:app-pl-pieces">Lemma SG.16</a> <span class=muted>Spectral pieces</span></li><li><a class="ref" href="r.lem.app-pl-strip.html" data-label="lem:app-pl-strip">Lemma SG.19</a> <span class=muted>Multiplicative diagonal strip</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_vol_zero_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L2007">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_vol_zero_i (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) {zbar : ℝ} (hz0 : 0 &lt; zbar) (hz1 : zbar ≤ plZ1 β B μ) :
+    plRowExists cert γstar CSig β B μ i ∧
+    (∀ ℓ : ℕ, Tendsto (fun ϱ : ℝ =&gt; lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ)
+      (𝓝[&gt;] (0 : ℝ)) (𝓝 (cbarZero cert γstar CSig β B μ i ℓ))) ∧
+    cbarZero cert γstar CSig β B μ i 0 = 1 ∧
+    (∀ (ℓ : ℕ) (ϱ : ℝ), 1 ≤ ℓ → 0 &lt; ϱ → ϱ ≤ zbar →
+      |lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ| ≤
+        plEi β B μ hN i zbar * β ^ ((ℓ : ℝ) / 3)) ∧
+    (∀ ℓ : ℕ, 1 ≤ ℓ →
+      |cbarZero cert γstar CSig β B μ i ℓ| ≤ plEi β B μ hN i zbar * β ^ ((ℓ : ℝ) / 3)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_vol_zero_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L2187">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_vol_zero_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) {zbar : ℝ} (hz0 : 0 &lt; zbar) (hz1 : zbar ≤ plZ1 β B μ) :
+    plRowExists cert γstar CSig β B μ i ∧
+    (∀ ϱ : ℝ, 0 &lt; ϱ → ϱ ≤ zbar →
+      Summable (fun ℓ : ℕ =&gt; lagRowBar cert γstar CSig β (ℓ + 1) B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ)) ∧
+    Summable (fun ℓ : ℕ =&gt; |cbarZero cert γstar CSig β B μ i (ℓ + 1)|) ∧
+    Tendsto (fun ϱ : ℝ =&gt; rowVBar cert γstar CSig β B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ)
+      (𝓝[&gt;] (0 : ℝ)) (𝓝 (vZero cert γstar CSig β B μ i)) ∧
+    (∀ (H : ℕ) (ϱ : ℝ), 0 &lt; ϱ → ϱ ≤ zbar →
+      |rowVBar cert γstar CSig β B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ - vZero cert γstar CSig β B μ i| ≤
+        2 * (1 + 2 * (H : ℝ)) * Real.sqrt (plDcoef β B μ hN i) * ϱ ^ ((1 : ℝ) / 4) +
+          4 * plEi β B μ hN i zbar * β ^ (((H : ℝ) + 1) / 3) / (1 - β ^ ((1 : ℝ) / 3))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_vol_zero_iii_a</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L4334">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_vol_zero_iii_a (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) (ℓ : ℕ) :
+    plKerExists cert γstar CSig β B μ i ∧
+    (∀ x y : ℝ, 0 &lt; x → 0 &lt; y →
+      0 ≤ (B : ℝ) * lagResp cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ))
+        (Pi.single i (1 : ℝ)) (fun _ : Fin N =&gt; (1 : ℝ)) (iotaF (x ^ 2)) (iotaF (y ^ 2))) ∧
+    IntegrableOn (fun p : ℝ × ℝ =&gt; (B : ℝ) * lagResp cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ))
+        (Pi.single i (1 : ℝ)) (fun _ : Fin N =&gt; (1 : ℝ)) (iotaF (p.1 ^ 2)) (iotaF (p.2 ^ 2)))
+      (Ioi (0 : ℝ) ×ˢ Ioi (0 : ℝ)) ∧
+    cbarZero cert γstar CSig β B μ i ℓ = (4 / Real.pi ^ 2) *
+      ∫ x in Ioi (0 : ℝ), ∫ y in Ioi (0 : ℝ),
+        (B : ℝ) * lagResp cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ))
+          (Pi.single i (1 : ℝ)) (fun _ : Fin N =&gt; (1 : ℝ)) (iotaF (x ^ 2)) (iotaF (y ^ 2)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_vol_zero_iii_b</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L4556">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_vol_zero_iii_b (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) (ℓ : ℤ) :
+    (∀ m₁ ∈ Ioo 0 (gammaOf N B), ∀ m₂ ∈ Ioo 0 (gammaOf N B),
+      0 ≤ lagIntegrand β B μ i ℓ m₁ m₂) ∧
+    IntegrableOn (fun p : ℝ × ℝ =&gt; lagIntegrand β B μ i ℓ p.1 p.2)
+      (Ioo 0 (gammaOf N B) ×ˢ Ioo 0 (gammaOf N B)) ∧
+    cbarZero cert γstar CSig β B μ i ℓ.natAbs = CbarPart β B μ i ℓ := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_vol_zero_iii_c</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L4627">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_vol_zero_iii_c (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) :
+    (∀ ℓ : ℕ, 0 ≤ cbarZero cert γstar CSig β B μ i ℓ) ∧
+    HasSum (fun ℓ : ℤ =&gt; cbarZero cert γstar CSig β B μ i ℓ.natAbs)
+      (vZero cert γstar CSig β B μ i) ∧
+    1 ≤ vZero cert γstar CSig β B μ i := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

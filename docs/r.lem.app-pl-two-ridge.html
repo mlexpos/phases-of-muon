@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SG.3 (Two ridges and the lag envelope)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SG.3 (Two ridges and the lag envelope)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-lemma" id="L-lem:app-pl-two-ridge"><div class="thm-head"><a class="thm-name" href="r.lem.app-pl-two-ridge.html" data-label="lem:app-pl-two-ridge">Lemma SG.3</a> <span class="thm-title">(Two ridges and the lag envelope)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(0&lt;\eta\le\ridge\)</span> and every <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-two-ridge"></span>\begin{equation}\tag{SG.18}
+\abs{\overline C_{i,\ell}(\eta)-\overline C_{i,\ell}(\ridge)}\le2\sqrt{1-\volraw_i(\ridge)},\qquad
+\abs{\overline C_{i,\ell}(\ridge)}\le1,
+\end{equation}</div>
+<div class="p">and for every <span class="mi">\(\ell\ge1\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-envelope"></span>\begin{equation}\tag{SG.19}
+\abs{\overline C_{i,\ell}(\ridge)}\le\frac{A_N\,\bmom^\ell}{\sqrt\ridge}.
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">All three bounds are read from the independent model along the replications. At the <span class="mi">\(n\)</span>-fold replication of <a class="ref" href="r.def.app-vol-replication.html" data-label="def:app-vol-replication">Definition SD.3</a>, let <span class="mi">\(M^{\mathrm g}_t\)</span> be the buffer of the independent model of <a class="ref" href="r.def.app-vol-product.html" data-label="def:app-vol-product">Definition SD.2</a>, and for the <span class="mi">\(n\)</span> copies <span class="mi">\(u_i\tensor e_k\)</span> of the row <span class="mi">\(u_i\)</span> put</div>
+<div class="md">\[
+a_k(\ridge)\defeq\Qridge\ridge(M^{\mathrm g}_t)^\T(u_i\tensor e_k),\qquad
+b_k(\ridge)\defeq\Qridge\ridge(M^{\mathrm g}_{t+\ell})^\T(u_i\tensor e_k),\]</div>
+<div class="md">\[
+\mathsf a^{(n)}(\ridge,\ridge')\defeq\frac1n\sum_{k=1}^n\EE\langle a_k(\ridge),b_k(\ridge')\rangle .
+\]</div>
+<div class="p">The independent updates have mean zero, so <span class="mi">\(\mathsf a^{(n)}(\ridge,\ridge')\)</span> is <span class="mi">\(B\)</span> times the independent covariance <span class="mi">\(C^{\mathrm g}_\ell[F,\Id]\)</span> at order <span class="mi">\(n\)</span>, for the replicated test <span class="mi">\(F=(u_i\tensor u_i)\tensor\Id_n\)</span> of norm one. By <a class="ref" href="r.thm.app-vol-lag-kernel.html#L-eqn:app-vol-lag-closure" data-label="eqn:app-vol-lag-closure">(SD.52)</a> and the replication invariance of <a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a>,</div>
+<div class="md">\[
+\mathsf a^{(n)}(\ridge,\ridge)\longrightarrow\overline C_{i,\ell}(\ridge)\qquad(n\to\infty),
+\]</div>
+<div class="p">and at <span class="mi">\(\ell=0\)</span> the limit is <span class="mi">\(\overline C_{i,0}(\ridge)=\volraw_i(\ridge)\)</span>.</div>
+<div class="p">Each row of a regularized update has norm at most one, because <span class="mi">\(\Qridge\ridge(K)\Qridge\ridge(K)^\T\preceq\Id\)</span>; this gives the second bound of <a class="ref" href="r.lem.app-pl-two-ridge.html#L-eqn:app-pl-two-ridge" data-label="eqn:app-pl-two-ridge">(SG.18)</a>. For the first, <span class="mi">\(0\le\omega_\ridge\le\omega_\eta\le1\)</span> on <span class="mi">\([0,\infty)\)</span> for the filters of <a class="ref" href="s.SD.html#L-eqn:app-vol-filters" data-label="eqn:app-vol-filters">(SD.2)</a>, so</div>
+<div class="md">\[
+(\omega_\eta-\omega_\ridge)^2\le(1-\omega_\ridge)^2\le1-\omega_\ridge^2 ,
+\]</div>
+<div class="p">and functional calculus gives <span class="mi">\((\Qridge\eta-\Qridge\ridge)(\Qridge\eta-\Qridge\ridge)^\T(K)\preceq\Id-\Qridge\ridge(K)\Qridge\ridge(K)^\T\)</span>. Hence <span class="mi">\(\EE\norm{a_k(\eta)-a_k(\ridge)}^2\le1-\EE\norm{a_k(\ridge)}^2\)</span>, and the same holds for <span class="mi">\(b_k\)</span>, which has the same law. Writing <span class="mi">\(\langle a(\eta),b(\eta)\rangle-\langle a(\ridge),b(\ridge)\rangle=\langle a(\eta)-a(\ridge),b(\eta)\rangle+\langle a(\ridge),b(\eta)-b(\ridge)\rangle\)</span> and applying the Cauchy–Schwarz inequality to the average over <span class="mi">\(k\)</span>,</div>
+<div class="md">\[
+\abs{\mathsf a^{(n)}(\eta,\eta)-\mathsf a^{(n)}(\ridge,\ridge)}\le2\Big(1-\frac1n\sum_k\EE\norm{a_k(\ridge)}^2\Big)^{1/2}.
+\]</div>
+<div class="p">The average in the bracket is <span class="mi">\(\mathsf a^{(n)}(\ridge,\ridge)\)</span> at <span class="mi">\(\ell=0\)</span>, which tends to <span class="mi">\(\volraw_i(\ridge)\)</span>, and the first bound follows as <span class="mi">\(n\to\infty\)</span>.</div>
+<div class="p">The envelope is the coupling of the proof of <a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a>(ii). Let <span class="mi">\(M^*\)</span> be built from an independent past, so that <span class="mi">\(M^*\)</span> is independent of <span class="mi">\(M^{\mathrm g}_t\)</span>, has the law of <span class="mi">\(M^{\mathrm g}_{t+\ell}\)</span>, and <span class="mi">\(M^{\mathrm g}_{t+\ell}-M^*=\bmom^\ell(M^{\mathrm g}_t-M'_t)\)</span> with <span class="mi">\(M'_t\)</span> an independent copy of <span class="mi">\(M^{\mathrm g}_t\)</span>. The term with <span class="mi">\(M^*\)</span> has zero mean, so the Cauchy–Schwarz inequality over the copies and <a class="ref" href="r.lem.app-setup-filter.html#L-eqn:app-setup-lipschitz" data-label="eqn:app-setup-lipschitz">(SA.13)</a> give</div>
+<div class="md">\[
+\abs{\mathsf a^{(n)}(\ridge,\ridge)}\le\frac1n\Big(n\,\EE\norm{\Qridge\ridge(M^{\mathrm g}_{t+\ell})-\Qridge\ridge(M^*)}_\F^2\Big)^{1/2}
+\le\frac{\bmom^\ell}{\sqrt{n\ridge}}\Big(\EE\norm{M^{\mathrm g}_t-M'_t}_\F^2\Big)^{1/2}.
+\]</div>
+<div class="p">At order <span class="mi">\(n\)</span> the last expectation is <span class="mi">\(2\sw2(nB)^{-1}\Tr(\Sigmaout\tensor\Id_n)\,nN=2n\gamma\sw2\sum_j\mu_j=nA_N^2\)</span>, which gives <a class="ref" href="r.lem.app-pl-two-ridge.html#L-eqn:app-pl-envelope" data-label="eqn:app-pl-envelope">(SG.19)</a> in the limit.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-vol-replication.html" data-label="def:app-vol-replication">Definition SD.3</a> <span class=muted>Spectral replication</span></li><li><a class="ref" href="r.def.app-vol-product.html" data-label="def:app-vol-product">Definition SD.2</a> <span class=muted>Independent product model</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class=muted>Lag reduction</span></li><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class=muted>Volatility at zero ridge</span></li><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li><li><a class="ref" href="r.lem.app-pl-pieces.html" data-label="lem:app-pl-pieces">Lemma SG.16</a> <span class=muted>Spectral pieces</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_two_ridge_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L1730">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_two_ridge_i (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    {ν ν' : FiniteMeasure ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (i : Fin N) :
+    plRowExists cert γstar CSig β B μ i ∧
+    ∀ (η ϱ : ℝ) (ℓ : ℕ), 0 &lt; η → η ≤ ϱ →
+      |lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i η η -
+          lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ| ≤
+        2 * Real.sqrt (1 - volraw β ν ν' (μ i) ϱ) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_two_ridge_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L1778">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_two_ridge_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) :
+    plRowExists cert γstar CSig β B μ i ∧
+    ∀ (ϱ : ℝ) (ℓ : ℕ), 0 &lt; ϱ →
+      |lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ| ≤ 1 := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_two_ridge_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L1808">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_two_ridge_iii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : gammaOf N B ≤ γstar) (hμC : ∀ i, μ i ≤ CSig) (hC1 : 1 ≤ CSig)
+    (i : Fin N) :
+    plRowExists cert γstar CSig β B μ i ∧
+    ∀ (ϱ : ℝ) (ℓ : ℕ), 0 &lt; ϱ → 1 ≤ ℓ →
+      |lagRowBar cert γstar CSig β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ| ≤
+        plAN β B μ * β ^ ℓ / Real.sqrt ϱ := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SC.3 (Response equation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SC.3 (Response equation)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-drift-response"><div class="thm-head"><a class="thm-name" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class="thm-title">(Response equation)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, for <span class="mi">\(s\in I\)</span> let <span class="mi">\(b_B(s)\defeq\sum_{j\ge0}b_j\ge0\)</span> with <span class="mi">\(b_j\)</span> as in <a class="ref" href="s.SC.html#L-eqn:app-drift-Cj" data-label="eqn:app-drift-Cj">(SC.26)</a>, and let <span class="mi">\(\mathsf Y_B(s)\defeq\Id_{\Nin}+b_B(s)\Sigmain\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-response"></span>\begin{equation}\tag{SC.35}
+\mathcal H(s)\,\mathsf Y_B(s)=\Lw\big(q(-s)\big)\,\Rbar(-s)\,\EE\Gt+E_B(s),
+\end{equation}</div>
+<div class="p">where, with <span class="mi">\(r_B\)</span> from <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a>, <span class="mi">\(r_B'\)</span> from <a class="ref" href="r.lem.app-drift-gaussian.html" data-label="lem:app-drift-gaussian">Lemma SC.8</a>, <span class="mi">\(e_B^\star\)</span> from <a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> and <span class="mi">\(\delta_B(I)\defeq\sup_{s\in I}\norm{\mathcal P(s)-\Rbar(-s)}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-response-error"></span>\begin{equation}\tag{SC.36}
+\sup_{s\in I}\norm{E_B(s)}_\F\le C_I\Big[e_B^\star+r_B'+\norm{\Ahat}+\norm{\Ahat}^2+\delta_B(I)+\frac{1}{\sqrt B}\Big]\longrightarrow0 ,
+\end{equation}</div>
+<div class="p">and the coefficient <span class="mi">\(b_B\)</span> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-bB"></span>\begin{equation}\tag{SC.37}
+\sup_{s\in I}\abs{b_B(s)-\sigma(-s)\Fw(q(-s))}\le\sw2\Big(e_B^\star+\frac{C_\Sigma\gamma_\star}{s_-}r_B\Big)\longrightarrow0 .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Fix <span class="mi">\(s\in I\)</span>; every bound below is uniform in <span class="mi">\(s\in I\)</span>. We start from the exact identity <a class="ref" href="r.lem.app-drift-exact.html#L-eqn:app-drift-exact" data-label="eqn:app-drift-exact">(SC.30)</a> and treat its two terms.</div>
+<div class="p"><em>The source term.</em> Fix <span class="mi">\(j\)</span>, write <span class="mi">\(\varpi=\emaw j\)</span>, <span class="mi">\(x=x_j\)</span>, <span class="mi">\(f=f_x\)</span>, <span class="mi">\(\mathcal G=\mathcal G_{j1}\)</span>, and split <span class="mi">\(\alpha_{1,j}=\alpha_{1,j}^\star+(\alpha_{1,j}-\alpha_{1,j}^\star)\)</span>. The replacement error is bounded by the Bessel inequality: with <span class="mi">\(e\defeq\alpha_{1,j}-\alpha_{1,j}^\star\)</span>, the bound <a class="ref" href="r.lem.app-drift-multiplier.html#L-eqn:app-drift-bessel-frob" data-label="eqn:app-drift-bessel-frob">(SC.22)</a>, <span class="mi">\(\norm{R_0^{(j)}}\le1/s_-\)</span>, the tower property, Jensen’s inequality and <a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> give</div>
+<div class="md">\[
+\Big\|B\,\EE\big[e\,R_0^{(j)}(\mathsf u_j\tensor\mathsf v_j)\big]\Big\|_\F
+\le\frac{1}{s_-}\,\EE\Big\|B\,\EE_{\mathcal G}[(\mathsf u_j\tensor\mathsf v_j)e]\Big\|_\F\le\frac{C_\Sigma}{s_-}\norm e_2\le C_I\varpi\,e_B^\star .
+\]</div>
+<div class="p">The main part is a Gaussian response. Since <span class="mi">\(R_0^{(j)}\)</span> is independent of <span class="mi">\((z_j,w_j)\)</span> and <span class="mi">\(B\,\mathsf u_j\tensor\mathsf v_j=\Sigmaout^{1/2}(z_j\tensor w_j)\Sigmain^{1/2}\)</span>,</div>
+<div class="md">\[
+B\,\EE\big[\alpha_{1,j}^\star R_0^{(j)}(\mathsf u_j\tensor\mathsf v_j)\big]=\varpi\,\mathcal P_j(s)\,\Sigmaout^{1/2}\,\EE[(z\tensor w)f(d)]\,\Sigmain^{1/2},
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> with <span class="mi">\(A=\Ahat\)</span>, <span class="mi">\(\norm{\Ahat}_\F=1\)</span> and the bound <span class="mi">\(\norm{f'''}_\infty\le36q_I\)</span> of <a class="ref" href="r.lem.app-drift-derivatives.html" data-label="lem:app-drift-derivatives">Lemma SC.7</a> give</div>
+<div class="md">\[
+\EE[(z\tensor w)f(d)]=\Ahat\,\EE f'(d)+N_j,\qquad\norm{N_j}_\F\le36q_I\norm{\Ahat}^2 .
+\]</div>
+<div class="p">Since <span class="mi">\(\Sigmaout^{1/2}\Ahat\Sigmain^{1/2}=\EE\Gt\)</span>, writing <span class="mi">\(\jmath_j\defeq\EE f_{x_j}'(d)\)</span>, which satisfies <span class="mi">\(\abs{\jmath_j}\le1\)</span> and <span class="mi">\(\abs{\jmath_j-\Jfun(x_j)}\le r_B'\)</span>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[\alpha_{1,j}^\star R_0^{(j)}(\mathsf u_j\tensor\mathsf v_j)\big]-\varpi\,\jmath_j\,\mathcal P_j(s)\,\EE\Gt\Big\|_\F
+\le\varpi\,\frac{C_\Sigma}{s_-}\,36q_I\norm{\Ahat}^2\le C_I\varpi\norm{\Ahat}^2 .
+\]</div>
+<div class="p">The expected deleted resolvent is replaced by <span class="mi">\(\mathcal P\)</span> and then by <span class="mi">\(\Rbar\)</span>. By <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-Pj-P" data-label="eqn:app-de-Pj-P">(SB.42)</a> and <span class="mi">\(\norm{\EE\Gt}_\F\le C_\Sigma\)</span> (<a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(iv)),</div>
+<div class="md">\[
+\norm{\varpi\jmath_j(\mathcal P_j(s)-\mathcal P(s))\EE\Gt}_\F\le\frac{C_I\varpi^2}{B},\qquad
+\norm{\varpi\jmath_j(\mathcal P(s)-\Rbar(-s))\EE\Gt}_\F\le C_\Sigma\varpi\,\delta_B(I),
+\]</div>
+<div class="p">and <span class="mi">\(\abs{\varpi\jmath_j-\varpi\Jfun(x_j)}\norm{\Rbar(-s)\EE\Gt}_\F\le\varpi\,r_B'\,C_\Sigma/s_-\)</span>. Summing over <span class="mi">\(j\)</span> with <a class="ref" href="s.SC.html#L-eqn:app-drift-weights" data-label="eqn:app-drift-weights">(SC.1)</a>, and recalling <span class="mi">\(\Lw(q)=\sum_j\emaw j\Jfun(\emaw j^2q)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-source"></span>\begin{equation}\tag{SC.38}
+\Big\|B\sum_{j\ge0}\EE\big[\alpha_{1,j}R_0^{(j)}(\mathsf u_j\tensor\mathsf v_j)\big]-\Lw(q(-s))\,\Rbar(-s)\,\EE\Gt\Big\|_\F
+\le C_I\Big[e_B^\star+\norm{\Ahat}^2+\frac1B+\delta_B(I)+r_B'\Big].
+\end{equation}</div>
+<div class="p"><em>The Gram term.</em> Fix <span class="mi">\(j\)</span> and write <span class="mi">\(\psi=\psi_{x_j}\)</span>. Conditioning on <span class="mi">\(\mathcal G\)</span> and using <span class="mi">\(B\,\mathsf v_j\tensor\mathsf v_j=\Sigmain^{1/2}(w_j\tensor w_j)\Sigmain^{1/2}\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+B\,\EE\big[\alpha_{2,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf v_j)\big]
+=\EE\Big[\mathsf X_0^{(j)}\,\Sigmain^{1/2}\,\EE_{\mathcal G}[(w_j\tensor w_j)\alpha_{2,j}]\,\Sigmain^{1/2}\Big],\\
+\EE_{\mathcal G}[(w_j\tensor w_j)\alpha_{2,j}]=\phi_j\,\Id+\Gamma_j ,
+\end{gathered}
+\]</div>
+<div class="p">where <span class="mi">\(\phi_j=\EE_{\mathcal G}\alpha_{2,j}\)</span> is the coefficient <a class="ref" href="s.SC.html#L-eqn:app-drift-Cj" data-label="eqn:app-drift-Cj">(SC.26)</a> and <span class="mi">\(\Gamma_j\defeq\EE_{\mathcal G}[(w_j\tensor w_j-\Id)\alpha_{2,j}]\)</span>. The centered part is small. Splitting <span class="mi">\(\alpha_{2,j}=\alpha_{2,j}^\star+(\alpha_{2,j}-\alpha_{2,j}^\star)\)</span>, the Bessel bound <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> with Jensen’s inequality and <a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> control the second piece, and for the first, which depends only on the sample <span class="mi">\((j,1)\)</span>, <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> for <span class="mi">\((w,z,\Ahat^\T)\)</span> with <span class="mi">\(\norm{\psi''}_\infty\le6\)</span> gives</div>
+<div class="md">\[
+\EE\norm{\Gamma_j}_\F\le\sqrt2\,\norm{\alpha_{2,j}-\alpha_{2,j}^\star}_2+\varpi^2\sigma\,\big\|\EE[(w\tensor w-\Id)\psi(d)]\big\|_\F
+\le\varpi^2\big(\sqrt2\,e_B^\star+6\sigma\norm{\Ahat}\big).
+\]</div>
+<div class="p">With <span class="mi">\(\norm{\mathsf X_0^{(j)}}\le(2\sqrt{s_-})^{-1}\)</span> and <span class="mi">\(\sigma\le C_\Sigma\gamma_\star/s_-\)</span>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[\alpha_{2,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf v_j)\big]-\EE\big[\phi_j\mathsf X_0^{(j)}\big]\Sigmain\Big\|_\F
+\le\frac{C_\Sigma}{2\sqrt{s_-}}\,\EE\norm{\Gamma_j}_\F\le C_I\varpi^2\big(e_B^\star+\norm{\Ahat}\big).
+\]</div>
+<div class="p">The scalar mean is identified. By <a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a>, <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> and <span class="mi">\(\EE\alpha_{2,j}^\star=\varpi^2\sigma\,\EE\psi(d)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-bj"></span>\begin{equation}\tag{SC.39}
+\abs{b_j-\varpi^2\sigma\Jfun(x_j)}\le\abs{\EE\alpha_{2,j}-\EE\alpha_{2,j}^\star}+\varpi^2\sigma\abs{\EE\psi(d)-\Jfun(x_j)}
+\le\varpi^2\big(e_B^\star+\sigma r_B\big),
+\end{equation}</div>
+<div class="p">and summing over <span class="mi">\(j\)</span> with <span class="mi">\(\Fw(q)=\sum_j\emaw j^2\Jfun(\emaw j^2q)\)</span> gives <a class="ref" href="r.prop.app-drift-response.html#L-eqn:app-drift-bB" data-label="eqn:app-drift-bB">(SC.37)</a>. The product with the deleted resolvent is split into its mean and its covariance:</div>
+<div class="md">\[
+\EE\big[\phi_j\mathsf X_0^{(j)}\big]=b_j\,\mathcal H_j(s)+\mathcal C_j=b_j\,\mathcal H(s)+b_j\big(\mathcal H_j(s)-\mathcal H(s)\big)+\mathcal C_j .
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a>, <span class="mi">\(b_j\le\norm{\alpha_{2,j}}_1\le C_I\varpi^2\)</span>; by <a class="ref" href="r.lem.app-drift-multiplier.html#L-eqn:app-drift-deletion-mean" data-label="eqn:app-drift-deletion-mean">(SC.21)</a>, <span class="mi">\(\norm{\mathcal H_j-\mathcal H}_\F\le C_I\varpi/\sqrt B\)</span>; and by <a class="ref" href="r.lem.app-drift-covariance.html" data-label="lem:app-drift-covariance">Lemma SC.5</a>, <span class="mi">\(\sum_j\norm{\mathcal C_j}_\F\le C_I\sw2/\sqrt B\)</span>. Summing over <span class="mi">\(j\)</span> with <span class="mi">\(\sum_j\emaw j^3\le1\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-gramterm"></span>\begin{equation}\tag{SC.40}
+\Big\|B\sum_{j\ge0}\EE\big[\alpha_{2,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf v_j)\big]-b_B(s)\,\mathcal H(s)\,\Sigmain\Big\|_\F
+\le C_I\Big[e_B^\star+\norm{\Ahat}+\frac{1}{\sqrt B}\Big].
+\end{equation}</div>
+<div class="p"><em>Assembly.</em> Inserting <a class="ref" href="r.prop.app-drift-response.html#L-eqn:app-drift-source" data-label="eqn:app-drift-source">(SC.38)</a> and <a class="ref" href="r.prop.app-drift-response.html#L-eqn:app-drift-gramterm" data-label="eqn:app-drift-gramterm">(SC.40)</a> into <a class="ref" href="r.lem.app-drift-exact.html#L-eqn:app-drift-exact" data-label="eqn:app-drift-exact">(SC.30)</a> gives <span class="mi">\(\mathcal H(s)=\Lw(q)\Rbar(-s)\EE\Gt-b_B(s)\mathcal H(s)\Sigmain+E_B(s)\)</span> with <span class="mi">\(E_B\)</span> bounded by the sum of the two right sides, which is <a class="ref" href="r.prop.app-drift-response.html#L-eqn:app-drift-response-error" data-label="eqn:app-drift-response-error">(SC.36)</a>; moving the second term to the left is <a class="ref" href="r.prop.app-drift-response.html#L-eqn:app-drift-response" data-label="eqn:app-drift-response">(SC.35)</a>. The convergence to zero holds because <span class="mi">\(e_B^\star\to0\)</span> (<a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a>), <span class="mi">\(r_B,r_B'\to0\)</span> (<a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> and <a class="ref" href="r.lem.app-drift-gaussian.html" data-label="lem:app-drift-gaussian">Lemma SC.8</a>), <span class="mi">\(\norm{\Ahat}\to0\)</span> (<a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>) and <span class="mi">\(\delta_B(I)\to0\)</span> (<a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-drift-exact.html" data-label="lem:app-drift-exact">Lemma SC.6</a> <span class=muted>Exact mixed identity</span></li><li><a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> <span class=muted>Candidate-centered targets</span></li><li><a class="ref" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class=muted>Gaussian response</span></li><li><a class="ref" href="r.lem.app-drift-derivatives.html" data-label="lem:app-drift-derivatives">Lemma SC.7</a> <span class=muted>Derivative bounds</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li><li><a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> <span class=muted>Bessel bounds</span></li><li><a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> <span class=muted>Uniform Gaussian limit of the residual functional</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li><li><a class="ref" href="r.lem.app-drift-covariance.html" data-label="lem:app-drift-covariance">Lemma SC.5</a> <span class=muted>Covariance of the Gram coefficient and the mixed resolvent</span></li><li><a class="ref" href="r.lem.app-drift-gaussian.html" data-label="lem:app-drift-gaussian">Lemma SC.8</a> <span class=muted>Uniform Gaussian limit of the derivative functional</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a> <span class=muted>Mixed resolvent closure and tail bound</span></li><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.bB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L202">source</a></summary><pre class="lean no-mj">noncomputable def bB (w : ℕ → ℝ) (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.YB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L206">source</a></summary><pre class="lean no-mj">noncomputable def YB (w : ℕ → ℝ) (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ) (s : ℝ) :
+    Matrix (Fin n) (Fin n) ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.EB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L211">source</a></summary><pre class="lean no-mj">noncomputable def EB (w : ℕ → ℝ) (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ)
+    (ν ν' : FiniteMeasure ℝ) (s : ℝ) : Mat m n :=</pre></details><details class="decl"><summary><code>Muon.Drift.deltaB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L161">source</a></summary><pre class="lean no-mj">noncomputable def deltaB (w : ℕ → ℝ) (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ)
+    (ν ν' : FiniteMeasure ℝ) (I : Set ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.eBstar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L218">source</a></summary><pre class="lean no-mj">noncomputable def eBstar (e : ℕ → ℝ) (CI : ℝ) (B : ℕ) (ϑ : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_response_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Response.lean#L3562">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_response_weights (CS γ : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    ∃ CI : ℝ, ∀ R : Muon.Setup.SetupRegime, R.CSig = CS → R.γstar = γ →
+      ∀ (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+        [∀ k, IsProbabilityMeasure (P k)]
+        (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ) (w : ℕ → ℝ),
+        WeightClass w →
+        ∃ eStar : ℕ → ℝ, Tendsto eStar atTop (𝓝 0) ∧
+          (∀ k : ℕ, ∀ j : ℕ, ∀ s ∈ I,
+            eLpNorm (fun ω =&gt; delAlpha1 w (R.F k) (S k) t j s ω
+                - alphaStar1 w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) j s ω)
+              2 (P k) ≤ ENNReal.ofReal (w j * eStar k) ∧
+            eLpNorm (fun ω =&gt; delAlpha2 w (R.F k) (S k) t j s ω
+                - alphaStar2 w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) j s ω)
+              2 (P k) ≤ ENNReal.ofReal (w j ^ 2 * eStar k)) ∧
+          (∀ k : ℕ, ∀ s ∈ I,
+            Hmix w (R.F k) (S k) t s * YB w (R.F k) (S k) t s =
+              (Lw w (branchQ w (specOutFM (R.F k)) (specInFM (R.F k)) s)) •
+                (Rbar (Fw w) (specOutFM (R.F k)) (specInFM (R.F k)) (R.F k).C s * EG (R.F k))
+              + EB w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) s) ∧
+          (∀ k : ℕ, BddAbove ((fun s =&gt; fro (EB w (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s)) '' I)) ∧
+          Tendsto (fun k =&gt; ⨆ s ∈ I, fro (EB w (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s)) atTop (𝓝 0) ∧
+          (∀ k : ℕ, ⨆ s ∈ I, fro (EB w (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s) ≤
+            CI * (eStar k + rPrimeB (R.F k).A (qIbound CS γ I) + opNorm (R.F k).A
+              + opNorm (R.F k).A ^ 2 + deltaB w (R.F k) (S k) t (specOutFM (R.F k))
+                (specInFM (R.F k)) I + 1 / Real.sqrt ((R.B k : ℕ) : ℝ))) ∧
+          (∀ k : ℕ, ∀ s ∈ I, 0 ≤ bB w (R.F k) (S k) t s) ∧
+          (∀ k : ℕ, BddAbove ((fun s =&gt; |bB w (R.F k) (S k) t s
+              - branchSigma w (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw w (branchQ w (specOutFM (R.F k)) (specInFM (R.F k)) s)|) '' I)) ∧
+          (∀ k : ℕ, ⨆ s ∈ I, |bB w (R.F k) (S k) t s
+              - branchSigma w (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw w (branchQ w (specOutFM (R.F k)) (specInFM (R.F k)) s)| ≤
+            sumPow w 2 * (eStar k + (CS * γ / sInf I) * rBfresh (R.F k).A (qIbound CS γ I))) ∧
+          Tendsto (fun k =&gt; ⨆ s ∈ I, |bB w (R.F k) (S k) t s
+              - branchSigma w (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw w (branchQ w (specOutFM (R.F k)) (specInFM (R.F k)) s)|) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_response</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Response.lean#L3682">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_response (CS γ : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    ∃ CI : ℝ, ∀ R : Muon.Setup.SetupRegime, R.CSig = CS → R.γstar = γ →
+      ∀ (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+        [∀ k, IsProbabilityMeasure (P k)]
+        (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ),
+        ∃ eStar : ℕ → ℝ, Tendsto eStar atTop (𝓝 0) ∧
+          (∀ k : ℕ, ∀ j : ℕ, ∀ s ∈ I,
+            eLpNorm (fun ω =&gt; delAlpha1 (emaW R.β) (R.F k) (S k) t j s ω
+                - alphaStar1 (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) j s ω)
+              2 (P k) ≤ ENNReal.ofReal (emaW R.β j * eStar k) ∧
+            eLpNorm (fun ω =&gt; delAlpha2 (emaW R.β) (R.F k) (S k) t j s ω
+                - alphaStar2 (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) j s ω)
+              2 (P k) ≤ ENNReal.ofReal (emaW R.β j ^ 2 * eStar k)) ∧
+          (∀ k : ℕ, ∀ s ∈ I,
+            Hmix (emaW R.β) (R.F k) (S k) t s * YB (emaW R.β) (R.F k) (S k) t s =
+              (Lw (emaW R.β) (branchQ (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s)) •
+                (Rbar (Fw (emaW R.β)) (specOutFM (R.F k)) (specInFM (R.F k)) (R.F k).C s * EG (R.F k))
+              + EB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) s) ∧
+          (∀ k : ℕ, BddAbove ((fun s =&gt; fro (EB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s)) '' I)) ∧
+          Tendsto (fun k =&gt; ⨆ s ∈ I, fro (EB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s)) atTop (𝓝 0) ∧
+          (∀ k : ℕ, ⨆ s ∈ I, fro (EB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k))
+              (specInFM (R.F k)) s) ≤
+            CI * (eStar k + rPrimeB (R.F k).A (qIbound CS γ I) + opNorm (R.F k).A
+              + opNorm (R.F k).A ^ 2 + deltaB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k))
+                (specInFM (R.F k)) I + 1 / Real.sqrt ((R.B k : ℕ) : ℝ))) ∧
+          (∀ k : ℕ, ∀ s ∈ I, 0 ≤ bB (emaW R.β) (R.F k) (S k) t s) ∧
+          (∀ k : ℕ, BddAbove ((fun s =&gt; |bB (emaW R.β) (R.F k) (S k) t s
+              - branchSigma (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw (emaW R.β) (branchQ (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s)|) '' I)) ∧
+          (∀ k : ℕ, ⨆ s ∈ I, |bB (emaW R.β) (R.F k) (S k) t s
+              - branchSigma (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw (emaW R.β) (branchQ (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s)| ≤
+            sumPow (emaW R.β) 2 * (eStar k + (CS * γ / sInf I) * rBfresh (R.F k).A (qIbound CS γ I))) ∧
+          Tendsto (fun k =&gt; ⨆ s ∈ I, |bB (emaW R.β) (R.F k) (S k) t s
+              - branchSigma (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s
+                * Fw (emaW R.β) (branchQ (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) s)|)
+            atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Drift.qIbound</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Response.lean#L52">source</a></summary><pre class="lean no-mj">noncomputable def qIbound (CS γ : ℝ) (I : Set ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.rBfresh</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Response.lean#L58">source</a></summary><pre class="lean no-mj">noncomputable def rBfresh (A : Mat m n) (Q : ℝ) : ℝ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

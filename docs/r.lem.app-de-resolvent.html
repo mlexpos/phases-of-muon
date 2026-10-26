@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.3 (Resolvent identities)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.3 (Resolvent identities)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-resolvent"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class="thm-title">(Resolvent identities)</span></div><div class="thm-body"><div class="p">For every <span class="mi">\(M\)</span> and <span class="mi">\(s&gt;0\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+\norm{R_s(M)}\le\frac1s,\qquad
+\norm{\widetilde R_s(M)}\le\frac1s,\qquad \norm{\mathsf X_s(M)}\le\frac{1}{2\sqrt s},\\
+R_s(M)M=M\widetilde R_s(M),\qquad
+M^\T R_s(M)M=\Id_{\Nin}-s\widetilde R_s(M),\\
+R_s(M)MM^\T=\Id_{\Nout}-sR_s(M),
+\end{gathered}
+\]</div>
+<div class="p">and for <span class="mi">\(s,s'&gt;0\)</span>,</div>
+<div class="md">\[
+\norm{R_s(M)-R_{s'}(M)}\le\frac{\abs{s-s'}}{ss'}.
+\]</div>
+<div class="p">For <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(x\defeq\Ree z\)</span>, the matrices <span class="mi">\(MM^\T+z\Id_{\Nout}\)</span> and <span class="mi">\(M^\T M+z\Id_{\Nin}\)</span> are invertible, the three identities hold with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>, and</div>
+<div class="md">\[
+\norm{R_z(M)}\le\frac1x,\qquad
+\norm{\widetilde R_z(M)}\le\frac1x,\qquad \norm{\mathsf X_z(M)}\le\frac{1}{2\sqrt x},\qquad
+\frac{\abs z}{x}\le\frac{\sqrt5}{2}.
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The norm bounds follow from a singular value decomposition <span class="mi">\(M=\sum_ks_k\,p_k\tensor r_k\)</span>. In it, the three matrices are</div>
+<div class="md">\[
+\begin{gathered}
+R_s(M)=\sum_k\frac{p_k\tensor p_k}{s_k^2+s}+\frac{\Pi_{\mathrm{out}}}{s},\qquad
+\widetilde R_s(M)=\sum_k\frac{r_k\tensor r_k}{s_k^2+s}+\frac{\Pi_{\mathrm{in}}}{s},\\
+\mathsf X_s(M)=\sum_k\frac{s_k}{s_k^2+s}\,p_k\tensor r_k ,
+\end{gathered}
+\]</div>
+<div class="p">where <span class="mi">\(\Pi_{\mathrm{out}}\)</span> and <span class="mi">\(\Pi_{\mathrm{in}}\)</span> are the orthogonal projections onto the left and right null spaces of <span class="mi">\(M\)</span>. The coefficients satisfy</div>
+<div class="md">\[
+\frac{1}{s_k^2+s}\le\frac1s,\qquad \frac{s_k}{s_k^2+s}\le\frac{1}{2\sqrt s},
+\]</div>
+<div class="p">the second by the inequality <span class="mi">\(s_k^2+s\ge2s_k\sqrt s\)</span> between arithmetic and geometric means.</div>
+<div class="p">The intertwining identity follows from the elementary identity</div>
+<div class="md">\[
+(MM^\T+s\Id_{\Nout})M=M(M^\T M+s\Id_{\Nin}).
+\]</div>
+<div class="p">Multiplying it by <span class="mi">\(R_s(M)\)</span> on the left and by <span class="mi">\(\widetilde R_s(M)\)</span> on the right gives <span class="mi">\(R_s(M)M=M\widetilde R_s(M)\)</span>.</div>
+<div class="p">The second identity follows from the first. Multiplying <span class="mi">\(R_s(M)M=M\widetilde R_s(M)\)</span> on the left by <span class="mi">\(M^\T\)</span> gives</div>
+<div class="md">\[
+M^\T R_s(M)M=M^\T M\,\widetilde R_s(M)=(M^\T M+s\Id_{\Nin}-s\Id_{\Nin})\widetilde R_s(M)=\Id_{\Nin}-s\widetilde R_s(M).
+\]</div>
+<div class="p">The third identity is the same computation with <span class="mi">\(MM^\T\)</span>:</div>
+<div class="md">\[
+R_s(M)MM^\T=R_s(M)(MM^\T+s\Id_{\Nout}-s\Id_{\Nout})=\Id_{\Nout}-sR_s(M).
+\]</div>
+<div class="p">The Lipschitz bound is the resolvent identity. For <span class="mi">\(s,s'&gt;0\)</span>,</div>
+<div class="md">\[
+R_s(M)-R_{s'}(M)=R_s(M)\big((MM^\T+s'\Id)-(MM^\T+s\Id)\big)R_{s'}(M)=(s'-s)\,R_s(M)R_{s'}(M),
+\]</div>
+<div class="p">and the norm bound follows from <span class="mi">\(\norm{R_s(M)}\le1/s\)</span> and <span class="mi">\(\norm{R_{s'}(M)}\le1/s'\)</span>.</div>
+<div class="p">The sector statement is the same computation with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>. In the singular value decomposition, <span class="mi">\(MM^\T+z\Id\)</span> and <span class="mi">\(M^\T M+z\Id\)</span> have the real orthonormal eigenvectors <span class="mi">\(p_k\)</span>, <span class="mi">\(r_k\)</span> and the null-space vectors, with eigenvalues <span class="mi">\(s_k^2+z\)</span> and <span class="mi">\(z\)</span>, whose real parts are at least <span class="mi">\(x&gt;0\)</span>; so both matrices are invertible, and <span class="mi">\(R_z(M)\)</span>, <span class="mi">\(\widetilde R_z(M)\)</span>, <span class="mi">\(\mathsf X_z(M)\)</span> are the displayed sums with <span class="mi">\(s\)</span> replaced by <span class="mi">\(z\)</span>. Since <span class="mi">\(R_z(M)\)</span> and <span class="mi">\(\widetilde R_z(M)\)</span> are diagonal in real orthonormal bases, their norms are the largest moduli of their eigenvalues, and the singular values of <span class="mi">\(\mathsf X_z(M)\)</span> are <span class="mi">\(s_k/\abs{s_k^2+z}\)</span>. The bound <span class="mi">\(\abs{s_k^2+z}\ge\Ree(s_k^2+z)=s_k^2+x\)</span> gives</div>
+<div class="md">\[
+\frac{1}{\abs{s_k^2+z}}\le\frac1x,\qquad \frac{s_k}{\abs{s_k^2+z}}\le\frac{s_k}{s_k^2+x}\le\frac{1}{2\sqrt x}.
+\]</div>
+<div class="p">The identities are algebraic and hold verbatim. Finally <span class="mi">\(\abs z^2=x^2+(\Img z)^2\le\frac54x^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class=muted>Rank-two deletion</span></li><li><a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class=muted>Coefficient bounds</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class=muted>Trace closure with bounded tests</span></li><li><a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class=muted>Concentration of the deleted-sample scalars</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li><li><a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a> <span class=muted>Mixed resolvent closure and tail bound</span></li><li><a class="ref" href="r.lem.app-drift-column.html" data-label="lem:app-drift-column">Lemma SC.1</a> <span class=muted>Deletion identities for the mixed resolvent</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li><li><a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> <span class=muted>Rank sensitivity of the conditional Gram coefficient</span></li><li><a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a> <span class=muted>Finite bounds for tested contractions</span></li><li><a class="ref" href="r.lem.app-dyn-schatten.html" data-label="lem:app-dyn-schatten">Lemma SE.4</a> <span class=muted>Schatten sensitivity of the filter</span></li><li><a class="ref" href="r.lem.app-dyn-coefficients.html" data-label="lem:app-dyn-coefficients">Lemma SE.10</a> <span class=muted>Derivative coefficients</span></li><li><a class="ref" href="r.prop.app-dyn-reduction.html" data-label="prop:app-dyn-reduction">Proposition SE.2</a> <span class=muted>Causal resolvent reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_resolvent</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L322">source</a></summary><pre class="lean no-mj">theorem lem_app_de_resolvent {m n : ℕ} (M : Mat m n) (s : ℝ) (hs : 0 &lt; s) :
+    opNorm (Rs M s) ≤ 1 / s ∧
+    opNorm (Rts M s) ≤ 1 / s ∧
+    opNorm (Xs M s) ≤ 1 / (2 * Real.sqrt s) ∧
+    Rs M s * M = M * Rts M s ∧
+    Mᵀ * Rs M s * M = (1 : Mat n n) - s • Rts M s ∧
+    Rs M s * (M * Mᵀ) = (1 : Mat m m) - s • Rs M s ∧
+    ∀ s' : ℝ, 0 &lt; s' → opNorm (Rs M s - Rs M s') ≤ |s - s'| / (s * s') :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.Rs</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L37">source</a></summary><pre class="lean no-mj">def Rs {m n : ℕ} (M : Mat m n) (s : ℝ) : Mat m m :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.Rts</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L42">source</a></summary><pre class="lean no-mj">def Rts {m n : ℕ} (M : Mat m n) (s : ℝ) : Mat n n :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.Xs</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L46">source</a></summary><pre class="lean no-mj">def Xs {m n : ℕ} (M : Mat m n) (s : ℝ) : Mat m n :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

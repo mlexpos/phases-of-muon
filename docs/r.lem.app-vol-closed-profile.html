@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.12 (Profile functions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.12 (Profile functions)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-closed-profile"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a> <span class="thm-title">(Profile functions)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\xi\)</span> be a profile.</div>
+<ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p"><span class="mi">\(F_\xi\)</span> and <span class="mi">\(r_\xi\)</span> are continuous on <span class="mi">\([0,\infty)\)</span> and real-analytic on <span class="mi">\((0,\infty)\)</span>. <span class="mi">\(F_\xi\)</span> is nonincreasing with <span class="mi">\(0&lt;F_\xi\le F_\xi(0)=\sum_\alpha\EE\xi_\alpha^2\)</span>, and <span class="mi">\(r_\xi(0)=0\)</span>. For <span class="mi">\(q\ge0\)</span>,</div>
+<div class="md">\[
+r_\xi'(q)=\sum_\alpha\EE\frac{\xi_\alpha^2}{(1+q\xi_\alpha^2)^2}&gt;0,\qquad -F_\xi'(q)=\sum_\alpha\EE\frac{\xi_\alpha^4}{(1+q\xi_\alpha^2)^2}\in[0,\infty],
+\]</div>
+<div class="p">the latter finite for <span class="mi">\(q&gt;0\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-b0e0"></span>\begin{equation}\tag{SD.65}
+r_\xi'(q)+q\,\big(-F_\xi'(q)\big)=F_\xi(q)\qquad(q&gt;0).
+\end{equation}</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p"><span class="mi">\(r_\xi\)</span> increases strictly to <span class="mi">\(n_\xi\defeq\sum_\alpha\Pr(\xi_\alpha\ne0)\in(0,\infty]\)</span>.</div></div></li><li><span class="li-mark">(c)</span><div class="li-body"><div class="p">For a paired profile, <span class="mi">\(b\)</span> and <span class="mi">\(e\)</span> are continuous on <span class="mi">\([0,\infty)^2\)</span>, real-analytic in each variable on <span class="mi">\((0,\infty)\)</span> when the other is fixed, and</div>
+<div class="md">\[
+0\le b(q_1,q_2)\le\min\Big(\sqrt{r_{\xi_1}'(q_1)\,r_{\xi_2}'(q_2)},\ \sum_\alpha\EE[\xi_{1,\alpha}\xi_{2,\alpha}]\Big),
+\]</div>
+<div class="md">\[
+0\le e(q_1,q_2)\le\sqrt{\big(-F_{\xi_1}'(q_1)\big)\big(-F_{\xi_2}'(q_2)\big)} .
+\]</div></div></li><li><span class="li-mark">(d)</span><div class="li-body"><div class="p">For the EMA paired profile at lag <span class="mi">\(\ell\)</span>, the divided-difference forms <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-divided" data-label="eqn:app-vol-closed-divided">(SD.56)</a> hold, and <span class="mi">\(0\le b_\ell\le\sw2\,\bmom^\ell\)</span>. At <span class="mi">\(\ell=0\)</span> and <span class="mi">\(q=q'\)</span> they read <span class="mi">\(b_0=r_{\bmom}'(q)\)</span> and <span class="mi">\(e_0=-\Fw'(q)\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (a), each summand <span class="mi">\(x^2/(1+qx^2)\)</span> lies in <span class="mi">\([0,x^2]\)</span> and is nonincreasing in <span class="mi">\(q\)</span>. Continuity on <span class="mi">\([0,\infty)\)</span> and monotonicity follow by dominated convergence with the majorant <span class="mi">\(\sum_\alpha\xi_\alpha^2\)</span>. For analyticity at <span class="mi">\(q_0&gt;0\)</span>, expand, for <span class="mi">\(\abs{q-q_0}&lt;q_0\)</span>,</div>
+<div class="md">\[
+\frac{x^2}{1+qx^2}=\sum_{n\ge0}\frac{x^2\,\big(-(q-q_0)x^2\big)^n}{(1+q_0x^2)^{n+1}},\qquad
+\Big|\frac{x^2\,\big(-(q-q_0)x^2\big)^n}{(1+q_0x^2)^{n+1}}\Big|\le x^2\Big(\frac{\abs{q-q_0}}{q_0}\Big)^n,
+\]</div>
+<div class="p">using <span class="mi">\(x^2/(1+q_0x^2)\le1/q_0\)</span>. The double family over <span class="mi">\((\alpha,n)\)</span> is dominated by <span class="mi">\(\sum_\alpha\EE\xi_\alpha^2\sum_n(\abs{q-q_0}/q_0)^n&lt;\infty\)</span>. Hence Fubini’s theorem turns <span class="mi">\(F_\xi\)</span> into a convergent power series in <span class="mi">\(q-q_0\)</span>, and <span class="mi">\(r_\xi=qF_\xi\)</span> is analytic as well. Termwise differentiation of the series gives the displayed derivatives for <span class="mi">\(q&gt;0\)</span>, and dominated convergence with the majorant <span class="mi">\(\xi_\alpha^2\)</span> gives <span class="mi">\(r_\xi'(0)\)</span>. The derivative <span class="mi">\(r_\xi'\)</span> is positive because <span class="mi">\(\Pr(\xi_\alpha\ne0)&gt;0\)</span> for some <span class="mi">\(\alpha\)</span>. The bound <span class="mi">\(x^4/(1+qx^2)^2\le x^2/(4q)\)</span> shows that <span class="mi">\(-F_\xi'(q)\)</span> is finite for <span class="mi">\(q&gt;0\)</span>. Identity <a class="ref" href="r.lem.app-vol-closed-profile.html#L-eqn:app-vol-closed-b0e0" data-label="eqn:app-vol-closed-b0e0">(SD.65)</a> is the sum over <span class="mi">\(\alpha\)</span> of</div>
+<div class="md">\[
+\frac{x^2}{(1+qx^2)^2}+\frac{qx^4}{(1+qx^2)^2}=\frac{x^2}{1+qx^2}.
+\]</div>
+<div class="p">For (b), <span class="mi">\(qx^2/(1+qx^2)\)</span> increases to <span class="mi">\(\mathbf 1_{x\ne0}\)</span> as <span class="mi">\(q\to\infty\)</span>. Monotone convergence gives the limit <span class="mi">\(n_\xi\)</span>, and <span class="mi">\(r_\xi'&gt;0\)</span> gives strict monotonicity.</div>
+<div class="p">For (c), nonnegativity follows from <span class="mi">\(\xi_{1,\alpha}\xi_{2,\alpha}\ge0\)</span>. The Cauchy–Schwarz inequality for the sum over <span class="mi">\(\alpha\)</span> and the expectation, with <span class="mi">\(X_\alpha=\xi_{1,\alpha}/(1+q_1\xi_{1,\alpha}^2)\)</span> and <span class="mi">\(Y_\alpha=\xi_{2,\alpha}/(1+q_2\xi_{2,\alpha}^2)\)</span>, gives the first bound on <span class="mi">\(b\)</span>. With <span class="mi">\(X_\alpha=\xi_{1,\alpha}^2/(1+q_1\xi_{1,\alpha}^2)\)</span> and <span class="mi">\(Y_\alpha=\xi_{2,\alpha}^2/(1+q_2\xi_{2,\alpha}^2)\)</span> it gives the bound on <span class="mi">\(e\)</span>. The second bound on <span class="mi">\(b\)</span> holds because the denominators are at least one. Continuity follows by dominated convergence with the summable majorants <span class="mi">\((\xi_1^2+\xi_2^2)/2\)</span> and <span class="mi">\(\xi_1^2\xi_2^2\)</span>. Analyticity in <span class="mi">\(q_1\)</span> for fixed <span class="mi">\(q_2\)</span> follows as in (a), the factor <span class="mi">\(1/(1+q_2\xi_2^2)\in(0,1]\)</span> being fixed.</div>
+<div class="p">For (d), for <span class="mi">\(x\ge0\)</span> and <span class="mi">\(p\ne p'\)</span> partial fractions give</div>
+<div class="md">\[
+\frac{x}{(1+px)(1+p'x)}=\frac1{p-p'}\Big(\frac{px}{1+px}-\frac{p'x}{1+p'x}\Big),
+\]</div>
+<div class="md">\[
+\frac{x^2}{(1+px)(1+p'x)}=\frac1{p-p'}\Big(\frac{x}{1+p'x}-\frac{x}{1+px}\Big).
+\]</div>
+<div class="p">Take <span class="mi">\(x=\emaw j^2g^2\)</span>, <span class="mi">\(p=q\)</span> and <span class="mi">\(p'=\bmom^{2\ell}q'\)</span>, multiply by <span class="mi">\(\bmom^\ell\)</span>, respectively <span class="mi">\(\bmom^{2\ell}\)</span>, take expectations and sum over <span class="mi">\(j\)</span>; this gives <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-divided" data-label="eqn:app-vol-closed-divided">(SD.56)</a>. The bound <span class="mi">\(b_\ell\le\bmom^\ell\sum_j\emaw j^2\EE g^2=\sw2\bmom^\ell\)</span> is the second bound of (c). At coincident arguments the formulas are the definitions.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> <span class=muted>Regularity and bounds</span></li><li><a class="ref" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a> <span class=muted>Two reductions</span></li><li><a class="ref" href="r.lem.app-vol-closed-determinant.html" data-label="lem:app-vol-closed-determinant">Lemma SD.15</a> <span class=muted>Determinant</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_profile_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L687">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_profile_i {P : Measure Ω} [IsProbabilityMeasure P]
+    {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ) :
+    ContinuousOn (profileF P ξ) (Ici 0) ∧ ContinuousOn (profileR P ξ) (Ici 0) ∧
+    AnalyticOnNhd ℝ (profileF P ξ) (Ioi 0) ∧ AnalyticOnNhd ℝ (profileR P ξ) (Ioi 0) ∧
+    AntitoneOn (profileF P ξ) (Ici 0) ∧
+    profileF P ξ 0 = ∑' α, ∫ ω, ξ α ω ^ 2 ∂P ∧ profileR P ξ 0 = 0 ∧
+    (∀ q ∈ Ici (0 : ℝ), 0 &lt; profileF P ξ q) ∧
+    (∀ q ∈ Ici (0 : ℝ), HasDerivWithinAt (profileR P ξ) (profileRDeriv P ξ q) (Ici 0) q) ∧
+    (∀ q ∈ Ici (0 : ℝ), 0 &lt; profileRDeriv P ξ q) ∧
+    (∀ q, 0 &lt; q → HasDerivAt (profileF P ξ) (-profileNegFDeriv P ξ q) q ∧
+      0 ≤ profileNegFDeriv P ξ q) ∧
+    (∀ q, 0 &lt; q → profileRDeriv P ξ q + q * profileNegFDeriv P ξ q = profileF P ξ q) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_profile_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L853">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_profile_ii {P : Measure Ω} [IsProbabilityMeasure P]
+    {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ) :
+    StrictMonoOn (profileR P ξ) (Ici 0) ∧
+    Tendsto (fun q =&gt; ENNReal.ofReal (profileR P ξ q)) atTop
+      (𝓝 (∑' α, P {ω | ξ α ω ≠ 0})) ∧
+    0 &lt; ∑' α, P {ω | ξ α ω ≠ 0} := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_profile_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L1888">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_profile_iii {P : Measure Ω} [IsProbabilityMeasure P]
+    {ξ₁ ξ₂ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile_ii P ξ₁ ξ₂) :
+    ContinuousOn (fun p : ℝ × ℝ =&gt; pairedB P ξ₁ ξ₂ p.1 p.2) (Ici 0 ×ˢ Ici 0) ∧
+    ContinuousOn (fun p : ℝ × ℝ =&gt; pairedE P ξ₁ ξ₂ p.1 p.2) (Ici 0 ×ˢ Ici 0) ∧
+    (∀ q₂ ∈ Ici (0 : ℝ), AnalyticOnNhd ℝ (fun q₁ =&gt; pairedB P ξ₁ ξ₂ q₁ q₂) (Ioi 0)) ∧
+    (∀ q₂ ∈ Ici (0 : ℝ), AnalyticOnNhd ℝ (fun q₁ =&gt; pairedE P ξ₁ ξ₂ q₁ q₂) (Ioi 0)) ∧
+    (∀ q₁ ∈ Ici (0 : ℝ), AnalyticOnNhd ℝ (fun q₂ =&gt; pairedB P ξ₁ ξ₂ q₁ q₂) (Ioi 0)) ∧
+    (∀ q₁ ∈ Ici (0 : ℝ), AnalyticOnNhd ℝ (fun q₂ =&gt; pairedE P ξ₁ ξ₂ q₁ q₂) (Ioi 0)) ∧
+    (∀ q₁ ∈ Ici (0 : ℝ), ∀ q₂ ∈ Ici (0 : ℝ),
+      0 ≤ pairedB P ξ₁ ξ₂ q₁ q₂ ∧
+      pairedB P ξ₁ ξ₂ q₁ q₂ ≤ min (Real.sqrt (profileRDeriv P ξ₁ q₁ * profileRDeriv P ξ₂ q₂))
+        (∑' α, ∫ ω, ξ₁ α ω * ξ₂ α ω ∂P)) ∧
+    (∀ q₁ ∈ Ioi (0 : ℝ), ∀ q₂ ∈ Ioi (0 : ℝ),
+      0 ≤ pairedE P ξ₁ ξ₂ q₁ q₂ ∧
+      pairedE P ξ₁ ξ₂ q₁ q₂ ≤
+        Real.sqrt (profileNegFDeriv P ξ₁ q₁ * profileNegFDeriv P ξ₂ q₂)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_profile_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L1949">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_profile_iv {P : Measure Ω} [IsProbabilityMeasure P] {β : ℝ}
+    (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {ℓ : ℕ} {g : ℕ ⊕ Fin ℓ → Ω → ℝ}
+    (hg : IsStdGaussianFamily P g) :
+    profileF P (emaXi₁ β ℓ g) = Muon.DetEquiv.Fw (Muon.emaW β) ∧
+    profileF P (emaXi₂ β ℓ g) = Muon.DetEquiv.Fw (Muon.emaW β) ∧
+    (∀ q q' : ℝ, 0 ≤ q → 0 ≤ q' → q ≠ β ^ (2 * ℓ) * q' →
+      pairedB P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' =
+          β ^ ℓ * (Muon.DetEquiv.rW (Muon.emaW β) q -
+            Muon.DetEquiv.rW (Muon.emaW β) (β ^ (2 * ℓ) * q')) / (q - β ^ (2 * ℓ) * q') ∧
+      pairedE P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' =
+          β ^ (2 * ℓ) * (Muon.DetEquiv.Fw (Muon.emaW β) q -
+            Muon.DetEquiv.Fw (Muon.emaW β) (β ^ (2 * ℓ) * q')) /
+            (β ^ (2 * ℓ) * q' - q)) ∧
+    (∀ q q' : ℝ, 0 ≤ q → 0 ≤ q' → q = β ^ (2 * ℓ) * q' →
+      pairedB P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' =
+          β ^ ℓ * derivWithin (Muon.DetEquiv.rW (Muon.emaW β)) (Ici 0) q ∧
+      pairedE P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' =
+          β ^ (2 * ℓ) * (-derivWithin (Muon.DetEquiv.Fw (Muon.emaW β)) (Ici 0) q)) ∧
+    (∀ q q' : ℝ, 0 ≤ q → 0 ≤ q' →
+      0 ≤ pairedB P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' ∧
+      pairedB P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) q q' ≤ Muon.sPow β 2 * β ^ ℓ) ∧
+    def_app_vol_closed_profile_ii P (emaXi₁ β ℓ g) (emaXi₂ β ℓ g) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_cutoff_masses</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L2142">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_cutoff_masses {P : Measure Ω} [IsProbabilityMeasure P] {β : ℝ}
+    (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {ℓ J : ℕ} {R : ℝ} (hR : 0 &lt; R) {g : ℤ → Ω → ℝ}
+    (hg : IsStdGaussianFamily P g) {l : ℕ} (hl : l = 1 ∨ l = 2) :
+    (∀ α ω, |cutoffXi β ℓ J R l g α ω| ≤ cutoffVarpi β ℓ J l α * R) ∧
+    Summable (fun α =&gt; ∫ ω, cutoffXi β ℓ J R l g α ω ^ 2 ∂P) ∧
+    ∑' α, ∫ ω, cutoffXi β ℓ J R l g α ω ^ 2 ∂P ≤ 1 ∧
+    profileF P (cutoffXi β ℓ J R l g) 0 ≤ 1 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SC.2 (One-step risk drift in the frozen state)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SC.2 (One-step risk drift in the frozen state)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-drift-onestep"><div class="thm-head"><a class="thm-name" href="r.prop.app-drift-onestep.html" data-label="prop:app-drift-onestep">Proposition SC.2</a> <span class="thm-title">(One-step risk drift in the frozen state)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, let <span class="mi">\(\lr\ge0\)</span> be deterministic and put <span class="mi">\(\Delta^+\defeq\Dt-\lr\,\Gtilde\)</span> with <span class="mi">\(\Gtilde=\Qridge\ridge(\Mt)\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-onestep"></span>\begin{equation}\tag{SC.15}
+\EE\big[\cR(\Delta^+)\big]-\cR(t)=-\lr\,\sqrt{2\cR(t)}\,\big\langle\EE\Gt,\EE\Gtilde\big\rangle+\frac{\lr^2}{2}\,\EE\norm{\Gtilde}_\Sigma^2 ,
+\end{equation}</div>
+<div class="p">and the linear term satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-onestep-de"></span>\begin{equation}\tag{SC.16}
+\Big|\sqrt{2\cR(t)}\,\big\langle\EE\Gt,\EE\Gtilde\big\rangle-\frac{1}{\sqrt{\cR(t)}}\sum_{i,j}\mu_i\lambda_j\,\mathfrak d_{ij}\,\CMscr Q_{ij}(t)\Big|
+\le\sqrt{2\cR(t)}\,C_\Sigma\,\varepsilon_B .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-drift-onestep.html" data-label="prop:app-drift-onestep">Proposition SC.2</a>.</div><div class="p">The identity <a class="ref" href="r.prop.app-drift-onestep.html#L-eqn:app-drift-onestep" data-label="eqn:app-drift-onestep">(SC.15)</a> is the total-risk line of <a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> in the frozen state. In the frozen-state model the state <span class="mi">\(\Dt\)</span> is deterministic, the update <span class="mi">\({\mathsf S}=\Gtilde\)</span> has <span class="mi">\(\EE\norm{{\mathsf S}}_\F^2\le\min(\Nout,\Nin)\)</span> by <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(i), and the conditional expectations of that proposition are plain expectations; its identity <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-total" data-label="eqn:app-setup-total">(SA.22)</a> with the contractions <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-contractions" data-label="eqn:app-setup-contractions">(SA.23)</a> and <span class="mi">\(\cR=\tfrac12\norm\cdot_\Sigma^2\)</span> reads</div>
+<div class="md">\[
+\EE\big[\cR(\Delta^+)\big]-\cR(t)=-\lr\,\big\langle\Dt,\EE\Gtilde\big\rangle_\Sigma+\frac{\lr^2}{2}\,\EE\norm{\Gtilde}_\Sigma^2 .
+\]</div>
+<div class="p">The pairing is rewritten through the mean gradient:</div>
+<div class="md">\[
+\begin{aligned}
+\big\langle\Dt,\EE\Gtilde\big\rangle_\Sigma&amp;=\Tr\big(\Sigmaout\Dt\Sigmain\,(\EE\Gtilde)^\T\big)
+=\big\langle\Sigmaout\Dt\Sigmain,\EE\Gtilde\big\rangle\\
+&amp;=\sqrt{2\cR(t)}\,\big\langle\EE\Gt,\EE\Gtilde\big\rangle ,
+\end{aligned}
+\]</div>
+<div class="p">by <a class="ref" href="r.prop.app-setup-normalization.html#L-eqn:app-setup-normalized-moments" data-label="eqn:app-setup-normalized-moments">(SA.11)</a>, which gives <a class="ref" href="r.prop.app-drift-onestep.html#L-eqn:app-drift-onestep" data-label="eqn:app-drift-onestep">(SC.15)</a>.</div>
+<div class="p">The deterministic equivalent of the pairing is read in the eigenbases. By <a class="ref" href="r.thm.app-drift-mean.html#L-eqn:app-drift-pairing" data-label="eqn:app-drift-pairing">(SC.9)</a> with <span class="mi">\(V=\EE\Gt\)</span> and <span class="mi">\(\norm{\EE\Gt}_\F\le C_\Sigma\)</span>,</div>
+<div class="md">\[
+\big|\big\langle\EE\Gt,\EE\Gtilde\big\rangle-\big\langle\EE\Gt,\Gtildebar_\ridge\big\rangle\big|\le C_\Sigma\varepsilon_B ,
+\]</div>
+<div class="p">and, expanding both matrices in the bases <span class="mi">\((u_i)\)</span>, <span class="mi">\((v_j)\)</span>, with <span class="mi">\(u_i^\T\EE\Gt v_j=\mu_i\lambda_j(u_i^\T\Dt v_j)/\sqrt{2\cR(t)}\)</span> and <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-projected" data-label="eqn:app-drift-projected">(SC.11)</a>,</div>
+<div class="md">\[
+\big\langle\EE\Gt,\Gtildebar_\ridge\big\rangle=\sum_{i,j}\frac{\mu_i\lambda_j(u_i^\T\Dt v_j)}{\sqrt{2\cR(t)}}\cdot\frac{\mathfrak d_{ij}(u_i^\T\Dt v_j)}{\sqrt{\cR(t)}}
+=\frac{1}{\sqrt2\,\cR(t)}\sum_{i,j}\mu_i\lambda_j\,\mathfrak d_{ij}\,\CMscr Q_{ij}(t).
+\]</div>
+<div class="p">Multiplying by <span class="mi">\(\sqrt{2\cR(t)}\)</span> gives <a class="ref" href="r.prop.app-drift-onestep.html#L-eqn:app-drift-onestep-de" data-label="eqn:app-drift-onestep-de">(SC.16)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> <span class=muted>Conditional recursion of the projected risks</span></li><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li><li><a class="ref" href="r.prop.app-setup-normalization.html" data-label="prop:app-setup-normalization">Proposition SA.2</a> <span class=muted>Normalization</span></li><li><a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> <span class=muted>Regularized mean</span></li><li><a class="ref" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a> <span class=muted>The drift kernel</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-iso-scalar.html" data-label="prop:app-iso-scalar">Proposition SF.4</a> <span class=muted>Scalar reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.prop_app_drift_onestep</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/OneStep.lean#L573">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_onestep (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k))
+    (lr : ℕ → ℝ) (hlr : ∀ k, 0 ≤ lr k) :
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      Integrable (fun ω =&gt; riskSigma (R.F k).C (Dt k - lr k • Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω))) (P k) ∧
+      Integrable (fun ω =&gt; pairSigma (R.F k).C (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω))
+        (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω))) (P k) ∧
+      (∫ ω, riskSigma (R.F k).C (Dt k - lr k • Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω)) ∂(P k)) -
+          riskSigma (R.F k).C (Dt k) =
+        -(lr k * Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * (EG (R.F k) * (EQ (emaW R.β) (R.F k) (S k) t ϱ)ᵀ).trace) +
+          (lr k ^ 2 / 2) * (∫ ω, pairSigma (R.F k).C (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω))
+            (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω)) ∂(P k))) ∧
+    (∀ k, BddAbove ((fun ϱ =&gt; fro (EQ (emaW R.β) (R.F k) (S k) t ϱ -
+        Gbar (emaW R.β) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) '' Icc R.ϱlo R.ϱhi)) ∧
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      |Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * (EG (R.F k) * (EQ (emaW R.β) (R.F k) (S k) t ϱ)ᵀ).trace -
+          1 / Real.sqrt (riskSigma (R.F k).C (Dt k)) *
+            (∑ i : Fin (R.m k), ∑ j : Fin (R.n k), (SD k).μ i * (SD k).lam j *
+              kernel (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) *
+                modeQ (SD k) (Dt k) i j)| ≤
+        Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * R.CSig *
+          epsB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) :=</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_onestep_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/OneStep.lean#L425">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_onestep_weights (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (w : ℕ → ℝ) (hw : WeightClass w)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k))
+    (lr : ℕ → ℝ) (hlr : ∀ k, 0 ≤ lr k) :
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      Integrable (fun ω =&gt; riskSigma (R.F k).C (Dt k - lr k • Q ϱ (WeightedBuf w (R.F k) (S k) t ω))) (P k) ∧
+      Integrable (fun ω =&gt; pairSigma (R.F k).C (Q ϱ (WeightedBuf w (R.F k) (S k) t ω))
+        (Q ϱ (WeightedBuf w (R.F k) (S k) t ω))) (P k) ∧
+      (∫ ω, riskSigma (R.F k).C (Dt k - lr k • Q ϱ (WeightedBuf w (R.F k) (S k) t ω)) ∂(P k)) -
+          riskSigma (R.F k).C (Dt k) =
+        -(lr k * Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * (EG (R.F k) * (EQ w (R.F k) (S k) t ϱ)ᵀ).trace) +
+          (lr k ^ 2 / 2) * (∫ ω, pairSigma (R.F k).C (Q ϱ (WeightedBuf w (R.F k) (S k) t ω))
+            (Q ϱ (WeightedBuf w (R.F k) (S k) t ω)) ∂(P k))) ∧
+    (∀ k, BddAbove ((fun ϱ =&gt; fro (EQ w (R.F k) (S k) t ϱ -
+        Gbar w (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) '' Icc R.ϱlo R.ϱhi)) ∧
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      |Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * (EG (R.F k) * (EQ w (R.F k) (S k) t ϱ)ᵀ).trace -
+          1 / Real.sqrt (riskSigma (R.F k).C (Dt k)) *
+            (∑ i : Fin (R.m k), ∑ j : Fin (R.n k), (SD k).μ i * (SD k).lam j *
+              kernel w (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) *
+                modeQ (SD k) (Dt k) i j)| ≤
+        Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * R.CSig *
+          epsB w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SD.5 (Same-time volatility, two anisotropic covariances)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SD.5 (Same-time volatility, two anisotropic covariances)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-corollary" id="L-thm:app-vol-double-same"><div class="thm-head"><a class="thm-name" href="r.thm.app-vol-double-same.html" data-label="thm:app-vol-double-same">Corollary SD.5</a> <span class="thm-title">(Same-time volatility, two anisotropic covariances)</span></div><div class="thm-body"><div class="p">Assume the size conditions, and that <span class="mi">\(\Sigmaout\ne0\)</span> and <span class="mi">\(\Sigmain\ne0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">At every finite dimension, <span class="mi">\(\Upsilon(s)&gt;0\)</span> for <span class="mi">\(s&gt;0\)</span>, and <span class="mi">\(\mathfrak k=\mathfrak k_0[\Sigmaout,\Sigmain]\)</span>. In particular <span class="mi">\(\mathfrak k\)</span> is positive, symmetric and continuous on <span class="mi">\((0,\infty)^2\)</span>, with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-kernel-bounds"></span>\begin{equation}\tag{SD.88}
+\mathfrak k(s,u)\le\frac{\gamma_\star C_\Sigma^2}{4\sqrt{su}} .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, for every compact <span class="mi">\(\mathcal J\subset(0,\infty)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-double-kernel"></span>\begin{equation}\tag{SD.89}
+\sup_{s,u\in\mathcal J}\abs{\EE\,\mathcal K_{s,u}(\Mt,\Mt)-\mathfrak k(s,u)}\longrightarrow0 ,
+\end{equation}</div>
+<div class="p">and the same holds with <span class="mi">\(\Mt\)</span> replaced by <span class="mi">\(M^{\mathrm g}_t\)</span> under the size conditions.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The integral <a class="ref" href="s.SD.html#L-eqn:app-vol-Zk" data-label="eqn:app-vol-Zk">(SD.87)</a> converges, <span class="mi">\(\overline Z_{\mathfrak k}(\ridge)=\overline C_0(\ridge,\ridge)\)</span>, <span class="mi">\(0&lt;\overline Z_{\mathfrak k}(\ridge)\le\gamma_\star C_\Sigma^2\)</span>, and under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a></div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-double-total"></span>\begin{equation}\tag{SD.90}
+\sup_{\ridge\in I}\abs{\EE Z(\ridge)-\overline Z_{\mathfrak k}(\ridge)}\longrightarrow0,\qquad
+\sup_{\ridge\in I}\abs{\EE Z^{\mathrm c}(\ridge)-\overline Z_{\mathfrak k}(\ridge)}\longrightarrow0 .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), <a class="ref" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a>(a) identifies <span class="mi">\(\mathfrak k(s,u)\)</span> with the closed form of <a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> at <span class="mi">\(\ell=0\)</span>, <span class="mi">\(F=\Sigmaout\)</span>, <span class="mi">\(G=\Sigmain\)</span>. At <span class="mi">\(s=u\)</span> the determinant of that closed form is <span class="mi">\(\Upsilon(s)\)</span>: at coincident arguments the divided differences are <span class="mi">\(b_0=r_{\bmom}'(q)\)</span> and <span class="mi">\(e_0=-\Fw'(q)\)</span>, and <span class="mi">\(\mathsf U=\mathcal T^{\mathrm{out}}_2(s,s)\)</span>, <span class="mi">\(\mathsf V=\mathcal T^{\mathrm{in}}_2(s,s)\)</span>. Hence <span class="mi">\(\Upsilon(s)=\Delta_0(s,s)&gt;0\)</span> by <a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a>(i). Positivity follows from <span class="mi">\(b_0&gt;0\)</span>, <span class="mi">\(\mathcal T^{\mathrm{out}}[\Sigmaout]&gt;0\)</span>, <span class="mi">\(\mathcal T^{\mathrm{in}}[\Sigmain]&gt;0\)</span> and <span class="mi">\(\Delta_0&gt;0\)</span>. Symmetry holds because at lag zero both buffers are the same matrix, so <span class="mi">\(\mathfrak k_0[F,G](s,u)=\mathfrak k_0[F,G](u,s)\)</span> for symmetric tests. Continuity and the bound are <a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> with <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span>.</div>
+<div class="p">Part (ii) is the first statement of <a class="ref" href="r.thm.app-vol-lag-kernel.html#L-eqn:app-vol-lag-closure" data-label="eqn:app-vol-lag-closure">(SD.52)</a> at <span class="mi">\(\ell=0\)</span> with the tests <span class="mi">\(\Sigmaout/C_\Sigma\)</span> and <span class="mi">\(\Sigmain/C_\Sigma\)</span>, multiplied by <span class="mi">\(C_\Sigma^2\)</span>, for the actual and for the independent model.</div>
+<div class="p">For (iii), <a class="ref" href="r.thm.app-vol-closed-filtered.html" data-label="thm:app-vol-closed-filtered">Theorem SD.6</a> at <span class="mi">\(\ell=0\)</span> gives the convergence of the integral and <span class="mi">\(\overline Z_{\mathfrak k}(\ridge)=\overline C_0(\ridge,\ridge)\)</span>. The integrand is positive by (i), and <span class="mi">\(\overline C_0(\ridge,\ridge)\le\gamma_\star C_\Sigma^2\)</span> by <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(ii). Since <span class="mi">\(\EE Z^{\mathrm c}(\ridge)=C_0(\ridge,\ridge)\)</span>, the second statement of <a class="ref" href="r.thm.app-vol-double-same.html#L-eqn:app-vol-double-total" data-label="eqn:app-vol-double-total">(SD.90)</a> is <a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> at <span class="mi">\(\ell=0\)</span> with the same tests. The first follows from the second and <a class="ref" href="r.lem.app-vol-centering.html#L-eqn:app-vol-centering-sample" data-label="eqn:app-vol-centering-sample">(SD.21)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a> <span class=muted>Two reductions</span></li><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> <span class=muted>Regularity and bounds</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.thm.app-vol-closed-filtered.html" data-label="thm:app-vol-closed-filtered">Theorem SD.6</a> <span class=muted>Filtered lag coefficients</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.lem.app-vol-centering.html" data-label="lem:app-vol-centering">Lemma SD.4</a> <span class=muted>Centering</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-vol-nomomentum.html" data-label="rem:app-vol-nomomentum">Remark SD.3</a> <span class=muted>No momentum</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_double_same_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Special.lean#L380">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_double_same_i (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0) (ν ν' : FiniteMeasure ℝ)
+    (hν : (ν : Measure ℝ) = Muon.nuOut Fp.C B) (hν' : (ν' : Measure ℝ) = Muon.nuIn Fp.C B) :
+    (∀ s : ℝ, 0 &lt; s → 0 &lt; upsilonK Fp.β Fp.C B ν ν' s) ∧
+    (∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+      kernelK Fp.β Fp.C B ν ν' s u =
+        lagResp cert γstar CSig Fp.β 0 B S.μ S.lam S.μ S.lam (iotaF s) (iotaF u)) ∧
+    ContinuousOn (fun p : ℝ × ℝ =&gt; kernelK Fp.β Fp.C B ν ν' p.1 p.2) (Ioi 0 ×ˢ Ioi 0) ∧
+    (∀ s u : ℝ, 0 &lt; s → 0 &lt; u → 0 &lt; kernelK Fp.β Fp.C B ν ν' s u) ∧
+    (∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+      kernelK Fp.β Fp.C B ν ν' s u = kernelK Fp.β Fp.C B ν ν' u s) ∧
+    (∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+      kernelK Fp.β Fp.C B ν ν' s u ≤ γstar * CSig ^ 2 / (4 * Real.sqrt (s * u))) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_double_same_ii_actual</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Special.lean#L747">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_double_same_ii_actual (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (hout : ∀ k, (R.F k).C.Sout ≠ 0) (hin : ∀ k, (R.F k).C.Sin ≠ 0)
+    (ν ν' : ∀ k, FiniteMeasure ℝ)
+    (hν : ∀ k, (ν k : Measure ℝ) = Muon.nuOut (R.F k).C (R.B k))
+    (hν' : ∀ k, (ν' k : Measure ℝ) = Muon.nuIn (R.F k).C (R.B k))
+    (J : Set ℝ) (hJ : IsCompact J) (hJpos : J ⊆ Set.Ioi 0) :
+    (∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ s ∈ J, ∀ u ∈ J,
+      |(∫ ω, contractionRes (R.B k) (R.F k).C.Sout (R.F k).C.Sin s u
+            (frozenBuf (R.F k) (S k) t ω) (frozenBuf (R.F k) (S k) t ω) ∂(P k)) -
+        kernelK (R.F k).β (R.F k).C (R.B k) (ν k) (ν' k) s u| ≤ ε) ∧
+    (∀ᶠ k in atTop, ∀ t : ℤ, ∀ s ∈ J, ∀ u ∈ J,
+      Integrable (fun ω =&gt; contractionRes (R.B k) (R.F k).C.Sout (R.F k).C.Sin s u
+        (frozenBuf (R.F k) (S k) t ω) (frozenBuf (R.F k) (S k) t ω)) (P k)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_double_same_ii_indep</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Special.lean#L812">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_double_same_ii_indep (cert : Muon.External.GaussianOpNorm)
+    (γstar CSig γout γin : ℝ) (hCSig : 1 ≤ CSig)
+    (m n B : ℕ → ℕ) (Fp : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hSize : SizeSeq (B := B) (fun k =&gt; (Fp k).C) γstar CSig γout γin)</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_double_same_iii_identity</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Special.lean#L887">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_double_same_iii_identity (cert : Muon.External.GaussianOpNorm)
+    (γstar CSig : ℝ) {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0) (ν ν' : FiniteMeasure ℝ)
+    (hν : (ν : Measure ℝ) = Muon.nuOut Fp.C B) (hν' : (ν' : Measure ℝ) = Muon.nuIn Fp.C B)
+    (ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    IntegrableOn (fun p : ℝ × ℝ =&gt; kernelK Fp.β Fp.C B ν ν' (ϱ + p.1 ^ 2) (ϱ + p.2 ^ 2))
+        (Ioi 0 ×ˢ Ioi 0) ∧
+      zkK Fp.β Fp.C B ν ν' ϱ =
+        lagResp cert γstar CSig Fp.β 0 B S.μ S.lam S.μ S.lam (omegaF ϱ) (omegaF ϱ) ∧
+      0 &lt; zkK Fp.β Fp.C B ν ν' ϱ ∧
+      zkK Fp.β Fp.C B ν ν' ϱ ≤ γstar * CSig ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_double_same_iii_limit</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Special.lean#L1192">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_double_same_iii_limit (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (hout : ∀ k, (R.F k).C.Sout ≠ 0) (hin : ∀ k, (R.F k).C.Sin ≠ 0)
+    (ν ν' : ∀ k, FiniteMeasure ℝ)
+    (hν : ∀ k, (ν k : Measure ℝ) = Muon.nuOut (R.F k).C (R.B k))
+    (hν' : ∀ k, (ν' k : Measure ℝ) = Muon.nuIn (R.F k).C (R.B k)) :
+    (∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      Integrable (fun ω =&gt; sameTimeZ (R.F k) (S k) ϱ t ω) (P k) ∧
+      Integrable (fun ω =&gt; sameTimeZc (R.F k) (S k) ϱ t ω) (P k)) ∧
+    (∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      |(∫ ω, sameTimeZ (R.F k) (S k) ϱ t ω ∂(P k)) -
+        zkK (R.F k).β (R.F k).C (R.B k) (ν k) (ν' k) ϱ| ≤ ε) ∧
+    (∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      |(∫ ω, sameTimeZc (R.F k) (S k) ϱ t ω ∂(P k)) -
+        zkK (R.F k).β (R.F k).C (R.B k) (ν k) (ν' k) ϱ| ≤ ε) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

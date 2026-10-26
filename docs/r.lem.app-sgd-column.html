@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.10 (Column moments)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.10 (Column moments)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-column"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class="thm-title">(Column moments)</span></div><div class="thm-body"><div class="p">There are admissible constants <span class="mi">\(V_0\)</span>, <span class="mi">\(A_4\)</span>, <span class="mi">\(A_8\)</span> such that, for every column <span class="mi">\(j\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-cov"></span><span class="anchor" id="L-eqn:app-sgd-hh"></span><span class="anchor" id="L-eqn:app-sgd-HH"></span>\begin{align}
+\EE X&amp;=m_j,\qquad V_j\defeq\EE[Z\tensor Z]=(2\cR+2C_j)\Lambda+2T_D+3\,m_j\tensor m_j,\tag{SJ.32}\\
+\EE[h_j\tensor h_j]&amp;=\frac{2\cR+2C_j}B\,\Lambda+\frac2B\,T_D+\Big(1+\frac3B\Big)m_j\tensor m_j,\tag{SJ.33}\\
+\EE[HH^\T]&amp;=\frac{2\cR\,(\Nin+2)}B\,\Lambda+\Big(1+\frac{2\Nin+3}B\Big)T_D,\tag{SJ.34}
+\end{align}</div>
+<div class="p">with <span class="mi">\(C_j=D_{\cdot j}^\T\Lambda D_{\cdot j}\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-Vbound"></span><span class="anchor" id="L-eqn:app-sgd-dir"></span><span class="anchor" id="L-eqn:app-sgd-vec"></span>\begin{gather}
+V_j\succeq2\cR\,\Lambda,\qquad \norm{V_j}\le V_0,\qquad \norm{m_j}^2\le\frac{L^2C_{\rm col}}k,\tag{SJ.35}\\
+\EE\abs{a^\T Z}^4\le A_4\norm a^4,\quad \EE\abs{a^\T Z}^8\le A_8\norm a^8\quad(a\in\R^{\Nout}),\tag{SJ.36}\\
+\EE\norm Z^4\le A_4\Nout^2,\quad \EE\norm Z^8\le A_8\Nout^4 .\tag{SJ.37}
+\end{gather}</div>
+<div class="p">Every column <span class="mi">\(h_j\)</span> is nonzero almost surely.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Mean and covariance.</em> Put <span class="mi">\(y=\Lambda^{1/2}z\)</span>. Integrating <span class="mi">\(w\)</span> first with the Gaussian identities <span class="mi">\(\EE[(y^\T Dw)w_j]=y^\T D_{\cdot j}\)</span> and <span class="mi">\(\EE[(y^\T Dw)^2w_j^2]=y^\T DD^\T y+2(y^\T D_{\cdot j})^2\)</span>, and then <span class="mi">\(z\)</span> with the pairing identity <span class="mi">\(\EE[y\tensor y\,(y^\T My)]=\Tr(\Lambda M)\Lambda+2\Lambda M\Lambda\)</span> for symmetric <span class="mi">\(M\)</span> [<a class="cite" href="bibliography.html#bib-isserlis1918formula">29</a>], gives</div>
+<div class="md">\[
+\EE X=\Lambda D_{\cdot j},\qquad \EE[X\tensor X]=(2\cR+2C_j)\Lambda+2T_D+4\,m_j\tensor m_j .
+\]</div>
+<div class="p">Subtracting <span class="mi">\(m_j\tensor m_j\)</span> gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-cov" data-label="eqn:app-sgd-cov">(SJ.32)</a>. Averaging <span class="mi">\(B\)</span> independent copies gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-hh" data-label="eqn:app-sgd-hh">(SJ.33)</a>, and summing over <span class="mi">\(j\)</span> with <span class="mi">\(\sum_jC_j=2\cR\)</span> and <span class="mi">\(\sum_jm_j\tensor m_j=T_D\)</span> gives <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-HH" data-label="eqn:app-sgd-HH">(SJ.34)</a>.</div>
+<div class="p"><em>Bounds.</em> All terms of <span class="mi">\(V_j\)</span> are positive semidefinite, so <span class="mi">\(V_j\succeq2\cR\Lambda\)</span>. With <span class="mi">\(C_j\le LC_{\rm col}/k\)</span>, <span class="mi">\(\norm{m_j}^2\le L^2C_{\rm col}/k\)</span> and <span class="mi">\(\norm{T_D}\le\Tr T_D\le H_0\)</span>,</div>
+<div class="md">\[
+\norm{V_j}\le V_0\defeq LP_++2H_0+5L^2C_{\rm col}.
+\]</div>
+<div class="p"><em>Higher moments.</em> Put <span class="mi">\(r=z^\T Aw\)</span>. Conditionally on <span class="mi">\(w\)</span>, <span class="mi">\(r\)</span> is Gaussian with variance <span class="mi">\(\norm{Aw}^2\)</span>, and the convexity argument of <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> gives <span class="mi">\(\EE r^{2q}\le((2q-1)!!)^2(2\cR)^q\)</span>. For <span class="mi">\(p=4,8\)</span>, Hölder’s inequality on the three dependent factors of <span class="mi">\(a^\T X\)</span> gives</div>
+<div class="md">\[
+\EE\abs{a^\T X}^p\le\big(\EE\abs r^{3p}\,\EE\abs{w_j}^{3p}\,\EE\abs{a^\T\Lambda^{1/2}z}^{3p}\big)^{1/3}\le\big((3p-1)!!\big)^2P_+^{p/2}L^{p/2}\norm a^p .
+\]</div>
+<div class="p">Centering costs a factor <span class="mi">\(2^p\)</span>, which gives the directional bounds with <span class="mi">\(A_4\defeq16(11!!)^2P_+^2L^2\)</span> and <span class="mi">\(A_8\defeq256(23!!)^2P_+^4L^4\)</span>. The inequalities <span class="mi">\((\sum_lZ_l^2)^2\le\Nout\sum_lZ_l^4\)</span> and <span class="mi">\((\sum_lZ_l^2)^4\le\Nout^3\sum_lZ_l^8\)</span> give the vector bounds.</div>
+<div class="p"><em>Nonvanishing.</em> Some coordinate of <span class="mi">\(h_j\)</span> is a polynomial in the batch that is not identically zero. Indeed choose <span class="mi">\(w=e_j\)</span> if <span class="mi">\(D_{\cdot j}\ne0\)</span> and <span class="mi">\(w=e_j+e_l\)</span> with <span class="mi">\(D_{\cdot l}\ne0\)</span> otherwise, so that <span class="mi">\(w_j=1\)</span> and <span class="mi">\(Aw\ne0\)</span>. Taking <span class="mi">\(z=Aw\)</span> in the first sample and all other samples zero makes <span class="mi">\(h_j\)</span> a nonzero multiple of <span class="mi">\(\Lambda^{1/2}Aw\ne0\)</span>. The batch has a Gaussian density, so this coordinate is nonzero almost surely [<a class="cite" href="bibliography.html#bib-mityagin2020zero">46</a>].</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> <span class=muted>Moments of one coordinate</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-sgd-quadratic.html" data-label="prop:app-sgd-quadratic">Proposition SJ.7</a> <span class=muted>Quadratic forms of a column</span></li><li><a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a> <span class=muted>Haar reduction</span></li><li><a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> <span class=muted>Fourth moments of sums</span></li><li><a class="ref" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> <span class=muted>Column norms</span></li><li><a class="ref" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a> <span class=muted>Corrected row volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfVolatility.lean#L504">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_i (P : HaarParams) {n m B : ℕ} (μ : Fin n → ℝ)
+    (D : Matrix (Fin n) (Fin m) ℝ) (hP : def_app_sgd_state_law P n m B μ D) (j : Fin m) :
+    (∀ i, ∫ p, colSample μ D j p i ∂(gaussBatch n m) = colMeanVec μ D j i) ∧
+    ∀ i k, colCov μ D j i k = (twoR μ D + 2 * colC μ D j) * Matrix.diagonal μ i k
+      + 2 * TD μ D i k + 3 * (colMeanVec μ D j i * colMeanVec μ D j k) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfVolatility.lean#L554">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_ii (P : HaarParams) {n m B : ℕ} (μ : Fin n → ℝ)
+    (D : Matrix (Fin n) (Fin m) ℝ) (hP : def_app_sgd_state_law P n m B μ D) (j : Fin m) :
+    ∀ i k, ∫ β, hCol μ D β j i * hCol μ D β j k ∂(batchLaw n m B) =
+      (twoR μ D + 2 * colC μ D j) / (B : ℝ) * Matrix.diagonal μ i k
+        + 2 / (B : ℝ) * TD μ D i k
+        + (1 + 3 / (B : ℝ)) * (colMeanVec μ D j i * colMeanVec μ D j k) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfVolatility.lean#L721">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_iii (P : HaarParams) {n m B : ℕ} (μ : Fin n → ℝ)
+    (D : Matrix (Fin n) (Fin m) ℝ) (hP : def_app_sgd_state_law P n m B μ D) :
+    ∀ i k, ∫ β, (hMatrix μ D β * (hMatrix μ D β)ᵀ) i k ∂(batchLaw n m B) =
+      twoR μ D * ((m : ℝ) + 2) / (B : ℝ) * Matrix.diagonal μ i k
+        + (1 + (2 * (m : ℝ) + 3) / (B : ℝ)) * TD μ D i k := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfVolatility.lean#L913">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_iv (P : HaarParams) {n m B : ℕ} (μ : Fin n → ℝ)
+    (D : Matrix (Fin n) (Fin m) ℝ) (hP : def_app_sgd_state_law P n m B μ D) (j : Fin m) :
+    ∀ᵐ β ∂(batchLaw n m B), hCol μ D β j ≠ 0 := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfVolatility.lean#L1562">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_v (P : HaarParams) :
+    ∃ V0 A4 A8 : ℝ, 0 ≤ V0 ∧ 0 ≤ A4 ∧ 0 ≤ A8 ∧
+      ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ),
+        def_app_sgd_state_law P n m B μ D → ∀ j : Fin m,
+          (colCov μ D j - twoR μ D • Matrix.diagonal μ).PosSemidef ∧
+          Muon.External.matOpNorm (colCov μ D j) ≤ V0 ∧
+          ∑ i, colMeanVec μ D j i ^ 2 ≤ P.L ^ 2 * P.Ccol / (kOf n m B : ℝ) ∧
+          (∀ a : Fin n → ℝ,
+            ∫⁻ p, ENNReal.ofReal ((a ⬝ᵥ colZ μ D j p) ^ 4) ∂(gaussBatch n m)
+              ≤ ENNReal.ofReal (A4 * (∑ i, a i ^ 2) ^ 2) ∧
+            ∫⁻ p, ENNReal.ofReal ((a ⬝ᵥ colZ μ D j p) ^ 8) ∂(gaussBatch n m)
+              ≤ ENNReal.ofReal (A8 * (∑ i, a i ^ 2) ^ 4)) ∧
+          ∫⁻ p, ENNReal.ofReal ((∑ i, colZ μ D j p i ^ 2) ^ 2) ∂(gaussBatch n m)
+            ≤ ENNReal.ofReal (A4 * (n : ℝ) ^ 2) ∧
+          ∫⁻ p, ENNReal.ofReal ((∑ i, colZ μ D j p i ^ 2) ^ 4) ∂(gaussBatch n m)
+            ≤ ENNReal.ofReal (A8 * (n : ℝ) ^ 4) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

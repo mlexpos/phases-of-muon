@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SI.3 (Hitting times)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SI.3 (Hitting times)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-phase-hitting"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-hitting.html" data-label="thm:app-phase-hitting">Theorem SI.3</a> <span class="thm-title">(Hitting times)</span></div><div class="thm-body"><div class="p">Assume (M1) and <span class="mi">\(\mathcal S&gt;0\)</span>, fix <span class="mi">\(\epsilon&gt;0\)</span>, and take <span class="mi">\(\lr=2\sqrt\epsilon/\mathcal S\)</span>, so that <span class="mi">\(\bar k=\sqrt\epsilon\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(a&gt;0\)</span>, <span class="mi">\(H_Q(a)\ge H_F(a)\)</span> and</div>
+<div class="md">\[
+t_a\ge\frac1\lr\int_0^{H_F(a)}\sqrt{F(s)}\,\dif s .
+\]</div>
+<div class="p">If <span class="mi">\(H_Q(a)&lt;\infty\)</span>, then <span class="mi">\(t_a=t(H_Q(a))\)</span> with <span class="mi">\(t(\cdot)\)</span> of <a class="ref" href="r.thm.app-phase-clock.html" data-label="thm:app-phase-clock">Theorem SI.2</a>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Fix <span class="mi">\(c_0&gt;1\)</span> with <span class="mi">\(F_0&gt;c_0\epsilon\)</span>, let <span class="mi">\(s_c\)</span> be the time with <span class="mi">\(F(s_c)=c_0\epsilon\)</span>, and put</div>
+<div class="md">\[
+C_\ast\defeq\max_{0\le s\le s_c}\frac{(k*\sqrt F)(s)}{\sqrt{\epsilon F(s)}},\qquad
+m_\ast\defeq\frac{C_\ast}{1-1/(2\sqrt{c_0})} .
+\]</div>
+<div class="p">Then <span class="mi">\(0\le C_\ast\le\sqrt{F_0/(c_0\epsilon)}\)</span> and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-upper"></span>\begin{equation}\tag{SI.9}
+Q(s)\le F(s)+m_\ast\sqrt{\epsilon F(s)}\qquad(0\le s\le s_c).
+\end{equation}</div>
+<div class="p">Consequently, for every <span class="mi">\(T\ge c_0+m_\ast\sqrt{c_0}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-sandwich"></span>\begin{equation}\tag{SI.10}
+\frac1\lr\int_0^{H_F(T\epsilon)}\sqrt{F(s)}\,\dif s\ \le\ t_{T\epsilon}\ \le\ \frac1\lr\int_0^{s_c}\sqrt{F(s)+m_\ast\sqrt{\epsilon F(s)}}\,\dif s .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), the convolution in <a class="ref" href="s.SI.html#L-eqn:app-phase-volterra" data-label="eqn:app-phase-volterra">(SI.4)</a> is nonnegative, so <span class="mi">\(Q\ge F\)</span>. Hence <span class="mi">\(\{Q\le a\}\subseteq\{F\le a\}\)</span>, and taking infima gives <span class="mi">\(H_Q(a)\ge H_F(a)\)</span>. If the first set is nonempty, it is closed by continuity and contains its infimum. The clock is a strictly increasing bijection, so the first time at which <span class="mi">\(\fRisk\)</span> reaches <span class="mi">\(a\)</span> is <span class="mi">\(t(H_Q(a))\)</span>. Using <span class="mi">\(\sqrt Q\ge\sqrt F\)</span> in the integral defining <span class="mi">\(t(\cdot)\)</span> and <span class="mi">\(H_Q(a)\ge H_F(a)\)</span> gives the lower bound. If the first set is empty, then <span class="mi">\(t_a=\infty\)</span> and the bound holds.</div>
+<div class="p">For (ii), the time <span class="mi">\(s_c\)</span> exists and is unique because <span class="mi">\(F\)</span> is continuous and strictly decreasing to zero. The ratio defining <span class="mi">\(C_\ast\)</span> is continuous on <span class="mi">\([0,s_c]\)</span>, since <span class="mi">\(F\ge c_0\epsilon&gt;0\)</span> there, and attains its maximum. Because <span class="mi">\(\sqrt F\le\sqrt{F_0}\)</span> and <span class="mi">\(\int k=\sqrt\epsilon\)</span>,</div>
+<div class="md">\[
+(k*\sqrt F)(s)\le\sqrt{F_0\epsilon},\qquad
+\frac{(k*\sqrt F)(s)}{\sqrt{\epsilon F(s)}}\le\sqrt{\frac{F_0}{F(s)}}\le\sqrt{\frac{F_0}{c_0\epsilon}} .
+\]</div>
+<div class="p">The function <span class="mi">\(\mathsf B\defeq F+m_\ast\sqrt{\epsilon F}\)</span> is a supersolution on <span class="mi">\([0,s_c]\)</span>. The inequality <span class="mi">\(\sqrt{1+x}\le1+x/2\)</span> for <span class="mi">\(x\ge0\)</span> gives</div>
+<div class="md">\[
+\sqrt{\mathsf B(v)}\le\sqrt{F(v)}+\frac{m_\ast}2\sqrt\epsilon .
+\]</div>
+<div class="p">Hence, for <span class="mi">\(0\le s\le s_c\)</span>, using <span class="mi">\(F(s)\ge c_0\epsilon\)</span> in the last step,</div>
+<div class="md">\[
+F(s)+(k*\sqrt{\mathsf B})(s)\le F(s)+(k*\sqrt F)(s)+\frac{m_\ast\epsilon}2
+\le F(s)+\sqrt{\epsilon F(s)}\Big(C_\ast+\frac{m_\ast}{2\sqrt{c_0}}\Big)=\mathsf B(s).
+\]</div>
+<div class="p">Both <span class="mi">\(Q\)</span> and <span class="mi">\(\mathsf B\)</span> are at least <span class="mi">\(F\ge c_0\epsilon\)</span> on <span class="mi">\([0,s_c]\)</span>, so <a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> with <span class="mi">\(m=c_0\epsilon\)</span> gives <a class="ref" href="r.thm.app-phase-hitting.html#L-eqn:app-phase-upper" data-label="eqn:app-phase-upper">(SI.9)</a>. At <span class="mi">\(s_c\)</span> it gives</div>
+<div class="md">\[
+Q(s_c)\le\epsilon\,(c_0+m_\ast\sqrt{c_0})\le T\epsilon ,
+\]</div>
+<div class="p">so <span class="mi">\(H_Q(T\epsilon)\le s_c\)</span>. Part (i) and the clock integral, bounded with <a class="ref" href="r.thm.app-phase-hitting.html#L-eqn:app-phase-upper" data-label="eqn:app-phase-upper">(SI.9)</a>, give <a class="ref" href="r.thm.app-phase-hitting.html#L-eqn:app-phase-sandwich" data-label="eqn:app-phase-sandwich">(SI.10)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> <span class=muted>Comparison</span></li><li><a class="ref" href="r.thm.app-phase-clock.html" data-label="thm:app-phase-clock">Theorem SI.2</a> <span class=muted>Clock and row equations</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-phase-endpoint.html" data-label="rem:app-phase-endpoint">Remark SI.2</a> <span class=muted>The whole-interval ratio</span></li><li><a class="ref" href="r.prop.app-phase-prefactors.html" data-label="prop:app-phase-prefactors">Proposition SI.4</a> <span class=muted>Noise constants, kernels and clocks</span></li><li><a class="ref" href="r.thm.app-phase-fixed.html" data-label="thm:app-phase-fixed">Theorem SI.11</a> <span class=muted>Fixed arrays</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_hitting_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Clock.lean#L1276">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_hitting_i [Countable ι] (m : RowModel ι) (Q : ℝ → ℝ)
+    (hQ : IsVolterraSol m Q) (hS : 0 &lt; m.S) (ε : ℝ) (hε : 0 &lt; ε)
+    (hη : m.η = 2 * Real.sqrt ε / m.S) :
+    ∀ a : ℝ, 0 &lt; a →
+      firstHit Q a ≥ firstHit m.forcing a ∧
+      ENNReal.ofReal ((1 / m.η) *
+          ∫ s in (0:ℝ)..(firstHit m.forcing a).toReal, Real.sqrt (m.forcing s))
+        ≤ firstHit (riskClock m Q) a ∧
+      (firstHit Q a ≠ ⊤ →
+        firstHit (riskClock m Q) a = ENNReal.ofReal (clockTime m Q (firstHit Q a).toReal)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_hitting_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Clock.lean#L1627">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_hitting_ii [Countable ι] (m : RowModel ι) (Q : ℝ → ℝ)
+    (hQ : IsVolterraSol m Q) (hS : 0 &lt; m.S) (ε : ℝ) (hε : 0 &lt; ε)
+    (hη : m.η = 2 * Real.sqrt ε / m.S)
+    (c₀ sc : ℝ) (hc₀ : 1 &lt; c₀) (hF₀ : c₀ * ε &lt; m.F0)
+    (hsc : 0 ≤ sc) (hFsc : m.forcing sc = c₀ * ε) :
+    0 ≤ cstar m ε sc ∧ cstar m ε sc ≤ Real.sqrt (m.F0 / (c₀ * ε)) ∧
+    (∀ s ∈ Icc (0:ℝ) sc, Q s ≤ m.forcing s + mstar m c₀ ε sc * Real.sqrt (ε * m.forcing s)) ∧
+    ∀ T : ℝ, c₀ + mstar m c₀ ε sc * Real.sqrt c₀ ≤ T →
+      ENNReal.ofReal ((1 / m.η) *
+          ∫ s in (0:ℝ)..(firstHit m.forcing (T * ε)).toReal, Real.sqrt (m.forcing s))
+        ≤ firstHit (riskClock m Q) (T * ε) ∧
+      firstHit (riskClock m Q) (T * ε) ≤
+        ENNReal.ofReal ((1 / m.η) *
+          ∫ s in (0:ℝ)..sc,
+            Real.sqrt (m.forcing s + mstar m c₀ ε sc * Real.sqrt (ε * m.forcing s))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

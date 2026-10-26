@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SE.4 (Stationary causal tangent)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SE.4 (Stationary causal tangent)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-dyn-stationary-tangent"><div class="thm-head"><a class="thm-name" href="r.prop.app-dyn-stationary-tangent.html" data-label="prop:app-dyn-stationary-tangent">Proposition SE.4</a> <span class="thm-title">(Stationary causal tangent)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(D\)</span> be deterministic with <span class="mi">\(r_-\le\cR(D)\le r_+\)</span>, let <span class="mi">\(\Pi\)</span> be a test, and let <span class="mi">\(\dot V_r\)</span> be the tangent of <a class="ref" href="r.lem.app-dyn-tangent.html" data-label="lem:app-dyn-tangent">Lemma SE.8</a> for the stationary chain at <span class="mi">\((t,D)\)</span>, with its initial buffer held fixed. Then for <span class="mi">\(r\ge0\)</span>,</div>
+<div class="md">\[
+\lr\,\abs{\EE\langle\Pi,\dot V_r\rangle}\le C\Big\{\frac{r}{\sqrt B}+\frac1B+\epsilon_\Pi\Big\},\qquad
+\epsilon_\Pi=\delta(D)\big(\pi_\Pi+\delta(D)\big),
+\]</div>
+<div class="p">with <span class="mi">\(C\)</span> depending only on <span class="mi">\((c_\Pi,r_-,r_+)\)</span> and the fixed parameters.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The statement reduces to <span class="mi">\(2\cR(D)=1\)</span>. Put <span class="mi">\(a\defeq\sqrt{2\cR(D)}\)</span>. Since <span class="mi">\(G^\circ[\Delta]/a=G^\circ[\Delta/a]\)</span>, <span class="mi">\(\ridgephys(\Delta)=a^2\ridgephys(\Delta/a)\)</span> and <span class="mi">\(\Qridge{a^2\ell}(aK)=\Qridge\ell(K)\)</span>, the chain of <span class="mi">\((D,m_0)\)</span> at step <span class="mi">\(\varepsilon\)</span> has the updates of the chain of <span class="mi">\((D/a,m_0/a)\)</span> at step <span class="mi">\(\varepsilon/a\)</span>, and <span class="mi">\(\lr\dot V_r(D)=(\lr/a)\dot V_r(D/a)\)</span>. The step <span class="mi">\(\macrostep/a\)</span> lies in a compact subset of <span class="mi">\((0,\infty)\)</span> determined by <span class="mi">\((r_-,r_+)\)</span>, and <span class="mi">\(\delta(D/a)=\delta(D)\)</span>. We therefore assume <span class="mi">\(2\cR(D)=1\)</span>.</div>
+<div class="p">By <a class="ref" href="r.lem.app-dyn-tangent.html" data-label="lem:app-dyn-tangent">Lemma SE.8</a> and the integral representation <span class="mi">\(D\Qridge\ridge(N)[R]=\frac2\pi\int_0^\infty D\mathsf X_{\ridge+u^2}(N)[R]\,\dif u\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+\EE\langle\Pi,\dot V_r\rangle={}&amp;-\frac2\pi\int_0^\infty\sum_{0\le k&lt;j\le r}\EE\big\langle\Pi,D\mathsf X_{\ridge+u^2}(N_r)\big[\emaw{r-j}G^\circ_{t+j+1}[V_k]\big]\big\rangle\,\dif u\\
+&amp;-2\ridge\sum_{k&lt;r}\EE\big[g_k\langle\Pi,\partial_\ell\Qridge\ell(N_r)\rangle\big].
+\end{aligned}
+\]</div>
+<div class="p">The matrix part is bounded by the reduction and the scalar contraction. For <span class="mi">\(k&lt;j\)</span> the direction <span class="mi">\(V_k\)</span> is determined by the auxiliary batches and the batches up to step <span class="mi">\(t+k\)</span>, so the batch of step <span class="mi">\(t+j\)</span> is independent of <span class="mi">\(V_k\)</span> together with all other samples, with <span class="mi">\(\norm{V_k}\le1\)</span> and <span class="mi">\(\norm{V_k}_\F\le\sqrt{\gamma_\star B}\)</span>. By <a class="ref" href="r.prop.app-dyn-reduction.html" data-label="prop:app-dyn-reduction">Proposition SE.2</a> and <a class="ref" href="r.prop.app-dyn-scalar.html" data-label="prop:app-dyn-scalar">Proposition SE.3</a> with <span class="mi">\(s_\circ=\ridge\)</span>,</div>
+<div class="md">\[
+\big|\EE\big\langle\Pi,D\mathsf X_s(N_r)[\varpi G^\circ_{t+j+1}[V_k]]\big\rangle\big|
+\le\frac{C\sqrt B\varpi}{s}+C\varpi^2\Big\{\sqrt Bs^{-3/2}+(1+B\epsilon_\Pi)s^{-2}\bmom^{r-k}\Big\},
+\]</div>
+<div class="p">with <span class="mi">\(\varpi=\emaw{r-j}\)</span>. The integrals of <span class="mi">\(s^{-1}\)</span>, <span class="mi">\(s^{-3/2}\)</span> and <span class="mi">\(s^{-2}\)</span> against <span class="mi">\(\dif u\)</span> at <span class="mi">\(s=\ridge+u^2\)</span> are finite. The causal sums are</div>
+<div class="md">\[
+\sum_{j\le r}\emaw{r-j}\,j\le r,\qquad
+\sum_{j\le r}\emaw{r-j}^2\sum_{k&lt;j}\bmom^{r-k}\le\frac{1}{1-\bmom}\sum_{j\le r}\emaw{r-j}^2\bmom^{r-j+1}\le1,
+\]</div>
+<div class="p">the second being zero at <span class="mi">\(\bmom=0\)</span>. The matrix part is therefore at most <span class="mi">\(C(\sqrt B\,r+1+B\epsilon_\Pi)\)</span>.</div>
+<div class="p">The ridge part is bounded by <a class="ref" href="r.lem.app-dyn-ridge.html" data-label="lem:app-dyn-ridge">Lemma SE.13</a>: its absolute value is at most <span class="mi">\(C\sum_{k&lt;r}(1+B\delta\pi_\Pi\bmom^{r-k})\le C(r+B\epsilon_\Pi)\)</span>.</div>
+<div class="p">Adding the two parts and multiplying by <span class="mi">\(\lr=\macrostep/B\)</span> proves the claim.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-dyn-tangent.html" data-label="lem:app-dyn-tangent">Lemma SE.8</a> <span class=muted>Causal tangent</span></li><li><a class="ref" href="r.prop.app-dyn-reduction.html" data-label="prop:app-dyn-reduction">Proposition SE.2</a> <span class=muted>Causal resolvent reduction</span></li><li><a class="ref" href="r.prop.app-dyn-scalar.html" data-label="prop:app-dyn-scalar">Proposition SE.3</a> <span class=muted>Scalar contraction</span></li><li><a class="ref" href="r.lem.app-dyn-ridge.html" data-label="lem:app-dyn-ridge">Lemma SE.13</a> <span class=muted>Ridge susceptibility covariance</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-dyn-transport.html" data-label="prop:app-dyn-transport">Proposition SE.5</a> <span class=muted>Tangent transport</span></li><li><a class="ref" href="r.prop.app-dyn-response.html" data-label="prop:app-dyn-response">Proposition SE.6</a> <span class=muted>Post-prefix response</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.prop_app_dyn_stationary_tangent</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Causal.lean#L9056">source</a></summary><pre class="lean no-mj">theorem prop_app_dyn_stationary_tangent (certQ : Muon.External.GaussianQuadFormLp) (p : DynParams) (cP rlo rhi : ℝ) :
+    ∃ C : ℝ, ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω)
+      [IsProbabilityMeasure P] (Cv : Covariances m n) (cs : ChainSamples P m n B)
+      (t r : ℕ) (D Pt : Mat m n) (piT : ℝ),
+      (m : ℝ) ≤ p.γstar * B → (n : ℝ) ≤ p.γstar * B →
+      opNorm Cv.Sout ≤ p.CSig → opNorm Cv.Sin ≤ p.CSig → 0 &lt; B → 0 &lt; rlo →
+      rlo ≤ riskSigma Cv D → riskSigma Cv D ≤ rhi → IsTest cP piT Pt →
+      Integrable (fun ω =&gt; frobIP Pt (causalDot p Cv (fun s =&gt; physBatch Cv (cs.act s) ω) t D
+          (chainInit p.β Cv D (cs.aux (t : ℤ)) ω) r)) P ∧
+      (p.h / (B : ℝ)) * |∫ ω, frobIP Pt (causalDot p Cv (fun s =&gt; physBatch Cv (cs.act s) ω) t D
+          (chainInit p.β Cv D (cs.aux (t : ℤ)) ω) r) ∂P|
+        ≤ C * ((r : ℝ) / Real.sqrt B + 1 / (B : ℝ)
+          + diffuseness Cv D * (piT + diffuseness Cv D)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

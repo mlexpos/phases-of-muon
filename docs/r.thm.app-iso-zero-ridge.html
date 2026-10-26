@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.11 (Zero ridge, large aspect ratios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.11 (Zero ridge, large aspect ratios)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.thm.app-iso-zero-ridge.html">top-level result</a></div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-theorem" id="L-thm:app-iso-zero-ridge"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-zero-ridge.html" data-label="thm:app-iso-zero-ridge">Theorem SF.11</a> <span class="thm-title">(Zero ridge, large aspect ratios)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span> and <span class="mi">\(\gin,\gout&gt;0\)</span>, put <span class="mi">\(\iota\defeq\gamma_\wedge/\gamma_\vee\in(0,1]\)</span> and</div>
+<div class="md">\[
+\mathsf F(\iota)\defeq\frac1\iota\int_0^\iota\sqrt{(1-x)(\iota-x)}\,\dif x .
+\]</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The zero-ridge constant satisfies</div>
+<div class="md">\[
+\Big|C_\bmom(\gin,\gout)-\frac{\mathsf F(\iota)}{\sqrt\pi}\Big|\le\frac{2.32}{(1-\bmom)\sqrt{\gin\gout}},
+\]</div>
+<div class="p">where <span class="mi">\(\mathsf F(1)=\frac12\)</span> and, for <span class="mi">\(\iota&lt;1\)</span>,</div>
+<div class="md">\[
+\mathsf F(\iota)=\frac1\iota\Big[\frac{(1+\iota)\sqrt\iota}4+\frac{(1-\iota)^2}8\log\frac{1-\sqrt\iota}{1+\sqrt\iota}\Big].
+\]</div>
+<div class="p">In particular, in the square case,</div>
+<div class="md">\[
+\Big|C_\bmom(\gamma)-\frac1{2\sqrt\pi}\Big|\le\frac{2.32}{(1-\bmom)\gamma}\qquad(\gamma&gt;0).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Let <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\ge\gamma^\circ_\bmom\)</span>. The zero-ridge volatility of <a class="ref" href="r.def.app-iso-vol-zero.html" data-label="def:app-iso-vol-zero">Definition SF.1</a> satisfies, with <span class="mi">\(\mathsf K^\pm_\bmom\)</span> of <a class="ref" href="s.SF.html#L-eqn:app-iso-Kpm" data-label="eqn:app-iso-Kpm">(SF.57)</a>,</div>
+<div class="md">\[
+\frac{1-2\mathsf K^-_\bmom}\gamma\le\frac{\mathfrak v_{\mathrm{iso},\bmom}}{N\gamma}-\frac12\le\frac{1+2\mathsf K^+_\bmom}\gamma .
+\]</div>
+<div class="p">In particular <span class="mi">\(\mathfrak v_{\mathrm{iso},\bmom}=\frac{N^2}{2B}\big(1+O_\bmom(B/N)\big)\)</span>, and <span class="mi">\(\mathfrak v_{\mathrm{iso},\bmom}/(N\gamma)\to\frac12\)</span> as <span class="mi">\(\gamma\to\infty\)</span> at every fixed <span class="mi">\(\bmom\in(0,1)\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), apply <a class="ref" href="r.thm.app-iso-master.html" data-label="thm:app-iso-master">Theorem SF.3</a> at <span class="mi">\(\ridge=0\)</span>, where <span class="mi">\(\psi(0)=\gamma_\wedge\)</span>, and substitute <span class="mi">\(m=\gamma_\vee x\)</span>:</div>
+<div class="md">\[
+\frac1{\sqrt\pi\,\gin\gout}\int_0^{\gamma_\wedge}\sqrt{(\gamma_\vee-m)(\gamma_\wedge-m)}\,\dif m
+=\frac{\gamma_\vee^2}{\sqrt\pi\,\gamma_\vee^2\iota}\int_0^\iota\sqrt{(1-x)(\iota-x)}\,\dif x=\frac{\mathsf F(\iota)}{\sqrt\pi} .
+\]</div>
+<div class="p">The closed form follows by differentiating the antiderivative</div>
+<div class="md">\[
+\frac{2x-1-\iota}4\sqrt{(1-x)(\iota-x)}-\frac{(1-\iota)^2}8\log\Big|2x-1-\iota+2\sqrt{(1-x)(\iota-x)}\Big|
+\qquad(0\le x&lt;\iota&lt;1)
+\]</div>
+<div class="p">and evaluating it at <span class="mi">\(x=\iota\)</span> and <span class="mi">\(x=0\)</span>, using <span class="mi">\((1-\sqrt\iota)^2/(1-\iota)=(1-\sqrt\iota)/(1+\sqrt\iota)\)</span>. At <span class="mi">\(\iota=1\)</span> the integral is <span class="mi">\(\int_0^1(1-x)\,\dif x=\frac12\)</span>.</div>
+<div class="p">For (ii), <a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a>(ii) gives <span class="mi">\(\mathfrak v_{\mathrm{iso},\bmom}/N=1+2\sum_{\ell\ge1}\overline C_{1,\ell}(0)\)</span>, that is</div>
+<div class="md">\[
+\frac{\mathfrak v_{\mathrm{iso},\bmom}}{N\gamma}-\frac12=\frac1\gamma\Big(1+2\Big(\sum_{\ell\ge1}\overline C_{1,\ell}(0)-\frac\gamma4\Big)\Big),
+\]</div>
+<div class="p">and <a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a> bounds the inner bracket.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-iso-master.html" data-label="thm:app-iso-master">Theorem SF.3</a> <span class=muted>Master drift estimate</span></li><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a> <span class=muted>Lag sum at zero ridge</span></li><li><a class="ref" href="r.def.app-iso-vol-zero.html" data-label="def:app-iso-vol-zero">Definition SF.1</a> <span class=muted>Zero-ridge isotropic volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_zero_ridge_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/ZeroRidge.lean#L3503">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_zero_ridge_i {β γin γout : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) :
+    |Cbeta β γin γout - isoFiota (min γin γout / max γin γout) / Real.sqrt Real.pi|
+        ≤ 2.32 / ((1 - β) * Real.sqrt (γin * γout)) ∧
+    isoFiota 1 = 1 / 2 ∧
+    (∀ ι : ℝ, 0 &lt; ι → ι &lt; 1 →
+      isoFiota ι = 1 / ι * ((1 + ι) * Real.sqrt ι / 4
+        + (1 - ι) ^ 2 / 8 * Real.log ((1 - Real.sqrt ι) / (1 + Real.sqrt ι)))) ∧
+    (∀ γ : ℝ, 0 &lt; γ →
+      |Cbeta β γ γ - 1 / (2 * Real.sqrt Real.pi)| ≤ 2.32 / ((1 - β) * γ)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_zero_ridge_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolZeroRidge.lean#L212">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_zero_ridge_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : Muon.PowerLaw.gammaOf N B ≤ γstar) (hC1 : 1 ≤ CSig)
+    (hγβ : isoGammaCirc β ≤ Muon.PowerLaw.gammaOf N B) :
+    hasIsoZeroRidgeVol cert γstar CSig β N N B (def_app_iso_vol_zero cert γstar CSig β N N B) ∧
+    (1 - 2 * isoKminus β) / Muon.PowerLaw.gammaOf N B
+        ≤ def_app_iso_vol_zero cert γstar CSig β N N B / ((N : ℝ) * Muon.PowerLaw.gammaOf N B) - 1 / 2 ∧
+    def_app_iso_vol_zero cert γstar CSig β N N B / ((N : ℝ) * Muon.PowerLaw.gammaOf N B) - 1 / 2
+        ≤ (1 + 2 * isoKplus β) / Muon.PowerLaw.gammaOf N B := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_zero_ridge_ii_consequences</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolZeroRidge.lean#L262">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_zero_ridge_ii_consequences (cert : Muon.External.GaussianOpNorm)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    (∃ C : ℝ, ∀ (γstar CSig : ℝ), 1 ≤ CSig → ∀ N B : ℕ, 0 &lt; B → 0 &lt; N →
+        Muon.PowerLaw.gammaOf N B ≤ γstar → isoGammaCirc β ≤ Muon.PowerLaw.gammaOf N B →
+        |2 * (B : ℝ) * def_app_iso_vol_zero cert γstar CSig β N N B / (N : ℝ) ^ 2 - 1|
+          ≤ C * ((B : ℝ) / (N : ℝ))) ∧
+    (∀ CSig : ℝ, 1 ≤ CSig → ∀ (Nk Bk : ℕ → ℕ) (gs : ℕ → ℝ), (∀ k, 0 &lt; Bk k) → (∀ k, 0 &lt; Nk k) →
+        (∀ k, Muon.PowerLaw.gammaOf (Nk k) (Bk k) ≤ gs k) →
+        Tendsto (fun k =&gt; Muon.PowerLaw.gammaOf (Nk k) (Bk k)) atTop atTop →
+        Tendsto (fun k =&gt; def_app_iso_vol_zero cert (gs k) CSig β (Nk k) (Nk k) (Bk k) /
+            ((Nk k : ℝ) * Muon.PowerLaw.gammaOf (Nk k) (Bk k))) atTop (𝓝 (1 / 2))) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

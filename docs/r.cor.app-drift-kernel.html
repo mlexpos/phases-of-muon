@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SC.1 (The drift kernel)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SC.1 (The drift kernel)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update · <a href="t.cor.app-drift-kernel.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-drift-kernel"><div class="thm-head"><a class="thm-name" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a> <span class="thm-title">(The drift kernel)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, let <span class="mi">\(\Gtilde=\Qridge\ridge(\Mt)\)</span> be the frozen-state update and put <span class="mi">\((E_\ridge)_{ij}\defeq u_i^\T\big(\EE\Gtilde-\Gtildebar_\ridge\big)v_j\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every pair <span class="mi">\((i,j)\)</span> and every <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-projected"></span>\begin{equation}\tag{SC.11}
+\EE\big[u_i^\T\Gtilde v_j\big]=\frac{\sqrt2\,\mathfrak d(\mu_i,\lambda_j)}{\sqrt{2\cR(t)}}\,(u_i^\T\Dt v_j)+(E_\ridge)_{ij}
+=\frac{\mathfrak d(\mu_i,\lambda_j)}{\sqrt{\cR(t)}}\,(u_i^\T\Dt v_j)+(E_\ridge)_{ij},
+\end{equation}</div>
+<div class="p">and <span class="mi">\(\sup_{\ridge\in[\ridge_-,\ridge_+]}\big(\sum_{i,j}(E_\ridge)_{ij}^2\big)^{1/2}=\varepsilon_B\to0\)</span>. Consequently the frozen-state drift <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-DV" data-label="eqn:app-setup-DV">(SA.19)</a> of the update <span class="mi">\(\Gtilde\)</span> is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-Dij"></span>\begin{equation}\tag{SC.12}
+\cD_{ij}(t)=\frac{\mathfrak d_{ij}}{\sqrt{\cR(t)}}\,\CMscr Q_{ij}(t)+(u_i^\T\Dt v_j)(E_\ridge)_{ij},
+\qquad \mathfrak d_{ij}\defeq\mathfrak d(\mu_i,\lambda_j),
+\end{equation}</div>
+<div class="p">and for every bounded function <span class="mi">\(\phi\)</span> on <span class="mi">\([0,\infty)^2\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-tested"></span>\begin{equation}\tag{SC.13}
+\Big|\sum_{i,j}\phi(\mu_i,\lambda_j)\,(u_i^\T\Dt v_j)\,(E_\ridge)_{ij}\Big|\le\norm\phi_\infty\,\norm{\Dt}_\F\,\varepsilon_B .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">In the frozen-state model with <span class="mi">\(\max(\Nout,\Nin)\le\gamma_\star B\)</span> and <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span>, at every finite dimension and for every <span class="mi">\(\ridge&gt;0\)</span>, the function <span class="mi">\(\mathfrak d\)</span> is continuous on <span class="mi">\([0,\infty)^2\)</span>, vanishes when <span class="mi">\(\mu=0\)</span> or <span class="mi">\(\lambda=0\)</span>, and satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-kernel-bounds"></span>\begin{equation}\tag{SC.14}
+0\le\mathfrak d(\mu,\lambda)\le\frac{\mu\lambda}{\sqrt{2\ridge}},\qquad
+\abs{\partial_\mu\mathfrak d(\mu,\lambda)}\le\frac{\lambda}{\sqrt{2\ridge}},\qquad
+\abs{\partial_\lambda\mathfrak d(\mu,\lambda)}\le\frac{\mu}{\sqrt{2\ridge}},
+\end{equation}</div>
+<div class="p">with one-sided derivatives at <span class="mi">\(0\)</span>; in particular, for <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span>, <span class="mi">\(\mathfrak d\)</span> is Lipschitz on <span class="mi">\([0,C_\Sigma]^2\)</span> with constant <span class="mi">\(C_\Sigma/\sqrt{2\ridge_-}\)</span> in each variable.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a>.</div><div class="p">The candidate is diagonal in the eigenbases. For <span class="mi">\(s&gt;0\)</span>, since <span class="mi">\(\Sigmaout u_i=\mu_iu_i\)</span> and <span class="mi">\(\Sigmain v_j=\lambda_jv_j\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+u_i^\T\Rbar(-s)=\frac{u_i^\T}{s+\tilde s_1(-s)\mu_i},\qquad
+\Rtbar(-s)v_j=\frac{v_j}{s+s_1(-s)\lambda_j},\\
+u_i^\T\,\Sigmaout\Dt\Sigmain\,v_j=\mu_i\lambda_j\,(u_i^\T\Dt v_j),
+\end{gathered}
+\]</div>
+<div class="p">so that, by <a class="ref" href="s.SC.html#L-eqn:app-drift-H" data-label="eqn:app-drift-H">(SC.2)</a>,</div>
+<div class="md">\[
+u_i^\T T(s)v_j=\frac{s\,\Lw(q(-s))\,\mu_i\lambda_j}{\big(s+\tilde s_1(-s)\mu_i\big)\big(s+s_1(-s)\lambda_j\big)}\cdot\frac{u_i^\T\Dt v_j}{\sqrt{2\cR(t)}} .
+\]</div>
+<div class="p">Integrating against <span class="mi">\(\frac2\pi\,du\)</span> at <span class="mi">\(s=\ridge+u^2\)</span> and comparing with <a class="ref" href="s.SC.html#L-eqn:app-drift-kernel" data-label="eqn:app-drift-kernel">(SC.4)</a>, in which the prefactor is <span class="mi">\(\sqrt2/\pi=(2/\pi)/\sqrt2\)</span>,</div>
+<div class="md">\[
+u_i^\T\,\Gtildebar_\ridge\,v_j=\frac{\sqrt2\,\mathfrak d(\mu_i,\lambda_j)}{\sqrt{2\cR(t)}}\,(u_i^\T\Dt v_j)=\frac{\mathfrak d(\mu_i,\lambda_j)}{\sqrt{\cR(t)}}\,(u_i^\T\Dt v_j).
+\]</div>
+<div class="p">Adding <span class="mi">\((E_\ridge)_{ij}\)</span> gives <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-projected" data-label="eqn:app-drift-projected">(SC.11)</a>, and the Frobenius norm is computed in the orthonormal bases: <span class="mi">\(\sum_{i,j}(E_\ridge)_{ij}^2=\norm{\EE\Gtilde-\Gtildebar_\ridge}_\F^2\)</span>, whose supremum over the ridge is <span class="mi">\(\varepsilon_B^2\)</span> by <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a>.</div>
+<div class="p">The drift is the projection times the projected state. In the frozen-state model the state is deterministic and the update is <span class="mi">\(\Gtilde\)</span>, so the drift <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-DV" data-label="eqn:app-setup-DV">(SA.19)</a> is <span class="mi">\(\cD_{ij}(t)=(u_i^\T\Dt v_j)\,\EE[u_i^\T\Gtilde v_j]\)</span>; multiplying <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-projected" data-label="eqn:app-drift-projected">(SC.11)</a> by <span class="mi">\(u_i^\T\Dt v_j\)</span> and using <span class="mi">\(\CMscr Q_{ij}(t)=(u_i^\T\Dt v_j)^2\)</span> gives <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-Dij" data-label="eqn:app-drift-Dij">(SC.12)</a>. The tested bound <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-tested" data-label="eqn:app-drift-tested">(SC.13)</a> is the Cauchy–Schwarz inequality in <span class="mi">\(\ell^2\)</span> over the pairs <span class="mi">\((i,j)\)</span>, with <span class="mi">\(\sum_{i,j}(u_i^\T\Dt v_j)^2=\norm{\Dt}_\F^2\)</span>.</div>
+<div class="p">The kernel bounds follow from the integrand. Since <span class="mi">\(\tilde s_1,s_1\ge0\)</span>, <span class="mi">\(0\le\Lw\le1\)</span> and <span class="mi">\(z\ge\ridge\)</span>, the integrand of <a class="ref" href="s.SC.html#L-eqn:app-drift-kernel" data-label="eqn:app-drift-kernel">(SC.4)</a> lies between <span class="mi">\(0\)</span> and <span class="mi">\(\mu\lambda/z\)</span>, and</div>
+<div class="md">\[
+\frac{\sqrt2}{\pi}\int_0^\infty\frac{du}{\ridge+u^2}=\frac{\sqrt2}{\pi}\cdot\frac{\pi}{2\sqrt\ridge}=\frac{1}{\sqrt{2\ridge}},
+\]</div>
+<div class="p">which gives the first bound of <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-kernel-bounds" data-label="eqn:app-drift-kernel-bounds">(SC.14)</a>; the integrand vanishes when <span class="mi">\(\mu=0\)</span> or <span class="mi">\(\lambda=0\)</span>. Differentiating the integrand in <span class="mi">\(\mu\)</span>,</div>
+<div class="md">\[
+\partial_\mu\frac{z\,\Lw\,\mu\lambda}{(z+\tilde s_1\mu)(z+s_1\lambda)}=\frac{z^2\,\Lw\,\lambda}{(z+\tilde s_1\mu)^2(z+s_1\lambda)}\in\Big[0,\frac{\lambda}{z}\Big],
+\]</div>
+<div class="p">and integrating gives the bound on <span class="mi">\(\partial_\mu\mathfrak d\)</span>; the bound on <span class="mi">\(\partial_\lambda\mathfrak d\)</span> is symmetric. Continuity on <span class="mi">\([0,\infty)^2\)</span> and the one-sided derivatives at the boundary follow from the same bounds, which are uniform in <span class="mi">\((\mu,\lambda)\)</span> on bounded sets. The Lipschitz constant on <span class="mi">\([0,C_\Sigma]^2\)</span> is the maximum of the derivative bounds there.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> <span class=muted>Regularized mean</span></li><li><a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> <span class=muted>Conditional recursion of the projected risks</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-drift-onestep.html" data-label="prop:app-drift-onestep">Proposition SC.2</a> <span class=muted>One-step risk drift in the frozen state</span></li><li><a class="ref" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Corollary SC.2</a> <span class=muted>Half-anisotropic input</span></li><li><a class="ref" href="r.rem.app-drift-nomomentum.html" data-label="rem:app-drift-nomomentum">Remark SC.1</a> <span class=muted>No momentum and the main-text kernel</span></li><li><a class="ref" href="r.lem.app-dyn-block.html" data-label="lem:app-dyn-block">Lemma SE.26</a> <span class=muted>Block residual</span></li><li><a class="ref" href="r.thm.app-iso-drift.html" data-label="thm:app-iso-drift">Theorem SF.1</a> <span class=muted>Isotropic drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.Erho</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L122">source</a></summary><pre class="lean no-mj">noncomputable def Erho (w : ℕ → ℝ) (F : FrozenParams m n B) (SD : SpectralData F.C) (S : FrozenSamples P m n B)
+    (t : ℤ) (ν ν' : FiniteMeasure ℝ) (ϱ : ℝ) : Matrix (Fin m) (Fin n) ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.dIdx</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L128">source</a></summary><pre class="lean no-mj">noncomputable def dIdx (w : ℕ → ℝ) (F : FrozenParams m n B) (ν ν' : FiniteMeasure ℝ) (SD : SpectralData F.C) (ϱ : ℝ) (i : Fin m) :
+    ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.kernel_diag_gbar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L793">source</a></summary><pre class="lean no-mj">theorem kernel_diag_gbar {CS γ : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    {w : ℕ → ℝ} (hw : WeightClass w) (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    (SD : SpectralData F.C) {ϱ : ℝ} (hϱ : 0 &lt; ϱ) (i : Fin m) (j : Fin n) :
+    Real.sqrt (SD.μ i * SD.lam j) *
+        dotProduct (SD.u i) (Gbar w F (specOutFM F) (specInFM F) ϱ *ᵥ SD.v j) =
+      Real.sqrt 2 * kernel w (specOutFM F) (specInFM F) ϱ (SD.μ i) (SD.lam j) *
+        dotProduct (SD.u i) (F.A *ᵥ SD.v j) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_kernel_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L1243">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_kernel_ii {CS γ : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    {w : ℕ → ℝ} (hw : WeightClass w) (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    {ϱ : ℝ} (hϱ : 0 &lt; ϱ) :
+    ContinuousOn (fun p : ℝ × ℝ =&gt; kernel w (specOutFM F) (specInFM F) ϱ p.1 p.2)
+        (Ici 0 ×ˢ Ici 0) ∧
+    (∀ lam : ℝ, kernel w (specOutFM F) (specInFM F) ϱ 0 lam = 0) ∧
+    (∀ μ : ℝ, kernel w (specOutFM F) (specInFM F) ϱ μ 0 = 0) ∧
+    (∀ μ lam : ℝ, 0 ≤ μ → 0 ≤ lam →
+      0 ≤ kernel w (specOutFM F) (specInFM F) ϱ μ lam ∧
+        kernel w (specOutFM F) (specInFM F) ϱ μ lam ≤ μ * lam / Real.sqrt (2 * ϱ)) ∧
+    (∀ μ lam : ℝ, 0 ≤ μ → 0 ≤ lam →
+      ∃ d : ℝ, HasDerivWithinAt (fun x =&gt; kernel w (specOutFM F) (specInFM F) ϱ x lam) d
+          (Ici 0) μ ∧ |d| ≤ lam / Real.sqrt (2 * ϱ)) ∧
+    (∀ μ lam : ℝ, 0 ≤ μ → 0 ≤ lam →
+      ∃ d : ℝ, HasDerivWithinAt (fun y =&gt; kernel w (specOutFM F) (specInFM F) ϱ μ y) d
+          (Ici 0) lam ∧ |d| ≤ μ / Real.sqrt (2 * ϱ)) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_kernel_ii_lip</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L1344">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_kernel_ii_lip {CS γ ϱlo ϱhi : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    (hlo : 0 &lt; ϱlo) (hle : ϱlo ≤ ϱhi)
+    {w : ℕ → ℝ} (hw : WeightClass w) (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    {ϱ : ℝ} (hϱ : ϱ ∈ Icc ϱlo ϱhi) :
+    (∀ μ μ' lam : ℝ, μ ∈ Icc 0 CS → μ' ∈ Icc 0 CS → lam ∈ Icc 0 CS →
+      |kernel w (specOutFM F) (specInFM F) ϱ μ lam - kernel w (specOutFM F) (specInFM F) ϱ μ' lam|
+        ≤ CS / Real.sqrt (2 * ϱlo) * |μ - μ'|) ∧
+    (∀ μ lam lam' : ℝ, μ ∈ Icc 0 CS → lam ∈ Icc 0 CS → lam' ∈ Icc 0 CS →
+      |kernel w (specOutFM F) (specInFM F) ϱ μ lam - kernel w (specOutFM F) (specInFM F) ϱ μ lam'|
+        ≤ CS / Real.sqrt (2 * ϱlo) * |lam - lam'|) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_kernel_i_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L1101">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_kernel_i_weights (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (w : ℕ → ℝ) (hw : WeightClass w)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k)) :
+    (∀ k, ∀ (i : Fin (R.m k)) (j : Fin (R.n k)), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf w (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        (Real.sqrt 2 * kernel w (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j)) / Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) + Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ∧
+      ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf w (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        kernel w (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) / Real.sqrt (riskSigma (R.F k).C (Dt k)) * dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) + Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j) ∧
+    (∀ k, BddAbove ((fun ϱ =&gt; Real.sqrt (∑ i : Fin (R.m k), ∑ j : Fin (R.n k),
+        Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ^ 2)) '' Icc R.ϱlo R.ϱhi) ∧
+      (⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, Real.sqrt (∑ i : Fin (R.m k), ∑ j : Fin (R.n k),
+        Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ^ 2)) =
+        epsB w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) ∧
+    Tendsto (fun k =&gt; epsB w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) atTop (𝓝 0) ∧
+    (∀ k, ∀ (i : Fin (R.m k)) (j : Fin (R.n k)), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf w (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        kernel w (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) / Real.sqrt (riskSigma (R.F k).C (Dt k)) * modeQ (SD k) (Dt k) i j +
+          dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j) ∧
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi, ∀ (φ : ℝ → ℝ → ℝ) (C : ℝ),
+      (∀ x y : ℝ, 0 ≤ x → 0 ≤ y → |φ x y| ≤ C) →
+      |∑ i : Fin (R.m k), ∑ j : Fin (R.n k), φ ((SD k).μ i) ((SD k).lam j) *
+          dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j| ≤
+        C * fro (Dt k) * epsB w (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_kernel_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L1226">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_kernel_i (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k)) :
+    (∀ k, ∀ (i : Fin (R.m k)) (j : Fin (R.n k)), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        (Real.sqrt 2 * kernel (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j)) / Real.sqrt (2 * riskSigma (R.F k).C (Dt k)) * dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) + Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ∧
+      ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        kernel (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) / Real.sqrt (riskSigma (R.F k).C (Dt k)) * dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) + Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j) ∧
+    (∀ k, BddAbove ((fun ϱ =&gt; Real.sqrt (∑ i : Fin (R.m k), ∑ j : Fin (R.n k),
+        Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ^ 2)) '' Icc R.ϱlo R.ϱhi) ∧
+      (⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, Real.sqrt (∑ i : Fin (R.m k), ∑ j : Fin (R.n k),
+        Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j ^ 2)) =
+        epsB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) ∧
+    Tendsto (fun k =&gt; epsB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) atTop (𝓝 0) ∧
+    (∀ k, ∀ (i : Fin (R.m k)) (j : Fin (R.n k)), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * ∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k) =
+        kernel (emaW R.β) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ ((SD k).μ i) ((SD k).lam j) / Real.sqrt (riskSigma (R.F k).C (Dt k)) * modeQ (SD k) (Dt k) i j +
+          dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j) ∧
+    (∀ k, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi, ∀ (φ : ℝ → ℝ → ℝ) (C : ℝ),
+      (∀ x y : ℝ, 0 ≤ x → 0 ≤ y → |φ x y| ≤ C) →
+      |∑ i : Fin (R.m k), ∑ j : Fin (R.n k), φ ((SD k).μ i) ((SD k).lam j) *
+          dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) * Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j| ≤
+        C * fro (Dt k) * epsB (emaW R.β) (R.F k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) R.ϱlo R.ϱhi) :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

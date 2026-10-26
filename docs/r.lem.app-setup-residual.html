@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SA.7 (Residual law)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SA.7 (Residual law)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-setup-residual"><div class="thm-head"><a class="thm-name" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a> <span class="thm-title">(Residual law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(A\in\R^{\Nout\times\Nin}\)</span> be deterministic with <span class="mi">\(\norm{A}_\F=1\)</span>, let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span> and <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent, and put <span class="mi">\(d=z^\T Aw\)</span>. Let <span class="mi">\(\alpha_1\ge\alpha_2\ge\dots\ge0\)</span> be the singular values of <span class="mi">\(A\)</span> and <span class="mi">\(g\sim\mathcal N(0,1)\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(d\)</span> is symmetric, <span class="mi">\(\EE d^2=1\)</span>, <span class="mi">\(\EE d^4=3+6\sum_k\alpha_k^4\le3+6\norm{A}^2\)</span>, and <span class="mi">\(\EE\abs{d}^{2p}\le\big((2p-1)!!\big)^2\)</span> for every integer <span class="mi">\(p\ge1\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\EE e^{i\theta d}=\prod_k(1+\theta^2\alpha_k^2)^{-1/2}\)</span> for real <span class="mi">\(\theta\)</span>, and <span class="mi">\(0\le\log\EE e^{i\theta d}+\theta^2/2\le\theta^4\norm{A}^2/4\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Along any sequence of such <span class="mi">\(A=A_B\)</span> with <span class="mi">\(\norm{A_B}\to0\)</span>, <span class="mi">\(d\Rightarrow g\)</span> in distribution, and <span class="mi">\(\EE\,\psi(d)\to\EE\,\psi(g)\)</span> for every continuous <span class="mi">\(\psi\)</span> with <span class="mi">\(\abs{\psi(x)}\le1+x^2\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The residual reduces to a weighted sum of products of independent normals. Write <span class="mi">\(A=U\diag(\alpha)V^\T\)</span> with <span class="mi">\(U,V\)</span> orthogonal. Since <span class="mi">\(U^\T z\)</span> and <span class="mi">\(V^\T w\)</span> are again independent standard Gaussian vectors, <span class="mi">\(d\)</span> has the law of</div>
+<div class="md">\[
+d\overset{\mathrm{law}}{=}\sum_k\alpha_kU_kV_k,\qquad U_k,V_k\ \text{independent standard normal}.
+\]</div>
+<div class="p">Negating all <span class="mi">\(U_k\)</span> proves symmetry.</div>
+<div class="p">The second and fourth moments follow by expansion. Independence gives <span class="mi">\(\EE d^2=\sum_k\alpha_k^2=1\)</span>. Each product <span class="mi">\(U_kV_k\)</span> has fourth moment <span class="mi">\(9\)</span>, and expanding the fourth power of the sum leaves only the multiplicities <span class="mi">\(4\)</span> and <span class="mi">\(2+2\)</span>, so</div>
+<div class="md">\[
+\EE d^4=9\sum_k\alpha_k^4+6\sum_{k&lt;l}\alpha_k^2\alpha_l^2=3\Big(\sum_k\alpha_k^2\Big)^2+6\sum_k\alpha_k^4=3+6\sum_k\alpha_k^4 .
+\]</div>
+<div class="p">The bound <span class="mi">\(\sum_k\alpha_k^4\le\alpha_1^2\sum_k\alpha_k^2=\norm A^2\)</span> gives the fourth-moment bound.</div>
+<div class="p">The <span class="mi">\(2p\)</span>-th moment is bounded by conditioning on <span class="mi">\(w\)</span>. Given <span class="mi">\(w\)</span>, the variable <span class="mi">\(d\)</span> is centered Gaussian with variance <span class="mi">\(\norm{Aw}^2\)</span>, so</div>
+<div class="md">\[
+\EE\big[\abs d^{2p}\mid w\big]=(2p-1)!!\,\norm{Aw}^{2p}.
+\]</div>
+<div class="p">In the coordinates above <span class="mi">\(\norm{Aw}^2=\sum_k\alpha_k^2V_k^2\)</span> is a convex combination of the <span class="mi">\(V_k^2\)</span>, so Jensen’s inequality for <span class="mi">\(x\mapsto x^p\)</span> gives</div>
+<div class="md">\[
+\EE\norm{Aw}^{2p}\le\sum_k\alpha_k^2\,\EE V_k^{2p}=(2p-1)!! ,
+\]</div>
+<div class="p">and (i) follows.</div>
+<div class="p">The characteristic function is a product. Integrating first in <span class="mi">\(V_k\)</span> and then in <span class="mi">\(U_k\)</span>,</div>
+<div class="md">\[
+\EE e^{i\theta\alpha U_kV_k}=\EE e^{-\theta^2\alpha^2U_k^2/2}=(1+\theta^2\alpha^2)^{-1/2},
+\]</div>
+<div class="p">and independence gives the product formula of (ii). For <span class="mi">\(x\ge0\)</span>,</div>
+<div class="md">\[
+0\le x-\log(1+x)=\int_0^x\frac{u}{1+u}\,du\le\frac{x^2}{2};
+\]</div>
+<div class="p">summing at <span class="mi">\(x=\theta^2\alpha_k^2\)</span> and using <span class="mi">\(\sum_k\alpha_k^2=1\)</span> and <span class="mi">\(\sum_k\alpha_k^4\le\norm A^2\)</span> gives the bound of (ii).</div>
+<div class="p">Part (iii) is Lévy’s continuity theorem: by (ii) the characteristic functions converge pointwise to <span class="mi">\(e^{-\theta^2/2}\)</span>, hence <span class="mi">\(d\Rightarrow g\)</span> [<a class="cite" href="bibliography.html#bib-billingsley1995probability">9</a>, Theorem 26.3], and the convergence of <span class="mi">\(\EE\psi(d)\)</span> for <span class="mi">\(\abs{\psi(x)}\le1+x^2\)</span> follows from the bound <span class="mi">\(\EE d^4\le9\)</span> of (i).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li><li><a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> <span class=muted>Uniform Gaussian limit of the residual functional</span></li><li><a class="ref" href="r.lem.app-drift-gaussian.html" data-label="lem:app-drift-gaussian">Lemma SC.8</a> <span class=muted>Uniform Gaussian limit of the derivative functional</span></li><li><a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> <span class=muted>Candidate-centered targets</span></li><li><a class="ref" href="r.lem.app-vol-scalar-weak.html" data-label="lem:app-vol-scalar-weak">Lemma SD.5</a> <span class=muted>Uniform scalar comparison</span></li><li><a class="ref" href="r.lem.app-vol-replacement.html" data-label="lem:app-vol-replacement">Lemma SD.6</a> <span class=muted>Replacement of the residuals</span></li><li><a class="ref" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a> <span class=muted>Moments of one batch</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.lem_app_setup_residual_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Residual.lean#L410">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_residual_i {m n : ℕ} (A : Mat m n) (hA : fro A = 1) :
+    (gaussPair m n).map (resid A) = (gaussPair m n).map (fun x =&gt; -resid A x) ∧
+    ∫ x, resid A x ^ 2 ∂(gaussPair m n) = 1 ∧
+    ∫ x, resid A x ^ 4 ∂(gaussPair m n) = 3 + 6 * ∑ k ∈ Finset.range (min m n), svals A k ^ 4 ∧
+    ∫ x, resid A x ^ 4 ∂(gaussPair m n) ≤ 3 + 6 * opNorm A ^ 2 ∧
+    ∀ p : ℕ, 1 ≤ p →
+      ∫ x, |resid A x| ^ (2 * p) ∂(gaussPair m n) ≤
+        ((Nat.doubleFactorial (2 * p - 1) : ℕ) : ℝ) ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_residual_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Residual.lean#L668">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_residual_ii {m n : ℕ} (A : Mat m n) (hA : fro A = 1) :
+    (∀ θ : ℝ, ∫ x, Complex.exp (((θ * resid A x : ℝ) : ℂ) * Complex.I) ∂(gaussPair m n)
+        = ((residCharProd A θ : ℝ) : ℂ)) ∧
+    ∀ θ : ℝ, 0 ≤ Real.log (residCharProd A θ) + θ ^ 2 / 2 ∧
+      Real.log (residCharProd A θ) + θ ^ 2 / 2 ≤ θ ^ 4 * opNorm A ^ 2 / 4 := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_residual_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Residual.lean#L804">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_residual_iii {m n : ℕ → ℕ} {Ω : ℕ → Type*} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (A : ∀ k, Mat (m k) (n k)) (z : ∀ k, Ω k → Vec (m k)) (w : ∀ k, Ω k → Vec (n k))
+    (hlaw : ∀ k, (P k).map (fun ω =&gt; (z k ω, w k ω)) = gaussPair (m k) (n k))
+    (hA : ∀ k, fro (A k) = 1) (hAn : Tendsto (fun k =&gt; opNorm (A k)) atTop (𝓝 0)) :
+    TendstoInDistribution (fun k ω =&gt; resid (A k) (z k ω, w k ω)) atTop id P
+        (gaussianReal 0 1) ∧
+    ∀ ψ : ℝ → ℝ, Continuous ψ → (∀ x, |ψ x| ≤ 1 + x ^ 2) →
+      Tendsto (fun k =&gt; ∫ ω, ψ (resid (A k) (z k ω, w k ω)) ∂(P k)) atTop
+        (𝓝 (∫ x, ψ x ∂(gaussianReal 0 1))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

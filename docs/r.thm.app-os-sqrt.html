@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SH.2 (Square-root law)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SH.2 (Square-root law)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-os-sqrt"><div class="thm-head"><a class="thm-name" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class="thm-title">(Square-root law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(C_*\defeq\frac12+\frac{2\log2}{\pi}\approx0.9413\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span> and every <span class="mi">\(\mu&gt;0\)</span>,</div>
+<div class="md">\[
+\max\Big\{C_*\sqrt{1-m_\nu(\mu)},\ 1-m_\nu(\mu)\Big\}\sqrt{\frac\mu2}\ \le\ \mathfrak d^{\rm os}_\nu(\mu)\ \le\ \sqrt{\frac\mu2}.
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span>, every <span class="mi">\(\mu&gt;0\)</span> and every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_\nu(\mu)\ge\frac{\nu([0,K\mu])}{1+K};\qquad\text{in particular}\qquad 1-m_\nu(\mu)\ge\tfrac12\,\nu([0,\mu]).
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">In the square case <span class="mi">\(\Nout=\Nin\)</span>, let <span class="mi">\(\underline{\mathfrak d}(\mu)\defeq C_*\sqrt{1-m_{\hat\nu_{\mathrm{out}}}(\mu)}\sqrt{\mu/2}\)</span> for <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(\underline{\mathfrak d}(0)\defeq0\)</span>. Then</div>
+<div class="md">\[
+\underline{\mathfrak d}(\Sigmaout)\preceq\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}}}(\Sigmaout)\preceq\Big(\frac{\Sigmaout}2\Big)^{1/2},
+\]</div>
+<div class="p">where, for <span class="mi">\(\mu_k&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_{\hat\nu_{\mathrm{out}}}(\mu_k)=\frac1{\Nout}\sum_{l=1}^{\Nout}\frac{\mu_k}{\mu_k+\mu_l}.
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The upper bound in (i) is <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, since <span class="mi">\(\chi_\nu\le1\)</span>.</div>
+<div class="p">The first lower bound compares <span class="mi">\(1-m_\nu(\mu y)\)</span> with <span class="mi">\(1-m_\nu(\mu)\)</span> on each side of <span class="mi">\(y=1\)</span>. For <span class="mi">\(y\ge1\)</span>, monotonicity gives <span class="mi">\(1-m_\nu(\mu y)\ge1-m_\nu(\mu)\)</span>. For <span class="mi">\(y\le1\)</span>, since <span class="mi">\(\mu+x\ge\mu y+x\)</span>,</div>
+<div class="md">\[
+\frac{\mu y}{\mu y+x}\ge y\,\frac{\mu}{\mu+x},\qquad\text{so}\qquad 1-m_\nu(\mu y)\ge y\,\big(1-m_\nu(\mu)\big).
+\]</div>
+<div class="p">Inserting both bounds into <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a> and using <a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\chi_\nu(\mu)&amp;\ge\sqrt{1-m_\nu(\mu)}\;\frac2\pi\Big[\int_0^1\frac{y\,\dif y}{(1+y)^2}+\int_1^\infty\frac{\sqrt y\,\dif y}{(1+y)^2}\Big]\\
+&amp;=\sqrt{1-m_\nu(\mu)}\;\frac2\pi\Big(\log2+\frac\pi4\Big)=C_*\sqrt{1-m_\nu(\mu)}.
+\end{aligned}
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> turns this into the first lower bound of (i).</div>
+<div class="p">The second lower bound in (i) follows from the averaged ratio. By <a class="ref" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a> and <a class="ref" href="r.lem.app-os-average.html" data-label="lem:app-os-average">Lemma SH.9</a>,</div>
+<div class="md">\[
+\chi_\nu(\mu)\ge1-m^\varpi_\nu(\mu)\ge1-m_\nu(\mu),
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> again converts this into a bound on the profile.</div>
+<div class="p">Part (ii) holds because <span class="mi">\(\mu/(\mu+x)\ge1/(1+K)\)</span> for <span class="mi">\(x\le K\mu\)</span>, so</div>
+<div class="md">\[
+1-m_\nu(\mu)=\int\frac{\mu\,\nu(\dif x)}{\mu+x}\ge\frac{\nu([0,K\mu])}{1+K}.
+\]</div>
+<div class="p">Part (iii) is (i) applied to each eigenvalue, with <span class="mi">\(\nu=\hat\nu_{\mathrm{out}}\)</span>. On the kernel of <span class="mi">\(\Sigmaout\)</span> all three operators vanish. The formula for <span class="mi">\(1-m_{\hat\nu_{\mathrm{out}}}(\mu_k)\)</span> is <a class="ref" href="s.SH.html#L-eqn:app-os-m" data-label="eqn:app-os-m">(SH.4)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class=muted>Representation of the profile</span></li><li><a class="ref" href="r.def.app-os-objects.html" data-label="def:app-os-objects">Definition SH.1</a> <span class=muted>Oversampled objects</span></li><li><a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a> <span class=muted>Elementary integrals</span></li><li><a class="ref" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a> <span class=muted>Defect bounds</span></li><li><a class="ref" href="r.lem.app-os-average.html" data-label="lem:app-os-average">Lemma SH.9</a> <span class=muted>The averaged ratio</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Corollary SH.2</a> <span class=muted>Packed modes</span></li><li><a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> <span class=muted>Tail modes</span></li><li><a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> <span class=muted>Two-level spectrum</span></li><li><a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class=muted>Acceleration of a slow mode</span></li><li><a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a> <span class=muted>Power-law spectra</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.cStar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/SqrtLaw.lean#L35">source</a></summary><pre class="lean no-mj">def cStar : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_sqrt_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/SqrtLaw.lean#L294">source</a></summary><pre class="lean no-mj">theorem thm_app_os_sqrt_i
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0) {μ : ℝ} (hμ : 0 &lt; μ) :
+    max (cStar * Real.sqrt (1 - mNu ν μ)) (1 - mNu ν μ) * Real.sqrt (μ / 2) ≤ dOsSq ν μ ∧
+      dOsSq ν μ ≤ Real.sqrt (μ / 2) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_sqrt_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/SqrtLaw.lean#L444">source</a></summary><pre class="lean no-mj">theorem thm_app_os_sqrt_ii
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0) {μ K : ℝ}
+    (hμ : 0 &lt; μ) (hK : 0 &lt; K) :
+    (ν (Icc 0 (K * μ))).toReal / (1 + K) ≤ 1 - mNu ν μ ∧
+      (ν (Icc 0 μ)).toReal / 2 ≤ 1 - mNu ν μ := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_sqrt_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L834">source</a></summary><pre class="lean no-mj">theorem thm_app_os_sqrt_iii {N : ℕ} (C : Muon.Covariances N N) :
+    cfc (fun μ : ℝ =&gt; dUnder (nuHatOut C) μ) C.Sout ≤
+        cfc (fun μ : ℝ =&gt; dOsSq (nuHatOut C) μ) C.Sout ∧
+      cfc (fun μ : ℝ =&gt; dOsSq (nuHatOut C) μ) C.Sout ≤
+        cfc (fun x : ℝ =&gt; Real.sqrt (x / 2)) C.Sout ∧
+      ∀ k : Fin N, 0 &lt; eigOut C k →
+        1 - mNu (nuHatOut C) (eigOut C k) =
+          (N : ℝ)⁻¹ * ∑ l : Fin N, eigOut C k / (eigOut C k + eigOut C l) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.dUnder</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L272">source</a></summary><pre class="lean no-mj">def dUnder (ν : Measure ℝ) (μ : ℝ) : ℝ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

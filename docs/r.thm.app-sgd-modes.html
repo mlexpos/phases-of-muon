@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SJ.4 (Corrected row volatility)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SJ.4 (Corrected row volatility)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility · <a href="t.thm.app-sgd-modes.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-sgd-modes"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a> <span class="thm-title">(Corrected row volatility)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a>, define the raw annealed row volatility of the update and the corrected array</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-actual-row"></span><span class="anchor" id="L-eqn:app-sgd-corr"></span>\begin{align}
+\volraw_i&amp;\defeq\EE\norm{S^\T u_i}^2,\tag{SJ.43}\\
+\mathfrak v_i^{\rm corr}&amp;\defeq\Nin\Big(1-\frac2\pi\Big)+\frac2\pi\,\Nout\Big[\frac{(\Nin+2)\,\mu_i}{\Tr\Lambda}+\frac{(B+2\Nin+3)\,(T_D)_{ii}}{2\cR\,\Tr\Lambda}\Big].\tag{SJ.44}
+\end{align}</div>
+<div class="p">There is an admissible constant <span class="mi">\(C_{\rm row}\)</span> such that, for every <span class="mi">\(i\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-modes"></span>\begin{equation}\tag{SJ.45}
+\abs{\volraw_i-\mathfrak v_i^{\rm corr}}\le C_{\rm row}\,\frac{\Nin}{\sqrt k},\qquad
+\Big|\frac{\volraw_i}{\mathfrak v_i^{\rm corr}}-1\Big|\le\frac{C_{\rm row}}{(1-2/\pi)\sqrt k}.
+\end{equation}</div>
+<div class="p">The actual total is exact, <span class="mi">\(\sum_i\volraw_i=\Nout\Nin\)</span>, while</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-excess"></span>\begin{equation}\tag{SJ.46}
+\sum_i\mathfrak v_i^{\rm corr}-\Nout\Nin=\frac2\pi\,\Nout\Big[2+\frac{(B+2\Nin+3)\Tr T_D}{2\cR\,\Tr\Lambda}\Big]\in\Big(0,\ \frac2\pi\Nout\big[2+(3K+3)L/c\big]\Big].
+\end{equation}</div>
+<div class="p">The corrected array exceeds the main text’s array row by row:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-difference"></span>\begin{equation}\tag{SJ.47}
+\mathfrak v_i^{\rm corr}-\mathfrak v_i^{\text{s-SGD}}=\frac2\pi\,\Nout\Big[\frac{2\mu_i}{\Tr\Sigmaout}+\frac{(B+2\Nin+3)\,(\Lambda DD^\T\Lambda)_{ii}}{2\cR\,\Tr\Sigmaout}\Big]\ge0 .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>The row volatility.</em> By <a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a>,</div>
+<div class="md">\[
+\volraw_i=\Nin\Big(1-\frac2\pi\Big)+\frac2\pi\,\Nout\sum_{j=1}^{\Nin}\EE\frac{(h_j)_i^2}{\norm{h_j}^2}.
+\]</div>
+<div class="p">Replacing each <span class="mi">\(\norm{h_j}^2\)</span> by <span class="mi">\(x_0\)</span> costs, by <a class="ref" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> and <span class="mi">\(\Nout\le Kk\)</span>, at most</div>
+<div class="md">\[
+\frac2\pi\,\Nout\Nin\Big(\frac{C_{\rm good}}{k^{3/2}}+\frac{C_{\rm bad}}{k^2}\Big)\le C_{\rm row}\frac{\Nin}{\sqrt k},\qquad C_{\rm row}\defeq\frac2\pi K(C_{\rm good}+C_{\rm bad}).
+\]</div>
+<div class="p">The replaced sum is <span class="mi">\(\sum_j\EE(h_j)_i^2/x_0=(\EE HH^\T)_{ii}/x_0\)</span>, and <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-HH" data-label="eqn:app-sgd-HH">(SJ.34)</a> with <span class="mi">\(x_0=2\cR\Tr\Lambda/B\)</span> identifies it:</div>
+<div class="md">\[
+\frac{(\EE HH^\T)_{ii}}{x_0}=\frac{(\Nin+2)\mu_i}{\Tr\Lambda}+\frac{(B+2\Nin+3)(T_D)_{ii}}{2\cR\Tr\Lambda}.
+\]</div>
+<div class="p">This proves the first bound in <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-modes" data-label="eqn:app-sgd-modes">(SJ.45)</a>. The relative bound follows from <span class="mi">\(\mathfrak v_i^{\rm corr}\ge\Nin(1-2/\pi)\)</span>.</div>
+<div class="p"><em>Totals.</em> By <a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a>, <span class="mi">\(\norm S_\F^2=\Nout\Nin\)</span>, and <span class="mi">\(\sum_i\norm{S^\T u_i}^2=\norm S_\F^2\)</span> by orthogonality. Summing <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-corr" data-label="eqn:app-sgd-corr">(SJ.44)</a> over <span class="mi">\(i\)</span> gives the identity in <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-excess" data-label="eqn:app-sgd-excess">(SJ.46)</a>. Its bracket is positive, and <span class="mi">\(\Tr T_D\le2\cR L\)</span>, <span class="mi">\(\Tr\Lambda\ge c\Nout\)</span> and <span class="mi">\(B+2\Nin+3\le(3K+3)\Nout\)</span> give the upper bound.</div>
+<div class="p"><em>The difference.</em> The main text’s array is <span class="mi">\(\mathfrak v_i^{\text{s-SGD}}=\Nin(1-\frac2\pi)+\frac2\pi\Nout\Nin\mu_i/\Tr\Lambda\)</span>. Subtracting it from <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-corr" data-label="eqn:app-sgd-corr">(SJ.44)</a> gives <a class="ref" href="r.thm.app-sgd-modes.html#L-eqn:app-sgd-difference" data-label="eqn:app-sgd-difference">(SJ.47)</a>, with <span class="mi">\(\Tr\Sigmaout=\Tr\Lambda\)</span> and <span class="mi">\(T_D=\Lambda DD^\T\Lambda\)</span>. Both terms are nonnegative.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a> <span class=muted>Haar reduction</span></li><li><a class="ref" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> <span class=muted>Column norms</span></li><li><a class="ref" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class=muted>Column moments</span></li><li><a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> <span class=muted>Haar state law</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-phase-sgd.html" data-label="rem:app-phase-sgd">Remark SI.4</a> <span class=muted>The adopted <span class="sc">SignSGD</span> array and the corrected modes</span></li><li><a class="ref" href="r.prop.signsgd-recursion-anisotropic.html" data-label="prop:signsgd-recursion-anisotropic">Proposition SJ.8</a> <span class=muted>Half-anisotropic <span class="sc">SignSGD</span> recursion</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_modes_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L1688">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_modes_i (P : HaarParams) :
+    ∃ Crow : ℝ, 0 ≤ Crow ∧
+      ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ)
+        (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)),
+        Muon.Foundations.IsOrthHaar ν → def_app_sgd_state_law P n m B μ D → ∀ i : Fin n,
+          Integrable (fun p =&gt; sgdRowEnergy (haarSign μ D p.1 p.2) (haarCol p.1 i))
+              (ν.prod (batchLaw n m B)) ∧
+          0 &lt; vCorr n m B μ D i ∧
+          |haarRawRow B ν μ D i - vCorr n m B μ D i|
+            ≤ Crow * (m : ℝ) / Real.sqrt (kOf n m B : ℝ) ∧
+          |haarRawRow B ν μ D i / vCorr n m B μ D i - 1|
+            ≤ Crow / ((1 - 2 / Real.pi) * Real.sqrt (kOf n m B : ℝ)) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_modes_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L1824">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_modes_ii (P : HaarParams) :
+    ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ)
+      (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)),
+      Muon.Foundations.IsOrthHaar ν → def_app_sgd_state_law P n m B μ D →
+        ∑ i, haarRawRow B ν μ D i = (n : ℝ) * (m : ℝ) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_modes_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L1906">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_modes_iii (P : HaarParams) :
+    ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ),
+      def_app_sgd_state_law P n m B μ D →
+        (∑ i, vCorr n m B μ D i - (n : ℝ) * (m : ℝ)
+            = 2 / Real.pi * (n : ℝ) * (2 + ((B : ℝ) + 2 * (m : ℝ) + 3) * (TD μ D).trace
+                / (twoR μ D * ∑ k, μ k))) ∧
+        0 &lt; 2 / Real.pi * (n : ℝ) * (2 + ((B : ℝ) + 2 * (m : ℝ) + 3) * (TD μ D).trace
+                / (twoR μ D * ∑ k, μ k)) ∧
+        2 / Real.pi * (n : ℝ) * (2 + ((B : ℝ) + 2 * (m : ℝ) + 3) * (TD μ D).trace
+                / (twoR μ D * ∑ k, μ k))
+          ≤ 2 / Real.pi * (n : ℝ) * (2 + (3 * P.K + 3) * P.L / P.c) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_modes_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L2012">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_modes_iv (P : HaarParams) :
+    ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ),
+      def_app_sgd_state_law P n m B μ D → ∀ i : Fin n,
+        vCorr n m B μ D i - vSgd n m μ i
+            = 2 / Real.pi * (n : ℝ) * (2 * μ i / (∑ k, μ k)
+                + ((B : ℝ) + 2 * (m : ℝ) + 3) * TD μ D i i / (twoR μ D * ∑ k, μ k)) ∧
+        0 ≤ 2 / Real.pi * (n : ℝ) * (2 * μ i / (∑ k, μ k)
+                + ((B : ℝ) + 2 * (m : ℝ) + 3) * TD μ D i i / (twoR μ D * ∑ k, μ k)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.18 (One-buffer sums are the branch)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.18 (One-buffer sums are the branch)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-lemma" id="L-lem:app-vol-closed-onebuffer"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a> <span class="thm-title">(One-buffer sums are the branch)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmaout,\Sigmain\ne0\)</span>, fix <span class="mi">\(l\in\{1,2\}\)</span> and <span class="mi">\(t\ge s_R\)</span>, use the corner weight <span class="mi">\(\zeta_l=(i\sqrt t)^{-1}\)</span>, and let <span class="mi">\((\sigma_l,\tilde\sigma_l,\tilde s_{1,l},s_{1,l})\)</span> be the branch point of the marginal profile <span class="mi">\(\xi_l\)</span> at <span class="mi">\(t\)</span>, with <span class="mi">\(q_l=t\sigma_l\tilde\sigma_l\)</span>. Then the families defining <span class="mi">\(g_{\mathsf t,l}\)</span> are absolutely summable,</div>
+<div class="md">\[
+\sum_X\sum_{\mathfrak a:\mathfrak a(\mathrm{root})=i}\abs{\operatorname{val}_l(X,\mathfrak a)}\le\frac2{\sqrt t},
+\]</div>
+<div class="p">and</div>
+<div class="md">\[
+g_{\mathrm o,l}(i)=\frac{-i\sqrt t}{t+\tilde s_{1,l}\mu_i},\qquad g_{\mathrm{in},l}(j)=\frac{-i\sqrt t}{t+s_{1,l}\lambda_j},\qquad
+m_{\mathrm o,l}=-i\sqrt t\,\sigma_l,\qquad m_{\mathrm{in},l}=-i\sqrt t\,\tilde\sigma_l,
+\]</div>
+<div class="p">so that <span class="mi">\(-m_{\mathrm o,l}m_{\mathrm{in},l}=q_l\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Absolute summability.</em> For <span class="mi">\(X\)</span> with <span class="mi">\(n\)</span> edges,</div>
+<div class="md">\[
+\sum_{\mathfrak a:\mathfrak a(\mathrm{root})=i}\abs{\operatorname{val}_l(X,\mathfrak a)}\le t^{-(n+1)/2}\,C_1^{\deg\mathrm{root}}\prod_{x\ne\mathrm{root}}\big(\gamma_\star C_1^{\deg x}\big)\prod_yR_1^{\deg y}\le t^{-(n+1)/2}(\gamma_1C_1R_1)^n .
+\]</div>
+<div class="p">Here <span class="mi">\(B^{-1}\sum_i\mu_i^p\le\gamma_\star C_1^p\)</span>, and <span class="mi">\(\sum_\alpha\EE\abs{\xi_{l,\alpha}}^p\le R^p\sum_\alpha\varpi_{l,\alpha}\le R_1^p\)</span> for <span class="mi">\(p\ge1\)</span> because <span class="mi">\(\varpi_{l,\alpha}\le1\)</span>. There are at most <span class="mi">\(n\)</span> non-root external vertices, and <span class="mi">\(\sum_{\text{external}}\deg=\sum_{\text{latent}}\deg=n\)</span>. There are at most <span class="mi">\(4^n\)</span> trees for each <span class="mi">\(n\)</span>, and <span class="mi">\(4\gamma_1C_1R_1/\sqrt t\le1/2\)</span>. So the total is at most <span class="mi">\(t^{-1/2}\sum_n2^{-n}=2/\sqrt t\)</span>.</div>
+<div class="p"><em>Recursion.</em> An <span class="mi">\(\mathrm o\)</span>-rooted tree <span class="mi">\(X\)</span> is its root together with an ordered list <span class="mi">\((Y_1,\dots,Y_m)\)</span> of latent-rooted subtrees, where <span class="mi">\(m=\deg_X\mathrm{root}\)</span>. Each <span class="mi">\(Y_r\)</span> is a latent vertex whose children <span class="mi">\(X_{r,1},\dots,X_{r,2p_r+1}\)</span> have the types <span class="mi">\(\mathrm{in},\mathrm o,\dots,\mathrm{in}\)</span>, by the alternation with the parent type <span class="mi">\(\mathrm o\)</span>, and each <span class="mi">\(X_{r,c}\)</span> is an arbitrary externally rooted tree of that type. The weights factor accordingly. The corner weights give <span class="mi">\(\zeta_l^{n(X)+1}=\zeta_l^{m+1}\prod_{r,c}\zeta_l^{n(X_{r,c})+1}\)</span>; the root contributes <span class="mi">\(\mu_i^m\)</span>; the latent vertex of <span class="mi">\(Y_r\)</span> contributes <span class="mi">\(\sum_\alpha\EE\xi_{l,\alpha}^{2p_r+2}\)</span>; and a grandchild root <span class="mi">\(x'\)</span> contributes <span class="mi">\(B^{-1}\mathsf k_{x'}\cdot\mathsf k_{x'}^{\deg_{X_{r,c}}x'}\)</span>. By absolute summability and Fubini’s theorem,</div>
+<div class="md">\[
+g_{\mathrm o,l}(i)=\sum_{m\ge0}\zeta_l^{m+1}\big(\mu_i\,\eta_{\mathrm o,l}\big)^m,\qquad
+\eta_{\mathrm o,l}\defeq\sum_{p\ge0}\sum_\alpha\EE\big[\xi_{l,\alpha}^{2p+2}\big]\,m_{\mathrm{in},l}^{p+1}m_{\mathrm o,l}^p ,
+\]</div>
+<div class="p">and symmetrically with <span class="mi">\(\mathrm o\leftrightarrow\mathrm{in}\)</span> and <span class="mi">\(\mu\leftrightarrow\lambda\)</span>. By the first step, <span class="mi">\(\abs{m_{\mathsf t,l}}\le\gamma_\star C_1\cdot2/\sqrt t\le\delta_t\)</span>, so <span class="mi">\(\abs{\xi_{l,\alpha}^2m_{\mathrm o,l}m_{\mathrm{in},l}}\le R^2\delta_t^2\le1/16\)</span>. Summing the geometric series,</div>
+<div class="md">\[
+\eta_{\mathrm o,l}=m_{\mathrm{in},l}\,F_{\xi_l}\big(-m_{\mathrm o,l}m_{\mathrm{in},l}\big),
+\]</div>
+<div class="p">where <span class="mi">\(F_{\xi_l}\)</span> extends holomorphically to <span class="mi">\(\abs q&lt;R^{-2}\)</span> by the same series, and <span class="mi">\(g_{\mathrm o,l}(i)=\big(i\sqrt t-\mu_im_{\mathrm{in},l}F_{\xi_l}(\cdot)\big)^{-1}\)</span>, the ratio being less than one by the bounds below. Hence <span class="mi">\((m_{\mathrm o,l},m_{\mathrm{in},l})\)</span> is a fixed point, in the closed polydisc <span class="mi">\(\mathbb B\defeq\{\abs{m_{\mathrm o}},\abs{m_{\mathrm{in}}}\le\delta_t\}\)</span>, of the map</div>
+<div class="md">\[
+\Phi_l(m_{\mathrm o},m_{\mathrm{in}})\defeq\Big(\frac1B\sum_i\frac{\mu_i}{i\sqrt t-\mu_im_{\mathrm{in}}F_{\xi_l}(-m_{\mathrm o}m_{\mathrm{in}})},\
+\frac1B\sum_j\frac{\lambda_j}{i\sqrt t-\lambda_jm_{\mathrm o}F_{\xi_l}(-m_{\mathrm o}m_{\mathrm{in}})}\Big).
+\]</div>
+<div class="p"><em>Contraction.</em> The map <span class="mi">\(\Phi_l\)</span> sends <span class="mi">\(\mathbb B\)</span> into itself and is a contraction there. On <span class="mi">\(\mathbb B\)</span>, <span class="mi">\(\abs{m_{\mathrm o}m_{\mathrm{in}}}\le\delta_t^2\le1/(16R_1^2)\)</span>, so <span class="mi">\(\abs{q\xi^2}\le1/16\)</span> inside <span class="mi">\(F_{\xi_l}\)</span>, and by <a class="ref" href="s.SD.html#L-eqn:app-vol-closed-cutoff-masses" data-label="eqn:app-vol-closed-cutoff-masses">(SD.64)</a></div>
+<div class="md">\[
+\abs{F_{\xi_l}}\le\tfrac{16}{15},\qquad \abs{F_{\xi_l}'}\le\big(\tfrac{16}{15}\big)^2R^2,\qquad
+\abs{\mu_im_{\mathrm{in}}F_{\xi_l}}\le\tfrac{32}{15}\,\frac{\gamma_1C_1^2}{\sqrt t}\le\frac{\sqrt t}2 ,
+\]</div>
+<div class="p">the last because <span class="mi">\(t\ge64\gamma_1^2C_1^2R_1^2\ge64\gamma_1C_1^2\)</span>. Every denominator therefore has modulus at least <span class="mi">\(\sqrt t/2\)</span>, and <span class="mi">\(\abs{\Phi_l}\le2\gamma_\star C_1/\sqrt t\le\delta_t\)</span>. The partial derivatives of one summand <span class="mi">\(\mu/(i\sqrt t-\mu m_{\mathrm{in}}F_{\xi_l})\)</span> are</div>
+<div class="md">\[
+\frac{\mu^2\big(F_{\xi_l}-m_{\mathrm o}m_{\mathrm{in}}F_{\xi_l}'\big)}{(i\sqrt t-\mu m_{\mathrm{in}}F_{\xi_l})^2}\quad\text{in }m_{\mathrm{in}},\qquad
+\frac{-\mu^2m_{\mathrm{in}}^2F_{\xi_l}'}{(i\sqrt t-\mu m_{\mathrm{in}}F_{\xi_l})^2}\quad\text{in }m_{\mathrm o}.
+\]</div>
+<div class="p">They are bounded by <span class="mi">\(C_1^2(\frac{16}{15}+0.08)\cdot4/t\)</span> and <span class="mi">\(C_1^2\cdot0.08\cdot4/t\)</span>, because <span class="mi">\(\delta_t^2(16/15)^2R^2\le(16/15)^2/16&lt;0.08\)</span>. Summing over <span class="mi">\(i\)</span> with the weight <span class="mi">\(1/B\)</span> and using the mean value inequality on the convex set <span class="mi">\(\mathbb B\)</span>, <span class="mi">\(\Phi_l\)</span> is Lipschitz in the maximum norm with constant at most <span class="mi">\(5\gamma_1C_1^2/t\le1/12\)</span>. By the Banach fixed-point theorem, <span class="mi">\(\Phi_l\)</span> has exactly one fixed point in <span class="mi">\(\mathbb B\)</span>.</div>
+<div class="p"><em>The branch is that fixed point.</em> The point <span class="mi">\((-i\sqrt t\,\sigma_l,-i\sqrt t\,\tilde\sigma_l)\)</span> lies in <span class="mi">\(\mathbb B\)</span>, since <span class="mi">\(\sqrt t\,\sigma_l\le B^{-1}\Tr\Sigmaout/\sqrt t\le\gamma_\star C_1/\sqrt t\)</span> by <a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a>(ii), and likewise for <span class="mi">\(\tilde\sigma_l\)</span>. It is a fixed point. Here <span class="mi">\(-m_{\mathrm o}m_{\mathrm{in}}=t\sigma_l\tilde\sigma_l=q_l\)</span>, and</div>
+<div class="md">\[
+\frac{\mu_i}{i\sqrt t+i\sqrt t\,\mu_i\tilde\sigma_lF_{\xi_l}(q_l)}=\frac{\mu_i}{i\sqrt t\,(t+\tilde s_{1,l}\mu_i)/t}=-i\sqrt t\,\frac{\mu_i}{t+\tilde s_{1,l}\mu_i},
+\]</div>
+<div class="p">whose normalized sum over <span class="mi">\(i\)</span> is <span class="mi">\(-i\sqrt t\,\sigma_l\)</span> by <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a>; the second coordinate is the same computation. So the tree sums equal the branch, and the formulas for <span class="mi">\(g\)</span> follow from <span class="mi">\(g_{\mathsf t,l}=(i\sqrt t-\mathsf k\,\eta_{\mathsf t,l})^{-1}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a> <span class=muted>Branch of a profile</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-path.html" data-label="lem:app-vol-closed-path">Lemma SD.19</a> <span class=muted>Path decomposition</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_onebuffer_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Path.lean#L1324">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_onebuffer_i {Ω : Type} [MeasurableSpace Ω] {m n B : ℕ}
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ) (Fp : FrozenParams m n B)
+    (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0)
+    {P : Measure Ω} [IsProbabilityMeasure P] (ℓ J : ℕ) (R : ℝ)
+    {g : ℤ → Ω → ℝ} (hg : IsStdGaussianFamily P g) (l : ℕ) (hl : l = 1 ∨ l = 2)
+    (t : ℝ) (ht : sRad cert γstar CSig R ≤ t) :
+    (∀ i : Fin m,
+      Summable (fun q : OneBufIdx m n J ℓ VType.out (Sum.inl i) =&gt;
+        ‖oneBufVal P Fp.β ℓ J R B S.μ S.lam g l t q.2.1 q.2.2.1‖) ∧
+      ∑' q : OneBufIdx m n J ℓ VType.out (Sum.inl i),
+        ‖oneBufVal P Fp.β ℓ J R B S.μ S.lam g l t q.2.1 q.2.2.1‖ ≤ 2 / Real.sqrt t) ∧
+    (∀ j : Fin n,
+      Summable (fun q : OneBufIdx m n J ℓ VType.inp (Sum.inr (Sum.inl j)) =&gt;
+        ‖oneBufVal P Fp.β ℓ J R B S.μ S.lam g l t q.2.1 q.2.2.1‖) ∧
+      ∑' q : OneBufIdx m n J ℓ VType.inp (Sum.inr (Sum.inl j)),
+        ‖oneBufVal P Fp.β ℓ J R B S.μ S.lam g l t q.2.1 q.2.2.1‖ ≤ 2 / Real.sqrt t) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_onebuffer_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Path.lean#L3955">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_onebuffer_ii {Ω : Type} [MeasurableSpace Ω] {m n B : ℕ}
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ) (Fp : FrozenParams m n B)
+    (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0)
+    {P : Measure Ω} [IsProbabilityMeasure P] (ℓ J : ℕ) (R : ℝ)
+    {g : ℤ → Ω → ℝ} (hg : IsStdGaussianFamily P g) (l : ℕ) (hl : l = 1 ∨ l = 2)
+    (t : ℝ) (ht : sRad cert γstar CSig R ≤ t) :
+    (∀ i : Fin m,
+      oneBufG P Fp.β ℓ J R B S.μ S.lam g l t VType.out (Sum.inl i) =
+        -(Complex.I * (Real.sqrt t : ℂ)) /
+          ((t : ℂ) + ((marginalBranch P Fp.β ℓ J R Fp.C B l g t).2.2.1 : ℂ) * (S.μ i : ℂ))) ∧
+    (∀ j : Fin n,
+      oneBufG P Fp.β ℓ J R B S.μ S.lam g l t VType.inp (Sum.inr (Sum.inl j)) =
+        -(Complex.I * (Real.sqrt t : ℂ)) /
+          ((t : ℂ) + ((marginalBranch P Fp.β ℓ J R Fp.C B l g t).2.2.2 : ℂ) * (S.lam j : ℂ))) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_onebuffer_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Path.lean#L3995">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_onebuffer_iii {Ω : Type} [MeasurableSpace Ω] {m n B : ℕ}
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ) (Fp : FrozenParams m n B)
+    (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0)
+    {P : Measure Ω} [IsProbabilityMeasure P] (ℓ J : ℕ) (R : ℝ)
+    {g : ℤ → Ω → ℝ} (hg : IsStdGaussianFamily P g) (l : ℕ) (hl : l = 1 ∨ l = 2)
+    (t : ℝ) (ht : sRad cert γstar CSig R ≤ t) :
+    oneBufMo P Fp.β ℓ J R B S.μ S.lam g l t =
+        -(Complex.I * (Real.sqrt t : ℂ)) * ((marginalBranch P Fp.β ℓ J R Fp.C B l g t).1 : ℂ) ∧
+    oneBufMin P Fp.β ℓ J R B S.μ S.lam g l t =
+        -(Complex.I * (Real.sqrt t : ℂ)) * ((marginalBranch P Fp.β ℓ J R Fp.C B l g t).2.1 : ℂ) ∧
+    -(oneBufMo P Fp.β ℓ J R B S.μ S.lam g l t * oneBufMin P Fp.β ℓ J R B S.μ S.lam g l t) =
+        ((t * (marginalBranch P Fp.β ℓ J R Fp.C B l g t).1 *
+          (marginalBranch P Fp.β ℓ J R Fp.C B l g t).2.1 : ℝ) : ℂ) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

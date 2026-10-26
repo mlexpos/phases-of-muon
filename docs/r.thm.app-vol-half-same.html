@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SD.1 (Same-time energies of rows and columns)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SD.1 (Same-time energies of rows and columns)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-vol-half-same"><div class="thm-head"><a class="thm-name" href="r.thm.app-vol-half-same.html" data-label="thm:app-vol-half-same">Theorem SD.1</a> <span class="thm-title">(Same-time energies of rows and columns)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, let <span class="mi">\(I=[\ridge_-,\ridge_+]\)</span>, and put</div>
+<div class="md">\[
+e_B\defeq\sup_{s\in I}\norm{\EE R(-s)-\Rbar(-s)},\qquad
+\tilde e_B\defeq\sup_{s\in I}\norm{\EE\widetilde R(-s)-\Rtbar(-s)},
+\]</div>
+<div class="p">which tend to zero by <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The expected update Gram matrices satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-half-gram"></span>\begin{equation}\tag{SD.23}
+\begin{gathered}
+\sup_{\ridge\in I}\Big\|\EE\big[{\mathsf S}_t(\ridge){\mathsf S}_t(\ridge)^\T\big]-\tilde s_1(-\ridge)\Sigmaout\big(\tilde s_1(-\ridge)\Sigmaout+\ridge\Id\big)^{-1}\Big\|\le\ridge_+\,e_B ,\\
+\sup_{\ridge\in I}\Big\|\EE\big[{\mathsf S}_t(\ridge)^\T{\mathsf S}_t(\ridge)\big]-s_1(-\ridge)\Sigmain\big(s_1(-\ridge)\Sigmain+\ridge\Id\big)^{-1}\Big\|\le\ridge_+\,\tilde e_B .
+\end{gathered}
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The expected row and column energies satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-half-rows"></span>\begin{equation}\tag{SD.24}
+\sup_{\ridge\in I}\max_{1\le i\le\Nout}\Big|\EE\norm{{\mathsf S}_t(\ridge)^\T u_i}^2-\volraw_i(\ridge)\Big|\le\ridge_+\,e_B ,\qquad
+\sup_{\ridge\in I}\max_{1\le j\le\Nin}\Big|\EE\norm{{\mathsf S}_t(\ridge)v_j}^2-\widetilde{\mathfrak v}^{(0)}_j(\ridge)\Big|\le\ridge_+\,\tilde e_B ,
+\end{equation}</div>
+<div class="p"><span class="mi">\({\mathsf S}_t(\ridge)^\T u_i=0\)</span> for every <span class="mi">\(i\)</span> with <span class="mi">\(\mu_i=0\)</span>, and <span class="mi">\({\mathsf S}_t(\ridge)v_j=0\)</span> for every <span class="mi">\(j\)</span> with <span class="mi">\(\lambda_j=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, the raw and centered totals <a class="ref" href="s.SD.html#L-eqn:app-vol-Z" data-label="eqn:app-vol-Z">(SD.19)</a> satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-half-total"></span>\begin{equation}\tag{SD.25}
+\EE\sup_{\ridge\in I}\abs{Z(\ridge)-\overline Z(\ridge)}^2\longrightarrow0,\qquad
+\EE\sup_{\ridge\in I}\abs{Z^{\mathrm c}(\ridge)-\overline Z(\ridge)}^2\longrightarrow0,
+\end{equation}</div>
+<div class="p">and <span class="mi">\(\sup_{\ridge\in I}\abs{\EE Z(\ridge)-\overline Z(\ridge)}\le\gamma_\star C_\Sigma\ridge_+e_B\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout=\Id_{\Nout}\)</span>, (iii) holds with the candidate <span class="mi">\(\overline Z\)</span> replaced by <span class="mi">\(B^{-1}\Tr\Sigmain-\ridge\,\tilde\sigma(-\ridge)\)</span> and <span class="mi">\(e_B\)</span> by <span class="mi">\(\tilde e_B\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof rests on two exact identities. For <span class="mi">\(K\in\R^{\Nout\times\Nin}\)</span> and <span class="mi">\(\ridge&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-half-identity"></span>\begin{equation}\tag{SD.27}
+\Qridge\ridge(K)\Qridge\ridge(K)^\T=KK^\T\big(KK^\T+\ridge\Id\big)^{-1}=\Id-\ridge\,R_\ridge(K),\qquad
+\Qridge\ridge(K)^\T\Qridge\ridge(K)=\Id-\ridge\,\widetilde R_\ridge(K).
+\end{equation}</div>
+<div class="p">Indeed, in a singular value decomposition the first left side has the eigenvalue <span class="mi">\(s_k^2/(s_k^2+\ridge)=1-\ridge/(s_k^2+\ridge)\)</span> on the left singular vector <span class="mi">\(p_k\)</span> and vanishes on the left null space of <span class="mi">\(K\)</span>, where the right side is <span class="mi">\(1-\ridge/\ridge=0\)</span>. The second identity is the same computation on the right singular vectors.</div>
+<div class="p">Part (i) is the expectation of <a class="ref" href="r.thm.app-vol-half-same.html#L-eqn:app-vol-half-identity" data-label="eqn:app-vol-half-identity">(SD.27)</a>. With <span class="mi">\(K=\Mt\)</span> and <span class="mi">\(R_\ridge(\Mt)=R(-\ridge)\)</span>,</div>
+<div class="md">\[
+\EE\big[{\mathsf S}_t(\ridge){\mathsf S}_t(\ridge)^\T\big]-\big(\Id-\ridge\Rbar(-\ridge)\big)=-\ridge\big(\EE R(-\ridge)-\Rbar(-\ridge)\big),
+\]</div>
+<div class="p">whose norm is at most <span class="mi">\(\ridge_+e_B\)</span>, and <span class="mi">\(\Id-\ridge\Rbar(-\ridge)=\tilde s_1\Sigmaout(\tilde s_1\Sigmaout+\ridge\Id)^{-1}\)</span> by <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a>. The second bound is the same argument with <span class="mi">\(\widetilde R(-\ridge)\)</span>, <span class="mi">\(\Rtbar(-\ridge)=(\ridge+s_1\Sigmain)^{-1}\)</span> and <span class="mi">\(\tilde e_B\)</span>.</div>
+<div class="p">Part (ii) tests (i) with unit vectors. Since <span class="mi">\(\norm{{\mathsf S}_t^\T u_i}^2=u_i^\T {\mathsf S}_t{\mathsf S}_t^\T u_i\)</span> and <span class="mi">\(u_i^\T(\Id-\ridge\Rbar(-\ridge))u_i=1-\ridge/(\ridge+\tilde s_1\mu_i)=\volraw_i(\ridge)\)</span>, the bound <span class="mi">\(\abs{u^\T Xu}\le\norm X\)</span> for unit <span class="mi">\(u\)</span> gives the row bound. The column bound is the same with <span class="mi">\(\norm{{\mathsf S}_tv_j}^2=v_j^\T{\mathsf S}_t^\T{\mathsf S}_tv_j\)</span> and <span class="mi">\(v_j^\T(\Id-\ridge\Rtbar(-\ridge))v_j=\widetilde{\mathfrak v}^{(0)}_j(\ridge)\)</span>. If <span class="mi">\(\mu_i=0\)</span> then <span class="mi">\(\Sigmaout^{1/2}u_i=0\)</span>, so <span class="mi">\(u_i^\T G_{t'}=0\)</span> for every batch and <span class="mi">\(u_i^\T\Mt=0\)</span>; then <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(ii), with the projection <span class="mi">\(\Id-u_i\tensor u_i\)</span> on the output side, gives <span class="mi">\(u_i^\T {\mathsf S}_t=0\)</span>. If <span class="mi">\(\lambda_j=0\)</span> then <span class="mi">\(\Sigmain^{1/2}v_j=0\)</span>, so <span class="mi">\(\Mt v_j=0\)</span>, and the projection <span class="mi">\(\Id-v_j\tensor v_j\)</span> on the input side gives <span class="mi">\({\mathsf S}_tv_j=0\)</span>.</div>
+<div class="p">Part (iii) is the covariance-weighted trace of <a class="ref" href="r.thm.app-vol-half-same.html#L-eqn:app-vol-half-identity" data-label="eqn:app-vol-half-identity">(SD.27)</a>. Since <span class="mi">\(\Sigmain=\Id\)</span>, <span class="mi">\(\norm {\mathsf S}_\Sigma^2=\Tr(\Sigmaout {\mathsf S}{\mathsf S}^\T)\)</span>, and therefore</div>
+<div class="md">\[
+Z(\ridge)-\overline Z(\ridge)=-\ridge\Big(\frac1B\Tr\big(\Sigmaout R(-\ridge)\big)-\sigma(-\ridge)\Big).
+\]</div>
+<div class="p">The last claim of <a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> gives <span class="mi">\(\EE\sup_{s\in I}\abs{B^{-1}\Tr(\Sigmaout R(-s))-\sigma(-s)}^2\to0\)</span>, and the first statement of <a class="ref" href="r.thm.app-vol-half-same.html#L-eqn:app-vol-half-total" data-label="eqn:app-vol-half-total">(SD.25)</a> follows with the factor <span class="mi">\(\ridge_+^2\)</span>. Taking expectations instead,</div>
+<div class="md">\[
+\abs{\EE Z(\ridge)-\overline Z(\ridge)}=\ridge\,\Big|\frac1B\Tr\big(\Sigmaout(\EE R(-\ridge)-\Rbar(-\ridge))\big)\Big|
+\le\ridge_+\frac{\Nout}{B}C_\Sigma e_B\le\gamma_\star C_\Sigma\ridge_+e_B .
+\]</div>
+<div class="p">The centered statement follows from the raw one and <a class="ref" href="r.lem.app-vol-centering.html#L-eqn:app-vol-centering-sample" data-label="eqn:app-vol-centering-sample">(SD.21)</a>, by <span class="mi">\((x+y)^2\le2x^2+2y^2\)</span>.</div>
+<div class="p">Part (iv) is the same computation on the input side. Since <span class="mi">\(\Sigmaout=\Id\)</span>, <span class="mi">\(\norm{\mathsf S}_\Sigma^2=\Tr(\Sigmain{\mathsf S}^\T{\mathsf S})\)</span>, so the second identity of <a class="ref" href="r.thm.app-vol-half-same.html#L-eqn:app-vol-half-identity" data-label="eqn:app-vol-half-identity">(SD.27)</a> gives <span class="mi">\(Z(\ridge)-B^{-1}\Tr\Sigmain+\ridge\tilde\sigma(-\ridge)=-\ridge\big(B^{-1}\Tr(\Sigmain\widetilde R(-\ridge))-\tilde\sigma(-\ridge)\big)\)</span>, and the second statement of <a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> replaces the first.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li><li><a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class=muted>Trace closure with bounded tests</span></li><li><a class="ref" href="r.lem.app-vol-centering.html" data-label="lem:app-vol-centering">Lemma SD.4</a> <span class=muted>Centering</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-vol-half-spectral.html" data-label="rem:app-vol-half-spectral">Remark SD.1</a> <span class=muted>The spectral form of the row coefficient</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.thm.app-vol-mode-kernels.html" data-label="thm:app-vol-mode-kernels">Theorem SD.7</a> <span class=muted>Mode-resolved coefficients, <span class="mi">\(\Sigmain=\Id\)</span></span></li><li><a class="ref" href="r.cor.app-vol-marginals.html" data-label="cor:app-vol-marginals">Corollary SD.4</a> <span class=muted>Same-step marginals</span></li><li><a class="ref" href="r.thm.app-iso-volatility.html" data-label="thm:app-iso-volatility">Theorem SF.2</a> <span class=muted>Isotropic volatility</span></li><li><a class="ref" href="r.prop.app-iso-scalar.html" data-label="prop:app-iso-scalar">Proposition SF.4</a> <span class=muted>Scalar reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_i_out</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L841">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_i_out (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (ϱlo ϱhi eB : ℝ) (hϱ : 0 &lt; ϱlo)
+    (heB : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expRes (emaW F.β) F S t s -
+        Rbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eB) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi,
+      opNorm (Muon.mean P (fun ω =&gt; frozenUpd F S ϱ t ω * (frozenUpd F S ϱ t ω)ᵀ) -
+        halfGramOut F ϱ) ≤ ϱhi * eB := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_i_in</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L895">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_i_in (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (ϱlo ϱhi eBt : ℝ) (hϱ : 0 &lt; ϱlo)
+    (heBt : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expResT (emaW F.β) F S t s -
+        Rtbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eBt) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi,
+      opNorm (Muon.mean P (fun ω =&gt; (frozenUpd F S ϱ t ω)ᵀ * frozenUpd F S ϱ t ω) -
+        halfGramIn F ϱ) ≤ ϱhi * eBt := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_ii_rows</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1102">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_ii_rows (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (Sp : SpectralData F.C) (ϱlo ϱhi eB : ℝ) (hϱ : 0 &lt; ϱlo)
+    (heB : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expRes (emaW F.β) F S t s -
+        Rbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eB) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi, ∀ i : Fin m,
+      |(∫ ω, dotProduct ((frozenUpd F S ϱ t ω)ᵀ *ᵥ Sp.u i) ((frozenUpd F S ϱ t ω)ᵀ *ᵥ Sp.u i) ∂P) -
+        volraw F.β (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) (Sp.μ i) ϱ| ≤ ϱhi * eB := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_ii_cols</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1179">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_ii_cols (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (Sp : SpectralData F.C) (ϱlo ϱhi eBt : ℝ) (hϱ : 0 &lt; ϱlo)
+    (heBt : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expResT (emaW F.β) F S t s -
+        Rtbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eBt) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi, ∀ j : Fin n,
+      |(∫ ω, dotProduct (frozenUpd F S ϱ t ω *ᵥ Sp.v j) (frozenUpd F S ϱ t ω *ᵥ Sp.v j) ∂P) -
+        volTildeZero F.β (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) (Sp.lam j) ϱ|
+        ≤ ϱhi * eBt := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_ii_zero_rows</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1252">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_ii_zero_rows (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (Sp : SpectralData F.C) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi, ∀ ω : Ω, ∀ i : Fin m, Sp.μ i = 0 →
+      (frozenUpd F S ϱ t ω)ᵀ *ᵥ Sp.u i = 0 := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_ii_zero_cols</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1305">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_ii_zero_cols (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (Sp : SpectralData F.C) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi, ∀ ω : Ω, ∀ j : Fin n, Sp.lam j = 0 →
+      frozenUpd F S ϱ t ω *ᵥ Sp.v j = 0 := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iii_mean</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1426">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iii_mean (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (Sp : SpectralData F.C) (γstar CSig ϱlo ϱhi eB : ℝ)
+    (hSize : SizeFin F.C B γstar CSig) (hIn : F.C.Sin = 1) (hϱ : 0 &lt; ϱlo)
+    (heB : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expRes (emaW F.β) F S t s -
+        Rbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eB) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi,
+      |(∫ ω, sameTimeZ F S ϱ t ω ∂P) -
+        zbarRaw F.β B (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) Sp.μ ϱ| ≤
+          γstar * CSig * ϱhi * eB := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iii_raw</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1541">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iii_raw {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (Sp : ∀ k, SpectralData (R.F k).C) (hIn : ∀ k, (R.F k).C.Sin = 1) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi,
+        ENNReal.ofReal ((sameTimeZ (R.F k) (S k) ϱ t ω -
+          zbarRaw (R.F k).β (R.B k) (Muon.Drift.specOutFM (R.F k))
+            (Muon.Drift.specInFM (R.F k)) (Sp k).μ ϱ) ^ 2) ∂(P k))
+      atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iii_centered</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1742">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iii_centered {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (Sp : ∀ k, SpectralData (R.F k).C) (hIn : ∀ k, (R.F k).C.Sin = 1) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi,
+        ENNReal.ofReal ((sameTimeZc (R.F k) (S k) ϱ t ω -
+          zbarRaw (R.F k).β (R.B k) (Muon.Drift.specOutFM (R.F k))
+            (Muon.Drift.specInFM (R.F k)) (Sp k).μ ϱ) ^ 2) ∂(P k))
+      atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iv_mean</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L1962">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iv_mean (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (t : ℤ) (γstar CSig ϱlo ϱhi eBt : ℝ)
+    (hSize : SizeFin F.C B γstar CSig) (hOut : F.C.Sout = 1) (hϱ : 0 &lt; ϱlo)
+    (heBt : ∀ s ∈ Icc ϱlo ϱhi,
+      opNorm (expResT (emaW F.β) F S t s -
+        Rtbar (Fw (emaW F.β)) (Muon.Drift.specOutFM F) (Muon.Drift.specInFM F) F.C s) ≤ eBt) :
+    ∀ ϱ ∈ Icc ϱlo ϱhi,
+      |(∫ ω, sameTimeZ F S ϱ t ω ∂P) - halfZTotIn F ϱ| ≤ γstar * CSig * ϱhi * eBt := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iv_raw</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L2048">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iv_raw {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (hOut : ∀ k, (R.F k).C.Sout = 1) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi,
+        ENNReal.ofReal ((sameTimeZ (R.F k) (S k) ϱ t ω - halfZTotIn (R.F k) ϱ) ^ 2) ∂(P k))
+      atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_half_same_iv_centered</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Half.lean#L2120">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_half_same_iv_centered {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (hOut : ∀ k, (R.F k).C.Sout = 1) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi,
+        ENNReal.ofReal ((sameTimeZc (R.F k) (S k) ϱ t ω - halfZTotIn (R.F k) ϱ) ^ 2) ∂(P k))
+      atTop (𝓝 0) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

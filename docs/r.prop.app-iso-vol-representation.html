@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SF.10 (Lag coefficients in participation coordinates)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SF.10 (Lag coefficients in participation coordinates)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-iso-vol-representation"><div class="thm-head"><a class="thm-name" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> <span class="thm-title">(Lag coefficients in participation coordinates)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\ridge\ge0\)</span> and let <span class="mi">\(\ell\ge1\)</span> be an integer. Then <span class="mi">\(\widehat\Delta(y,z)&gt;0\)</span> whenever <span class="mi">\(y&lt;Q_{\psi(\ridge)}\)</span> and <span class="mi">\(z_\ell&lt;Q_{\psi(\ridge)}\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-vol-representation"></span>\begin{equation}\tag{SF.55}
+\overline C_{1,\ell}(\ridge)=\frac1{\pi^2\gamma^3}\int_0^\infty\!\!\int_0^\infty D(y,z)\,
+\mathbf 1\{y&lt;Q_{\psi(\ridge)},\ z_\ell&lt;Q_{\psi(\ridge)}\}\,
+\frac{\mathsf j(y)\,\mathsf u_\ridge(y)\;\mathsf j(z_\ell)\,\mathsf u_\ridge(z_\ell)}{\widehat\Delta(y,z)}\,\dif y\,\dif z .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof writes the two scalars of the isotropic lag kernel as divided differences of <span class="mi">\(r\)</span> at the pair <span class="mi">\((y,z)\)</span>, and then changes variables from the spectral parameters to the roots.</div>
+<div class="p"><em>The kernel at a pair of roots.</em> By <a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a>(ii), the lag kernel at <span class="mi">\((s,s')\)</span> is <span class="mi">\(b_\ell\,qq'/(\gamma^3\Delta_\ell)\)</span> with <span class="mi">\(q=q(-s)\)</span> and <span class="mi">\(q'=q(-s')\)</span>. Put <span class="mi">\(y\defeq q\)</span> and <span class="mi">\(z\defeq\bmom^{2\ell}q'\)</span>. The divided-difference forms <a class="ref" href="s.SG.html#L-eqn:app-pl-divided" data-label="eqn:app-pl-divided">(SG.15)</a> and <span class="mi">\(\Fw(x)=r(x)/x\)</span> give</div>
+<div class="md">\[
+\sqrt{qq'}\,b_\ell=\sqrt{yz}\,\frac{r(y)-r(z)}{y-z}=\mathcal Z(y,z),\qquad
+qq'\,e_\ell=yz\,\frac{\Fw(y)-\Fw(z)}{z-y}=\mathcal X(y,z).
+\]</div>
+<div class="p">The determinant of <a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a> is therefore <span class="mi">\(\Delta_\ell=\widehat\Delta(y,z)\)</span>, which is positive by <a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a>(i).</div>
+<div class="p"><em>Change of variables.</em> In the square case the closure <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-scalar-q" data-label="eqn:app-iso-scalar-q">(SF.7)</a> inverts as <span class="mi">\(s=\mathsf s(q)\defeq\mathsf A(q)^2/q\)</span>. The map <span class="mi">\(\mathsf s\)</span> is continuously differentiable and strictly decreasing from <span class="mi">\((0,Q_\gamma)\)</span> onto <span class="mi">\((0,\infty)\)</span>, with</div>
+<div class="md">\[
+\mathsf s'(y)=\frac{-2y\,r'(y)\,\mathsf A(y)-\mathsf A(y)^2}{y^2}=-\frac{\mathsf A(y)\,\mathsf j(y)}{y^2},
+\]</div>
+<div class="p">and <span class="mi">\(q(-\mathsf s(y))=y\)</span> by the uniqueness of <a class="ref" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a>(ii). For <span class="mi">\(\ridge&gt;0\)</span> one has <span class="mi">\(\mathsf s(Q_{\psi(\ridge)})=\ridge\)</span>, by the closure at <span class="mi">\(s=\ridge\)</span>. Hence <span class="mi">\(x=\sqrt{\mathsf s(y)-\ridge}\)</span> is a decreasing bijection of <span class="mi">\((0,Q_{\psi(\ridge)})\)</span> onto <span class="mi">\((0,\infty)\)</span> for every <span class="mi">\(\ridge\ge0\)</span>, with</div>
+<div class="md">\[
+\Big|\frac{\dif x}{\dif y}\Big|=\frac{\mathsf A(y)\,\mathsf j(y)}{2y^2\sqrt{\mathsf A(y)^2/y-\ridge}}=\frac{\mathsf j(y)\,\mathsf u_\ridge(y)}{2y^{3/2}} .
+\]</div>
+<div class="p">Apply this substitution in both variables of <a class="ref" href="r.lem.app-iso-lag.html#L-eqn:app-iso-lag-integral" data-label="eqn:app-iso-lag-integral">(SF.52)</a>, with <span class="mi">\(y=q(-\ridge-x^2)\)</span> and <span class="mi">\(y'=q(-\ridge-x'^2)\)</span>. Since the kernel is <span class="mi">\(b_\ell\,yy'/(\gamma^3\widehat\Delta)\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+\overline C_{1,\ell}(\ridge)&amp;=\frac4{\pi^2}\iint_{y,y'&lt;Q_{\psi(\ridge)}}\frac{b_\ell\,yy'}{\gamma^3\,\widehat\Delta}\cdot
+\frac{\mathsf j(y)\mathsf u_\ridge(y)\,\mathsf j(y')\mathsf u_\ridge(y')}{4\,(yy')^{3/2}}\,\dif y\,\dif y'\\
+&amp;=\frac1{\pi^2\gamma^3}\iint_{y,y'&lt;Q_{\psi(\ridge)}}\frac{b_\ell\,\mathsf j(y)\mathsf u_\ridge(y)\,\mathsf j(y')\mathsf u_\ridge(y')}{\widehat\Delta\,\sqrt{yy'}}\,\dif y\,\dif y' .
+\end{aligned}
+\]</div>
+<div class="p"><em>The lag shift.</em> Substitute <span class="mi">\(y'=\bmom^{-2\ell}z=z_\ell\)</span>. Then</div>
+<div class="md">\[
+\frac{b_\ell\,\dif y'}{\sqrt{yy'}}=\bmom^\ell\,\frac{r(y)-r(z)}{y-z}\cdot\frac{\bmom^{-2\ell}\,\dif z}{\bmom^{-\ell}\sqrt{yz}}=D(y,z)\,\dif z ,
+\]</div>
+<div class="p">which is <a class="ref" href="r.prop.app-iso-vol-representation.html#L-eqn:app-iso-vol-representation" data-label="eqn:app-iso-vol-representation">(SF.55)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a> <span class=muted>Isotropic lag response</span></li><li><a class="ref" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a> <span class=muted>Isotropic closure</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a> <span class=muted>Lag sum at zero ridge</span></li><li><a class="ref" href="r.thm.app-iso-vol-profile.html" data-label="thm:app-iso-vol-profile">Theorem SF.10</a> <span class=muted>Lag profile at zero ridge</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_vol_representation</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolKernels.lean#L2485">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_vol_representation {β γ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) (hγ : 0 &lt; γ)
+    {ϱ : ℝ} (hϱ : 0 ≤ ϱ) {ℓ : ℕ} (hℓ : 1 ≤ ℓ) :
+    (∀ y z : ℝ, 0 &lt; y → 0 &lt; z → y &lt; isoQpsi β γ ϱ → z / β ^ (2 * ℓ) &lt; isoQpsi β γ ϱ →
+      0 &lt; isoDeltaHat β γ y z) ∧
+    ENNReal.ofReal (lagCoeff β γ ϱ ℓ) =
+      ENNReal.ofReal (1 / (Real.pi ^ 2 * γ ^ 3)) *
+        ∫⁻ p in Ioi (0 : ℝ) ×ˢ Ioi (0 : ℝ),
+          ENNReal.ofReal
+            ((if p.1 &lt; isoQpsi β γ ϱ ∧ p.2 / β ^ (2 * ℓ) &lt; isoQpsi β γ ϱ then (1 : ℝ) else 0) *
+              (isoDivDiff β p.1 p.2 * isoWeightJ β γ p.1 * isoUlev β γ ϱ p.1 *
+                (isoWeightJ β γ (p.2 / β ^ (2 * ℓ)) * isoUlev β γ ϱ (p.2 / β ^ (2 * ℓ))) /
+                isoDeltaHat β γ p.1 p.2)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

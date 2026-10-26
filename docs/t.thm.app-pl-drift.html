@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Theorem SG.2 (Drift crossover)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Theorem SG.2 (Drift crossover)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-powerlaw.html">Power-law spectra and the large-batch regime</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Theorem H.1</strong></span></div><div class="thm thm-theorem" id="L-thm:app-pl-drift"><div class="thm-head"><a class="thm-name" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a> <span class="thm-title">(Drift crossover)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a> and let <span class="mi">\(i=i_N\to\infty\)</span> be a row sequence.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">Let <span class="mi">\(0&lt;\alpha\le1\)</span> and put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-icd"></span>\begin{equation}\tag{SG.32}
+\begin{gathered}
+d\defeq\frac{c_0}{\sqrt{1-\alpha}},\quad i_{\mathrm c,\mathfrak d}\defeq\Big[\frac{BN^{\alpha-1}}{\sw2d^2\log^2\gamma}\Big]^{1/\alpha},\quad
+a_{\mathfrak d}\defeq d\,a_N\log\gamma\quad(\alpha&lt;1);\\
+d\defeq\frac23c_0,\quad i_{\mathrm c,\mathfrak d}\defeq\frac{B}{\sw2d^2\log^3\gamma},\quad
+a_{\mathfrak d}\defeq d\,a_N(\log\gamma)^{3/2}\quad(\alpha=1).
+\end{gathered}
+\end{equation}</div>
+<div class="p">If <span class="mi">\(i/i_{\mathrm c,\mathfrak d}\to x\in(0,\infty)\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)/a_{\mathfrak d}\to1+x^{-\alpha/2}\)</span>. If <span class="mi">\(i/i_{\mathrm c,\mathfrak d}\to0\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim\sqrt{\mu_i/(\gamma\sw2)}\)</span>. If <span class="mi">\(i/i_{\mathrm c,\mathfrak d}\to\infty\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim a_N\Psi_\alpha(i/N)\)</span>, and if moreover <span class="mi">\(i/N\to0\)</span>,</div>
+<div class="md">\[
+\sqrt2\,\mathfrak d_i(0)\sim d\,a_N\log\big((N/i)^\alpha\big)\ \ (\alpha&lt;1),\qquad
+\sqrt2\,\mathfrak d_i(0)\sim d\,a_N\big[\log(N/i)\big]^{3/2}\ \ (\alpha=1).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Let <span class="mi">\(\alpha&gt;1\)</span>. If <span class="mi">\(i/i_{\mathrm c}\to x\in(0,\infty)\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)/b_N\to\Phi_{\alpha,\bmom}(x^{-\alpha})\)</span>. If <span class="mi">\(i/i_{\mathrm c}\to0\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim\sqrt{\mu_i/(\gamma\sw2)}\)</span>. If <span class="mi">\(i/i_{\mathrm c}\to\infty\)</span>, then <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim a_N\Psi_\alpha(i/N)\)</span>, and if moreover <span class="mi">\(i/N\to0\)</span>,</div>
+<div class="md">\[
+\sqrt2\,\mathfrak d_i(0)\sim d_\alpha\sqrt{c_NK_\alpha}\,N^{-1/2}\,i^{-(\alpha-1)/2}.
+\]</div></div></li></ol></div></div><section class="needs"><h2 class="panel-h">Definitions and assumptions used</h2><details class="need"><summary>Assumption S4 (Thin-batch power law)</summary><div class="thm thm-assumption" id="L-assum:app-pl-regime"><div class="thm-head"><a class="thm-name" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a> <span class="thm-title">(Thin-batch power law)</span></div><div class="thm-body"><div class="p">The exponent <span class="mi">\(\alpha&gt;0\)</span> and the momentum <span class="mi">\(\bmom\in(0,1)\)</span> are fixed. Along a sequence of positive integers <span class="mi">\(N\)</span> and <span class="mi">\(B=B_N\)</span>,</div>
+<div class="md">\[
+N\to\infty,\qquad B\to\infty,\qquad \gamma=\frac NB\to\infty,
+\]</div>
+<div class="p">and the spectrum is <span class="mi">\(\mu_i=c_Ni^{-\alpha}\)</span> for <span class="mi">\(1\le i\le N\)</span>, with amplitudes <span class="mi">\(c_N&gt;0\)</span>, with <span class="mi">\(\Sigmain=\Id_N\)</span> and <span class="mi">\(\Nout=\Nin=N\)</span>.</div></div></div></details></section><section class="note"><div class="p">This theorem gives the drift column of <a class="ref" href="paper.pdf#table.1" data-label="tab:power-law-kernels">Table 1</a> for <span class="mi">\(\bmom&gt;0\)</span>, with the crossover between its two rows. Rows below the crossover index are resolved: <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim\sqrt{\mu_i/(\gamma\sw2)}\)</span>, which is <span class="mi">\(\mathfrak d_i\sim\sqrt{\mu_iB_{\rm eff}/(2N)}\)</span>, the square-root law of the large-batch section. Rows above it are not whitened individually, and their drift <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim a_N\Psi_\alpha(i/N)\)</span>, with <span class="mi">\(a_N=\sqrt{c_N}N^{-\alpha/2}\)</span>, is a profile of <span class="mi">\(i/N\)</span> that does not depend on <span class="mi">\(\bmom\)</span>; for <span class="mi">\(i\ll N\)</span> it decays only logarithmically (<span class="mi">\(\alpha\le1\)</span>) or like <span class="mi">\(i^{-(\alpha-1)/2}\)</span> (<span class="mi">\(\alpha&gt;1\)</span>), far more slowly than <span class="mi">\(\sqrt{\mu_i}\)</span>. For <span class="mi">\(\alpha\le1\)</span> the two laws add at the crossover, so that <span class="mi">\(\sqrt2\,\mathfrak d_i(0)/a_{\mathfrak d}\to1+x^{-\alpha/2}\)</span>; for <span class="mi">\(\alpha&gt;1\)</span> the crossover is described by the profile <span class="mi">\(\Phi_{\alpha,\bmom}\)</span>, which keeps the momentum. This sketch also proves the drift half of the uniform approximation behind <a class="ref" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Corollary SG.1</a>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">The drift is the sum of a head and a tail, each with an explicit limit (<a class="ref" href="e.E5.html" data-label="sk:E5">Section C.5</a>). Changing variables from <span class="mi">\(u\)</span> to the participation <span class="mi">\(m\)</span> gives (<a class="ref" href="r.lem.app-pl-drift-participation.html" data-label="lem:app-pl-drift-participation">Lemma SG.8</a>)</div>
+<div class="md">\[
+\sqrt2\,\mathfrak d_i(0)=\frac1{\pi\gamma}\int_0^\gamma\mathcal A(m)\,\mathcal B_i(m)\,E(m)\vartheta_N(m)\,\dif m,
+\]</div>
+<div class="md">\[
+\mathcal B_i(\gamma p)=a_N\sqrt{\frac{1-p}{p\,V_N(p)}}\,\frac{V_N(p)}{V_N(p)+x^\alpha},\quad x=\frac iN,
+\]</div>
+<div class="p">where <span class="mi">\(\vartheta_N=-\frac{\dif}{\dif m}\log s_N\)</span> comes from the Jacobian of <span class="mi">\(u^2=s_N(m)\)</span>, and <span class="mi">\(E\vartheta_N\)</span> is within <span class="mi">\(C(1/m+1/(\gamma-m))\)</span> of one for <span class="mi">\(m\ge M\)</span>. On <span class="mi">\(m&gt;M\)</span> the averaging of <a class="ref" href="e.E5.html" data-label="sk:E5">Section C.5</a> replaces <span class="mi">\(\mathcal A\)</span> by <span class="mi">\(\sqrt{2\pi}\)</span>, the factor <span class="mi">\(E\vartheta_N\)</span> is replaced by one, and <span class="mi">\(V_N\)</span> by <span class="mi">\(V_\alpha\)</span>, all with relative error <span class="mi">\(C/M+o(1)\)</span> uniformly in the row; the tail is therefore <span class="mi">\(a_N\Psi_\alpha^{[M/\gamma]}(x)\)</span>, the profile with the integral restricted to <span class="mi">\(p\ge M/\gamma\)</span> (<a class="ref" href="r.lem.app-pl-tail.html" data-label="lem:app-pl-tail">Lemma SG.10</a>). The head <span class="mi">\(m\le M\)</span> is at most <span class="mi">\(C_M\sqrt{\mu_i/\gamma}\)</span> for every row and equals <span class="mi">\(\sqrt{\mu_i/(\gamma\sw2)}(1+o(1))\)</span> on resolved rows (<a class="ref" href="r.lem.app-pl-head.html" data-label="lem:app-pl-head">Lemma SG.11</a>). For bulk rows, <span class="mi">\(i/N\to x_0&gt;0\)</span>, the head is <span class="mi">\(o(a_N)\)</span> and <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim a_N\Psi_\alpha(x_0)\)</span>.</div>
+<div class="p">For <span class="mi">\(\alpha\le1\)</span> the crossover is the row at which head and tail are equal. With <span class="mi">\(c_N=1\)</span>, write the head in units of <span class="mi">\(a_N\)</span> as</div>
+<div class="md">\[
+W\defeq\frac{\sqrt{\mu_i/(\gamma\sw2)}}{a_N}=\sw2^{-1/2}e^{(T-\log\gamma)/2},\qquad
+T=\log(x^{-\alpha})\ (\alpha&lt;1),\quad T=\log(1/x)\ (\alpha=1),
+\]</div>
+<div class="p">and recall <span class="mi">\(\Psi_\alpha(x)\sim dT^\nu\)</span> with <span class="mi">\(\nu=1\)</span> for <span class="mi">\(\alpha&lt;1\)</span> and <span class="mi">\(\nu=3/2\)</span> for <span class="mi">\(\alpha=1\)</span> (<a class="ref" href="r.prop.app-pl-profiles.html" data-label="prop:app-pl-profiles">Proposition SG.5</a>). The cutoff <span class="mi">\(p\ge M/\gamma\)</span> removes a part of the profile that is negligible as long as <span class="mi">\(W\lesssim(\log\gamma)^\nu\)</span>, and when <span class="mi">\(W\gg(\log\gamma)^\nu\)</span> both profiles are <span class="mi">\(o(W)\)</span> (<a class="ref" href="r.lem.app-pl-cutoff.html" data-label="lem:app-pl-cutoff">Lemma SG.12</a>). In every case, after <span class="mi">\(M\to\infty\)</span>,</div>
+<div class="md">\[
+\sqrt2\,\mathfrak d_i(0)=a_N\big(W+\Psi_\alpha(x)\big)\big(1+o(1)\big),
+\]</div>
+<div class="p">which is the drift approximant of <a class="ref" href="s.SG.html#L-eqn:app-pl-approx-sub" data-label="eqn:app-pl-approx-sub">(SG.29)</a>. The index <span class="mi">\(i_{\mathrm c,\mathfrak d}\)</span> is where <span class="mi">\(W=d(\log\gamma)^\nu\)</span>: at <span class="mi">\(i/i_{\mathrm c,\mathfrak d}\to x_0\)</span> one has <span class="mi">\(W=d(\log\gamma)^\nu x_0^{-\alpha/2}(1+o(1))\)</span> and <span class="mi">\(T=\log\gamma+O(\log\log\gamma)\)</span>, so both terms are multiples of <span class="mi">\(a_{\mathfrak d}=d\,a_N(\log\gamma)^\nu\)</span>, which gives <span class="mi">\(1+x_0^{-\alpha/2}\)</span>. On the rows <span class="mi">\(i\asymp i_\#\)</span>, where <span class="mi">\(i_\#=(c_N\resscale)^{1/\alpha}\)</span> is the no-momentum threshold of <a class="ref" href="r.prop.app-pl-scales.html" data-label="prop:app-pl-scales">Proposition SG.6</a>, the drift exceeds the no-momentum drift scale <span class="mi">\((\gamma\resscale)^{-1/2}\)</span> by a factor of order <span class="mi">\(\log\gamma\)</span>, which comes from the growth <span class="mi">\(\log Q_m\sim2\abs{\log\bmom}\,m\)</span> of the momentum participation (<a class="ref" href="r.rem.app-pl-oldscale.html" data-label="rem:app-pl-oldscale">Remark SG.2</a>); this is why <span class="mi">\(i_{\mathrm c,\mathfrak d}\)</span> lies below the no-momentum threshold <span class="mi">\(i_\#\)</span> by a factor of order <span class="mi">\((\log\gamma)^{-2/\alpha}\)</span> (<a class="ref" href="r.prop.app-pl-scales.html" data-label="prop:app-pl-scales">Proposition SG.6</a>). The main-text display <a class="ref" href="paper.pdf#equation.4.15" data-label="eqn:i-sharp">(15)</a>, which also writes <span class="mi">\(i_\#\)</span>, is for <span class="mi">\(\bmom&gt;0\)</span> and <span class="mi">\(\alpha\le1\)</span> of the order of <span class="mi">\(i_{\mathrm c,\mathfrak d}\)</span> itself; in this chapter <span class="mi">\(i_\#\)</span> always means the no-momentum threshold.</div>
+<div class="p">For <span class="mi">\(\alpha&gt;1\)</span> the crossover sits at participation of order one, where the weights cannot be averaged, so its profile keeps the momentum. At <span class="mi">\(i\asymp B\)</span> put <span class="mi">\(y=(i_{\mathrm c}/i)^\alpha\)</span>. The scaling <span class="mi">\(c_N\Lambda_N(m)\sim(Bm/K_\alpha)^\alpha\)</span> of <a class="ref" href="e.E5.html" data-label="sk:E5">Section C.5</a> gives <span class="mi">\(\Lambda_N(m)\mu_i\to ym^\alpha\)</span> and <span class="mi">\(m\Lambda_N'(m)/\Lambda_N(m)\to\alpha\)</span>, so that on compact sets of <span class="mi">\(m\)</span> the drift integrand, divided by <span class="mi">\(b_N\)</span>, converges to that of (<a class="ref" href="r.lem.app-pl-super.html#L-eqn:app-pl-Phi-u" data-label="eqn:app-pl-Phi-u">(SG.46)</a>)</div>
+<div class="md">\[
+\Phi_{\alpha,\bmom}(y)=\frac1\pi\int_0^\infty\mathcal A(m)E(m)\vartheta_\infty(m)\,m^{-\frac{\alpha+1}2}\,\frac{ym^\alpha}{1+ym^\alpha}\,\dif m,
+\]</div>
+<div class="p">while the head bounds and the tail bound <span class="mi">\(CK_\alpha^{-\alpha/2}M^{-(\alpha-1)/2}\)</span> make small and large <span class="mi">\(m\)</span> negligible (<a class="ref" href="r.lem.app-pl-super.html" data-label="lem:app-pl-super">Lemma SG.13</a>). On the two windows the head and the tail are estimated directly, as for <span class="mi">\(\alpha\le1\)</span> (<a class="ref" href="r.lem.app-pl-super.html" data-label="lem:app-pl-super">Lemma SG.13</a>), and the identities <span class="mi">\(b_N\sqrt y=\sqrt{\mu_i/\gamma}\)</span> and <span class="mi">\(b_Nd_\alpha y^{(\alpha-1)/(2\alpha)}=a_Nd_\alpha\sqrt{K_\alpha}(i/N)^{-(\alpha-1)/2}\)</span> show that the results match the two endpoints of <span class="mi">\(\Phi_{\alpha,\bmom}\)</span> (<a class="ref" href="r.prop.app-pl-profiles.html" data-label="prop:app-pl-profiles">Proposition SG.5</a>(ii)).</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><a class="engine-pill" href="e.E5.html">E5 · Power-law and large-batch asymptotics</a></div></div><div><h3>Depth</h3><p>19 levels, 94 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.thm_app_pl_drift_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/DriftAsymptotics.lean#L8992">source</a></summary><pre class="lean no-mj">theorem thm_app_pl_drift_i {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (hreg : assum_app_pl_regime α β N B c) (hα : α ≤ 1)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    (∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n) /
+          icdA α (c n) (N n) (B n)) atTop (𝓝 (1 + x ^ (-α / 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+        (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+        (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+      (Tendsto (fun n =&gt; rowNum (i n) / (N n : ℝ)) atTop (𝓝 0) →
+        IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+          (fun n =&gt; icdD α * aN α (c n) (N n) *
+            (if α &lt; 1 then Real.log (((N n : ℝ) / rowNum (i n)) ^ α)
+              else Real.log ((N n : ℝ) / rowNum (i n)) ^ ((3 : ℝ) / 2))))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.thm_app_pl_drift_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/DriftAsymptotics.lean#L9048">source</a></summary><pre class="lean no-mj">theorem thm_app_pl_drift_ii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (hreg : assum_app_pl_regime α β N B c) (hα : 1 &lt; α)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    (∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n) /
+          bN α (c n) (N n) (B n)) atTop (𝓝 (profPhi α β (x ^ (-α))))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+        (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+        (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+      (Tendsto (fun n =&gt; rowNum (i n) / (N n : ℝ)) atTop (𝓝 0) →
+        IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+          (fun n =&gt; dAl α * Real.sqrt (c n * Kc α) * (N n : ℝ) ^ (-(1 : ℝ) / 2) *
+            rowNum (i n) ^ (-(α - 1) / 2)))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

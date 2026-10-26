@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Corollary SC.2 (Half-anisotropic input)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Corollary SC.2 (Half-anisotropic input)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-drift.html">Drift</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Corollary E.2</strong></span></div><div class="pre"><div class="p">In the next corollary <span class="mi">\(\CMscr Q_i=\sum_j\CMscr Q_{ij}=\norm{\Dt^\T u_i}^2\)</span> is the projected row risk, and its drift is the row sum <span class="mi">\(\sum_j\cD_{ij}(t)\)</span> (<a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-row" data-label="eqn:app-setup-row">(SA.21)</a>). The letter <span class="mi">\(z=\ridge+u^2\)</span> is positive, as in <a class="ref" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a>, and <span class="mi">\(\rho_i\)</span> in (iv) is a measure, not the ridge <span class="mi">\(\ridge\)</span>.</div></div><div class="thm thm-corollary" id="L-cor:app-drift-halfaniso"><div class="thm-head"><a class="thm-name" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Corollary SC.2</a> <span class="thm-title">(Half-anisotropic input)</span></div><div class="thm-body"><div class="p"><span class="anchor" id="L-rem:app-drift-halfaniso"></span> Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, assume <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, let <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span>, write <span class="mi">\(z=\ridge+u^2\)</span>, and put <span class="mi">\(\mathfrak d_i\defeq\mathfrak d(\mu_i,1)\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every pair <span class="mi">\((i,j)\)</span> the kernel is <span class="mi">\(\mathfrak d_{ij}=\mathfrak d_i\)</span>, and</div>
+<div class="md">\[
+\mathfrak d_i=\frac{\sqrt2\,B}{\pi\,\Nin}\int_0^\infty\frac{z\,\Lw(q(-z))\,\tilde\sigma(-z)\,\mu_i}{z+\tilde s_1(-z)\mu_i}\,du .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The row drift of <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-row" data-label="eqn:app-setup-row">(SA.21)</a> is, with <span class="mi">\(E_\ridge\)</span> as in <a class="ref" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a>,</div>
+<div class="md">\[
+\sum_j\cD_{ij}(t)=\frac{\mathfrak d_i}{\sqrt{\cR(t)}}\,\CMscr Q_i(t)+\sum_j(u_i^\T\Dt v_j)(E_\ridge)_{ij}.
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">At <span class="mi">\(\bmom=0\)</span>,</div>
+<div class="md">\[
+\mathfrak d_i=\frac{\sqrt2\,B}{\pi\,\Nin}\int_0^\infty\frac{\tilde s_1(-z)\mu_i}{z+\tilde s_1(-z)\mu_i}\,du .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">At <span class="mi">\(\bmom=0\)</span>, if <span class="mi">\(\rho_i\)</span> is a probability measure on <span class="mi">\([0,\infty)\)</span> with</div>
+<div class="md">\[
+\big(z+\tilde s_1(-z)\mu_i\big)^{-1}=\int\frac{\rho_i(dx)}{x+z}\qquad(z&gt;0),
+\]</div>
+<div class="p">then</div>
+<div class="md">\[
+\mathfrak d_i=\frac{B}{\sqrt2\,\Nin}\int_{[0,\infty)}\frac{x}{\sqrt{x+\ridge}}\,\rho_i(dx).
+\]</div></div></li></ol></div></div><section class="needs"><h2 class="panel-h">Definitions and assumptions used</h2><details class="need"><summary>Assumption S3 (Spectrally diffuse proportional regime)</summary><div class="thm thm-assumption" id="L-assum:app-setup-regime"><div class="thm-head"><a class="thm-name" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class="thm-title">(Spectrally diffuse proportional regime)</span></div><div class="thm-body"><div class="p"><a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a> and <a class="ref" href="r.assum.proportional-regime.html" data-label="assum:proportional-regime">Assumption S2</a> hold, and we fix <span class="mi">\(\gamma_\star&lt;\infty\)</span> and <span class="mi">\(C_\Sigma\ge1\)</span> with <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>, <span class="mi">\(\norm{\Sigmain}\le C_\Sigma\)</span> and <span class="mi">\(\norm{\Sigmaout}\le C_\Sigma\)</span> along the whole sequence of dimensions; the covariances are deterministic. The momentum <span class="mi">\(\bmom\in[0,1)\)</span> is fixed, and the normalized ridge satisfies <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span> for fixed <span class="mi">\(0&lt;\ridge_-\le\ridge_+&lt;\infty\)</span>. The state is frozen as in <a class="ref" href="r.def.app-setup-frozen.html" data-label="def:app-setup-frozen">Definition SA.3</a>, with <span class="mi">\(\cR(t)&gt;0\)</span>, and the normalized state is spectrally diffuse: <span class="mi">\(\norm{\Ahat}\to0\)</span>.</div></div></div></details></section><section class="note"><div class="p">This is the drift of the half-anisotropic setting of <a class="ref" href="paper.pdf#section.4" data-label="sec:half-aniso">Section 4</a>. When <span class="mi">\(\Sigmain=\Id\)</span> every <span class="mi">\(\lambda_j\)</span> equals <span class="mi">\(1\)</span>, so the kernel <span class="mi">\(\mathfrak d_{ij}\)</span> does not depend on <span class="mi">\(j\)</span>, and the projected row risks <span class="mi">\(\CMscr Q_i\)</span> have the drift of <a class="ref" href="paper.pdf#equation.4.14" data-label="eqn:ri-recursion">(14)</a> with <span class="mi">\(\mathfrak d_i\)</span> the common value of the <span class="mi">\(\mathfrak d_{ij}\)</span>, not their sum. Part (i) writes <span class="mi">\(\mathfrak d_i\)</span> through the input trace <span class="mi">\(\tilde\sigma\)</span>, and (iii) simplifies it at <span class="mi">\(\bmom=0\)</span>. Part (iv) writes it as a moment of a row spectral measure <span class="mi">\(\rho_i\)</span>; setting <span class="mi">\(\ridge=0\)</span> there formally gives the <span class="mi">\(\sqrt x\)</span>-moment <span class="mi">\(\mathfrak d_i=\frac{B}{\sqrt2\,\Nin}\int\sqrt x\,\rho_i(dx)\)</span>, in the normalization of the main-text kernel <a class="ref" href="paper.pdf#equation.2.7" data-label="eqn:dij">(7)</a>. Neither the existence of <span class="mi">\(\rho_i\)</span> nor the limit <span class="mi">\(\ridge\downarrow0\)</span> is proved; the phase-comparison chapter adopts the zero-ridge kernels as assumptions.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">With identity input covariance the input trace equation is algebraic. The second equation of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> becomes <span class="mi">\(\tilde\sigma(-s)=(\Nin/B)/(s+s_1(-s))\)</span>, so the input factor of the kernel <a class="ref" href="s.SC.html#L-eqn:app-drift-kernel" data-label="eqn:app-drift-kernel">(SC.4)</a> at <span class="mi">\(\lambda=1\)</span> is</div>
+<div class="md">\[
+\frac{1}{z+s_1(-z)}=\frac{B\,\tilde\sigma(-z)}{\Nin},
+\]</div>
+<div class="p">and substituting it gives (i). Part (ii) is the sum over <span class="mi">\(j\)</span> of <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-Dij" data-label="eqn:app-drift-Dij">(SC.12)</a>, since <span class="mi">\(\mathfrak d_{ij}=\mathfrak d_i\)</span> and <span class="mi">\(\CMscr Q_i=\sum_j\CMscr Q_{ij}\)</span>; its error terms, summed over the rows against a bounded function <span class="mi">\(\psi(\mu_i)\)</span>, are controlled by <a class="ref" href="r.cor.app-drift-kernel.html#L-eqn:app-drift-tested" data-label="eqn:app-drift-tested">(SC.13)</a> with <span class="mi">\(\phi(\mu,\lambda)=\psi(\mu)\)</span>.</div>
+<div class="p">At <span class="mi">\(\bmom=0\)</span> the source factor equals the coupling. There is one weight, so <span class="mi">\(\Lw=\Fw=\Jfun\)</span>, and with <span class="mi">\(q(-z)=z\sigma\tilde\sigma\)</span> and the coupling <span class="mi">\(\tilde s_1\sigma=q\Jfun(q)\)</span> of <a class="ref" href="paper.pdf#figure.caption.3" data-label="fig:fp-system">Figure 2</a>,</div>
+<div class="md">\[
+z\,\Jfun\big(q(-z)\big)\,\tilde\sigma(-z)=\frac{q\Jfun(q)}{\sigma}=\tilde s_1(-z),
+\]</div>
+<div class="p">which turns (i) into (iii).</div>
+<div class="p">Part (iv) integrates a Stieltjes representation in <span class="mi">\(u\)</span>. If <span class="mi">\((z+\tilde s_1(-z)\mu_i)^{-1}=\int\rho_i(dx)/(x+z)\)</span> with <span class="mi">\(\rho_i\)</span> a probability measure, then the integrand of (iii) is <span class="mi">\(\tilde s_1\mu_i/(z+\tilde s_1\mu_i)=\int x\,\rho_i(dx)/(x+z)\)</span>, and the scalar integral</div>
+<div class="md">\[
+\frac2\pi\int_0^\infty\frac{du}{x+\ridge+u^2}=\frac{1}{\sqrt{x+\ridge}}
+\]</div>
+<div class="p">gives (iv) after exchanging the two integrals.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>13 levels, 44 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.dIdx</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Defs.lean#L128">source</a></summary><pre class="lean no-mj">noncomputable def dIdx (w : ℕ → ℝ) (F : FrozenParams m n B) (ν ν' : FiniteMeasure ℝ) (SD : SpectralData F.C) (ϱ : ℝ) (i : Fin m) :
+    ℝ :=</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_halfaniso_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L1575">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_halfaniso_i {CS γ : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    {w : ℕ → ℝ} (hw : WeightClass w) (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    (hSin : F.C.Sin = 1) (SD : SpectralData F.C) {ϱ : ℝ} (hϱ : 0 &lt; ϱ) :
+    (∀ i j, kernel w (specOutFM F) (specInFM F) ϱ (SD.μ i) (SD.lam j) =
+        kernel w (specOutFM F) (specInFM F) ϱ (SD.μ i) 1) ∧
+    (∀ i, kernel w (specOutFM F) (specInFM F) ϱ (SD.μ i) 1 =
+        Real.sqrt 2 * (B : ℝ) / (Real.pi * (n : ℝ)) *
+          ∫ u in Ioi (0 : ℝ),
+            (ϱ + u ^ 2) * Lw w (branchQ w (specOutFM F) (specInFM F) (ϱ + u ^ 2)) *
+              (branchSol (Fw w) (specOutFM F) (specInFM F) (ϱ + u ^ 2)).2.1 * SD.μ i /
+              (ϱ + u ^ 2 + (branchSol (Fw w) (specOutFM F) (specInFM F) (ϱ + u ^ 2)).2.2.1 *
+                SD.μ i)) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_halfaniso_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L1621">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_halfaniso_iii {CS γ : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    (hSin : F.C.Sin = 1) (hβ : F.β = 0) (SD : SpectralData F.C) {ϱ : ℝ} (hϱ : 0 &lt; ϱ)
+    (i : Fin m) :
+    kernel (Muon.emaW F.β) (specOutFM F) (specInFM F) ϱ (SD.μ i) 1 =
+      Real.sqrt 2 * (B : ℝ) / (Real.pi * (n : ℝ)) *
+        ∫ u in Ioi (0 : ℝ),
+          (branchSol (Fw (Muon.emaW F.β)) (specOutFM F) (specInFM F) (ϱ + u ^ 2)).2.2.1 * SD.μ i /
+            (ϱ + u ^ 2 +
+              (branchSol (Fw (Muon.emaW F.β)) (specOutFM F) (specInFM F) (ϱ + u ^ 2)).2.2.1 *
+                SD.μ i) := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_halfaniso_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L1819">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_halfaniso_iv {CS γ : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    (F : FrozenParams m n B) (h : DriftBound F CS γ)
+    (hSin : F.C.Sin = 1) (hβ : F.β = 0) (SD : SpectralData F.C) (i : Fin m)
+    (ρ : Measure ℝ) (hρ : IsProbabilityMeasure ρ ∧ ρ (Iio 0) = 0)
+    (hStieltjes : ∀ z : ℝ, 0 &lt; z →
+      (z + (branchSol (Fw (Muon.emaW F.β)) (specOutFM F) (specInFM F) z).2.2.1 * SD.μ i)⁻¹ =
+        ∫ x, (x + z)⁻¹ ∂ρ)
+    {ϱ : ℝ} (hϱ : 0 &lt; ϱ) :
+    kernel (Muon.emaW F.β) (specOutFM F) (specInFM F) ϱ (SD.μ i) 1 =
+      (B : ℝ) / (Real.sqrt 2 * (n : ℝ)) *
+        ∫ x in Ici (0 : ℝ), x / Real.sqrt (x + ϱ) ∂ρ := by</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_halfaniso_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/OneStep.lean#L767">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_halfaniso_ii (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (hSin : ∀ k, (R.F k).C.Sin = 1)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k)) :
+    ∀ k, ∀ i : Fin (R.m k), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      (∑ j : Fin (R.n k), (dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) *
+          (∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf (emaW R.β) (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k)))) =
+        dIdx (emaW R.β) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) (SD k) ϱ i /
+            Real.sqrt (riskSigma (R.F k).C (Dt k)) * rowQ (SD k) (Dt k) i +
+          ∑ j : Fin (R.n k), dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) *
+            Erho (emaW R.β) (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j :=</pre></details><details class="decl"><summary><code>Muon.Drift.cor_app_drift_halfaniso_ii_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/OneStep.lean#L694">source</a></summary><pre class="lean no-mj">theorem cor_app_drift_halfaniso_ii_weights (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (w : ℕ → ℝ) (hw : WeightClass w) (hSin : ∀ k, (R.F k).C.Sin = 1)
+    (SD : ∀ k, SpectralData (R.F k).C) (Dt : ∀ k, Mat (R.m k) (R.n k))
+    (hDt : ∀ k, (R.F k).A = Ahat (R.F k).C (Dt k)) (hRt : ∀ k, 0 &lt; riskSigma (R.F k).C (Dt k)) :
+    ∀ k, ∀ i : Fin (R.m k), ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      (∑ j : Fin (R.n k), (dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) *
+          (∫ ω, dotProduct ((SD k).u i) (Q ϱ (WeightedBuf w (R.F k) (S k) t ω) *ᵥ (SD k).v j) ∂(P k)))) =
+        dIdx w (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) (SD k) ϱ i /
+            Real.sqrt (riskSigma (R.F k).C (Dt k)) * rowQ (SD k) (Dt k) i +
+          ∑ j : Fin (R.n k), dotProduct ((SD k).u i) ((Dt k) *ᵥ (SD k).v j) *
+            Erho w (R.F k) (SD k) (S k) t (specOutFM (R.F k)) (specInFM (R.F k)) ϱ i j := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

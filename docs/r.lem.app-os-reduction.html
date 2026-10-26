@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SH.4 (Exact reduction of the half-anisotropic branch)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SH.4 (Exact reduction of the half-anisotropic branch)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-os-reduction"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a> <span class="thm-title">(Exact reduction of the half-anisotropic branch)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(s&gt;0\)</span>, write <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1,q)\)</span> for the branch at <span class="mi">\(-s\)</span>, and put <span class="mi">\(F=\Fw(q)\)</span>, <span class="mi">\(L=\Lw(q)\)</span> and <span class="mi">\(\widehat F\defeq F/\sw2\in(0,1]\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p">One has <span class="mi">\(s+s_1=s(1+\sigma F)\)</span> and <span class="mi">\(\tilde s_1=\gin F/(1+\sigma F)&gt;0\)</span>.</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p">One has <span class="mi">\(qF=\sigma\tilde s_1=\gin\sigma F/(1+\sigma F)&lt;\gin\)</span>, and <span class="mi">\(\tilde s_1=F\,(\gin-qF)\)</span>.</div></div></li><li><span class="li-mark">(c)</span><div class="li-body"><div class="p">With <span class="mi">\(\hat s\defeq s/(\sw2\gin)\)</span> and <span class="mi">\(b\defeq\tilde s_1/(\sw2\gin)\)</span>, one has <span class="mi">\(b\in(0,\widehat F]\)</span> and</div>
+<div class="md">\[
+\frac{b}{\widehat F}+r\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b)=1 .
+\]</div></div></li><li><span class="li-mark">(d)</span><div class="li-body"><div class="p">For every <span class="mi">\(\mu\ge0\)</span>,</div>
+<div class="md">\[
+\mathsf k(s;\mu)=\frac{1}{\sw2\gin}\,\frac{L}{\widehat F}\,\frac{b\mu}{\hat s+b\mu}.
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (a) is substitution in <a class="ref" href="s.SH.html#L-eqn:app-os-branch" data-label="eqn:app-os-branch">(SH.1)</a>. From <span class="mi">\(s_1=s\sigma F\)</span> we get <span class="mi">\(s+s_1=s(1+\sigma F)\)</span>. Hence <span class="mi">\(\tilde\sigma=\gin/(s(1+\sigma F))\)</span>, and</div>
+<div class="md">\[
+\tilde s_1=s\tilde\sigma F=\frac{\gin F}{1+\sigma F},
+\]</div>
+<div class="p">which is positive because <span class="mi">\(F\ge\sw2/(1+3(1-\bmom)^2q)&gt;0\)</span> by <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(ii). The same lemma gives <span class="mi">\(\widehat F\in(0,1]\)</span>.</div>
+<div class="p">Part (b) is the coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a> in this setting. By the definition of <span class="mi">\(q\)</span> and by (a),</div>
+<div class="md">\[
+qF=s\sigma\tilde\sigma F=\sigma\tilde s_1=\frac{\gin\sigma F}{1+\sigma F}&lt;\gin .
+\]</div>
+<div class="p">Rewriting <span class="mi">\(\tilde s_1(1+\sigma F)=\gin F\)</span> as <span class="mi">\(\tilde s_1=\gin F-F\sigma\tilde s_1\)</span> gives <span class="mi">\(\tilde s_1=F(\gin-qF)\)</span>.</div>
+<div class="p">Part (c) is (b) in the rescaled variables. Since <span class="mi">\(\nu_{\mathrm{out}}=\gout\hat\nu_{\mathrm{out}}=r\gin\hat\nu_{\mathrm{out}}\)</span>,</div>
+<div class="md">\[
+\sigma=r\gin\int\frac{x\,\hat\nu_{\mathrm{out}}(\dif x)}{\sw2\gin(\hat s+bx)}
+=\frac{r}{\sw2}\int\frac{x\,\hat\nu_{\mathrm{out}}(\dif x)}{\hat s+bx},
+\qquad\text{so}\qquad
+qF=\sigma\tilde s_1=r\gin\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b).
+\]</div>
+<div class="p">The identity <span class="mi">\(\tilde s_1=F(\gin-qF)\)</span> of (b) then reads <span class="mi">\(\sw2\gin\,b=F\gin\big(1-r\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b)\big)\)</span>, which is the displayed equation after division by <span class="mi">\(\sw2\gin\widehat F\)</span>. One has <span class="mi">\(b&gt;0\)</span> by (a), and <span class="mi">\(b\le\widehat F\)</span> because <span class="mi">\(m_{\hat\nu_{\mathrm{out}}}\ge0\)</span>.</div>
+<div class="p">Part (d) uses (a) twice. By (a), <span class="mi">\(s+s_1=s(1+\sigma F)\)</span> and <span class="mi">\(1/(1+\sigma F)=\tilde s_1/(\gin F)\)</span>, so</div>
+<div class="md">\[
+\mathsf k(s;\mu)=\frac{L\mu}{(s+\tilde s_1\mu)(1+\sigma F)}
+=\frac{L}{\gin F}\,\frac{\tilde s_1\mu}{s+\tilde s_1\mu}
+=\frac{L}{\sw2\gin\,\widehat F}\,\frac{b\mu}{\hat s+b\mu}.\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> <span class=muted>Scalar bounds</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> <span class=muted>Oversampled limit law</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_reduction_a</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L748">source</a></summary><pre class="lean no-mj">theorem lem_app_os_reduction_a {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nin B : ℕ}
+    (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) {s : ℝ} (hs : 0 &lt; s) :
+    s + br.s1 s = s * (1 + br.sigma s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s)) ∧
+      br.s1T s = gammaIn Nin B * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) /
+        (1 + br.sigma s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s)) ∧
+      0 &lt; br.s1T s := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_reduction_b</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L783">source</a></summary><pre class="lean no-mj">theorem lem_app_os_reduction_b {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nin B : ℕ}
+    (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) {s : ℝ} (hs : 0 &lt; s) :
+    br.q s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) = br.sigma s * br.s1T s ∧
+      br.sigma s * br.s1T s =
+        gammaIn Nin B * (br.sigma s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s)) /
+          (1 + br.sigma s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s)) ∧
+      br.q s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) &lt; gammaIn Nin B ∧
+      br.s1T s = Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) *
+        (gammaIn Nin B - br.q s * Muon.DetEquiv.Fw (Muon.emaW β) (br.q s)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_reduction_c</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L821">source</a></summary><pre class="lean no-mj">theorem lem_app_os_reduction_c {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (hν0 : nuOut (Iio 0) = 0) (hmass : nuOut univ = ENNReal.ofReal (gammaOut Nout B))
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) {s : ℝ} (hs : 0 &lt; s) :
+    0 &lt; bHat br s ∧
+      bHat br s ≤ Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) / Muon.sPow β 2 ∧
+      bHat br s / (Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) / Muon.sPow β 2) +
+        ((Nout : ℝ) / Nin) *
+          mNuExt (hatNu nuOut (gammaOut Nout B)) (sHat β (gammaIn Nin B) s) (bHat br s) = 1 := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_reduction_d</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L900">source</a></summary><pre class="lean no-mj">theorem lem_app_os_reduction_d {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nin B : ℕ}
+    (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) {s : ℝ} (hs : 0 &lt; s) :
+    ∀ μ : ℝ, 0 ≤ μ →
+      kOs br s μ = 1 / (Muon.sPow β 2 * gammaIn Nin B) *
+        (Muon.DetEquiv.Lw (Muon.emaW β) (br.q s) /
+          (Muon.DetEquiv.Fw (Muon.emaW β) (br.q s) / Muon.sPow β 2)) *
+        (bHat br s * μ / (sHat β (gammaIn Nin B) s + bHat br s * μ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

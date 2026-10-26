@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.9 (Square supersolution)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.9 (Square supersolution)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-square"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-square.html" data-label="lem:app-phase-square">Lemma SI.9</a> <span class="thm-title">(Square supersolution)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\epsilon&gt;0\)</span>, <span class="mi">\(T\ge4\)</span> and <span class="mi">\(H&gt;0\)</span>. Let <span class="mi">\(g\ge0\)</span> be continuous on <span class="mi">\([0,\infty)\)</span> with <span class="mi">\(\int_0^\infty g\le1\)</span>, let <span class="mi">\(f\ge0\)</span> be continuous with <span class="mi">\(f(0)&gt;T\epsilon\)</span>, and let <span class="mi">\(Y&gt;0\)</span> be continuous on <span class="mi">\([0,\infty)\)</span> with <span class="mi">\(Y=f+\sqrt\epsilon\,g*\sqrt Y\)</span>. Let <span class="mi">\(h\)</span> be continuous on <span class="mi">\([0,H]\)</span> with <span class="mi">\(h\ge\sqrt\epsilon\)</span>, <span class="mi">\(h(H)=\sqrt\epsilon\)</span> and <span class="mi">\(f\le h^2\)</span>. Assume that on <span class="mi">\([0,H]\)</span> either</div>
+<div class="md">\[
+\text{(a)}\ \ g*h\le2h,\qquad\text{or}\qquad\text{(b)}\ \ g*h\le\sqrt\epsilon .
+\]</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">On <span class="mi">\([0,H]\)</span>, <span class="mi">\(f\le Y\le(h+\sqrt\epsilon)^2\)</span> and <span class="mi">\(Y-f\le2\sqrt\epsilon\,h+\epsilon\)</span>; under (b), moreover <span class="mi">\(Y-f\le2\epsilon\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The first hit <span class="mi">\(\hat u\defeq\inf\{u\ge0:\ Y(u)\le T\epsilon\}\)</span> satisfies <span class="mi">\(0&lt;\hat u\le H\)</span> and <span class="mi">\(Y(\hat u)=T\epsilon\)</span>, and</div>
+<div class="md">\[
+0\le\mathcal E\defeq\int_0^{\hat u}\big(\sqrt Y-\sqrt f\big)\,\dif u\le\int_0^H\sqrt{2\sqrt\epsilon\,h+\epsilon}\,\dif u ;
+\]</div>
+<div class="p">under (b), moreover <span class="mi">\(\mathcal E\le\sqrt{2\epsilon}\,H\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Let <span class="mi">\(C&gt;0\)</span>, <span class="mi">\(D\ge1\)</span>, <span class="mi">\(0&lt;r_0&lt;2\)</span> and <span class="mi">\(0&lt;\epsilon&lt;C^2\)</span>, and take <span class="mi">\(h(u)=C(1+u/D)^{-r_0}\)</span> and <span class="mi">\(H=D[(C/\sqrt\epsilon)^{1/r_0}-1]\)</span>. Then <span class="mi">\(h\ge\sqrt\epsilon\)</span> on <span class="mi">\([0,H]\)</span>, <span class="mi">\(h(H)=\sqrt\epsilon\)</span>, <span class="mi">\(1+H\le D(C/\sqrt\epsilon)^{1/r_0}\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-noise-error"></span>\begin{equation}\tag{SI.51}
+\int_0^H\sqrt{2\sqrt\epsilon\,h+\epsilon}\,\dif u\le D\,C^{1/r_0}\Big[\frac{\sqrt2}{1-r_0/2}+1\Big]\epsilon^{(r_0-1)/(2r_0)} .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(U\defeq(h+\sqrt\epsilon)^2\)</span>, so that <span class="mi">\(U\ge\epsilon\)</span>. Since <span class="mi">\(\int g\le1\)</span>, <span class="mi">\(g*(h+\sqrt\epsilon)\le g*h+\sqrt\epsilon\)</span>. Under (a),</div>
+<div class="md">\[
+f+\sqrt\epsilon\,g*\sqrt U\le h^2+\sqrt\epsilon(2h+\sqrt\epsilon)=U .
+\]</div>
+<div class="p">Under (b), using <span class="mi">\(h\ge\sqrt\epsilon\)</span>,</div>
+<div class="md">\[
+f+\sqrt\epsilon\,g*\sqrt U\le h^2+2\epsilon\le h^2+2\sqrt\epsilon h+\epsilon=U .
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a>, with kernel <span class="mi">\(\sqrt\epsilon g\)</span>, <span class="mi">\(G=f\)</span> and <span class="mi">\(m=\epsilon\)</span>, gives <span class="mi">\(Y\le U\)</span> on <span class="mi">\([0,H]\)</span>. The equation gives <span class="mi">\(Y\ge f\)</span> and</div>
+<div class="md">\[
+Y-f=\sqrt\epsilon\,g*\sqrt Y\le\sqrt\epsilon\,g*(h+\sqrt\epsilon),
+\]</div>
+<div class="p">which is at most <span class="mi">\(2\sqrt\epsilon h+\epsilon\)</span> under (a) and at most <span class="mi">\(2\epsilon\le2\sqrt\epsilon h+\epsilon\)</span> under (b). This proves (i).</div>
+<div class="p">At <span class="mi">\(H\)</span> the bound gives <span class="mi">\(Y(H)\le(2\sqrt\epsilon)^2=4\epsilon\le T\epsilon\)</span>, while <span class="mi">\(Y(0)=f(0)&gt;T\epsilon\)</span>. The set <span class="mi">\(\{u\le H:\ Y(u)\le T\epsilon\}\)</span> is closed, nonempty and does not contain <span class="mi">\(0\)</span>; its least element <span class="mi">\(\hat u\)</span> is the first hit, and continuity gives <span class="mi">\(Y(\hat u)=T\epsilon\)</span>. No monotonicity of <span class="mi">\(Y\)</span> is used. The inequality <span class="mi">\(\sqrt x-\sqrt y\le\sqrt{x-y}\)</span> for <span class="mi">\(x\ge y\ge0\)</span> and (i) give the bounds on <span class="mi">\(\mathcal E\)</span>. This proves (ii).</div>
+<div class="p">For (iii), <span class="mi">\(h\)</span> is decreasing with <span class="mi">\(h(H)=\sqrt\epsilon\)</span>, and <span class="mi">\(1+H/D=(C/\sqrt\epsilon)^{1/r_0}\)</span> gives the bound on <span class="mi">\(1+H\)</span> because <span class="mi">\(D\ge1\)</span>. The inequality <span class="mi">\(\sqrt{x+y}\le\sqrt x+\sqrt y\)</span> gives</div>
+<div class="md">\[
+\int_0^H\sqrt{2\sqrt\epsilon\,h+\epsilon}\,\dif u\le\sqrt{2C}\,\epsilon^{1/4}D\,I_{r_0/2}(H/D)+\sqrt\epsilon\,H .
+\]</div>
+<div class="p">Since <span class="mi">\(r_0&lt;2\)</span>, <span class="mi">\(I_{r_0/2}(x)\le(1+x)^{1-r_0/2}/(1-r_0/2)\)</span>. Inserting <span class="mi">\(1+H/D=(C/\sqrt\epsilon)^{1/r_0}\)</span>,</div>
+<div class="md">\[
+\sqrt{2C}\,\epsilon^{1/4}D\,I_{r_0/2}(H/D)\le\frac{\sqrt2\,D\,C^{1/r_0}}{1-r_0/2}\,\epsilon^{(r_0-1)/(2r_0)},\qquad
+\sqrt\epsilon\,H\le D\,C^{1/r_0}\epsilon^{(r_0-1)/(2r_0)} ,
+\]</div>
+<div class="p">which proves <a class="ref" href="r.lem.app-phase-square.html#L-eqn:app-phase-noise-error" data-label="eqn:app-phase-noise-error">(SI.51)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> <span class=muted>Comparison</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li><li><a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> <span class=muted>Main covariance range</span></li><li><a class="ref" href="r.thm.app-phase-C.html" data-label="thm:app-phase-C">Theorem SI.10</a> <span class=muted>Low covariance exponents</span></li><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li><li><a class="ref" href="r.lem.app-phase-log-global.html" data-label="lem:app-phase-log-global">Lemma SI.18</a> <span class=muted><span class="sc">SignSVD</span> kernel, <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(\texp&gt;1\)</span></span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_square_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L267">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_square_i
+    {ε T H : ℝ} (hε : 0 &lt; ε) (hT : 4 ≤ T) (hH : 0 &lt; H)
+    {f g h Y : ℝ → ℝ}
+    (hg_cont : ContinuousOn g (Ici 0)) (hg_nonneg : ∀ u ∈ Ici (0 : ℝ), 0 ≤ g u)
+    (hg_int : IntegrableOn g (Ioi 0)) (hg_mass : ∫ u in Ioi (0 : ℝ), g u ≤ 1)
+    (hf_cont : ContinuousOn f (Ici 0)) (hf_nonneg : ∀ u ∈ Ici (0 : ℝ), 0 ≤ f u)
+    (hf0 : T * ε &lt; f 0)
+    (hY_cont : ContinuousOn Y (Ici 0)) (hY_pos : ∀ u ∈ Ici (0 : ℝ), 0 &lt; Y u)
+    (hY : ∀ u ∈ Ici (0 : ℝ),
+      Y u = f u + Real.sqrt ε * oneSidedConv (fun v =&gt; Real.sqrt (Y v)) g u)
+    (hh_cont : ContinuousOn h (Icc 0 H)) (hh_ge : ∀ u ∈ Icc (0 : ℝ) H, Real.sqrt ε ≤ h u)
+    (hh_H : h H = Real.sqrt ε) (hfh : ∀ u ∈ Icc (0 : ℝ) H, f u ≤ h u ^ 2)
+    (hab : (∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ 2 * h u) ∨
+      (∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ Real.sqrt ε)) :
+    (∀ u ∈ Icc (0 : ℝ) H, f u ≤ Y u ∧ Y u ≤ (h u + Real.sqrt ε) ^ 2 ∧
+        Y u - f u ≤ 2 * Real.sqrt ε * h u + ε) ∧
+      ((∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ Real.sqrt ε) →
+        ∀ u ∈ Icc (0 : ℝ) H, Y u - f u ≤ 2 * ε) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_square_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L320">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_square_ii
+    {ε T H : ℝ} (hε : 0 &lt; ε) (hT : 4 ≤ T) (hH : 0 &lt; H)
+    {f g h Y : ℝ → ℝ}
+    (hg_cont : ContinuousOn g (Ici 0)) (hg_nonneg : ∀ u ∈ Ici (0 : ℝ), 0 ≤ g u)
+    (hg_int : IntegrableOn g (Ioi 0)) (hg_mass : ∫ u in Ioi (0 : ℝ), g u ≤ 1)
+    (hf_cont : ContinuousOn f (Ici 0)) (hf_nonneg : ∀ u ∈ Ici (0 : ℝ), 0 ≤ f u)
+    (hf0 : T * ε &lt; f 0)
+    (hY_cont : ContinuousOn Y (Ici 0)) (hY_pos : ∀ u ∈ Ici (0 : ℝ), 0 &lt; Y u)
+    (hY : ∀ u ∈ Ici (0 : ℝ),
+      Y u = f u + Real.sqrt ε * oneSidedConv (fun v =&gt; Real.sqrt (Y v)) g u)
+    (hh_cont : ContinuousOn h (Icc 0 H)) (hh_ge : ∀ u ∈ Icc (0 : ℝ) H, Real.sqrt ε ≤ h u)
+    (hh_H : h H = Real.sqrt ε) (hfh : ∀ u ∈ Icc (0 : ℝ) H, f u ≤ h u ^ 2)
+    (hab : (∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ 2 * h u) ∨
+      (∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ Real.sqrt ε)) :
+    ∃ û : ℝ, firstHit Y (T * ε) = ENNReal.ofReal û ∧ 0 &lt; û ∧ û ≤ H ∧ Y û = T * ε ∧
+      0 ≤ ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (f u)) ∧
+      ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (f u)) ≤
+        ∫ u in (0 : ℝ)..H, Real.sqrt (2 * Real.sqrt ε * h u + ε) ∧
+      ((∀ u ∈ Icc (0 : ℝ) H, oneSidedConv h g u ≤ Real.sqrt ε) →
+        ∫ u in (0 : ℝ)..û, (Real.sqrt (Y u) - Real.sqrt (f u)) ≤ Real.sqrt (2 * ε) * H) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_square_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L492">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_square_iii
+    {C D r0 ε H : ℝ} {h : ℝ → ℝ} (hC : 0 &lt; C) (hD : 1 ≤ D) (hr0 : 0 &lt; r0) (hr2 : r0 &lt; 2)
+    (hε : 0 &lt; ε) (hεC : ε &lt; C ^ 2)
+    (hh : ∀ u, h u = C * (1 + u / D) ^ (-r0))
+    (hH : H = D * ((C / Real.sqrt ε) ^ (1 / r0) - 1)) :
+    (∀ u ∈ Icc (0 : ℝ) H, Real.sqrt ε ≤ h u) ∧ h H = Real.sqrt ε ∧
+      1 + H ≤ D * (C / Real.sqrt ε) ^ (1 / r0) ∧
+      ∫ u in (0 : ℝ)..H, Real.sqrt (2 * Real.sqrt ε * h u + ε) ≤
+        D * C ^ (1 / r0) * (Real.sqrt 2 / (1 - r0 / 2) + 1) * ε ^ ((r0 - 1) / (2 * r0)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

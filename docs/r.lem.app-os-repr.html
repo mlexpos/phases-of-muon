@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SH.8 (Representation of the profile)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SH.8 (Representation of the profile)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-os-repr"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class="thm-title">(Representation of the profile)</span></div><div class="thm-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span> and every <span class="mi">\(\mu&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-repr"></span>\begin{equation}\tag{SH.15}
+\mathfrak d^{\rm os}_\nu(\mu)=\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\sqrt{\Upsilon_\nu(c)}}{(c+\mu)^2}\,\dif c
+=\sqrt{\frac\mu2}\;\chi_\nu(\mu),
+\qquad \chi_\nu(\mu)\in(0,1].
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first step changes the variable from <span class="mi">\(v\)</span> to <span class="mi">\(c\)</span>. By <a class="ref" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a>, at <span class="mi">\(\hat\ridge=0\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty\frac{\mu\,\dif v}{c_\nu(v^2)+\mu}.
+\]</div>
+<div class="p">The map <span class="mi">\(c\mapsto\sqrt{\Upsilon_\nu(c)}\)</span> is an increasing continuously differentiable bijection of <span class="mi">\((0,\infty)\)</span>, by <a class="ref" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a>. Substituting <span class="mi">\(v=\sqrt{\Upsilon_\nu(c)}\)</span>, so that <span class="mi">\(c_\nu(v^2)=c\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\frac{\mu\,\dif v}{c_\nu(v^2)+\mu}=\int_0^\infty\frac{\mu}{c+\mu}\,\frac{\dif}{\dif c}\sqrt{\Upsilon_\nu(c)}\,\dif c .
+\]</div>
+<div class="p">The second step integrates by parts. The boundary term satisfies</div>
+<div class="md">\[
+0\le\frac{\mu\sqrt{\Upsilon_\nu(c)}}{c+\mu}\le\frac{\mu\sqrt c}{c+\mu},
+\]</div>
+<div class="p">which tends to <span class="mi">\(0\)</span> as <span class="mi">\(c\downarrow0\)</span> and as <span class="mi">\(c\to\infty\)</span>. The derivative of <span class="mi">\(\mu/(c+\mu)\)</span> is <span class="mi">\(-\mu/(c+\mu)^2\)</span>, which gives the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>.</div>
+<div class="p">The third step substitutes <span class="mi">\(c=\mu y\)</span>. Since <span class="mi">\(\Upsilon_\nu(\mu y)=\mu y\,(1-m_\nu(\mu y))\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\sqrt{\Upsilon_\nu(c)}}{(c+\mu)^2}\,\dif c
+&amp;=\frac{\sqrt2}{\pi}\sqrt\mu\int_0^\infty\frac{\sqrt y\,\sqrt{1-m_\nu(\mu y)}}{(1+y)^2}\,\dif y\\
+&amp;=\sqrt{\frac\mu2}\int_0^\infty\varpi(y)\sqrt{1-m_\nu(\mu y)}\,\dif y .
+\end{aligned}
+\]</div>
+<div class="p">Finally, <span class="mi">\(0&lt;1-m_\nu\le1\)</span> and <span class="mi">\(\int\varpi=1\)</span> (<a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>) give <span class="mi">\(\chi_\nu(\mu)\in(0,1]\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a> <span class=muted>The <span class="mi">\(c\)</span>-parametrization</span></li><li><a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a> <span class=muted>Elementary integrals</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class=muted>Square-root law</span></li><li><a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a> <span class=muted>Head modes</span></li><li><a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> <span class=muted>Tail modes</span></li><li><a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class=muted>Acceleration of a slow mode</span></li><li><a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a> <span class=muted>Power-law spectra</span></li><li><a class="ref" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a> <span class=muted>Identity covariance</span></li><li><a class="ref" href="r.rem.app-os-normalization.html" data-label="rem:app-os-normalization">Remark SH.5</a> <span class=muted>Normalization of the oversampled drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_repr_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Representation.lean#L1031">source</a></summary><pre class="lean no-mj">theorem lem_app_os_repr_i
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0) {mu : ℝ} (hmu : 0 &lt; mu) :
+    dOsSq ν mu = Real.sqrt 2 / Real.pi * mu * ∫ c in Ioi (0 : ℝ), Real.sqrt (Upsilon ν c) / (c + mu) ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_repr_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Representation.lean#L1114">source</a></summary><pre class="lean no-mj">theorem lem_app_os_repr_ii
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0) {mu : ℝ} (hmu : 0 &lt; mu) :
+    dOsSq ν mu = Real.sqrt (mu / 2) * sqrtEff ν mu := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.lem_app_os_repr_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Representation.lean#L1158">source</a></summary><pre class="lean no-mj">theorem lem_app_os_repr_iii
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0) {mu : ℝ} (hmu : 0 &lt; mu) :
+    0 &lt; sqrtEff ν mu ∧ sqrtEff ν mu ≤ 1 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.11 (Removal of the cutoffs in the model)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.11 (Removal of the cutoffs in the model)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-cutoff"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-cutoff.html" data-label="lem:app-vol-cutoff">Lemma SD.11</a> <span class="thm-title">(Removal of the cutoffs in the model)</span></div><div class="thm-body"><div class="p">Couple <span class="mi">\((\mathsf K_1,\mathsf K_2)\)</span> with <span class="mi">\((M^{\mathrm g}_t,M^{\mathrm g}_{t+\ell})\)</span> by building both from the same samples. Under the size conditions, with <span class="mi">\(\delta_{J,R}\)</span> of <a class="ref" href="s.SD.html#L-eqn:app-vol-deltaJR" data-label="eqn:app-vol-deltaJR">(SD.44)</a>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-cutoff"></span>\begin{equation}\tag{SD.48}
+\frac1B\EE\norm{M^{\mathrm g}_t-\mathsf K_1}_\F^2+\frac1B\EE\norm{M^{\mathrm g}_{t+\ell}-\mathsf K_2}_\F^2\le3C_\Sigma^2\gamma_\star^2\delta_{J,R}^2 ,
+\end{equation}</div>
+<div class="p">and for odd bounded Lipschitz <span class="mi">\(f_1,f_2\)</span> and <span class="mi">\(\norm F,\norm G\le1\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\abs{\EE\,\mathcal K^{F,G}[f_1,f_2](M^{\mathrm g}_t,M^{\mathrm g}_{t+\ell})-\EE\,\mathcal K^{F,G}[f_1,f_2](\mathsf K_1,\mathsf K_2)}\\
+&amp;\qquad\le\sqrt3\,C_\Sigma\gamma_\star^{3/2}\big(\operatorname{Lip}(f_1)\norm{f_2}_\infty+\norm{f_1}_\infty\operatorname{Lip}(f_2)\big)\,\delta_{J,R}.
+\end{aligned}
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The differences are sums of independent centered sample terms. A sample term <span class="mi">\(B^{-1}\Sigmaout^{1/2}(z\tensor w)\Sigmain^{1/2}\)</span> has squared Frobenius norm with expectation <span class="mi">\(B^{-2}\Tr\Sigmaout\Tr\Sigmain\le C_\Sigma^2\gamma_\star^2\)</span>. In <span class="mi">\(M^{\mathrm g}_t-\mathsf K_1\)</span> the samples of age <span class="mi">\(j&gt;J\)</span> carry the weight <span class="mi">\(\emaw jg\)</span> and those of age <span class="mi">\(j\le J\)</span> carry <span class="mi">\(\emaw jg\mathbf 1_{\abs g&gt;R}\)</span>, so</div>
+<div class="md">\[
+\frac1B\EE\norm{M^{\mathrm g}_t-\mathsf K_1}_\F^2\le C_\Sigma^2\gamma_\star^2\Big(\sum_{j&gt;J}\emaw j^2+\sum_{j\le J}\emaw j^2\tau_R\Big)\le C_\Sigma^2\gamma_\star^2\delta_{J,R}^2 .
+\]</div>
+<div class="p">In <span class="mi">\(M^{\mathrm g}_{t+\ell}-\mathsf K_2\)</span> the old samples carry <span class="mi">\(\bmom^\ell\)</span> times the same weights, and the fresh samples carry <span class="mi">\(\emaw{\ell-m}g\mathbf 1_{\abs g&gt;R}\)</span>, whose squared sum is at most <span class="mi">\(\tau_R\)</span>; the two groups are disjoint, which gives at most <span class="mi">\(2C_\Sigma^2\gamma_\star^2\delta_{J,R}^2\)</span>. The contraction bound is <a class="ref" href="r.lem.app-vol-finite.html#L-eqn:app-vol-finite-lip" data-label="eqn:app-vol-finite-lip">(SD.9)</a> and the Cauchy–Schwarz inequality.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a> <span class=muted>Finite bounds for tested contractions</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_cutoff_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/TreeClosure.lean#L4999">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_cutoff_i (Fp : FrozenParams m n B) (ℓ J : ℕ) (R γstar CSig : ℝ)
+    (hR : 0 &lt; R) (hS : SizeFin Fp.C B γstar CSig) (t : ℤ) :
+    ENNReal.ofReal ((B : ℝ)⁻¹) *
+        ∫⁻ ω, ENNReal.ofReal (fro (def_app_vol_product Fp ω t - cutoffMat Fp ℓ J R t 1 ω) ^ 2)
+          ∂(indepSpaceLaw m n B)
+      + ENNReal.ofReal ((B : ℝ)⁻¹) *
+        ∫⁻ ω, ENNReal.ofReal
+            (fro (def_app_vol_product Fp ω (t + (ℓ : ℤ)) - cutoffMat Fp ℓ J R t 2 ω) ^ 2)
+          ∂(indepSpaceLaw m n B)
+      ≤ ENNReal.ofReal (3 * CSig ^ 2 * γstar ^ 2 * cutoffDelta Fp.β J R ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_cutoff_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/TreeClosure.lean#L5021">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_cutoff_ii (Fp : FrozenParams m n B) (ℓ J : ℕ) (R γstar CSig : ℝ)
+    (hR : 0 &lt; R) (hS : SizeFin Fp.C B γstar CSig) (t : ℤ) (Fm : Mat m m) (Gm : Mat n n)
+    (hFm : opNorm Fm ≤ 1) (hGm : opNorm Gm ≤ 1) (f₁ f₂ : ℝ → ℝ)
+    (hf₁ : IsOddBddLip f₁) (hf₂ : IsOddBddLip f₂) :
+    |(∫ ω, contraction B Fm Gm f₁ f₂ (def_app_vol_product Fp ω t)
+          (def_app_vol_product Fp ω (t + (ℓ : ℤ))) ∂(indepSpaceLaw m n B))
+      - ∫ ω, contraction B Fm Gm f₁ f₂ (cutoffMat Fp ℓ J R t 1 ω) (cutoffMat Fp ℓ J R t 2 ω)
+          ∂(indepSpaceLaw m n B)|
+      ≤ Real.sqrt 3 * CSig * γstar ^ (3 / 2 : ℝ) *
+          (lipConst f₁ * supNorm f₂ + supNorm f₁ * lipConst f₂) * cutoffDelta Fp.β J R := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

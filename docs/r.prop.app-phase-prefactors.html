@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.4 (Noise constants, kernels and clocks)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.4 (Noise constants, kernels and clocks)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-prefactors"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-prefactors.html" data-label="prop:app-phase-prefactors">Proposition SI.4</a> <span class="thm-title">(Noise constants, kernels and clocks)</span></div><div class="thm-body"><div class="p">The arrays of <a class="ref" href="r.def.app-phase-arrays.html" data-label="def:app-phase-arrays">Definition SI.3</a> satisfy (M1), with <span class="mi">\(F_0=\frac12H_N(p)\)</span>, and the following hold.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The noise constants, matched steps and time-scale products are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-ST0"></span>\begin{equation}\tag{SI.26}
+\begin{aligned}
+\mathcal S_{\text{s-SVD}}&amp;=\tfrac12\sqrt\gamma\,H_N(\alpha/2),&amp;\quad
+\lr^\star_{\text{s-SVD}}&amp;=\frac{4\sqrt\epsilon}{\sqrt\gamma\,H_N(\alpha/2)},\\
+\mathcal S_{\text{s-SGD}}&amp;=\frac{N^2}2\sqrt{\frac{\pi\bar\mu}B},&amp;\quad
+\lr^\star_{\text{s-SGD}}&amp;=\frac{4\sqrt\epsilon}{N^2}\sqrt{\frac B{\pi\bar\mu}},\\
+\mathcal S_{\text{s-SVD}}T_0^{\text{s-SVD}}&amp;=\tfrac\gamma2H_N(\alpha/2),&amp;\quad
+\mathcal S_{\text{s-SGD}}T_0^{\text{s-SGD}}&amp;=\frac{\pi N^2\bar\mu}{2B}=\tfrac{\pi\gamma}2H_N(\alpha),
+\end{aligned}
+\end{equation}</div>
+<div class="p">and the dimension factor is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-DN"></span>\begin{equation}\tag{SI.27}
+D_N\defeq\frac{\mathcal S_{\text{s-SGD}}T_0^{\text{s-SGD}}}{\mathcal S_{\text{s-SVD}}T_0^{\text{s-SVD}}}=\frac{\pi H_N(\alpha)}{H_N(\alpha/2)} .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The dimensionless risks solve <span class="mi">\(Y_j=f_{N,q_j}+\sqrt\epsilon\,g_j*\sqrt{Y_j}\)</span>, with <span class="mi">\(f_{N,q}\)</span> of <a class="ref" href="s.SI.html#L-eqn:app-phase-fNq" data-label="eqn:app-phase-fNq">(SI.23)</a> and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-kernels"></span>\begin{equation}\tag{SI.28}
+g_{\text{s-SVD}}=\frac2{H_N(\alpha/2)}L_{N,\alpha,\alpha/2},\qquad
+g_{\text{s-SGD}}=\frac{2(1-2/\pi)}N\,L_{N,\alpha,\alpha}+\frac4{\pi H_N(\alpha)}\,L_{N,2\alpha,\alpha} .
+\end{equation}</div>
+<div class="p">Both kernels are positive, continuous and decreasing. The kernel <span class="mi">\(g_{\text{s-SVD}}\)</span> has integral <span class="mi">\(1\)</span>, and the two terms of <span class="mi">\(g_{\text{s-SGD}}\)</span> have integrals <span class="mi">\(1-2/\pi\)</span> and <span class="mi">\(2/\pi\)</span>. Their maxima are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-heights"></span>\begin{equation}\tag{SI.29}
+\begin{gathered}
+k_{N,\text{s-SVD}}\defeq g_{\text{s-SVD}}(0)=\frac{2H_N(\alpha)}{H_N(\alpha/2)},\\
+k_{N,\text{s-SGD}}\defeq g_{\text{s-SGD}}(0)=\frac{2(1-2/\pi)H_N(\alpha)}N+\frac{4H_N(2\alpha)}{\pi H_N(\alpha)} .
+\end{gathered}
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(\hat u_j&lt;\infty\)</span>, then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-time"></span>\begin{equation}\tag{SI.30}
+t^j_{T\epsilon}=\frac{\mathcal S_jT_0^j}{2\sqrt\epsilon}\int_0^{\hat u_j}\sqrt{Y_j(u)}\,\dif u .
+\end{equation}</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">As <span class="mi">\(N\to\infty\)</span> at fixed <span class="mi">\(\alpha\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-DN-asymp"></span>\begin{equation}\tag{SI.31}
+D_N\sim\begin{cases}
+\pi\,\dfrac{1-\alpha/2}{1-\alpha}\,N^{-\alpha/2},&amp;0&lt;\alpha&lt;1,\\[4pt]
+\dfrac\pi2N^{-1/2}\log N,&amp;\alpha=1,\\[4pt]
+\pi(1-\alpha/2)\,\zeta(\alpha)\,N^{\alpha/2-1},&amp;1&lt;\alpha&lt;2,\\[4pt]
+\pi\zeta(2)/\log N,&amp;\alpha=2,\\[4pt]
+\pi\zeta(\alpha)/\zeta(\alpha/2),&amp;\alpha&gt;2.
+\end{cases}
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">All coefficients are positive, since <span class="mi">\(\mu_i/\bar\mu=Ni^{-\alpha}/H_N(\alpha)&gt;0\)</span> and <span class="mi">\(2/\pi&lt;1\)</span>, and the sums in <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-F0S" data-label="eqn:app-phase-F0S">(SI.1)</a> are finite. For <span class="sc">SignSVD</span>,</div>
+<div class="md">\[
+\mathcal S_{\text{s-SVD}}=\sum_{i=1}^N\frac{i^{-\alpha}}{2\gamma^{-1/2}i^{-\alpha/2}}=\frac{\sqrt\gamma}2H_N(\alpha/2) .
+\]</div>
+<div class="p">For <span class="sc">SignSGD</span> the factor <span class="mi">\(\mu_i\)</span> cancels and <span class="mi">\(\sum_i\mathfrak v_i^{\text{s-SGD}}=N^2\)</span>, so</div>
+<div class="md">\[
+\mathcal S_{\text{s-SGD}}=\frac12\sqrt{\frac{\pi\bar\mu}B}\sum_{i=1}^N\mathfrak v_i^{\text{s-SGD}}=\frac{N^2}2\sqrt{\frac{\pi\bar\mu}B} .
+\]</div>
+<div class="p">The steps and the products follow, using <span class="mi">\(N\bar\mu=H_N(\alpha)\)</span> and <span class="mi">\(N/B=\gamma\)</span>. This proves (i).</div>
+<div class="p">For (ii), substituting <span class="mi">\(v=T_0^jw\)</span> in the convolution gives</div>
+<div class="md">\[
+Y_j(u)=F_j(T_0^ju)+T_0^j\int_0^uk_j\big(T_0^j(u-w)\big)\sqrt{Y_j(w)}\,\dif w=F_j(T_0^ju)+\sqrt\epsilon\,(g_j*\sqrt{Y_j})(u).
+\]</div>
+<div class="p">Since <span class="mi">\(\mathfrak d_i^jT_0^j=i^{-q_j}\)</span>, the forcing is <span class="mi">\(F_j(T_0^ju)=\frac12\sum_ii^{-p}e^{-2ui^{-q_j}}=f_{N,q_j}(u)\)</span>. At the matched step,</div>
+<div class="md">\[
+g_j(u)=\frac{T_0^j}{\mathcal S_j}\sum_{i=1}^N\mu_i\mathfrak v_i^je^{-2ui^{-q_j}} ,
+\]</div>
+<div class="p">and inserting (i) and the arrays gives <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-kernels" data-label="eqn:app-phase-kernels">(SI.28)</a>. Each exponential satisfies <span class="mi">\(\int_0^\infty e^{-2ui^{-q}}\dif u=i^q/2\)</span>, which gives the three integrals. Each kernel is a positive combination of decreasing exponentials, and its value at <span class="mi">\(0\)</span> is <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-heights" data-label="eqn:app-phase-heights">(SI.29)</a>.</div>
+<div class="p">For (iii), <a class="ref" href="r.thm.app-phase-hitting.html" data-label="thm:app-phase-hitting">Theorem SI.3</a>(i) gives <span class="mi">\(t^j_{T\epsilon}=t(H_Q(T\epsilon))\)</span> with <span class="mi">\(H_Q(T\epsilon)=T_0^j\hat u_j\)</span>, and the change of variables <span class="mi">\(v=T_0^ju\)</span> in the clock gives</div>
+<div class="md">\[
+t(T_0^j\hat u_j)=\frac{T_0^j}{\lr^\star_j}\int_0^{\hat u_j}\sqrt{Y_j(u)}\,\dif u ,
+\]</div>
+<div class="p">which is <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-time" data-label="eqn:app-phase-time">(SI.30)</a>. Part (iv) follows from <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-DN" data-label="eqn:app-phase-DN">(SI.27)</a> and <a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-phase-model.html" data-label="def:app-phase-model">Definition SI.1</a> <span class=muted>Deterministic row model</span></li><li><a class="ref" href="r.thm.app-phase-hitting.html" data-label="thm:app-phase-hitting">Theorem SI.3</a> <span class=muted>Hitting times</span></li><li><a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a> <span class=muted>Harmonic sums</span></li><li><a class="ref" href="r.def.app-phase-arrays.html" data-label="def:app-phase-arrays">Definition SI.3</a> <span class=muted>Adopted power-law arrays</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-map.html" data-label="thm:app-phase-map">Theorem SI.7</a> <span class=muted>Time to <span class="mi">\(T\epsilon\)</span> in the power-law phases</span></li><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li><li><a class="ref" href="r.prop.app-phase-C-window.html" data-label="prop:app-phase-C-window">Proposition SI.5</a> <span class=muted>The low-exponent window</span></li><li><a class="ref" href="r.cor.app-phase-fixed.html" data-label="cor:app-phase-fixed">Corollary SI.2</a> <span class=muted>Fixed dimension</span></li><li><a class="ref" href="r.cor.app-phase-ratio.html" data-label="cor:app-phase-ratio">Corollary SI.3</a> <span class=muted>Ratio of the hitting times</span></li><li><a class="ref" href="r.prop.app-phase-winners.html" data-label="prop:app-phase-winners">Proposition SI.6</a> <span class=muted>Limits of the ratio</span></li><li><a class="ref" href="r.prop.app-phase-cutoff.html" data-label="prop:app-phase-cutoff">Proposition SI.7</a> <span class=muted>A family outside the windows</span></li><li><a class="ref" href="r.thm.app-phase-accfirst.html" data-label="thm:app-phase-accfirst">Theorem SI.12</a> <span class=muted>Accuracy-first ratio</span></li><li><a class="ref" href="r.thm.app-phase-frozen.html" data-label="thm:app-phase-frozen">Theorem SI.13</a> <span class=muted>Frozen regime</span></li><li><a class="ref" href="r.cor.app-phase-extended.html" data-label="cor:app-phase-extended">Corollary SI.5</a> <span class=muted>Extended main-range window</span></li><li><a class="ref" href="r.lem.app-phase-G-small.html" data-label="lem:app-phase-G-small">Lemma SI.24</a> <span class=muted><span class="sc">SignSGD</span> kernel below the critical exponent</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_m1</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L435">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_m1 (α ς : ℝ) (N B : ℕ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hN : 1 ≤ N) (hNB : N ≤ B) :
+    (∀ η : ℝ, 0 &lt; η → ∃ m : RowModel (Fin N),
+        m.μ = (svdArrays α ς N B).μ ∧ m.d = (svdArrays α ς N B).d ∧
+        m.v = (svdArrays α ς N B).v ∧ m.Q0 = (svdArrays α ς N B).Q0 ∧ m.η = η) ∧
+    (∀ η : ℝ, 0 &lt; η → ∃ m : RowModel (Fin N),
+        m.μ = (sgdArrays α ς N B).μ ∧ m.d = (sgdArrays α ς N B).d ∧
+        m.v = (sgdArrays α ς N B).v ∧ m.Q0 = (sgdArrays α ς N B).Q0 ∧ m.η = η) ∧
+    (svdArrays α ς N B).F0 = (1 / 2 : ℝ) * Hsum (α + ς) N ∧
+    (sgdArrays α ς N B).F0 = (1 / 2 : ℝ) * Hsum (α + ς) N := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L537">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_i (α ς : ℝ) (N B : ℕ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hN : 1 ≤ N) (hNB : N ≤ B) (ε : ℝ) (hε : 0 &lt; ε) :
+    (svdArrays α ς N B).S = 1 / 2 * Real.sqrt (gammaRat N B) * Hsum (α / 2) N ∧
+    matchedStep (svdArrays α ς N B) ε
+        = 4 * Real.sqrt ε / (Real.sqrt (gammaRat N B) * Hsum (α / 2) N) ∧
+    (sgdArrays α ς N B).S = (N : ℝ) ^ 2 / 2 * Real.sqrt (Real.pi * muBarOf α N / (B : ℝ)) ∧
+    matchedStep (sgdArrays α ς N B) ε
+        = 4 * Real.sqrt ε / (N : ℝ) ^ 2 * Real.sqrt ((B : ℝ) / (Real.pi * muBarOf α N)) ∧
+    (svdArrays α ς N B).S * svdT0 N B = gammaRat N B / 2 * Hsum (α / 2) N ∧
+    (sgdArrays α ς N B).S * sgdT0 α N B
+        = Real.pi * (N : ℝ) ^ 2 * muBarOf α N / (2 * (B : ℝ)) ∧
+    Real.pi * (N : ℝ) ^ 2 * muBarOf α N / (2 * (B : ℝ))
+        = Real.pi * gammaRat N B / 2 * Hsum α N ∧
+    (sgdArrays α ς N B).S * sgdT0 α N B / ((svdArrays α ς N B).S * svdT0 N B)
+        = phaseDN α N := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L818">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_ii (α ς : ℝ) (N B : ℕ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hN : 1 ≤ N) (hNB : N ≤ B) (ε : ℝ) (hε : 0 &lt; ε) (mS mG : RowModel (Fin N))
+    (hmS : IsMatchedModel (svdArrays α ς N B) mS ε)
+    (hmG : IsMatchedModel (sgdArrays α ς N B) mG ε)
+    (QS QG : ℝ → ℝ) (hQS : IsVolterraSol mS QS) (hQG : IsVolterraSol mG QG) :
+    (∀ u, 0 ≤ u → mS.forcing (svdT0 N B * u) = fNq (N : ℕ∞) (α + ς) (α / 2) u) ∧
+    (∀ u, 0 ≤ u → mG.forcing (sgdT0 α N B * u) = fNq (N : ℕ∞) (α + ς) α u) ∧
+    (∀ u, 0 ≤ u → QS (svdT0 N B * u) = fNq (N : ℕ∞) (α + ς) (α / 2) u +
+        Real.sqrt ε * oneSidedConv (fun v =&gt; Real.sqrt (QS (svdT0 N B * v)))
+          (dimKernel mS (svdT0 N B) ε) u) ∧
+    (∀ u, 0 ≤ u → QG (sgdT0 α N B * u) = fNq (N : ℕ∞) (α + ς) α u +
+        Real.sqrt ε * oneSidedConv (fun v =&gt; Real.sqrt (QG (sgdT0 α N B * v)))
+          (dimKernel mG (sgdT0 α N B) ε) u) ∧
+    (∀ u, 0 ≤ u → dimKernel mS (svdT0 N B) ε u
+        = 2 / Hsum (α / 2) N * Lsum (N : ℕ∞) α (α / 2) u) ∧
+    (∀ u, 0 ≤ u → dimKernel mG (sgdT0 α N B) ε u
+        = 2 * (1 - 2 / Real.pi) / (N : ℝ) * Lsum (N : ℕ∞) α α u
+          + 4 / (Real.pi * Hsum α N) * Lsum (N : ℕ∞) (2 * α) α u) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_ii_props</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L1035">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_ii_props (α ς : ℝ) (N B : ℕ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hN : 1 ≤ N) (hNB : N ≤ B) (ε : ℝ) (hε : 0 &lt; ε) (mS mG : RowModel (Fin N))
+    (hmS : IsMatchedModel (svdArrays α ς N B) mS ε)
+    (hmG : IsMatchedModel (sgdArrays α ς N B) mG ε) :
+    ((∀ u, 0 ≤ u → 0 &lt; dimKernel mS (svdT0 N B) ε u) ∧
+      ContinuousOn (dimKernel mS (svdT0 N B) ε) (Ici 0) ∧
+      AntitoneOn (dimKernel mS (svdT0 N B) ε) (Ici 0) ∧
+      IntegrableOn (dimKernel mS (svdT0 N B) ε) (Ioi (0 : ℝ)) ∧
+      ∫ u in Ioi (0 : ℝ), dimKernel mS (svdT0 N B) ε u = 1 ∧
+      IsMaxOn (dimKernel mS (svdT0 N B) ε) (Ici 0) 0 ∧
+      dimKernel mS (svdT0 N B) ε 0 = phaseKsvd α N) ∧
+    ((∀ u, 0 ≤ u → 0 &lt; dimKernel mG (sgdT0 α N B) ε u) ∧
+      ContinuousOn (dimKernel mG (sgdT0 α N B) ε) (Ici 0) ∧
+      AntitoneOn (dimKernel mG (sgdT0 α N B) ε) (Ici 0) ∧
+      IsMaxOn (dimKernel mG (sgdT0 α N B) ε) (Ici 0) 0 ∧
+      dimKernel mG (sgdT0 α N B) ε 0 = phaseKsgd α N ∧
+      IntegrableOn (fun u =&gt; 2 * (1 - 2 / Real.pi) / (N : ℝ) * Lsum (N : ℕ∞) α α u)
+        (Ioi (0 : ℝ)) ∧
+      ∫ u in Ioi (0 : ℝ), 2 * (1 - 2 / Real.pi) / (N : ℝ) * Lsum (N : ℕ∞) α α u
+        = 1 - 2 / Real.pi ∧
+      IntegrableOn (fun u =&gt; 4 / (Real.pi * Hsum α N) * Lsum (N : ℕ∞) (2 * α) α u)
+        (Ioi (0 : ℝ)) ∧
+      ∫ u in Ioi (0 : ℝ), 4 / (Real.pi * Hsum α N) * Lsum (N : ℕ∞) (2 * α) α u
+        = 2 / Real.pi) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L1372">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_iii (α ς : ℝ) (N B : ℕ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hN : 1 ≤ N) (hNB : N ≤ B) (ε T : ℝ) (hε : 0 &lt; ε) (hT : 0 &lt; T)
+    (mS mG : RowModel (Fin N))
+    (hmS : IsMatchedModel (svdArrays α ς N B) mS ε)
+    (hmG : IsMatchedModel (sgdArrays α ς N B) mG ε)
+    (QS QG : ℝ → ℝ) (hQS : IsVolterraSol mS QS) (hQG : IsVolterraSol mG QG) :
+    (firstHit (fun u =&gt; QS (svdT0 N B * u)) (T * ε) ≠ ⊤ →
+      firstHit (riskClock mS QS) (T * ε) = ENNReal.ofReal
+        (mS.S * svdT0 N B / (2 * Real.sqrt ε) *
+          ∫ u in (0 : ℝ)..(firstHit (fun u =&gt; QS (svdT0 N B * u)) (T * ε)).toReal,
+            Real.sqrt (QS (svdT0 N B * u)))) ∧
+    (firstHit (fun u =&gt; QG (sgdT0 α N B * u)) (T * ε) ≠ ⊤ →
+      firstHit (riskClock mG QG) (T * ε) = ENNReal.ofReal
+        (mG.S * sgdT0 α N B / (2 * Real.sqrt ε) *
+          ∫ u in (0 : ℝ)..(firstHit (fun u =&gt; QG (sgdT0 α N B * u)) (T * ε)).toReal,
+            Real.sqrt (QG (sgdT0 α N B * u)))) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_prefactors_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Arrays.lean#L1503">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_prefactors_iv (α : ℝ) (hα : 0 &lt; α) :
+    (α &lt; 1 → Asymptotics.IsEquivalent atTop (fun N : ℕ =&gt; phaseDN α N)
+        (fun N : ℕ =&gt; Real.pi * (1 - α / 2) / (1 - α) * (N : ℝ) ^ (-(α / 2)))) ∧
+    (α = 1 → Asymptotics.IsEquivalent atTop (fun N : ℕ =&gt; phaseDN α N)
+        (fun N : ℕ =&gt; Real.pi / 2 * (N : ℝ) ^ (-(1 / 2 : ℝ)) * Real.log (N : ℝ))) ∧
+    (1 &lt; α → α &lt; 2 → Asymptotics.IsEquivalent atTop (fun N : ℕ =&gt; phaseDN α N)
+        (fun N : ℕ =&gt; Real.pi * (1 - α / 2) * zetaR α * (N : ℝ) ^ (α / 2 - 1))) ∧
+    (α = 2 → Asymptotics.IsEquivalent atTop (fun N : ℕ =&gt; phaseDN α N)
+        (fun N : ℕ =&gt; Real.pi * zetaR 2 / Real.log (N : ℝ))) ∧
+    (2 &lt; α → Asymptotics.IsEquivalent atTop (fun N : ℕ =&gt; phaseDN α N)
+        (fun _ : ℕ =&gt; Real.pi * zetaR α / zetaR (α / 2))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

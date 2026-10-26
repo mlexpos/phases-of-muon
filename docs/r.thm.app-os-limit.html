@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SH.1 (Oversampled limit law)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SH.1 (Oversampled limit law)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-os-limit"><div class="thm-head"><a class="thm-name" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> <span class="thm-title">(Oversampled limit law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Nout,\Nin,B\ge1\)</span>, let <span class="mi">\(\Sigmaout\)</span> be positive semidefinite, let <span class="mi">\(\bmom\in[0,1)\)</span>, and assume that <span class="mi">\(\bmom&gt;0\)</span>, or that <span class="mi">\(\bmom=0\)</span> and <span class="mi">\(\gin&lt;1\)</span>. Let <span class="mi">\(q_\star\)</span> be as in <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iii), and put <span class="mi">\(\Lambda\defeq1+3(1-\bmom)^2q_\star\)</span>. Write <span class="mi">\(\mathfrak d^{\rm os}=\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(\mu\ge0\)</span>,</div>
+<div class="md">\[
+\Lambda^{-1}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)\le\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)\le\Lambda\,\mathfrak d^{\rm os}(\mu;\hat\ridge).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\mu\ge0\)</span> the limit</div>
+<div class="md">\[
+\mathfrak d_0(\mu)\defeq\lim_{\ridge\downarrow0}\mathfrak d_\ridge(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty\mathsf k(u^2;\mu)\,\dif u
+\]</div>
+<div class="p">exists in <span class="mi">\([0,\infty)\)</span>, and it satisfies the bounds of (i) with <span class="mi">\(\ridge=\hat\ridge=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, then <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span>. Consequently, for every <span class="mi">\(\ridge\ge0\)</span> and <span class="mi">\(1\le i\le\Nout\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-limit"></span>\begin{equation}\tag{SH.10}
+\mathfrak d_i(\ridge)=\vartheta_i\,\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\mathfrak d^{\rm os}(\mu_i;\hat\ridge)
+\qquad\text{for some }\vartheta_i\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big],
+\end{equation}</div>
+<div class="p">and for every <span class="mi">\(\mu\ge0\)</span></div>
+<div class="md">\[
+\Big|\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)-\mathfrak d^{\rm os}(\mu;\hat\ridge)\Big|
+\le\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)
+\le\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\sqrt{\frac\mu2}.
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For <span class="mi">\(\ridge\ge0\)</span> let <span class="mi">\(\vartheta_\ridge(\mu)\defeq\sqrt{\sw2\gin}\,\mathfrak d_\ridge(\mu)/\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span> for <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(\vartheta_\ridge(0)\defeq1\)</span>. Then <span class="mi">\(\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset[\Lambda^{-1},\Lambda]\)</span> and</div>
+<div class="md">\[
+\mathfrak d_\ridge(\Sigmaout)=\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,\mathfrak d^{\rm os}(\Sigmaout;\hat\ridge).
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof starts from a uniform bound on the two scalar factors. For <span class="mi">\(s&gt;0\)</span> let <span class="mi">\(b(s)\)</span>, <span class="mi">\(\widehat F(s)\)</span> and <span class="mi">\(L(s)\)</span> be as in <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(b), <span class="mi">\(q(-s)\Fw(q(-s))&lt;\gin\)</span>, so <span class="mi">\(q(-s)&lt;q_\star\)</span> by <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iii). <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(ii) then gives, for every <span class="mi">\(s&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-factors"></span>\begin{equation}\tag{SH.11}
+L(s)\ge\frac1{1+3(1-\bmom)^2q(-s)}\ge\Lambda^{-1},\qquad
+\widehat F(s)\ge\frac1{1+3(1-\bmom)^2q(-s)}\ge\Lambda^{-1}.
+\end{equation}</div>
+<div class="p">Part (i) is a pointwise sandwich of the integrands. Substitute <span class="mi">\(u=\sqrt{\sw2\gin}\,v\)</span> in <a class="ref" href="s.SH.html#L-eqn:app-os-d" data-label="eqn:app-os-d">(SH.3)</a>, so that <span class="mi">\(\ridge+u^2=\sw2\gin\,\hat s\)</span> with <span class="mi">\(\hat s=\hat\ridge+v^2\)</span>. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(d),</div>
+<div class="md">\[
+\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty I(\hat s)\,\dif v,\qquad
+I(\hat s)\defeq\frac{L}{\widehat F}\,\frac{b\mu}{\hat s+b\mu}\Big|_{s=\sw2\gin\hat s}.
+\]</div>
+<div class="p">Write <span class="mi">\(I_0(\hat s)\defeq b_0(\hat s)\mu/(\hat s+b_0(\hat s)\mu)\)</span> with <span class="mi">\(b_0=b_0^{\hat\nu_{\mathrm{out}},r}\)</span>. <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(c) places <span class="mi">\(b\)</span> under the hypotheses of <a class="ref" href="r.lem.app-os-compare.html" data-label="lem:app-os-compare">Lemma SH.5</a>, which gives</div>
+<div class="md">\[
+L\,I_0\le I\le\widehat F^{-1}I_0 ,
+\]</div>
+<div class="p">using <span class="mi">\(L\le1\)</span> on the right. By <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-factors" data-label="eqn:app-os-factors">(SH.11)</a>, <span class="mi">\(\Lambda^{-1}I_0\le I\le\Lambda I_0\)</span> for every <span class="mi">\(\hat s&gt;0\)</span>. Integrating in <span class="mi">\(v\)</span> proves (i), since <span class="mi">\(\frac{\sqrt2}{\pi}\int_0^\infty I_0\,\dif v=\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span>.</div>
+<div class="p">Part (ii) is dominated convergence with a majorant that does not depend on the ridge. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(d), <span class="mi">\(b\le\widehat F\le1\)</span>, <span class="mi">\(L\le1\)</span> and <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-factors" data-label="eqn:app-os-factors">(SH.11)</a>,</div>
+<div class="md">\[
+\mathsf k(s;\mu)\le\frac{\Lambda}{\sw2\gin}\min\Big\{1,\ \frac{b\mu}{\hat s}\Big\}
+\le\Lambda\min\Big\{\frac1{\sw2\gin},\ \frac\mu s\Big\},
+\]</div>
+<div class="p">and the right side is nonincreasing in <span class="mi">\(s\)</span>. Hence, for <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(u&gt;0\)</span>,</div>
+<div class="md">\[
+\mathsf k(\ridge+u^2;\mu)\le\Lambda\min\Big\{\frac1{\sw2\gin},\ \frac{\mu}{u^2}\Big\},
+\]</div>
+<div class="p">which is integrable on <span class="mi">\((0,\infty)\)</span>. The integrand <span class="mi">\(\mathsf k(\cdot;\mu)\)</span> is continuous on <span class="mi">\((0,\infty)\)</span> (<a class="ref" href="s.SH.html#L-sec:app-os-setup" data-label="sec:app-os-setup">Section SH.2</a>), so <span class="mi">\(\mathsf k(\ridge+u^2;\mu)\to\mathsf k(u^2;\mu)\)</span> for every <span class="mi">\(u&gt;0\)</span>, and dominated convergence gives the existence and the value of the limit. At <span class="mi">\(\ridge=0\)</span> the substitution and the pointwise sandwich of (i) apply without change, with <span class="mi">\(\hat s=v^2&gt;0\)</span>.</div>
+<div class="p">Part (iii) combines (i) and (ii) with <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iv), which gives <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span> and <span class="mi">\(\Lambda^{-1}\ge1-\epsilon_{\rm os}\)</span>. If <span class="mi">\(\mu_i=0\)</span>, both sides of <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-limit" data-label="eqn:app-os-limit">(SH.10)</a> vanish and <span class="mi">\(\vartheta_i=1\)</span> serves. If <span class="mi">\(\mu_i&gt;0\)</span>, the profile is positive by <a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a>, and <span class="mi">\(\vartheta_i\defeq\sqrt{\sw2\gin}\,\mathfrak d_i(\ridge)/\mathfrak d^{\rm os}(\mu_i;\hat\ridge)\)</span> lies in <span class="mi">\([\Lambda^{-1},\Lambda]\)</span>. The identity <span class="mi">\((\sw2\gin)^{-1/2}=\sqrt{B/(\sw2\Nin)}=\sqrt{B_{\rm eff}/\Nin}\)</span> gives <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-limit" data-label="eqn:app-os-limit">(SH.10)</a>. For the error bound, the two-sided bound gives</div>
+<div class="md">\[
+\Big|\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)-\mathfrak d^{\rm os}(\mu;\hat\ridge)\Big|
+\le\max\Big\{\epsilon_{\rm os},\ \frac1{1-\epsilon_{\rm os}}-1\Big\}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)
+=\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\,\mathfrak d^{\rm os}(\mu;\hat\ridge),
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a> bounds <span class="mi">\(\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span> by <span class="mi">\(\sqrt{\mu/2}\)</span>.</div>
+<div class="p">Part (iv) is (i) and (ii) eigenvalue by eigenvalue. At <span class="mi">\(\mu=0\)</span> both <span class="mi">\(\mathfrak d_\ridge(0)\)</span> and <span class="mi">\(\mathfrak d^{\rm os}(0;\hat\ridge)\)</span> vanish, and at <span class="mi">\(\mu&gt;0\)</span> the ratio <span class="mi">\(\vartheta_\ridge(\mu)\)</span> lies in <span class="mi">\([\Lambda^{-1},\Lambda]\)</span> by (i) and (ii). The functions of <span class="mi">\(\Sigmaout\)</span> act on each eigenvector <span class="mi">\(u_k\)</span> by the value at <span class="mi">\(\mu_k\)</span>, which gives the operator identity.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a> <span class=muted>Exact reduction of the half-anisotropic branch</span></li><li><a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> <span class=muted>Scalar bounds</span></li><li><a class="ref" href="r.lem.app-os-compare.html" data-label="lem:app-os-compare">Lemma SH.5</a> <span class=muted>Comparison</span></li><li><a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a> <span class=muted>Ceilings of the profile</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> <span class=muted>Expected regularized update</span></li><li><a class="ref" href="r.rem.app-os-linear.html" data-label="rem:app-os-linear">Remark SH.1</a> <span class=muted>Scope of the linear response; heuristic</span></li><li><a class="ref" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Corollary SH.2</a> <span class=muted>Packed modes</span></li><li><a class="ref" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a> <span class=muted>Identity covariance</span></li><li><a class="ref" href="r.rem.app-os-normalization.html" data-label="rem:app-os-normalization">Remark SH.5</a> <span class=muted>Normalization of the oversampled drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.limit_generic_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L1322">source</a></summary><pre class="lean no-mj">theorem limit_generic_i {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (hν0 : nuOut (Iio 0) = 0) (hmass : nuOut univ = ENNReal.ofReal (gammaOut Nout B))
+    (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) :
+    ∀ ρ : ℝ, 0 &lt; ρ → ∀ μ : ℝ, 0 ≤ μ →
+      (lamOs β qs)⁻¹ * dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+          (ρ / (Muon.sPow β 2 * gammaIn Nin B)) ≤
+        Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ ∧
+      Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ ≤
+        lamOs β qs * dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+          (ρ / (Muon.sPow β 2 * gammaIn Nin B)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.limit_generic_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L1377">source</a></summary><pre class="lean no-mj">theorem limit_generic_ii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (hν0 : nuOut (Iio 0) = 0) (hmass : nuOut univ = ENNReal.ofReal (gammaOut Nout B))
+    (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) :
+    ∀ μ : ℝ, 0 ≤ μ →
+      Tendsto (fun ρ : ℝ =&gt; dRidge br ρ μ) (𝓝[&gt;] (0 : ℝ)) (𝓝 (dZero br μ)) ∧
+      0 ≤ dZero br μ ∧
+      (lamOs β qs)⁻¹ * dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ 0 ≤
+        Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dZero br μ ∧
+      Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dZero br μ ≤
+        lamOs β qs * dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ 0 := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.limit_generic_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/LimitLaw.lean#L1505">source</a></summary><pre class="lean no-mj">theorem limit_generic_iii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) {nuOut : Measure ℝ}
+    (hν0 : nuOut (Iio 0) = 0) (hmass : nuOut univ = ENNReal.ofReal (gammaOut Nout B))
+    (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (hε : epsOs β (gammaIn Nin B) &lt; 1)
+    (br : HalfAnisoBranch β (gammaIn Nin B) nuOut) :
+    lamOs β qs ≤ (1 - epsOs β (gammaIn Nin B))⁻¹ ∧
+    (∀ ρ : ℝ, 0 ≤ ρ → ∀ μ : ℝ, 0 ≤ μ → ∃ ϑ : ℝ,
+      ϑ ∈ Icc (1 - epsOs β (gammaIn Nin B)) (1 - epsOs β (gammaIn Nin B))⁻¹ ∧
+      dRidge br ρ μ = ϑ * Real.sqrt ((B : ℝ) / Muon.sPow β 2 / (Nin : ℝ)) *
+        dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+          (ρ / (Muon.sPow β 2 * gammaIn Nin B))) ∧
+    (∀ ρ : ℝ, 0 ≤ ρ → ∀ μ : ℝ, 0 ≤ μ →
+      |Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ -
+          dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+            (ρ / (Muon.sPow β 2 * gammaIn Nin B))| ≤
+        epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) *
+          dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+            (ρ / (Muon.sPow β 2 * gammaIn Nin B)) ∧
+      epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) *
+          dOs (hatNu nuOut (gammaOut Nout B)) ((Nout : ℝ) / Nin) μ
+            (ρ / (Muon.sPow β 2 * gammaIn Nin B)) ≤
+        epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) * Real.sqrt (μ / 2)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_limit_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L441">source</a></summary><pre class="lean no-mj">theorem thm_app_os_limit_i {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) (C : Muon.Covariances Nout Nin)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br) :
+    ∀ ρ : ℝ, 0 &lt; ρ → ∀ μ : ℝ, 0 ≤ μ →
+      (lamOs β qs)⁻¹ * dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ) ≤
+        Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ ∧
+      Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ ≤
+        lamOs β qs * dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_limit_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L493">source</a></summary><pre class="lean no-mj">theorem thm_app_os_limit_ii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) (C : Muon.Covariances Nout Nin)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br) :
+    ∀ μ : ℝ, 0 ≤ μ →
+      Tendsto (fun ρ : ℝ =&gt; dRidge br ρ μ) (𝓝[&gt;] (0 : ℝ)) (𝓝 (dZero br μ)) ∧
+      0 ≤ dZero br μ ∧
+      (lamOs β qs)⁻¹ * dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ 0 ≤
+        Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dZero br μ ∧
+      Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dZero br μ ≤
+        lamOs β qs * dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ 0 := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_limit_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L547">source</a></summary><pre class="lean no-mj">theorem thm_app_os_limit_iii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) (C : Muon.Covariances Nout Nin)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (hε : epsOs β (gammaIn Nin B) &lt; 1)
+    (br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br) :
+    lamOs β qs ≤ (1 - epsOs β (gammaIn Nin B))⁻¹ ∧
+    (∀ ρ : ℝ, 0 ≤ ρ → ∀ i : Fin Nout, ∃ ϑ : ℝ,
+      ϑ ∈ Icc (1 - epsOs β (gammaIn Nin B)) (1 - epsOs β (gammaIn Nin B))⁻¹ ∧
+      dRidge br ρ (eigOut C i) =
+        ϑ * Real.sqrt (bEff β B / (Nin : ℝ)) *
+          dOs (nuHatOut C) ((Nout : ℝ) / Nin) (eigOut C i) (sHat β (gammaIn Nin B) ρ)) ∧
+    (∀ ρ : ℝ, 0 ≤ ρ → ∀ μ : ℝ, 0 ≤ μ →
+      |Real.sqrt (Muon.sPow β 2 * gammaIn Nin B) * dRidge br ρ μ -
+          dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ)| ≤
+        epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) *
+          dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ) ∧
+      epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) *
+          dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ) ≤
+        epsOs β (gammaIn Nin B) / (1 - epsOs β (gammaIn Nin B)) * Real.sqrt (μ / 2)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.thm_app_os_limit_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L613">source</a></summary><pre class="lean no-mj">theorem thm_app_os_limit_iv {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) (C : Muon.Covariances Nout Nin)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn Nin B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn Nin B)
+    (br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br) :
+    ∀ ρ : ℝ, 0 ≤ ρ →
+      spectrum ℝ (cfc (fun μ : ℝ =&gt; thetaRidge br (nuHatOut C) ((Nout : ℝ) / Nin) ρ μ)
+          C.Sout) ⊆ Icc (lamOs β qs)⁻¹ (lamOs β qs) ∧
+      cfc (fun μ : ℝ =&gt; dRidge br ρ μ) C.Sout =
+        Real.sqrt (bEff β B / (Nin : ℝ)) •
+          (cfc (fun μ : ℝ =&gt; thetaRidge br (nuHatOut C) ((Nout : ℝ) / Nin) ρ μ) C.Sout *
+            cfc (fun μ : ℝ =&gt; dOs (nuHatOut C) ((Nout : ℝ) / Nin) μ (sHat β (gammaIn Nin B) ρ))
+              C.Sout) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.exists_modelBranch</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L191">source</a></summary><pre class="lean no-mj">theorem exists_modelBranch {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {Nout Nin B : ℕ}
+    (hNout : 1 ≤ Nout) (hNin : 1 ≤ Nin) (hB : 1 ≤ B) (C : Muon.Covariances Nout Nin) :
+    ∃ br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B), IsModelBranch C B hB β br := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.IsModelBranch</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L103">source</a></summary><pre class="lean no-mj">def IsModelBranch {Nout Nin : ℕ} (C : Muon.Covariances Nout Nin) (B : ℕ) (hB : 1 ≤ B) (β : ℝ)
+    (br : HalfAnisoBranch β (gammaIn Nin B) (Muon.nuOut C B)) : Prop :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.nuOutFM</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L92">source</a></summary><pre class="lean no-mj">def nuOutFM {m n : ℕ} (C : Muon.Covariances m n) (B : ℕ) (hB : 1 ≤ B) : FiniteMeasure ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.nuInFM</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L97">source</a></summary><pre class="lean no-mj">def nuInFM (γ : ℝ) : FiniteMeasure ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.thetaRidge</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L265">source</a></summary><pre class="lean no-mj">def thetaRidge {β γin : ℝ} {nuOut : Measure ℝ} (br : HalfAnisoBranch β γin nuOut)
+    (nu : Measure ℝ) (r ρ μ : ℝ) : ℝ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

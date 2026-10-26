@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SF.1 (Isotropic dynamics)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SF.1 (Isotropic dynamics)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.cor.app-iso-dynamics.html">top-level result</a></div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-corollary" id="L-cor:app-iso-dynamics"><div class="thm-head"><a class="thm-name" href="r.cor.app-iso-dynamics.html" data-label="cor:app-iso-dynamics">Corollary SF.1</a> <span class="thm-title">(Isotropic dynamics)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span> and <span class="mi">\(\Sigmaout=\Id_{\Nout}\)</span>, fix <span class="mi">\(\macrostep&gt;0\)</span>, <span class="mi">\(\ridge&gt;0\)</span>, <span class="mi">\(\bmom\in[0,1)\)</span>, <span class="mi">\(\gamma_\star&lt;\infty\)</span>, <span class="mi">\(E_\star&lt;\infty\)</span>, <span class="mi">\(c_M&lt;\infty\)</span> and <span class="mi">\(0&lt;r_0\le r_1&lt;\infty\)</span>, and along a sequence of dimensions with <span class="mi">\(B\to\infty\)</span> assume:</div>
+<ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p"><a class="ref" href="r.assum.proportional-regime.html" data-label="assum:proportional-regime">Assumption S2</a> holds and <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>;</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p">the algorithm of <a class="ref" href="r.def.app-setup-algorithm.html" data-label="def:app-setup-algorithm">Definition SA.2</a> is run with momentum <span class="mi">\(\bmom\)</span>, normalized ridge <span class="mi">\(\ridge\)</span> and step <span class="mi">\(\lr_t=\macrostep/B\)</span>;</div></div></li><li><span class="li-mark">(c)</span><div class="li-body"><div class="p"><span class="mi">\(W_0\)</span> is deterministic, <span class="mi">\(\norm{\Delta_0}_\F^2\le E_\star\)</span>, <span class="mi">\(r_0\le\cR(0)\le r_1\)</span> and <span class="mi">\(\norm{\Delta_0}/\norm{\Delta_0}_\F\to0\)</span>;</div></div></li><li><span class="li-mark">(d)</span><div class="li-body"><div class="p">the initial buffer <span class="mi">\(M^\circ_{-1}\)</span> is independent of all batches and <span class="mi">\(\EE\norm{M^\circ_{-1}}_\F^2\le c_MB\)</span>.</div></div></li></ol>
+<div class="p">Let <span class="mi">\(T_\star\)</span> be given by <a class="ref" href="s.SE.html#L-eqn:app-dyn-Tstar" data-label="eqn:app-dyn-Tstar">(SE.10)</a> at <span class="mi">\(C_\Sigma=1\)</span>. Then <a class="ref" href="r.prop.app-iso-scalar.html#L-eqn:app-iso-scalar" data-label="eqn:app-iso-scalar">(SF.19)</a> has a unique solution <span class="mi">\(\fRisk\)</span> on <span class="mi">\([0,T_\star]\)</span>, and</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">with probability tending to one, <span class="mi">\(t_{\rm stop}&gt;BT_\star\)</span> and <span class="mi">\(\inf_{t\le BT_\star}\cR(t)\ge r_0/2\)</span>;</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\sup_{\macrotime\le T_\star}\abs{\cR(\lfloor B\macrotime\rfloor)-\fRisk(\macrotime)}\to0\)</span> in probability;</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">on the event of (i), <span class="mi">\(\sup_{t\le BT_\star}\norm{\Dt}/\norm{\Dt}_\F\to0\)</span> in probability.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Hypotheses (a)–(d) are <a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-data" data-label="hyp:app-dyn-data">{{(H1)}}</a>–<a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-buffer" data-label="hyp:app-dyn-buffer">{{(H4)}}</a> of <a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> at identity covariances. In <a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-data" data-label="hyp:app-dyn-data">{{(H1)}}</a> the features are Gaussian by the standing setup, and the covariances are deterministic with <span class="mi">\(\norm{\Sigmain}=\norm{\Sigmaout}=1\)</span>, so <span class="mi">\(C_\Sigma=1\)</span>. In <a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-initial" data-label="hyp:app-dyn-initial">{{(H3)}}</a> the diffuseness is <span class="mi">\(\norm{\widehat A_0}=\norm{\Delta_0}/\norm{\Delta_0}_\F\)</span> by <a class="ref" href="s.SF.html#L-eqn:app-iso-frobenius" data-label="eqn:app-iso-frobenius">(SF.2)</a>. By <a class="ref" href="r.prop.app-dyn-ode.html" data-label="prop:app-dyn-ode">Proposition SE.1</a> the equations <a class="ref" href="r.def.app-dyn-ode.html#L-eqn:app-dyn-ode" data-label="eqn:app-dyn-ode">(SE.7)</a> have a unique solution on <span class="mi">\([0,T_\star]\)</span> with <span class="mi">\(\fRisk\ge r_0/2\)</span>, and by <a class="ref" href="r.prop.app-iso-scalar.html" data-label="prop:app-iso-scalar">Proposition SF.4</a>(i) its risk is the unique solution of <a class="ref" href="r.prop.app-iso-scalar.html#L-eqn:app-iso-scalar" data-label="eqn:app-iso-scalar">(SF.19)</a>. Conclusions (i), (ii) and (iii) are <a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a>(i), the risk statement of (iii), and (iv).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> <span class=muted>Dynamical comparison</span></li><li><a class="ref" href="r.prop.app-dyn-ode.html" data-label="prop:app-dyn-ode">Proposition SE.1</a> <span class=muted>Well-posedness</span></li><li><a class="ref" href="r.def.app-dyn-ode.html" data-label="def:app-dyn-ode">Definition SE.1</a> <span class=muted>Deterministic mode-energy equations</span></li><li><a class="ref" href="r.prop.app-iso-scalar.html" data-label="prop:app-iso-scalar">Proposition SF.4</a> <span class=muted>Scalar reduction</span></li><li><a class="ref" href="r.assum.proportional-regime.html" data-label="assum:proportional-regime">Assumption S2</a> <span class=muted>Proportional regime</span></li><li><a class="ref" href="r.def.app-setup-algorithm.html" data-label="def:app-setup-algorithm">Definition SA.2</a> <span class=muted>The algorithm</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Isotropic.cor_app_iso_dynamics_scalar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Dynamics.lean#L632">source</a></summary><pre class="lean no-mj">theorem cor_app_iso_dynamics_scalar (cert : Muon.External.GaussianOpNorm)
+    (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare)
+    (certQ : Muon.External.GaussianQuadFormLp)
+    (p : DynParams) (hCS : p.CSig = 1)
+    {Ω : Type} [MeasurableSpace Ω] (P : Measure Ω) {m n B : ℕ → ℕ}
+    (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C))
+    (hSig : ∀ k : ℕ, (F k).C.Sin = 1 ∧ (F k).C.Sout = 1)
+    (hdev : Tendsto (fun k : ℕ =&gt; Muon.opNorm (dev0 hyp k) / Muon.fro (dev0 hyp k)) atTop (𝓝 0))
+    (hB : Tendsto (fun k : ℕ =&gt; B k) atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k)) :
+    ∀ k : ℕ, ∃ R : ℝ → ℝ,
+      IsIsoScalarOde p.h (B k : ℝ) (dIso p.β ((n k : ℝ) / (B k : ℝ)) ((m k : ℝ) / (B k : ℝ)) p.ϱ)
+        (isoVol cert p.γstar p.CSig p.β (m k) (n k) (B k) p.ϱ) (riskSigma (F k).C (dev0 hyp k)) (Tstar p) R ∧
+      ∀ R' : ℝ → ℝ,
+        IsIsoScalarOde p.h (B k : ℝ) (dIso p.β ((n k : ℝ) / (B k : ℝ)) ((m k : ℝ) / (B k : ℝ)) p.ϱ)
+          (isoVol cert p.γstar p.CSig p.β (m k) (n k) (B k) p.ϱ) (riskSigma (F k).C (dev0 hyp k)) (Tstar p) R' →
+        EqOn R' R (Icc (0 : ℝ) (Tstar p)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.cor_app_iso_dynamics_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Dynamics.lean#L703">source</a></summary><pre class="lean no-mj">theorem cor_app_iso_dynamics_i (cert : Muon.External.GaussianOpNorm)
+    (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare)
+    (certQ : Muon.External.GaussianQuadFormLp)
+    (p : DynParams) (hCS : p.CSig = 1)
+    {Ω : Type} [MeasurableSpace Ω] (P : Measure Ω) {m n B : ℕ → ℕ}
+    (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C))
+    (hSig : ∀ k : ℕ, (F k).C.Sin = 1 ∧ (F k).C.Sout = 1)
+    (hdev : Tendsto (fun k : ℕ =&gt; Muon.opNorm (dev0 hyp k) / Muon.fro (dev0 hyp k)) atTop (𝓝 0))
+    (hB : Tendsto (fun k : ℕ =&gt; B k) atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k)) :
+    Tendsto (fun k : ℕ =&gt; P (isoEvent hyp k)) atTop (𝓝 1) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.cor_app_iso_dynamics_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Dynamics.lean#L729">source</a></summary><pre class="lean no-mj">theorem cor_app_iso_dynamics_ii (cert : Muon.External.GaussianOpNorm)
+    (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare)
+    (certQ : Muon.External.GaussianQuadFormLp)
+    (p : DynParams) (hCS : p.CSig = 1)
+    {Ω : Type} [MeasurableSpace Ω] (P : Measure Ω) {m n B : ℕ → ℕ}
+    (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C))
+    (hSig : ∀ k : ℕ, (F k).C.Sin = 1 ∧ (F k).C.Sout = 1)
+    (hdev : Tendsto (fun k : ℕ =&gt; Muon.opNorm (dev0 hyp k) / Muon.fro (dev0 hyp k)) atTop (𝓝 0))
+    (hB : Tendsto (fun k : ℕ =&gt; B k) atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k)) :
+    ∀ Rf : ∀ k : ℕ, ℝ → ℝ,
+      (∀ k : ℕ, IsIsoScalarOde p.h (B k : ℝ)
+        (dIso p.β ((n k : ℝ) / (B k : ℝ)) ((m k : ℝ) / (B k : ℝ)) p.ϱ)
+        (isoVol cert p.γstar p.CSig p.β (m k) (n k) (B k) p.ϱ) (riskSigma (F k).C (dev0 hyp k)) (Tstar p) (Rf k)) →
+      ∀ ε : ℝ, 0 &lt; ε →
+        Tendsto (fun k : ℕ =&gt; P {ω | ENNReal.ofReal ε &lt;
+          ⨆ τ ∈ Icc (0 : ℝ) (Tstar p), ENNReal.ofReal
+            |riskSigma (F k).C (errPath hyp k ⌊(B k : ℝ) * τ⌋₊ ω) - Rf k τ|})
+          atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.cor_app_iso_dynamics_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Dynamics.lean#L926">source</a></summary><pre class="lean no-mj">theorem cor_app_iso_dynamics_iii (cert : Muon.External.GaussianOpNorm)
+    (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare)
+    (certQ : Muon.External.GaussianQuadFormLp)
+    (p : DynParams) (hCS : p.CSig = 1)
+    {Ω : Type} [MeasurableSpace Ω] (P : Measure Ω) {m n B : ℕ → ℕ}
+    (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C))
+    (hSig : ∀ k : ℕ, (F k).C.Sin = 1 ∧ (F k).C.Sout = 1)
+    (hdev : Tendsto (fun k : ℕ =&gt; Muon.opNorm (dev0 hyp k) / Muon.fro (dev0 hyp k)) atTop (𝓝 0))
+    (hB : Tendsto (fun k : ℕ =&gt; B k) atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k)) :
+    ∀ ε : ℝ, 0 &lt; ε →
+      Tendsto (fun k : ℕ =&gt; P (isoEvent hyp k ∩ {ω | ENNReal.ofReal ε &lt;
+        ⨆ (t : ℕ) (_ : (t : ℝ) ≤ (B k : ℝ) * Tstar p),
+          ENNReal.ofReal (Muon.opNorm (errPath hyp k t ω) / Muon.fro (errPath hyp k t ω))}))
+        atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.isoEvent</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Dynamics.lean#L59">source</a></summary><pre class="lean no-mj">def isoEvent {Ω : Type} [MeasurableSpace Ω] {P : Measure Ω} {p : DynParams} {m n B : ℕ → ℕ}
+    {C : ∀ k : ℕ, Covariances (m k) (n k)} (hyp : DynHyp p P m n B C) (k : ℕ) : Set Ω :=</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>, <a href="lean.html#cert-GaussianOpNormL6"><code>GaussianOpNormL6</code></a>, <a href="lean.html#cert-GaussianPoincare"><code>GaussianPoincare</code></a>, <a href="lean.html#cert-GaussianQuadFormLp"><code>GaussianQuadFormLp</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

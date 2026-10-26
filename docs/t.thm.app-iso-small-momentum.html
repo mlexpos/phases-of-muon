@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Theorem SF.7 (Small aspect ratios with momentum)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Theorem SF.7 (Small aspect ratios with momentum)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-isotropic.html">The isotropic case</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Theorem G.2</strong></span></div><div class="pre"><div class="p">The linearized closure replaces the participation count <span class="mi">\(r_\bmom(q)\)</span> by <span class="mi">\(q\)</span>. Its root is <span class="mi">\(Y_{\gin,\gout}(s)=2\gin\gout/\big(\gin+\gout+s+\sqrt{(\gin+\gout+s)^2-4\gin\gout}\big)\)</span>, the root below <span class="mi">\(\gamma_\wedge\)</span> of <span class="mi">\(sY=(\gout-Y)(\gin-Y)\)</span>, and its drift is</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{lin}}(\gin,\gout;\ridge)\defeq\frac{\sqrt2}{\pi\,\gin\gout}\int_0^\infty Y_{\gin,\gout}(\ridge+v^2)\,\dif v\qquad(\ridge\ge0),
+\]</div>
+<div class="p">the drift integral <a class="ref" href="r.thm.app-iso-drift.html#L-eqn:app-iso-drift" data-label="eqn:app-iso-drift">(SF.10)</a> with <span class="mi">\(q\Lw(q)\)</span> replaced by the linear root. At <span class="mi">\(\ridge=0\)</span>, <span class="mi">\(\mathfrak d_{\mathrm{iso}}(0;\bmom,\gin,\gout)\defeq C_\bmom(\gin,\gout)\)</span>.</div></div><div class="thm thm-theorem" id="L-thm:app-iso-small-momentum"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a> <span class="thm-title">(Small aspect ratios with momentum)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in[0,1)\)</span> and <span class="mi">\(\gin,\gout&gt;0\)</span>, and assume <span class="mi">\(\varepsilon_\bmom\defeq6\gamma_\wedge(1-\bmom^2)\le\frac12\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge\ge0\)</span> there is <span class="mi">\(\vartheta\in\big[1-\varepsilon_\bmom,(1-\varepsilon_\bmom)^{-1/2}\big]\)</span> with</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{iso}}(\ridge;\bmom,\gin,\gout)=\vartheta\;\mathfrak d_{\mathrm{lin}}(\sw2\gin,\sw2\gout;\ridge).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">With <span class="mi">\(r\defeq\gout/\gin\)</span> and <span class="mi">\(J_r\)</span> of <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a>,</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)=\frac{r\,J_r}{\sqrt{2\gout}},\qquad
+\mathfrak d_{\mathrm{lin}}(\gamma,\gamma;0)=\frac{8}{3\pi\sqrt{2\gamma}} .
+\]</div>
+<div class="p">In particular, in the square case <span class="mi">\(C_\bmom(\gamma)=8\vartheta/(3\pi\sqrt{2\sw2\gamma})\)</span> with <span class="mi">\(\vartheta\)</span> of (i) at <span class="mi">\(\ridge=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(6\gamma_\wedge\le\frac12\)</span>, then for every <span class="mi">\(\bmom\in[0,1)\)</span></div>
+<div class="md">\[
+\big(1-6\gamma_\wedge\big)^{3/2}\le\frac{C_\bmom(\gin,\gout)}{\sw2^{-1/2}\,C_0(\gin,\gout)}\le\big(1-6\gamma_\wedge\big)^{-3/2}.
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge\ge0\)</span>,</div>
+<div class="md">\[
+(1-\varepsilon_\bmom)\big(1-6\sw2\gamma_\wedge\big)^{1/2}\le
+\frac{\mathfrak d_{\mathrm{iso}}(\ridge;\bmom,\gin,\gout)}{\mathfrak d_{\mathrm{iso}}(\ridge;0,\sw2\gin,\sw2\gout)}\le
+(1-\varepsilon_\bmom)^{-1/2}\big(1-6\sw2\gamma_\wedge\big)^{-1}.
+\]</div></div></li></ol></div></div><section class="note"><div class="p">At large batch, momentum acts on the drift as the effective batch <span class="mi">\(B_{\rm eff}=B/\sw2=B(1+\bmom)/(1-\bmom)\)</span> of the main text: up to the factor <span class="mi">\(\vartheta\)</span>, the drift is that of the linearized closure at the aspect ratios <span class="mi">\((\sw2\gin,\sw2\gout)=(\Nin/B_{\rm eff},\Nout/B_{\rm eff})\)</span>. In the square case <span class="mi">\(C_\bmom(\gamma)\approx\frac8{3\pi}\sqrt{B_{\rm eff}/(2N)}\)</span>, the large-batch form of <span class="mi">\(\mathfrak d_\bmom\)</span> in <a class="ref" href="paper.pdf#equation.3.9" data-label="eqn:C-integral">(9)</a>. The small parameter is <span class="mi">\(\gamma_\wedge(1-\bmom^2)\)</span>, of the order of <span class="mi">\(N/B_{\rm eff}\)</span>, so the theorem also covers a fixed aspect ratio as <span class="mi">\(\bmom\uparrow1\)</span>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">At small aspect ratio the root stays where the participation count is linear, with slope <span class="mi">\(\sw2=\sum_j\emaw j^2\)</span>. Expanding each term <span class="mi">\(\Phi(\emaw j^2q)\)</span> to second order gives, for all <span class="mi">\(q\ge0\)</span> (<a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-small-expansions" data-label="eqn:app-iso-small-expansions">(SF.49)</a>),</div>
+<div class="md">\[
+\sw2q\Big(1-3\frac{\sw4}{\sw2}\,q\Big)\le r_\bmom(q)\le\sw2q,\qquad
+1-3\sw3q\le\Lw(q)\le1 .
+\]</div>
+<div class="p">The level <span class="mi">\(r_\bmom(q)\)</span> stays below <span class="mi">\(\gamma_\wedge\)</span>, and <span class="mi">\(r_\bmom(2\gamma_\wedge/\sw2)\ge\gamma_\wedge\)</span> once <span class="mi">\(\varepsilon_\bmom\le\frac12\)</span>, so the root stays below <span class="mi">\(\bar q=2\gamma_\wedge/\sw2\)</span>. At such roots the two expansions are accurate to relative errors <span class="mi">\(6\gamma_\wedge\sw4/\sw2^2\)</span> and <span class="mi">\(6\gamma_\wedge\sw3/\sw2\)</span>, both at most <span class="mi">\(\varepsilon_\bmom\)</span>, because <span class="mi">\(\sw4/\sw2^2=(1-\bmom^2)/(1+\bmom^2)\)</span>.</div>
+<div class="p">A larger participation count produces a smaller root, so the root is squeezed between two linear roots. The right side <span class="mi">\((\gout-r)(\gin-r)\)</span> of the scalar equation decreases in the count <span class="mi">\(r\)</span>, and comparing the two sides shows that raising the count lowers the root (<a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a>). For the linear count <span class="mi">\(r(q)=cq\)</span> the root is <span class="mi">\(c^{-1}Y(s/c)\)</span>, where <span class="mi">\(Y(s)\)</span> is the explicit root of <span class="mi">\(sY=(\gout-Y)(\gin-Y)\)</span>. The two expansions give</div>
+<div class="md">\[
+\frac1{\sw2}\,Y\Big(\frac s{\sw2}\Big)\le q(-s)\le\frac1c\,Y\Big(\frac sc\Big),\qquad c=\sw2\Big(1-6\gamma_\wedge\frac{\sw4}{\sw2^2}\Big).
+\]</div>
+<div class="p">Inserting this sandwich and the bounds on <span class="mi">\(\Lw\)</span> in the drift integral <a class="ref" href="r.thm.app-iso-drift.html#L-eqn:app-iso-drift" data-label="eqn:app-iso-drift">(SF.10)</a>, and rescaling <span class="mi">\(u=\sqrt{\sw2}\,v\)</span>, gives (i): the factor <span class="mi">\(\sw2\)</span> in the count is absorbed by multiplying both aspect ratios by <span class="mi">\(\sw2\)</span>, because <span class="mi">\(Y_{t\gin,t\gout}(ts)=t\,Y_{\gin,\gout}(s)\)</span> (<a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-dlin-scale" data-label="eqn:app-iso-dlin-scale">(SF.50)</a>).</div>
+<div class="p">The linear drift at zero ridge is a half-moment of the Marchenko–Pastur law, as in <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a>. The rescaled linear root <span class="mi">\(y(x)=Y(\gout x)/\gout\)</span> solves <span class="mi">\(xy=(1-y)(\frac1r-y)\)</span>, which is the equation satisfied by <span class="mi">\(1-x\,m_r(x)\)</span> for the transform <span class="mi">\(m_r\)</span> of <span class="mi">\(\mathsf M_r\)</span>, and the half-moment formula gives <span class="mi">\(\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)=rJ_r/\sqrt{2\gout}\)</span>. In the square case <span class="mi">\(y(v^2)=e^{-2\theta}\)</span> at <span class="mi">\(v=2\sinh\theta\)</span>, so <span class="mi">\(\int_0^\infty y(v^2)\,\dif v=\int_0^\infty(e^{-\theta}+e^{-3\theta})\,\dif\theta=\frac43\)</span>, which gives <span class="mi">\(8/(3\pi\sqrt{2\gamma})\)</span>. This is (ii). Parts (iii) and (iv) divide (i) at momentum <span class="mi">\(\bmom\)</span> by (i) at momentum zero, at the aspect ratios <span class="mi">\((\gin,\gout)\)</span> and <span class="mi">\((\sw2\gin,\sw2\gout)\)</span> respectively.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>17 levels, 58 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1745">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_i (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    ∀ ϱ : ℝ, 0 ≤ ϱ → ∃ ϑ : ℝ,
+      1 - 6 * min γin γout * (1 - β ^ 2) ≤ ϑ ∧
+      ϑ ≤ (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) ∧
+      dIso β γin γout ϱ = ϑ * isoDlin (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ :=</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1786">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_ii (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    isoDlin γin γout 0 = γout / γin * isoJr (γout / γin) / Real.sqrt (2 * γout) ∧
+      (∀ γ : ℝ, 0 &lt; γ → isoDlin γ γ 0 = 8 / (3 * Real.pi * Real.sqrt (2 * γ))) ∧
+      (γin = γout → ∃ ϑ : ℝ,
+        1 - 6 * min γin γout * (1 - β ^ 2) ≤ ϑ ∧
+        ϑ ≤ (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) ∧
+        dIso β γin γout 0 = ϑ * isoDlin (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) 0 ∧
+        Cbeta β γin γout = 8 * ϑ / (3 * Real.pi * Real.sqrt (2 * Muon.sPow β 2 * γin))) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1845">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_iii (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    6 * min γin γout ≤ 1 / 2 →
+      ∀ β' : ℝ, 0 ≤ β' → β' &lt; 1 →
+        (1 - 6 * min γin γout) ^ (3 / 2 : ℝ) ≤
+            Cbeta β' γin γout / (Muon.sPow β' 2 ^ (-(1 / 2 : ℝ)) * Cbeta 0 γin γout) ∧
+          Cbeta β' γin γout / (Muon.sPow β' 2 ^ (-(1 / 2 : ℝ)) * Cbeta 0 γin γout) ≤
+            (1 - 6 * min γin γout) ^ (-(3 / 2 : ℝ)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L2009">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_iv (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    ∀ ϱ : ℝ, 0 ≤ ϱ →
+      (1 - 6 * min γin γout * (1 - β ^ 2)) * (1 - 6 * Muon.sPow β 2 * min γin γout) ^ (1 / 2 : ℝ) ≤
+          dIso β γin γout ϱ / dIso 0 (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ ∧
+        dIso β γin γout ϱ / dIso 0 (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ ≤
+          (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) *
+            (1 - 6 * Muon.sPow β 2 * min γin γout)⁻¹ := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

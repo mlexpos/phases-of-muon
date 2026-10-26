@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.8 (Forcing integrals below the critical exponent)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.8 (Forcing integrals below the critical exponent)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-forcing-r"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-forcing-r.html" data-label="prop:app-phase-forcing-r">Proposition SI.8</a> <span class="thm-title">(Forcing integrals below the critical exponent)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(p&gt;1\)</span> and <span class="mi">\(q&gt;0\)</span> with <span class="mi">\(r\defeq r_q&lt;1\)</span>, and write <span class="mi">\(C=C_{p,q}\)</span> and <span class="mi">\(A=A_p\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(N\ge1\)</span>, <span class="mi">\(J_N(p,q)\le2\Gamma(1-r)\,C\,N^{q(1-r)}\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every <span class="mi">\(N\)</span> with <span class="mi">\((N/4)^{q(1-r)}\ge2\)</span>,</div>
+<div class="md">\[
+J_N(p,q)\ge\frac{\sqrt A}{2(1-r)}\,4^{-q(1-r)}N^{q(1-r)} .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">As <span class="mi">\(N\to\infty\)</span>, <span class="mi">\(J_N(p,q)/N^{q(1-r)}\to J_\circ(p,q)\)</span>, and <span class="mi">\(0&lt;J_\circ(p,q)\le2\Gamma(1-r)\,C\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p"><span class="mi">\(\mathcal K(\frac12)=\sqrt{2\pi}\)</span>; consequently <span class="mi">\(J_\circ(q+1,q)=\frac12\sqrt{\pi/q}\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-phase-forcing-r.html" data-label="prop:app-phase-forcing-r">Proposition SI.8</a>.</div><div class="p">The idea is to rescale time by the slowest rate <span class="mi">\(N^{-q}\)</span>. The rescaled forcing is a Riemann sum, and <a class="ref" href="r.lem.app-phase-shift.html" data-label="lem:app-phase-shift">Lemma SI.19</a> supplies a majorant that does not depend on <span class="mi">\(N\)</span>.</div>
+<div class="p">For (i), <a class="ref" href="r.lem.app-phase-shift.html" data-label="lem:app-phase-shift">Lemma SI.19</a> gives <span class="mi">\(\sqrt{f_{N,q}(u)}\le2^rCu^{-r}e^{-u/(2N^q)}\)</span>, and</div>
+<div class="md">\[
+\int_0^\infty u^{-r}e^{-u/(2N^q)}\,\dif u=(2N^q)^{1-r}\,\Gamma(1-r) .
+\]</div>
+<div class="p">The product of the constants is <span class="mi">\(2\Gamma(1-r)CN^{q(1-r)}\)</span>.</div>
+<div class="p">For (ii), put <span class="mi">\(V\defeq(N/4)^q\)</span>. The hypothesis gives <span class="mi">\(N&gt;4\)</span> and <span class="mi">\(V^{1-r}\ge2\)</span>. The lower envelope of <a class="ref" href="s.SI.html#L-eqn:app-phase-fNq" data-label="eqn:app-phase-fNq">(SI.23)</a> on <span class="mi">\([0,V]\)</span> gives</div>
+<div class="md">\[
+J_N(p,q)\ge\sqrt A\int_0^V(1+u)^{-r}\,\dif u\ge\frac{\sqrt A}{1-r}\big(V^{1-r}-1\big)\ge\frac{\sqrt A}{2(1-r)}\,V^{1-r} ,
+\]</div>
+<div class="p">and <span class="mi">\(V^{1-r}=4^{-q(1-r)}N^{q(1-r)}\)</span>.</div>
+<div class="p">For (iii), substitute <span class="mi">\(u=N^qz\)</span>. Since <span class="mi">\(N^q\cdot N^{-(p-1)/2}=N^{q(1-r)}\)</span>,</div>
+<div class="md">\[
+\frac{J_N(p,q)}{N^{q(1-r)}}=\int_0^\infty\sqrt{\Phi_N(z)/2}\,\dif z,\qquad
+\Phi_N(z)\defeq2N^{p-1}f_{N,q}(N^qz)=\frac1N\sum_{i=1}^N\varphi_z(i/N),
+\]</div>
+<div class="p">where <span class="mi">\(\varphi_z(t)\defeq t^{-p}e^{-2zt^{-q}}\)</span> for <span class="mi">\(0&lt;t\le1\)</span> and <span class="mi">\(\varphi_z(0)\defeq0\)</span>. For fixed <span class="mi">\(z&gt;0\)</span> the function <span class="mi">\(\varphi_z\)</span> is continuous on <span class="mi">\([0,1]\)</span>, so the right Riemann sums converge:</div>
+<div class="md">\[
+\Phi_N(z)\longrightarrow\Phi(z)\defeq\int_0^1\varphi_z(t)\,\dif t .
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-phase-shift.html" data-label="lem:app-phase-shift">Lemma SI.19</a> at <span class="mi">\(u=N^qz\)</span>, with <span class="mi">\(2qr=p-1\)</span>, gives the majorant</div>
+<div class="md">\[
+\frac{\Phi_N(z)}2\le N^{p-1}e^{-z}C^2\,2^{2r}(N^qz)^{-2r}=4^rC^2z^{-2r}e^{-z} .
+\]</div>
+<div class="p">Its square root <span class="mi">\(2^rCz^{-r}e^{-z/2}\)</span> does not depend on <span class="mi">\(N\)</span> and has integral <span class="mi">\(2\Gamma(1-r)C\)</span> over <span class="mi">\((0,\infty)\)</span>, finite because <span class="mi">\(r&lt;1\)</span>. Hence the integrals converge,</div>
+<div class="md">\[
+\frac{J_N(p,q)}{N^{q(1-r)}}\longrightarrow\int_0^\infty\sqrt{\Phi(z)/2}\,\dif z\le2\Gamma(1-r)\,C .
+\]</div>
+<div class="p">To evaluate the limit, substitute <span class="mi">\(t=w^{-1/q}\)</span> with <span class="mi">\(w\in[1,\infty)\)</span>. Then <span class="mi">\(\dif t=q^{-1}w^{-1/q-1}\dif w\)</span>, <span class="mi">\(t^{-p}=w^{p/q}\)</span> and <span class="mi">\((p-1)/q=2r\)</span>, so</div>
+<div class="md">\[
+\Phi(z)=\frac1q\int_1^\infty w^{2r-1}e^{-2zw}\,\dif w=\frac{(2z)^{-2r}}q\,\Gamma(2r,2z) .
+\]</div>
+<div class="p">The substitution <span class="mi">\(y=2z\)</span> then gives</div>
+<div class="md">\[
+\int_0^\infty\sqrt{\Phi(z)/2}\,\dif z=(2q)^{-1/2}\int_0^\infty(2z)^{-r}\Gamma(2r,2z)^{1/2}\,\dif z=(8q)^{-1/2}\,\mathcal K(r)=J_\circ(p,q) ,
+\]</div>
+<div class="p">which is positive because the integrand is.</div>
+<div class="p">For (iv), <span class="mi">\(\Gamma(1,y)=e^{-y}\)</span>, so</div>
+<div class="md">\[
+\mathcal K(\tfrac12)=\int_0^\infty y^{-1/2}e^{-y/2}\,\dif y=\sqrt2\,\Gamma(\tfrac12)=\sqrt{2\pi} .
+\]</div>
+<div class="p">If <span class="mi">\(p=q+1\)</span>, then <span class="mi">\(r=\frac12\)</span> and <span class="mi">\(J_\circ(p,q)=\sqrt{2\pi}/\sqrt{8q}=\frac12\sqrt{\pi/q}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-shift.html" data-label="lem:app-phase-shift">Lemma SI.19</a> <span class=muted>Shift bound</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-accfirst.html" data-label="thm:app-phase-accfirst">Theorem SI.12</a> <span class=muted>Accuracy-first ratio</span></li><li><a class="ref" href="r.thm.app-phase-frozen.html" data-label="thm:app-phase-frozen">Theorem SI.13</a> <span class=muted>Frozen regime</span></li><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_forcing_r_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/AccuracyFirst.lean#L325">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_forcing_r_i {p q : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hr : rq p q &lt; 1) :
+    ∀ N : ℕ, 1 ≤ N →
+      JN N p q ≤ 2 * Real.Gamma (1 - rq p q) * Cpq p q * (N : ℝ) ^ (q * (1 - rq p q)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_forcing_r_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/AccuracyFirst.lean#L364">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_forcing_r_ii {p q : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hr : rq p q &lt; 1) :
+    ∀ N : ℕ, 2 ≤ ((N : ℝ) / 4) ^ (q * (1 - rq p q)) →
+      Real.sqrt (Aconst p) / (2 * (1 - rq p q)) * (4 : ℝ) ^ (-(q * (1 - rq p q))) *
+          (N : ℝ) ^ (q * (1 - rq p q)) ≤ JN N p q := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_forcing_r_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/AccuracyFirst.lean#L801">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_forcing_r_iii {p q : ℝ} (hp : 1 &lt; p) (hq : 0 &lt; q) (hr : rq p q &lt; 1) :
+    Tendsto (fun N : ℕ =&gt; JN N p q / (N : ℝ) ^ (q * (1 - rq p q))) atTop
+        (𝓝 (phaseJcirc p q)) ∧
+      0 &lt; phaseJcirc p q ∧ phaseJcirc p q ≤ 2 * Real.Gamma (1 - rq p q) * Cpq p q := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_forcing_r_iv_K</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/AccuracyFirst.lean#L839">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_forcing_r_iv_K : phaseKr (1 / 2) = Real.sqrt (2 * Real.pi) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_forcing_r_iv_J</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/AccuracyFirst.lean#L868">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_forcing_r_iv_J {q : ℝ} (hq : 0 &lt; q) :
+    phaseJcirc (q + 1) q = 1 / 2 * Real.sqrt (Real.pi / q) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

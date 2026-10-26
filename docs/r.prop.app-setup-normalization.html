@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SA.2 (Normalization)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SA.2 (Normalization)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-setup-normalization"><div class="thm-head"><a class="thm-name" href="r.prop.app-setup-normalization.html" data-label="prop:app-setup-normalization">Proposition SA.2</a> <span class="thm-title">(Normalization)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">If <span class="mi">\(\Dt=\Delta\)</span> is deterministic with <span class="mi">\(\cR(t)&gt;0\)</span>, then <span class="mi">\(\norm{\Ahat}_\F=1\)</span>, the normalized residuals are centered with unit variance, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-normalized-moments"></span>\begin{equation}\tag{SA.11}
+\EE\,d_a=0,\qquad \EE\,d_a^2=1,\qquad
+\EE\,\Gt=\Sigmaout^{1/2}\Ahat\Sigmain^{1/2}=\frac{\Sigmaout\Delta\Sigmain}{\sqrt{2\cR(t)}} .
+\end{equation}</div>
+<div class="p">For every <span class="mi">\(c&gt;0\)</span>, replacing <span class="mi">\(\Delta\)</span> by <span class="mi">\(c\Delta\)</span> with the same batch multiplies <span class="mi">\(\cR(t)\)</span> by <span class="mi">\(c^2\)</span> and leaves <span class="mi">\(\Ahat\)</span>, <span class="mi">\(d_a\)</span> and <span class="mi">\(\Gt\)</span> unchanged.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For the state <span class="mi">\(\Dt\)</span> at step <span class="mi">\(t\)</span> and the fresh batch of step <span class="mi">\(t\)</span>, on the event <span class="mi">\(\{\cR(t)&gt;0\}\)</span> the identities <a class="ref" href="r.prop.app-setup-normalization.html#L-eqn:app-setup-normalized-moments" data-label="eqn:app-setup-normalized-moments">(SA.11)</a> hold with <span class="mi">\(\EE_t\)</span> in place of <span class="mi">\(\EE\)</span> and <span class="mi">\(\Dt\)</span> in place of <span class="mi">\(\Delta\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) is <a class="ref" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a>(i),(ii) applied to <span class="mi">\(\Delta/\norm{\Delta}_\Sigma\)</span>. Indeed <span class="mi">\(\norm{\Delta}_\Sigma=\sqrt{2\cR(t)}\)</span> by <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-risk-trace" data-label="eqn:app-setup-risk-trace">(SA.4)</a>, so <span class="mi">\(d_a\)</span> is the residual and <span class="mi">\(\Gt\)</span> the gradient of the state <span class="mi">\(\Delta/\norm\Delta_\Sigma\)</span>, whose <span class="mi">\(\Sigma\)</span>-norm is <span class="mi">\(1\)</span>; the first identity of <a class="ref" href="r.prop.app-setup-normalization.html#L-eqn:app-setup-normalized-moments" data-label="eqn:app-setup-normalized-moments">(SA.11)</a> is the centering, the second is <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-risk-trace" data-label="eqn:app-setup-risk-trace">(SA.4)</a>, and the third is <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-gradient-matrix" data-label="eqn:app-setup-gradient-matrix">(SA.5)</a> together with <span class="mi">\(\Sigmaout\Delta\Sigmain=\Sigmaout^{1/2}\At\Sigmain^{1/2}\)</span>. The identity <span class="mi">\(\norm{\Ahat}_\F=1\)</span> is <a class="ref" href="s.SA.html#L-eqn:app-setup-whitened" data-label="eqn:app-setup-whitened">(SA.9)</a>. Scaling <span class="mi">\(\Delta\)</span> by <span class="mi">\(c\)</span> scales <span class="mi">\(\At\)</span> and every <span class="mi">\(d_a^\circ\)</span> by <span class="mi">\(c\)</span> and <span class="mi">\(\cR(t)\)</span> by <span class="mi">\(c^2\)</span>, so the three quotients are unchanged.</div>
+<div class="p">Part (ii) follows from (i) because the batch of step <span class="mi">\(t\)</span> is independent of the past.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a> <span class=muted>Residual and gradient moments</span></li><li><a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a> <span class=muted>Data-target normalization</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-drift-onestep.html" data-label="prop:app-drift-onestep">Proposition SC.2</a> <span class=muted>One-step risk drift in the frozen state</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.prop_app_setup_normalization_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Model.lean#L1027">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_normalization_i {m n : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω)
+    [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    (hν : IsFeatureLaw C ν) {B : ℕ} (hB : 0 &lt; B) (Δ : Mat m n) (hR : 0 &lt; riskSigma C Δ)
+    (x : Fin B → Ω → Vec m × Vec n) (hx : IIDBatch P ν x) :
+    fro (Ahat C Δ) = 1 ∧
+    (∀ a, ∫ ω, dNorm C Δ (x a ω) ∂P = 0) ∧
+    (∀ a, ∫ ω, (dNorm C Δ (x a ω)) ^ 2 ∂P = 1) ∧
+    mean P (fun ω =&gt; Gnorm C Δ (fun a =&gt; x a ω)) = rOut C * Ahat C Δ * rIn C ∧
+    mean P (fun ω =&gt; Gnorm C Δ (fun a =&gt; x a ω)) =
+      (Real.sqrt (2 * riskSigma C Δ))⁻¹ • (C.Sout * Δ * C.Sin) ∧
+    (∀ c : ℝ, 0 &lt; c →
+      riskSigma C (c • Δ) = c ^ 2 * riskSigma C Δ ∧
+      Ahat C (c • Δ) = Ahat C Δ ∧
+      (∀ z : Vec m × Vec n, dNorm C (c • Δ) z = dNorm C Δ z) ∧
+      (∀ b : Batch m n B, Gnorm C (c • Δ) b = Gnorm C Δ b)) := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_normalization_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Model.lean#L1265">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_normalization_ii {m n : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω}
+    [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] (hν : IsFeatureLaw C ν) {B : ℕ} (hB : 0 &lt; B) (M : ModelLaw P ν B)
+    (Wstar : Mat m n) (W : ℕ → Ω → Mat m n)
+    (hW : ∀ t, Measurable[M.ℱ t] (W t))
+    (t : ℕ) (a : Fin B) :
+    (∀ᵐ ω ∂P, 0 &lt; riskSigma C (W t ω - Wstar) →
+      condExp (M.ℱ t) P (fun ω =&gt; dNorm C (W t ω - Wstar) (M.x t ω a)) ω = 0) ∧
+    (∀ᵐ ω ∂P, 0 &lt; riskSigma C (W t ω - Wstar) →
+      condExp (M.ℱ t) P (fun ω =&gt; (dNorm C (W t ω - Wstar) (M.x t ω a)) ^ 2) ω = 1) ∧
+    (∀ (i : Fin m) (k : Fin n), ∀ᵐ ω ∂P, 0 &lt; riskSigma C (W t ω - Wstar) →
+      condExp (M.ℱ t) P (fun ω =&gt; Gnorm C (W t ω - Wstar) (M.x t ω) i k) ω =
+        (Real.sqrt (2 * riskSigma C (W t ω - Wstar)))⁻¹ *
+          (C.Sout * (W t ω - Wstar) * C.Sin) i k) ∧
+    (∀ (i : Fin m) (k : Fin n), ∀ᵐ ω ∂P, 0 &lt; riskSigma C (W t ω - Wstar) →
+      condExp (M.ℱ t) P (fun ω =&gt; Gnorm C (W t ω - Wstar) (M.x t ω) i k) ω =
+        (rOut C * Ahat C (W t ω - Wstar) * rIn C) i k) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

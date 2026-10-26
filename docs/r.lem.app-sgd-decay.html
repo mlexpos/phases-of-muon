@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.4 (Decay of the characteristic function)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.4 (Decay of the characteristic function)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-decay"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-decay.html" data-label="lem:app-sgd-decay">Lemma SJ.4</a> <span class="thm-title">(Decay of the characteristic function)</span></div><div class="thm-body"><div class="p">If <span class="mi">\(\norm{\bar\Delta}_\F\ge F/2\)</span>, then <span class="mi">\(\phi_Y(t)\defeq\EE e^{\mathrm i tY}\)</span> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-decay"></span>\begin{equation}\tag{SJ.12}
+\abs{\phi_Y(t)}\le\psi\big(\abs t/8\big)\le\min\big\{1,\ C_{\rm ch}\abs t^{-1/2}\big\}\qquad(t\ne0).
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The coordinate is conditionally Gaussian in <span class="mi">\(z'\)</span>. Given <span class="mi">\(\xi,\zeta,w'\)</span>, the terms of <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> containing <span class="mi">\(z'\)</span> are <span class="mi">\(\xi\zeta\,z'^\T(\bar\Delta w'+\zeta q)\)</span>, a centered Gaussian of variance <span class="mi">\(\xi^2\zeta^2\norm{\bar\Delta w'+\zeta q}^2\)</span>. Integrating <span class="mi">\(z'\)</span> first and taking absolute values gives</div>
+<div class="md">\[
+\abs{\EE e^{\mathrm itX}}\le\EE\exp\Big(-\frac{t^2\xi^2\zeta^2}2\,\norm{\bar\Delta w'+\zeta q}^2\Big).
+\]</div>
+<div class="p">The integral over <span class="mi">\(w'\)</span> is bounded by the Frobenius norm of <span class="mi">\(\bar\Delta\)</span>. For <span class="mi">\(\lambda\ge0\)</span> and a fixed vector <span class="mi">\(h\)</span>, write <span class="mi">\(\bar\Delta=\sum_l\sigma_l\,a_l\tensor b_l\)</span> in singular value form. The coordinates <span class="mi">\(b_l^\T w'\)</span> are independent standard Gaussian, and completing the square gives, for one of them,</div>
+<div class="md">\[
+\EE\,e^{-\lambda(\sigma_lg+c)^2/2}=(1+\lambda\sigma_l^2)^{-1/2}\,e^{-\lambda c^2/(2(1+\lambda\sigma_l^2))}\le(1+\lambda\sigma_l^2)^{-1/2}.
+\]</div>
+<div class="p">Directions orthogonal to the <span class="mi">\(a_l\)</span> contribute a factor at most <span class="mi">\(1\)</span>, so</div>
+<div class="md">\[
+\EE_{w'}e^{-\lambda\norm{\bar\Delta w'+h}^2/2}\le\prod_l(1+\lambda\sigma_l^2)^{-1/2}\le\big(1+\lambda\norm{\bar\Delta}_\F^2\big)^{-1/2}.
+\]</div>
+<div class="p">With <span class="mi">\(\lambda=t^2\xi^2\zeta^2\)</span> this gives</div>
+<div class="md">\[
+\abs{\EE e^{\mathrm itX}}\le\psi\big(\abs t\,\norm{\bar\Delta}_\F\big).
+\]</div>
+<div class="p">Centering multiplies the characteristic function by a phase, so <span class="mi">\(\abs{\phi_Y(t)}=\abs{\EE e^{\mathrm itX/s}}\le\psi(\abs t\norm{\bar\Delta}_\F/s)\)</span>. By <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a>, <span class="mi">\(\norm{\bar\Delta}_\F/s\ge(F/2)/(\sqrt8F)&gt;1/8\)</span>, and <span class="mi">\(\psi\)</span> is nonincreasing, which gives the first inequality. The second follows from <span class="mi">\((1+x^2)^{-1/2}\le x^{-1/2}\)</span>:</div>
+<div class="md">\[
+\psi(x)\le x^{-1/2}\,\EE\abs\xi^{-1/2}\,\EE\abs\zeta^{-1/2},
+\]</div>
+<div class="p">evaluated at <span class="mi">\(x=\abs t/8\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> <span class=muted>Moments of one coordinate</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a> <span class=muted>Sign comparison</span></li><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_decay</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L2493">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_decay {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin)
+    (hbar : frobNorm Δ / 2 ≤ frobNorm (sgdDeletedBlock Δ i j)) :
+    ∀ t : ℝ, t ≠ 0 →
+      ‖sgdCharFunY Δ i j t‖ ≤ sgdPsi (|t| / 8) ∧
+        sgdPsi (|t| / 8) ≤ min 1 (sgdCch * |t| ^ (-(1 / 2 : ℝ))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

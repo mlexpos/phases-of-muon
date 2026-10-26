@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Proposition SJ.4 (Isotropic SignSGD recursion)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Proposition SJ.4 (Isotropic SignSGD recursion)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-signsgd.html">SignSGD</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Proposition J.2</strong></span></div><div class="pre"><div class="p">In the next proposition constants <span class="mi">\(K\ge1\)</span>, <span class="mi">\(0&lt;f_-\le f_+\)</span> and <span class="mi">\(C_\Delta&gt;0\)</span> are fixed, and a state <span class="mi">\(\Delta\)</span> with batch size <span class="mi">\(B\)</span> is in the isotropic regime of <a class="ref" href="r.def.app-sgd-iso-regime.html" data-label="def:app-sgd-iso-regime">Definition SJ.2</a> if, with <span class="mi">\(k\defeq\min\{\Nout,\Nin,B\}\)</span>,</div>
+<div class="md">\[
+\max\{\Nout,\Nin,B\}\le Kk,\qquad f_-\le\norm\Delta_\F\le f_+,\qquad \max_{i,j}\abs{\Delta_{ij}}\le\frac{C_\Delta}k .
+\]</div>
+<div class="p">The threshold is <span class="mi">\(k_0=\max\{4,8KC_\Delta^2/f_-^2\}\)</span>, <span class="mi">\(C_2\)</span> is the universal constant of the sign comparison <a class="ref" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a>, and <span class="mi">\(C_r\)</span> depends only on <span class="mi">\(K,f_-,C_\Delta\)</span>.</div></div><div class="thm thm-proposition" id="L-prop:app-sgd-iso"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-iso.html" data-label="prop:app-sgd-iso">Proposition SJ.4</a> <span class="thm-title">(Isotropic <span class="sc">SignSGD</span> recursion)</span></div><div class="thm-body"><div class="p"><span class="anchor" id="L-prop:signsgd-recursion-B"></span> Let <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(\Sigmaout=\Idout\)</span>, and let <span class="mi">\(\Dt\)</span> be the state at step <span class="mi">\(t\)</span>. Suppose that, almost surely, <span class="mi">\(\Dt\)</span> with the batch size <span class="mi">\(B\)</span> is in the isotropic regime of <a class="ref" href="r.def.app-sgd-iso-regime.html" data-label="def:app-sgd-iso-regime">Definition SJ.2</a> and <span class="mi">\(k\ge k_0\)</span>. Then the <span class="sc">SignSGD</span> step satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-risk-recursion-B"></span>\begin{equation}\tag{SJ.18}
+\EE_t\big[\cR(t+1)\big]=\cR(t)-\lr\,\mathcal N_B\sqrt{\frac{4\cR(t)}\pi}+\frac{\lr^2}2\,\Nin\Nout+E_t,\qquad
+\abs{E_t}\le\lr\,K\sqrt{2\cR(t)}\,\Big(C_2+\frac{C_r}{\sqrt k}\Big),
+\end{equation}</div>
+<div class="p">with <span class="mi">\(C_2\)</span> universal and <span class="mi">\(C_r\)</span> from <a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a>. The error is at most <span class="mi">\(\pi K(C_2+C_r)/(2\sqrt{2/\pi}\sqrt k)\)</span> times the drift term.</div></div></div><section class="needs"><h2 class="panel-h">Definitions and assumptions used</h2><details class="need"><summary>Definition SJ.2 (Isotropic regime)</summary><div class="thm thm-definition" id="L-def:app-sgd-iso-regime"><div class="thm-head"><a class="thm-name" href="r.def.app-sgd-iso-regime.html" data-label="def:app-sgd-iso-regime">Definition SJ.2</a> <span class="thm-title">(Isotropic regime)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(K\ge1\)</span>, <span class="mi">\(0&lt;f_-\le f_+\)</span> and <span class="mi">\(C_\Delta&gt;0\)</span>. A deterministic state <span class="mi">\(\Delta\)</span> with batch size <span class="mi">\(B\)</span> is in the isotropic regime if, with <span class="mi">\(k\defeq\min\{\Nout,\Nin,B\}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-regime"></span>\begin{equation}\tag{SJ.15}
+\max\{\Nout,\Nin,B\}\le Kk,\qquad f_-\le\norm\Delta_\F\le f_+,\qquad \max_{i,j}\abs{\Delta_{ij}}\le\frac{C_\Delta}k .
+\end{equation}</div></div></div></details></section><section class="note"><div class="p">This is the <span class="sc">SignSGD</span> case of the scalar recursion <a class="ref" href="paper.pdf#equation.3.8" data-label="eqn:comparison-general-form">(8)</a>, with drift <span class="mi">\(\mathfrak d=\mathcal N_B/\sqrt\pi\)</span> and volatility <span class="mi">\(\mathfrak v=\Nin\Nout\)</span> (<span class="mi">\(N^2\)</span> in the square case). It holds one step at a time, from any state in the isotropic regime, whose entries are all of order <span class="mi">\(1/k\)</span>, with no hypothesis on its rank or operator norm. The volatility is exact, and the drift carries a relative error of order <span class="mi">\(k^{-1/2}\)</span>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">The volatility is exact. With identity covariances <span class="mi">\(\norm S_\Sigma=\norm S_\F\)</span>, and every entry of <span class="mi">\(G^\circ\)</span> is a polynomial in the Gaussian batch that is not identically zero, hence nonzero almost surely. So <span class="mi">\(\norm S_\F^2=\Nin\Nout\)</span> (<a class="ref" href="r.prop.app-sgd-iso-volatility.html" data-label="prop:app-sgd-iso-volatility">Proposition SJ.2</a>), and the risk identity reads <span class="mi">\(\EE_t[\cR(t+1)]=\cR(t)-\lr\,\mathsf D+\frac{\lr^2}2\Nin\Nout\)</span> with <span class="mi">\(\mathsf D=\langle\Dt,\EE_tS\rangle_\F\)</span>.</div>
+<div class="p">Each expected sign is compared with that of a shifted Gaussian. With <span class="mi">\(F=\norm\Delta_\F\)</span>, the entry <span class="mi">\(BG^\circ_{ij}\)</span> is a sum of <span class="mi">\(B\)</span> independent copies of <span class="mi">\(X=(z^\T\Delta w)z_iw_j\)</span>, of mean <span class="mi">\(\Delta_{ij}\)</span> and variance <span class="mi">\(s^2=F^2+O(1/k)\)</span> (<a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a>). Writing the sign as a limit of <span class="mi">\(\frac2\pi\int_0^\infty e^{-\varepsilon u}\sin(uv)\,\dif u/u\)</span> compares expected signs through the characteristic function <span class="mi">\(\phi_Y\)</span> of the standardized coordinate <span class="mi">\(Y\)</span>, uniformly in the shift <span class="mi">\(x=\sqrt B\Delta_{ij}/s\)</span> and with universal <span class="mi">\(C_1,C_2\)</span> (<a class="ref" href="r.lem.app-sgd-comparison.html" data-label="lem:app-sgd-comparison">Lemma SJ.5</a>):</div>
+<div class="md">\[
+\Big|\EE\sign\Big(\frac1{\sqrt B}\sum_{a=1}^BY_a+x\Big)-\EE\sign(g+x)\Big|\le\frac{C_1\abs{\EE Y^3}}{\sqrt B}+\frac{C_2}B .
+\]</div>
+<div class="p">This needs <span class="mi">\(\abs{\phi_Y(t)}\)</span> to decay like <span class="mi">\(\abs t^{-1/2}\)</span>, and that is where small entries enter. Given the other coordinates, <span class="mi">\(X\)</span> is Gaussian in the coordinates of <span class="mi">\(z\)</span> other than <span class="mi">\(z_i\)</span>, with a variance controlled by the block <span class="mi">\(\bar\Delta\)</span> of <span class="mi">\(\Delta\)</span> without row <span class="mi">\(i\)</span> and column <span class="mi">\(j\)</span>; every row and column of <span class="mi">\(\Delta\)</span> has squared norm at most <span class="mi">\(KC_\Delta^2/k\)</span>, so <span class="mi">\(\norm{\bar\Delta}_\F^2\ge\frac34F^2\)</span> for <span class="mi">\(k\ge k_0\)</span> (<a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a>), more than the <span class="mi">\(\norm{\bar\Delta}_\F\ge F/2\)</span> that <a class="ref" href="r.lem.app-sgd-decay.html" data-label="lem:app-sgd-decay">Lemma SJ.4</a> needs. The third cumulant <span class="mi">\(\EE Y^3\)</span> is <span class="mi">\(O(1/k)\)</span> as well. With <span class="mi">\(\EE\sign(g+x)=\sqrt{2/\pi}\,x+O(\abs x^3)\)</span> and <span class="mi">\(\abs{\sqrt B-\mathcal N_B}\le4/\sqrt B\)</span> (<a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a>), every entry satisfies (<a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a>)</div>
+<div class="md">\[
+\Big|\EE\sign(G^\circ_{ij})-\sqrt{\frac2\pi}\,\mathcal N_B\frac{\Delta_{ij}}F\Big|\le\frac{C_2}B+\frac{C_r}{k^{3/2}} .
+\]</div>
+<div class="p">The sum over entries costs the <span class="mi">\(\ell^1\)</span> norm of the state, which is why the error is relative of order <span class="mi">\(k^{-1/2}\)</span>. Since <span class="mi">\(\sum_{ij}\Delta_{ij}^2/F=F\)</span>, the leading terms add up to <span class="mi">\(\mathsf D_0=\sqrt{2/\pi}\,\mathcal N_BF=\mathcal N_B\sqrt{4\cR/\pi}\ge(2/\pi)^{3/2}\sqrt kF\)</span>, while <span class="mi">\(\sum_{ij}\abs{\Delta_{ij}}\le\sqrt{\Nout\Nin}\,F\le KkF\)</span> bounds the summed errors by <span class="mi">\(KF(C_2+C_r/\sqrt k)\)</span>, which is of order one.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.prop.app-sgd-iso.html" data-label="prop:app-sgd-iso">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>5 levels, 12 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_iso_filtered</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/Isotropic.lean#L1559">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_iso_filtered :
+    ∃ C₂ : ℝ, 0 ≤ C₂ ∧ ∀ K fMin Cdelta : ℝ, 1 ≤ K → 0 &lt; fMin → 0 &lt; Cdelta →
+      ∃ Cr : ℝ, 0 ≤ Cr ∧ ∀ P : IsoParams, P.K = K → P.fMin = fMin → P.Cdelta = Cdelta →
+        ∀ (Nout Nin B : ℕ) (η : ℝ), 0 ≤ η → isoK0 P ≤ (kOf Nout Nin B : ℝ) →
+          ∀ (Ω : Type) [mΩ : MeasurableSpace Ω] (Pr : Measure Ω) [IsProbabilityMeasure Pr]
+            (C : Covariances Nout Nin) (hSout : C.Sout = 1) (hSin : C.Sin = 1)
+            (ν : Measure (Vec Nout × Vec Nin)) (hν : Muon.Setup.assum_data_target C ν)
+            (x : Ω → Muon.Setup.Batch Nout Nin B) (hxm : Measurable x)
+            (hid : Muon.Setup.IIDBatch Pr ν (fun a ω =&gt; x ω a))
+            (G : MeasurableSpace Ω) (hG : G ≤ mΩ)
+            (Dt : Ω → Matrix (Fin Nout) (Fin Nin) ℝ)
+            (hDt : ∀ i j, Measurable[G] fun ω =&gt; Dt ω i j)
+            (hind : ProbabilityTheory.Indep G (MeasurableSpace.comap x inferInstance) Pr)
+            (hreg : ∀ᵐ ω ∂Pr, def_app_sgd_iso_regime P Nout Nin B (Dt ω)),
+            (∀ᵐ ω ∂Pr,
+              |condExp G Pr (fun w =&gt; Muon.Setup.riskSigma C
+                  (def_app_sgd_update η (Dt w) (toSignBatch (x w)))) ω
+                - (Muon.Setup.riskSigma C (Dt ω)
+                    - η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C (Dt ω) / Real.pi)
+                    + η ^ 2 / 2 * ((Nin : ℝ) * (Nout : ℝ)))|
+              ≤ η * P.K * Real.sqrt (2 * Muon.Setup.riskSigma C (Dt ω))
+                  * (C₂ + Cr / Real.sqrt (kOf Nout Nin B : ℝ)))
+            ∧ (∀ᵐ ω ∂Pr,
+              |condExp G Pr (fun w =&gt; Muon.Setup.riskSigma C
+                  (def_app_sgd_update η (Dt w) (toSignBatch (x w)))) ω
+                - (Muon.Setup.riskSigma C (Dt ω)
+                    - η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C (Dt ω) / Real.pi)
+                    + η ^ 2 / 2 * ((Nin : ℝ) * (Nout : ℝ)))|
+              ≤ Real.pi * P.K * (C₂ + Cr)
+                  / (2 * Real.sqrt (2 / Real.pi) * Real.sqrt (kOf Nout Nin B : ℝ))
+                  * (η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C (Dt ω) / Real.pi))) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_iso_frozen</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/Isotropic.lean#L1302">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_iso_frozen :
+    ∃ C₂ : ℝ, 0 ≤ C₂ ∧ ∀ K fMin Cdelta : ℝ, 1 ≤ K → 0 &lt; fMin → 0 &lt; Cdelta →
+      ∃ Cr : ℝ, 0 ≤ Cr ∧ ∀ P : IsoParams, P.K = K → P.fMin = fMin → P.Cdelta = Cdelta →
+        ∀ (Nout Nin B : ℕ) (η : ℝ), 0 ≤ η → ∀ (Δ : Matrix (Fin Nout) (Fin Nin) ℝ),
+          def_app_sgd_iso_regime P Nout Nin B Δ →
+          isoK0 P ≤ (kOf Nout Nin B : ℝ) →
+          ∀ (Ω : Type) [MeasurableSpace Ω] (Pr : Measure Ω) [IsProbabilityMeasure Pr]
+            (C : Covariances Nout Nin) (hSout : C.Sout = 1) (hSin : C.Sin = 1)
+            (ν : Measure (Vec Nout × Vec Nin)) (hν : Muon.Setup.assum_data_target C ν)
+            (β : Ω → Batch Nout Nin B)
+            (hβ : Muon.Setup.IIDBatch Pr ν (fun a ω =&gt; ((β ω).xout a, (β ω).xin a))),
+            |∫ ω, Muon.Setup.riskSigma C (def_app_sgd_update η Δ (β ω)) ∂Pr
+                - (Muon.Setup.riskSigma C Δ
+                    - η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C Δ / Real.pi)
+                    + η ^ 2 / 2 * ((Nin : ℝ) * (Nout : ℝ)))|
+              ≤ η * P.K * Real.sqrt (2 * Muon.Setup.riskSigma C Δ)
+                  * (C₂ + Cr / Real.sqrt (kOf Nout Nin B : ℝ))
+            ∧ |∫ ω, Muon.Setup.riskSigma C (def_app_sgd_update η Δ (β ω)) ∂Pr
+                - (Muon.Setup.riskSigma C Δ
+                    - η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C Δ / Real.pi)
+                    + η ^ 2 / 2 * ((Nin : ℝ) * (Nout : ℝ)))|
+              ≤ Real.pi * P.K * (C₂ + Cr)
+                  / (2 * Real.sqrt (2 / Real.pi) * Real.sqrt (kOf Nout Nin B : ℝ))
+                  * (η * batchConst B * Real.sqrt (4 * Muon.Setup.riskSigma C Δ / Real.pi)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SD.8 (Joint forcing measure)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SD.8 (Joint forcing measure)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-vol-joint-forcing"><div class="thm-head"><a class="thm-name" href="r.thm.app-vol-joint-forcing.html" data-label="thm:app-vol-joint-forcing">Theorem SD.8</a> <span class="thm-title">(Joint forcing measure)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">At every finite dimension, <span class="mi">\(\norm{\overline{\mathfrak C}_0}_{\mathrm{TV}}\le\gamma_\star\)</span> and <span class="mi">\(\norm{\overline{\mathfrak C}_\ell}_{\mathrm{TV}}\le\mathsf K_\star\bmom^\ell\)</span> for <span class="mi">\(\ell\ge1\)</span>, and the same holds for <span class="mi">\(\mathfrak C_\ell\)</span> at every normalized state. The atoms of <span class="mi">\(\overline{\mathfrak C}_\ell\)</span> and of <span class="mi">\(\zeta_\ridge\)</span> with <span class="mi">\(\mu=0\)</span> or <span class="mi">\(\lambda=0\)</span> vanish.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, for every fixed <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md">\[
+\sup_{\ridge,\ridge'\in I}\ \sup_{\norm f_\infty,\norm g_\infty\le1}\Big|\int f\tensor g\,d\big(\mathfrak C_\ell-\overline{\mathfrak C}_\ell\big)\Big|\to0,\qquad
+\sup_{\ridge,\ridge'\in I}\norm{\mathfrak C_\ell-\overline{\mathfrak C}_\ell}_\BL\to0 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The forcing measure <span class="mi">\(\zeta_\ridge\)</span> is a nonnegative measure, unchanged under replication, of total mass at most <span class="mi">\(\gamma_\star+2\mathsf K_\star\bmom/(1-\bmom)\)</span>, and under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a></div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-forcing"></span>\begin{equation}\tag{SD.79}
+\sup_{\ridge\in I}\norm{\mathfrak C_{\mathrm{int}}(\ridge)-\zeta_\ridge}_\BL\to0,
+\end{equation}</div>
+<div class="p">together with the product-test form of (ii).</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">The finite-time measure</div>
+<div class="md">\[
+\mathfrak F_T(\ridge)\defeq\frac1{BT}\sum_{i,j}\EE\Big(\sum_{t'=1}^T({\mathsf S}^{\mathrm c}_{t'}(\ridge))_{ij}\Big)^2\,\delta_{(\mu_i,\lambda_j)}
+\]</div>
+<div class="p">is nonnegative, and <span class="mi">\(\norm{\mathfrak F_T(\ridge)-\mathfrak C_{\mathrm{int}}(\ridge)}_{\mathrm{TV}}\)</span> is at most <a class="ref" href="r.thm.app-vol-lag-reduction.html#L-eqn:app-vol-finite-time-error" data-label="eqn:app-vol-finite-time-error">(SD.41)</a>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), the coupling in the proof of <a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a>(ii) works entry by entry: with <span class="mi">\(\Delta Q\defeq\Qridge{\ridge'}(M_{t+\ell})-\Qridge{\ridge'}(M^*)\)</span>,</div>
+<div class="md">\[
+\norm{\mathfrak C_\ell}_{\mathrm{TV}}\le\frac1B\sum_{i,j}\EE\abs{({\mathsf S}^{\mathrm c}_t)_{ij}(\Delta Q)_{ij}}
+\le\frac1B\big(\EE\norm{{\mathsf S}^{\mathrm c}_t}_\F^2\big)^{1/2}\big(\EE\norm{\Delta Q}_\F^2\big)^{1/2}\le\mathsf K_\star\bmom^\ell ,
+\]</div>
+<div class="p">by the Cauchy–Schwarz inequality for the double sum and the bounds of that proof, and likewise <span class="mi">\(\norm{\mathfrak C_0}_{\mathrm{TV}}\le\gamma_\star\)</span>. The independent model satisfies the same bounds. At a fixed dimension the measures have finitely many atoms, each the limit along the replications of the corresponding atom of the independent model, by <a class="ref" href="r.thm.app-vol-lag-kernel.html#L-eqn:app-vol-lag-closure" data-label="eqn:app-vol-lag-closure">(SD.52)</a>; the total variation on a fixed finite set of atoms is continuous, so the bounds pass to <span class="mi">\(\overline{\mathfrak C}_\ell\)</span>. If <span class="mi">\(\mu=0\)</span>, the mark <span class="mi">\(P_0\)</span> enters the tree values through <span class="mi">\(B^{-1}\sum_{i:\mu_i=0}\mu_i^{p_V}=0\)</span>, so the atom vanishes, and likewise for <span class="mi">\(\lambda=0\)</span>.</div>
+<div class="p">For (ii), the product-test statement is the actual clause of <a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> for the diagonal tests <span class="mi">\(f(\Sigmaout)\)</span> and <span class="mi">\(g(\Sigmain)\)</span>. For the bounded-Lipschitz statement, let <span class="mi">\(\epsilon&gt;0\)</span>, take a grid <span class="mi">\(0=x_0&lt;\dots&lt;x_n=C_\Sigma\)</span> of mesh at most <span class="mi">\(\epsilon\)</span>, and the piecewise linear hat functions <span class="mi">\(a_r\ge0\)</span> with <span class="mi">\(a_r(x_s)=\mathbf 1_{r=s}\)</span>, which form a partition of unity. For <span class="mi">\(\phi\)</span> in the unit ball of the norm, the interpolant <span class="mi">\(\phi_\epsilon\defeq\sum_{r,s}\phi(x_r,x_s)\,a_r\tensor a_s\)</span> is at each point a convex combination of values of <span class="mi">\(\phi\)</span> at points within <span class="mi">\(\ell^1\)</span> distance <span class="mi">\(2\epsilon\)</span>, so <span class="mi">\(\norm{\phi-\phi_\epsilon}_\infty\le2\epsilon\)</span>, and it is a sum of <span class="mi">\((n+1)^2\)</span> product tests with coefficients bounded by one. Hence</div>
+<div class="md">\[
+\Big|\int\phi\,d(\mathfrak C_\ell-\overline{\mathfrak C}_\ell)\Big|\le(n+1)^2\sup_{f,g}\Big|\int f\tensor g\,d(\mathfrak C_\ell-\overline{\mathfrak C}_\ell)\Big|
++2\epsilon\big(\norm{\mathfrak C_\ell}_{\mathrm{TV}}+\norm{\overline{\mathfrak C}_\ell}_{\mathrm{TV}}\big),
+\]</div>
+<div class="p">and the limit superior is at most <span class="mi">\(4\max(\gamma_\star,\mathsf K_\star)\epsilon\)</span>, for every <span class="mi">\(\epsilon&gt;0\)</span>.</div>
+<div class="p">For (iii), positivity is <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(iii) with the positive semidefinite tests <span class="mi">\(P_\mu,P'_\lambda\)</span>; the mass bound sums the bounds of (i) over the lags at equal ridges; replication invariance is that of the response. For the product-test form of <a class="ref" href="r.thm.app-vol-joint-forcing.html#L-eqn:app-vol-forcing" data-label="eqn:app-vol-forcing">(SD.79)</a>, <span class="mi">\(\int f\tensor g\,d\mathfrak C_{\mathrm{int}}=\Gamma[f(\Sigmaout),g(\Sigmain)](\ridge,\ridge)\)</span> and the same holds for <span class="mi">\(\zeta_\ridge\)</span> with <span class="mi">\(\overline\Gamma\)</span>, so <a class="ref" href="r.lem.app-vol-lagsum.html" data-label="lem:app-vol-lagsum">Lemma SD.7</a> with <span class="mi">\(p=(\ridge,f,g)\)</span>, the product-test statement of (ii) and the envelopes of (i) give it. The bounded-Lipschitz form follows by the interpolation of (ii), with the total variations of <span class="mi">\(\mathfrak C_{\mathrm{int}}\)</span> and <span class="mi">\(\zeta_\ridge\)</span> bounded by the mass bound.</div>
+<div class="p">For (iv), the atom of <span class="mi">\(\mathfrak F_T(\ridge)\)</span> at <span class="mi">\((\mu,\lambda)\)</span> is the left side of <a class="ref" href="r.thm.app-vol-lag-reduction.html#L-eqn:app-vol-finite-time" data-label="eqn:app-vol-finite-time">(SD.40)</a> with <span class="mi">\(F=P_\mu\)</span>, <span class="mi">\(G=P'_\lambda\)</span>, <span class="mi">\(\ridge'=\ridge\)</span>, and the estimate in the proof of <a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a>(iii), summed over the atoms with the total variation bounds of (i) in place of the envelope, gives the bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class=muted>Lag reduction</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.lem.app-vol-lagsum.html" data-label="lem:app-vol-lagsum">Lemma SD.7</a> <span class=muted>Lag summation</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-vol-disintegration.html" data-label="prop:app-vol-disintegration">Proposition SD.3</a> <span class=muted>Mode coefficients</span></li><li><a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a> <span class=muted>Laws of the frozen chains</span></li><li><a class="ref" href="r.lem.app-dyn-block.html" data-label="lem:app-dyn-block">Lemma SE.26</a> <span class=muted>Block residual</span></li><li><a class="ref" href="r.thm.app-iso-volatility.html" data-label="thm:app-iso-volatility">Theorem SF.2</a> <span class=muted>Isotropic volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_i_bar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5363">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_i_bar (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi) :
+    (∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      finTV (measureClBar cert γstar CSig Fp S 0 ϱ ϱ') ≤ γstar) ∧
+    (∀ ℓ : ℕ, 1 ≤ ℓ → ∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      finTV (measureClBar cert γstar CSig Fp S ℓ ϱ ϱ') ≤
+        Muon.Dynamics.kStar CSig γstar ϱlo * Fp.β ^ ℓ) ∧
+    (∀ ℓ : ℕ, ∀ μ l : ℝ, (μ = 0 ∨ l = 0) → ∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      measureClBar cert γstar CSig Fp S ℓ ϱ ϱ' (μ, l) = 0) ∧
+    (∀ μ l : ℝ, (μ = 0 ∨ l = 0) → ∀ ϱ ∈ Set.Icc ϱlo ϱhi,
+      measureZeta cert γstar CSig Fp S ϱ (μ, l) = 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_i_actual</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5570">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_i_actual (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C) :
+    ∀ k : ℕ, ∀ t : ℤ, ∀ ℓ : ℕ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      (ℓ = 0 → finTV (measureCl (R.F k) (S k) (Sp k) ℓ t ϱ ϱ') ≤ R.γstar) ∧
+      (1 ≤ ℓ → finTV (measureCl (R.F k) (S k) (Sp k) ℓ t ϱ ϱ') ≤
+        Muon.Dynamics.kStar R.CSig R.γstar R.ϱlo * (R.F k).β ^ ℓ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5621">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_ii (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C) :
+    ∀ ℓ : ℕ, ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      (∀ f g : ℝ → ℝ, (∀ x, |f x| ≤ 1) → (∀ x, |g x| ≤ 1) →
+        |finInt (measureCl (R.F k) (S k) (Sp k) ℓ t ϱ ϱ' -
+            measureClBar cert R.γstar R.CSig (R.F k) (Sp k) ℓ ϱ ϱ')
+          (fun p =&gt; f p.1 * g p.2)| ≤ ε) ∧
+      (∀ φ ∈ Muon.Dynamics.blTest R.CSig,
+        |finInt (measureCl (R.F k) (S k) (Sp k) ℓ t ϱ ϱ' -
+            measureClBar cert R.γstar R.CSig (R.F k) (Sp k) ℓ ϱ ϱ') φ| ≤ ε) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_iii_nonneg</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5719">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_iii_nonneg (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi) :
+    (∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ μ l : ℝ, 0 ≤ measureZeta cert γstar CSig Fp S ϱ (μ, l)) ∧
+    (∀ ϱ ∈ Set.Icc ϱlo ϱhi,
+      finTV (measureZeta cert γstar CSig Fp S ϱ) ≤
+        γstar + 2 * Muon.Dynamics.kStar CSig γstar ϱlo * Fp.β / (1 - Fp.β)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_iii_replication</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5860">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_iii_replication (cert : Muon.External.GaussianOpNorm)
+    (γstar CSig : ℝ) {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (N : ℕ) (hN : 0 &lt; N) (hA : Muon.fro (replState Fp.C S N) = 1)
+    (SP' : SpectralData (replCov Fp.C N))
+    (hμ : SP'.μ = replVec N S.μ) (hlam : SP'.lam = replVec N S.lam)
+    (ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    measureZeta cert γstar CSig (def_app_vol_replication Fp S N hN hA) SP' ϱ =
+      measureZeta cert γstar CSig Fp S ϱ := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_iii_summable</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5910">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_iii_summable (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C) :
+    ∀ k : ℕ, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ μ ∈ Set.range (Sp k).μ, ∀ l ∈ Set.range (Sp k).lam,
+        Summable (fun ℓ : ℕ =&gt; |def_app_vol_lag (R.F k) (S k) (ℓ + 1) t (projOut (Sp k) μ)
+            (projIn (Sp k) l) ϱ ϱ' + def_app_vol_lag (R.F k) (S k) (ℓ + 1) t (projOut (Sp k) μ)
+            (projIn (Sp k) l) ϱ' ϱ|) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_iii_limit</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L5988">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_iii_limit (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C) :
+    ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      (∀ φ ∈ Muon.Dynamics.blTest R.CSig,
+        |finInt (measureInt (R.F k) (S k) (Sp k) t ϱ -
+            measureZeta cert R.γstar R.CSig (R.F k) (Sp k) ϱ) φ| ≤ ε) ∧
+      (∀ f g : ℝ → ℝ, (∀ x, |f x| ≤ 1) → (∀ x, |g x| ≤ 1) →
+        |finInt (measureInt (R.F k) (S k) (Sp k) t ϱ -
+            measureZeta cert R.γstar R.CSig (R.F k) (Sp k) ϱ)
+          (fun p =&gt; f p.1 * g p.2)| ≤ ε) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_joint_forcing_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L6104">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_joint_forcing_iv (cert : Muon.External.GaussianOpNorm) {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω}
+    [IsProbabilityMeasure P] (γstar CSig : ℝ) {m n B : ℕ} (Fp : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (SP : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi) :
+    (∀ T : ℕ, ∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ μ l : ℝ, 0 ≤ finiteTimeMeasure Fp S SP T ϱ (μ, l)) ∧
+    (∀ t : ℤ, ∀ T : ℕ, 1 ≤ T → ∀ ϱ ∈ Set.Icc ϱlo ϱhi,
+      (∀ i : Fin m, ∀ j : Fin n, Integrable (fun ω =&gt;
+        ((SP.uOutᵀ * (∑ s ∈ Finset.Icc (1 : ℤ) (T : ℤ), centredUpd Fp S ϱ s ω) * SP.vIn) i j) ^ 2) P) ∧
+      finTV (finiteTimeMeasure Fp S SP T ϱ - measureInt Fp S SP t ϱ) ≤
+        2 * Muon.Dynamics.kStar CSig γstar ϱlo *
+          (Fp.β ^ T / (1 - Fp.β) + Fp.β / ((T : ℝ) * (1 - Fp.β) ^ 2))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

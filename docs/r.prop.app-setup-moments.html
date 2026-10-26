@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SA.1 (Residual and gradient moments)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SA.1 (Residual and gradient moments)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-setup-moments"><div class="thm-head"><a class="thm-name" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a> <span class="thm-title">(Residual and gradient moments)</span></div><div class="thm-body"><div class="p">In <a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a>, <span class="mi">\(\Sigmain\)</span> and <span class="mi">\(\Sigmaout\)</span> are symmetric and positive semidefinite, and the following hold.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For deterministic <span class="mi">\(\Delta\in\R^{\Nout\times\Nin}\)</span> the residual <span class="mi">\(d\defeq\Xout^\T\Delta\Xin\)</span> is centered, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-risk-trace"></span>\begin{equation}\tag{SA.4}
+\EE d^2=\Var(d)=\Tr\big(\Sigmaout\Delta\Sigmain\Delta^\T\big)=\norm{\Delta}_\Sigma^2,
+\qquad \cR(W)=\tfrac12\norm{W-\Wstar}_\Sigma^2 .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For deterministic <span class="mi">\(\Delta\)</span> and a batch of <span class="mi">\(B\)</span> independent copies, the gradient <span class="mi">\(G^\circ\defeq\frac1B\sum_ad_a^\circ\,\Xout^{(a)}\tensor\Xin^{(a)}\)</span> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-gradient-matrix"></span>\begin{equation}\tag{SA.5}
+G^\circ=\frac1B\,Y\vec D^\circ X^\T,\qquad \EE G^\circ=\Sigmaout\Delta\Sigmain .
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For the state <span class="mi">\(\Dt\)</span> at step <span class="mi">\(t\)</span> with <span class="mi">\(\EE\norm{\Dt}_\F^2&lt;\infty\)</span> and the fresh batch of step <span class="mi">\(t\)</span>, the residuals and the gradient of <a class="ref" href="r.def.app-setup-model.html#L-eqn:app-setup-gradient" data-label="eqn:app-setup-gradient">(SA.3)</a> satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-conditional-moments"></span>\begin{equation}\tag{SA.6}
+\EE_t\,d_a^\circ=0,\qquad \EE_t\,(d_a^\circ)^2=2\cR(t),\qquad \EE_t\,\Gt^\circ=\Sigmaout\Dt\Sigmain .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The covariances are symmetric, and <span class="mi">\(v^\T\Sigmain v=\EE[(v^\T\Xin)^2]\ge0\)</span> for every <span class="mi">\(v\in\R^{\Nin}\)</span>; the same holds for <span class="mi">\(\Sigmaout\)</span>.</div>
+<div class="p">Mixed fourth-order moments factorize by independence: for coordinates <span class="mi">\(i,k\le\Nout\)</span> and <span class="mi">\(j,l\le\Nin\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-four"></span>\begin{equation}\tag{SA.7}
+\EE\big[(\Xout)_i(\Xout)_k(\Xin)_j(\Xin)_l\big]=(\Sigmaout)_{ik}(\Sigmain)_{jl}.
+\end{equation}</div>
+<div class="p">The second moment of the residual is the trace. Expanding</div>
+<div class="md">\[
+d^2=\sum_{i,k\le\Nout}\sum_{j,l\le\Nin}\Delta_{ij}\Delta_{kl}\,(\Xout)_i(\Xout)_k(\Xin)_j(\Xin)_l
+\]</div>
+<div class="p">and taking expectations term by term with <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-four" data-label="eqn:app-setup-four">(SA.7)</a> gives</div>
+<div class="md">\[
+\EE d^2=\sum_{i,j,k,l}\Delta_{ij}\Delta_{kl}(\Sigmaout)_{ik}(\Sigmain)_{jl}=\Tr\big(\Sigmaout\Delta\Sigmain\Delta^\T\big),
+\]</div>
+<div class="p">the last equality by expanding the trace as <span class="mi">\(\sum_{i,k,j,l}(\Sigmaout)_{ik}\Delta_{kl}(\Sigmain)_{lj}\Delta_{ij}\)</span> and using the symmetry of <span class="mi">\(\Sigmain\)</span>. The residual is centered because <span class="mi">\(\EE[(\Xout)_i(\Xin)_j]=\EE(\Xout)_i\,\EE(\Xin)_j=0\)</span> by independence, and hence <span class="mi">\(\Var(d)=\EE d^2\)</span>. The formula for <span class="mi">\(\cR\)</span> is <a class="ref" href="r.def.app-setup-model.html#L-eqn:app-setup-risk" data-label="eqn:app-setup-risk">(SA.1)</a> with <span class="mi">\(\Delta=W-\Wstar\)</span>. This proves (i).</div>
+<div class="p">The matrix form of the gradient is finite algebra. Matrix multiplication gives <span class="mi">\((Y\vec D^\circ X^\T)_{ij}=\sum_ad_a^\circ(\Xout^{(a)})_i(\Xin^{(a)})_j\)</span>, which is <span class="mi">\(B\)</span> times the <span class="mi">\((i,j)\)</span> entry of <span class="mi">\(G^\circ\)</span>. For one sample, the entry <span class="mi">\(d\,(\Xout)_i(\Xin)_j=\sum_{k,l}\Delta_{kl}(\Xout)_k(\Xout)_i(\Xin)_l(\Xin)_j\)</span> has expectation <span class="mi">\(\sum_{k,l}(\Sigmaout)_{ik}\Delta_{kl}(\Sigmain)_{lj}=(\Sigmaout\Delta\Sigmain)_{ij}\)</span> by <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-four" data-label="eqn:app-setup-four">(SA.7)</a>; identical distribution of the samples gives <span class="mi">\(\EE G^\circ\)</span>. This proves (ii).</div>
+<div class="p">Part (iii) follows from (i) and (ii) because the batch of step <span class="mi">\(t\)</span> is independent of the past: conditionally on <span class="mi">\(\cF_t\)</span> the state <span class="mi">\(\Dt\)</span> is fixed and the batch has its unconditional law, so the fixed-state identities of (i) and (ii) at <span class="mi">\(\Delta=\Dt\)</span> are the three conditional expectations.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a> <span class=muted>Regression model</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-setup-normalization.html" data-label="prop:app-setup-normalization">Proposition SA.2</a> <span class=muted>Normalization</span></li><li><a class="ref" href="r.cor.app-setup-augmented.html" data-label="cor:app-setup-augmented">Corollary SA.1</a> <span class=muted>Recursion of the algorithm</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.prop_app_setup_moments_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Model.lean#L442">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_moments_i {m n : ℕ} {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    (hν : IsFeatureLaw C ν) (Δ : Mat m n) :
+    C.Sout.PosSemidef ∧ C.Sin.PosSemidef ∧
+    (∫ x, resid Δ x ∂ν = 0) ∧ (∫ x, (resid Δ x) ^ 2 ∂ν = pairSigma C Δ Δ) ∧
+    variance (fun x =&gt; resid Δ x) ν = pairSigma C Δ Δ ∧
+    (∀ Wstar W : Mat m n, popRisk ν Wstar W = riskSigma C (W - Wstar)) := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_moments_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Model.lean#L490">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_moments_ii {m n : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω)
+    [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    (hν : IsFeatureLaw C ν) {B : ℕ} (hB : 0 &lt; B) (Δ : Mat m n) (x : Fin B → Ω → Vec m × Vec n)
+    (hx : IIDBatch P ν x) :
+    (∀ b : Batch m n B, grad Δ b = ((B : ℝ))⁻¹ •
+      ((Matrix.of fun (i : Fin m) (a : Fin B) =&gt; (b a).1 i) *
+        Matrix.diagonal (fun a =&gt; resid Δ (b a)) *
+        (Matrix.of fun (j : Fin n) (a : Fin B) =&gt; (b a).2 j)ᵀ)) ∧
+    mean P (fun ω =&gt; grad Δ (fun a =&gt; x a ω)) = C.Sout * Δ * C.Sin := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_moments_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Model.lean#L665">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_moments_iii {m n : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    {P : Measure Ω}
+    [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] (hν : IsFeatureLaw C ν) {B : ℕ} (hB : 0 &lt; B) (M : ModelLaw P ν B)
+    (Wstar : Mat m n) (W : ℕ → Ω → Mat m n)
+    (hW : ∀ t, Measurable[M.ℱ t] (W t))
+    (t : ℕ) (hWL2 : ∀ i j, MemLp (fun ω =&gt; W t ω i j) 2 P) (a : Fin B) :
+    (condExp (M.ℱ t) P (fun ω =&gt; resid (W t ω - Wstar) (M.x t ω a)) =ᵐ[P] 0) ∧
+    (condExp (M.ℱ t) P (fun ω =&gt; (resid (W t ω - Wstar) (M.x t ω a)) ^ 2) =ᵐ[P]
+      fun ω =&gt; 2 * popRisk ν Wstar (W t ω)) ∧
+    ∀ (i : Fin m) (k : Fin n),
+      (condExp (M.ℱ t) P (fun ω =&gt; grad (W t ω - Wstar) (M.x t ω) i k) =ᵐ[P]
+        fun ω =&gt; (C.Sout * (W t ω - Wstar) * C.Sin) i k) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

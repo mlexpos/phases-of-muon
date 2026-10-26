@@ -1,0 +1,161 @@
+import Muon.External.Certificates
+import Muon.Foundations.Gaussian
+import Muon.Foundations.Conventions
+import Muon.Foundations.RealAnalysis
+import Muon.SignSGD.Defs
+import Muon.Oversampled.Profile
+import Muon.SignSGD.BatchConstant
+import Muon.DetEquiv.Resolvent
+import Muon.Phase.Model
+import Muon.DetEquiv.Scalar
+import Muon.Phase.PowerSums
+import Muon.Oversampled.Representation
+import Muon.Oversampled.SqrtLaw
+import Muon.Foundations.Nuclear
+import Muon.Oversampled.Tail
+import Muon.Phase.Volterra
+import Muon.DetEquiv.Branch
+import Muon.Oversampled.LimitLaw
+import Muon.PowerLaw.Weights
+import Muon.Isotropic.Helpers
+import Muon.DetEquiv.BranchStability
+import Muon.DetEquiv.BranchSmooth
+import Muon.Phase.Clock
+import Muon.Foundations.Probability
+import Muon.Foundations.AnalysisExtra
+import Muon.Foundations.GaussianCombinatorics
+import Muon.Foundations.GaussianExtra
+import Muon.Isotropic.Closure
+import Muon.Oversampled.Examples
+import Muon.Oversampled.Model
+import Muon.Phase.FirstHit
+import Muon.Setup.Basic
+import Muon.Phase.Arrays
+import Muon.Setup.Weights
+import Muon.Setup.RegularizedMap
+import Muon.Setup.Resolvent
+import Muon.Setup.Model
+import Muon.Foundations.SVD
+import Muon.Foundations.Freezing
+import Muon.Setup.Residual
+import Muon.Setup.Frozen
+import Muon.Isotropic.ZeroRidge
+import Muon.Setup.Algorithm
+import Muon.DetEquiv.SampleModel
+import Muon.Setup.Truncation
+import Muon.Setup.Regime
+import Muon.Phase.CommonDrift
+import Muon.PowerLaw.Participation
+import Muon.Isotropic.VolFactor
+import Muon.Isotropic.VolKernels
+import Muon.DetEquiv.Gaussian
+import Muon.Isotropic.Aspect
+import Muon.Foundations.OperatorLipschitz
+import Muon.Dynamics.Basic
+import Muon.Volatility.OddSpectral
+import Muon.SignSGD.ShiftArcsine
+import Muon.SignSGD.OneStep
+import Muon.DetEquiv.Concentration
+import Muon.Volatility.Defs
+import Muon.Isotropic.Measure
+import Muon.PowerLaw.Continuum
+import Muon.Drift.Defs
+import Muon.Dynamics.Filter
+import Muon.SignSGD.CoordinateMoments
+import Muon.Volatility.LagReduction
+import Muon.Phase.IsoRatio
+import Muon.DetEquiv.Gram
+import Muon.Volatility.Replication
+import Muon.Drift.Scalar
+import Muon.Drift.Column
+import Muon.Drift.Kernel
+import Muon.Isotropic.One
+import Muon.Phase.Kernels
+import Muon.PowerLaw.Profiles
+import Muon.DetEquiv.Trace
+import Muon.Drift.Coefficients
+import Muon.Phase.PhaseTheorems
+import Muon.Volatility.TreeDef
+import Muon.Drift.Covariance
+import Muon.Isotropic.MeasureExistence
+import Muon.SignSGD.SignComparison
+import Muon.Volatility.TreeClosure
+import Muon.Phase.Winners
+import Muon.PowerLaw.VolKernel
+import Muon.Drift.Targets
+import Muon.Drift.Tail
+import Muon.Phase.TwoPhase
+import Muon.Phase.AccuracyFirst
+import Muon.Foundations.UniformIntegrability
+import Muon.Phase.Bridges
+import Muon.PowerLaw.DriftAsymptotics
+import Muon.PowerLaw.VolBulk
+import Muon.Foundations.OrthHaar
+import Muon.Isotropic.VolRates
+import Muon.Volatility.Closed.Trees
+import Muon.Foundations.SphereGaussian
+import Muon.Phase.Scaling
+import Muon.SignSGD.HaarTools
+import Muon.Volatility.HalfCandidates
+import Muon.PowerLaw.BranchLink
+import Muon.SignSGD.Isotropic
+import Muon.Volatility.Closed.Profile
+import Muon.Drift.Response
+import Muon.Phase.Frozen
+import Muon.SignSGD.HalfDrift
+import Muon.Isotropic.RidgeRegimes
+import Muon.Drift.Mean
+import Muon.Phase.Unified
+import Muon.PowerLaw.VolMeso
+import Muon.SignSGD.HalfVolatility
+import Muon.Drift.OneStep
+import Muon.Volatility.Half
+import Muon.PowerLaw.VolSuper
+import Muon.Oversampled.Update
+import Muon.Phase.OmegaMap
+import Muon.PowerLaw.VolShell
+import Muon.SignSGD.RowVolatility
+import Muon.Volatility.Replacement
+import Muon.Volatility.LagKernel
+import Muon.Volatility.Modes
+import Muon.Volatility.Closed.Path
+import Muon.Dynamics.ODE
+import Muon.PowerLaw.NoMomentum
+import Muon.Volatility.Closed.Kernel
+import Muon.Dynamics.Chains
+import Muon.Dynamics.FiniteMean
+import Muon.Volatility.Special
+import Muon.Dynamics.Corollaries
+import Muon.PowerLaw.Response
+import Muon.PowerLaw.ZeroRidge
+import Muon.Dynamics.Causal
+import Muon.Dynamics.Transport
+import Muon.Dynamics.Closure
+import Muon.PowerLaw.Main
+import Muon.Isotropic.Bridge
+import Muon.Dynamics.Diffuse
+import Muon.Isotropic.VolZeroRidge
+import Muon.Dynamics.Concentration
+import Muon.Dynamics.Block
+import Muon.Dynamics.Main
+import Muon.Isotropic.Dynamics
+import Muon.Dynamics.Freezing
+import Muon.Dynamics.Sector
+import Muon.Dynamics.SectorDrift
+import Muon.Dynamics.MeanUniform
+
+/-!
+# Muon: formalization of the *Phases of Muon* appendix
+
+Root of the package. It imports every admitted module of the campaign in
+`../phases-of-muon/appendix-nodes/` (protocol `CAMPAIGN.md`); the coordinator's
+`admit` step adds the import lines. Source of record: the frozen camera-ready
+snapshot `cr-2026-10-22`. Label ↦ declaration map and status: `coverage.json`.
+
+Namespaces: `Muon.Foundations` (shared conventions, generic lemmas),
+`Muon.External` (certificate structures for cited results), and one per
+appendix section: `Muon.Setup` (A), `Muon.DetEquiv` (B), `Muon.Drift` (C),
+`Muon.Volatility` (D), `Muon.Dynamics` (E), `Muon.Isotropic` (F),
+`Muon.PowerLaw` (G), `Muon.Oversampled` (G2), `Muon.Phase` (H),
+`Muon.SignSGD` (I).
+-/

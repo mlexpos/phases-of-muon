@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Definition SD.5 (Profiles)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Definition SD.5 (Profiles)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-definition" id="L-def:app-vol-closed-profile"><div class="thm-head"><a class="thm-name" href="r.def.app-vol-closed-profile.html" data-label="def:app-vol-closed-profile">Definition SD.5</a> <span class="thm-title">(Profiles)</span></div><div class="thm-body"><div class="p">A <em>profile</em> is a countable family <span class="mi">\(\xi=(\xi_\alpha)_{\alpha\in\mathcal A}\)</span> of real random variables with <span class="mi">\(\sum_\alpha\EE\xi_\alpha^2&lt;\infty\)</span> and <span class="mi">\(\Pr(\xi_\alpha\ne0)&gt;0\)</span> for some <span class="mi">\(\alpha\)</span>. Its scalar functions are, for <span class="mi">\(q\ge0\)</span>,</div>
+<div class="md">\[
+F_\xi(q)\defeq\sum_\alpha\EE\frac{\xi_\alpha^2}{1+q\xi_\alpha^2},\qquad r_\xi(q)\defeq qF_\xi(q).
+\]</div>
+<div class="p">A <em>paired profile</em> is a countable family <span class="mi">\((\xi_{1,\alpha},\xi_{2,\alpha})_{\alpha\in\mathcal A}\)</span> such that <span class="mi">\(\xi_1=(\xi_{1,\alpha})\)</span> and <span class="mi">\(\xi_2=(\xi_{2,\alpha})\)</span> are profiles, <span class="mi">\(\xi_{1,\alpha}\xi_{2,\alpha}\ge0\)</span>, and <span class="mi">\(\sum_\alpha\EE[\xi_{1,\alpha}^2\xi_{2,\alpha}^2]&lt;\infty\)</span>. Its two-point functions are, for <span class="mi">\(q_1,q_2\ge0\)</span>,</div>
+<div class="md">\[
+b(q_1,q_2)\defeq\sum_\alpha\EE\frac{\xi_{1,\alpha}\xi_{2,\alpha}}{(1+q_1\xi_{1,\alpha}^2)(1+q_2\xi_{2,\alpha}^2)},\qquad
+e(q_1,q_2)\defeq\sum_\alpha\EE\frac{\xi_{1,\alpha}^2\xi_{2,\alpha}^2}{(1+q_1\xi_{1,\alpha}^2)(1+q_2\xi_{2,\alpha}^2)}.
+\]</div></div></div><div class="dep-grid"></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.def_app_vol_closed_profile</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L78">source</a></summary><pre class="lean no-mj">structure def_app_vol_closed_profile (P : Measure Ω) (ξ : ι → Ω → ℝ) : Prop where</pre></details><details class="decl"><summary><code>Muon.Volatility.def_app_vol_closed_profile_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L107">source</a></summary><pre class="lean no-mj">structure def_app_vol_closed_profile_ii (P : Measure Ω) (ξ₁ ξ₂ : ι → Ω → ℝ) : Prop where</pre></details><details class="decl"><summary><code>Muon.Volatility.profileF</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L115">source</a></summary><pre class="lean no-mj">def profileF (P : Measure Ω) (ξ : ι → Ω → ℝ) (q : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.profileR</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L119">source</a></summary><pre class="lean no-mj">def profileR (P : Measure Ω) (ξ : ι → Ω → ℝ) (q : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.profileRDeriv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L124">source</a></summary><pre class="lean no-mj">def profileRDeriv (P : Measure Ω) (ξ : ι → Ω → ℝ) (q : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.profileNegFDeriv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L129">source</a></summary><pre class="lean no-mj">def profileNegFDeriv (P : Measure Ω) (ξ : ι → Ω → ℝ) (q : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.pairedB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L134">source</a></summary><pre class="lean no-mj">def pairedB (P : Measure Ω) (ξ₁ ξ₂ : ι → Ω → ℝ) (q₁ q₂ : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.pairedE</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L139">source</a></summary><pre class="lean no-mj">def pairedE (P : Measure Ω) (ξ₁ ξ₂ : ι → Ω → ℝ) (q₁ q₂ : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.emaXi₁</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L151">source</a></summary><pre class="lean no-mj">def emaXi₁ (β : ℝ) (ℓ : ℕ) (g : ℕ ⊕ Fin ℓ → Ω → ℝ) : ℕ ⊕ Fin ℓ → Ω → ℝ
+  | Sum.inl j =&gt; fun ω =&gt; Muon.emaW β j * g (Sum.inl j) ω
+  | Sum.inr _ =&gt; fun _ =&gt; 0
+
+/-- Second coordinate of the EMA paired profile at lag `ℓ`: `β^ℓ emaw_j g_j` on the shared labels,
+and `emaw_{ℓ-m} g_m` on the fresh labels `m = i + 1`. -/
+def emaXi₂ (β : ℝ) (ℓ : ℕ) (g : ℕ ⊕ Fin ℓ → Ω → ℝ) : ℕ ⊕ Fin ℓ → Ω → ℝ
+  | Sum.inl j =&gt; fun ω =&gt; β ^ ℓ * Muon.emaW β j * g (Sum.inl j) ω
+  | Sum.inr i =&gt; fun ω =&gt; Muon.emaW β (ℓ - (i.val + 1)) * g (Sum.inr i) ω
+
+/-! ## Branch points of a profile -/
+
+/-- A branch point of the scalar function `F` at `s`, in the source's unknowns `(σ, σ̃, s̃₁, s₁)`
+(`lem:app-vol-closed-branch`, `eqn:app-vol-closed-branch`). With `q = s σ σ̃`:
+`σ = (1/B) Tr Σ_out (s Id + s̃₁ Σ_out)⁻¹`, `σ̃ = (1/B) Tr Σ_in (s Id + s₁ Σ_in)⁻¹`,
+`s̃₁ = s σ̃ F(q)`, `s₁ = s σ F(q)`, all four entries nonnegative. -/
+def IsBranchPoint {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ → Prop
+  | (σ, σ', a, c) =&gt;
+    0 ≤ σ ∧ 0 ≤ σ' ∧ 0 ≤ a ∧ 0 ≤ c ∧
+    σ = (B : ℝ)⁻¹ * (C.Sout * (s • (1 : Matrix (Fin m) (Fin m) ℝ) + a • C.Sout)⁻¹).trace ∧
+    σ' = (B : ℝ)⁻¹ * (C.Sin * (s • (1 : Matrix (Fin n) (Fin n) ℝ) + c • C.Sin)⁻¹).trace ∧
+    a = s * σ' * F (s * σ * σ') ∧ c = s * σ * F (s * σ * σ')
+
+open scoped Classical in
+/-- The branch point of `F` at `s`: the chosen solution when one exists, and `0` otherwise
+(the total map, as `Muon.DetEquiv.branchSol`). -/
+def branchPt {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.emaXi₂</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L157">source</a></summary><pre class="lean no-mj">def emaXi₂ (β : ℝ) (ℓ : ℕ) (g : ℕ ⊕ Fin ℓ → Ω → ℝ) : ℕ ⊕ Fin ℓ → Ω → ℝ
+  | Sum.inl j =&gt; fun ω =&gt; β ^ ℓ * Muon.emaW β j * g (Sum.inl j) ω
+  | Sum.inr i =&gt; fun ω =&gt; Muon.emaW β (ℓ - (i.val + 1)) * g (Sum.inr i) ω
+
+/-! ## Branch points of a profile -/
+
+/-- A branch point of the scalar function `F` at `s`, in the source's unknowns `(σ, σ̃, s̃₁, s₁)`
+(`lem:app-vol-closed-branch`, `eqn:app-vol-closed-branch`). With `q = s σ σ̃`:
+`σ = (1/B) Tr Σ_out (s Id + s̃₁ Σ_out)⁻¹`, `σ̃ = (1/B) Tr Σ_in (s Id + s₁ Σ_in)⁻¹`,
+`s̃₁ = s σ̃ F(q)`, `s₁ = s σ F(q)`, all four entries nonnegative. -/
+def IsBranchPoint {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ → Prop
+  | (σ, σ', a, c) =&gt;
+    0 ≤ σ ∧ 0 ≤ σ' ∧ 0 ≤ a ∧ 0 ≤ c ∧
+    σ = (B : ℝ)⁻¹ * (C.Sout * (s • (1 : Matrix (Fin m) (Fin m) ℝ) + a • C.Sout)⁻¹).trace ∧
+    σ' = (B : ℝ)⁻¹ * (C.Sin * (s • (1 : Matrix (Fin n) (Fin n) ℝ) + c • C.Sin)⁻¹).trace ∧
+    a = s * σ' * F (s * σ * σ') ∧ c = s * σ * F (s * σ * σ')
+
+open scoped Classical in
+/-- The branch point of `F` at `s`: the chosen solution when one exists, and `0` otherwise
+(the total map, as `Muon.DetEquiv.branchSol`). -/
+def branchPt {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.IsStdGaussianFamily</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L146">source</a></summary><pre class="lean no-mj">def IsStdGaussianFamily {A : Type*} (P : Measure Ω) (g : A → Ω → ℝ) : Prop :=</pre></details><details class="decl"><summary><code>Muon.Volatility.cutoffLabels</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L243">source</a></summary><pre class="lean no-mj">def cutoffLabels (J ℓ : ℕ) : Finset ℤ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.cutoffVarpi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L248">source</a></summary><pre class="lean no-mj">def cutoffVarpi (β : ℝ) (ℓ J l : ℕ) (α : ℤ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.cutoffXi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L253">source</a></summary><pre class="lean no-mj">def cutoffXi (β : ℝ) (ℓ J : ℕ) (R : ℝ) (l : ℕ) (g : ℤ → Ω → ℝ) : ℤ → Ω → ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_cutoff_paired</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L2303">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_cutoff_paired {P : Measure Ω} [IsProbabilityMeasure P] {β : ℝ}
+    (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {ℓ J : ℕ} {R : ℝ} (hR : 0 &lt; R) {g : ℤ → Ω → ℝ}
+    (hg : IsStdGaussianFamily P g) :
+    def_app_vol_closed_profile_ii P (cutoffXi β ℓ J R 1 g) (cutoffXi β ℓ J R 2 g) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

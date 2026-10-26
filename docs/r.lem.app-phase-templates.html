@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.25 (Kernel templates)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.25 (Kernel templates)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-templates"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-templates.html" data-label="lem:app-phase-templates">Lemma SI.25</a> <span class="thm-title">(Kernel templates)</span></div><div class="thm-body"><div class="p">In each of the following cases there are constants <span class="mi">\(N_{\rm T}\)</span>, <span class="mi">\(K_f\ge0\)</span>, <span class="mi">\(K_s&gt;0\)</span>, <span class="mi">\(\upsilon&gt;1\)</span> and <span class="mi">\(\mathsf b\in(0,1)\)</span>, depending only on <span class="mi">\(\alpha\)</span>, such that for <span class="mi">\(N\ge N_{\rm T}\)</span> the kernel <span class="mi">\(g_j\)</span> satisfies <a class="ref" href="r.lem.app-phase-split.html#L-eqn:app-phase-template" data-label="eqn:app-phase-template">(SI.60)</a> with <span class="mi">\(q=q_j\)</span> on <span class="mi">\(0\le v\le N^{q_j}-1\)</span>:</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="sc">SignSVD</span>, <span class="mi">\(0&lt;\alpha&lt;1\)</span>: <span class="mi">\(K_f=0\)</span>, <span class="mi">\(K_s=4(1-\frac\alpha2)/(1-\alpha)\)</span>, <span class="mi">\(\mathsf b=\frac12\)</span>;</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="sc">SignSVD</span>, <span class="mi">\(1&lt;\alpha&lt;2\)</span>: <span class="mi">\(K_f=0\)</span>, <span class="mi">\(K_s=4(1-\frac\alpha2)E_{\alpha,\alpha/2}\)</span>, <span class="mi">\(\mathsf b=2-\frac2\alpha\)</span>;</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p"><span class="sc">SignSGD</span>, <span class="mi">\(0&lt;\alpha&lt;\frac12\)</span>: <span class="mi">\(K_f=0\)</span>, <span class="mi">\(K_s=2(1-\frac2\pi)/(1-\alpha)+\frac4\pi(1-\alpha)/(1-2\alpha)\)</span>, <span class="mi">\(\mathsf b=\frac12\)</span>;</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p"><span class="sc">SignSGD</span>, <span class="mi">\(\frac12&lt;\alpha&lt;1\)</span>: <span class="mi">\(K_f=0\)</span>, <span class="mi">\(K_s=2(1-\frac2\pi)/(1-\alpha)+\frac4\pi(1-\alpha)E_{2\alpha,\alpha}\)</span>, <span class="mi">\(\mathsf b=\max\{2-\frac1\alpha,\frac12\}\)</span>;</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p"><span class="sc">SignSGD</span>, <span class="mi">\(\alpha&gt;1\)</span>: the constants <a class="ref" href="r.lem.app-phase-G-small.html#L-eqn:app-phase-Gtemplate" data-label="eqn:app-phase-Gtemplate">(SI.62)</a>, for all <span class="mi">\(v\ge0\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">On <span class="mi">\(0\le v\le N^q-1\)</span> one has <span class="mi">\((1+v)/N^q\le1\)</span>, so a bound <span class="mi">\(K'N^{-q}((1+v)/N^q)^{-\mathsf b'}\)</span> with <span class="mi">\(0\le\mathsf b'\le\mathsf b\)</span> implies the same bound with <span class="mi">\(\mathsf b\)</span>; in particular a constant bound <span class="mi">\(K'N^{-q}\)</span> has template form with any <span class="mi">\(\mathsf b\)</span>. Let <span class="mi">\(N_{\rm T}\)</span> be such that <span class="mi">\(N^{1-a}\ge2\)</span> for the relevant <span class="mi">\(a&lt;1\)</span>, so that <span class="mi">\(H_N(a)\ge N^{1-a}/(2(1-a))\)</span>; also <span class="mi">\(H_N(a)\le N^{1-a}/(1-a)\)</span> for <span class="mi">\(0&lt;a&lt;1\)</span>, by <a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a>.</div>
+<div class="p">(i) The kernel is nonincreasing, so</div>
+<div class="md">\[
+g_{\text{s-SVD}}\le g_{\text{s-SVD}}(0)=\frac{2H_N(\alpha)}{H_N(\alpha/2)}\le\frac{4(1-\alpha/2)}{1-\alpha}\,N^{-\alpha/2} .
+\]</div>
+<div class="p">(ii) By <a class="ref" href="r.lem.app-phase-sums.html" data-label="lem:app-phase-sums">Lemma SI.7</a>(i),</div>
+<div class="md">\[
+g_{\text{s-SVD}}(v)\le4\Big(1-\frac\alpha2\Big)E_{\alpha,\alpha/2}\,N^{-(1-\alpha/2)}(1+v)^{-(2-2/\alpha)} ,
+\]</div>
+<div class="p">which is the template with <span class="mi">\(q=\alpha/2\)</span> and <span class="mi">\(\mathsf b=2-\frac2\alpha\in(0,1)\)</span>, since <span class="mi">\(-q+q\mathsf b=\frac\alpha2-1\)</span>.</div>
+<div class="p">(iii) The first term satisfies</div>
+<div class="md">\[
+g_1\le\frac{2(1-2/\pi)}N\,H_N(\alpha)\le\frac{2(1-2/\pi)}{1-\alpha}\,N^{-\alpha} .
+\]</div>
+<div class="p">For the second term, the two bounds of <a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a>, with <span class="mi">\(\int_1^{N+1}\ge\int_1^N\)</span> in the lower one, give for <span class="mi">\(0&lt;a&lt;1\)</span></div>
+<div class="md">\[
+(1-a)H_N(a)\ge N^{1-a}-1,\qquad (1-a)H_N(a)\le N^{1-a}-a .
+\]</div>
+<div class="p">Enlarge <span class="mi">\(N_{\rm T}\)</span> so that <span class="mi">\(N^{-\alpha}\le2\alpha\)</span> for <span class="mi">\(N\ge N_{\rm T}\)</span>. The upper bound with <span class="mi">\(a=2\alpha\)</span> and the lower bound with <span class="mi">\(a=\alpha\)</span> then give</div>
+<div class="md">\[
+(1-2\alpha)H_N(2\alpha)\le N^{1-2\alpha}-N^{-\alpha}=N^{-\alpha}\big(N^{1-\alpha}-1\big)\le(1-\alpha)N^{-\alpha}H_N(\alpha) .
+\]</div>
+<div class="p">Since <span class="mi">\(g_2\)</span> is nonincreasing and <span class="mi">\(L_{N,2\alpha,\alpha}(0)=H_N(2\alpha)\)</span>,</div>
+<div class="md">\[
+g_2\le\frac{4H_N(2\alpha)}{\pi H_N(\alpha)}\le\frac{4(1-\alpha)}{\pi(1-2\alpha)}\,N^{-\alpha} .
+\]</div>
+<div class="p">(iv) The term <span class="mi">\(g_1\)</span> is bounded as in (iii). Write <span class="mi">\(d\defeq d(2\alpha,\alpha)=(2\alpha-1)/\alpha\)</span>. The envelope of <a class="ref" href="r.lem.app-phase-sums.html" data-label="lem:app-phase-sums">Lemma SI.7</a>(i) holds with a strictly smaller constant: there is <span class="mi">\(E'&lt;E_{2\alpha,\alpha}\)</span>, depending only on <span class="mi">\(\alpha\)</span>, such that</div>
+<div class="md">\[
+L_{N,2\alpha,\alpha}(v)\le E'(1+v)^{-d}\qquad(N\ge1,\ v\ge0) .
+\]</div>
+<div class="p">To see this, note that the term <span class="mi">\(i=1\)</span> of <span class="mi">\(L_{N,2\alpha,\alpha}(v)\)</span> is <span class="mi">\(e^{-2v}\)</span>. The other terms sum to at most <span class="mi">\(Z_{2\alpha}-1\)</span> by the proof of <a class="ref" href="r.lem.app-phase-sums.html" data-label="lem:app-phase-sums">Lemma SI.7</a>. Hence</div>
+<div class="md">\[
+L_{N,2\alpha,\alpha}(v)\le Z_{2\alpha}-1+e^{-2v} .
+\]</div>
+<div class="p">Since <span class="mi">\(Z_{2\alpha}-1+e^{-1}&lt;Z_{2\alpha}\)</span>, continuity gives <span class="mi">\(r&gt;1\)</span> with <span class="mi">\((1+r)^d(Z_{2\alpha}-1+e^{-1})&lt;2^dZ_{2\alpha}\)</span>. On <span class="mi">\(0\le v\le\frac12\)</span> the last display gives <span class="mi">\((1+v)^dL_{N,2\alpha,\alpha}(v)\le(3/2)^dZ_{2\alpha}\)</span>. On <span class="mi">\(\frac12\le v\le r\)</span> it gives <span class="mi">\((1+v)^dL_{N,2\alpha,\alpha}(v)\le(1+r)^d(Z_{2\alpha}-1+e^{-1})\)</span>. Both bounds are below <span class="mi">\(2^dZ_{2\alpha}\le E_{2\alpha,\alpha}\)</span>. For <span class="mi">\(v\ge r&gt;1\)</span>, the display in the proof of <a class="ref" href="r.lem.app-phase-sums.html" data-label="lem:app-phase-sums">Lemma SI.7</a>(i) and <span class="mi">\(\Gamma(d)/\alpha+2^{1-1/\alpha}M_{2\alpha,\alpha}\le E_{2\alpha,\alpha}\)</span> give <span class="mi">\(L_{N,2\alpha,\alpha}(v)\le E_{2\alpha,\alpha}(2v)^{-d}\)</span>, so</div>
+<div class="md">\[
+(1+v)^dL_{N,2\alpha,\alpha}(v)\le E_{2\alpha,\alpha}\Big(\frac{1+v}{2v}\Big)^d\le E_{2\alpha,\alpha}\Big(\frac{1+r}{2r}\Big)^d&lt;E_{2\alpha,\alpha} .
+\]</div>
+<div class="p">Let <span class="mi">\(E'\)</span> be the largest of the three bounds.</div>
+<div class="p">Enlarge <span class="mi">\(N_{\rm T}\)</span> so that <span class="mi">\(N^{1-\alpha}(E_{2\alpha,\alpha}-E')\ge E_{2\alpha,\alpha}\)</span> for <span class="mi">\(N\ge N_{\rm T}\)</span>. The lower bound <span class="mi">\((1-\alpha)H_N(\alpha)\ge N^{1-\alpha}-1\)</span> of (iii) then gives</div>
+<div class="md">\[
+\frac{E'}{H_N(\alpha)}\le\frac{(1-\alpha)E'}{N^{1-\alpha}-1}\le(1-\alpha)E_{2\alpha,\alpha}\,N^{\alpha-1} .
+\]</div>
+<div class="p">Therefore</div>
+<div class="md">\[
+g_2(v)\le\frac{4E'}{\pi H_N(\alpha)}(1+v)^{-d}
+\le\frac4\pi(1-\alpha)E_{2\alpha,\alpha}\,N^{-\alpha}\Big(\frac{1+v}{N^\alpha}\Big)^{-(2\alpha-1)/\alpha},
+\]</div>
+<div class="p">since <span class="mi">\(-\alpha+(2\alpha-1)=\alpha-1\)</span>.</div>
+<div class="p">(v) This was shown in the proof of <a class="ref" href="r.lem.app-phase-G-small.html" data-label="lem:app-phase-G-small">Lemma SI.24</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a> <span class=muted>Harmonic sums</span></li><li><a class="ref" href="r.lem.app-phase-sums.html" data-label="lem:app-phase-sums">Lemma SI.7</a> <span class=muted>Finite power sums</span></li><li><a class="ref" href="r.lem.app-phase-G-small.html" data-label="lem:app-phase-G-small">Lemma SI.24</a> <span class=muted><span class="sc">SignSGD</span> kernel below the critical exponent</span></li><li><a class="ref" href="r.lem.app-phase-split.html" data-label="lem:app-phase-split">Lemma SI.23</a> <span class=muted>Kernel with a slow part</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_templates_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L2469">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_templates_i {α : ℝ} (hα0 : 0 &lt; α) (hα1 : α &lt; 1) :
+    ∃ NT : ℕ, ∃ υ : ℝ, 1 &lt; υ ∧ ∀ N : ℕ, NT ≤ N →
+      phaseTemplate (svdKernel α N) (N : ℝ) ((N : ℝ) ^ (α / 2) - 1) (α / 2)
+        0 (4 * (1 - α / 2) / (1 - α)) υ (1 / 2) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_templates_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L2550">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_templates_ii {α : ℝ} (hα1 : 1 &lt; α) (hα2 : α &lt; 2) :
+    ∃ NT : ℕ, ∃ υ : ℝ, 1 &lt; υ ∧ ∀ N : ℕ, NT ≤ N →
+      phaseTemplate (svdKernel α N) (N : ℝ) ((N : ℝ) ^ (α / 2) - 1) (α / 2)
+        0 (4 * (1 - α / 2) * Epq α (α / 2)) υ (2 - 2 / α) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_templates_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L2683">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_templates_iii {α : ℝ} (hα0 : 0 &lt; α) (hα1 : α &lt; 1 / 2) :
+    ∃ NT : ℕ, ∃ υ : ℝ, 1 &lt; υ ∧ ∀ N : ℕ, NT ≤ N →
+      phaseTemplate (sgdKernel α N) (N : ℝ) ((N : ℝ) ^ α - 1) α
+        0 (2 * (1 - 2 / Real.pi) / (1 - α) + 4 / Real.pi * (1 - α) / (1 - 2 * α)) υ (1 / 2) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_templates_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L2931">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_templates_iv {α : ℝ} (hα1 : 1 / 2 &lt; α) (hα2 : α &lt; 1) :
+    ∃ NT : ℕ, ∃ υ : ℝ, 1 &lt; υ ∧ ∀ N : ℕ, NT ≤ N →
+      phaseTemplate (sgdKernel α N) (N : ℝ) ((N : ℝ) ^ α - 1) α
+        0 (2 * (1 - 2 / Real.pi) / (1 - α) + 4 / Real.pi * (1 - α) * Epq (2 * α) α) υ
+        (max (2 - 1 / α) (1 / 2)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_templates_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L3031">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_templates_v {α : ℝ} (hα : 1 &lt; α) :
+    ∃ NT : ℕ, ∀ N : ℕ, NT ≤ N → ∀ v : ℝ, 0 ≤ v →
+      sgdKernel α N v
+        ≤ 4 / Real.pi * Epq (2 * α) α * (1 + v) ^ (-(2 - 1 / α))
+          + 2 * (1 - 2 / Real.pi) * Epq α α * (N : ℝ) ^ (-α)
+            * ((1 + v) / (N : ℝ) ^ α) ^ (-(1 - 1 / α)) :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

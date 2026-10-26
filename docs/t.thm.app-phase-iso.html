@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Theorem SI.6 (Isotropic comparison)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Theorem SI.6 (Isotropic comparison)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-phase.html">The phase map and time to accuracy</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Theorem I.2</strong></span></div><div class="pre"><div class="p">Let <span class="mi">\(\mathcal N_B=\EE\big[(\sum_{b\le B}x_b^2y_b^2)^{1/2}\big]\)</span> for independent standard Gaussian <span class="mi">\(x_b,y_b\)</span>. The isotropic arrays <a class="ref" href="s.SI.html#L-eqn:app-phase-iso-arrays" data-label="eqn:app-phase-iso-arrays">(SI.15)</a> have <span class="mi">\(N\)</span> rows with <span class="mi">\(\mu_i=1\)</span>, a common initial energy, and</div>
+<div class="md">\[
+\mathfrak d_i^{\text{s-SVD}}=C(\gamma),\quad \sum_i\mathfrak v_i^{\text{s-SVD}}=m;\qquad
+\mathfrak d_i^{\text{s-SGD}}=\mathcal N_B/\sqrt\pi,\quad \sum_i\mathfrak v_i^{\text{s-SGD}}=N^2,
+\]</div>
+<div class="p">where <span class="mi">\(C(\gamma)=C_0(\gamma)\)</span> is the zero-ridge drift constant without momentum of <a class="ref" href="c.ch-isotropic.html" data-label="sk:ch-isotropic">Section G</a>. Put <span class="mi">\(\rho(\gamma)=\pi\,C(\gamma)^2\,\gamma\max(1,\gamma)\)</span>.</div></div><div class="thm thm-theorem" id="L-thm:app-phase-iso"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-iso.html" data-label="thm:app-phase-iso">Theorem SI.6</a> <span class="thm-title">(Isotropic comparison)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(N,B\ge1\)</span>, <span class="mi">\(\gamma=N/B\)</span>, <span class="mi">\(m=\min(B,N)\)</span>, and take the isotropic arrays <a class="ref" href="s.SI.html#L-eqn:app-phase-iso-arrays" data-label="eqn:app-phase-iso-arrays">(SI.15)</a> with a common initial risk <span class="mi">\(F_0=\fRisk^{\text{s-SVD}}(0)=\fRisk^{\text{s-SGD}}(0)\)</span>. Choose <span class="mi">\(\lr^\star_{\text{s-SVD}}\)</span> and <span class="mi">\(\lr^\star_{\text{s-SGD}}\)</span> by <a class="ref" href="paper.pdf#equation.5.16" data-label="eqn:eta-star-tte">(16)</a>, so that both models have floor <span class="mi">\(\epsilon\)</span>, and fix <span class="mi">\(T&gt;1\)</span> with <span class="mi">\(F_0&gt;T\epsilon\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every such <span class="mi">\(\epsilon\)</span>, <span class="mi">\(t^{\text{s-SGD}}_{T\epsilon}/t^{\text{s-SVD}}_{T\epsilon}=\rho(\gamma)\,B/\mathcal N_B^2\)</span>. As <span class="mi">\(\epsilon/F_0\to0\)</span>, uniformly in <span class="mi">\(N\)</span>, <span class="mi">\(B\)</span> and <span class="mi">\(C(\gamma)\)</span>,</div>
+<div class="md">\[
+t^{\text{s-SVD}}_{T\epsilon}\sim\frac m{4C(\gamma)^2}\sqrt{\frac{F_0}\epsilon},\qquad
+t^{\text{s-SGD}}_{T\epsilon}\sim\frac{\pi N^2}{4\mathcal N_B^2}\sqrt{\frac{F_0}\epsilon} .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If in addition <span class="mi">\(B\to\infty\)</span>, with <span class="mi">\(N\)</span> and <span class="mi">\(\gamma\)</span> allowed to vary, then</div>
+<div class="md">\[
+t^{\text{s-SGD}}_{T\epsilon}\sim\frac{\pi N^2}{4B}\sqrt{\frac{F_0}\epsilon},\qquad
+\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}\Big/\rho(\gamma)\longrightarrow1 ,
+\]</div>
+<div class="p">and the ratio tends to <span class="mi">\(\rho(\gamma_0)\)</span> if <span class="mi">\(\gamma\to\gamma_0\in(0,\infty)\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\gamma&gt;0\)</span>,</div>
+<div class="md">\[
+\rho(1)\le\rho(\gamma)&lt;\frac{32}{9\pi},\qquad \rho(1)\le\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}\le\frac{\pi^2}4\cdot\frac{32}{9\pi},
+\]</div>
+<div class="p">with <span class="mi">\(\rho(\gamma)=\rho(1)\)</span> only at <span class="mi">\(\gamma=1\)</span>; and <span class="mi">\(\rho(\gamma)\to\frac{32}{9\pi}\)</span> as <span class="mi">\(\gamma\downarrow0\)</span> and <span class="mi">\(\rho(\gamma)\to1\)</span> as <span class="mi">\(\gamma\to\infty\)</span>.</div></div></li></ol></div></div><section class="note"><div class="p">At <span class="mi">\(\bmom=0\)</span> this is the precise form of the statement, after <a class="ref" href="paper.pdf#equation.3.12" data-label="eqn:rate-signsgd">(12)</a>, that the <span class="sc">Muon</span> speedup is the ratio of the times to a common floor. The identity in (i) is exact: the ratio is <span class="mi">\(\rho(\gamma)\)</span> times <span class="mi">\(B/\mathcal N_B^2\in[1,\pi^2/4]\)</span>, which tends to one at large batch. By (iii), <span class="mi">\(\rho\)</span> has its minimum <span class="mi">\(\rho(1)=\frac14(1+\log(1+\sqrt2)/\sqrt2)^2\approx0.6587\)</span> at the square aspect ratio, where <span class="sc">SignSGD</span> is faster, tends to <span class="mi">\(1\)</span> at small batch (<span class="mi">\(\gamma\to\infty\)</span>), and has supremum <span class="mi">\(32/(9\pi)\approx1.13\)</span> at large batch (<span class="mi">\(\gamma\downarrow0\)</span>), the values of <a class="ref" href="paper.pdf#equation.3.12" data-label="eqn:rate-signsgd">(12)</a> at <span class="mi">\(\bmom=0\)</span>. With momentum the same algebra applies to the pair <span class="mi">\((C_\bmom(\gamma),\mathfrak v_{\mathrm{iso},\bmom})\)</span>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">Each isotropic array has a common drift, so by <a class="ref" href="r.thm.app-phase-matched.html" data-label="thm:app-phase-matched">Theorem SI.4</a> and <span class="mi">\(N^2/(mB)=\gamma\max(1,\gamma)\)</span> (<a class="ref" href="r.prop.app-phase-iso-ratio.html" data-label="prop:app-phase-iso-ratio">Proposition SI.3</a>),</div>
+<div class="md">\[
+\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}
+=\frac{N^2/(\mathcal N_B^2/\pi)}{m/C(\gamma)^2}=\rho(\gamma)\,\frac B{\mathcal N_B^2}.
+\]</div>
+<div class="p">The Gaussian bounds <span class="mi">\(\max\{\frac2\pi\sqrt B,\sqrt B-4/\sqrt B\}\le\mathcal N_B\le\sqrt B\)</span> (<a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a>) give <span class="mi">\(1\le B/\mathcal N_B^2\le\pi^2/4\)</span>, and <span class="mi">\(B/\mathcal N_B^2\le(1-4/B)^{-2}\)</span> for <span class="mi">\(B&gt;4\)</span>. The relative error in <a class="ref" href="r.thm.app-phase-matched.html" data-label="thm:app-phase-matched">Theorem SI.4</a> depends only on <span class="mi">\(\epsilon/F_0\)</span> and <span class="mi">\(T\)</span>, which gives (i) and (ii).</div>
+<div class="p">The shape of <span class="mi">\(\rho\)</span> comes from an integral for <span class="mi">\(C(\gamma)\)</span> over the participation level. Let <span class="mi">\(\Phi(v)=\EE[vZ^2/(1+vZ^2)]\)</span> with <span class="mi">\(Z\)</span> standard Gaussian, and <span class="mi">\(V\)</span> its inverse. The square-case scalar equation of the isotropic analysis gives the spectral parameter as a function of the level <span class="mi">\(y\)</span>, <span class="mi">\(t=(\gamma-y)^2/V(y)\)</span>. Changing variables from <span class="mi">\(t\)</span> to <span class="mi">\(y\)</span> in the half moment that defines <span class="mi">\(C(\gamma)\)</span> and integrating by parts gives (<a class="ref" href="r.lem.app-phase-ratio-integral.html" data-label="lem:app-phase-ratio-integral">Lemma SI.4</a>)</div>
+<div class="md">\[
+C(\gamma)=\frac{\sqrt2\,I(\gamma)}{\pi\gamma^2},\qquad
+I(\gamma)=\int_0^{\min(\gamma,1)}(\gamma-y)\,w(y)\,\dif y,\qquad w=V^{-1/2},
+\]</div>
+<div class="p">where <span class="mi">\(w_\circ(y)=\sqrt y\,w(y)\)</span> decreases strictly from <span class="mi">\(1\)</span>. For <span class="mi">\(\gamma\ge1\)</span>, <span class="mi">\(I(\gamma)=\gamma\mathcal A-\mathcal D\)</span> with <span class="mi">\(\mathcal A=\int_0^1w=\sqrt{\pi/2}\)</span> and <span class="mi">\(\mathcal D=\int_0^1yw\)</span>, so <span class="mi">\(\rho(\gamma)=(1-\mathcal D/(\mathcal A\gamma))^2\)</span> increases to <span class="mi">\(1\)</span>. For <span class="mi">\(\gamma&lt;1\)</span>, <span class="mi">\(\rho=\frac2\pi\gamma^{-3}I^2\)</span>, whose derivative has the sign of <span class="mi">\(2\gamma I'-3I\)</span>; this is negative, because the constant <span class="mi">\(w_\circ(\gamma/3)\)</span> integrates to zero against <span class="mi">\((3y-\gamma)y^{-1/2}\)</span> and <span class="mi">\(w_\circ\)</span> is decreasing:</div>
+<div class="md">\[
+2\gamma I'(\gamma)-3I(\gamma)=\int_0^\gamma(3y-\gamma)\,y^{-1/2}\big(w_\circ(y)-w_\circ(\gamma/3)\big)\,\dif y&lt;0 .
+\]</div>
+<div class="p">As <span class="mi">\(\gamma\downarrow0\)</span>, <span class="mi">\(\gamma^{-3/2}I(\gamma)\to\int_0^1(1-y)y^{-1/2}\dif y=\frac43\)</span>, so <span class="mi">\(\rho\to\frac{32}{9\pi}\)</span> (<a class="ref" href="r.thm.app-phase-iso-extrema.html" data-label="thm:app-phase-iso-extrema">Theorem SI.5</a>); the closed form of <span class="mi">\(C(1)\)</span> (<a class="ref" href="r.thm.app-iso-one.html" data-label="thm:app-iso-one">Theorem SF.6</a>) gives <span class="mi">\(\rho(1)\)</span>.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.thm.app-phase-iso.html" data-label="thm:app-phase-iso">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>6 levels, 22 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_iso</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/IsoRatio.lean#L1929">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_iso (T : ℝ) (hT : 1 &lt; T) :
+    -- (i) the exact ratio
+    (∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →
+      ∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+        (firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal
+          = isoRho ((N : ℝ) / B) * (B : ℝ) / NB ^ 2) ∧
+    -- (i) asymptotics, uniform in N, B, C(γ)
+    (∀ δ : ℝ, 0 &lt; δ → ∃ θ : ℝ, 0 &lt; θ ∧
+      ∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →
+        ε / mS.F0 &lt; θ →
+        ∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+          |(firstHit (mS.risk Qs) (T * ε)).toReal
+              / (min (B : ℝ) (N : ℝ) / (4 * isoDriftConst ((N : ℝ) / B) ^ 2)
+                  * Real.sqrt (mS.F0 / ε)) - 1| ≤ δ ∧
+          |(firstHit (mN.risk Qn) (T * ε)).toReal
+              / ((N : ℝ) ^ 2 * Real.pi / (4 * NB ^ 2) * Real.sqrt (mS.F0 / ε)) - 1| ≤ δ) ∧
+    -- (ii) B → ∞ with ε/F₀ → 0 jointly, for the s-SGD time
+    (∀ δ : ℝ, 0 &lt; δ → ∃ B₀ : ℕ, ∃ θ : ℝ, 0 &lt; θ ∧
+      ∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →
+        B₀ ≤ B → ε / mS.F0 &lt; θ →
+        ∀ Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mN Qn →
+          |(firstHit (mN.risk Qn) (T * ε)).toReal
+              / ((N : ℝ) ^ 2 * Real.pi / (4 * B) * Real.sqrt (mS.F0 / ε)) - 1| ≤ δ) ∧
+    -- (ii) B → ∞ alone, for the ratio divided by ρ(γ)
+    (∀ δ : ℝ, 0 &lt; δ → ∃ B₀ : ℕ,
+      ∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →
+        B₀ ≤ B →
+        ∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+          |((firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal)
+              / isoRho ((N : ℝ) / B) - 1| ≤ δ) ∧
+    -- (ii) the limit γ → γ₀
+    (∀ γ₀ : ℝ, 0 &lt; γ₀ → ∀ δ : ℝ, 0 &lt; δ → ∃ η : ℝ, 0 &lt; η ∧ ∃ B₀ : ℕ,
+      ∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →
+        B₀ ≤ B → |(N : ℝ) / B - γ₀| &lt; η →
+        ∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+          |(firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal
+              - isoRho γ₀| ≤ δ) ∧
+    -- (iii) bounds on ρ and on the ratio
+    (∀ γ : ℝ, 0 &lt; γ → isoRho 1 ≤ isoRho γ ∧ isoRho γ &lt; 32 / (9 * Real.pi)) ∧
+    (∀ γ : ℝ, 0 &lt; γ → isoRho γ = isoRho 1 → γ = 1) ∧
+    (∀ (N B : ℕ) (NB ε : ℝ) (mS mN : RowModel (Fin N)), IsIsoSetting N B NB ε T mS mN →</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

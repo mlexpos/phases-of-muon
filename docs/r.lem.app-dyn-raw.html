@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.11 (Gaussian response of the derivative functional)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.11 (Gaussian response of the derivative functional)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-raw"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-raw.html" data-label="lem:app-dyn-raw">Lemma SE.11</a> <span class="thm-title">(Gaussian response of the derivative functional)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\norm{\widehat A}_\F=1\)</span>, <span class="mi">\(\delta=\norm{\widehat A}\)</span>, and let <span class="mi">\(E\)</span> be deterministic with <span class="mi">\(C_E=\Sigmaout^{1/2}E\Sigmain^{1/2}\)</span> and <span class="mi">\(e=z^\T C_Ew\)</span>. For <span class="mi">\(x,x'\ge0\)</span>, <span class="mi">\(\abs{b(x)}\le2\)</span>, <span class="mi">\(\abs{b(x)-b(x')}\le12\abs{x-x'}\)</span> and <span class="mi">\(\norm{N_x}\le24x\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-raw"></span>\begin{equation}\tag{SE.23}
+\EE\big[e\,\psi_x'(d)\big]=\langle\widehat A,C_E\rangle\,b(x)+\big\langle C_E,\widehat AN_x\widehat A^\T\widehat A\big\rangle,\qquad
+\big|\big\langle C_E,\widehat AN_x\widehat A^\T\widehat A\big\rangle\big|\le24x\,\norm{C_E}\,\delta .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The scalar bounds are read from</div>
+<div class="md">\[
+\psi_x''(d)=\frac{2(1-3xd^2)}{(1+xd^2)^3},\qquad
+\partial_x\psi_x''(d)=-\frac{12d^2(1-xd^2)}{(1+xd^2)^4},\qquad
+\psi_x(d)=\frac1x\Big(1-\frac1{1+xd^2}\Big).
+\]</div>
+<div class="p">The first gives <span class="mi">\(\abs{\psi_x''}\le2\)</span>; the second gives <span class="mi">\(\abs{\partial_x\psi_x''(d)}\le12d^2\)</span>, hence the Lipschitz bound with <span class="mi">\(\EE d^2=1\)</span>; and the third gives <span class="mi">\(\psi_x''''(d)=-x\,\mathsf g''''(\sqrt x\,d)\)</span> with <span class="mi">\(\mathsf g(y)=(1+y^2)^{-1}\)</span>, whose fourth derivative is bounded by its value <span class="mi">\(24\)</span> at <span class="mi">\(y=0\)</span>. The bound on <span class="mi">\(N_x\)</span> is the argument for the matrix <span class="mi">\(N\)</span> in the proof of <a class="ref" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a>.</div>
+<div class="p">The identity is <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> with <span class="mi">\(f=\psi_x'\)</span>, paired with <span class="mi">\(C_E\)</span>, since <span class="mi">\(\EE[e\,\psi_x'(d)]=\langle C_E,\EE[(z\tensor w)\psi_x'(d)]\rangle\)</span>. The bound on the second term is trace duality and the ideal property: <span class="mi">\(\norm{\widehat AN_x\widehat A^\T\widehat A}_*\le\norm{\widehat A}\norm{N_x}\norm{\widehat A^\T\widehat A}_*=\delta\norm{N_x}\norm{\widehat A}_\F^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class=muted>Gaussian response</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-dyn-reduction.html" data-label="prop:app-dyn-reduction">Proposition SE.2</a> <span class=muted>Causal resolvent reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_raw</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Causal.lean#L3350">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_raw {m n : ℕ} (Ah : Mat m n) (hA : fro Ah = 1) :
+    (∀ x : ℝ, 0 ≤ x →
+      Integrable (fun z : Vec m × Vec n =&gt; iteratedDeriv 2 (psiX x) (resid Ah z))
+        (gaussPair m n) ∧
+      ∀ i j, Integrable (fun z : Vec m × Vec n =&gt;
+        iteratedDeriv 4 (psiX x) (resid Ah z) * outer z.2 z.2 i j) (gaussPair m n)) ∧
+    (∀ x : ℝ, 0 ≤ x → |bFun Ah x| ≤ 2) ∧
+    (∀ x x' : ℝ, 0 ≤ x → 0 ≤ x' → |bFun Ah x - bFun Ah x'| ≤ 12 * |x - x'|) ∧
+    (∀ x : ℝ, 0 ≤ x → opNorm (NFun Ah x) ≤ 24 * x) ∧
+    (∀ (CE : Mat m n) (x : ℝ), 0 ≤ x →
+      Integrable (fun z : Vec m × Vec n =&gt; resid CE z * deriv (psiX x) (resid Ah z))
+        (gaussPair m n) ∧
+      ∫ z, resid CE z * deriv (psiX x) (resid Ah z) ∂(gaussPair m n)
+        = frobIP Ah CE * bFun Ah x + frobIP CE (Ah * NFun Ah x * Ahᵀ * Ah) ∧
+      |frobIP CE (Ah * NFun Ah x * Ahᵀ * Ah)| ≤ 24 * x * opNorm CE * opNorm Ah) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

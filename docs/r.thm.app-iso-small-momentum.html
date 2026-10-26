@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.7 (Small aspect ratios with momentum)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.7 (Small aspect ratios with momentum)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.thm.app-iso-small-momentum.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-small-momentum"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a> <span class="thm-title">(Small aspect ratios with momentum)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in[0,1)\)</span> and <span class="mi">\(\gin,\gout&gt;0\)</span>, and assume <span class="mi">\(\varepsilon_\bmom\defeq6\gamma_\wedge(1-\bmom^2)\le\frac12\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge\ge0\)</span> there is <span class="mi">\(\vartheta\in\big[1-\varepsilon_\bmom,(1-\varepsilon_\bmom)^{-1/2}\big]\)</span> with</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{iso}}(\ridge;\bmom,\gin,\gout)=\vartheta\;\mathfrak d_{\mathrm{lin}}(\sw2\gin,\sw2\gout;\ridge).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">With <span class="mi">\(r\defeq\gout/\gin\)</span> and <span class="mi">\(J_r\)</span> of <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a>,</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)=\frac{r\,J_r}{\sqrt{2\gout}},\qquad
+\mathfrak d_{\mathrm{lin}}(\gamma,\gamma;0)=\frac{8}{3\pi\sqrt{2\gamma}} .
+\]</div>
+<div class="p">In particular, in the square case <span class="mi">\(C_\bmom(\gamma)=8\vartheta/(3\pi\sqrt{2\sw2\gamma})\)</span> with <span class="mi">\(\vartheta\)</span> of (i) at <span class="mi">\(\ridge=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(6\gamma_\wedge\le\frac12\)</span>, then for every <span class="mi">\(\bmom\in[0,1)\)</span></div>
+<div class="md">\[
+\big(1-6\gamma_\wedge\big)^{3/2}\le\frac{C_\bmom(\gin,\gout)}{\sw2^{-1/2}\,C_0(\gin,\gout)}\le\big(1-6\gamma_\wedge\big)^{-3/2}.
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge\ge0\)</span>,</div>
+<div class="md">\[
+(1-\varepsilon_\bmom)\big(1-6\sw2\gamma_\wedge\big)^{1/2}\le
+\frac{\mathfrak d_{\mathrm{iso}}(\ridge;\bmom,\gin,\gout)}{\mathfrak d_{\mathrm{iso}}(\ridge;0,\sw2\gin,\sw2\gout)}\le
+(1-\varepsilon_\bmom)^{-1/2}\big(1-6\sw2\gamma_\wedge\big)^{-1}.
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof sandwiches the root between two linear roots and then integrates.</div>
+<div class="p"><em>Constants.</em> For <span class="mi">\(\bmom&gt;0\)</span> a direct computation from <span class="mi">\(\sw k=(1-\bmom)^k/(1-\bmom^k)\)</span> gives</div>
+<div class="md">\[
+\frac{\sw4}{\sw2^2}=\frac{1-\bmom^2}{1+\bmom^2},\qquad \frac{\sw3}{\sw2}=\frac{1-\bmom^2}{1+\bmom+\bmom^2},
+\]</div>
+<div class="p">so that <span class="mi">\(\varepsilon_1\defeq6\gamma_\wedge\sw4/\sw2^2\)</span> and <span class="mi">\(\varepsilon_2\defeq6\gamma_\wedge\sw3/\sw2\)</span> are both at most <span class="mi">\(\varepsilon_\bmom\)</span>. At <span class="mi">\(\bmom=0\)</span> all power sums equal <span class="mi">\(1\)</span> and <span class="mi">\(\varepsilon_1=\varepsilon_2=\varepsilon_0\)</span>.</div>
+<div class="p"><em>Expansions.</em> By <a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>(i) for <span class="mi">\(\bmom&gt;0\)</span>, and by <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(iii) and <span class="mi">\(\Jfun(x)\ge1-3x\)</span> at <span class="mi">\(\bmom=0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-small-expansions"></span>\begin{equation}\tag{SF.49}
+\sw2q\Big(1-3\frac{\sw4}{\sw2}q\Big)\le r_\bmom(q)\le\sw2q,\qquad
+1-3\sw3q\le\Lw(q)\le1\qquad(q\ge0),
+\end{equation}</div>
+<div class="p">where the upper bounds are <a class="ref" href="r.lem.app-iso-weights.html" data-label="lem:app-iso-weights">Lemma SF.4</a>(v). The bound <span class="mi">\(\Jfun(x)\ge1-3x\)</span> is <span class="mi">\((1+t)^{-1}\ge1-t\)</span> under the expectation.</div>
+<div class="p"><em>A priori bound.</em> Put <span class="mi">\(\bar q\defeq2\gamma_\wedge/\sw2\)</span>. By <a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-small-expansions" data-label="eqn:app-iso-small-expansions">(SF.49)</a>,</div>
+<div class="md">\[
+r_\bmom(\bar q)\ge2\gamma_\wedge\big(1-\varepsilon_1\big)\ge\gamma_\wedge .
+\]</div>
+<div class="p">Since <span class="mi">\(r_\bmom(q(-s))&lt;\gamma_\wedge\)</span> and <span class="mi">\(r_\bmom\)</span> is increasing, <span class="mi">\(q(-s)&lt;\bar q\)</span> for every <span class="mi">\(s&gt;0\)</span>.</div>
+<div class="p"><em>Sandwich.</em> For <span class="mi">\(c&gt;0\)</span> the root of <a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a> with <span class="mi">\(r(q)=cq\)</span> is <span class="mi">\(q_c(s)=c^{-1}Y_{\gin,\gout}(s/c)\)</span>, because <span class="mi">\(Y=cq\)</span> turns the equation into <span class="mi">\((s/c)Y=(\gout-Y)(\gin-Y)\)</span>. <a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a>(ii) with <span class="mi">\(r_1=r_\bmom\)</span>, <span class="mi">\(r_2(q)=\sw2q\)</span> and <span class="mi">\(i=1\)</span> applies by the upper bound in <a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-small-expansions" data-label="eqn:app-iso-small-expansions">(SF.49)</a>, and gives <span class="mi">\(q_{\sw2}(s)\le q(-s)\)</span>. Next put <span class="mi">\(c\defeq\sw2(1-\varepsilon_1)\)</span>. By the a priori bound,</div>
+<div class="md">\[
+c\,q(-s)\le\sw2\,q(-s)\Big(1-3\frac{\sw4}{\sw2}\bar q\Big)\le r_\bmom\big(q(-s)\big),
+\]</div>
+<div class="p">so <a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a>(ii) with <span class="mi">\(r_1(q)=cq\)</span>, <span class="mi">\(r_2=r_\bmom\)</span> and <span class="mi">\(i=2\)</span> gives <span class="mi">\(q(-s)\le q_c(s)\)</span>.</div>
+<div class="p"><em>The factor <span class="mi">\(\Lw\)</span>.</em> By <a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-small-expansions" data-label="eqn:app-iso-small-expansions">(SF.49)</a> and <span class="mi">\(q(-s)&lt;\bar q\)</span>,</div>
+<div class="md">\[
+1-\varepsilon_2\le1-3\sw3\bar q\le\Lw\big(q(-s)\big)\le1 .
+\]</div>
+<div class="p"><em>Integration.</em> The function <span class="mi">\(Y_{\gin,\gout}\)</span> is decreasing and <span class="mi">\(c\le\sw2\)</span>, so the substitution <span class="mi">\(u=\sqrt c\,v\)</span> gives</div>
+<div class="md">\[
+\int_0^\infty q_c(\ridge+u^2)\,\dif u=c^{-1/2}\int_0^\infty Y_{\gin,\gout}\Big(\frac\ridge c+v^2\Big)\dif v
+\le c^{-1/2}\int_0^\infty Y_{\gin,\gout}\Big(\frac\ridge{\sw2}+v^2\Big)\dif v,
+\]</div>
+<div class="p">and in the same way</div>
+<div class="md">\[
+\int_0^\infty q_{\sw2}(\ridge+u^2)\,\dif u=\sw2^{-1/2}\int_0^\infty Y_{\gin,\gout}\Big(\frac\ridge{\sw2}+v^2\Big)\dif v .
+\]</div>
+<div class="p">The scaling <span class="mi">\(Y_{t\gin,t\gout}(ts)=t\,Y_{\gin,\gout}(s)\)</span> and the substitution <span class="mi">\(v=\sqrt{\sw2}\,w\)</span> give</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-dlin-scale"></span>\begin{equation}\tag{SF.50}
+\mathfrak d_{\mathrm{lin}}(\sw2\gin,\sw2\gout;\ridge)=\sw2^{-1/2}\,\frac{\sqrt2}{\pi\,\gin\gout}\int_0^\infty Y_{\gin,\gout}\Big(\frac\ridge{\sw2}+w^2\Big)\dif w .
+\end{equation}</div>
+<div class="p">Inserting the sandwich and the bounds on <span class="mi">\(\Lw\)</span> in <a class="ref" href="s.SF.html#L-eqn:app-iso-drift-G" data-label="eqn:app-iso-drift-G">(SF.29)</a> (at <span class="mi">\(\ridge=0\)</span>, in <a class="ref" href="s.SF.html#L-eqn:app-iso-C" data-label="eqn:app-iso-C">(SF.21)</a>) proves (i) with <span class="mi">\(\vartheta\in[1-\varepsilon_2,(1-\varepsilon_1)^{-1/2}]\)</span>.</div>
+<div class="p"><em>Closed form.</em> Put <span class="mi">\(y(x)\defeq Y_{\gin,\gout}(\gout x)/\gout\)</span>, so that</div>
+<div class="md">\[
+x\,y=(1-y)\Big(\frac1r-y\Big),\qquad y&lt;\min\Big(1,\frac1r\Big).
+\]</div>
+<div class="p">Let <span class="mi">\(m_r\)</span> be the transform of the law <span class="mi">\(\mathsf M_r\)</span> of <a class="ref" href="r.lem.app-iso-mp.html" data-label="lem:app-iso-mp">Lemma SF.9</a> and <span class="mi">\(\tilde y(x)\defeq1-x\,m_r(x)=\int\frac{\lambda}{\lambda+x}\,\mathsf M_r(\dif\lambda)\)</span>. Substituting <span class="mi">\(m=(1-\tilde y)/x\)</span> in <a class="ref" href="r.lem.app-iso-mp.html#L-eqn:app-iso-mp-quadratic" data-label="eqn:app-iso-mp-quadratic">(SF.34)</a> and expanding gives <span class="mi">\(x\tilde y=(1-\tilde y)(1/r-\tilde y)\)</span>. Moreover <span class="mi">\(\tilde y&lt;\mathsf M_r((0,\infty))=1-\omega_r=\min(1,1/r)\)</span>. By the uniqueness in <a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a>(i), <span class="mi">\(\tilde y=y\)</span>. The half-moment formula <a class="ref" href="r.lem.app-iso-moments.html#L-eqn:app-iso-half-moment" data-label="eqn:app-iso-half-moment">(SF.26)</a> for <span class="mi">\(\mathsf M_r\)</span> then gives</div>
+<div class="md">\[
+\int_0^\infty y(w^2)\,\dif w=\frac12\int_0^\infty t^{-1/2}\,y(t)\,\dif t=\frac\pi2\,J_r ,
+\qquad
+\int_0^\infty Y_{\gin,\gout}(v^2)\,\dif v=\gout^{3/2}\int_0^\infty y(w^2)\,\dif w ,
+\]</div>
+<div class="p">the second by <span class="mi">\(v=\sqrt{\gout}\,w\)</span>. Hence <span class="mi">\(\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)=\frac{\sqrt2}{\pi\gin\gout}\gout^{3/2}\frac\pi2J_r=rJ_r/\sqrt{2\gout}\)</span>. In the square case <span class="mi">\(r=1\)</span>, and <span class="mi">\(y(v^2)=e^{-2\vartheta'}\)</span> at <span class="mi">\(v=2\sinh\vartheta'\)</span>, since <span class="mi">\(4\sinh^2\vartheta'\,e^{-2\vartheta'}=(1-e^{-2\vartheta'})^2\)</span>. Therefore</div>
+<div class="md">\[
+\int_0^\infty y(v^2)\,\dif v=\int_0^\infty e^{-2\vartheta'}\,2\cosh\vartheta'\,\dif\vartheta'=\int_0^\infty\big(e^{-\vartheta'}+e^{-3\vartheta'}\big)\dif\vartheta'=\frac43 ,
+\]</div>
+<div class="p">and <span class="mi">\(\mathfrak d_{\mathrm{lin}}(\gamma,\gamma;0)=\frac{\sqrt2}{\pi\gamma^2}\gamma^{3/2}\frac43=\frac8{3\pi\sqrt{2\gamma}}\)</span>. The last claim of (ii) is (i) at <span class="mi">\(\ridge=0\)</span> with <a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-dlin-scale" data-label="eqn:app-iso-dlin-scale">(SF.50)</a>.</div>
+<div class="p"><em>Ratios.</em> For (iii), part (i) at <span class="mi">\(\ridge=0\)</span> and <a class="ref" href="r.thm.app-iso-small-momentum.html#L-eqn:app-iso-dlin-scale" data-label="eqn:app-iso-dlin-scale">(SF.50)</a> give <span class="mi">\(C_\bmom=\vartheta_\bmom\,\sw2^{-1/2}\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)\)</span> and <span class="mi">\(C_0=\vartheta_0\,\mathfrak d_{\mathrm{lin}}(\gin,\gout;0)\)</span>, with <span class="mi">\(\vartheta_\bmom,\vartheta_0\in[1-6\gamma_\wedge,(1-6\gamma_\wedge)^{-1/2}]\)</span> because <span class="mi">\(\varepsilon_\bmom\le6\gamma_\wedge\)</span>. Dividing gives (iii). For (iv), part (i) at momentum <span class="mi">\(0\)</span> and aspect ratios <span class="mi">\((\sw2\gin,\sw2\gout)\)</span> gives <span class="mi">\(\mathfrak d_{\mathrm{iso}}(\ridge;0,\sw2\gin,\sw2\gout)=\vartheta'\,\mathfrak d_{\mathrm{lin}}(\sw2\gin,\sw2\gout;\ridge)\)</span> with <span class="mi">\(\vartheta'\in[1-6\sw2\gamma_\wedge,(1-6\sw2\gamma_\wedge)^{-1/2}]\)</span>; its hypothesis holds because <span class="mi">\(\sw2\le1-\bmom^2\)</span>, so that <span class="mi">\(6\sw2\gamma_\wedge\le\varepsilon_\bmom\le\frac12\)</span>. Dividing by part (i) at momentum <span class="mi">\(\bmom\)</span> gives (iv).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a> <span class=muted>Weight functions</span></li><li><a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a> <span class=muted>The Gaussian scalar</span></li><li><a class="ref" href="r.lem.app-iso-weights.html" data-label="lem:app-iso-weights">Lemma SF.4</a> <span class=muted>Scalar facts</span></li><li><a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a> <span class=muted>Root comparison</span></li><li><a class="ref" href="r.lem.app-iso-mp.html" data-label="lem:app-iso-mp">Lemma SF.9</a> <span class=muted>The limiting law</span></li><li><a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a> <span class=muted>Moments and atoms</span></li><li><a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a> <span class=muted>Small aspect ratios</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-iso-small-volatility.html" data-label="thm:app-iso-small-volatility">Theorem SF.8</a> <span class=muted>Small-aspect integrated volatility</span></li><li><a class="ref" href="r.prop.app-iso-one-momentum.html" data-label="prop:app-iso-one-momentum">Proposition SF.13</a> <span class=muted>Aspect ratio one with momentum</span></li><li><a class="ref" href="r.rem.app-iso-momentum.html" data-label="rem:app-iso-momentum">Remark SF.1</a> <span class=muted>Momentum as a change of batch and of step</span></li><li><a class="ref" href="r.rem.app-os-isotropic.html" data-label="rem:app-os-isotropic">Remark SH.4</a> <span class=muted>Agreement with the isotropic results</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1745">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_i (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    ∀ ϱ : ℝ, 0 ≤ ϱ → ∃ ϑ : ℝ,
+      1 - 6 * min γin γout * (1 - β ^ 2) ≤ ϑ ∧
+      ϑ ≤ (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) ∧
+      dIso β γin γout ϱ = ϑ * isoDlin (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ :=</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1786">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_ii (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    isoDlin γin γout 0 = γout / γin * isoJr (γout / γin) / Real.sqrt (2 * γout) ∧
+      (∀ γ : ℝ, 0 &lt; γ → isoDlin γ γ 0 = 8 / (3 * Real.pi * Real.sqrt (2 * γ))) ∧
+      (γin = γout → ∃ ϑ : ℝ,
+        1 - 6 * min γin γout * (1 - β ^ 2) ≤ ϑ ∧
+        ϑ ≤ (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) ∧
+        dIso β γin γout 0 = ϑ * isoDlin (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) 0 ∧
+        Cbeta β γin γout = 8 * ϑ / (3 * Real.pi * Real.sqrt (2 * Muon.sPow β 2 * γin))) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L1845">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_iii (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    6 * min γin γout ≤ 1 / 2 →
+      ∀ β' : ℝ, 0 ≤ β' → β' &lt; 1 →
+        (1 - 6 * min γin γout) ^ (3 / 2 : ℝ) ≤
+            Cbeta β' γin γout / (Muon.sPow β' 2 ^ (-(1 / 2 : ℝ)) * Cbeta 0 γin γout) ∧
+          Cbeta β' γin γout / (Muon.sPow β' 2 ^ (-(1 / 2 : ℝ)) * Cbeta 0 γin γout) ≤
+            (1 - 6 * min γin γout) ^ (-(3 / 2 : ℝ)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_momentum_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L2009">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_momentum_iv (β γin γout : ℝ) (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hε : 6 * min γin γout * (1 - β ^ 2) ≤ 1 / 2) :
+    ∀ ϱ : ℝ, 0 ≤ ϱ →
+      (1 - 6 * min γin γout * (1 - β ^ 2)) * (1 - 6 * Muon.sPow β 2 * min γin γout) ^ (1 / 2 : ℝ) ≤
+          dIso β γin γout ϱ / dIso 0 (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ ∧
+        dIso β γin γout ϱ / dIso 0 (Muon.sPow β 2 * γin) (Muon.sPow β 2 * γout) ϱ ≤
+          (1 - 6 * min γin γout * (1 - β ^ 2)) ^ (-(1 / 2 : ℝ)) *
+            (1 - 6 * Muon.sPow β 2 * min γin γout)⁻¹ := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

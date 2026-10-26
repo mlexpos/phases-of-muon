@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.3 (Moments of one batch)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.3 (Moments of one batch)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-batch"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a> <span class="thm-title">(Moments of one batch)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(E\in\R^{\Nout\times\Nin}\)</span> be deterministic, put <span class="mi">\(A_E\defeq\Sigmaout^{1/2}E\Sigmain^{1/2}\)</span> and <span class="mi">\(d_a\defeq z_a^\T A_Ew_a\)</span> for the samples of one batch, and let <span class="mi">\(G^\circ[E]\)</span> be the gradient <a class="ref" href="s.SE.html#L-eqn:app-dyn-batch" data-label="eqn:app-dyn-batch">(SE.1)</a> of that batch.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\EE\norm{G^\circ[E]}_\F^2\le C_MB\norm{A_E}_\F^2\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\big(\EE\norm{G^\circ[E]}^2\big)^{1/2}\le C\log(2B)\norm{A_E}_\F\)</span> and <span class="mi">\(\big\|\max_{a\le B}\abs{d_a}\big\|_6\le C\log(2B)\norm{A_E}_\F\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The sample <span class="mi">\(X_a\defeq B^{-1}d_a\Sigmaout^{1/2}(z_a\tensor w_a)\Sigmain^{1/2}\)</span> has rank one and <span class="mi">\((\EE\norm{X_a}_*^2)^{1/2}\le7C_\Sigma\gamma_\star\norm{A_E}_\F\)</span>.</div></div></li></ol>
+<div class="p">The same bounds hold conditionally on <span class="mi">\(\cF_t\)</span> for the gradient <span class="mi">\(G^\circ_{t+1}[E]\)</span> of the batch of step <span class="mi">\(t\)</span> at a matrix <span class="mi">\(E\)</span> determined by the past <span class="mi">\(\cF_t\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">All three bounds are homogeneous of degree one in <span class="mi">\(E\)</span>, so we may assume <span class="mi">\(\norm{A_E}_\F=1\)</span>; then <span class="mi">\(E\neq0\)</span>, <span class="mi">\(\widehat A(E)=A_E\)</span> and <span class="mi">\(G^\circ[E]\)</span> is the normalized batch of <a class="ref" href="s.SA.html#L-eqn:app-setup-normalized" data-label="eqn:app-setup-normalized">(SA.10)</a> at the state <span class="mi">\(E\)</span>, up to the factor <span class="mi">\(\sqrt{2\cR(E)}=1\)</span>.</div>
+<div class="p">For (i), <a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a> and <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(iv) give</div>
+<div class="md">\[
+\EE\norm{G^\circ[E]}_\F^2=\norm{\EE G^\circ[E]}_\F^2+\mathsf V_B\le C_\Sigma^2+\frac{C_\Sigma^2}{B}\big(\Nout\Nin+2\Nout+2\Nin+3\big)\le C_\Sigma^2(\gamma_\star+2)^2B .
+\]</div>
+<div class="p">For (ii), write <span class="mi">\(Y\defeq\Sigmaout^{1/2}[z_1\cdots z_B]\)</span> and <span class="mi">\(X\defeq\Sigmain^{1/2}[w_1\cdots w_B]\)</span>, so that</div>
+<div class="md">\[
+G^\circ[E]=\frac1B\,Y\diag(d_1,\dots,d_B)X^\T,\qquad
+\norm{G^\circ[E]}\le\frac1B\norm Y\norm X\max_a\abs{d_a}.
+\]</div>
+<div class="p">The matrix <span class="mi">\([z_1\cdots z_B]\)</span> has independent standard Gaussian entries, so by [<a class="cite" href="bibliography.html#bib-vershynin2018high">71</a>, Theorem 4.4.5] its operator norm exceeds <span class="mi">\(C(\sqrt{\Nout}+\sqrt B+u)\)</span> with probability at most <span class="mi">\(2e^{-u^2}\)</span>; integrating this tail gives <span class="mi">\(\norm{\norm Y}_6\le C\sqrt B\)</span>, and likewise <span class="mi">\(\norm{\norm X}_6\le C\sqrt B\)</span>. For the residuals, <a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>(i) gives <span class="mi">\(\norm{d_a}_{2p}\le((2p-1)!!)^{1/p}\le2p\)</span> for every integer <span class="mi">\(p\ge1\)</span>. Choosing <span class="mi">\(2p\)</span> to be the least even integer at least <span class="mi">\(\max(6,\log B)\)</span>,</div>
+<div class="md">\[
+\big\|\max_a\abs{d_a}\big\|_6\le\big\|\max_a\abs{d_a}\big\|_{2p}\le\Big(\sum_{a\le B}\EE\abs{d_a}^{2p}\Big)^{1/(2p)}\le B^{1/(2p)}\,2p\le C\log(2B).
+\]</div>
+<div class="p">Hölder’s inequality with the three exponents <span class="mi">\(6\)</span> gives</div>
+<div class="md">\[
+\EE\norm{G^\circ[E]}^2\le\frac1{B^2}\norm{\norm Y}_6^2\norm{\norm X}_6^2\big\|\max_a\abs{d_a}\big\|_6^2\le C\log^2(2B).
+\]</div>
+<div class="p">For (iii), <span class="mi">\(X_a=d_a\,\mathsf u_a\tensor\mathsf v_a\)</span> with <span class="mi">\(\mathsf u_a=\Sigmaout^{1/2}z_a/\sqrt B\)</span> and <span class="mi">\(\mathsf v_a=\Sigmain^{1/2}w_a/\sqrt B\)</span> as in <a class="ref" href="s.SB.html#L-eqn:app-de-M-samples" data-label="eqn:app-de-M-samples">(SB.26)</a>, so <span class="mi">\(\norm{X_a}_*=\abs{d_a}\norm{\mathsf u_a}\norm{\mathsf v_a}\)</span>, and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> gives the bound. The conditional statement holds because the batch of step <span class="mi">\(t\)</span> is independent of the past.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a> <span class=muted>Gaussian covariance of a batch</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li><li><a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a> <span class=muted>Residual law</span></li><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-dyn-scalar.html" data-label="prop:app-dyn-scalar">Proposition SE.3</a> <span class=muted>Scalar contraction</span></li><li><a class="ref" href="r.lem.app-dyn-buffer.html" data-label="lem:app-dyn-buffer">Lemma SE.15</a> <span class=muted>Stopped buffer moments</span></li><li><a class="ref" href="r.lem.app-dyn-coupling.html" data-label="lem:app-dyn-coupling">Lemma SE.16</a> <span class=muted>Coupling</span></li><li><a class="ref" href="r.lem.app-dyn-taylor.html" data-label="lem:app-dyn-taylor">Lemma SE.18</a> <span class=muted>Taylor transfer</span></li><li><a class="ref" href="r.lem.app-dyn-poincare.html" data-label="lem:app-dyn-poincare">Lemma SE.19</a> <span class=muted>Projection variance</span></li><li><a class="ref" href="r.prop.app-dyn-transport.html" data-label="prop:app-dyn-transport">Proposition SE.5</a> <span class=muted>Tangent transport</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_batch_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L1420">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_batch_i {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω} [IsProbabilityMeasure P]
+    (C : Covariances m n) (γstar CSig : ℝ) (hB : 0 &lt; B) (hS : SizeFin C B γstar CSig)
+    (z : Fin B → Ω → Vec m × Vec n)
+    (hz : IIDBatch P ((Muon.Foundations.stdGaussianPi m).prod (Muon.Foundations.stdGaussianPi n)) z)
+    (E : Mat m n) :
+    Integrable (fun ω =&gt; fro (batchGrad E (physBatch C z ω)) ^ 2) P ∧
+    ∫ ω, fro (batchGrad E (physBatch C z ω)) ^ 2 ∂P ≤
+      cMConst CSig γstar * (B : ℝ) * fro (rOut C * E * rIn C) ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_batch_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L2065">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_batch_ii (certOp : Muon.External.GaussianOpNormL6) (γstar CSig : ℝ) :
+    ∃ K : ℝ, ∀ (m n B : ℕ) (C : Covariances m n) (hB : 0 &lt; B),
+      SizeFin C B γstar CSig → ∀ (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω)
+        [IsProbabilityMeasure P] (z : Fin B → Ω → Vec m × Vec n),
+        IIDBatch P ((Muon.Foundations.stdGaussianPi m).prod (Muon.Foundations.stdGaussianPi n)) z →
+        ∀ E : Mat m n,
+          eLpNorm (fun ω =&gt; opNorm (batchGrad E (physBatch C z ω))) 2 P ≤
+              ENNReal.ofReal (K * Real.log (2 * (B : ℝ)) * fro (rOut C * E * rIn C)) ∧
+          eLpNorm (fun ω =&gt; Finset.univ.sup'
+              (Finset.univ_nonempty_iff.mpr ⟨⟨0, hB⟩⟩)
+              (fun a =&gt; |resid E (phys C (z a ω))|)) 6 P ≤
+              ENNReal.ofReal (K * Real.log (2 * (B : ℝ)) * fro (rOut C * E * rIn C)) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_batch_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L2311">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_batch_iii {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω}
+    [IsProbabilityMeasure P] (C : Covariances m n) (γstar CSig : ℝ) (hB : 0 &lt; B)
+    (hS : SizeFin C B γstar CSig) (z : Fin B → Ω → Vec m × Vec n)
+    (hz : IIDBatch P ((Muon.Foundations.stdGaussianPi m).prod (Muon.Foundations.stdGaussianPi n)) z)
+    (E : Mat m n) (a : Fin B) :
+    (∀ ω, (batchSummand C E z a ω).rank ≤ 1) ∧
+    (rOut C * E * rIn C ≠ 0 → ∀ᵐ ω ∂P, (batchSummand C E z a ω).rank = 1) ∧
+    eLpNorm (fun ω =&gt; nuc (batchSummand C E z a ω)) 2 P ≤
+      ENNReal.ofReal (7 * CSig * γstar * fro (rOut C * E * rIn C)) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_batch_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L2348">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_batch_iv {Ω : Type*} (𝓕 : MeasurableSpace Ω) [mΩ : MeasurableSpace Ω]
+    {P : Measure Ω} [IsProbabilityMeasure P] (C : Covariances m n) (γstar CSig : ℝ) (hB : 0 &lt; B)
+    (hS : SizeFin C B γstar CSig) (z : Fin B → Ω → Vec m × Vec n)
+    (hz : IIDBatch P ((Muon.Foundations.stdGaussianPi m).prod (Muon.Foundations.stdGaussianPi n)) z)
+    (h𝓕 : 𝓕 ≤ mΩ)
+    (hind : Indep 𝓕 (⨆ a, MeasurableSpace.comap (z a) inferInstance) P)
+    (E : Ω → Mat m n) (hE : Measurable[𝓕] E)
+    (hEint : Integrable (fun ω =&gt; fro (rOut C * E ω * rIn C) ^ 2) P) :
+    (Integrable (fun ω' =&gt; fro (batchGrad (E ω') (physBatch C z ω')) ^ 2) P ∧
+      ∀ᵐ ω ∂P, condExp 𝓕 P (fun ω' =&gt; fro (batchGrad (E ω') (physBatch C z ω')) ^ 2) ω ≤
+        cMConst CSig γstar * (B : ℝ) * fro (rOut C * E ω * rIn C) ^ 2) ∧
+    (∀ a, Integrable (fun ω' =&gt; nuc (batchSummand C (E ω') z a ω') ^ 2) P ∧
+      ∀ᵐ ω ∂P, Real.sqrt (condExp 𝓕 P (fun ω' =&gt; nuc (batchSummand C (E ω') z a ω') ^ 2) ω) ≤
+        7 * CSig * γstar * fro (rOut C * E ω * rIn C)) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_batch_iv_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L2551">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_batch_iv_ii (certOp : Muon.External.GaussianOpNormL6) (γstar CSig : ℝ) :
+    ∃ K : ℝ, ∀ (m n B : ℕ) (C : Covariances m n) (hB : 0 &lt; B), SizeFin C B γstar CSig →
+      ∀ (Ω : Type) (𝓕 : MeasurableSpace Ω) [mΩ : MeasurableSpace Ω] (P : Measure Ω)
+        [IsProbabilityMeasure P] (z : Fin B → Ω → Vec m × Vec n),
+        IIDBatch P ((Muon.Foundations.stdGaussianPi m).prod (Muon.Foundations.stdGaussianPi n)) z →
+        𝓕 ≤ mΩ → Indep 𝓕 (⨆ a, MeasurableSpace.comap (z a) inferInstance) P →
+          ∀ E : Ω → Mat m n, Measurable[𝓕] E →
+            Integrable (fun ω =&gt; fro (rOut C * E ω * rIn C) ^ 2) P →
+            Integrable (fun ω =&gt; fro (rOut C * E ω * rIn C) ^ 6) P →
+            (Integrable (fun ω' =&gt; opNorm (batchGrad (E ω') (physBatch C z ω')) ^ 2) P ∧
+              ∀ᵐ ω ∂P, Real.sqrt (condExp 𝓕 P
+                (fun ω' =&gt; opNorm (batchGrad (E ω') (physBatch C z ω')) ^ 2) ω) ≤
+                K * Real.log (2 * (B : ℝ)) * fro (rOut C * E ω * rIn C)) ∧
+            (Integrable (fun ω' =&gt; (Finset.univ.sup'
+                (Finset.univ_nonempty_iff.mpr ⟨⟨0, hB⟩⟩)
+                (fun a =&gt; |resid (E ω') (phys C (z a ω'))|)) ^ 6) P ∧
+              ∀ᵐ ω ∂P, condExp 𝓕 P (fun ω' =&gt; (Finset.univ.sup'
+                (Finset.univ_nonempty_iff.mpr ⟨⟨0, hB⟩⟩)
+                (fun a =&gt; |resid (E ω') (phys C (z a ω'))|)) ^ 6) ω ^ (1 / 6 : ℝ) ≤
+                K * Real.log (2 * (B : ℝ)) * fro (rOut C * E ω * rIn C)) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.batchSummand</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Chains.lean#L1140">source</a></summary><pre class="lean no-mj">def batchSummand {Ω : Type*} (C : Covariances m n) (E : Mat m n) (z : Fin B → Ω → Vec m × Vec n)
+    (a : Fin B) (ω : Ω) : Mat m n :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

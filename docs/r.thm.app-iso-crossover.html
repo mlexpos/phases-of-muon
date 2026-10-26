@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.14 (Crossover)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.14 (Crossover)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.thm.app-iso-crossover.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-crossover"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-crossover.html" data-label="thm:app-iso-crossover">Theorem SF.14</a> <span class="thm-title">(Crossover)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span> be fixed, let <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\to\infty\)</span>, and let <span class="mi">\(\ridge_\gamma\in(0,1)\)</span> satisfy <span class="mi">\(\mathfrak p_\bmom(\ridge_\gamma)/\gamma\to c\in(0,\infty)\)</span>. Then <span class="mi">\(\psi(\ridge_\gamma)/\gamma\to c\wedge1\)</span>, the same-time total satisfies <span class="mi">\(B\psi(\ridge_\gamma)/N\to c\wedge1\)</span>,</div>
+<div class="md">\[
+\mathfrak d_{\mathrm{iso}}(\ridge_\gamma)\longrightarrow\Xi(c)\defeq\frac{(c\wedge1)\big(1-\tfrac12(c\wedge1)\big)}{\sqrt\pi},
+\]</div>
+<div class="p">and, with <span class="mi">\(\mathcal P\)</span> of <a class="ref" href="s.SF.html#L-eqn:app-iso-crossover-P" data-label="eqn:app-iso-crossover-P">(SF.63)</a>,</div>
+<div class="md">\[
+\frac{\mathfrak v_{\mathrm{iso}}(\ridge_\gamma)}{N\gamma}\longrightarrow\mathcal P(c\wedge1).
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(H\defeq\psi(\ridge_\gamma)\)</span> and <span class="mi">\(\mathfrak p\defeq\mathfrak p_\bmom(\ridge_\gamma)\to\infty\)</span>. The case <span class="mi">\((1-\bmom)^2Q_H&lt;1\)</span> is excluded for large <span class="mi">\(\gamma\)</span>: as in the proof of <a class="ref" href="r.thm.app-iso-fixed-ridge.html" data-label="thm:app-iso-fixed-ridge">Theorem SF.13</a>, it forces <span class="mi">\(H\le\mathsf c'_\bmom\)</span> and <span class="mi">\(\ridge_\gamma&gt;(1-\bmom)^2(\gamma-\mathsf c'_\bmom)^2\)</span>, hence <span class="mi">\(\mathfrak p&lt;-\log((1-\bmom)(\gamma-\mathsf c'_\bmom))/\log(1/\bmom)&lt;0\)</span> eventually. Since <span class="mi">\(Q_H=(\gamma-H)^2/\ridge_\gamma\)</span>, <a class="ref" href="r.lem.app-iso-count.html" data-label="lem:app-iso-count">Lemma SF.6</a>(i) gives</div>
+<div class="md">\[
+\mathfrak p+\frac{\log\big((1-\bmom)(\gamma-H)\big)}{\log(1/\bmom)}-\mathsf c_\bmom&lt;H\le\mathfrak p+\frac{\log\big((1-\bmom)\gamma\big)}{\log(1/\bmom)}+\mathsf c'_\bmom .
+\]</div>
+<div class="p">If <span class="mi">\(c&lt;1\)</span>, the upper bound gives <span class="mi">\(H\le c\gamma+o(\gamma)\)</span>, so eventually <span class="mi">\(H\le(1-\delta)\gamma\)</span> with <span class="mi">\(\delta\defeq(1-c)/2\)</span>, and then the lower bound gives <span class="mi">\(H&gt;\mathfrak p+\log((1-\bmom)\delta\gamma)/\log(1/\bmom)-\mathsf c_\bmom=c\gamma+o(\gamma)\)</span>. If <span class="mi">\(c\ge1\)</span> and <span class="mi">\(H\le(1-\delta)\gamma\)</span> along a subsequence for some <span class="mi">\(\delta\in(0,1)\)</span>, the lower bound gives <span class="mi">\(H&gt;(1-\delta/2)\gamma\)</span> eventually along it, a contradiction; since <span class="mi">\(H&lt;\gamma\)</span>, <span class="mi">\(H/\gamma\to1\)</span>. The drift limit follows from <a class="ref" href="r.thm.app-iso-master.html#L-eqn:app-iso-Xi" data-label="eqn:app-iso-Xi">(SF.32)</a> and the continuity of <span class="mi">\(\Xi_0\)</span>, and the same-time total is <span class="mi">\(B\psi/N=\psi/\gamma\)</span>.</div>
+<div class="p">For the volatility, <a class="ref" href="r.thm.app-iso-vol-ridge.html" data-label="thm:app-iso-vol-ridge">Theorem SF.12</a> applies for large <span class="mi">\(\gamma\)</span>, since <span class="mi">\(\gamma\ge\gamma^\circ_\bmom\)</span> eventually. Dividing its second display by <span class="mi">\(\gamma\)</span> and using <span class="mi">\(H&lt;\gamma\)</span>,</div>
+<div class="md">\[
+\Big|\frac{\mathfrak v_{\mathrm{iso}}(\ridge_\gamma)}{N\gamma}-\mathcal P\Big(\frac H\gamma\Big)\Big|
+\le\frac H{\gamma^2}+\frac{2\big(\mathsf K^\flat_\bmom+(\mathsf K^\sharp_\bmom+\mathsf K^\circ_\bmom)H\big)}{\gamma^2}\longrightarrow0 ,
+\]</div>
+<div class="p">and <span class="mi">\(\mathcal P(H/\gamma)\to\mathcal P(c\wedge1)\)</span> because <span class="mi">\(\mathcal P\)</span> is continuous on <span class="mi">\([0,1]\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-iso-fixed-ridge.html" data-label="thm:app-iso-fixed-ridge">Theorem SF.13</a> <span class=muted>Fixed ridge, large aspect ratios</span></li><li><a class="ref" href="r.lem.app-iso-count.html" data-label="lem:app-iso-count">Lemma SF.6</a> <span class=muted>Participation count</span></li><li><a class="ref" href="r.thm.app-iso-master.html" data-label="thm:app-iso-master">Theorem SF.3</a> <span class=muted>Master drift estimate</span></li><li><a class="ref" href="r.thm.app-iso-vol-ridge.html" data-label="thm:app-iso-vol-ridge">Theorem SF.12</a> <span class=muted>Integrated volatility at positive ridge</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_crossover</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/RidgeRegimes.lean#L5170">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_crossover {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (c : ℝ) (hc : 0 &lt; c) (N B ϱ : ℕ → ℝ)
+    (hN : ∀ n, 0 &lt; N n) (hB : ∀ n, 0 &lt; B n)
+    (hγ : Tendsto (fun n =&gt; N n / B n) atTop atTop)
+    (hϱ : ∀ n, 0 &lt; ϱ n) (hϱ1 : ∀ n, ϱ n &lt; 1)
+    (hp : Tendsto (fun n =&gt; isoPfrak β (ϱ n) / (N n / B n)) atTop (𝓝 c)) :
+    Tendsto (fun n =&gt; psiIso β (N n / B n) (N n / B n) (ϱ n) / (N n / B n))
+        atTop (𝓝 (min c 1)) ∧
+      Tendsto (fun n =&gt; B n * psiIso β (N n / B n) (N n / B n) (ϱ n) / N n)
+        atTop (𝓝 (min c 1)) ∧
+      Tendsto (fun n =&gt; dIso β (N n / B n) (N n / B n) (ϱ n))
+        atTop (𝓝 (isoCrossXi c)) ∧
+      (∀ n, Summable (fun ℓ : ℕ =&gt; lagCoeff β (N n / B n) (ϱ n) (ℓ + 1))) ∧
+      Tendsto (fun n =&gt; isoVolRatio β (N n / B n) (ϱ n) / (N n / B n))
+        atTop (𝓝 (isoCrossP (min c 1))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

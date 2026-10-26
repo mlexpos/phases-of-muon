@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SD.2 (Regularity and bounds)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SD.2 (Regularity and bounds)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-corollary" id="L-cor:app-vol-closed-bounds"><div class="thm-head"><a class="thm-name" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> <span class="thm-title">(Regularity and bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\ell\ge0\)</span> and let <span class="mi">\(F,G\)</span> be diagonal tests.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\mathfrak k_\ell[F,G]\)</span> is continuous on <span class="mi">\((0,\infty)^2\)</span>. It is nonnegative if <span class="mi">\(F\)</span> and <span class="mi">\(G\)</span> are positive semidefinite. It vanishes identically if <span class="mi">\(\bmom=0\)</span> and <span class="mi">\(\ell\ge1\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For all <span class="mi">\(s,u&gt;0\)</span>,</div>
+<div class="md">\[
+\abs{\mathfrak k_\ell[F,G](s,u)}\le\frac{\gamma_\star\norm F\norm G}{4\sqrt{su}},\qquad
+\abs{\mathfrak k_\ell[F,G](s,u)}\le\frac{\sw2\,\Tr\Sigmaout\,\Tr\Sigmain\,\norm F\norm G\,\bmom^\ell}{B^2\,su\,\theta_\Sigma(\min(s,u))^2}.
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(0&lt;\bmom&lt;1\)</span> and <span class="mi">\(\ell\ge1\)</span>, then for all <span class="mi">\(s,u&gt;0\)</span>,</div>
+<div class="md">\[
+\abs{\mathfrak k_\ell[F,G](s,u)}\le\frac{4\sw2\,\hat q_\bmom\,\norm F\norm G\,\bmom^\ell}{\epsilon_\bmom^2\sqrt{su}} .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">Consequently <span class="mi">\(\abs{\mathfrak k_\ell[F,G](s,u)}\le C_\bmom^{\mathrm{lag}}\norm F\norm G\,\bmom^\ell/\sqrt{su}\)</span> for all <span class="mi">\(\ell\ge0\)</span> and <span class="mi">\(s,u&gt;0\)</span>, with <span class="mi">\(C_\bmom^{\mathrm{lag}}\defeq\max(\gamma_\star/4,\,4\sw2\hat q_\bmom\epsilon_\bmom^{-2})\)</span> for <span class="mi">\(0&lt;\bmom&lt;1\)</span> and <span class="mi">\(C_0^{\mathrm{lag}}\defeq\gamma_\star/4\)</span>. The constant depends only on <span class="mi">\((\bmom,\gamma_\star)\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a>.</div><div class="p">For (i), continuity follows from the closed form. The branch is continuous in the parameter by <a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a>(iii), <span class="mi">\(b_\ell\)</span> and <span class="mi">\(e_\ell\)</span> are jointly continuous in <span class="mi">\((q,q')\)</span> by <a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a>(c), and <span class="mi">\(\Delta_\ell&gt;0\)</span>. For positive semidefinite <span class="mi">\(F,G\)</span> all factors are nonnegative. At <span class="mi">\(\bmom=0\)</span> and <span class="mi">\(\ell\ge1\)</span>, <span class="mi">\(b_\ell=0\)</span>.</div>
+<div class="p">For the first bound of (ii), <span class="mi">\(\norm{\iota_s}_\infty=1/(2\sqrt s)\)</span> by <a class="ref" href="r.lem.app-vol-sharp.html#L-eqn:app-vol-filter-constants" data-label="eqn:app-vol-filter-constants">(SD.5)</a>, and the response is bounded by <span class="mi">\(\gamma_\star\norm F\norm G\norm{f_1}_\infty\norm{f_2}_\infty\)</span> by <a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a>. For the second,</div>
+<div class="md">\[
+\abs{\mathcal T^{\mathrm{out}}[F]}\le\norm F\,\frac1B\sum_i\frac{\mu_i}{(s+\tilde s_1\mu_i)(u+\tilde s_1'\mu_i)}\le\frac{\norm F\Tr\Sigmaout}{B\,su},
+\]</div>
+<div class="p">likewise <span class="mi">\(\abs{\mathcal T^{\mathrm{in}}[G]}\le\norm G\Tr\Sigmain/(B\,su)\)</span>, and <span class="mi">\(b_\ell\le\sw2\bmom^\ell\)</span> and <span class="mi">\(\Delta_\ell\ge\theta_\Sigma(\min(s,u))^2\)</span> by <a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a>(d) and <a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a>(i).</div>
+<div class="p">For (iii), the Cauchy–Schwarz inequality with <span class="mi">\(\mu_i=\sqrt{\mu_i}\sqrt{\mu_i}\)</span> gives <span class="mi">\(\abs{\mathcal T^{\mathrm{out}}[F]}\le\norm F\sqrt{\Theta_s\Theta_u'}\)</span>, where <span class="mi">\(\Theta_s\)</span> is the quantity of the proof of <a class="ref" href="r.lem.app-vol-closed-determinant.html" data-label="lem:app-vol-closed-determinant">Lemma SD.15</a> and <span class="mi">\(\Theta'_u\)</span> the same quantity for the primed branch. Termwise <span class="mi">\(t\Theta_t\le\sigma_t\)</span>, so <span class="mi">\(\abs{\mathcal T^{\mathrm{out}}[F]}\le\norm F\sqrt{\sigma\sigma'/(su)}\)</span>, and likewise <span class="mi">\(\abs{\mathcal T^{\mathrm{in}}[G]}\le\norm G\sqrt{\tilde\sigma\tilde\sigma'/(su)}\)</span>. Since <span class="mi">\(q=s\sigma\tilde\sigma\)</span> and <span class="mi">\(q'=u\sigma'\tilde\sigma'\)</span>,</div>
+<div class="md">\[
+su\,\abs{\mathcal T^{\mathrm{out}}[F]\,\mathcal T^{\mathrm{in}}[G]}\le\norm F\norm G\sqrt{\sigma\tilde\sigma\sigma'\tilde\sigma'}=\norm F\norm G\,\frac{\sqrt{qq'}}{\sqrt{su}}\le\norm F\norm G\,\frac{\hat q_\bmom}{\sqrt{su}},
+\]</div>
+<div class="p">using <span class="mi">\(q,q'&lt;\hat q_\bmom\)</span> from <a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a>(ii). With <span class="mi">\(b_\ell\le\sw2\bmom^\ell\)</span> and <a class="ref" href="r.lem.app-vol-closed-determinant.html" data-label="lem:app-vol-closed-determinant">Lemma SD.15</a>(c) this is (iii); if a covariance vanishes, <span class="mi">\(\mathfrak k_\ell=0\)</span> by Step 0 of the previous proof.</div>
+<div class="p">Part (iv) combines the first bound of (ii) for <span class="mi">\(\ell=0\)</span>, part (iii) for <span class="mi">\(\ell\ge1\)</span>, and part (i) at <span class="mi">\(\bmom=0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a> <span class=muted>Branch of a profile</span></li><li><a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a> <span class=muted>Profile functions</span></li><li><a class="ref" href="r.lem.app-vol-sharp.html" data-label="lem:app-vol-sharp">Lemma SD.1</a> <span class=muted>Odd spectral functions</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.lem.app-vol-closed-determinant.html" data-label="lem:app-vol-closed-determinant">Lemma SD.15</a> <span class=muted>Determinant</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-closed-filtered.html" data-label="thm:app-vol-closed-filtered">Theorem SD.6</a> <span class=muted>Filtered lag coefficients</span></li><li><a class="ref" href="r.thm.app-vol-double-same.html" data-label="thm:app-vol-double-same">Corollary SD.5</a> <span class=muted>Same-time volatility, two anisotropic covariances</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_closed_bounds_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L1860">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_closed_bounds_i (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (ℓ : ℕ)
+    (Fm : Mat m m) (Gm : Mat n n) (Fd : Fin m → ℝ) (Gd : Fin n → ℝ)
+    (hFd : Fm = S.uOut * Matrix.diagonal Fd * S.uOutᵀ)
+    (hGd : Gm = S.vIn * Matrix.diagonal Gd * S.vInᵀ) :
+    ContinuousOn
+        (fun p : ℝ × ℝ =&gt;
+          lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF p.1) (iotaF p.2))
+        (Ioi 0 ×ˢ Ioi 0) ∧
+      (Fm.PosSemidef → Gm.PosSemidef → ∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+        0 ≤ lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u)) ∧
+      (Fp.β = 0 → 1 ≤ ℓ → ∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+        lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u) = 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_closed_bounds_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L1966">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_closed_bounds_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (ℓ : ℕ)
+    (Fm : Mat m m) (Gm : Mat n n) (Fd : Fin m → ℝ) (Gd : Fin n → ℝ)
+    (hFd : Fm = S.uOut * Matrix.diagonal Fd * S.uOutᵀ)
+    (hGd : Gm = S.vIn * Matrix.diagonal Gd * S.vInᵀ) :
+    ∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+      |lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u)| ≤
+          γstar * Muon.opNorm Fm * Muon.opNorm Gm / (4 * Real.sqrt (s * u)) ∧
+        |lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u)| ≤
+          Muon.sPow Fp.β 2 * (Fp.C.Sout.trace * Fp.C.Sin.trace) * Muon.opNorm Fm *
+            Muon.opNorm Gm * Fp.β ^ ℓ / ((B : ℝ) ^ 2 * (s * u) * thetaSigma Fp.C B (min s u) ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_closed_bounds_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L4781">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_closed_bounds_iii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (hβpos : 0 &lt; Fp.β) (ℓ : ℕ)
+    (Fm : Mat m m) (Gm : Mat n n) (Fd : Fin m → ℝ) (Gd : Fin n → ℝ)
+    (hFd : Fm = S.uOut * Matrix.diagonal Fd * S.uOutᵀ)
+    (hGd : Gm = S.vIn * Matrix.diagonal Gd * S.vInᵀ) :
+    ∀ s u : ℝ, 0 &lt; s → 0 &lt; u → 1 ≤ ℓ →
+      |lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u)| ≤
+        4 * Muon.sPow Fp.β 2 * qhatBeta Fp.β γstar * Muon.opNorm Fm * Muon.opNorm Gm *
+          Fp.β ^ ℓ / (epsBeta Fp.β γstar ^ 2 * Real.sqrt (s * u)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_closed_bounds_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L4976">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_closed_bounds_iv (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (ℓ : ℕ)
+    (Fm : Mat m m) (Gm : Mat n n) (Fd : Fin m → ℝ) (Gd : Fin n → ℝ)
+    (hFd : Fm = S.uOut * Matrix.diagonal Fd * S.uOutᵀ)
+    (hGd : Gm = S.vIn * Matrix.diagonal Gd * S.vInᵀ) :
+    ∀ s u : ℝ, 0 &lt; s → 0 &lt; u →
+      |lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam Fd Gd (iotaF s) (iotaF u)| ≤
+        clagConst Fp.β γstar * Muon.opNorm Fm * Muon.opNorm Gm * Fp.β ^ ℓ / Real.sqrt (s * u) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

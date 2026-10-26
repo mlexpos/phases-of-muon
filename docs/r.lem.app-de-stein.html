@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.8 (Gaussian response)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.8 (Gaussian response)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-stein"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class="thm-title">(Gaussian response)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(A\in\R^{\Nout\times\Nin}\)</span> be deterministic, <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span>, <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> independent, and <span class="mi">\(d=z^\T Aw\)</span>. Let <span class="mi">\(f\in C^3(\R)\)</span> and <span class="mi">\(\psi\in C^2(\R)\)</span> have polynomially bounded derivatives up to the stated orders. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein1"></span><span class="anchor" id="L-eqn:app-de-stein2"></span>\begin{align}
+\EE[(z\tensor w)\,f(d)]&amp;=A\,\EE f'(d)+A\,\EE[(w\tensor w)\,f'''(d)]\,A^\T A,
+\tag{SB.22}\\
+\norm{\EE[(z\tensor w)\,f(d)]-A\,\EE f'(d)}_\F&amp;\le\norm{f'''}_\infty\norm A^2\norm A_\F,
+\notag\\
+\EE[(z\tensor z-\Id)\,\psi(d)]&amp;=A\,\EE[(w\tensor w)\,\psi''(d)]\,A^\T,
+\tag{SB.23}\\
+\norm{\EE[(z\tensor z-\Id)\,\psi(d)]}_\F&amp;\le\norm{\psi''}_\infty\norm A\norm A_\F,
+\notag
+\end{align}</div>
+<div class="p">and both <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> hold with <span class="mi">\((z,w,A)\)</span> replaced by <span class="mi">\((w,z,A^\T)\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The tool is Stein’s lemma [<a class="cite" href="bibliography.html#bib-stein1981estimation">62</a>, Lemma 1]: for <span class="mi">\(g\sim\mathcal N(0,1)\)</span> and an absolutely continuous <span class="mi">\(\phi\)</span> with <span class="mi">\(\EE\abs{\phi'(g)}&lt;\infty\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein-lemma"></span>\begin{equation}\tag{SB.24}
+\EE[g\,\phi(g)]=\EE\phi'(g).
+\end{equation}</div>
+<div class="p">We apply it to one coordinate of <span class="mi">\(z\)</span> or <span class="mi">\(w\)</span> at a time, conditionally on all other coordinates. The partial derivatives of <span class="mi">\(d=z^\T Aw\)</span> are</div>
+<div class="md">\[
+\partial_{z_i}d=(Aw)_i,\qquad \partial_{w_l}d=(A^\T z)_l .
+\]</div>
+<div class="p">The first identity is obtained by three applications of <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a>. Applying it to the coordinate <span class="mi">\(z_i\)</span> gives</div>
+<div class="md">\[
+\EE[z_iw_lf(d)]=\EE\big[w_l\,\partial_{z_i}f(d)\big]=\EE\big[w_l\,(Aw)_i\,f'(d)\big].
+\]</div>
+<div class="p">Applying it to the coordinate <span class="mi">\(w_l\)</span>, with the product rule, gives</div>
+<div class="md">\[
+\EE\big[w_l\,(Aw)_i\,f'(d)\big]=\EE\big[\partial_{w_l}\big((Aw)_if'(d)\big)\big]
+=A_{il}\,\EE f'(d)+\EE\big[(Aw)_i\,(A^\T z)_l\,f''(d)\big].
+\]</div>
+<div class="p">In matrix form the two steps read</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein-step2"></span>\begin{equation}\tag{SB.25}
+\EE[(z\tensor w)\,f(d)]=A\,\EE f'(d)+A\,\EE[(w\tensor z)\,f''(d)]\,A .
+\end{equation}</div>
+<div class="p">Applying <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a> to the coordinate <span class="mi">\(z_l\)</span> inside the remaining expectation gives</div>
+<div class="md">\[
+\EE[w_kz_lf''(d)]=\EE\big[w_k\,(Aw)_l\,f'''(d)\big],\qquad\text{that is,}\qquad
+\EE[(w\tensor z)\,f''(d)]=\EE[(w\tensor w)\,f'''(d)]\,A^\T .
+\]</div>
+<div class="p">Substituting this into <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-step2" data-label="eqn:app-de-stein-step2">(SB.25)</a> proves <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a>.</div>
+<div class="p">The bound for the first identity has two steps. The matrix <span class="mi">\(N\defeq\EE[(w\tensor w)\,f'''(d)]\)</span> satisfies</div>
+<div class="md">\[
+\norm N=\sup_{\norm x=\norm y=1}\big|\EE\big[(x^\T w)(y^\T w)f'''(d)\big]\big|
+\le\norm{f'''}_\infty\sup_{\norm x=\norm y=1}\EE\big[\abs{x^\T w}\,\abs{y^\T w}\big]\le\norm{f'''}_\infty ,
+\]</div>
+<div class="p">the last step by the Cauchy–Schwarz inequality and <span class="mi">\(\EE(x^\T w)^2=\norm x^2\)</span>. Then</div>
+<div class="md">\[
+\norm{A\,N\,A^\T A}_\F\le\norm A\,\norm N\,\norm{A^\T A}_\F\le\norm A\,\norm N\,\norm A\,\norm A_\F
+\le\norm{f'''}_\infty\norm A^2\norm A_\F ,
+\]</div>
+<div class="p">using <span class="mi">\(\norm{XY}_\F\le\norm X\norm Y_\F\)</span> twice.</div>
+<div class="p">The second identity is obtained by two applications of <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a>. Applying it to the coordinate <span class="mi">\(z_i\)</span> of <span class="mi">\(z_i\cdot z_k\psi(d)\)</span> gives</div>
+<div class="md">\[
+\EE[z_iz_k\psi(d)]=\EE\big[\partial_{z_i}\big(z_k\psi(d)\big)\big]
+=\delta_{ik}\,\EE\psi(d)+\EE\big[z_k\,(Aw)_i\,\psi'(d)\big],
+\]</div>
+<div class="p">that is, in matrix form,</div>
+<div class="md">\[
+\EE[(z\tensor z-\Id)\,\psi(d)]=A\,\EE[(w\tensor z)\,\psi'(d)].
+\]</div>
+<div class="p">The step from <span class="mi">\(\EE[(w\tensor z)\,f''(d)]\)</span> to <span class="mi">\(\EE[(w\tensor w)\,f'''(d)]A^\T\)</span> above, applied with <span class="mi">\(\psi'\)</span> in place of <span class="mi">\(f''\)</span>, gives <span class="mi">\(\EE[(w\tensor z)\,\psi'(d)]=\EE[(w\tensor w)\,\psi''(d)]A^\T\)</span>, which proves <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a>. Its bound is the same two-step estimate with <span class="mi">\(\norm{\psi''}_\infty\)</span> in place of <span class="mi">\(\norm{f'''}_\infty\)</span> and one factor of <span class="mi">\(\norm A\)</span> fewer:</div>
+<div class="md">\[
+\norm{A\,\EE[(w\tensor w)\,\psi''(d)]\,A^\T}_\F\le\norm A\,\norm{\psi''}_\infty\,\norm{A^\T}_\F=\norm{\psi''}_\infty\norm A\norm A_\F .
+\]</div>
+<div class="p">The last claim follows from the symmetry <span class="mi">\(d=w^\T A^\T z\)</span>: the same computations with the roles of <span class="mi">\(z\)</span> and <span class="mi">\(w\)</span> exchanged and <span class="mi">\(A\)</span> replaced by <span class="mi">\(A^\T\)</span> give both identities and both bounds for <span class="mi">\((w,z,A^\T)\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class=muted>Response equation</span></li><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li><li><a class="ref" href="r.lem.app-dyn-raw.html" data-label="lem:app-dyn-raw">Lemma SE.11</a> <span class=muted>Gaussian response of the derivative functional</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2326">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_i {m n : ℕ} (A : Mat m n) (f : ℝ → ℝ) (hf : ContDiff ℝ 3 f)
+    (hfp : ∀ j : ℕ, j ≤ 3 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j f x| ≤ K * (1 + |x| ^ k)) :
+    Muon.mean (gaussPair m n) (fun x =&gt; f (resid A x) • Muon.outer x.1 x.2) =
+      (∫ x, deriv f (resid A x) ∂(gaussPair m n)) • A +
+        A * Muon.mean (gaussPair m n) (fun x =&gt; iteratedDeriv 3 f (resid A x) • Muon.outer x.2 x.2)
+          * Aᵀ * A := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2361">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_ii {m n : ℕ} (A : Mat m n) (f : ℝ → ℝ) (hf : ContDiff ℝ 3 f)
+    (hfp : ∀ j : ℕ, j ≤ 3 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j f x| ≤ K * (1 + |x| ^ k)) :
+    ∀ M : ℝ, (∀ x : ℝ, |iteratedDeriv 3 f x| ≤ M) →
+      fro (Muon.mean (gaussPair m n) (fun x =&gt; f (resid A x) • Muon.outer x.1 x.2) -
+          (∫ x, deriv f (resid A x) ∂(gaussPair m n)) • A) ≤
+        M * opNorm A ^ 2 * fro A := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2411">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_iii {m n : ℕ} (A : Mat m n) (ψ : ℝ → ℝ) (hψ : ContDiff ℝ 2 ψ)
+    (hψp : ∀ j : ℕ, j ≤ 2 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j ψ x| ≤ K * (1 + |x| ^ k)) :
+    Muon.mean (gaussPair m n) (fun x =&gt; ψ (resid A x) • (Muon.outer x.1 x.1 - 1)) =
+      A * Muon.mean (gaussPair m n) (fun x =&gt; iteratedDeriv 2 ψ (resid A x) • Muon.outer x.2 x.2) * Aᵀ := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2443">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_iv {m n : ℕ} (A : Mat m n) (ψ : ℝ → ℝ) (hψ : ContDiff ℝ 2 ψ)
+    (hψp : ∀ j : ℕ, j ≤ 2 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j ψ x| ≤ K * (1 + |x| ^ k)) :
+    ∀ M : ℝ, (∀ x : ℝ, |iteratedDeriv 2 ψ x| ≤ M) →
+      fro (Muon.mean (gaussPair m n) (fun x =&gt; ψ (resid A x) • (Muon.outer x.1 x.1 - 1))) ≤
+        M * opNorm A * fro A := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2487">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_v {m n : ℕ} (A : Mat m n) (f : ℝ → ℝ) (hf : ContDiff ℝ 3 f)
+    (hfp : ∀ j : ℕ, j ≤ 3 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j f x| ≤ K * (1 + |x| ^ k)) :
+    Muon.mean (gaussPair n m) (fun x =&gt; f (resid Aᵀ x) • Muon.outer x.1 x.2) =
+      (∫ x, deriv f (resid Aᵀ x) ∂(gaussPair n m)) • Aᵀ +
+        Aᵀ * Muon.mean (gaussPair n m) (fun x =&gt; iteratedDeriv 3 f (resid Aᵀ x) • Muon.outer x.2 x.2)
+          * A * Aᵀ := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_vi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2517">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_vi {m n : ℕ} (A : Mat m n) (f : ℝ → ℝ) (hf : ContDiff ℝ 3 f)
+    (hfp : ∀ j : ℕ, j ≤ 3 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j f x| ≤ K * (1 + |x| ^ k)) :
+    ∀ M : ℝ, (∀ x : ℝ, |iteratedDeriv 3 f x| ≤ M) →
+      fro (Muon.mean (gaussPair n m) (fun x =&gt; f (resid Aᵀ x) • Muon.outer x.1 x.2) -
+          (∫ x, deriv f (resid Aᵀ x) ∂(gaussPair n m)) • Aᵀ) ≤
+        M * opNorm Aᵀ ^ 2 * fro Aᵀ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_vii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2546">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_vii {m n : ℕ} (A : Mat m n) (ψ : ℝ → ℝ) (hψ : ContDiff ℝ 2 ψ)
+    (hψp : ∀ j : ℕ, j ≤ 2 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j ψ x| ≤ K * (1 + |x| ^ k)) :
+    Muon.mean (gaussPair n m) (fun x =&gt; ψ (resid Aᵀ x) • (Muon.outer x.1 x.1 - 1)) =
+      Aᵀ * Muon.mean (gaussPair n m) (fun x =&gt; iteratedDeriv 2 ψ (resid Aᵀ x) • Muon.outer x.2 x.2) * A := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_stein_viii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L2574">source</a></summary><pre class="lean no-mj">theorem lem_app_de_stein_viii {m n : ℕ} (A : Mat m n) (ψ : ℝ → ℝ) (hψ : ContDiff ℝ 2 ψ)
+    (hψp : ∀ j : ℕ, j ≤ 2 → ∃ (K : ℝ) (k : ℕ), ∀ x : ℝ, |iteratedDeriv j ψ x| ≤ K * (1 + |x| ^ k)) :
+    ∀ M : ℝ, (∀ x : ℝ, |iteratedDeriv 2 ψ x| ≤ M) →
+      fro (Muon.mean (gaussPair n m) (fun x =&gt; ψ (resid Aᵀ x) • (Muon.outer x.1 x.1 - 1))) ≤
+        M * opNorm Aᵀ * fro Aᵀ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

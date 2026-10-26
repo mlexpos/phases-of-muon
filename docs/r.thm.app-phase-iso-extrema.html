@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SI.5 (Extrema of the isotropic ratio)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SI.5 (Extrema of the isotropic ratio)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-phase-iso-extrema"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-iso-extrema.html" data-label="thm:app-phase-iso-extrema">Theorem SI.5</a> <span class="thm-title">(Extrema of the isotropic ratio)</span></div><div class="thm-body"><div class="p">The ratio <span class="mi">\(\rho\)</span> is continuous on <span class="mi">\((0,\infty)\)</span>, strictly decreasing on <span class="mi">\((0,1]\)</span> and strictly increasing on <span class="mi">\([1,\infty)\)</span>, and</div>
+<div class="md">\[
+\min_{\gamma&gt;0}\rho(\gamma)=\rho(1)=\pi C(1)^2,\qquad
+\sup_{\gamma&gt;0}\rho(\gamma)=\lim_{\gamma\downarrow0}\rho(\gamma)=\frac{32}{9\pi},\qquad
+\lim_{\gamma\to\infty}\rho(\gamma)=1 .
+\]</div>
+<div class="p">The minimum is attained only at <span class="mi">\(\gamma=1\)</span> and the supremum is not attained. For <span class="mi">\(\gamma\ge1\)</span>, <span class="mi">\(\rho(\gamma)=(1-\mathsf d/\gamma)^2\)</span> with <span class="mi">\(\mathsf d\defeq\mathcal D/\mathcal A=1-\sqrt\pi\,C(1)\in(0,1)\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For <span class="mi">\(0&lt;\gamma&lt;1\)</span>, <a class="ref" href="r.lem.app-phase-ratio-integral.html#L-eqn:app-phase-CI" data-label="eqn:app-phase-CI">(SI.18)</a> gives</div>
+<div class="md">\[
+\rho(\gamma)=\frac2\pi\,\gamma^{-3}I(\gamma)^2,\qquad I'(\gamma)=\int_0^\gamma w(y)\,\dif y ,
+\]</div>
+<div class="p">where the derivative has no boundary term because the integrand of <span class="mi">\(I\)</span> vanishes at <span class="mi">\(y=\gamma\)</span>. The derivative of <span class="mi">\(\gamma^{-3}I^2\)</span> is <span class="mi">\(\gamma^{-4}I\,(2\gamma I'-3I)\)</span>, and</div>
+<div class="md">\[
+2\gamma I'(\gamma)-3I(\gamma)=\int_0^\gamma(3y-\gamma)\,y^{-1/2}w_\circ(y)\,\dif y .
+\]</div>
+<div class="p">The same integral with <span class="mi">\(w_\circ(y)\)</span> replaced by the constant <span class="mi">\(w_\circ(\gamma/3)\)</span> vanishes, since <span class="mi">\(\int_0^\gamma(3y-\gamma)y^{-1/2}\dif y=2\gamma^{3/2}-2\gamma^{3/2}=0\)</span>. Subtracting it gives</div>
+<div class="md">\[
+2\gamma I'(\gamma)-3I(\gamma)=\int_0^\gamma(3y-\gamma)\,y^{-1/2}\big(w_\circ(y)-w_\circ(\gamma/3)\big)\,\dif y&lt;0 ,
+\]</div>
+<div class="p">because <span class="mi">\(w_\circ\)</span> is strictly decreasing, so the integrand is negative except at <span class="mi">\(y=\gamma/3\)</span>. Hence <span class="mi">\(\rho\)</span> is strictly decreasing on <span class="mi">\((0,1)\)</span>.</div>
+<div class="p">For <span class="mi">\(\gamma\ge1\)</span>, <a class="ref" href="r.lem.app-phase-ratio-integral.html#L-eqn:app-phase-AD" data-label="eqn:app-phase-AD">(SI.19)</a> and <span class="mi">\(\mathcal A^2=\pi/2\)</span> give</div>
+<div class="md">\[
+\rho(\gamma)=\frac2\pi\big(\mathcal A-\mathcal D/\gamma\big)^2=\Big(1-\frac{\mathsf d}\gamma\Big)^2 ,
+\]</div>
+<div class="p">which increases strictly to <span class="mi">\(1\)</span>. The formula <a class="ref" href="r.lem.app-phase-ratio-integral.html#L-eqn:app-phase-CI" data-label="eqn:app-phase-CI">(SI.18)</a> is continuous in <span class="mi">\(\gamma\)</span>, which gives continuity at <span class="mi">\(1\)</span>, and <span class="mi">\(\rho(1)=(1-\mathsf d)^2=\pi C(1)^2\)</span> identifies <span class="mi">\(\mathsf d\)</span>.</div>
+<div class="p">As <span class="mi">\(\gamma\downarrow0\)</span>, the substitution <span class="mi">\(y=\gamma y'\)</span> gives</div>
+<div class="md">\[
+\gamma^{-3/2}I(\gamma)=\int_0^1(1-y')\,y'^{-1/2}\,w_\circ(\gamma y')\,\dif y'\longrightarrow\int_0^1(1-y')\,y'^{-1/2}\,\dif y'=\frac43 ,
+\]</div>
+<div class="p">since <span class="mi">\(0&lt;w_\circ\le1\)</span> and <span class="mi">\(w_\circ(\gamma y')\to1\)</span> for each <span class="mi">\(y'\)</span>. Hence <span class="mi">\(\rho(\gamma)\to\frac2\pi\cdot\frac{16}9=\frac{32}{9\pi}\)</span>, and <span class="mi">\(\frac{32}{9\pi}&gt;1\)</span> because <span class="mi">\(\pi&lt;\frac{32}9\)</span>. Strict monotonicity on each side of <span class="mi">\(1\)</span> gives the remaining claims.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-ratio-integral.html" data-label="lem:app-phase-ratio-integral">Lemma SI.4</a> <span class=muted>An integral for the drift constant</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-iso.html" data-label="thm:app-phase-iso">Theorem SI.6</a> <span class=muted>Isotropic comparison</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_iso_extrema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/IsoRatio.lean#L1627">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_iso_extrema :
+    ContinuousOn isoRho (Ioi 0) ∧
+    StrictAntiOn isoRho (Ioc 0 1) ∧ StrictMonoOn isoRho (Ici 1) ∧
+    (∀ γ : ℝ, 0 &lt; γ → isoRho 1 ≤ isoRho γ) ∧
+    isoRho 1 = Real.pi * isoDriftConst 1 ^ 2 ∧
+    (∀ γ : ℝ, 0 &lt; γ → isoRho γ = isoRho 1 → γ = 1) ∧
+    IsLUB (isoRho '' Ioi 0) (32 / (9 * Real.pi)) ∧
+    (∀ γ : ℝ, 0 &lt; γ → isoRho γ ≠ 32 / (9 * Real.pi)) ∧
+    Tendsto isoRho (𝓝[&gt;] 0) (𝓝 (32 / (9 * Real.pi))) ∧
+    Tendsto isoRho atTop (𝓝 1) ∧
+    (0 &lt; isoD / isoA ∧ isoD / isoA &lt; 1) ∧
+    isoD / isoA = 1 - Real.sqrt Real.pi * isoDriftConst 1 ∧
+    (∀ γ : ℝ, 1 ≤ γ → isoRho γ = (1 - (isoD / isoA) / γ) ^ 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

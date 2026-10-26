@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SG.7 (Negligible ridge)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SG.7 (Negligible ridge)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-proposition" id="L-prop:app-pl-ridge"><div class="thm-head"><a class="thm-name" href="r.prop.app-pl-ridge.html" data-label="prop:app-pl-ridge">Proposition SG.7</a> <span class="thm-title">(Negligible ridge)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a>. Let <span class="mi">\(0&lt;\ridge_N\le\bar z_N\)</span> and let <span class="mi">\(H_N\ge0\)</span> be integers with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-ridge-window"></span>\begin{equation}\tag{SG.38}
+\frac{\ridge_N\,Q_\gamma}{c_NN^{-\alpha}\gamma^2}\to0,\qquad
+(1+H_N)\sqrt{D_\star}\,\ridge_N^{1/4}\to0,\qquad
+E_\star\,\bmom^{H_N/3}\to0 .
+\end{equation}</div>
+<div class="p">Then <a class="ref" href="r.thm.app-pl-triple.html" data-label="thm:app-pl-triple">Theorem SG.1</a>, <a class="ref" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a> and <a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a>, <a class="ref" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Corollary SG.1</a> and <a class="ref" href="r.cor.app-pl-weighted.html" data-label="cor:app-pl-weighted">Corollary SG.2</a> hold with <span class="mi">\(\mathfrak d_i(\ridge_N)\)</span>, <span class="mi">\(\overline C_{i,\ell}(\ridge_N)\)</span> and <span class="mi">\(\mathfrak v_i(\ridge_N)\)</span> in place of the zero-ridge coefficients. Such sequences <span class="mi">\((\ridge_N,H_N)\)</span> exist.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-pl-ridge.html" data-label="prop:app-pl-ridge">Proposition SG.7</a>.</div><div class="p">The drift error is uniform and small relative to the approximant. By <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-drift-ridge" data-label="eqn:app-pl-drift-ridge">(SG.13)</a> and <span class="mi">\(Q_\gamma\ge1\)</span>,</div>
+<div class="md">\[
+\max_i\abs{\mathfrak d_i(\ridge_N)-\mathfrak d_i(0)}\le\frac{C}{\gamma}\sqrt{\ridge_NQ_\gamma}=C\,a_N\Big(\frac{\ridge_NQ_\gamma}{c_NN^{-\alpha}\gamma^2}\Big)^{1/2}=o(a_N),
+\]</div>
+<div class="p">while <span class="mi">\(\widehat{\mathfrak d}_i\ge c\,a_N\)</span> for all rows (end of <a class="ref" href="s.SG.html#L-sec:app-pl-drift-proofs" data-label="sec:app-pl-drift-proofs">Section SG.5</a>). The volatility error is uniformly small: by <a class="ref" href="r.prop.app-pl-vol-zero.html#L-eqn:app-pl-vol-ridge" data-label="eqn:app-pl-vol-ridge">(SG.21)</a> with <span class="mi">\(H=H_N\)</span>, <span class="mi">\(D_i\le D_\star\)</span> and <span class="mi">\(E_i\le E_\star\)</span>,</div>
+<div class="md">\[
+\max_i\abs{\mathfrak v_i(\ridge_N)-\mathfrak v_i(0)}\le2(1+2H_N)\sqrt{D_\star}\,\ridge_N^{1/4}+\frac{4E_\star\bmom^{H_N/3}}{1-\bmom^{1/3}}\longrightarrow0,
+\]</div>
+<div class="p">and the same bound holds for each lag coefficient by <a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a>(i). Since <span class="mi">\(\mathfrak v_i(0)\ge1\)</span>, the additive errors preserve every relative statement, and they preserve the limits of <a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a>, which are positive or infinite. For existence, choose <span class="mi">\(H_N\)</span> with <span class="mi">\(E_\star\bmom^{H_N/3}\le1/N\)</span>, and then <span class="mi">\(\ridge_N\in(0,\bar z_N]\)</span> small enough for the first two quantities of <a class="ref" href="r.prop.app-pl-ridge.html#L-eqn:app-pl-ridge-window" data-label="eqn:app-pl-ridge-window">(SG.38)</a> to be at most <span class="mi">\(1/N\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class=muted>Drift at zero ridge</span></li><li><a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class=muted>Volatility at zero ridge</span></li><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li><li><a class="ref" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a> <span class=muted>Thin-batch power law</span></li><li><a class="ref" href="r.thm.app-pl-triple.html" data-label="thm:app-pl-triple">Theorem SG.1</a> <span class=muted>The coefficient pair</span></li><li><a class="ref" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a> <span class=muted>Drift crossover</span></li><li><a class="ref" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Corollary SG.1</a> <span class=muted>Crossover windows and joint endpoints</span></li><li><a class="ref" href="r.cor.app-pl-weighted.html" data-label="cor:app-pl-weighted">Corollary SG.2</a> <span class=muted>Nonnegative weighted sums</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-pl-dynamics-scope.html" data-label="rem:app-pl-dynamics-scope">Remark SG.3</a> <span class=muted>Scope for the dynamics</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_exists</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L1627">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_exists {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c) :
+    ∃ (ϱ : ℕ → ℝ) (H : ℕ → ℕ), ridgeWindow R ϱ H := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_triple</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2379">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_triple {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H)
+    (nN : ℕ → ℕ) (hnN : ∀ n, 1 ≤ nN n ∧ nN n ≤ N n)
+    (hn : Tendsto (fun n =&gt; (nN n : ℝ)) atTop atTop) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧ ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    ∀ ε &gt; 0, ∀ᶠ n in atTop, ∀ i : Fin (N n), (nN n : ℝ) ≤ rowNum i →
+      |dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) i (ϱ n) /
+          dHatDrift α β (c n) (N n) (B n) i - 1| ≤ ε ∧
+      |ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) i (ϱ n) /
+          (if α ≤ 1 then vhatApprox β α (B n) i else vhatSuper β α (B n) i) - 1| ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_drift_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2540">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_drift_i {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) (hα : α ≤ 1)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧
+    (∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n) /
+          icdA α (c n) (N n) (B n)) atTop (𝓝 (1 + x ^ (-α / 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icdIdx β α (N n) (B n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+      (Tendsto (fun n =&gt; rowNum (i n) / (N n : ℝ)) atTop (𝓝 0) →
+        IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          (fun n =&gt; icdD α * aN α (c n) (N n) *
+            (if α &lt; 1 then Real.log (((N n : ℝ) / rowNum (i n)) ^ α)
+              else Real.log ((N n : ℝ) / rowNum (i n)) ^ ((3 : ℝ) / 2))))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_drift_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2609">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_drift_ii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) (hα : 1 &lt; α)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧
+    (∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n) /
+          bN α (c n) (N n) (B n)) atTop (𝓝 (profPhi α β (x ^ (-α))))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2)))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icCross α (B n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+      (Tendsto (fun n =&gt; rowNum (i n) / (N n : ℝ)) atTop (𝓝 0) →
+        IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          (fun n =&gt; dAl α * Real.sqrt (c n * Kc α) * (N n : ℝ) ^ (-(1 : ℝ) / 2) *
+            rowNum (i n) ^ (-(α - 1) / 2)))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_vol_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2678">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_vol_i {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) :
+    ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    (∀ K : Set ℝ, K ⊆ Ioc 0 1 → IsCompact K → ∀ L : Set ℝ, L ⊆ Ioo 0 1 → IsCompact L →
+      ∀ ε &gt; 0, ∀ᶠ n in atTop, ∀ (i : Fin (N n)) (ℓ : ℕ),
+        rowNum i / (N n : ℝ) ∈ K → (ℓ : ℝ) / gammaOf (N n) (B n) ∈ L →
+          |ridgeC cert (γstar n) (CSig n) β ℓ (B n) (plSpec α (c n) (N n)) i (ϱ n) -
+            profC α (rowNum i / (N n : ℝ)) ((ℓ : ℝ) / gammaOf (N n) (B n))| ≤ ε) ∧
+    (∀ K : Set ℝ, K ⊆ Ioc 0 1 → IsCompact K → ∀ ε &gt; 0, ∀ᶠ n in atTop, ∀ (i : Fin (N n)),
+      rowNum i / (N n : ℝ) ∈ K →
+        |ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) i (ϱ n) /
+          gammaOf (N n) (B n) - profGamma α (rowNum i / (N n : ℝ))| ≤ ε) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_vol_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2758">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_vol_ii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) (hα1 : α ≤ 1)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowIdx (i n)) atTop atTop) :
+    ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    (∀ K : Set ℝ, K ⊆ Ioi 0 → IsCompact K → ∀ ε &gt; 0, ∃ M : ℕ, ∀ᶠ n in atTop,
+      ∀ j : Fin (N n), (M : ℝ) ≤ rowIdx j → icvRow β α (B n) j ∈ K →
+        |sPow β 2 * ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) j (ϱ n) -
+          (1 + 2 * c0 * icvRow β α (B n) j ^ (α / 2) + icvRow β α (B n) j ^ α)| ≤ ε) ∧
+    (Tendsto (fun n =&gt; icvRow β α (B n) (i n)) atTop (𝓝 0) →
+      Tendsto (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        atTop (𝓝 (1 / sPow β 2))) ∧
+    (Tendsto (fun n =&gt; icvRow β α (B n) (i n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; gammaOf (N n) (B n) * profGamma α (rowFrac (i n)))) ∧
+    (Tendsto (fun n =&gt; icvRow β α (B n) (i n)) atTop atTop →
+      Tendsto (fun n =&gt; rowFrac (i n)) atTop (𝓝 0) → α &lt; 1 →
+      IsEquivalent atTop
+        (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; gammaOf (N n) (B n) * rowFrac (i n) ^ α *
+          Real.log (((N n : ℝ) / rowIdx (i n)) ^ α) ^ 2 / (1 - α))) ∧
+    (Tendsto (fun n =&gt; icvRow β α (B n) (i n)) atTop atTop →
+      Tendsto (fun n =&gt; rowFrac (i n)) atTop (𝓝 0) → α = 1 →
+      IsEquivalent atTop
+        (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; 4 / 9 * (rowIdx (i n) / (B n : ℝ)) *
+          Real.log ((N n : ℝ) / rowIdx (i n)) ^ 3)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_vol_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2849">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_vol_iii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) (hα1 : 1 &lt; α)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowIdx (i n)) atTop atTop) :
+    ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    ((∀ X0 : ℝ, 0 &lt; X0 → Tendsto (fun n =&gt; rowIdx (i n) / icCross α (B n)) atTop (𝓝 X0) →
+      Tendsto (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        atTop (𝓝 (profG α β X0))) ∧
+    (Tendsto (fun n =&gt; rowIdx (i n) / icCross α (B n)) atTop (𝓝 0) →
+      Tendsto (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        atTop (𝓝 (1 / sPow β 2))) ∧
+    (Tendsto (fun n =&gt; rowIdx (i n) / icCross α (B n)) atTop atTop →
+      IsEquivalent atTop
+        (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; gammaOf (N n) (B n) * profGamma α (rowFrac (i n)))) ∧
+    (Tendsto (fun n =&gt; rowIdx (i n) / icCross α (B n)) atTop atTop →
+      Tendsto (fun n =&gt; rowFrac (i n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+        (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+        (fun n =&gt; 4 * Kc α ^ 2 / (α - 1) * (rowIdx (i n) / (B n : ℝ))))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_endpoints_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2901">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_endpoints_i {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H) (hα : α ≤ 1)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧ ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    ∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 *
+            dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n) /
+            icdA α (c n) (N n) (B n)) atTop (𝓝 (1 + x ^ (-α / 2))) ∧
+        Tendsto (fun n =&gt; sPow β 2 *
+            ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n)) atTop
+          (𝓝 (1 + 2 * x ^ (α / 2) + (c0 ^ 2)⁻¹ * x ^ α)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_endpoints_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L2950">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_endpoints_ii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧ ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    ((Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2))) ∧
+        Tendsto (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          atTop (𝓝 (1 / sPow β 2))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop atTop →
+      IsEquivalent atTop
+          (fun n =&gt; Real.sqrt 2 * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+        IsEquivalent atTop
+          (fun n =&gt; ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n) (ϱ n))
+          (fun n =&gt; gammaOf (N n) (B n) * profGamma α (rowNum (i n) / (N n : ℝ))))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_ridge_weighted</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L3029">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_ridge_weighted {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (ν ν' : ℕ → FiniteMeasure ℝ)
+    (hν : ∀ n, (ν n : Measure ℝ) =
+      ENNReal.ofReal ((B n : ℝ)⁻¹) • ∑ i : Fin (N n), Measure.dirac (plSpec α (c n) (N n) i))
+    (hν' : ∀ n, (ν' n : Measure ℝ) = ENNReal.ofReal (gammaOf (N n) (B n)) • Measure.dirac (1 : ℝ))
+    (ϱ : ℕ → ℝ) (H : ℕ → ℕ) (hW : ridgeWindow R ϱ H)
+    (nN : ℕ → ℕ) (hnN : ∀ n, 1 ≤ nN n ∧ nN n ≤ N n)
+    (hn : Tendsto (fun n =&gt; (nN n : ℝ)) atTop atTop)
+    (I : (n : ℕ) → Finset (Fin (N n))) (hI : ∀ n, ∀ i ∈ I n, nN n ≤ (i : ℕ) + 1)
+    (a : (n : ℕ) → Fin (N n) → ℝ) (ha : ∀ n i, 0 ≤ a n i)
+    (hpos : ∀ n, 0 &lt; ∑ i ∈ I n, a n i) :
+    ridgeDriftWellPosed R ν ν' ϱ ∧ ridgeVolWellPosed R cert γstar CSig ϱ ∧
+    Tendsto (fun n =&gt; (∑ i ∈ I n, a n i * dRidge β (ν n) (ν' n) (plSpec α (c n) (N n)) i (ϱ n)) /
+        (∑ i ∈ I n, a n i * dHatDrift α β (c n) (N n) (B n) i)) atTop (𝓝 1) ∧
+    Tendsto (fun n =&gt; (∑ i ∈ I n, a n i *
+          ridgeV cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) i (ϱ n)) /
+        (∑ i ∈ I n, a n i *
+          (if α ≤ 1 then vhatApprox β α (B n) i else vhatSuper β α (B n) i))) atTop (𝓝 1) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

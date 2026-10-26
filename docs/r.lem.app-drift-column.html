@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SC.1 (Deletion identities for the mixed resolvent)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SC.1 (Deletion identities for the mixed resolvent)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-drift-column"><div class="thm-head"><a class="thm-name" href="r.lem.app-drift-column.html" data-label="lem:app-drift-column">Lemma SC.1</a> <span class="thm-title">(Deletion identities for the mixed resolvent)</span></div><div class="thm-body"><div class="p">In the setting of <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a>, with <span class="mi">\(\mathsf X\defeq\mathsf X_s(M)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-column"></span><span class="anchor" id="L-eqn:app-drift-Xdiff"></span>\begin{align}
+\mathsf h\,R\mathsf u&amp;=\alpha_1\,R_0\mathsf u-\alpha_2\,\mathsf X_0\mathsf v ,\tag{SC.17}\\
+\mathsf X-\mathsf X_0&amp;=\alpha_3\,R_0(\mathsf u\tensor\mathsf u)\mathsf X_0+s\,\alpha_1\,R_0(\mathsf u\tensor\mathsf v)\widetilde R_0
+-\alpha_1\,\mathsf X_0(\mathsf v\tensor\mathsf u)\mathsf X_0-s\,\alpha_2\,\mathsf X_0(\mathsf v\tensor\mathsf v)\widetilde R_0 .
+\tag{SC.18}
+\end{align}</div>
+<div class="p">Both identities hold at <span class="mi">\(z\in\mathbb S\)</span> in place of <span class="mi">\(s\)</span>, with the quantities of <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> at <span class="mi">\(z\)</span> and <span class="mi">\(\mathsf X\defeq\mathsf X_z(M)\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first identity is <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> applied to <span class="mi">\(\mathsf u\)</span>. Multiplying <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> on the right by <span class="mi">\(\mathsf u\)</span> and using the definitions <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> of <span class="mi">\(\mathsf U\)</span> and <span class="mi">\(\mathsf C\)</span>,</div>
+<div class="md">\[
+R\mathsf u=R_0\mathsf u\,\big(1+\alpha_3\mathsf U-\alpha_1\mathsf C\big)+\mathsf X_0\mathsf v\,\big(-\alpha_1\mathsf U+\alpha_2\mathsf C\big).
+\]</div>
+<div class="p">The two scalar coefficients simplify by the definitions <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-coefficients" data-label="eqn:app-de-coefficients">(SB.13)</a>:</div>
+<div class="md">\[
+1+\alpha_3\mathsf U-\alpha_1\mathsf C=\frac{\Lambda-s\mathsf h^2\mathsf U\mathsf V-\mathsf h\mathsf C(1+\mathsf h\mathsf C)}{\Lambda}
+=\frac{(1+\mathsf h\mathsf C)^2-\mathsf h\mathsf C(1+\mathsf h\mathsf C)}{\Lambda}=\frac{1+\mathsf h\mathsf C}{\Lambda},
+\]</div>
+<div class="md">\[
+-\alpha_1\mathsf U+\alpha_2\mathsf C=\frac{-\mathsf h(1+\mathsf h\mathsf C)\mathsf U+\mathsf h^2\mathsf U\mathsf C}{\Lambda}=-\frac{\mathsf h\mathsf U}{\Lambda}.
+\]</div>
+<div class="p">Multiplying by <span class="mi">\(\mathsf h\)</span> gives <span class="mi">\(\mathsf h(1+\mathsf h\mathsf C)/\Lambda=\alpha_1\)</span> and <span class="mi">\(-\mathsf h^2\mathsf U/\Lambda=-\alpha_2\)</span>, which is <a class="ref" href="r.lem.app-drift-column.html#L-eqn:app-drift-column" data-label="eqn:app-drift-column">(SC.17)</a>.</div>
+<div class="p">The second identity follows from the first and from <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>. Since <span class="mi">\(M=M_0+\mathsf h\,\mathsf u\tensor\mathsf v\)</span>,</div>
+<div class="md">\[
+\mathsf X=RM=RM_0+(\mathsf hR\mathsf u)\tensor\mathsf v=\mathsf X_0+(R-R_0)M_0+(\mathsf hR\mathsf u)\tensor\mathsf v .
+\]</div>
+<div class="p">In the middle term we use <span class="mi">\(\mathsf u^\T R_0M_0=\mathsf u^\T\mathsf X_0\)</span> and the identity <span class="mi">\(\mathsf X_0^\T M_0=M_0^\T R_0M_0=\Id-s\widetilde R_0\)</span> of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, so that <span class="mi">\(\mathsf v^\T\mathsf X_0^\T M_0=\mathsf v^\T-s\,\mathsf v^\T\widetilde R_0\)</span>. Inserting <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>,</div>
+<div class="md">\[
+\begin{aligned}
+(R-R_0)M_0={}&amp;\alpha_3\,(R_0\mathsf u)\tensor(\mathsf X_0^\T\mathsf u)
+-\alpha_1\,(R_0\mathsf u)\tensor\big(\mathsf v-s\widetilde R_0\mathsf v\big)\\
+&amp;-\alpha_1\,(\mathsf X_0\mathsf v)\tensor(\mathsf X_0^\T\mathsf u)
++\alpha_2\,(\mathsf X_0\mathsf v)\tensor\big(\mathsf v-s\widetilde R_0\mathsf v\big).
+\end{aligned}
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-drift-column.html#L-eqn:app-drift-column" data-label="eqn:app-drift-column">(SC.17)</a> the last term of <span class="mi">\(\mathsf X\)</span> is <span class="mi">\((\alpha_1R_0\mathsf u-\alpha_2\mathsf X_0\mathsf v)\tensor\mathsf v\)</span>, which cancels the two terms of <span class="mi">\((R-R_0)M_0\)</span> that carry <span class="mi">\(\tensor\mathsf v\)</span>. What remains is <a class="ref" href="r.lem.app-drift-column.html#L-eqn:app-drift-Xdiff" data-label="eqn:app-drift-Xdiff">(SC.18)</a>, since <span class="mi">\((R_0\mathsf u)\tensor(\mathsf X_0^\T\mathsf u)=R_0(\mathsf u\tensor\mathsf u)\mathsf X_0\)</span> and similarly for the other three terms.</div>
+<div class="p">At <span class="mi">\(z\in\mathbb S\)</span> the proof is verbatim with <span class="mi">\(s\)</span> replaced by <span class="mi">\(z\)</span>: it is algebraic and uses only <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> and the identities of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, which hold at <span class="mi">\(z\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class=muted>Rank-two deletion</span></li><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li><li><a class="ref" href="r.lem.app-drift-exact.html" data-label="lem:app-drift-exact">Lemma SC.6</a> <span class=muted>Exact mixed identity</span></li><li><a class="ref" href="r.lem.app-dyn-derivative.html" data-label="lem:app-dyn-derivative">Lemma SE.9</a> <span class=muted>Residual derivatives</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.lem_app_drift_column</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Column.lean#L263">source</a></summary><pre class="lean no-mj">theorem lem_app_drift_column
+    (M M₀ : Mat m n) (h s : ℝ) (u : Vec m) (v : Vec n)
+    (hM : M = M₀ + h • outer u v) (hs : 0 &lt; s) :
+    h • (Muon.DetEquiv.Rs M s *ᵥ u) =
+        Muon.DetEquiv.alpha1 M₀ h u v s • (Muon.DetEquiv.Rs M₀ s *ᵥ u)
+          - Muon.DetEquiv.alpha2 M₀ h u v s • (Muon.DetEquiv.Xs M₀ s *ᵥ v) ∧
+    Muon.DetEquiv.Xs M s - Muon.DetEquiv.Xs M₀ s =
+        Muon.DetEquiv.alpha3 M₀ h u v s •
+            (Muon.DetEquiv.Rs M₀ s * outer u u * Muon.DetEquiv.Xs M₀ s)
+          + (s * Muon.DetEquiv.alpha1 M₀ h u v s) •
+            (Muon.DetEquiv.Rs M₀ s * outer u v * Muon.DetEquiv.Rts M₀ s)
+          - Muon.DetEquiv.alpha1 M₀ h u v s •
+            (Muon.DetEquiv.Xs M₀ s * outer v u * Muon.DetEquiv.Xs M₀ s)
+          - (s * Muon.DetEquiv.alpha2 M₀ h u v s) •
+            (Muon.DetEquiv.Xs M₀ s * outer v v * Muon.DetEquiv.Rts M₀ s) := by</pre></details><details class="decl"><summary><code>Muon.Drift.lem_app_drift_column_field_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Column.lean#L136">source</a></summary><pre class="lean no-mj">theorem lem_app_drift_column_field_i
+    (M M₀ : Matrix (Fin m) (Fin n) K) (h s : K) (u : Fin m → K) (v : Fin n → K)
+    (hΛ : colLambda M₀ h u v s ≠ 0)
+    (hdel : colR M s - colR M₀ s =
+      colAlpha3 M₀ h u v s • vecMulVec (colR M₀ s *ᵥ u) (colR M₀ s *ᵥ u)
+        - colAlpha1 M₀ h u v s • vecMulVec (colR M₀ s *ᵥ u) (colX M₀ s *ᵥ v)
+        - colAlpha1 M₀ h u v s • vecMulVec (colX M₀ s *ᵥ v) (colR M₀ s *ᵥ u)
+        + colAlpha2 M₀ h u v s • vecMulVec (colX M₀ s *ᵥ v) (colX M₀ s *ᵥ v)) :
+    h • (colR M s *ᵥ u) =
+      colAlpha1 M₀ h u v s • (colR M₀ s *ᵥ u) - colAlpha2 M₀ h u v s • (colX M₀ s *ᵥ v) := by</pre></details><details class="decl"><summary><code>Muon.Drift.lem_app_drift_column_field_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Column.lean#L192">source</a></summary><pre class="lean no-mj">theorem lem_app_drift_column_field_ii
+    (M M₀ : Matrix (Fin m) (Fin n) K) (h s : K) (u : Fin m → K) (v : Fin n → K)
+    (hM : M = M₀ + h • vecMulVec u v)
+    (hR₀ : IsUnit (M₀ * M₀ᵀ + s • (1 : Matrix (Fin m) (Fin m) K)).det)
+    (hRt₀ : IsUnit (M₀ᵀ * M₀ + s • (1 : Matrix (Fin n) (Fin n) K)).det)
+    (hΛ : colLambda M₀ h u v s ≠ 0)
+    (hdel : colR M s - colR M₀ s =
+      colAlpha3 M₀ h u v s • vecMulVec (colR M₀ s *ᵥ u) (colR M₀ s *ᵥ u)
+        - colAlpha1 M₀ h u v s • vecMulVec (colR M₀ s *ᵥ u) (colX M₀ s *ᵥ v)
+        - colAlpha1 M₀ h u v s • vecMulVec (colX M₀ s *ᵥ v) (colR M₀ s *ᵥ u)
+        + colAlpha2 M₀ h u v s • vecMulVec (colX M₀ s *ᵥ v) (colX M₀ s *ᵥ v)) :
+    colX M s - colX M₀ s =
+      colAlpha3 M₀ h u v s • (colR M₀ s * vecMulVec u u * colX M₀ s)
+        + (s * colAlpha1 M₀ h u v s) • (colR M₀ s * vecMulVec u v * colRt M₀ s)
+        - colAlpha1 M₀ h u v s • (colX M₀ s * vecMulVec v u * colX M₀ s)
+        - (s * colAlpha2 M₀ h u v s) • (colX M₀ s * vecMulVec v v * colRt M₀ s) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

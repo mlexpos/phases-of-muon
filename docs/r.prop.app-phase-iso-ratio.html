@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.3 (The isotropic ratio)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.3 (The isotropic ratio)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-iso-ratio"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-iso-ratio.html" data-label="prop:app-phase-iso-ratio">Proposition SI.3</a> <span class="thm-title">(The isotropic ratio)</span></div><div class="thm-body"><div class="p">Take the arrays <a class="ref" href="s.SI.html#L-eqn:app-phase-iso-arrays" data-label="eqn:app-phase-iso-arrays">(SI.15)</a> with a common <span class="mi">\(F_0\)</span>, the matched steps <span class="mi">\(\lr^\star=2\sqrt\epsilon/\mathcal S\)</span> of each, and <span class="mi">\(T&gt;1\)</span> with <span class="mi">\(F_0&gt;T\epsilon\)</span>. Then</div>
+<div class="md">\[
+\mathcal S^{\text{s-SVD}}=\frac m{2C(\gamma)},\qquad \mathcal S^{\text{s-SGD}}=\frac{N^2\sqrt\pi}{2\mathcal N_B},\qquad
+\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}=\frac{\pi N^2C(\gamma)^2}{m\,\mathcal N_B^2}=\rho(\gamma)\,\frac B{\mathcal N_B^2} .
+\]</div>
+<div class="p">Moreover <span class="mi">\(1\le B/\mathcal N_B^2\le\pi^2/4\)</span> for every <span class="mi">\(B\)</span>, and for <span class="mi">\(B&gt;4\)</span></div>
+<div class="md">\[
+0\le\frac{t^{\text{s-SGD}}_{T\epsilon}/t^{\text{s-SVD}}_{T\epsilon}}{\rho(\gamma)}-1\le\Big(1-\frac4B\Big)^{-2}-1 .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The noise constants are <span class="mi">\(\mathfrak v_{\rm tot}/(2\mathfrak d)\)</span> by <a class="ref" href="r.prop.app-phase-common.html" data-label="prop:app-phase-common">Proposition SI.2</a>. The exact ratio of <a class="ref" href="r.thm.app-phase-matched.html" data-label="thm:app-phase-matched">Theorem SI.4</a> is</div>
+<div class="md">\[
+\frac{N^2/(\mathcal N_B^2/\pi)}{m/C(\gamma)^2}=\frac{\pi N^2C(\gamma)^2}{m\,\mathcal N_B^2} .
+\]</div>
+<div class="p">Since <span class="mi">\(N/B=\gamma\)</span> and <span class="mi">\(N/m=\max(1,\gamma)\)</span>,</div>
+<div class="md">\[
+\frac{N^2}{mB}=\gamma\max(1,\gamma),
+\]</div>
+<div class="p">which gives the second form. Squaring and inverting <a class="ref" href="s.SI.html#L-eqn:app-phase-NB" data-label="eqn:app-phase-NB">(SI.16)</a> gives <span class="mi">\(1\le B/\mathcal N_B^2\le\pi^2/4\)</span>, and for <span class="mi">\(B&gt;4\)</span> the lower bound <span class="mi">\(\mathcal N_B\ge\sqrt B(1-4/B)&gt;0\)</span> gives <span class="mi">\(B/\mathcal N_B^2\le(1-4/B)^{-2}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-phase-common.html" data-label="prop:app-phase-common">Proposition SI.2</a> <span class=muted>Common drift</span></li><li><a class="ref" href="r.thm.app-phase-matched.html" data-label="thm:app-phase-matched">Theorem SI.4</a> <span class=muted>Matched floors</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-phase-iso-one.html" data-label="cor:app-phase-iso-one">Corollary SI.1</a> <span class=muted>The value at <span class="mi">\(\gamma=1\)</span></span></li><li><a class="ref" href="r.thm.app-phase-iso.html" data-label="thm:app-phase-iso">Theorem SI.6</a> <span class=muted>Isotropic comparison</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_iso_ratio</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/IsoRatio.lean#L961">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_iso_ratio (N B : ℕ) (NB ε T : ℝ) (mS mN : RowModel (Fin N))
+    (h : IsIsoSetting N B NB ε T mS mN) :
+    mS.S = min (B : ℝ) (N : ℝ) / (2 * isoDriftConst ((N : ℝ) / B)) ∧
+    mN.S = (N : ℝ) ^ 2 * Real.sqrt Real.pi / (2 * NB) ∧
+    (∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+      firstHit (mS.risk Qs) (T * ε) ≠ ⊤ ∧ firstHit (mN.risk Qn) (T * ε) ≠ ⊤ ∧
+      (firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal
+        = isoRho ((N : ℝ) / B) * (B : ℝ) / NB ^ 2) ∧
+    isoRho ((N : ℝ) / B) * (B : ℝ) / NB ^ 2
+        = Real.pi * (N : ℝ) ^ 2 * isoDriftConst ((N : ℝ) / B) ^ 2
+          / (min (B : ℝ) (N : ℝ) * NB ^ 2) ∧
+    (∀ Qs Qn : Fin N → ℝ → ℝ, IsGlobalRowSolution mS Qs → IsGlobalRowSolution mN Qn →
+      4 &lt; B →
+        0 ≤ ((firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal)
+            / isoRho ((N : ℝ) / B) - 1 ∧
+        ((firstHit (mN.risk Qn) (T * ε)).toReal / (firstHit (mS.risk Qs) (T * ε)).toReal)
+            / isoRho ((N : ℝ) / B) - 1 ≤ ((1 - 4 / (B : ℝ)) ^ 2)⁻¹ - 1) ∧
+    1 ≤ (B : ℝ) / NB ^ 2 ∧ (B : ℝ) / NB ^ 2 ≤ Real.pi ^ 2 / 4 ∧
+    (4 &lt; B → (B : ℝ) / NB ^ 2 ≤ ((1 - 4 / (B : ℝ)) ^ 2)⁻¹) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

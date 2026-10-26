@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.5 (Large aspect ratios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.5 (Large aspect ratios)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-large"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-large.html" data-label="thm:app-iso-large">Theorem SF.5</a> <span class="thm-title">(Large aspect ratios)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\gin^{(j)},\gout^{(j)}\to\infty\)</span>, without a condition on their ratio, and let <span class="mi">\((\mathfrak m_{\mathrm{out}}^{(j)},\mathfrak m_{\mathrm{in}}^{(j)})\)</span> be the isotropic measure pair at <span class="mi">\((\gin^{(j)},\gout^{(j)})\)</span> of <a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a>. For <span class="mi">\(j\)</span> with <span class="mi">\(\gin^{(j)},\gout^{(j)}&gt;1\)</span> write <span class="mi">\(\mathfrak m_{\mathrm{out}}^{(j)}=(\gout^{(j)}-1)\delta_0+\eta_j\)</span> as in <a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a>(iv), let <span class="mi">\(\mathsf E_j\)</span> be the image of the probability measure <span class="mi">\(\eta_j\)</span> under <span class="mi">\(\lambda\mapsto\lambda/(\gin^{(j)}\gout^{(j)})\)</span>, and put <span class="mi">\(\epsilon_j\defeq1/\gin^{(j)}+1/\gout^{(j)}\)</span>. Let <span class="mi">\(\mathsf X\)</span> be the law of <span class="mi">\(g^2\)</span> for <span class="mi">\(g\sim\mathcal N(0,1)\)</span>, which has density, first moment and half-moment</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-chi"></span>\begin{equation}\tag{SF.39}
+\frac{e^{-x/2}}{\sqrt{2\pi x}}\,\mathbf 1_{x&gt;0},\qquad
+\int x\,\mathsf X(\dif x)=1,\qquad
+\int\sqrt x\,\mathsf X(\dif x)=\sqrt{\frac2\pi}.
+\end{equation}</div>
+<div class="p">Then <span class="mi">\(\mathsf E_j\to\mathsf X\)</span> weakly,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-large-error"></span>\begin{equation}\tag{SF.40}
+0\le\sqrt{\frac2\pi}-\int\sqrt x\,\mathsf E_j(\dif x)\le\frac4\pi\sqrt{\epsilon_j},
+\end{equation}</div>
+<div class="p">and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-large"></span>\begin{equation}\tag{SF.41}
+C\big(\gin^{(j)},\gout^{(j)}\big)=\frac{1}{\sqrt{2\gin^{(j)}\gout^{(j)}}}\int\sqrt x\,\mathsf E_j(\dif x)\sim\frac{1}{\sqrt{\pi\gin^{(j)}\gout^{(j)}}} .
+\end{equation}</div>
+<div class="p">In particular <span class="mi">\(C(\gamma)\sim1/(\sqrt\pi\,\gamma)\)</span> as <span class="mi">\(\gamma\to\infty\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">We drop the index <span class="mi">\(j\)</span> from the aspect ratios and the branch, write <span class="mi">\(b=\gin\gout\)</span>, and fix <span class="mi">\(j\)</span> with <span class="mi">\(\gin,\gout&gt;1\)</span>. For <span class="mi">\(t&gt;0\)</span> put</div>
+<div class="md">\[
+\mathsf s_j(t)\defeq S_{\mathsf E_j}(-t),\qquad
+\mathsf H_j(t)\defeq1-t\,\mathsf s_j(t)=\int\frac{x}{x+t}\,\mathsf E_j(\dif x)\in[0,1].
+\]</div>
+<div class="p">The closure at <span class="mi">\(bt\)</span> is a closure for <span class="mi">\(\mathsf E_j\)</span>. By the decomposition of <span class="mi">\(\mathfrak m_{\mathrm{out}}\)</span>,</div>
+<div class="md">\[
+bt\,\sigma(-bt)=(\gout-1)+t\,\mathsf s_j(t)=\gout-\mathsf H_j(t),
+\]</div>
+<div class="p">and by <a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a>(iv) the same computation on the input side gives <span class="mi">\(bt\,\tilde\sigma(-bt)=\gin-\mathsf H_j(t)\)</span>. The closure <a class="ref" href="r.def.app-iso-measure.html#L-eqn:app-iso-hypothesis" data-label="eqn:app-iso-hypothesis">(SF.25)</a> at <span class="mi">\(bt\)</span> therefore reads</div>
+<div class="md">\[
+\mathsf H_j(t)=\Phi\big(v_j(t)\big),\qquad
+v_j(t)\defeq bt\,\sigma(-bt)\,\tilde\sigma(-bt)=\frac1t\Big(1-\frac{\mathsf H_j(t)}{\gout}\Big)\Big(1-\frac{\mathsf H_j(t)}{\gin}\Big).
+\]</div>
+<div class="p">The argument <span class="mi">\(v_j(t)\)</span> is close to <span class="mi">\(1/t\)</span>. Since <span class="mi">\(0\le\mathsf H_j\le1\)</span> and <span class="mi">\((1-x)(1-y)\ge1-x-y\)</span> for <span class="mi">\(x,y\ge0\)</span>,</div>
+<div class="md">\[
+0\le\frac1t-v_j(t)\le\frac{\epsilon_j}{t}.
+\]</div>
+<div class="p">The Gaussian law is the fixed point at <span class="mi">\(v=1/t\)</span>. Indeed</div>
+<div class="md">\[
+\Phi(1/t)=\EE\frac{g^2}{g^2+t}=1-t\,S_{\mathsf X}(-t)=\int\frac{x}{x+t}\,\mathsf X(\dif x).
+\]</div>
+<div class="p">Since <span class="mi">\(\Phi\)</span> is increasing with slope at most <span class="mi">\(1\)</span> and takes values in <span class="mi">\([0,1]\)</span> (<a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(ii)),</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-large-H"></span>\begin{equation}\tag{SF.42}
+0\le\Phi(1/t)-\mathsf H_j(t)\le\min\Big(1,\frac{\epsilon_j}{t}\Big),\qquad
+\abs{\mathsf s_j(t)-S_{\mathsf X}(-t)}\le\frac{\epsilon_j}{t^2}.
+\end{equation}</div>
+<div class="p">The law <span class="mi">\(\mathsf X\)</span> has the stated density by the change of variables <span class="mi">\(x=u^2\)</span> in the Gaussian density, first moment <span class="mi">\(\EE g^2=1\)</span>, and half-moment <span class="mi">\(\EE\abs g=\sqrt{2/\pi}\)</span>. The first moment of <span class="mi">\(\mathsf E_j\)</span> is</div>
+<div class="md">\[
+\int x\,\mathsf E_j(\dif x)=\frac1b\int\lambda\,\eta_j(\dif\lambda)=\frac1b\int\lambda\,\mathfrak m_{\mathrm{out}}(\dif\lambda)=1 ,
+\]</div>
+<div class="p">by <a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a>(ii). Since <span class="mi">\(\epsilon_j\to0\)</span>, <a class="ref" href="r.thm.app-iso-large.html#L-eqn:app-iso-large-H" data-label="eqn:app-iso-large-H">(SF.42)</a> and <a class="ref" href="r.lem.app-iso-transforms.html" data-label="lem:app-iso-transforms">Lemma SF.2</a>(i) give <span class="mi">\(\mathsf E_j\to\mathsf X\)</span> weakly.</div>
+<div class="p">The quantitative bound integrates <a class="ref" href="r.thm.app-iso-large.html#L-eqn:app-iso-large-H" data-label="eqn:app-iso-large-H">(SF.42)</a>. By the half-moment formula <a class="ref" href="r.lem.app-iso-moments.html#L-eqn:app-iso-half-moment" data-label="eqn:app-iso-half-moment">(SF.26)</a> for <span class="mi">\(\mathsf X\)</span> and for <span class="mi">\(\mathsf E_j\)</span>,</div>
+<div class="md">\[
+\sqrt{\frac2\pi}-\int\sqrt x\,\mathsf E_j(\dif x)=\frac1\pi\int_0^\infty t^{-1/2}\big(\Phi(1/t)-\mathsf H_j(t)\big)\,\dif t ,
+\]</div>
+<div class="p">whose integrand lies between <span class="mi">\(0\)</span> and <span class="mi">\(t^{-1/2}\min(1,\epsilon_j/t)\)</span>. Splitting at <span class="mi">\(t=\epsilon_j\)</span>,</div>
+<div class="md">\[
+\int_0^{\epsilon_j}t^{-1/2}\,\dif t+\epsilon_j\int_{\epsilon_j}^\infty t^{-3/2}\,\dif t=2\sqrt{\epsilon_j}+2\sqrt{\epsilon_j},
+\]</div>
+<div class="p">which proves <a class="ref" href="r.thm.app-iso-large.html#L-eqn:app-iso-large-error" data-label="eqn:app-iso-large-error">(SF.40)</a>.</div>
+<div class="p">Finally, <a class="ref" href="r.prop.app-iso-spectral.html#L-eqn:app-iso-C-moment" data-label="eqn:app-iso-C-moment">(SF.27)</a>, the vanishing of <span class="mi">\(\sqrt\lambda\)</span> on the atom, and the change of variables <span class="mi">\(\lambda=bx\)</span> give</div>
+<div class="md">\[
+C(\gin,\gout)=\frac{1}{\sqrt2\,b}\int\sqrt\lambda\,\eta_j(\dif\lambda)=\frac{\sqrt b}{\sqrt2\,b}\int\sqrt x\,\mathsf E_j(\dif x),
+\]</div>
+<div class="p">which is the identity of <a class="ref" href="r.thm.app-iso-large.html#L-eqn:app-iso-large" data-label="eqn:app-iso-large">(SF.41)</a>; the equivalence follows from <a class="ref" href="r.thm.app-iso-large.html#L-eqn:app-iso-large-error" data-label="eqn:app-iso-large-error">(SF.40)</a>, since <span class="mi">\(\sqrt{2/\pi}/\sqrt{2b}=1/\sqrt{\pi b}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a> <span class=muted>Moments and atoms</span></li><li><a class="ref" href="r.def.app-iso-measure.html" data-label="def:app-iso-measure">Definition SF.2</a> <span class=muted>Isotropic measure pair</span></li><li><a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a> <span class=muted>The Gaussian scalar</span></li><li><a class="ref" href="r.lem.app-iso-transforms.html" data-label="lem:app-iso-transforms">Lemma SF.2</a> <span class=muted>Negative-axis transforms</span></li><li><a class="ref" href="r.prop.app-iso-spectral.html" data-label="prop:app-iso-spectral">Proposition SF.7</a> <span class=muted>Spectral form of the constant</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_large_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L2769">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_large_i (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hin : Tendsto gin atTop atTop) (hout : Tendsto gout atTop atTop) :
+    ∀ f : BoundedContinuousFunction ℝ ℝ,
+      Tendsto (fun j =&gt; ∫ x, f x ∂(isoScaledImage (gin j * gout j) ((mo j).restrict (Ioi 0))))
+        atTop (𝓝 (∫ x, f x ∂isoChi)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_large_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L3083">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_large_ii (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hin : Tendsto gin atTop atTop) (hout : Tendsto gout atTop atTop) :
+    ∀ j : ℕ, 1 &lt; gin j → 1 &lt; gout j →
+      0 ≤ Real.sqrt (2 / Real.pi) -
+          ∫ x, Real.sqrt x ∂(isoScaledImage (gin j * gout j) ((mo j).restrict (Ioi 0))) ∧
+      Real.sqrt (2 / Real.pi) -
+          ∫ x, Real.sqrt x ∂(isoScaledImage (gin j * gout j) ((mo j).restrict (Ioi 0))) ≤
+        4 / Real.pi * Real.sqrt (1 / gin j + 1 / gout j) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_large_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/MeasureExistence.lean#L1053">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_large_iii (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hin : Tendsto gin atTop atTop) (hout : Tendsto gout atTop atTop) :
+    (∀ j : ℕ, 1 &lt; gin j → 1 &lt; gout j →
+      Cbeta 0 (gin j) (gout j) =
+        1 / Real.sqrt (2 * (gin j * gout j)) *
+          ∫ x, Real.sqrt x ∂(isoScaledImage (gin j * gout j) ((mo j).restrict (Ioi 0)))) ∧
+    Asymptotics.IsEquivalent atTop (fun j =&gt; Cbeta 0 (gin j) (gout j))
+        (fun j =&gt; 1 / Real.sqrt (Real.pi * gin j * gout j)) ∧
+    Tendsto (fun γ : ℝ =&gt; Cbeta 0 γ γ / (1 / (Real.sqrt Real.pi * γ))) atTop (𝓝 1) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.isoChi_facts</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L2441">source</a></summary><pre class="lean no-mj">theorem isoChi_facts :
+    isoChi = volume.withDensity (fun x : ℝ =&gt;
+        ENNReal.ofReal ((Ioi (0 : ℝ)).indicator
+          (fun x : ℝ =&gt; Real.exp (-(x / 2)) / Real.sqrt (2 * Real.pi * x)) x)) ∧
+    ∫ x, x ∂isoChi = 1 ∧
+    ∫ x, Real.sqrt x ∂isoChi = Real.sqrt (2 / Real.pi) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

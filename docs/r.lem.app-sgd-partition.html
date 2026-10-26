@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.12 (Fourth moments of sums)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.12 (Fourth moments of sums)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-partition"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> <span class="thm-title">(Fourth moments of sums)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(Z\in\R^{\Nout}\)</span> be centered with covariance <span class="mi">\(V\)</span> and satisfy <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-dir" data-label="eqn:app-sgd-dir">(SJ.36)</a> and <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-vec" data-label="eqn:app-sgd-vec">(SJ.37)</a>, let <span class="mi">\(Z_1,\dots,Z_B\)</span> be independent copies, and put <span class="mi">\(S_s\defeq\sum_{b\le s}Z_b\)</span>,</div>
+<div class="md">\[
+\mathcal W\defeq\sum_{b\ne b'}\langle Z_b,Z_{b'}\rangle,\qquad \mathcal D_B\defeq\sum_{b=1}^B\big(\norm{Z_b}^2-\Tr V\big).
+\]</div>
+<div class="p">Then, for <span class="mi">\(0\le s\le B\)</span> and <span class="mi">\(a\in\R^{\Nout}\)</span>,</div>
+<div class="md">\begin{gather*}
+\EE\norm{S_s}^4\le3A_4s^2\Nout^2,\qquad \EE(a^\T S_s)^4\le3A_4s^2\norm a^4,\\
+\EE\mathcal W^4\le144A_4^2B^4\Nout^2,\qquad \EE\mathcal D_B^4\le(16A_8+3A_4^2)B^2\Nout^4 .
+\end{gather*}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>Sums.</em> In the expansion of <span class="mi">\(\norm{S_s}^4\)</span>, a term in which some sample index occurs once has mean zero. The remaining terms give</div>
+<div class="md">\[
+\EE\norm{S_s}^4=s\,\EE\norm Z^4+s(s-1)\big[(\Tr V)^2+2\Tr V^2\big].
+\]</div>
+<div class="p">With <span class="mi">\(\Tr V\le\Nout\sqrt{A_4}\)</span> and <span class="mi">\(\Tr V^2\le\Nout A_4\)</span>, which follow from <span class="mi">\(a^\T Va\le(\EE\abs{a^\T Z}^4)^{1/2}\)</span>, this is at most <span class="mi">\(3A_4s^2\Nout^2\)</span>. The scalar case is <span class="mi">\(s\,\EE(a^\T Z)^4+3s(s-1)(a^\T Va)^2\le3A_4s^2\norm a^4\)</span>.</div>
+<div class="p"><em>The off-diagonal sum.</em> A random partition splits <span class="mi">\(\mathcal W\)</span> into independent sums. Let <span class="mi">\(\epsilon_1,\dots,\epsilon_B\)</span> be independent fair Bernoulli selectors, independent of the <span class="mi">\(Z_b\)</span>. For fixed vectors,</div>
+<div class="md">\[
+\mathcal W=4\,\EE_\epsilon\Big\langle\sum_b\epsilon_bZ_b,\ \sum_{b'}(1-\epsilon_{b'})Z_{b'}\Big\rangle ,
+\]</div>
+<div class="p">because diagonal coefficients vanish and each ordered off-diagonal pair has coefficient <span class="mi">\(\frac14\)</span> in mean. Jensen’s inequality gives a factor <span class="mi">\(4^4\)</span>. For a fixed partition into <span class="mi">\(s\)</span> and <span class="mi">\(s'\)</span> samples the two sums are independent; conditioning on the second and applying the two bounds above gives</div>
+<div class="md">\[
+\EE\abs{\langle S_s,S'_{s'}\rangle}^4\le3A_4s^2\,\EE\norm{S'_{s'}}^4\le9A_4^2s^2s'^2\Nout^2 .
+\]</div>
+<div class="p">With <span class="mi">\(ss'\le B^2/4\)</span>, the constant is <span class="mi">\(4^4\cdot9/16=144\)</span>.</div>
+<div class="p"><em>The diagonal sum.</em> For <span class="mi">\(Y\defeq\norm Z^2-\Tr V\)</span>, Jensen’s inequality gives <span class="mi">\(\EE Y^4\le16\,\EE\norm Z^8\le16A_8\Nout^4\)</span> and <span class="mi">\(\EE Y^2\le\EE\norm Z^4\le A_4\Nout^2\)</span>, and for independent centered summands <span class="mi">\(\EE\mathcal D_B^4=B\,\EE Y^4+3B(B-1)(\EE Y^2)^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class=muted>Column moments</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> <span class=muted>Column norms</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_partition</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L722">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_partition {Ω : Type} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (n B : ℕ) (V : Matrix (Fin n) (Fin n) ℝ) (A4 A8 : ℝ)
+    (hA4 : 0 ≤ A4) (hA8 : 0 ≤ A8)
+    (Z : Ω → (Fin n → ℝ)) (hZ : Measurable Z)
+    (hcent : ∀ i, ∫ ω, Z ω i ∂P = 0)
+    (hcov : ∀ i k, ∫ ω, Z ω i * Z ω k ∂P = V i k)
+    (hdir4 : ∀ a : Fin n → ℝ,
+      ∫⁻ ω, ENNReal.ofReal ((a ⬝ᵥ Z ω) ^ 4) ∂P ≤ ENNReal.ofReal (A4 * (∑ i, a i ^ 2) ^ 2))
+    (hdir8 : ∀ a : Fin n → ℝ,
+      ∫⁻ ω, ENNReal.ofReal ((a ⬝ᵥ Z ω) ^ 8) ∂P ≤ ENNReal.ofReal (A8 * (∑ i, a i ^ 2) ^ 4))
+    (hvec4 : ∫⁻ ω, ENNReal.ofReal ((∑ i, Z ω i ^ 2) ^ 2) ∂P ≤ ENNReal.ofReal (A4 * (n : ℝ) ^ 2))
+    (hvec8 : ∫⁻ ω, ENNReal.ofReal ((∑ i, Z ω i ^ 2) ^ 4) ∂P ≤ ENNReal.ofReal (A8 * (n : ℝ) ^ 4))
+    (Zs : Fin B → Ω → (Fin n → ℝ)) (hZs : ∀ b, Measurable (Zs b))
+    (hind : iIndepFun Zs P) (hid : ∀ b, IdentDistrib (Zs b) Z P P) :
+    (∀ s : ℕ, s ≤ B →
+      (∫⁻ ω, ENNReal.ofReal ((∑ i, partSum Zs s ω i ^ 2) ^ 2) ∂P
+          ≤ ENNReal.ofReal (3 * A4 * (s : ℝ) ^ 2 * (n : ℝ) ^ 2)) ∧
+      ∀ a : Fin n → ℝ,
+        ∫⁻ ω, ENNReal.ofReal ((a ⬝ᵥ partSum Zs s ω) ^ 4) ∂P
+          ≤ ENNReal.ofReal (3 * A4 * (s : ℝ) ^ 2 * (∑ i, a i ^ 2) ^ 2)) ∧
+    (∫⁻ ω, ENNReal.ofReal (offDiagSum Zs ω ^ 4) ∂P
+      ≤ ENNReal.ofReal (144 * A4 ^ 2 * (B : ℝ) ^ 4 * (n : ℝ) ^ 2)) ∧
+    (∫⁻ ω, ENNReal.ofReal (diagDevSum V Zs ω ^ 4) ∂P
+      ≤ ENNReal.ofReal ((16 * A8 + 3 * A4 ^ 2) * (B : ℝ) ^ 2 * (n : ℝ) ^ 4)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

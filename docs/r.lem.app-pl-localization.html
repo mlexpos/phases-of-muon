@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SG.22 (Localization of the lag kernel)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SG.22 (Localization of the lag kernel)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-pl-localization"><div class="thm-head"><a class="thm-name" href="r.lem.app-pl-localization.html" data-label="lem:app-pl-localization">Lemma SG.22</a> <span class="thm-title">(Localization of the lag kernel)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For <span class="mi">\(\ell\ge0\)</span>, with <span class="mi">\(t\defeq\log(\bmom^{2\ell}q_2/q_1)\)</span>,</div>
+<div class="md">\[
+\mathsf D_\ell(m_1,m_2)=\frac{r_\bmom(q_1e^t)-r_\bmom(q_1)}{2\sinh(t/2)},\]</div>
+<div class="md">\[
+\mathsf D_\ell\le C\min(m_1,m_2,1)^{1/2}\big(1+\abs{m_1-m_2+\ell}\big)e^{-\abs{\log\bmom}\abs{m_1-m_2+\ell}} .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\tau_0&gt;0\)</span> there is <span class="mi">\(c&gt;0\)</span> such that <span class="mi">\(\Delta^N_\ell\ge c\)</span> for all <span class="mi">\(\ell\ge\tau_0\gamma\)</span>, all <span class="mi">\(m_1,m_2\in(0,\gamma)\)</span> and all large <span class="mi">\(\gamma\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Let <span class="mi">\(n\to\infty\)</span> with <span class="mi">\(\gamma/n\to\rho_0\in(0,\infty]\)</span>, and let <span class="mi">\(\ell\)</span> be integers with <span class="mi">\(\ell/n\to\tau&gt;0\)</span>. For every continuous <span class="mi">\(\varphi\)</span> with compact support in <span class="mi">\((0,\rho_0)^2\)</span>,</div>
+<div class="md">\[
+\int\!\!\int\varphi\Big(\frac{m_1}n,\frac{m_2}n\Big)\frac{\mathsf D_\ell(m_1,m_2)}{\pi^2n\,E(m_1)E(m_2)}\,\dif m_1\,\dif m_2\longrightarrow\int\varphi(r,r+\tau)\,\dif r .
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), the divided-difference form <a class="ref" href="s.SG.html#L-eqn:app-pl-divided" data-label="eqn:app-pl-divided">(SG.15)</a> gives, with <span class="mi">\(p\defeq\bmom^{2\ell}q_2=q_1e^t\)</span>,</div>
+<div class="md">\[
+\mathsf D_\ell=\sqrt{q_1q_2}\,\bmom^\ell\frac{r_\bmom(q_1)-r_\bmom(p)}{q_1-p}=\sqrt{q_1p}\,\frac{r_\bmom(p)-r_\bmom(q_1)}{p-q_1}
+=\frac{r_\bmom(q_1e^t)-r_\bmom(q_1)}{e^{t/2}-e^{-t/2}} .
+\]</div>
+<div class="p">The function <span class="mi">\(qr_\bmom'(q)\)</span> is bounded on <span class="mi">\((0,\infty)\)</span> (<a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>), so the numerator is at most <span class="mi">\(C\abs t\)</span>. For <span class="mi">\(m_1,m_2\ge1\)</span>, <a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>(iii) gives <span class="mi">\(t=2\abs{\log\bmom}(m_2-m_1-\ell)+O(1)\)</span>, which proves the bound. If <span class="mi">\(m_1&lt;1\le m_2\)</span>, dropping the first denominator gives <span class="mi">\(\mathsf D_\ell\le\sqrt{q_1}\,\sqrt p\,\Fw(p)\)</span>, and <span class="mi">\(\sqrt{q_1}\le C\sqrt{m_1}\)</span>, <span class="mi">\(\sqrt p\,\Fw(p)\le C\min\{\sqrt p,(1+\log_+p)/\sqrt p\}\)</span> with <span class="mi">\(\log p=2\abs{\log\bmom}(m_2-\ell)+O(1)\)</span>, where <span class="mi">\(\abs{m_2-\ell}\)</span> differs from <span class="mi">\(\abs{m_1-m_2+\ell}\)</span> by less than one. The case <span class="mi">\(m_2&lt;1\le m_1\)</span> exchanges the roles, and if both <span class="mi">\(m_j&lt;1\)</span> then <span class="mi">\(\mathsf D_\ell\le\bmom^\ell\sw2\sqrt{q_1q_2}\le C\bmom^\ell\sqrt{m_1m_2}\)</span>.</div>
+<div class="p">For (ii), let <span class="mi">\(\ell\ge\tau_0\gamma\)</span>. Since <span class="mi">\(\mathsf M_\ell\le\sum_a\EE\,Y(1+Y)^{-1}=r_\bmom(\bmom^{2\ell}q_2)\)</span>, two cases arise. If <span class="mi">\(m_2\ge\ell/2\)</span>, <a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>(iii) gives <span class="mi">\(\mathsf M_\ell\le(m_2-\ell)_++C\)</span>, so <span class="mi">\(\mathsf M_\ell/m_2\le1-c\tau_0\)</span>. If <span class="mi">\(m_2&lt;\ell/2\)</span>, then <span class="mi">\(\mathsf M_\ell\le\sw2\bmom^{2\ell}Q_{m_2}\le Cm_2e^{-\abs{\log\bmom}\ell}\)</span>. In both cases <span class="mi">\(1-\mathsf T_N\mathsf M_\ell/(m_1m_2)\ge1-\mathsf M_\ell/m_2\ge c\)</span> and <span class="mi">\(1-\mathsf M_\ell/\gamma\ge c\)</span>, using <span class="mi">\(\mathsf T_N\le m_1\)</span>. The subtracted term is at most <span class="mi">\(\gamma^{-1}\min(m_-,C^2/m_+)\le C/\gamma\)</span>, because <span class="mi">\(\mathsf D_\ell\le C\)</span>, <span class="mi">\(\mathsf D_\ell^2\le m_1m_2\)</span> and <span class="mi">\(\mathsf T_N\le m_-\)</span>.</div>
+<div class="p">For (iii), the large-argument behaviour of <span class="mi">\(r_\bmom\)</span> is periodic in <span class="mi">\(\log q\)</span>. Put <span class="mi">\(\mathsf f(x)=x\Jfun(x)\)</span> and</div>
+<div class="md">\[
+\mathcal H(u)\defeq\sum_{k\ge0}\mathsf f\big((1-\bmom)^2\bmom^{2k}e^u\big)+\sum_{k&lt;0}\Big(\mathsf f\big((1-\bmom)^2\bmom^{2k}e^u\big)-1\Big),
+\]</div>
+<div class="p">which converges by <span class="mi">\(\mathsf f(x)\le x\)</span> and <span class="mi">\(1-\mathsf f(x)\le\sqrt{\pi/2}\,x^{-1/2}\)</span>. Shifting <span class="mi">\(u\)</span> by <span class="mi">\(2\abs{\log\bmom}\)</span> shifts <span class="mi">\(k\)</span> by one, so <span class="mi">\(\mathcal H(u+2\abs{\log\bmom})=\mathcal H(u)+1\)</span>, and <span class="mi">\(\abs{r_\bmom(e^u)-\mathcal H(u)}\le Ce^{-u/2}\)</span>. In the coordinates <span class="mi">\(a\defeq\log Q_{m_1}\)</span> and <span class="mi">\(t\)</span>, one has <span class="mi">\(\dif m_1/E(m_1)=\dif a\)</span> and <span class="mi">\(\dif m_2/E(m_2)=\dif t\)</span> at fixed <span class="mi">\(m_1\)</span>, so the measure of the statement is <span class="mi">\(\pi^{-2}n^{-1}\mathsf D_\ell\,\dif a\,\dif t\)</span>. By (i) the region <span class="mi">\(\abs{m_2-m_1-\ell}&gt;A\)</span> carries mass at most <span class="mi">\(Ce^{-cA}\)</span> per unit of <span class="mi">\(m_1\)</span>, and is removed first. On the rest, <span class="mi">\(\mathcal H\)</span> replaces <span class="mi">\(r_\bmom\)</span> with an error that vanishes on the support. For each <span class="mi">\(t\)</span>,</div>
+<div class="md">\[
+\int_a^{a+2\abs{\log\bmom}}\big(\mathcal H(a'+t)-\mathcal H(a')\big)\,\dif a'=t,
+\]</div>
+<div class="p">because the derivative in <span class="mi">\(t\)</span> of the left side is <span class="mi">\(\mathcal H(a+2\abs{\log\bmom}+t)-\mathcal H(a+t)=1\)</span>. Hence one period of <span class="mi">\(a\)</span>, which is one unit of <span class="mi">\(m_1\)</span>, carries the mass</div>
+<div class="md">\[
+\frac1{\pi^2n}\int_{\R}\frac{t}{2\sinh(t/2)}\,\dif t=\frac1n,
+\]</div>
+<div class="p">by <span class="mi">\(1/\sinh(t/2)=2\sum_{k\ge0}e^{-(k+1/2)t}\)</span> on <span class="mi">\(t&gt;0\)</span> and <span class="mi">\(\sum_{k\ge0}(k+\frac12)^{-2}=\pi^2/2\)</span>. On the support, <span class="mi">\(m_2=m_1+\ell+O(A)\)</span>, so <span class="mi">\(m_2/n=m_1/n+\tau+o(1)\)</span>. A continuous compactly supported <span class="mi">\(\varphi\)</span> varies by <span class="mi">\(o(1)\)</span> over each of the <span class="mi">\(O(n)\)</span> periods in its support, which gives the limit; letting then <span class="mi">\(A\to\infty\)</span> concludes.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a> <span class=muted>Weight functions</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li><li><a class="ref" href="r.lem.app-pl-supervol.html" data-label="lem:app-pl-supervol">Lemma SG.23</a> <span class=muted>Supercritical volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_localization_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/VolKernel.lean#L2117">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_localization_i {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    (∀ (ℓ : ℕ) (m₁ m₂ : ℝ), 0 &lt; m₁ → 0 &lt; m₂ →
+      β ^ (2 * ℓ) * Qm β m₂ = Qm β m₁ →
+      DLagNat β (Qm β m₁) (Qm β m₂) ℓ = Efun β m₁) ∧
+    (∀ (ℓ : ℕ) (m₁ m₂ : ℝ), 0 &lt; m₁ → 0 &lt; m₂ →
+      Real.log (β ^ (2 * ℓ) * Qm β m₂ / Qm β m₁) ≠ 0 →
+      DLagNat β (Qm β m₁) (Qm β m₂) ℓ =
+        (rW (emaW β) (Qm β m₁ * Real.exp (Real.log (β ^ (2 * ℓ) * Qm β m₂ / Qm β m₁))) -
+            rW (emaW β) (Qm β m₁)) /
+          (2 * Real.sinh (Real.log (β ^ (2 * ℓ) * Qm β m₂ / Qm β m₁) / 2))) ∧
+    ∃ C : ℝ, ∀ (ℓ : ℕ) (m₁ m₂ : ℝ), 0 &lt; m₁ → 0 &lt; m₂ →
+      DLagNat β (Qm β m₁) (Qm β m₂) ℓ ≤
+        C * Real.sqrt (min (min m₁ m₂) 1) * (1 + |m₁ - m₂ + ℓ|) *
+          Real.exp (-|Real.log β| * |m₁ - m₂ + ℓ|) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_localization_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/VolKernel.lean#L2156">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_localization_ii {α β : ℝ} (hα : 0 &lt; α) (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    ∀ τ₀ : ℝ, 0 &lt; τ₀ → ∃ κ : ℝ, 0 &lt; κ ∧ ∃ γ₀ : ℝ,
+      ∀ (N B : ℕ) (c : ℝ), 0 &lt; N → 0 &lt; B → 0 &lt; c → γ₀ ≤ gammaOf N B →
+        ∀ ℓ : ℤ, τ₀ * gammaOf N B ≤ ℓ →
+          ∀ m₁ m₂ : ℝ, m₁ ∈ Ioo 0 (gammaOf N B) → m₂ ∈ Ioo 0 (gammaOf N B) →
+            κ ≤ deltaN β B (plSpec α c N) ℓ m₁ m₂ := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_localization_iii_fin</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/VolKernel.lean#L3529">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_localization_iii_fin {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (γn : ℕ → ℝ) (ℓn : ℕ → ℤ) (sn : ℕ → ℝ) (hs : ∀ n, 0 &lt; sn n)
+    (hsT : Tendsto sn atTop atTop) {ρ₀ τ : ℝ} (hρ₀ : 0 &lt; ρ₀) (hτ : 0 &lt; τ)
+    (hγ : Tendsto (fun n : ℕ =&gt; γn n / sn n) atTop (𝓝 ρ₀))
+    (hℓ : Tendsto (fun n : ℕ =&gt; (ℓn n : ℝ) / sn n) atTop (𝓝 τ))
+    (φ : ℝ × ℝ → ℝ) (hφc : Continuous φ) (hφs : HasCompactSupport φ)
+    (hφsupp : tsupport φ ⊆ Ioo 0 ρ₀ ×ˢ Ioo 0 ρ₀) :
+    (∀ n : ℕ, Integrable (fun p : ℝ × ℝ =&gt; φ (p.1 / sn n, p.2 / sn n) *
+        DLag β (Qm β p.1) (Qm β p.2) (ℓn n) /
+          (Real.pi ^ 2 * sn n * Efun β p.1 * Efun β p.2))) ∧
+    Tendsto (fun n : ℕ =&gt; ∫ p : ℝ × ℝ, φ (p.1 / sn n, p.2 / sn n) *
+        DLag β (Qm β p.1) (Qm β p.2) (ℓn n) /
+          (Real.pi ^ 2 * sn n * Efun β p.1 * Efun β p.2)) atTop
+      (𝓝 (∫ r : ℝ, φ (r, r + τ))) :=</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_localization_iii_top</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/VolKernel.lean#L3566">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_localization_iii_top {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (γn : ℕ → ℝ) (ℓn : ℕ → ℤ) (sn : ℕ → ℝ) (hs : ∀ n, 0 &lt; sn n)
+    (hsT : Tendsto sn atTop atTop) {τ : ℝ} (hτ : 0 &lt; τ)
+    (hγ : Tendsto (fun n : ℕ =&gt; γn n / sn n) atTop atTop)
+    (hℓ : Tendsto (fun n : ℕ =&gt; (ℓn n : ℝ) / sn n) atTop (𝓝 τ))
+    (φ : ℝ × ℝ → ℝ) (hφc : Continuous φ) (hφs : HasCompactSupport φ)
+    (hφsupp : tsupport φ ⊆ Ioi 0 ×ˢ Ioi 0) :
+    (∀ n : ℕ, Integrable (fun p : ℝ × ℝ =&gt; φ (p.1 / sn n, p.2 / sn n) *
+        DLag β (Qm β p.1) (Qm β p.2) (ℓn n) /
+          (Real.pi ^ 2 * sn n * Efun β p.1 * Efun β p.2))) ∧
+    Tendsto (fun n : ℕ =&gt; ∫ p : ℝ × ℝ, φ (p.1 / sn n, p.2 / sn n) *
+        DLag β (Qm β p.1) (Qm β p.2) (ℓn n) /
+          (Real.pi ^ 2 * sn n * Efun β p.1 * Efun β p.2)) atTop
+      (𝓝 (∫ r : ℝ, φ (r, r + τ))) :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.7 (Finite mean and susceptibility)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.7 (Finite mean and susceptibility)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-mean"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class="thm-title">(Finite mean and susceptibility)</span></div><div class="thm-body"><div class="p">In the frozen-state model with <span class="mi">\(\norm{\Ahat}_\F=1\)</span>, <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span> and <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>, and with no condition on <span class="mi">\(\norm{\Ahat}\)</span>:</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">for every compact <span class="mi">\(I\subset(0,\infty)\)</span> there is <span class="mi">\(C_I\)</span> with <span class="mi">\(\norm{\mathcal H(z)}_\F\le C_I\)</span> for <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(\Ree z\in I\)</span>, and <span class="mi">\(\norm{\mathcal H(z)}_\F\le C/\Ree z\)</span> for <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(\Ree z\ge1\)</span>;</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">for real <span class="mi">\(s\)</span>, <span class="mi">\(\norm{\frac{\dif}{\dif s}\mathcal H(s)}_\F\le C_I\)</span> for <span class="mi">\(s\in I\)</span> and <span class="mi">\(\norm{\frac{\dif}{\dif s}\mathcal H(s)}_\F\le C/s^2\)</span> for <span class="mi">\(s\ge2\)</span>;</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">for <span class="mi">\(0&lt;\ridge_-\le\ridge'\le\ridge_+\)</span>, <span class="mi">\(\norm{\EE\,\Qridge{\ridge'}(\Mt)}_\F+\norm{\EE\,\partial_{\ridge'}\Qridge{\ridge'}(\Mt)}_\F\le C\)</span>, with <span class="mi">\(C\)</span> depending also on <span class="mi">\((\ridge_-,\ridge_+)\)</span>;</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">for the fixed ridge <span class="mi">\(\ridge\)</span> there are <span class="mi">\(C\)</span> and a sequence <span class="mi">\(r_B\to0\)</span>, depending only on <span class="mi">\((\ridge,\gamma_\star,C_\Sigma)\)</span> and on the sequence of dimensions, such that <span class="mi">\(\norm{\EE\,\Qridge\ridge(\Mt)}\le C\norm{\Ahat}+r_B\)</span> for every normalized state.</div></div></li></ol>
+<div class="p">The constants depend only on <span class="mi">\((\gamma_\star,C_\Sigma)\)</span> and on <span class="mi">\(I\)</span> where indicated, not on <span class="mi">\(\Ahat\)</span>, on the dimension or on the weights within the class <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>. Consequently, for the stationary chain of <a class="ref" href="r.def.app-dyn-chains.html" data-label="def:app-dyn-chains">Definition SE.2</a> at a deterministic <span class="mi">\(D\)</span> with <span class="mi">\(r_-\le\cR(D)\le r_+\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-mean-physical"></span>\begin{equation}\tag{SE.15}
+\begin{gathered}
+\norm{\overline V(D)}_\F\le C,\qquad
+\big\|\EE\,\partial_\ell\Qridge\ell(N_0)\big|_{\ell=\ridgephys(D)}\big\|_\F\le C,\\
+\norm{\Sigmaout^{1/2}\overline V(D)\Sigmain^{1/2}}\le C\norm{\Sigmaout^{1/2}D\Sigmain^{1/2}}+Cr_B ,
+\end{gathered}
+\end{equation}</div>
+<div class="p">with <span class="mi">\(C\)</span> depending also on <span class="mi">\((r_-,r_+)\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>(i).</em> By <a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a>(ii), in the form <a class="ref" href="r.thm.app-drift-mixed.html#L-eqn:app-drift-tail-sector" data-label="eqn:app-drift-tail-sector">(SC.7)</a>, for every <span class="mi">\(s_\circ&gt;0\)</span> there is <span class="mi">\(C_\circ\)</span> depending only on <span class="mi">\((s_\circ,C_\Sigma,\gamma_\star)\)</span> with <span class="mi">\(\norm{\mathcal H(z)}_\F\le C_\circ/\Ree z\)</span> for <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(\Ree z\ge s_\circ\)</span>, in every frozen-state model with the stated hypotheses and weights in the class <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>. The case <span class="mi">\(s_\circ=1\)</span> is the second bound of (i), and the case <span class="mi">\(s_\circ=\min I\)</span> gives the first with <span class="mi">\(C_I=C_\circ/\min I\)</span>.</div>
+<div class="p"><em>(ii).</em> At fixed dimension <span class="mi">\(z\mapsto\mathcal H(z)\)</span> is holomorphic on <span class="mi">\(\Ree z&gt;0\)</span>, since <span class="mi">\(z\mapsto\mathsf X_z(\Mt)\)</span> is. For real <span class="mi">\(s&gt;0\)</span> the circle <span class="mi">\(\abs{\zeta-s}=s/4\)</span> lies in <span class="mi">\(\mathbb S\)</span>, because on it <span class="mi">\(\Ree\zeta\ge3s/4\)</span> and <span class="mi">\(\abs{\Img\zeta}\le s/4\le\Ree\zeta/3\)</span>. Cauchy’s estimate for the derivative gives</div>
+<div class="md">\[
+\Big\|\frac{\dif}{\dif s}\mathcal H(s)\Big\|_\F\le\frac4s\max_{\abs{\zeta-s}=s/4}\norm{\mathcal H(\zeta)}_\F .
+\]</div>
+<div class="p">For <span class="mi">\(s\ge2\)</span> every point of the circle has real part at least <span class="mi">\(3s/4\ge1\)</span>, so (i) bounds the maximum by <span class="mi">\(4C/(3s)\)</span>, which gives <span class="mi">\(C/s^2\)</span>. For <span class="mi">\(s\in I\)</span> the circle has real parts in the compact <span class="mi">\([\frac34\min I,\frac54\max I]\)</span>, and (i) gives <span class="mi">\(C_I\)</span>.</div>
+<div class="p"><em>(iii).</em> By <a class="ref" href="r.lem.app-setup-contour.html" data-label="lem:app-setup-contour">Lemma SA.3</a> and differentiation of its integrand in the ridge,</div>
+<div class="md">\[
+\EE\,\Qridge{\ridge'}(\Mt)=\frac2\pi\int_0^\infty\mathcal H(\ridge'+u^2)\,\dif u,\qquad
+\EE\,\partial_{\ridge'}\Qridge{\ridge'}(\Mt)=\frac2\pi\int_0^\infty\frac{\dif\mathcal H}{\dif s}(\ridge'+u^2)\,\dif u .
+\]</div>
+<div class="p">Split both integrals at <span class="mi">\(u=2\)</span>. On <span class="mi">\([0,2]\)</span> the parameter lies in <span class="mi">\(I\defeq[\ridge_-,\ridge_++4]\)</span>, where (i) and (ii) give <span class="mi">\(C_I\)</span>; on <span class="mi">\([2,\infty)\)</span> it is at least <span class="mi">\(u^2\ge4\)</span>, where they give <span class="mi">\(C/u^2\)</span> and <span class="mi">\(C/u^4\)</span>. Both integrals are therefore bounded.</div>
+<div class="p"><em>(iv).</em> We work on the real axis. The targets of <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> are centered at the expected traces <span class="mi">\((\sigma_B,\tilde\sigma_B,q_B)\)</span>, and its sequence <span class="mi">\(e_B(I)\)</span> depends only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>, so it serves for every normalized state, every dimension and all weights in the class. For a sample of age <span class="mi">\(j\)</span>, with <span class="mi">\(\check x_j=\emaw j^2q_B\)</span> and the targets <span class="mi">\(\check\alpha_{1,j},\check\alpha_{2,j}\)</span> of <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-targets" data-label="eqn:app-de-targets">(SB.33)</a>, put</div>
+<div class="md">\[
+\mathsf e^{(1)}_B(s)\defeq\sup_j\frac{\norm{\alpha_{1,j}-\check\alpha_{1,j}}_2}{\emaw j},\qquad
+\mathsf e^{(2)}_B(s)\defeq\sup_j\frac{\norm{\alpha_{2,j}-\check\alpha_{2,j}}_2}{\emaw j^2}.
+\]</div>
+<div class="p">Then <span class="mi">\(\sup_{s\in I}(\mathsf e^{(1)}_B+\mathsf e^{(2)}_B)\le2e_B(I)\)</span> on every compact <span class="mi">\(I\)</span>, and for <span class="mi">\(s\ge1\)</span>, by <a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a>, <span class="mi">\(\abs{f_x(d)}\le\abs d\)</span>, <span class="mi">\(0\le\psi_x(d)\le d^2\)</span> and <span class="mi">\(\sigma_B\le C_\Sigma\gamma_\star/s\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-eps-large"></span>\begin{equation}\tag{SE.16}
+\mathsf e^{(1)}_B(s)\le C,\qquad\mathsf e^{(2)}_B(s)\le\frac Cs .
+\end{equation}</div>
+<div class="p">The proof of <a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a>, run with these targets and with the expected deleted resolvent <span class="mi">\(\mathcal P_j(s)\)</span> kept in place of <span class="mi">\(\Rbar(-s)\)</span>, gives an equation for <span class="mi">\(\mathcal H(s)\)</span> in which every error is displayed with its dependence on <span class="mi">\(\norm{\Ahat}\)</span>. In the source term, the replacement of <span class="mi">\(\alpha_{1,j}\)</span> costs <span class="mi">\(C_\Sigma\emaw j\mathsf e^{(1)}_B/s\)</span>, and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> with <span class="mi">\(\norm{f_x'''}_\infty\le36\check x_j\le36q_B\)</span> (<a class="ref" href="r.lem.app-drift-derivatives.html" data-label="lem:app-drift-derivatives">Lemma SC.7</a>) costs <span class="mi">\(36C_\Sigma\emaw jq_B\norm{\Ahat}^2/s\)</span>. In the Gram term, the centered part costs <span class="mi">\(C\emaw j^2(\mathsf e^{(2)}_B+6\sigma_B\norm{\Ahat})/\sqrt s\)</span>, by <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> with <span class="mi">\(\norm{\psi''}_\infty\le6\)</span>. The deletion mean and covariance terms cost <span class="mi">\(C\emaw j^3/(s^2\sqrt B)\)</span> and <span class="mi">\(C\emaw j^2/(s^{3/2}\sqrt B)\)</span>, by <a class="ref" href="r.lem.app-drift-multiplier.html#L-eqn:app-drift-deletion-mean" data-label="eqn:app-drift-deletion-mean">(SC.21)</a> and <a class="ref" href="r.lem.app-drift-covariance.html" data-label="lem:app-drift-covariance">Lemma SC.5</a>. Summing over <span class="mi">\(j\)</span>, with <span class="mi">\(\jmath_j\defeq\EE f'_{\check x_j}(d_j)\in[-1,1]\)</span> and <span class="mi">\(\mathsf Y_B(s)=\Id+b_B(s)\Sigmain\)</span> as before,</div>
+<div class="md">\[
+\mathcal H(s)\,\mathsf Y_B(s)=\sum_j\emaw j\,\jmath_j\,\mathcal P_j(s)\,\EE\Gt+E_1(s),
+\]</div>
+<div class="md">\[
+\norm{E_1(s)}_\F\le C\Big[\frac{\mathsf e^{(1)}_B(s)}{s}+\frac{q_B(s)\norm{\Ahat}^2}{s}+\frac{\mathsf e^{(2)}_B(s)+\sigma_B(s)\norm{\Ahat}}{\sqrt s}+\frac{1}{s\sqrt B}\Big]\qquad(s\ge\ridge),
+\]</div>
+<div class="p">with <span class="mi">\(C\)</span> depending on <span class="mi">\(\ridge\)</span>. The source has small operator norm: since <span class="mi">\(\norm{\mathcal P_j(s)}\le1/s\)</span>, <span class="mi">\(\abs{\jmath_j}\le1\)</span>, <span class="mi">\(\sum_j\emaw j\le1\)</span> and <span class="mi">\(\norm{\EE\Gt}=\norm{\Sigmaout^{1/2}\Ahat\Sigmain^{1/2}}\le C_\Sigma\norm{\Ahat}\)</span>, its operator norm is at most <span class="mi">\(C_\Sigma\norm{\Ahat}/s\)</span>. Since <span class="mi">\(b_B(s)\ge0\)</span>, <span class="mi">\(\norm{\mathsf Y_B(s)^{-1}}\le1\)</span>, and with <span class="mi">\(q_B,\sigma_B\le C/s\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-H-op"></span>\begin{equation}\tag{SE.17}
+\norm{\mathcal H(s)}\le C\Big(\frac1s+\frac1{s^{3/2}}+\frac1{s^2}\Big)\norm{\Ahat}+\mathsf e_B(s),\qquad
+\mathsf e_B(s)\defeq C\Big[\frac{\mathsf e^{(1)}_B(s)}{s}+\frac{\mathsf e^{(2)}_B(s)}{\sqrt s}+\frac{1}{s\sqrt B}\Big],
+\end{equation}</div>
+<div class="p">for <span class="mi">\(s\ge\ridge\)</span>. Here <span class="mi">\(\norm{\Ahat}^2\le\norm{\Ahat}\)</span> was used. The error <span class="mi">\(\mathsf e_B\)</span> tends to zero uniformly on every compact interval and over all normalized states, and <span class="mi">\(\mathsf e_B(s)\le C/s\)</span> for <span class="mi">\(s\ge1\)</span> by <a class="ref" href="r.lem.app-dyn-mean.html#L-eqn:app-dyn-eps-large" data-label="eqn:app-dyn-eps-large">(SE.16)</a>.</div>
+<div class="p">The operator norm of the expected update is the integral of <a class="ref" href="r.lem.app-dyn-mean.html#L-eqn:app-dyn-H-op" data-label="eqn:app-dyn-H-op">(SE.17)</a>. Splitting at a cutoff <span class="mi">\(\mathsf R\ge1\)</span>,</div>
+<div class="md">\[
+\norm{\EE\,\Qridge\ridge(\Mt)}\le\frac2\pi\int_0^\infty\norm{\mathcal H(\ridge+u^2)}\,\dif u
+\le C\norm{\Ahat}+\frac2\pi\Big[\mathsf R\sup_{s\in[\ridge,\ridge+\mathsf R^2]}\mathsf e_B(s)+\frac{C}{\mathsf R}\Big].
+\]</div>
+<div class="p">Let <span class="mi">\(r_B\)</span> be the infimum over <span class="mi">\(\mathsf R\ge1\)</span> of the bracket. It does not depend on the state, and it tends to zero: for fixed <span class="mi">\(\mathsf R\)</span> the first term vanishes as the dimension grows, and the second is small for large <span class="mi">\(\mathsf R\)</span>. This proves (iv).</div>
+<div class="p"><em>The consequences <a class="ref" href="r.lem.app-dyn-mean.html#L-eqn:app-dyn-mean-physical" data-label="eqn:app-dyn-mean-physical">(SE.15)</a>.</em> By <a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a>(i), <span class="mi">\(\overline V(D)\)</span> is the expected frozen update at the state <span class="mi">\(\widehat A(D)\)</span>, so (iii) bounds its Frobenius norm. By <a class="ref" href="r.prop.app-setup-scaling.html" data-label="prop:app-setup-scaling">Proposition SA.3</a>(i), <span class="mi">\(\Qridge\ell(\sqrt aK)=\Qridge{\ell/a}(K)\)</span> for <span class="mi">\(a&gt;0\)</span>; with <span class="mi">\(a=2\cR(D)\)</span> and <span class="mi">\(\ell\)</span> near <span class="mi">\(\ridgephys(D)=a\ridge\)</span> this gives <span class="mi">\(\partial_\ell\Qridge\ell(N_0)=a^{-1}(\partial_{\ridge'}\Qridge{\ridge'})(N_0/\sqrt a)\)</span> at <span class="mi">\(\ridge'=\ridge\)</span>, and (iii) bounds it. Finally (iv) and <span class="mi">\(\norm{\Sigmaout^{1/2}\overline V(D)\Sigmain^{1/2}}\le C_\Sigma\norm{\overline V(D)}\)</span>, <span class="mi">\(\delta(D)=\norm{\Sigmaout^{1/2}D\Sigmain^{1/2}}/\sqrt{2\cR(D)}\)</span> give the last bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a> <span class=muted>Mixed resolvent closure and tail bound</span></li><li><a class="ref" href="r.lem.app-setup-contour.html" data-label="lem:app-setup-contour">Lemma SA.3</a> <span class=muted>Integral representation</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class=muted>Response equation</span></li><li><a class="ref" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class=muted>Gaussian response</span></li><li><a class="ref" href="r.lem.app-drift-derivatives.html" data-label="lem:app-drift-derivatives">Lemma SC.7</a> <span class=muted>Derivative bounds</span></li><li><a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> <span class=muted>Bessel bounds</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li><li><a class="ref" href="r.lem.app-drift-covariance.html" data-label="lem:app-drift-covariance">Lemma SC.5</a> <span class=muted>Covariance of the Gram coefficient and the mixed resolvent</span></li><li><a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a> <span class=muted>Laws of the frozen chains</span></li><li><a class="ref" href="r.prop.app-setup-scaling.html" data-label="prop:app-setup-scaling">Proposition SA.3</a> <span class=muted>Scaling, physical ridge and heavy ball</span></li><li><a class="ref" href="r.def.app-dyn-chains.html" data-label="def:app-dyn-chains">Definition SE.2</a> <span class=muted>Frozen chains</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-dyn-scalar.html" data-label="prop:app-dyn-scalar">Proposition SE.3</a> <span class=muted>Scalar contraction</span></li><li><a class="ref" href="r.lem.app-dyn-ridge.html" data-label="lem:app-dyn-ridge">Lemma SE.13</a> <span class=muted>Ridge susceptibility covariance</span></li><li><a class="ref" href="r.lem.app-dyn-startup.html" data-label="lem:app-dyn-startup">Lemma SE.17</a> <span class=muted>Stationary block sums and the startup cross term</span></li><li><a class="ref" href="r.lem.app-dyn-prefix.html" data-label="lem:app-dyn-prefix">Lemma SE.21</a> <span class=muted>Delayed projections and prefixes</span></li><li><a class="ref" href="r.lem.app-dyn-quadratic.html" data-label="lem:app-dyn-quadratic">Lemma SE.22</a> <span class=muted>Quadratic block response</span></li><li><a class="ref" href="r.lem.app-dyn-diffuse.html" data-label="lem:app-dyn-diffuse">Lemma SE.24</a> <span class=muted>Persistence of diffuseness</span></li><li><a class="ref" href="r.lem.app-dyn-block.html" data-label="lem:app-dyn-block">Lemma SE.26</a> <span class=muted>Block residual</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L155">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_i (γ CS : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Ioi 0) :
+    ∃ CI C : ℝ, ∀ (w : ℕ → ℝ), Muon.DetEquiv.WeightClass w →
+      ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ z : ℂ, z ∈ sectorS → ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Xz (Muon.DetEquiv.WeightedBuf w F S t ω) z i j) P) ∧
+      (∀ z ∈ sectorS, z.re ∈ I → fro (Hz w P F S t z) ≤ CI) ∧
+      (∀ z ∈ sectorS, 1 ≤ z.re → fro (Hz w P F S t z) ≤ C / z.re) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L335">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_ii (γ CS : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Ioi 0) :
+    ∃ CI C : ℝ, ∀ (w : ℕ → ℝ), Muon.DetEquiv.WeightClass w →
+      ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ z : ℂ, z ∈ sectorS → ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Xz (Muon.DetEquiv.WeightedBuf w F S t ω) z i j) P) ∧
+      (∀ s ∈ I, (∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun x : ℝ =&gt; Hz w P F S t (x : ℂ) i j) s) ∧
+        fro (dHz w P F S t s) ≤ CI) ∧
+      (∀ s : ℝ, 2 ≤ s → (∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun x : ℝ =&gt; Hz w P F S t (x : ℂ) i j) s) ∧
+        fro (dHz w P F S t s) ≤ C / s ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1024">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_iii (γ CS ϱlo ϱhi : ℝ) (hlo : 0 &lt; ϱlo) (hle : ϱlo ≤ ϱhi) :
+    ∃ C : ℝ, ∀ (w : ℕ → ℝ), Muon.DetEquiv.WeightClass w →
+      ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ ϱ ∈ Icc ϱlo ϱhi, ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Q ϱ (Muon.DetEquiv.WeightedBuf w F S t ω) i j) P) ∧
+      (∀ ϱ ∈ Icc ϱlo ϱhi, ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; dQ ϱ (Muon.DetEquiv.WeightedBuf w F S t ω) i j) P) ∧
+      (∀ ϱ' ∈ Icc ϱlo ϱhi, ∀ ω : Ω, ∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun r : ℝ =&gt; Q r (Muon.DetEquiv.WeightedBuf w F S t ω) i j) ϱ') ∧
+      (∀ ϱ' ∈ Icc ϱlo ϱhi,
+        fro (mean P (fun ω =&gt; Q ϱ' (Muon.DetEquiv.WeightedBuf w F S t ω))) +
+          fro (mean P (fun ω =&gt; dQ ϱ' (Muon.DetEquiv.WeightedBuf w F S t ω))) ≤ C) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1107">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_iv (γ CS ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    ∃ K : ℝ, ∀ (m n B : ℕ → ℕ) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+      (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+      (S : ∀ k, FrozenSamples (P k) (m k) (n k) (B k)) (F : ∀ k, FrozenParams (m k) (n k) (B k))
+      (w : ∀ k, ℕ → ℝ),
+      (∀ k, Muon.DetEquiv.WeightClass (w k)) →
+      (∀ k, ((max (m k) (n k) : ℕ) : ℝ) ≤ γ * (B k : ℝ)) →
+      (∀ k, opNorm (F k).C.Sout ≤ CS) → (∀ k, opNorm (F k).C.Sin ≤ CS) →
+      ProportionalRegime m n B (fun k =&gt; (F k).C) →
+      ∃ r : ℕ → ℝ, Tendsto r atTop (𝓝 0) ∧
+        ∀ (A : ∀ k, Mat (m k) (n k)) (hA : ∀ k, fro (A k) = 1) (t : ℤ),
+          (∀ k (i : Fin (m k)) (j : Fin (n k)),
+            Integrable (fun ω =&gt; Q ϱ (Muon.DetEquiv.WeightedBuf (w k) (withState (F k) (A k) (hA k))
+              (S k) t ω) i j) (P k)) ∧
+          ∀ k, opNorm (mean (P k) (fun ω =&gt;
+              Q ϱ (Muon.DetEquiv.WeightedBuf (w k) (withState (F k) (A k) (hA k)) (S k) t ω)))
+            ≤ K * opNorm (A k) + r k := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_i_ema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1171">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_i_ema (γ CS : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Ioi 0) :
+    ∃ CI C : ℝ, ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ z : ℂ, z ∈ sectorS → ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Xz (frozenBuf F S t ω) z i j) P) ∧
+      (∀ z ∈ sectorS, z.re ∈ I → fro (HzF P F S t z) ≤ CI) ∧
+      (∀ z ∈ sectorS, 1 ≤ z.re → fro (HzF P F S t z) ≤ C / z.re) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_ii_ema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1220">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_ii_ema (γ CS : ℝ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Ioi 0) :
+    ∃ CI C : ℝ, ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ z : ℂ, z ∈ sectorS → ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Xz (frozenBuf F S t ω) z i j) P) ∧
+      (∀ s ∈ I, (∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun x : ℝ =&gt; HzF P F S t (x : ℂ) i j) s) ∧
+        fro (dHzF P F S t s) ≤ CI) ∧
+      (∀ s : ℝ, 2 ≤ s → (∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun x : ℝ =&gt; HzF P F S t (x : ℂ) i j) s) ∧
+        fro (dHzF P F S t s) ≤ C / s ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_iii_ema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1273">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_iii_ema (γ CS ϱlo ϱhi : ℝ) (hlo : 0 &lt; ϱlo) (hle : ϱlo ≤ ϱhi) :
+    ∃ C : ℝ, ∀ (m n B : ℕ) (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (S : FrozenSamples P m n B) (F : FrozenParams m n B) (t : ℤ),
+      ((max m n : ℕ) : ℝ) ≤ γ * (B : ℝ) → opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (∀ ϱ ∈ Icc ϱlo ϱhi, ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; Q ϱ (frozenBuf F S t ω) i j) P) ∧
+      (∀ ϱ ∈ Icc ϱlo ϱhi, ∀ (i : Fin m) (j : Fin n),
+        Integrable (fun ω =&gt; dQ ϱ (frozenBuf F S t ω) i j) P) ∧
+      (∀ ϱ' ∈ Icc ϱlo ϱhi, ∀ ω : Ω, ∀ (i : Fin m) (j : Fin n),
+          DifferentiableAt ℝ (fun r : ℝ =&gt; Q r (frozenBuf F S t ω) i j) ϱ') ∧
+      (∀ ϱ' ∈ Icc ϱlo ϱhi,
+        fro (mean P (fun ω =&gt; Q ϱ' (frozenBuf F S t ω))) +
+          fro (mean P (fun ω =&gt; dQ ϱ' (frozenBuf F S t ω))) ≤ C) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_mean_iv_ema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/FiniteMean.lean#L1371">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_mean_iv_ema (γ CS ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    ∃ K : ℝ, ∀ (m n B : ℕ → ℕ) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+      (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+      (S : ∀ k, FrozenSamples (P k) (m k) (n k) (B k)) (F : ∀ k, FrozenParams (m k) (n k) (B k)),
+      (∀ k, ((max (m k) (n k) : ℕ) : ℝ) ≤ γ * (B k : ℝ)) →
+      (∀ k, opNorm (F k).C.Sout ≤ CS) → (∀ k, opNorm (F k).C.Sin ≤ CS) →
+      ProportionalRegime m n B (fun k =&gt; (F k).C) →
+      ∃ r : ℕ → ℝ, Tendsto r atTop (𝓝 0) ∧
+        ∀ (A : ∀ k, Mat (m k) (n k)) (hA : ∀ k, fro (A k) = 1) (t : ℤ),
+          (∀ k (i : Fin (m k)) (j : Fin (n k)),
+            Integrable (fun ω =&gt; Q ϱ (frozenBuf (withState (F k) (A k) (hA k)) (S k) t ω) i j) (P k)) ∧
+          ∀ k, opNorm (mean (P k) (fun ω =&gt; Q ϱ (frozenBuf (withState (F k) (A k) (hA k)) (S k) t ω)))
+            ≤ K * opNorm (A k) + r k := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SB.1 (Trace closure with bounded tests)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SB.1 (Trace closure with bounded tests)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-de-trace"><div class="thm-head"><a class="thm-name" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class="thm-title">(Trace closure with bounded tests)</span></div><div class="thm-body"><div class="p">Under the hypotheses of <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>, let <span class="mi">\(I\subset(0,\infty)\)</span> be compact and let <span class="mi">\(T=T_B\in\mathbb{C}^{\Nout\times\Nout}\)</span> and <span class="mi">\(\widetilde T=\widetilde T_B\in\mathbb{C}^{\Nin\times\Nin}\)</span> be deterministic with <span class="mi">\(\norm{T_B},\norm{\widetilde T_B}\le C_T\)</span> for all <span class="mi">\(B\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-trace-closure"></span>\begin{equation}\tag{SB.29}
+\EE\sup_{s\in I}\Big|\frac1{\Nout}\Tr\big[T\big(R(-s)-\Rbar(-s)\big)\big]\Big|^2\longrightarrow0,\qquad
+\EE\sup_{s\in I}\Big|\frac1{\Nin}\Tr\big[\widetilde T\big(\widetilde R(-s)-\Rtbar(-s)\big)\big]\Big|^2\longrightarrow0 .
+\end{equation}</div>
+<div class="p">In particular, in mean square and uniformly on compact <span class="mi">\(s\)</span>-intervals,</div>
+<div class="md">\[
+\frac1B\Tr\big(\Sigmaout R(-s)\big)\longrightarrow\sigma(-s),\qquad
+\frac1B\Tr\big(\Sigmain\widetilde R(-s)\big)\longrightarrow\tilde\sigma(-s).
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a>.</div><div class="p">Put</div>
+<div class="md">\[
+\varepsilon(s)\defeq\frac1{\Nout}\Tr\big[T\big(R(-s)-\Rbar(-s)\big)\big].
+\]</div>
+<div class="p">At a fixed <span class="mi">\(s\in I\)</span> the error splits into a fluctuation and a bias. We use the trace bound</div>
+<div class="md">\[
+\frac{\abs{\Tr(TX)}}{\Nout}\le\frac{\norm T\,\norm X_*}{\Nout}\le\norm T\,\norm X ,
+\]</div>
+<div class="p">and <span class="mi">\(\Nout\ge B\gout/2\)</span> for all large <span class="mi">\(B\)</span>. By <span class="mi">\((x+y)^2\le2x^2+2y^2\)</span>, <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> rescaled from <span class="mi">\(B\)</span> to <span class="mi">\(\Nout\)</span>, and <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\EE\abs{\varepsilon(s)}^2&amp;\le2\Var\Big(\frac{\Tr(TR(-s))}{\Nout}\Big)+2\,\Big|\frac{\Tr[T(\mathcal P(s)-\Rbar(-s))]}{\Nout}\Big|^2\\
+&amp;\le\frac{8C_IC_T^2\sw2}{\gout^2B}+2C_T^2\norm{\mathcal P(s)-\Rbar(-s)}^2\longrightarrow0 .
+\end{aligned}
+\]</div>
+<div class="p">The error is equicontinuous in <span class="mi">\(s\)</span>, uniformly in the dimension and the realization. By <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, for <span class="mi">\(s,s'\in I\)</span>,</div>
+<div class="md">\[
+\norm{R(-s)-R(-s')}\le\frac{\abs{s-s'}}{s_-^2},
+\]</div>
+<div class="p">and by the resolvent identity applied to <span class="mi">\(\Rbar\)</span>,</div>
+<div class="md">\[
+\norm{\Rbar(-s)-\Rbar(-s')}\le\frac{C_\Sigma\abs{\tilde s_1(-s)-\tilde s_1(-s')}+\abs{s-s'}}{s_-^2}.
+\]</div>
+<div class="p">By <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(ii) the map <span class="mi">\(s\mapsto\tilde s_1(-s)\)</span> has a modulus of continuity <span class="mi">\(\omega_I\)</span> on <span class="mi">\(I\)</span> that is uniform over <span class="mi">\(\mathcal K\)</span>, hence over the dimension. With the trace bound this gives a deterministic modulus <span class="mi">\(\varkappa\)</span>, uniform in the dimension and the realization, such that</div>
+<div class="md">\[
+\abs{\varepsilon(s)-\varepsilon(s')}\le\varkappa(\abs{s-s'})\qquad(s,s'\in I).
+\]</div>
+<div class="p">The supremum is reduced to a finite net. Let <span class="mi">\(I_\eta\subset I\)</span> be a finite <span class="mi">\(\eta\)</span>-net. Then</div>
+<div class="md">\[
+\sup_{s\in I}\abs{\varepsilon(s)}\le\max_{s\in I_\eta}\abs{\varepsilon(s)}+\varkappa(\eta),
+\]</div>
+<div class="p">and squaring, bounding the maximum by the sum and taking expectations,</div>
+<div class="md">\[
+\EE\sup_{s\in I}\abs{\varepsilon(s)}^2\le2\sum_{s\in I_\eta}\EE\abs{\varepsilon(s)}^2+2\varkappa(\eta)^2 .
+\]</div>
+<div class="p">Taking first the limit in the dimension at fixed <span class="mi">\(\eta\)</span> and then <span class="mi">\(\eta\downarrow0\)</span> proves the first claim. The input side is identical.</div>
+<div class="p">The last claim is the case <span class="mi">\(T=\Sigmaout\,B/\Nout\)</span> and <span class="mi">\(\widetilde T=\Sigmain\,B/\Nin\)</span>, admissible since <span class="mi">\(B/\Nout\le2/\gout\)</span> for large <span class="mi">\(B\)</span>, for which</div>
+<div class="md">\[
+\frac1{\Nout}\Tr\big(T\Rbar(-s)\big)=\frac1B\Tr\big(\Sigmaout\Rbar(-s)\big)=\sigma(-s)
+\]</div>
+<div class="p">by <a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> <span class=muted>Candidate-centered targets</span></li><li><a class="ref" href="r.thm.app-vol-half-same.html" data-label="thm:app-vol-half-same">Theorem SD.1</a> <span class=muted>Same-time energies of rows and columns</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.cor_app_de_trace_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Trace.lean#L867">source</a></summary><pre class="lean no-mj">theorem cor_app_de_trace_i
+    (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (T : ∀ k, Matrix (Fin (R.m k)) (Fin (R.m k)) ℂ) (hT : ∃ CT : ℝ, ∀ k, opNorm (T k) ≤ CT) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ s ∈ I,
+      ENNReal.ofReal (‖normTrace (T k) (R.m k)
+        (Rs (WeightedBuf w (R.F k) (S k) t ω) s - Rbar (Fw w) (νo k) (νi k) (R.F k).C s)‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.cor_app_de_trace_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Trace.lean#L918">source</a></summary><pre class="lean no-mj">theorem cor_app_de_trace_ii
+    (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (T' : ∀ k, Matrix (Fin (R.n k)) (Fin (R.n k)) ℂ) (hT' : ∃ CT : ℝ, ∀ k, opNorm (T' k) ≤ CT) :
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ s ∈ I,
+      ENNReal.ofReal (‖normTrace (T' k) (R.n k)
+        (Rts (WeightedBuf w (R.F k) (S k) t ω) s - Rtbar (Fw w) (νo k) (νi k) (R.F k).C s)‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.cor_app_de_trace_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Trace.lean#L970">source</a></summary><pre class="lean no-mj">theorem cor_app_de_trace_iii
+    (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    (∀ s ∈ I, Tendsto (fun k =&gt; ∫⁻ ω,
+      ENNReal.ofReal (‖(R.B k : ℝ)⁻¹ * Matrix.trace ((R.F k).C.Sout *
+        Rs (WeightedBuf w (R.F k) (S k) t ω) s) - (branchSol (Fw w) (νo k) (νi k) s).1‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0)) ∧
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ s ∈ I,
+      ENNReal.ofReal (‖(R.B k : ℝ)⁻¹ * Matrix.trace ((R.F k).C.Sout *
+        Rs (WeightedBuf w (R.F k) (S k) t ω) s) - (branchSol (Fw w) (νo k) (νi k) s).1‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.cor_app_de_trace_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Trace.lean#L1032">source</a></summary><pre class="lean no-mj">theorem cor_app_de_trace_iv
+    (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    (∀ s ∈ I, Tendsto (fun k =&gt; ∫⁻ ω,
+      ENNReal.ofReal (‖(R.B k : ℝ)⁻¹ * Matrix.trace ((R.F k).C.Sin *
+        Rts (WeightedBuf w (R.F k) (S k) t ω) s) - (branchSol (Fw w) (νo k) (νi k) s).2.1‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0)) ∧
+    Tendsto (fun k =&gt; ∫⁻ ω, ⨆ s ∈ I,
+      ENNReal.ofReal (‖(R.B k : ℝ)⁻¹ * Matrix.trace ((R.F k).C.Sin *
+        Rts (WeightedBuf w (R.F k) (S k) t ω) s) - (branchSol (Fw w) (νo k) (νi k) s).2.1‖ ^ 2)
+      ∂(P k)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.cor_app_de_trace_detEquiv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Trace.lean#L1101">source</a></summary><pre class="lean no-mj">theorem cor_app_de_trace_detEquiv
+    (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    IsDetEquiv (Ω := Ω) P (fun k =&gt; R.m k) (d₁ := fun k =&gt; R.m k) (d₂ := fun k =&gt; R.m k)</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

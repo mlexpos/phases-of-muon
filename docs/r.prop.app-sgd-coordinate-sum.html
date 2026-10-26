@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SJ.6 (Coordinate errors in Frobenius norm)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SJ.6 (Coordinate errors in Frobenius norm)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-sgd-coordinate-sum"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> <span class="thm-title">(Coordinate errors in Frobenius norm)</span></div><div class="thm-body"><div class="p">In the Haar model with <span class="mi">\(k\ge k_*\)</span>, let <span class="mi">\(D_v\defeq\diag(v_1,\dots,v_{\Nout})\)</span> and</div>
+<div class="md">\[
+E\defeq M(U)-\sqrt{\frac2\pi}\,\frac{\mathcal N_B}{\sqrt{2\cR}}\,D_v^{-1/2}U\Lambda D .
+\]</div>
+<div class="p">There is an admissible constant <span class="mi">\(C_E\)</span> such that <span class="mi">\(\EE_U\norm E_\F^2\le C_E\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The entry <span class="mi">\(E_{pj}\)</span> is the error of <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> for the whitened state of <a class="ref" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a>. We square and sum the five terms of <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> before averaging over <span class="mi">\(U\)</span>; this keeps the batch remainder at the scale of the whole matrix.</div>
+<div class="p"><em>Good events.</em> On <span class="mi">\(\mathcal A_p\)</span> the bound <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> applies, with <span class="mi">\(F^2=2\cR\ge P_-\)</span>. Call its five terms <span class="mi">\(t_1,\dots,t_5\)</span>, so that <span class="mi">\(E_{pj}^2\mathbf 1_{\mathcal A_p}\le5\sum_lt_l^2\)</span>. Here <span class="mi">\(s^3\ge(2\cR)^{3/2}\)</span>,</div>
+<div class="md">\[
+m_3^2\le80000\,\mu_{pj}^2(2\cR)^2+5832\,(2\cR)R_pC_j,\qquad s^2-2\cR\le5(R_p+C_j),
+\]</div>
+<div class="p">the last because <span class="mi">\(\mu_{pj}^2\le R_p\)</span>. Summing over the <span class="mi">\(\Nout\Nin\)</span> entries with <a class="ref" href="r.lem.app-sgd-deletion.html#L-eqn:app-sgd-deletion" data-label="eqn:app-sgd-deletion">(SJ.26)</a> and <span class="mi">\(\Nout,\Nin,B\in[k,Kk]\)</span> gives</div>
+<div class="md">\[
+\begin{aligned}
+\sum_{p,j}\EE t_1^2&amp;\le\frac{KC_1^2}{kP_-^3}\big(80000P_+^2A_1+5832P_+A_2A_0\big),&amp;
+\sum_{p,j}t_2^2&amp;\le\frac{\Nout\Nin C_2^2}{B^2}\le K^2C_2^2,\\
+\sum_{p,j}\EE t_3^2&amp;\le\frac{15K^4A_1^3}{18\pi P_-^3k},&amp;
+\sum_{p,j}\EE t_5^2&amp;\le\frac{16\cdot\frac2\pi\,KA_1}{P_-k}.
+\end{aligned}
+\]</div>
+<div class="p">For <span class="mi">\(t_4\)</span> the correlated moment is bounded by Cauchy–Schwarz, <span class="mi">\(\EE[\mu_{pj}^2R_p^2]\le(\EE\mu_{pj}^4\,\EE R_p^4)^{1/2}\le\sqrt{315}A_1A_0^2/(\Nout^3k)\)</span>, and <span class="mi">\(C_j^2\EE\mu_{pj}^2\le A_2^2A_1/(\Nout k^3)\)</span>, so</div>
+<div class="md">\[
+\sum_{p,j}\EE t_4^2\le\frac{25\cdot\frac2\pi\,K^2A_1}{2P_-^3k}\big(\sqrt{315}A_0^2+A_2^2\big).
+\]</div>
+<div class="p">Only <span class="mi">\(t_2\)</span> contributes a term that does not decay; it is bounded.</div>
+<div class="p"><em>Bad events.</em> On every event <span class="mi">\(\abs{M_{pj}}\le1\)</span> and <span class="mi">\(\mathcal N_B^2\le B\)</span>, so <span class="mi">\(E_{pj}^2\le2+\frac4\pi B\mu_{pj}^2/P_-\)</span>. Cauchy–Schwarz gives <span class="mi">\(\EE[\mu_{pj}^2\mathbf 1_{\mathcal A_p^c}]\le\sqrt{3Q_0}A_1/(\Nout^3k)\)</span>, and</div>
+<div class="md">\[
+\sum_{p,j}\EE\big[E_{pj}^2\mathbf 1_{\mathcal A_p^c}\big]\le\frac{2KQ_0}{k^2}+\frac{\frac4\pi\sqrt{3Q_0}A_1K^2}{P_-k}.
+\]</div>
+<div class="p">No independence between different rows of <span class="mi">\(U\)</span> is used. Adding five times the good-event sums to the bad-event sum gives the claim with an admissible <span class="mi">\(C_E\)</span>, since <span class="mi">\(k\ge1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li><li><a class="ref" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a> <span class=muted>Whitening a coordinate</span></li><li><a class="ref" href="r.lem.app-sgd-deletion.html" data-label="lem:app-sgd-deletion">Lemma SJ.9</a> <span class=muted>Deletion estimates</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a> <span class=muted>Half-anisotropic drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_coordinate_sum</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L2096">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_coordinate_sum (P : HaarParams) :
+    ∃ CE : ℝ, 0 ≤ CE ∧ ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ)
+      (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)), IsOrthHaar ν →
+      def_app_sgd_state_law P n m B μ D → haarKStar P ≤ kOf n m B →
+      ∫⁻ U, ENNReal.ofReal (frobNorm (haarErr B μ D U) ^ 2) ∂ν ≤ ENNReal.ofReal CE := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SC.1 (History truncation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SC.1 (History truncation)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-drift-truncation"><div class="thm-head"><a class="thm-name" href="r.prop.app-drift-truncation.html" data-label="prop:app-drift-truncation">Proposition SC.1</a> <span class="thm-title">(History truncation)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, for <span class="mi">\(J\ge J_w\defeq\min\{j:\emaw j&gt;0\}\)</span> let <span class="mi">\(\emaw j^{(J)}\defeq\emaw j\mathbf 1_{j\le J}\)</span>, let <span class="mi">\(M^{(J)}=\sum_{j\le J}\emaw jG_{t+1-j}\)</span> be the truncated buffer of <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>, and let <span class="mi">\(T^{(J)}\)</span> and <span class="mi">\(\Gtildebar^{(J)}_\ridge\)</span> be the candidates <a class="ref" href="s.SC.html#L-eqn:app-drift-H" data-label="eqn:app-drift-H">(SC.2)</a> and <a class="ref" href="s.SC.html#L-eqn:app-drift-Gbar" data-label="eqn:app-drift-Gbar">(SC.3)</a> built from the solution of the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the weights <span class="mi">\(\emaw{}^{(J)}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every fixed <span class="mi">\(J\)</span>, <span class="mi">\(\sup_{\ridge\in[\ridge_-,\ridge_+]}\norm{\EE\,\Qridge\ridge(M^{(J)})-\Gtildebar^{(J)}_\ridge}_\F\to0\)</span> as the dimension grows.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\lim_{J\to\infty}\sup_B\sup_{\ridge\in[\ridge_-,\ridge_+]}\norm{\Gtildebar_\ridge-\Gtildebar^{(J)}_\ridge}_\F=0\)</span>, where <span class="mi">\(\sup_B\)</span> runs over the whole sequence of dimensions.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Consequently</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-truncation"></span>\begin{equation}\tag{SC.10}
+\lim_{J\to\infty}\limsup_{B\to\infty}\sup_{\ridge\in[\ridge_-,\ridge_+]}
+\norm{\EE\,\Qridge\ridge(\Mt)-\EE\,\Qridge\ridge(M^{(J)})}_\F=0 .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-drift-truncation.html" data-label="prop:app-drift-truncation">Proposition SC.1</a>.</div><div class="p">Part (i) is <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> for the weights <span class="mi">\(\emaw{}^{(J)}\)</span>, which belong to the class <a class="ref" href="s.SC.html#L-eqn:app-drift-weights" data-label="eqn:app-drift-weights">(SC.1)</a> for <span class="mi">\(J\ge J_w\)</span>; the buffer <span class="mi">\(M^{(J)}\)</span> is the frozen-state buffer with these weights.</div>
+<div class="p">Part (ii) is the stability of the branch. Fix a compact <span class="mi">\(I\subset(0,\infty)\)</span> and let <span class="mi">\((\sigma^J,\tilde\sigma^J,a^J,c^J)(-s)\)</span> be the solution of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for <span class="mi">\(\emaw{}^{(J)}\)</span> at <span class="mi">\(z=-s\)</span>, with <span class="mi">\(q^J=s\sigma^J\tilde\sigma^J\)</span>. It is an approximate solution of the system for the full weights. Its first two residuals vanish, because the trace equations do not involve the weights; its third residual is</div>
+<div class="md">\[
+\abs{a^J-s\tilde\sigma^JF_{\emaw{}}(q^J)}=s\tilde\sigma^J\,\abs{F_{\emaw{}^{(J)}}(q^J)-F_{\emaw{}}(q^J)}
+=s\tilde\sigma^J\sum_{j&gt;J}\emaw j^2\Jfun(\emaw j^2q^J)\le C_\Sigma\gamma_\star\sum_{j&gt;J}\emaw j^2 ,
+\]</div>
+<div class="p">by <span class="mi">\(\Jfun\le1\)</span> and the box <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-box" data-label="eqn:app-de-box">(SB.6)</a>, and the fourth residual has the same bound. The tuple lies in the box of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(iii) for the full weights, since <span class="mi">\(\sw2^{(J)}\le\sw2\)</span>. Given <span class="mi">\(\epsilon&gt;0\)</span>, that theorem provides <span class="mi">\(\delta&gt;0\)</span>, and <span class="mi">\(J_0\)</span> with <span class="mi">\(C_\Sigma\gamma_\star\sum_{j&gt;J_0}\emaw j^2\le\delta\)</span>, such that for all <span class="mi">\(J\ge J_0\)</span>, all <span class="mi">\(s\in I\)</span> and all spectral measures in <span class="mi">\(\mathcal K\)</span>, hence uniformly in the dimension,</div>
+<div class="md">\[
+\abs{\sigma^J-\sigma}+\abs{\tilde\sigma^J-\tilde\sigma}+\abs{a^J-\tilde s_1}+\abs{c^J-s_1}\le\epsilon .
+\]</div>
+<div class="p">The candidates are then close. The resolvent identity gives <span class="mi">\(\norm{\Rbar^{(J)}(-s)-\Rbar(-s)}\le C_\Sigma\epsilon/s_-^2\)</span> and the same for <span class="mi">\(\Rtbar\)</span>, and the source factors satisfy</div>
+<div class="md">\[
+\abs{L_{\emaw{}^{(J)}}(q^J)-\Lw(q)}\le\sum_{j&gt;J}\emaw j+\abs{\Lw(q^J)-\Lw(q)}\le\sum_{j&gt;J}\emaw j+3\sw3\,\abs{q^J-q},
+\]</div>
+<div class="p">by <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(ii), with <span class="mi">\(\abs{q^J-q}\le s\sigma^J\abs{\tilde\sigma^J-\tilde\sigma}+s\tilde\sigma\abs{\sigma^J-\sigma}\le C_\Sigma\gamma_\star\epsilon\)</span>. Telescoping the three factors of <span class="mi">\(T\)</span> with the bounds <span class="mi">\(\norm{\Rbar},\norm{\Rtbar}\le1/s\)</span>, <span class="mi">\(\Lw\le1\)</span> and <span class="mi">\(\norm{\EE\Gt}_\F\le C_\Sigma\)</span>,</div>
+<div class="md">\[
+\sup_{s\in I}\norm{T^{(J)}(s)-T(s)}_\F\le C_I\Big(\epsilon+\sum_{j&gt;J}\emaw j\Big)\qquad(J\ge J_0),
+\]</div>
+<div class="p">uniformly in the dimension. Splitting the integral <a class="ref" href="s.SC.html#L-eqn:app-drift-Gbar" data-label="eqn:app-drift-Gbar">(SC.3)</a> at a cutoff <span class="mi">\(\mathsf R\ge1\)</span> as in the proof of <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a>, with <span class="mi">\(\norm{T^{(J)}(s)}_\F,\norm{T(s)}_\F\le C_\Sigma/s\)</span>,</div>
+<div class="md">\[
+\sup_B\sup_{\ridge\in[\ridge_-,\ridge_+]}\norm{\Gtildebar_\ridge-\Gtildebar^{(J)}_\ridge}_\F
+\le\frac2\pi\Big[\mathsf R\,C_{I_{\mathsf R}}\Big(\epsilon+\sum_{j&gt;J}\emaw j\Big)+\frac{2C_\Sigma}{\mathsf R}\Big],
+\]</div>
+<div class="p">and choosing first <span class="mi">\(\mathsf R\)</span> large, then <span class="mi">\(\epsilon\)</span> small and <span class="mi">\(J\)</span> large, proves (ii).</div>
+<div class="p">Part (iii) is the triangle inequality</div>
+<div class="md">\[
+\norm{\EE\,\Qridge\ridge(\Mt)-\EE\,\Qridge\ridge(M^{(J)})}_\F
+\le\norm{\EE\,\Qridge\ridge(\Mt)-\Gtildebar_\ridge}_\F+\norm{\Gtildebar_\ridge-\Gtildebar^{(J)}_\ridge}_\F+\norm{\Gtildebar^{(J)}_\ridge-\EE\,\Qridge\ridge(M^{(J)})}_\F ,
+\]</div>
+<div class="p">in which the first and third terms vanish in the dimension limit at fixed <span class="mi">\(J\)</span> by <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> and part (i), and the second is bounded uniformly in the dimension by a quantity vanishing as <span class="mi">\(J\to\infty\)</span> by part (ii).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> <span class=muted>Regularized mean</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li><li><a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class=muted>Properties of the scalar functions</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.prop_app_drift_truncation_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Kernel.lean#L2509">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_truncation_ii {CS γ ϱlo ϱhi : ℝ} (hC : 0 &lt; CS) (hγ : 0 &lt; γ)
+    (hlo : 0 &lt; ϱlo) (hle : ϱlo ≤ ϱhi) {w : ℕ → ℝ} (hw : WeightClass w) :
+    ∀ ε &gt; 0, ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J → ∀ (m' n' B' : ℕ) (F : FrozenParams m' n' B'),
+      DriftBound F CS γ → ∀ ϱ ∈ Icc ϱlo ϱhi,
+        fro (Gbar w F (specOutFM F) (specInFM F) ϱ -
+          Gbar (truncW w J) F (specOutFM F) (specInFM F) ϱ) ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_truncation_i_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L649">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_truncation_i_weights (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (w : ℕ → ℝ) (hw : WeightClass w) (J : ℕ) :
+    (∀ k, BddAbove ((fun ϱ =&gt; fro (EQ (truncW w J) (R.F k) (S k) t ϱ - Gbar (truncW w J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) '' Icc R.ϱlo R.ϱhi)) ∧
+    Tendsto (fun k =&gt; ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, fro (EQ (truncW w J) (R.F k) (S k) t ϱ - Gbar (truncW w J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ))
+      atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_truncation_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L704">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_truncation_i (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ) (J : ℕ) :
+    (∀ k, BddAbove ((fun ϱ =&gt; fro (EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ - Gbar (truncW (emaW R.β) J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) '' Icc R.ϱlo R.ϱhi)) ∧
+    Tendsto (fun k =&gt; ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, fro (EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ - Gbar (truncW (emaW R.β) J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ))
+      atTop (𝓝 0) :=</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_truncation_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L735">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_truncation_iii (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ) :
+    ∀ ε &gt; 0, ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J → ∃ k₀ : ℕ, ∀ k : ℕ, k₀ ≤ k →
+      BddAbove ((fun ϱ =&gt; fro (EQ (emaW R.β) (R.F k) (S k) t ϱ
+          - EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ)) '' Icc R.ϱlo R.ϱhi) ∧
+      (⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, fro (EQ (emaW R.β) (R.F k) (S k) t ϱ
+          - EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ)) ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.Drift.prop_app_drift_truncation</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Mean.lean#L814">source</a></summary><pre class="lean no-mj">theorem prop_app_drift_truncation (R : Muon.Setup.SetupRegime) {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ) :
+    (∀ J : ℕ, (∀ k, BddAbove ((fun ϱ =&gt; fro (EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ - Gbar (truncW (emaW R.β) J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) '' Icc R.ϱlo R.ϱhi)) ∧
+      Tendsto (fun k =&gt; ⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, fro (EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ - Gbar (truncW (emaW R.β) J) (R.F k) (specOutFM (R.F k)) (specInFM (R.F k)) ϱ)) atTop (𝓝 0)) ∧
+    (∀ CS γ : ℝ, 0 &lt; CS → 0 &lt; γ → ∀ ε &gt; 0, ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J →
+      ∀ (m' n' B' : ℕ) (F : FrozenParams m' n' B'), DriftBound F CS γ →
+        ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+          fro (Gbar (emaW R.β) F (specOutFM F) (specInFM F) ϱ -
+            Gbar (truncW (emaW R.β) J) F (specOutFM F) (specInFM F) ϱ) ≤ ε) ∧
+    (∀ ε &gt; 0, ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J → ∃ k₀ : ℕ, ∀ k : ℕ, k₀ ≤ k →
+      BddAbove ((fun ϱ =&gt; fro (EQ (emaW R.β) (R.F k) (S k) t ϱ
+          - EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ)) '' Icc R.ϱlo R.ϱhi) ∧
+      (⨆ ϱ ∈ Icc R.ϱlo R.ϱhi, fro (EQ (emaW R.β) (R.F k) (S k) t ϱ
+          - EQ (truncW (emaW R.β) J) (R.F k) (S k) t ϱ)) ≤ ε) :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

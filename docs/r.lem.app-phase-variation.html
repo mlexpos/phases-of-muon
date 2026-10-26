@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.5 (Sum and integral)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.5 (Sum and integral)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-variation"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-variation.html" data-label="lem:app-phase-variation">Lemma SI.5</a> <span class="thm-title">(Sum and integral)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(p,q,a&gt;0\)</span> and <span class="mi">\(f_a(x)\defeq x^{-p}e^{-ax^{-q}}\)</span> for <span class="mi">\(x&gt;0\)</span>, <span class="mi">\(f_a(0)\defeq0\)</span>. The function <span class="mi">\(f_a\)</span> has a unique maximum, at <span class="mi">\(x=(qa/p)^{1/q}\)</span>, with value <span class="mi">\(M_{p,q}a^{-p/q}\)</span>. For every integer <span class="mi">\(N\ge1\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-variation"></span>\begin{equation}\tag{SI.20}
+\begin{gathered}
+\Big|\sum_{i=1}^Nf_a(i)-\int_0^Nf_a(x)\,\dif x\Big|\le2M_{p,q}a^{-p/q},\\
+\int_0^Nf_a(x)\,\dif x=\frac{a^{(1-p)/q}}q\int_{a/N^q}^\infty y^{(p-1)/q-1}e^{-y}\,\dif y .
+\end{gathered}
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The derivative is</div>
+<div class="md">\[
+f_a'(x)=x^{-p-1}e^{-ax^{-q}}\big(-p+qa\,x^{-q}\big),
+\]</div>
+<div class="p">which changes sign once, from positive to negative, at <span class="mi">\(x=(qa/p)^{1/q}\)</span>. Evaluating there gives the maximum. Since <span class="mi">\(f_a\)</span> tends to <span class="mi">\(0\)</span> at both ends of <span class="mi">\((0,\infty)\)</span>, its total variation is twice the maximum. On each interval <span class="mi">\([i-1,i]\)</span>,</div>
+<div class="md">\[
+\Big|f_a(i)-\int_{i-1}^if_a(x)\,\dif x\Big|\le\int_{i-1}^i\abs{f_a(i)-f_a(x)}\,\dif x\le\int_{i-1}^i\abs{f_a'(y)}\,\dif y ,
+\]</div>
+<div class="p">and summing over <span class="mi">\(i\le N\)</span> bounds the difference by the total variation. The substitution <span class="mi">\(y=ax^{-q}\)</span> gives the formula for the integral.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a> <span class=muted>Convergent power sums</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_variation_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/PowerSums.lean#L93">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_variation_i {p q a : ℝ} (hp : 0 &lt; p) (hq : 0 &lt; q) (ha : 0 &lt; a) :
+    fa p q a ((q * a / p) ^ (1 / q)) = Mpq p q * a ^ (-(p / q)) ∧
+      ∀ x : ℝ, 0 &lt; x → x ≠ (q * a / p) ^ (1 / q) →
+        fa p q a x &lt; fa p q a ((q * a / p) ^ (1 / q)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_variation_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/PowerSums.lean#L320">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_variation_ii {p q a : ℝ} (hp : 0 &lt; p) (hq : 0 &lt; q) (ha : 0 &lt; a)
+    (N : ℕ) (hN : 1 ≤ N) :
+    |(∑ i ∈ Finset.Icc 1 N, fa p q a (i : ℝ)) - ∫ x in (0 : ℝ)..(N : ℝ), fa p q a x|
+      ≤ 2 * Mpq p q * a ^ (-(p / q)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_variation_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/PowerSums.lean#L402">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_variation_iii {p q a : ℝ} (hp : 0 &lt; p) (hq : 0 &lt; q) (ha : 0 &lt; a)
+    (N : ℕ) (hN : 1 ≤ N) :
+    ∫ x in (0 : ℝ)..(N : ℝ), fa p q a x =
+      a ^ ((1 - p) / q) / q *
+        ∫ y in Ioi (a / (N : ℝ) ^ q), y ^ ((p - 1) / q - 1) * Real.exp (-y) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

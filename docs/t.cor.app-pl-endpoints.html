@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Corollary SG.1 (Crossover windows and joint endpoints)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Corollary SG.1 (Crossover windows and joint endpoints)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-powerlaw.html">Power-law spectra and the large-batch regime</a> · cited in the main text</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span><span class="chip">Theorem numbering in the paper: <strong>Corollary H.1</strong></span></div><div class="thm thm-corollary" id="L-cor:app-pl-endpoints"><div class="thm-head"><a class="thm-name" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Corollary SG.1</a> <span class="thm-title">(Crossover windows and joint endpoints)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a>, let <span class="mi">\(i=i_N\to\infty\)</span> be a row sequence, and let <span class="mi">\(i_\star\defeq i_{\mathrm c,\mathfrak d}\)</span> for <span class="mi">\(\alpha\le1\)</span> and <span class="mi">\(i_\star\defeq i_{\mathrm c}\)</span> for <span class="mi">\(\alpha&gt;1\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">If <span class="mi">\(\alpha\le1\)</span> and <span class="mi">\(i/i_\star\to x\in(0,\infty)\)</span>, then</div>
+<div class="md">\[
+\frac{\sqrt2\,\mathfrak d_i(0)}{a_{\mathfrak d}}\to1+x^{-\alpha/2},\qquad
+\sw2\,\mathfrak v_i(0)\to1+2x^{\alpha/2}+c_0^{-2}x^\alpha,\qquad
+\frac{\mu_i}{c_Ni_\star^{-\alpha}}\to x^{-\alpha}.
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The joint endpoint equivalents are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-endpoint-table"></span>\begin{equation}\tag{SG.34}
+\begin{array}{c|c|c}
+ &amp; i/i_\star\to0 &amp; i/i_\star\to\infty\\\hline
+\sqrt2\,\mathfrak d_i(0) &amp; \sqrt{\mu_i/(\gamma\sw2)} &amp; a_N\Psi_\alpha(i/N)\\[3pt]
+\mathfrak v_i(0) &amp; 1/\sw2 &amp; \gamma\,\Gamma_\alpha(i/N)\\[3pt]
+\mu_i &amp; c_Ni^{-\alpha}\ \text{(exact)} &amp; c_Ni^{-\alpha}\ \text{(exact)}
+\end{array}
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">One has <span class="mi">\(i_\star/N\to0\)</span>. There are row sequences <span class="mi">\(i\to\infty\)</span> in both windows <span class="mi">\(i/i_\star\to0\)</span> and <span class="mi">\(i/i_\star\to\infty\)</span> if and only if</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-windows"></span>\begin{equation}\tag{SG.35}
+\frac{BN^{\alpha-1}}{\log^2\gamma}\to\infty\ \ (\alpha&lt;1),\qquad
+\frac{B}{\log^3\gamma}\to\infty\ \ (\alpha=1),\qquad
+B\to\infty\ \ (\alpha&gt;1),
+\end{equation}</div>
+<div class="p">and then <span class="mi">\(1\ll i_\star\ll N\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For <span class="mi">\(\alpha&gt;1\)</span>, equating the two mesoscopic endpoint equivalents gives the indices <span class="mi">\(i_{\mathrm c}/(\sw2d_\alpha^2)\)</span> for the drift and <span class="mi">\(B(\alpha-1)/(4\sw2K_\alpha^2)\)</span> for the volatility, whose ratio is <span class="mi">\((\alpha-1)d_\alpha^2/(4K_\alpha)\)</span>; all indices of the corollary are independent of <span class="mi">\(c_N\)</span>.</div></div></li></ol></div></div><section class="needs"><h2 class="panel-h">Definitions and assumptions used</h2><details class="need"><summary>Assumption S4 (Thin-batch power law)</summary><div class="thm thm-assumption" id="L-assum:app-pl-regime"><div class="thm-head"><a class="thm-name" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a> <span class="thm-title">(Thin-batch power law)</span></div><div class="thm-body"><div class="p">The exponent <span class="mi">\(\alpha&gt;0\)</span> and the momentum <span class="mi">\(\bmom\in(0,1)\)</span> are fixed. Along a sequence of positive integers <span class="mi">\(N\)</span> and <span class="mi">\(B=B_N\)</span>,</div>
+<div class="md">\[
+N\to\infty,\qquad B\to\infty,\qquad \gamma=\frac NB\to\infty,
+\]</div>
+<div class="p">and the spectrum is <span class="mi">\(\mu_i=c_Ni^{-\alpha}\)</span> for <span class="mi">\(1\le i\le N\)</span>, with amplitudes <span class="mi">\(c_N&gt;0\)</span>, with <span class="mi">\(\Sigmain=\Id_N\)</span> and <span class="mi">\(\Nout=\Nin=N\)</span>.</div></div></div></details></section><section class="note"><div class="p">This corollary is the <span class="sc">Muon</span> part of <a class="ref" href="paper.pdf#table.1" data-label="tab:power-law-kernels">Table 1</a> for <span class="mi">\(\bmom&gt;0\)</span>: it reads the drift and volatility crossovers in one coordinate <span class="mi">\(i/i_\star\)</span>. Below <span class="mi">\(i_\star\)</span> the row keeps the resolved kernels of the large-batch section, <span class="mi">\(\sqrt2\,\mathfrak d_i\sim\sqrt{\mu_i/(\gamma\sw2)}\)</span> and <span class="mi">\(\mathfrak v_i\to1/\sw2=B_{\rm eff}/B\)</span>; above it both kernels follow the bulk profiles of <span class="mi">\(i/N\)</span>, while the covariance <span class="mi">\(\mu_i=c_Ni^{-\alpha}\)</span> is exact throughout. Part (iii) says when both windows contain rows: always for <span class="mi">\(\alpha&gt;1\)</span>, and for <span class="mi">\(\alpha&lt;1\)</span> only if the batch exceeds <span class="mi">\(N^{1-\alpha}\)</span> up to logarithms; the crossover always lies far below <span class="mi">\(N\)</span>. Part (iv) records that for <span class="mi">\(\alpha&gt;1\)</span> the points where the endpoint laws are equal differ from <span class="mi">\(i_{\mathrm c}\)</span> only by constants, and that no index depends on the amplitude <span class="mi">\(c_N\)</span>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">Both theorems are equivalences along row sequences, and they come from one approximation that is uniform over all rows (<a class="ref" href="r.thm.app-pl-triple.html" data-label="thm:app-pl-triple">Theorem SG.1</a>). For <span class="mi">\(\alpha\le1\)</span> the approximants are (<a class="ref" href="s.SG.html#L-eqn:app-pl-approx-sub" data-label="eqn:app-pl-approx-sub">(SG.29)</a>)</div>
+<div class="md">\[
+\sqrt2\,\widehat{\mathfrak d}_i=\sqrt{\frac{\mu_i}{\gamma\sw2}}+a_N\Psi_\alpha\Big(\frac iN\Big),\qquad
+\widehat{\mathfrak v}_i=\frac1{\sw2}+\frac{2c_0}{\sqrt{\sw2}}\sqrt{\gamma\Gamma_\alpha\Big(\frac iN\Big)}+\gamma\Gamma_\alpha\Big(\frac iN\Big),
+\]</div>
+<div class="p">and for <span class="mi">\(\alpha&gt;1\)</span> they are <span class="mi">\(b_N\Phi_{\alpha,\bmom}((i_{\mathrm c}/i)^\alpha)\)</span> and <span class="mi">\(G_{\alpha,\bmom}(i/i_{\mathrm c})\)</span>, each multiplied by a factor that tends to one when <span class="mi">\(i/N\to0\)</span> and that turns the mesoscopic law into the bulk profile when <span class="mi">\(i/N\)</span> stays positive (<a class="ref" href="s.SG.html#L-eqn:app-pl-approx-super" data-label="eqn:app-pl-approx-super">(SG.30)</a>). For every sequence <span class="mi">\(n_N\to\infty\)</span>,</div>
+<div class="md">\[
+\sup_{n_N\le i\le N}\max\Big\{\Big|\frac{\mathfrak d_i(0)}{\widehat{\mathfrak d}_i}-1\Big|,\ \Big|\frac{\mathfrak v_i(0)}{\widehat{\mathfrak v}_i}-1\Big|\Big\}\longrightarrow0 .
+\]</div>
+<div class="p">The drift half is the head-plus-tail argument of <a class="ref" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a>. The volatility half is the argument of <a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a>: the quadratic <span class="mi">\(\widehat{\mathfrak v}_i\)</span> is the flat square of that sketch, with <span class="mi">\(b\)</span> replaced by <span class="mi">\(\sqrt{\gamma\Gamma_\alpha(i/N)}\)</span>, and the two agree on mesoscopic rows because <span class="mi">\(\Gamma_\alpha(x)\sim x^\alpha\Psi_\alpha(x)^2/c_0^2\)</span> (<a class="ref" href="r.lem.app-pl-matching.html" data-label="lem:app-pl-matching">Lemma SG.21</a>). A failure of uniformity would produce a row sequence along which a ratio stays away from one, so the uniform statement follows from the sequential one.</div>
+<div class="p">Parts (i) and (ii) are the two theorems in the coordinate <span class="mi">\(i/i_\star\)</span>. For <span class="mi">\(\alpha\le1\)</span> the volatility index is <span class="mi">\(i_{\mathrm c,\mathfrak v}=c_0^{2/\alpha}i_\star\)</span>, so <span class="mi">\(i/i_\star\to x\)</span> means <span class="mi">\(i/i_{\mathrm c,\mathfrak v}\to y=c_0^{-2/\alpha}x\)</span>, and then <span class="mi">\(2c_0y^{\alpha/2}=2x^{\alpha/2}\)</span> and <span class="mi">\(y^\alpha=c_0^{-2}x^\alpha\)</span>, which is (i). In the table the left column is the resolved case of both theorems, the two indices differing by a fixed factor. In the right column the drift is the unresolved case of <a class="ref" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a>, and the volatility follows from the uniform approximation, since <span class="mi">\(\widehat{\mathfrak v}_i\sim\gamma\Gamma_\alpha(i/N)\)</span> beyond <span class="mi">\(i_\star\)</span>: for <span class="mi">\(\alpha\le1\)</span> because <span class="mi">\(\gamma\Gamma_\alpha(i/N)\to\infty\)</span> there, and for <span class="mi">\(\alpha&gt;1\)</span> by the end <span class="mi">\(G_{\alpha,\bmom}(X)\sim4K_\alpha X/(\alpha-1)\)</span> of the crossover profile.</div>
+<div class="p">Parts (iii) and (iv) are computations with the indices. The definitions give</div>
+<div class="md">\[
+\frac{i_\star}N=\big(\gamma\sw2d^2\log^2\gamma\big)^{-1/\alpha}\ (\alpha&lt;1),\quad
+\frac{i_\star}N=\big(\gamma\sw2d^2\log^3\gamma\big)^{-1}\ (\alpha=1),\quad
+\frac{i_\star}N=\frac1{K_\alpha\gamma}\ (\alpha&gt;1),
+\]</div>
+<div class="p">which tend to zero. A row sequence <span class="mi">\(i\to\infty\)</span> with <span class="mi">\(i/i_\star\to0\)</span> exists exactly when <span class="mi">\(i_\star\to\infty\)</span>, and <span class="mi">\(i=\lfloor\sqrt{i_\star}\rfloor\)</span> realizes it; <span class="mi">\(i=N\)</span> realizes the other window. The condition <span class="mi">\(i_\star\to\infty\)</span> is <a class="ref" href="r.cor.app-pl-endpoints.html#L-eqn:app-pl-windows" data-label="eqn:app-pl-windows">(SG.35)</a>. For (iv), equating <span class="mi">\(\sqrt{\mu_i/(\gamma\sw2)}\)</span> with <span class="mi">\(d_\alpha\sqrt{c_NK_\alpha}N^{-1/2}i^{-(\alpha-1)/2}\)</span> gives <span class="mi">\(i=i_{\mathrm c}/(\sw2d_\alpha^2)\)</span>, and equating <span class="mi">\(1/\sw2\)</span> with <span class="mi">\(4K_\alpha^2i/((\alpha-1)B)\)</span> gives <span class="mi">\(i=B(\alpha-1)/(4\sw2K_\alpha^2)\)</span>; <span class="mi">\(c_N\)</span> cancels in both.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>20 levels, 95 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.PowerLaw.cor_app_pl_endpoints_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L590">source</a></summary><pre class="lean no-mj">theorem cor_app_pl_endpoints_i {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (hα : α ≤ 1)
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    ∀ x ∈ Ioi (0 : ℝ),
+      Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop (𝓝 x) →
+        Tendsto (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n) /
+            icdA α (c n) (N n) (B n)) atTop (𝓝 (1 + x ^ (-α / 2))) ∧
+        Tendsto (fun n =&gt; sPow β 2 *
+            vZero cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n)) atTop
+          (𝓝 (1 + 2 * x ^ (α / 2) + (c0 ^ 2)⁻¹ * x ^ α)) ∧
+        Tendsto (fun n =&gt; plSpec α (c n) (N n) (i n) / (c n * icStar β α (N n) (B n) ^ (-α)))
+          atTop (𝓝 (x ^ (-α))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.cor_app_pl_endpoints_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L718">source</a></summary><pre class="lean no-mj">theorem cor_app_pl_endpoints_ii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c)
+    (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℕ → ℝ)
+    (hadm : ∀ n, zeroAdmissible (N n) (B n) (plSpec α (c n) (N n)) (γstar n) (CSig n))
+    (i : (n : ℕ) → Fin (N n)) (hi : Tendsto (fun n =&gt; rowNum (i n)) atTop atTop) :
+    (Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop (𝓝 0) →
+      IsEquivalent atTop (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+          (fun n =&gt; Real.sqrt (plSpec α (c n) (N n) (i n) / (gammaOf (N n) (B n) * sPow β 2))) ∧
+        Tendsto (fun n =&gt; vZero cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n))
+          atTop (𝓝 (1 / sPow β 2))) ∧
+    (Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop atTop →
+      IsEquivalent atTop (fun n =&gt; Real.sqrt 2 * dZero β (B n) (plSpec α (c n) (N n)) (i n))
+          (fun n =&gt; aN α (c n) (N n) * profPsi α (rowNum (i n) / (N n : ℝ))) ∧
+        IsEquivalent atTop
+          (fun n =&gt; vZero cert (γstar n) (CSig n) β (B n) (plSpec α (c n) (N n)) (i n))
+          (fun n =&gt; gammaOf (N n) (B n) * profGamma α (rowNum (i n) / (N n : ℝ)))) ∧
+    (∀ n, plSpec α (c n) (N n) (i n) = c n * rowNum (i n) ^ (-α)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.cor_app_pl_endpoints_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L1086">source</a></summary><pre class="lean no-mj">theorem cor_app_pl_endpoints_iii {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c) :
+    Tendsto (fun n =&gt; icStar β α (N n) (B n) / (N n : ℝ)) atTop (𝓝 0) ∧
+    (((∃ i : (n : ℕ) → Fin (N n), Tendsto (fun n =&gt; rowNum (i n)) atTop atTop ∧
+          Tendsto (fun n =&gt; rowNum (i n) / icStar β α (N n) (B n)) atTop (𝓝 0)) ∧
+        (∃ j : (n : ℕ) → Fin (N n), Tendsto (fun n =&gt; rowNum (j n)) atTop atTop ∧
+          Tendsto (fun n =&gt; rowNum (j n) / icStar β α (N n) (B n)) atTop atTop)) ↔
+      ((α &lt; 1 → Tendsto (fun n =&gt; (B n : ℝ) * (N n : ℝ) ^ (α - 1) /
+            Real.log (gammaOf (N n) (B n)) ^ 2) atTop atTop) ∧
+        (α = 1 → Tendsto (fun n =&gt; (B n : ℝ) / Real.log (gammaOf (N n) (B n)) ^ 3)
+            atTop atTop) ∧
+        (1 &lt; α → Tendsto (fun n =&gt; (B n : ℝ)) atTop atTop))) ∧
+    (((α &lt; 1 → Tendsto (fun n =&gt; (B n : ℝ) * (N n : ℝ) ^ (α - 1) /
+            Real.log (gammaOf (N n) (B n)) ^ 2) atTop atTop) ∧
+        (α = 1 → Tendsto (fun n =&gt; (B n : ℝ) / Real.log (gammaOf (N n) (B n)) ^ 3)
+            atTop atTop) ∧
+        (1 &lt; α → Tendsto (fun n =&gt; (B n : ℝ)) atTop atTop)) →
+      Tendsto (fun n =&gt; icStar β α (N n) (B n)) atTop atTop) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.cor_app_pl_endpoints_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L1153">source</a></summary><pre class="lean no-mj">theorem cor_app_pl_endpoints_iv {α β : ℝ} {N B : ℕ → ℕ} {c : ℕ → ℝ}
+    (R : assum_app_pl_regime α β N B c) (hα : 1 &lt; α) (n : ℕ) :
+    (∀ x : ℝ, 0 &lt; x →
+      (Real.sqrt (c n * x ^ (-α) / (gammaOf (N n) (B n) * sPow β 2)) =
+          dAl α * Real.sqrt (c n * Kc α) * (N n : ℝ) ^ (-(1 : ℝ) / 2) * x ^ (-(α - 1) / 2) ↔
+        x = icCross α (B n) / (sPow β 2 * dAl α ^ 2))) ∧
+    (∀ x : ℝ, 0 &lt; x →
+      (1 / sPow β 2 = 4 * Kc α ^ 2 / (α - 1) * (x / (B n : ℝ)) ↔
+        x = (B n : ℝ) * (α - 1) / (4 * sPow β 2 * Kc α ^ 2))) ∧
+    ((B n : ℝ) * (α - 1) / (4 * sPow β 2 * Kc α ^ 2)) /
+        (icCross α (B n) / (sPow β 2 * dAl α ^ 2)) =
+      (α - 1) * dAl α ^ 2 / (4 * Kc α) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

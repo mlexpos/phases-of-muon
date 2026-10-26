@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SD.1 (Two reductions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SD.1 (Two reductions)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-proposition" id="L-prop:app-vol-closed-reductions"><div class="thm-head"><a class="thm-name" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a> <span class="thm-title">(Two reductions)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout\ne0\)</span> and <span class="mi">\(\Sigmain\ne0\)</span>, then for all <span class="mi">\(s,u&gt;0\)</span> the right side of <a class="ref" href="r.thm.app-vol-closed-kernel.html#L-eqn:app-vol-closed-kernel" data-label="eqn:app-vol-closed-kernel">(SD.58)</a> at <span class="mi">\(\ell=0\)</span>, <span class="mi">\(F=\Sigmaout\)</span>, <span class="mi">\(G=\Sigmain\)</span> equals the two-resolvent kernel <span class="mi">\(\mathfrak k(s,u)\)</span> of <a class="ref" href="s.SD.html#L-eqn:app-vol-kernel" data-label="eqn:app-vol-kernel">(SD.86)</a>. Hence <span class="mi">\(\mathfrak k_0[\Sigmaout,\Sigmain]=\mathfrak k\)</span>, without ellipticity.</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, then for every <span class="mi">\(i\)</span>, every <span class="mi">\(\ell\ge0\)</span> and all <span class="mi">\(s,u&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-half"></span>\begin{equation}\tag{SD.59}
+\begin{gathered}
+B\,\mathfrak k_\ell[u_i\tensor u_i,\Id_{\Nin}](s,u)=\frac{(\Nin/B)\,su\,\mu_i\,b_\ell}{(s+\tilde s_1\mu_i)(u+\tilde s_1'\mu_i)(s+s_1)(u+s_1')\,\Delta_\ell(s,u)},\\
+\mathsf V=\frac{\Nin/B}{(s+s_1)(u+s_1')} .
+\end{gathered}
+\end{equation}</div>
+<div class="p">For <span class="mi">\(\Nin=\Nout=N\)</span> this is <a class="ref" href="r.prop.app-pl-response.html#L-eqn:app-pl-response" data-label="eqn:app-pl-response">(SG.16)</a> with <span class="mi">\(\gamma=N/B\)</span>; the identity holds for every pair <span class="mi">\((\Nout,\Nin)\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a>.</div><div class="p">For (a), take <span class="mi">\(\ell=0\)</span>, <span class="mi">\(F=\Sigmaout\)</span> and <span class="mi">\(G=\Sigmain\)</span>. Then <span class="mi">\(\mathcal T^{\mathrm{out}}[F]=\mathsf U=\mathcal T^{\mathrm{out}}_2(s,u)\)</span> and <span class="mi">\(\mathcal T^{\mathrm{in}}[G]=\mathsf V=\mathcal T^{\mathrm{in}}_2(s,u)\)</span> in the notation of <a class="ref" href="s.SD.html#L-eqn:app-vol-traces" data-label="eqn:app-vol-traces">(SD.84)</a>, and both buffers carry <span class="mi">\(\Fw\)</span>.</div>
+<div class="p">On the diagonal <span class="mi">\(s=u\)</span>, <a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a>(d) gives <span class="mi">\(b_0=r_{\bmom}'(q)\)</span> and <span class="mi">\(e_0=-\Fw'(q)\)</span>. So <span class="mi">\(\Delta_0(s,s)=\Upsilon(s)\)</span> of <a class="ref" href="s.SD.html#L-eqn:app-vol-Upsilon" data-label="eqn:app-vol-Upsilon">(SD.85)</a>, and the closed form is <span class="mi">\(s^2r_{\bmom}'(q)\mathcal T^{\mathrm{out}}_2(s,s)\mathcal T^{\mathrm{in}}_2(s,s)/\Upsilon(s)=\mathfrak k(s,s)\)</span> literally.</div>
+<div class="p">Off the diagonal the identity is a rational identity, which we prove without dividing by quantities that might vanish. Let <span class="mi">\(s\ne u\)</span>, write <span class="mi">\(F_1=\Fw(q)\)</span>, <span class="mi">\(F_2=\Fw(q')\)</span>, <span class="mi">\(\rho_1=r_{\bmom}(q)\)</span> and <span class="mi">\(\rho_2=r_{\bmom}(q')\)</span>, so that <span class="mi">\(\rho_1=\tilde s_1\sigma=s_1\tilde\sigma\)</span> and <span class="mi">\(\rho_2=\tilde s_1'\sigma'=s_1'\tilde\sigma'\)</span> by <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a>, and put <span class="mi">\(J_{\mathrm o}\defeq\mathcal T^{\mathrm{out}}_1(s,u)&gt;0\)</span>. The resolvent identities</div>
+<div class="md">\[
+\Rbar(-s)-\Rbar(-u)=\Rbar(-s)\big((u-s)\Id+(\tilde s_1'-\tilde s_1)\Sigmaout\big)\Rbar(-u),
+\]</div>
+<div class="md">\[
+u\Rbar(-u)-s\Rbar(-s)=\Rbar(-s)\,(u\tilde s_1-s\tilde s_1')\Sigmaout\,\Rbar(-u),
+\]</div>
+<div class="p">traced against <span class="mi">\(\Sigmaout/B\)</span>, and the analogous identity for <span class="mi">\(\Sigmain\)</span>, give</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-resdiff"></span>\begin{equation}\tag{SD.72}
+\begin{gathered}
+\sigma-\sigma'=(u-s)J_{\mathrm o}+(\tilde s_1'-\tilde s_1)\mathsf U,\\
+u\sigma'-s\sigma=(u\tilde s_1-s\tilde s_1')\mathsf U,\qquad u\tilde\sigma'-s\tilde\sigma=(us_1-ss_1')\mathsf V .
+\end{gathered}
+\end{equation}</div>
+<div class="p">Put</div>
+<div class="md">\[
+\mathsf A\defeq\frac{u\tilde s_1-s\tilde s_1'}{su}=\tilde\sigma F_1-\tilde\sigma'F_2,\qquad
+\mathsf C\defeq\frac{us_1-ss_1'}{su}=\sigma F_1-\sigma'F_2 .
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a>(d) at <span class="mi">\(\ell=0\)</span> gives the partial-fraction identities <span class="mi">\(b_0(q-q')=\rho_1-\rho_2\)</span> and <span class="mi">\(e_0(q'-q)=F_1-F_2\)</span>. Expanding with <a class="ref" href="r.prop.app-vol-closed-reductions.html#L-eqn:app-vol-closed-resdiff" data-label="eqn:app-vol-closed-resdiff">(SD.72)</a>, <span class="mi">\(q=s\sigma\tilde\sigma\)</span> and <span class="mi">\(q'=u\sigma'\tilde\sigma'\)</span> gives</div>
+<div class="md">\[
+\begin{aligned}
+su\mathsf A\,(u-s)J_{\mathrm o}&amp;=(u\tilde s_1-s\tilde s_1')(\sigma-\sigma')+(\tilde s_1-\tilde s_1')(u\sigma'-s\sigma)=(u-s)(\rho_1-\rho_2),\\
+\mathsf A(q'-q)\big(1-su\,\mathsf U\tilde\sigma\tilde\sigma'e_0\big)&amp;=\mathsf A(q'-q)-(u\sigma'-s\sigma)\tilde\sigma\tilde\sigma'(F_1-F_2)=(\tilde\sigma'-\tilde\sigma)(\rho_1-\rho_2),\\
+\mathsf C(q'-q)\big(1-su\,\mathsf V\sigma\sigma'e_0\big)&amp;=(\sigma'-\sigma)(\rho_1-\rho_2).
+\end{aligned}
+\]</div>
+<div class="p">In the second line the four terms in <span class="mi">\(F_1,F_2\)</span> cancel in pairs and leave <span class="mi">\(s\sigma\tilde\sigma F_1(\tilde\sigma'-\tilde\sigma)+u\sigma'\tilde\sigma'F_2(\tilde\sigma-\tilde\sigma')\)</span>; the third line is symmetric. Multiplying the second and third lines and subtracting</div>
+<div class="md">\[
+\mathsf A\mathsf C(q-q')^2su\,\mathsf U\mathsf Vb_0^2=\frac{(su\mathsf A\mathsf U)(su\mathsf C\mathsf V)(\rho_1-\rho_2)^2}{su}
+\]</div>
+<div class="p">gives</div>
+<div class="md">\[
+\begin{aligned}
+\mathsf A\mathsf C(q-q')^2\Delta_0&amp;=(\rho_1-\rho_2)^2\Big[(\sigma-\sigma')(\tilde\sigma-\tilde\sigma')-\frac{(u\sigma'-s\sigma)(u\tilde\sigma'-s\tilde\sigma)}{su}\Big]\\
+&amp;=\frac{(\rho_1-\rho_2)^2(u-s)(q-q')}{su},
+\end{aligned}
+\]</div>
+<div class="p">the bracket being <span class="mi">\((u-s)(s\sigma\tilde\sigma-u\sigma'\tilde\sigma')/(su)\)</span>. By <a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a>(iii), <span class="mi">\(q\ne q'\)</span>. Hence <span class="mi">\(\rho_1\ne\rho_2\)</span>, because <span class="mi">\(r_{\bmom}\)</span> is strictly increasing, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-ACDelta"></span>\begin{equation}\tag{SD.73}
+\mathsf A\mathsf C(q-q')\Delta_0=\frac{(\rho_1-\rho_2)^2(u-s)}{su}\ne0 .
+\end{equation}</div>
+<div class="p">In particular <span class="mi">\(su\,\mathsf A\mathsf C(q-q')\ne0\)</span>. Multiply the target identity <span class="mi">\(su\,b_0(u-s)J_{\mathrm o}=(us_1-ss_1')\Delta_0\)</span> by this number. The left side becomes <span class="mi">\(su\,\mathsf C\,[b_0(q-q')]\,[su\mathsf A(u-s)J_{\mathrm o}]=su\,\mathsf C(\rho_1-\rho_2)^2(u-s)\)</span>, by the first line. The right side becomes <span class="mi">\((us_1-ss_1')\,su\,[\mathsf A\mathsf C(q-q')\Delta_0]=su\,\mathsf C(\rho_1-\rho_2)^2(u-s)\)</span>, by <a class="ref" href="r.prop.app-vol-closed-reductions.html#L-eqn:app-vol-closed-ACDelta" data-label="eqn:app-vol-closed-ACDelta">(SD.73)</a> and <span class="mi">\(us_1-ss_1'=su\mathsf C\)</span>. So the target identity holds, and since <span class="mi">\(\Delta_0&gt;0\)</span> and <span class="mi">\(J_{\mathrm o}&gt;0\)</span>,</div>
+<div class="md">\[
+\frac{su\,b_0\,\mathsf U\mathsf V}{\Delta_0}=\mathcal T^{\mathrm{out}}_2\,\mathcal T^{\mathrm{in}}_2\,\frac{us_1-ss_1'}{(u-s)\mathcal T^{\mathrm{out}}_1}=\mathfrak k(s,u),
+\]</div>
+<div class="p">with <span class="mi">\(s_1=s_1(-s)\)</span> and <span class="mi">\(s_1'=s_1(-u)\)</span>, which is <a class="ref" href="s.SD.html#L-eqn:app-vol-kernel" data-label="eqn:app-vol-kernel">(SD.86)</a>. With <a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a>(ii) this gives <span class="mi">\(\mathfrak k_0[\Sigmaout,\Sigmain]=\mathfrak k\)</span>.</div>
+<div class="p">For (b), with <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, <span class="mi">\(\Rtbar(-s)=(s+s_1)^{-1}\Id\)</span> and <span class="mi">\(\Rtbar(-u)=(u+s_1')^{-1}\Id\)</span>, so</div>
+<div class="md">\[
+\mathcal T^{\mathrm{in}}[\Id]=\mathsf V=\frac{\Nin/B}{(s+s_1)(u+s_1')},\qquad
+\mathcal T^{\mathrm{out}}[u_i\tensor u_i]=\frac1B\,\frac{\mu_i}{(s+\tilde s_1\mu_i)(u+\tilde s_1'\mu_i)} .
+\]</div>
+<div class="p">Substituting into <a class="ref" href="r.thm.app-vol-closed-kernel.html#L-eqn:app-vol-closed-kernel" data-label="eqn:app-vol-closed-kernel">(SD.58)</a> and multiplying by <span class="mi">\(B\)</span> gives <a class="ref" href="r.prop.app-vol-closed-reductions.html#L-eqn:app-vol-closed-half" data-label="eqn:app-vol-closed-half">(SD.59)</a>. For <span class="mi">\(\Nin=\Nout=N\)</span> the quantities <span class="mi">\(\mathsf U\)</span>, <span class="mi">\(\mathsf V\)</span>, <span class="mi">\(b_\ell\)</span>, <span class="mi">\(e_\ell\)</span> and <span class="mi">\(\Delta_\ell\)</span> are those of <a class="ref" href="s.SG.html#L-eqn:app-pl-UV" data-label="eqn:app-pl-UV">(SG.14)</a> with <span class="mi">\(\gamma=N/B\)</span>, symbol by symbol, and the right side is that of <a class="ref" href="r.prop.app-pl-response.html#L-eqn:app-pl-response" data-label="eqn:app-pl-response">(SG.16)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-profile.html" data-label="lem:app-vol-closed-profile">Lemma SD.12</a> <span class=muted>Profile functions</span></li><li><a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a> <span class=muted>Branch of a profile</span></li><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.prop.app-pl-response.html" data-label="prop:app-pl-response">Proposition SG.3</a> <span class=muted>Two-time row response</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-double-same.html" data-label="thm:app-vol-double-same">Corollary SD.5</a> <span class=muted>Same-time volatility, two anisotropic covariances</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Volatility.prop_app_vol_closed_reductions_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L5376">source</a></summary><pre class="lean no-mj">theorem prop_app_vol_closed_reductions_i (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hout : Fp.C.Sout ≠ 0) (hin : Fp.C.Sin ≠ 0) (ν ν' : FiniteMeasure ℝ)
+    (hν : (ν : Measure ℝ) = Muon.nuOut Fp.C B) (hν' : (ν' : Measure ℝ) = Muon.nuIn Fp.C B)
+    (s u : ℝ) (hs : 0 &lt; s) (hu : 0 &lt; u) :
+    lagResp cert γstar CSig Fp.β 0 B S.μ S.lam S.μ S.lam (iotaF s) (iotaF u) =
+      kernelK Fp.β Fp.C B ν ν' s u := by</pre></details><details class="decl"><summary><code>Muon.Volatility.prop_app_vol_closed_reductions_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Kernel.lean#L5444">source</a></summary><pre class="lean no-mj">theorem prop_app_vol_closed_reductions_ii {Ω : Type} [MeasurableSpace Ω] {P : Measure Ω}
+    [IsProbabilityMeasure P] (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1)
+    (ℓ : ℕ) {g : ℕ ⊕ Fin ℓ → Ω → ℝ} (hg : IsStdGaussianFamily P g) (i : Fin m) (s u : ℝ)
+    (hs : 0 &lt; s) (hu : 0 &lt; u) :
+    (B : ℝ) * lagResp cert γstar CSig Fp.β ℓ B S.μ S.lam (Pi.single i 1) (fun _ : Fin n =&gt; (1 : ℝ))
+        (iotaF s) (iotaF u) =
+      ((n : ℝ) / B) * s * u * S.μ i * emaLagB P Fp.β ℓ g
+          (s * (emaBr1 P Fp.C B Fp.β ℓ g s).1 * (emaBr1 P Fp.C B Fp.β ℓ g s).2.1)
+          (u * (emaBr2 P Fp.C B Fp.β ℓ g u).1 * (emaBr2 P Fp.C B Fp.β ℓ g u).2.1) /
+        ((s + (emaBr1 P Fp.C B Fp.β ℓ g s).2.2.1 * S.μ i) *
+          (u + (emaBr2 P Fp.C B Fp.β ℓ g u).2.2.1 * S.μ i) *
+          (s + (emaBr1 P Fp.C B Fp.β ℓ g s).2.2.2) *
+          (u + (emaBr2 P Fp.C B Fp.β ℓ g u).2.2.2) *
+          profileDelta P Fp.C B (emaXi₁ Fp.β ℓ g) (emaXi₂ Fp.β ℓ g) s u) ∧
+    tinT Fp.C B (emaBr1 P Fp.C B Fp.β ℓ g s) (emaBr2 P Fp.C B Fp.β ℓ g u) s u Fp.C.Sin =
+      ((n : ℝ) / B) /
+        ((s + (emaBr1 P Fp.C B Fp.β ℓ g s).2.2.2) * (u + (emaBr2 P Fp.C B Fp.β ℓ g u).2.2.2)) := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

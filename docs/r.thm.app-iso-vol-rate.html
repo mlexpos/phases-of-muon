@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.9 (Lag sum at zero ridge)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.9 (Lag sum at zero ridge)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-vol-rate"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a> <span class="thm-title">(Lag sum at zero ridge)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span>, <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\ge\gamma^\circ_\bmom\)</span>. Then</div>
+<div class="md">\[
+-\mathsf K^-_\bmom\le\sum_{\ell\ge1}\overline C_{1,\ell}(0)-\frac\gamma4\le\mathsf K^+_\bmom .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof sums over the lag first, then averages over the participation level, and compares the integrand with <span class="mi">\(\mathsf A(s)/2\)</span> pointwise. The errors are linear or quadratic in <span class="mi">\(\tau\)</span> and <span class="mi">\(\mathsf n^-_\bmom\)</span>, which have finite moments.</div>
+<div class="p"><em>Step 1: the summed representation.</em> By <a class="ref" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> at <span class="mi">\(\ridge=0\)</span>, summed over <span class="mi">\(\ell\)</span>, and <a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a>(i),</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-T1-sum"></span>\begin{equation}\tag{SF.58}
+\sum_{\ell\ge1}\overline C_{1,\ell}(0)=\frac1\gamma\int_0^\gamma\EE_\star\big[\Psi\big(\Pi(Q_\eta;\cdot)\big)\big]\,\dif\eta,
+\end{equation}</div>
+<div class="p">where</div>
+<div class="md">\[
+\Psi(y,z)\defeq\mathbf 1\{y&lt;Q_\gamma\}\,\frac{\mathsf j(y)\,\mathsf T(z)}{\gamma^2\,\widehat\Delta(y,z)},\qquad
+\mathsf T(z)\defeq\sum_{\ell\ge1}\mathbf 1\{z_\ell&lt;Q_\gamma\}\,\mathsf j(z_\ell).
+\]</div>
+<div class="p">The range of <span class="mi">\(\eta\)</span> is <span class="mi">\((0,\gamma)\)</span>, because <span class="mi">\(\Psi(y,z)\ne0\)</span> forces <span class="mi">\(y&lt;Q_\gamma\)</span> and <span class="mi">\(z&lt;z_1&lt;Q_\gamma\)</span>, and the base point <span class="mi">\(s=Q_\eta\)</span> lies between <span class="mi">\(y\)</span> and <span class="mi">\(z\)</span>. Write <span class="mi">\(x\defeq\mathsf A(s)=\gamma-\eta\)</span>. Then</div>
+<div class="md">\[
+\frac1\gamma\int_0^\gamma\frac x2\,\dif\eta=\frac\gamma4 .
+\]</div>
+<div class="p"><em>Step 2: bounds on <span class="mi">\(\mathsf T\)</span>.</em> Put <span class="mi">\(L_z\defeq\gamma-\mathsf n_\bmom(z)+\mathsf c_\bmom\)</span> and <span class="mi">\(E_z\defeq\mathsf c^+_\bmom+\mathsf n^-_\bmom(z)\)</span>. A term of <span class="mi">\(\mathsf T(z)\)</span> with <span class="mi">\(z_\ell&lt;Q_\gamma\)</span> has <span class="mi">\(r(z_\ell)&lt;\gamma\)</span>, and <a class="ref" href="r.lem.app-iso-shifts.html" data-label="lem:app-iso-shifts">Lemma SF.14</a>(ii) gives <span class="mi">\(r(z_\ell)\ge\mathsf n_\bmom(z)+\ell-\mathsf c_\bmom\)</span>. Hence <span class="mi">\(\ell&lt;L_z\)</span> and, by <a class="ref" href="r.lem.app-iso-slope.html" data-label="lem:app-iso-slope">Lemma SF.13</a>,</div>
+<div class="md">\[
+\mathsf j(z_\ell)\le\gamma-r(z_\ell)+2\bar{\mathsf e}_\bmom\le L_z-\ell+2\bar{\mathsf e}_\bmom .
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-iso-shifts.html" data-label="lem:app-iso-shifts">Lemma SF.14</a>(iii), <span class="mi">\(L_z\le\mathsf A(z)+E_z\le\mathsf A_\vee+E_z\)</span>. If <span class="mi">\(\mathsf T(z)&gt;0\)</span>, then <span class="mi">\(L_z&gt;1\)</span>, and since <span class="mi">\(\sum_{1\le\ell&lt;L}(L-\ell)\le L^2/2\)</span> and <span class="mi">\(t\mapsto t^2/2+2\bar{\mathsf e}_\bmom t\)</span> increases on <span class="mi">\([0,\infty)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-T1-upper-T"></span>\begin{equation}\tag{SF.59}
+\mathsf T(z)\le\frac{L_z^2}2+2\bar{\mathsf e}_\bmom L_z\le\frac{(\mathsf A_\vee+E_z)^2}2+2\bar{\mathsf e}_\bmom(\mathsf A_\vee+E_z) ;
+\end{equation}</div>
+<div class="p">the bound also holds when <span class="mi">\(\mathsf T(z)=0\)</span>. Conversely, every <span class="mi">\(1\le\ell&lt;\mathsf A(z)\)</span> has <span class="mi">\(r(z_\ell)\le r(z)+\ell&lt;\gamma\)</span> by <a class="ref" href="r.lem.app-iso-shifts.html" data-label="lem:app-iso-shifts">Lemma SF.14</a>(i), and <span class="mi">\(\mathsf j(z_\ell)\ge\mathsf A(z_\ell)\ge\mathsf A(z)-\ell\)</span>. Comparing the decreasing summand with an integral,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-T1-lower-T"></span>\begin{equation}\tag{SF.60}
+\mathsf T(z)\ge\sum_{1\le\ell&lt;\mathsf A(z)}\big(\mathsf A(z)-\ell\big)\ge\frac{(\mathsf A(z)-1)_+^2}2 .
+\end{equation}</div>
+<div class="p"><em>Step 3: upper bound.</em> On the set <span class="mi">\(\{\Psi&gt;0\}\)</span> one has <span class="mi">\(\mathsf A(y)&gt;0\)</span>, and <span class="mi">\(\mathsf T(z)&gt;0\)</span> forces <span class="mi">\(r(\bmom^{-2}z)&lt;\gamma\)</span>, so that <span class="mi">\(\mathsf A(z)&gt;\Phi(1)\)</span> by <a class="ref" href="r.lem.app-iso-shifts.html" data-label="lem:app-iso-shifts">Lemma SF.14</a>(v). Thus <span class="mi">\(\mathsf A_\vee\ge\Phi(1)\)</span> there. With <span class="mi">\(\mathsf j(y)\le\mathsf A_\vee+2\bar{\mathsf e}_\bmom\)</span>, <a class="ref" href="r.thm.app-iso-vol-rate.html#L-eqn:app-iso-T1-upper-T" data-label="eqn:app-iso-T1-upper-T">(SF.59)</a> and the lower bound of <a class="ref" href="r.lem.app-iso-kernel-bounds.html" data-label="lem:app-iso-kernel-bounds">Lemma SF.15</a>(v),</div>
+<div class="md">\[
+\Psi\le\frac{(\mathsf A_\vee+2\bar{\mathsf e}_\bmom)\big((\mathsf A_\vee+E_z)^2/2+2\bar{\mathsf e}_\bmom(\mathsf A_\vee+E_z)\big)}{\mathsf A_\vee\max(\mathsf A_\vee-\bar{\mathsf e}_\bmom,\mathsf A_\vee/2)} .
+\]</div>
+<div class="p">Suppose first that <span class="mi">\(\mathsf A_\vee\ge2\bar{\mathsf e}_\bmom\)</span>. Then</div>
+<div class="md">\[
+\frac{\mathsf A_\vee+2\bar{\mathsf e}_\bmom}{\mathsf A_\vee-\bar{\mathsf e}_\bmom}=1+\frac{3\bar{\mathsf e}_\bmom}{\mathsf A_\vee-\bar{\mathsf e}_\bmom}\le1+\frac{6\bar{\mathsf e}_\bmom}{\mathsf A_\vee}\le4 .
+\]</div>
+<div class="p">The second factor divided by <span class="mi">\(\mathsf A_\vee\)</span> is <span class="mi">\(\mathsf A_\vee/2+E_z+E_z^2/(2\mathsf A_\vee)+2\bar{\mathsf e}_\bmom+2\bar{\mathsf e}_\bmom E_z/\mathsf A_\vee\)</span>. Applying the factor <span class="mi">\(1+6\bar{\mathsf e}_\bmom/\mathsf A_\vee\)</span> to its first term and the factor <span class="mi">\(4\)</span> to the rest, and using <span class="mi">\(2\bar{\mathsf e}_\bmom/\mathsf A_\vee\le1\)</span> and <span class="mi">\(\mathsf A_\vee\ge\Phi(1)\)</span>,</div>
+<div class="md">\[
+\Psi\le\frac{\mathsf A_\vee}2+3\bar{\mathsf e}_\bmom+4\Big(E_z+\frac{E_z^2}{2\mathsf A_\vee}+2\bar{\mathsf e}_\bmom+\frac{2\bar{\mathsf e}_\bmom E_z}{\mathsf A_\vee}\Big)
+\le\frac{\mathsf A_\vee}2+11\bar{\mathsf e}_\bmom+8E_z+\frac{2E_z^2}{\Phi(1)} .
+\]</div>
+<div class="p">Suppose instead that <span class="mi">\(\Phi(1)\le\mathsf A_\vee&lt;2\bar{\mathsf e}_\bmom\)</span>. Then <span class="mi">\(\mathsf A_\vee+2\bar{\mathsf e}_\bmom&lt;4\bar{\mathsf e}_\bmom\)</span>, the second factor of the numerator is at most <span class="mi">\(6\bar{\mathsf e}_\bmom^2+4\bar{\mathsf e}_\bmom E_z+E_z^2/2\)</span>, and the denominator is at least <span class="mi">\(\Phi(1)^2/2\)</span>, so that</div>
+<div class="md">\[
+\Psi\le\frac{8\bar{\mathsf e}_\bmom}{\Phi(1)^2}\Big(6\bar{\mathsf e}_\bmom^2+4\bar{\mathsf e}_\bmom E_z+\frac{E_z^2}2\Big).
+\]</div>
+<div class="p">In both cases, and also where <span class="mi">\(\Psi=0\)</span>,</div>
+<div class="md">\[
+\Psi\le\frac{\mathsf A_\vee}2+\mathsf K_0+\mathsf K_1E_z+\mathsf K_2E_z^2 .
+\]</div>
+<div class="p">Now <span class="mi">\(\mathsf A_\vee\le x+\bar{\mathsf e}_\bmom\tau\)</span> by <a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a>(iii), and <span class="mi">\(E_z^2\le2(\mathsf c^+_\bmom)^2+2\,\mathsf n^-_\bmom(z)^2\)</span>. Therefore</div>
+<div class="md">\[
+\Psi\le\frac x2+\frac{\bar{\mathsf e}_\bmom\tau}2+\mathsf K_0+\mathsf K_1\mathsf c^+_\bmom+2\mathsf K_2(\mathsf c^+_\bmom)^2+\mathsf K_1\,\mathsf n^-_\bmom(z)+2\mathsf K_2\,\mathsf n^-_\bmom(z)^2 .
+\]</div>
+<div class="p">Integrate against <span class="mi">\(\gamma^{-1}\dif\eta\,\nu_\star\)</span> over <span class="mi">\(\eta\in(0,\gamma)\)</span>. The first term gives <span class="mi">\(\gamma/4\)</span>, the second <span class="mi">\(\bar{\mathsf e}_\bmom\mathsf M_1/2\)</span>, the constants give themselves, and the last two terms give at most <span class="mi">\((\mathsf K_1\bar{\mathsf L}_1+2\mathsf K_2\bar{\mathsf L}_2)/\gamma\)</span> by <a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a>, which is at most <span class="mi">\(\mathsf K_1\bar{\mathsf L}_1+2\mathsf K_2\bar{\mathsf L}_2\)</span> because <span class="mi">\(\gamma\ge1\)</span>.</div>
+<div class="p"><em>Step 4: lower bound.</em> By <a class="ref" href="r.thm.app-iso-vol-rate.html#L-eqn:app-iso-T1-lower-T" data-label="eqn:app-iso-T1-lower-T">(SF.60)</a>, <span class="mi">\(\mathsf j(y)\ge\mathsf A(y)\)</span> and the upper bound of <a class="ref" href="r.lem.app-iso-kernel-bounds.html" data-label="lem:app-iso-kernel-bounds">Lemma SF.15</a>(v),</div>
+<div class="md">\[
+\Psi\ge\mathbf 1\{y&lt;Q_\gamma\}\,\frac{\mathsf A(y)\,(\mathsf A(z)-1)_+^2}{2(\mathsf A_\vee+\bar{\mathsf e}_\bmom)^2} .
+\]</div>
+<div class="p">Put <span class="mi">\(\upsilon\defeq\bar{\mathsf e}_\bmom(\tau+1)\)</span>. Since <span class="mi">\(\bar{\mathsf e}_\bmom\ge1\)</span>, <a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a>(iii) gives</div>
+<div class="md">\[
+\mathsf A(y)\ge x-\upsilon,\qquad \mathsf A(z)-1\ge x-\upsilon,\qquad \mathsf A_\vee+\bar{\mathsf e}_\bmom\le x+\upsilon .
+\]</div>
+<div class="p">If <span class="mi">\(x&gt;\upsilon\)</span>, then <span class="mi">\(\mathsf A(y)&gt;0\)</span>, that is <span class="mi">\(y&lt;Q_\gamma\)</span>, and with <span class="mi">\(t\defeq\upsilon/x&lt;1\)</span>,</div>
+<div class="md">\[
+\Psi\ge\frac{(x-\upsilon)^3}{2(x+\upsilon)^2}=\frac x2\,(1-t)\Big(\frac{1-t}{1+t}\Big)^2\ge\frac x2\,(1-t)(1-2t)^2 .
+\]</div>
+<div class="p">For <span class="mi">\(t&lt;\frac15\)</span> this is at least <span class="mi">\(\frac x2(1-3t)(1-2t)\ge\frac x2(1-5t)=\frac{x-5\upsilon}2\)</span>. For <span class="mi">\(t\ge\frac15\)</span>, and for <span class="mi">\(x\le\upsilon\)</span>, the right side <span class="mi">\((x-5\upsilon)/2\)</span> is negative. Hence <span class="mi">\(\Psi\ge(x-5\upsilon)/2\)</span> everywhere, and integration as in Step 3, with <span class="mi">\(\EE_\star\upsilon=\bar{\mathsf e}_\bmom(\mathsf M_1+1)\)</span>, gives</div>
+<div class="md">\[
+\sum_{\ell\ge1}\overline C_{1,\ell}(0)\ge\frac\gamma4-\frac52\,\bar{\mathsf e}_\bmom(\mathsf M_1+1) .
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> <span class=muted>Lag coefficients in participation coordinates</span></li><li><a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a> <span class=muted>Layer averaging</span></li><li><a class="ref" href="r.lem.app-iso-shifts.html" data-label="lem:app-iso-shifts">Lemma SF.14</a> <span class=muted>Shifts of the participation level</span></li><li><a class="ref" href="r.lem.app-iso-slope.html" data-label="lem:app-iso-slope">Lemma SF.13</a> <span class=muted>Participation slope</span></li><li><a class="ref" href="r.lem.app-iso-kernel-bounds.html" data-label="lem:app-iso-kernel-bounds">Lemma SF.15</a> <span class=muted>Kernel bounds</span></li><li><a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a> <span class=muted>Low levels</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-iso-vol-profile.html" data-label="thm:app-iso-vol-profile">Theorem SF.10</a> <span class=muted>Lag profile at zero ridge</span></li><li><a class="ref" href="r.thm.app-iso-zero-ridge.html" data-label="thm:app-iso-zero-ridge">Theorem SF.11</a> <span class=muted>Zero ridge, large aspect ratios</span></li><li><a class="ref" href="r.thm.app-iso-vol-ridge.html" data-label="thm:app-iso-vol-ridge">Theorem SF.12</a> <span class=muted>Integrated volatility at positive ridge</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_vol_rate</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolRates.lean#L3595">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_vol_rate {β γ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : isoGammaCirc β ≤ γ) :
+    ∃ S : ℝ, HasSum (fun ℓ : ℕ =&gt; lagCoeff β γ 0 (ℓ + 1)) S ∧
+      -isoKminus β ≤ S - γ / 4 ∧ S - γ / 4 ≤ isoKplus β := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

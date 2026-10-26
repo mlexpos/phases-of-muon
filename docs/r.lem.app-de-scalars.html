@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.11 (Concentration of the deleted-sample scalars)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.11 (Concentration of the deleted-sample scalars)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-scalars"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class="thm-title">(Concentration of the deleted-sample scalars)</span></div><div class="thm-body"><div class="p">For every age <span class="mi">\(j\)</span> and <span class="mi">\(s\in I\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-scalars"></span>\begin{equation}\tag{SB.32}
+\norm{\mathsf U_{j}-\sigma_B(s)}_2+\norm{\mathsf V_{j}-\tilde\sigma_B(s)}_2+\norm{\mathsf C_{j}}_2\le\frac{C_I}{\sqrt B}.
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(R_0=R_0^{(j1)}\)</span>, <span class="mi">\(\mathsf u=\mathsf u_{j1}\)</span>, and so on. Decompose</div>
+<div class="md">\[
+\begin{aligned}
+\mathsf U-\sigma_B={}&amp;\Big(\mathsf u^\T R_0\mathsf u-\frac{\Tr(\Sigmaout R_0)}{B}\Big)
++\frac{\Tr\big(\Sigmaout(R_0-R(-s))\big)}{B}\\
+&amp;+\Big(\frac{\Tr(\Sigmaout R(-s))}{B}-\EE\frac{\Tr(\Sigmaout R(-s))}{B}\Big).
+\end{aligned}
+\]</div>
+<div class="p">The first term is a centered Gaussian quadratic form given <span class="mi">\(\mathcal G_{j1}\)</span>. Indeed</div>
+<div class="md">\[
+\mathsf u^\T R_0\mathsf u=z^\T\Big(\frac{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}{B}\Big)z .
+\]</div>
+<div class="p">Since <span class="mi">\(R_0\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span>, of which <span class="mi">\(z\)</span> is independent, <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> gives the conditional mean <span class="mi">\(\Tr(\Sigmaout R_0)/B\)</span> and the conditional variance</div>
+<div class="md">\[
+\frac{2\norm{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}_\F^2}{B^2}\le\frac{2\Nout\norm{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}^2}{B^2}
+\le\frac{2\Nout C_\Sigma^2}{B^2s^2}\le\frac{2\gamma_\star C_\Sigma^2}{Bs_-^2},
+\]</div>
+<div class="p">using <span class="mi">\(\norm X_\F^2\le\Nout\norm X^2\)</span>, <span class="mi">\(\norm{R_0}\le1/s\)</span> and <span class="mi">\(\Nout\le\gamma_\star B\)</span>.</div>
+<div class="p">The second term is a rank-two correction. By trace duality and <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a>,</div>
+<div class="md">\[
+\frac{\big|\Tr\big(\Sigmaout(R_0-R(-s))\big)\big|}{B}\le\frac{\norm{\Sigmaout}\,\norm{R_0-R(-s)}_*}{B}\le\frac{4C_\Sigma}{Bs_-}.
+\]</div>
+<div class="p">The third term is the fluctuation of a normalized trace. By <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> with <span class="mi">\(T=\Sigmaout\)</span> and <span class="mi">\(C_T=C_\Sigma\)</span>, its <span class="mi">\(L^2\)</span> norm is at most <span class="mi">\((C_IC_\Sigma^2\sw2/B)^{1/2}\)</span>. Adding the three bounds gives <span class="mi">\(\norm{\mathsf U-\sigma_B}_2\le C_I/\sqrt B\)</span>. The bound for <span class="mi">\(\mathsf V\)</span> is the same argument with <span class="mi">\(\Sigmain\)</span>, <span class="mi">\(\widetilde R_0\)</span> and the input-side statements of <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a>.</div>
+<div class="p">The bound for <span class="mi">\(\mathsf C\)</span> is a conditional second-moment computation. We write</div>
+<div class="md">\[
+\mathsf C=\mathsf u^\T\mathsf X_0\mathsf v=\frac{z^\T\big(\Sigmaout^{1/2}\mathsf X_0\Sigmain^{1/2}\big)w}{B}.
+\]</div>
+<div class="p">The matrix <span class="mi">\(\mathsf X_0\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span>, and <span class="mi">\(\EE[(z^\T Aw)^2]=\norm A_\F^2\)</span> for deterministic <span class="mi">\(A\)</span>. With <span class="mi">\(\norm A_\F^2\le\operatorname{rank}(A)\norm A^2\)</span> and the bound <span class="mi">\(\norm{\mathsf X_0}\le(2\sqrt s)^{-1}\)</span> of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, this gives</div>
+<div class="md">\[
+\EE_{\mathcal G_{j1}}\mathsf C^2=\frac{\norm{\Sigmaout^{1/2}\mathsf X_0\Sigmain^{1/2}}_\F^2}{B^2}
+\le\frac{C_\Sigma^2\min(\Nout,\Nin)\norm{\mathsf X_0}^2}{B^2}\le\frac{C_\Sigma^2\gamma_\star}{4Bs_-}.
+\]</div>
+<div class="p">Taking expectations and square roots gives <span class="mi">\(\norm{\mathsf C}_2\le C_I/\sqrt B\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li><li><a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class=muted>Coefficient bounds</span></li><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_scalars</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L2097">source</a></summary><pre class="lean no-mj">theorem lem_app_de_scalars (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ (j : ℕ), ∀ s ∈ I,
+          eLpNorm (fun ω =&gt; delU (delBufAge w F S t j ω) (ageU F S t j ω) s
+              - sigmaB w F S t s) 2 P
+            + eLpNorm (fun ω =&gt; delV (delBufAge w F S t j ω) (ageV F S t j ω) s
+              - sigmaTildeB w F S t s) 2 P
+            + eLpNorm (fun ω =&gt; delC (delBufAge w F S t j ω) (ageU F S t j ω) (ageV F S t j ω) s)
+              2 P
+          ≤ ENNReal.ofReal (C / Real.sqrt (B : ℝ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.10 (Variance of normalized traces)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.10 (Variance of normalized traces)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-variance"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class="thm-title">(Variance of normalized traces)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(T\in\mathbb{C}^{\Nout\times\Nout}\)</span> be deterministic with <span class="mi">\(\norm T\le C_T\)</span> and put <span class="mi">\(Y(s)\defeq\frac1B\Tr\big(TR(-s)\big)\)</span>. Then <span class="mi">\(\Var Y(s)\le C_IC_T^2\,\sw2/B\)</span> for <span class="mi">\(s\in I\)</span>. The same bound holds for <span class="mi">\(\frac1B\Tr(\widetilde TR_s(\Mt^\T))\)</span> with <span class="mi">\(\norm{\widetilde T}\le C_T\)</span>, and for the traces of the resolvents of any buffer with one sample deleted.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The variance is controlled by the Efron–Stein inequality for a truncated history, and the truncation is removed by an <span class="mi">\(L^2\)</span> limit. For <span class="mi">\(J\ge0\)</span> let</div>
+<div class="md">\[
+M^{(J)}\defeq\sum_{j\le J}\sum_{a=1}^B\mathsf h_{ja}\,\mathsf u_{ja}\tensor\mathsf v_{ja},\qquad
+Y^{(J)}\defeq\frac1B\Tr\big(TR_s(M^{(J)})\big),
+\]</div>
+<div class="p">so that <span class="mi">\(Y^{(J)}\)</span> is a function of the <span class="mi">\(B(J+1)\)</span> independent samples of ages <span class="mi">\(0,\dots,J\)</span>.</div>
+<div class="p">The effect of one replaced sample is bounded through the nuclear norm. Replacing the sample <span class="mi">\((j,a)\)</span> by an independent copy <span class="mi">\((d',\mathsf u',\mathsf v')\)</span> produces <span class="mi">\(Y^{(J),(ja)'}\)</span> and changes <span class="mi">\(M^{(J)}\)</span> by the rank-two matrix <span class="mi">\(\emaw j(d\,\mathsf u\tensor\mathsf v-d'\,\mathsf u'\tensor\mathsf v')\)</span>, whose nuclear norm is at most <span class="mi">\(\emaw j(\abs d\norm{\mathsf u}\norm{\mathsf v}+\abs{d'}\norm{\mathsf u'}\norm{\mathsf v'})\)</span>. By trace duality <span class="mi">\(\abs{\Tr(TX)}\le\norm T\norm X_*\)</span> and <a class="ref" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a>,</div>
+<div class="md">\[
+\big|Y^{(J)}-Y^{(J),(ja)'}\big|\le\frac{C_T}{B}\cdot\frac{2}{s^{3/2}}\,\emaw j\big(\abs d\norm{\mathsf u}\norm{\mathsf v}+\abs{d'}\norm{\mathsf u'}\norm{\mathsf v'}\big),
+\]</div>
+<div class="p">and by <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> and the triangle inequality in <span class="mi">\(L^2\)</span>,</div>
+<div class="md">\[
+\big\|Y^{(J)}-Y^{(J),(ja)'}\big\|_2\le\frac{C_T}{B}\cdot\frac{2}{s_-^{3/2}}\,\emaw j\cdot2\cdot7C_\Sigma\gamma_\star=\frac{C_IC_T\,\emaw j}{B}.
+\]</div>
+<div class="p">The Efron–Stein inequality [<a class="cite" href="bibliography.html#bib-boucheron2013concentration">13</a>, Theorem 3.1] then gives</div>
+<div class="md">\[
+\Var Y^{(J)}\le\frac12\sum_{j\le J}\sum_{a=1}^B\EE\big[(Y^{(J)}-Y^{(J),(ja)'})^2\big]
+\le\frac12\sum_{j\le J}B\,\frac{C_I^2C_T^2\emaw j^2}{B^2}\le\frac{C_I^2C_T^2\sw2}{2B}.
+\]</div>
+<div class="p">The truncation is removed at fixed dimension. By <a class="ref" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a>, trace duality, and <span class="mi">\(\norm E_*\le\sqrt{\min(\Nout,\Nin)}\norm E_\F\)</span>,</div>
+<div class="md">\[
+\big|Y-Y^{(J)}\big|\le\frac{C_T}{B}\cdot\frac{2}{s^{3/2}}\sqrt{\min(\Nout,\Nin)}\,\norm{\Mt-M^{(J)}}_\F ,
+\]</div>
+<div class="p">and <span class="mi">\(\EE\norm{\Mt-M^{(J)}}_\F^2\to0\)</span> as <span class="mi">\(J\to\infty\)</span>. Indeed, the batches of different ages are independent with the common mean <span class="mi">\(\EE\Gt\)</span> and the common Frobenius variance <span class="mi">\(\mathsf V_B\)</span> of <a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a>, so</div>
+<div class="md">\[
+\EE\norm{\Mt-M^{(J)}}_\F^2=\Big(\sum_{j&gt;J}\emaw j\Big)^2\norm{\EE\Gt}_\F^2+\sum_{j&gt;J}\emaw j^2\,\mathsf V_B ,
+\]</div>
+<div class="p">and both tail sums vanish as <span class="mi">\(J\to\infty\)</span> because <span class="mi">\(\sum_j\emaw j\le1\)</span>. (For the EMA weights this is <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(i).) Hence <span class="mi">\(Y^{(J)}\to Y\)</span> in <span class="mi">\(L^2\)</span>, and</div>
+<div class="md">\[
+\Var Y=\lim_{J\to\infty}\Var Y^{(J)}\le\frac{C_I^2C_T^2\sw2}{2B}.
+\]</div>
+<div class="p">The input side is the same argument for <span class="mi">\(\Mt^\T=\sum_{j,a}\mathsf h_{ja}\,\mathsf v_{ja}\tensor\mathsf u_{ja}\)</span>, and deleting one sample removes one term from the Efron–Stein sum.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a> <span class=muted>Nuclear-norm Lipschitz bound</span></li><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li><li><a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a> <span class=muted>Gaussian covariance of a batch</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class=muted>Trace closure with bounded tests</span></li><li><a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class=muted>Concentration of the deleted-sample scalars</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_variance_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L972">source</a></summary><pre class="lean no-mj">theorem lem_app_de_variance_i (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ s ∈ I, ∀ (T : Matrix (Fin m) (Fin m) ℂ) (CT : ℝ), opNorm T ≤ CT →
+          cVar P (fun ω =&gt; normTrace T B (Rs (WeightedBuf w F S t ω) s)) ≤
+            ENNReal.ofReal (C * CT ^ 2 * sumPow w 2 / B) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_variance_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L1004">source</a></summary><pre class="lean no-mj">theorem lem_app_de_variance_ii (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ s ∈ I, ∀ (T : Matrix (Fin n) (Fin n) ℂ) (CT : ℝ), opNorm T ≤ CT →
+          cVar P (fun ω =&gt; normTrace T B (Rs ((WeightedBuf w F S t ω)ᵀ) s)) ≤
+            ENNReal.ofReal (C * CT ^ 2 * sumPow w 2 / B) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_variance_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L1036">source</a></summary><pre class="lean no-mj">theorem lem_app_de_variance_iii (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ s ∈ I, ∀ (s' : ℤ) (a : Fin B) (T : Matrix (Fin m) (Fin m) ℂ) (CT : ℝ), opNorm T ≤ CT →
+          cVar P (fun ω =&gt; normTrace T B (Rs (WeightedBufDel w F S t s' a ω) s)) ≤
+            ENNReal.ofReal (C * CT ^ 2 * sumPow w 2 / B) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_variance_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L1062">source</a></summary><pre class="lean no-mj">theorem lem_app_de_variance_iv (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ C : ℝ, 0 ≤ C ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ s ∈ I, ∀ (s' : ℤ) (a : Fin B) (T : Matrix (Fin n) (Fin n) ℂ) (CT : ℝ), opNorm T ≤ CT →
+          cVar P (fun ω =&gt; normTrace T B (Rs ((WeightedBufDel w F S t s' a ω)ᵀ) s)) ≤
+            ENNReal.ofReal (C * CT ^ 2 * sumPow w 2 / B) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

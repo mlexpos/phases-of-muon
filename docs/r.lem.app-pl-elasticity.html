@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SG.7 (Elasticity)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SG.7 (Elasticity)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-pl-elasticity"><div class="thm-head"><a class="thm-name" href="r.lem.app-pl-elasticity.html" data-label="lem:app-pl-elasticity">Lemma SG.7</a> <span class="thm-title">(Elasticity)</span></div><div class="thm-body"><div class="p">There is <span class="mi">\(c_\alpha&gt;0\)</span>, independent of <span class="mi">\(N\)</span>, <span class="mi">\(B\)</span>, <span class="mi">\(c_N\)</span> and <span class="mi">\(\Lambda\)</span>, such that</div>
+<div class="md">\[
+c_\alpha\,m_N(\Lambda)\Big(1-\frac{m_N(\Lambda)}{\gamma}\Big)\le\Lambda m_N'(\Lambda)\le m_N(\Lambda),\qquad
+\frac1m\le\frac{\Lambda_N'(m)}{\Lambda_N(m)}\le\frac1{c_\alpha}\Big(\frac1m+\frac1{\gamma-m}\Big).
+\]</div>
+<div class="p">Consequently <span class="mi">\(\vartheta_N(m)\le C\big(1+m^{-1}+(\gamma-m)^{-1}\big)\)</span>, and <span class="mi">\(E(m)\vartheta_N(m)\ge1\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(n\defeq(c_N\Lambda)^{1/\alpha}\)</span> and <span class="mi">\(u_j\defeq(n/j)^\alpha=\Lambda\mu_j\)</span>, so that</div>
+<div class="md">\[
+Bm_N(\Lambda)=\sum_j\frac{u_j}{1+u_j},\qquad B\Lambda m_N'(\Lambda)=\sum_j\frac{u_j}{(1+u_j)^2}.
+\]</div>
+<div class="p">The upper bound holds term by term. For the lower bound put</div>
+<div class="md">\[
+S\defeq\sum_j\frac{u_j}{1+u_j}=Bm_N,\qquad
+T\defeq\sum_j\frac1{1+u_j}=N-S,\qquad
+F\defeq\sum_j\frac{u_j}{(1+u_j)^2}=B\Lambda m_N',
+\]</div>
+<div class="p">so that <span class="mi">\(ST/N=Bm_N(1-m_N/\gamma)\)</span> and the lower bound reads <span class="mi">\(c_\alpha ST/N\le F\)</span>. Let <span class="mi">\(K\defeq\#\{j:u_j&gt;1\}\)</span>. Since <span class="mi">\(u_j\)</span> decreases in <span class="mi">\(j\)</span>, these are the indices <span class="mi">\(j\le K\)</span>. A term with <span class="mi">\(u_j\le1\)</span> has <span class="mi">\(u_j/(1+u_j)\le2u_j/(1+u_j)^2\)</span>, and a term with <span class="mi">\(u_j\ge1\)</span> has <span class="mi">\(1/(1+u_j)\le2u_j/(1+u_j)^2\)</span>. Bounding the remaining terms by one gives</div>
+<div class="md">\[
+S\le2F+K,\qquad T\le2F+N-K .
+\]</div>
+<div class="p">Since <span class="mi">\(S,T\le N\)</span>, it follows that <span class="mi">\(ST/N\le\min(S,T)\le2F+\min(K,N-K)\)</span>.</div>
+<div class="p">A window count bounds <span class="mi">\(\min(K,N-K)\)</span> by <span class="mi">\(F\)</span>. Put <span class="mi">\(\delta\defeq2^\alpha/(1+2^\alpha)^2\)</span>. For <span class="mi">\(2^{-\alpha}\le u\le2^\alpha\)</span>,</div>
+<div class="md">\[
+\frac u{(1+u)^2}-\delta=\frac{(2^\alpha-u)(2^\alpha u-1)}{(1+u)^2(1+2^\alpha)^2}\ge0,
+\]</div>
+<div class="p">so <span class="mi">\(F\ge\delta\,\#\{j:2^{-\alpha}\le u_j\le2^\alpha\}\)</span>. If <span class="mi">\(2K\le N\)</span>, then <span class="mi">\(u_{K+1}\le1\)</span> gives <span class="mi">\(n\le K+1\)</span>. The at least <span class="mi">\(K/2\)</span> indices <span class="mi">\((K+1)/2\le j\le K\)</span> then have <span class="mi">\(1&lt;u_j\le((K+1)/j)^\alpha\le2^\alpha\)</span>, so <span class="mi">\(K\le2F/\delta\)</span>. If <span class="mi">\(2K&gt;N\)</span>, then <span class="mi">\(u_K&gt;1\)</span> gives <span class="mi">\(n&gt;K\)</span>. The <span class="mi">\(N-K\)</span> indices <span class="mi">\(K&lt;j\le N\)</span> then have <span class="mi">\(2^{-\alpha}&lt;(K/j)^\alpha&lt;u_j\le1\)</span>, because <span class="mi">\(j\le N&lt;2K\)</span>, so <span class="mi">\(N-K\le F/\delta\)</span>. In both cases <span class="mi">\(\min(K,N-K)\le2F/\delta\)</span>, and therefore</div>
+<div class="md">\[
+\frac{ST}N\le\Big(2+\frac2\delta\Big)F .
+\]</div>
+<div class="p">This is the lower bound with <span class="mi">\(c_\alpha\defeq\delta/(2\delta+2)\)</span>.</div>
+<div class="p">Inverting gives the second display, whose lower bound is the monotonicity of <span class="mi">\(\Lambda_N(m)/m\)</span> shown in the proof of <a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a>; with <span class="mi">\(1/(m(1-m/\gamma))=1/m+1/(\gamma-m)\)</span>. The bound on <span class="mi">\(\vartheta_N\)</span> follows with <span class="mi">\(E(m)\asymp\min(m,1)\)</span> (<a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>(iii)), and <span class="mi">\(E\vartheta_N\ge1\)</span> because <span class="mi">\(\Lambda_N'/\Lambda_N\ge1/m\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class=muted>The branch in participation coordinates</span></li><li><a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a> <span class=muted>Weight functions</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-pl-nomomentum-endpoints.html" data-label="prop:app-pl-nomomentum-endpoints">Proposition SG.8</a> <span class=muted>No-momentum endpoints</span></li><li><a class="ref" href="r.lem.app-pl-tail.html" data-label="lem:app-pl-tail">Lemma SG.10</a> <span class=muted>Averaged tail</span></li><li><a class="ref" href="r.lem.app-pl-super.html" data-label="lem:app-pl-super">Lemma SG.13</a> <span class=muted>The supercritical drift profile</span></li><li><a class="ref" href="r.lem.app-pl-determinant.html" data-label="lem:app-pl-determinant">Lemma SG.14</a> <span class=muted>Determinant</span></li><li><a class="ref" href="r.lem.app-pl-upper.html" data-label="lem:app-pl-upper">Lemma SG.17</a> <span class=muted>Upper participation endpoint</span></li><li><a class="ref" href="r.lem.app-pl-strip.html" data-label="lem:app-pl-strip">Lemma SG.19</a> <span class=muted>Multiplicative diagonal strip</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_elasticity_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Continuum.lean#L3546">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_elasticity_i {α : ℝ} (hα : 0 &lt; α) :
+    ∃ cα : ℝ, 0 &lt; cα ∧ ∀ (N B : ℕ) (c : ℝ), 0 &lt; N → 0 &lt; B → 0 &lt; c →
+      (∀ Λ : ℝ, 0 &lt; Λ →
+        cα * partMN B (plSpec α c N) Λ * (1 - partMN B (plSpec α c N) Λ / gammaOf N B) ≤
+            Λ * deriv (partMN B (plSpec α c N)) Λ ∧
+          Λ * deriv (partMN B (plSpec α c N)) Λ ≤ partMN B (plSpec α c N) Λ) ∧
+      (∀ m : ℝ, m ∈ Ioo 0 (gammaOf N B) →
+        1 / m ≤ deriv (partLam B (plSpec α c N)) m / partLam B (plSpec α c N) m ∧
+          deriv (partLam B (plSpec α c N)) m / partLam B (plSpec α c N) m ≤
+            (1 / cα) * (1 / m + 1 / (gammaOf N B - m))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_elasticity_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Continuum.lean#L3571">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_elasticity_ii {α β : ℝ} (hα : 0 &lt; α) (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    ∃ C : ℝ, ∀ (N B : ℕ) (c : ℝ), 0 &lt; N → 0 &lt; B → 0 &lt; c →
+      ∀ m : ℝ, m ∈ Ioo 0 (gammaOf N B) →
+        thetaN β B (plSpec α c N) m ≤ C * (1 + 1 / m + 1 / (gammaOf N B - m)) ∧
+          1 ≤ Efun β m * thetaN β B (plSpec α c N) m := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

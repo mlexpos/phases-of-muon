@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.2 (Common drift)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.2 (Common drift)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-common"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-common.html" data-label="prop:app-phase-common">Proposition SI.2</a> <span class="thm-title">(Common drift)</span></div><div class="thm-body"><div class="p">Assume (M1) with a finite index set, <span class="mi">\(\mathfrak d_i=\mathfrak d&gt;0\)</span> for all <span class="mi">\(i\)</span> and <span class="mi">\(\mathfrak v_{\rm tot}&gt;0\)</span>. Then</div>
+<div class="md">\[
+F(s)=F_0e^{-2\mathfrak ds},\qquad k(s)=\frac{\lr\mathfrak v_{\rm tot}}2e^{-2\mathfrak ds},\qquad \mathcal S=\frac{\mathfrak v_{\rm tot}}{2\mathfrak d},
+\]</div>
+<div class="p">and the risk solves</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-scalar-ode"></span>\begin{equation}\tag{SI.11}
+\frac{\dif\fRisk}{\dif t}=-2\lr\mathfrak d\sqrt{\fRisk}+\frac{\lr^2\mathfrak v_{\rm tot}}2 .
+\end{equation}</div>
+<div class="p">Put <span class="mi">\(a_\circ\defeq\lr\mathfrak d\)</span>, <span class="mi">\(b_\circ\defeq\lr\mathfrak v_{\rm tot}/(4\mathfrak d)=\lr\mathcal S/2\)</span> and <span class="mi">\(u_0\defeq\sqrt{F_0}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">If <span class="mi">\(u_0\ne b_\circ\)</span>, then for every <span class="mi">\(t\ge0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-implicit"></span>\begin{equation}\tag{SI.12}
+a_\circ t=u_0-\sqrt{\fRisk(t)}+b_\circ\log\frac{\abs{u_0-b_\circ}}{\abs{\sqrt{\fRisk(t)}-b_\circ}} ,
+\end{equation}</div>
+<div class="p">and <span class="mi">\(\sqrt{\fRisk}\)</span> is strictly decreasing with limit <span class="mi">\(b_\circ\)</span> if <span class="mi">\(u_0&gt;b_\circ\)</span>, strictly increasing with limit <span class="mi">\(b_\circ\)</span> if <span class="mi">\(u_0&lt;b_\circ\)</span>, and never equal to <span class="mi">\(b_\circ\)</span>. If <span class="mi">\(u_0=b_\circ\)</span>, then <span class="mi">\(\fRisk\equiv b_\circ^2\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Let <span class="mi">\(a\ge0\)</span>. If <span class="mi">\(F_0\le a\)</span>, then <span class="mi">\(t_a=0\)</span>. If <span class="mi">\(F_0&gt;a\)</span>, then <span class="mi">\(t_a&lt;\infty\)</span> if and only if <span class="mi">\(a&gt;b_\circ^2\)</span>, and then <span class="mi">\(t_a\)</span> is given by <a class="ref" href="r.prop.app-phase-common.html#L-eqn:app-phase-implicit" data-label="eqn:app-phase-implicit">(SI.12)</a> with <span class="mi">\(\sqrt{\fRisk(t)}=\sqrt a\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Summing <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-rows" data-label="eqn:app-phase-rows">(SI.2)</a> with weights <span class="mi">\(\mu_i/2\)</span> gives</div>
+<div class="md">\[
+\frac{\dif\fRisk}{\dif t}=-\frac{\lr\mathfrak d}{\sqrt{\fRisk}}\sum_i\mu_i\fQ_i+\frac{\lr^2}2\sum_i\mu_i\mathfrak v_i
+=-2\lr\mathfrak d\sqrt{\fRisk}+\frac{\lr^2\mathfrak v_{\rm tot}}2 .
+\]</div>
+<div class="p">The formulas for <span class="mi">\(F\)</span>, <span class="mi">\(k\)</span> and <span class="mi">\(\mathcal S\)</span> follow from <a class="ref" href="s.SI.html#L-eqn:app-phase-Fk" data-label="eqn:app-phase-Fk">(SI.3)</a> and <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-F0S" data-label="eqn:app-phase-F0S">(SI.1)</a> by finite summation. Since <span class="mi">\(\mathcal S&gt;0\)</span>, <a class="ref" href="r.thm.app-phase-clock.html" data-label="thm:app-phase-clock">Theorem SI.2</a> gives a global solution with positive risk and <span class="mi">\(\fRisk(t)\to b_\circ^2\)</span>. In the variable <span class="mi">\(\mathsf u\defeq\sqrt{\fRisk}\)</span> the relation <a class="ref" href="r.prop.app-phase-common.html#L-eqn:app-phase-scalar-ode" data-label="eqn:app-phase-scalar-ode">(SI.11)</a> reads</div>
+<div class="md">\[
+\mathsf u'=-\frac{a_\circ(\mathsf u-b_\circ)}{\mathsf u} .
+\]</div>
+<div class="p">The function <span class="mi">\(\mathsf w\defeq\mathsf u-b_\circ\)</span> therefore satisfies <span class="mi">\(\mathsf w'=-(a_\circ/\mathsf u)\mathsf w\)</span>, so that</div>
+<div class="md">\[
+\mathsf w(t)=\mathsf w(0)\exp\Big(-a_\circ\int_0^t\frac{\dif t'}{\mathsf u(t')}\Big).
+\]</div>
+<div class="p">Thus <span class="mi">\(\mathsf w\)</span> keeps the sign of <span class="mi">\(\mathsf w(0)\)</span>, <span class="mi">\(\abs{\mathsf w}\)</span> is strictly decreasing when <span class="mi">\(\mathsf w(0)\ne0\)</span>, and <span class="mi">\(\mathsf w\equiv0\)</span> when <span class="mi">\(\mathsf w(0)=0\)</span>. When <span class="mi">\(\mathsf w(0)\ne0\)</span>, the equation is separable:</div>
+<div class="md">\[
+\frac{\dif}{\dif t}\Big(\mathsf u+b_\circ\log\abs{\mathsf u-b_\circ}\Big)=\frac{\mathsf u}{\mathsf u-b_\circ}\,\mathsf u'=-a_\circ ,
+\]</div>
+<div class="p">and integrating from <span class="mi">\(0\)</span> to <span class="mi">\(t\)</span> gives <a class="ref" href="r.prop.app-phase-common.html#L-eqn:app-phase-implicit" data-label="eqn:app-phase-implicit">(SI.12)</a>. This proves (i).</div>
+<div class="p">For (ii), <span class="mi">\(\fRisk(0)=F_0\)</span> gives <span class="mi">\(t_a=0\)</span> when <span class="mi">\(F_0\le a\)</span>. Let <span class="mi">\(F_0&gt;a\)</span>. If <span class="mi">\(u_0&gt;b_\circ\)</span>, the risk decreases strictly to <span class="mi">\(b_\circ^2\)</span> without reaching it, so it reaches <span class="mi">\(a\)</span> at a finite time exactly when <span class="mi">\(a&gt;b_\circ^2\)</span>, and that time solves <a class="ref" href="r.prop.app-phase-common.html#L-eqn:app-phase-implicit" data-label="eqn:app-phase-implicit">(SI.12)</a>. If <span class="mi">\(u_0\le b_\circ\)</span>, the risk never falls below <span class="mi">\(F_0&gt;a\)</span>, so <span class="mi">\(t_a=\infty\)</span>, and in this case <span class="mi">\(a&lt;F_0\le b_\circ^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-phase-model.html" data-label="def:app-phase-model">Definition SI.1</a> <span class=muted>Deterministic row model</span></li><li><a class="ref" href="r.thm.app-phase-clock.html" data-label="thm:app-phase-clock">Theorem SI.2</a> <span class=muted>Clock and row equations</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-matched.html" data-label="thm:app-phase-matched">Theorem SI.4</a> <span class=muted>Matched floors</span></li><li><a class="ref" href="r.prop.app-phase-iso-ratio.html" data-label="prop:app-phase-iso-ratio">Proposition SI.3</a> <span class=muted>The isotropic ratio</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_common_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/CommonDrift.lean#L535">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_common_i [Fintype ι] (m : RowModel ι) (d : ℝ) (hd : 0 &lt; d)
+    (hdi : ∀ i, m.d i = d) (hv : 0 &lt; commonVtot m) :
+    (∀ s : ℝ, 0 ≤ s → m.forcing s = m.F0 * Real.exp (-(2 * d * s))) ∧
+    (∀ s : ℝ, 0 ≤ s → m.kernel s = m.η * commonVtot m / 2 * Real.exp (-(2 * d * s))) ∧
+    m.S = commonVtot m / (2 * d) ∧
+    (∃ Q : ι → ℝ → ℝ, IsGlobalRowSolution m Q) ∧
+    (∀ Q : ι → ℝ → ℝ, IsGlobalRowSolution m Q → ∀ t₁ : ℝ, ∀ t ∈ Ico (0 : ℝ) t₁,
+      HasDerivWithinAt (m.risk Q)
+        (-(2 * m.η * d) * Real.sqrt (m.risk Q t) + m.η ^ 2 * commonVtot m / 2)
+        (Ico (0 : ℝ) t₁) t) ∧
+    (∀ Q : ι → ℝ → ℝ, IsGlobalRowSolution m Q →
+      (Real.sqrt m.F0 ≠ commonB m d →
+        (∀ t : ℝ, 0 ≤ t →
+          commonA m d * t = Real.sqrt m.F0 - Real.sqrt (m.risk Q t)
+            + commonB m d * Real.log (|Real.sqrt m.F0 - commonB m d|
+              / |Real.sqrt (m.risk Q t) - commonB m d|)) ∧
+        (∀ t : ℝ, 0 ≤ t → Real.sqrt (m.risk Q t) ≠ commonB m d) ∧
+        (commonB m d &lt; Real.sqrt m.F0 →
+          StrictAntiOn (fun t =&gt; Real.sqrt (m.risk Q t)) (Ici (0 : ℝ)) ∧
+          Tendsto (fun t =&gt; Real.sqrt (m.risk Q t)) atTop (𝓝 (commonB m d))) ∧
+        (Real.sqrt m.F0 &lt; commonB m d →
+          StrictMonoOn (fun t =&gt; Real.sqrt (m.risk Q t)) (Ici (0 : ℝ)) ∧
+          Tendsto (fun t =&gt; Real.sqrt (m.risk Q t)) atTop (𝓝 (commonB m d)))) ∧
+      (Real.sqrt m.F0 = commonB m d → ∀ t : ℝ, 0 ≤ t → m.risk Q t = commonB m d ^ 2)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_common_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/CommonDrift.lean#L631">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_common_ii [Fintype ι] (m : RowModel ι) (d : ℝ) (hd : 0 &lt; d)
+    (hdi : ∀ i, m.d i = d) (hv : 0 &lt; commonVtot m) :
+    ∀ Q : ι → ℝ → ℝ, IsGlobalRowSolution m Q → ∀ a : ℝ, 0 ≤ a →
+      (m.F0 ≤ a → firstHit (m.risk Q) a = 0) ∧
+      (a &lt; m.F0 →
+        (firstHit (m.risk Q) a ≠ ⊤ ↔ commonB m d ^ 2 &lt; a) ∧
+        (commonB m d ^ 2 &lt; a →
+          ∃ t : ℝ, 0 ≤ t ∧ firstHit (m.risk Q) a = ENNReal.ofReal t ∧
+            commonA m d * t = Real.sqrt m.F0 - Real.sqrt a
+              + commonB m d * Real.log (|Real.sqrt m.F0 - commonB m d|
+                / |Real.sqrt a - commonB m d|))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

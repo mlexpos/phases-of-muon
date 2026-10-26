@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.24 (Persistence of diffuseness)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.24 (Persistence of diffuseness)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-diffuse"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-diffuse.html" data-label="lem:app-dyn-diffuse">Lemma SE.24</a> <span class="thm-title">(Persistence of diffuseness)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(b_c\defeq\inf\{b\ge0:\Delta_{t_b}\notin\mathcal A\}\)</span>. For every fixed <span class="mi">\(T&gt;0\)</span>,</div>
+<div class="md">\[
+\max\big\{\delta(\Dt):\ t\le t_{b_c}\wedge TB\big\}\longrightarrow0\quad\text{in probability}.
+\]</div>
+<div class="p">No diffuseness beyond the initial condition <a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-initial" data-label="hyp:app-dyn-initial">{{(H3)}}</a> is used.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">All states up to <span class="mi">\(t_{b_c}\)</span> lie in <span class="mi">\(\mathcal A^+\)</span>, so their risk is at least <span class="mi">\(r_0/4\)</span> and <span class="mi">\(\delta\)</span> is defined there. Put <span class="mi">\(Y_b\defeq\Sigmaout^{1/2}\Delta_{t_{b\wedge b_c}}\Sigmain^{1/2}\)</span> and <span class="mi">\(J\defeq\lceil TB/L\rceil\)</span>. For <span class="mi">\(b&lt;b_c\)</span> write <span class="mi">\(t=t_b\)</span>, <span class="mi">\(D=\Dt\)</span>, <span class="mi">\(m=M^\circ_{t-1}\)</span> and <span class="mi">\(\mathcal E=\sum_{r&lt;L}{\mathsf S}_{t+r}-\sum_{r&lt;L}V_r\)</span> as before. Then <span class="mi">\(Y_{b+1}-Y_b=-\lr\Sigmaout^{1/2}\big(\sum_{r&lt;L}{\mathsf S}_{t+r}\big)\Sigmain^{1/2}\)</span> and</div>
+<div class="md">\[
+\EE_t\big[Y_{b+1}-Y_b\big]=-\lr\Sigmaout^{1/2}\big(L\overline V(D)+\EE_t\mathcal E\big)\Sigmain^{1/2}.
+\]</div>
+<div class="p"><em>The drift.</em> By <a class="ref" href="r.lem.app-dyn-mean.html#L-eqn:app-dyn-mean-physical" data-label="eqn:app-dyn-mean-physical">(SE.15)</a> and <a class="ref" href="r.lem.app-dyn-coupling.html" data-label="lem:app-dyn-coupling">Lemma SE.16</a>(iv),</div>
+<div class="md">\[
+\norm{\EE_t[Y_{b+1}-Y_b]}\le C\lr L\big(\norm{Y_b}+r_B\big)+C\lr\big(\norm m+\log(2B)+L^2\log(2B)/\sqrt B\big).
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-dyn-buffer.html" data-label="lem:app-dyn-buffer">Lemma SE.15</a> with <span class="mi">\(\tau=\tau^+\)</span>, <span class="mi">\(\EE[\mathbf 1_{b&lt;b_c}\norm{M^\circ_{t_b-1}}]\le\sqrt{2c_MB}\,\bmom^{t_b}+C\log(2B)\)</span>. Hence the sum <span class="mi">\(\mathsf E_B\defeq\sum_{b&lt;J}\mathbf 1_{b&lt;b_c}C\lr(\norm{M^\circ_{t_b-1}}+\log(2B)+L^2\log(2B)/\sqrt B)\)</span> satisfies</div>
+<div class="md">\[
+\begin{aligned}
+\EE\,\mathsf E_B&amp;\le\frac{C\macrostep}{B}\Big(\frac{\sqrt B}{1-\bmom^L}+(J+1)\Big(\log(2B)+\frac{L^2\log(2B)}{\sqrt B}\Big)\Big)\\
+&amp;\le C\Big(\frac1{\sqrt B}+\frac{(T+1)\log(2B)}{L}+\frac{(T+1)L\log(2B)}{\sqrt B}\Big)\to0 .
+\end{aligned}
+\]</div>
+<div class="p"><em>The fluctuation.</em> Put <span class="mi">\(Z_b\defeq\mathbf 1_{b&lt;b_c}(Y_{b+1}-Y_b-\EE_{t_b}[Y_{b+1}-Y_b])\)</span>. Since <span class="mi">\(\norm{{\mathsf S}}\le1\)</span>, <span class="mi">\(\norm{Y_{b+1}-Y_b}\le C_\Sigma\lr L\)</span> and the same holds for its conditional mean, so <span class="mi">\(\norm{Z_b}\le2C_\Sigma\macrostep L/B\)</span>. The symmetric dilations <span class="mi">\(\mathcal D(Z_b)\)</span> have dimension <span class="mi">\(\Nout+\Nin\le2\gamma_\star B\)</span> and the same norms, and <a class="ref" href="r.lem.app-dyn-matrix-martingale.html" data-label="lem:app-dyn-matrix-martingale">Lemma SE.23</a> gives, for every <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+\Pr\Big(\max_{j\le J}\Big\|\sum_{b&lt;j}Z_b\Big\|\ge x\Big)\le4\gamma_\star BJ\exp\Big(-\frac{x^2B}{8C_\Sigma^2\macrostep^2(T+1)L}\Big)\to0 .
+\]</div>
+<div class="p"><em>Gronwall.</em> For <span class="mi">\(j\le J\)</span>, adding the drift and the fluctuation and using <span class="mi">\(\lr LJ\le\macrostep(T+1)\)</span>,</div>
+<div class="md">\[
+\norm{Y_j}\le\mathfrak a_B+\frac{C\macrostep L}{B}\sum_{b&lt;j}\norm{Y_b},\qquad
+\mathfrak a_B\defeq\norm{Y_0}+C\macrostep(T+1)r_B+\mathsf E_B+\max_{j\le J}\Big\|\sum_{b&lt;j}Z_b\Big\|.
+\]</div>
+<div class="p">Induction on <span class="mi">\(j\)</span> gives <span class="mi">\(\norm{Y_j}\le\mathfrak a_B(1+C\macrostep L/B)^j\le\mathfrak a_Be^{C\macrostep(T+1)}\)</span>. Here <span class="mi">\(\norm{Y_0}=\sqrt{2\cR(0)}\norm{\widehat A_0}\to0\)</span> by <a class="ref" href="r.thm.app-dyn-main.html#L-hyp:app-dyn-initial" data-label="hyp:app-dyn-initial">{{(H3)}}</a>, <span class="mi">\(r_B\to0\)</span> by <a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a>, and the last two terms tend to zero in probability, so <span class="mi">\(\max_{j\le J}\norm{Y_j}\to0\)</span> in probability. Within a block the weighted state moves by at most <span class="mi">\(C_\Sigma\macrostep L/B\)</span> in operator norm, and <span class="mi">\(\delta(\Dt)\le\norm{\Sigmaout^{1/2}\Dt\Sigmain^{1/2}}/\sqrt{r_0/2}\)</span> for <span class="mi">\(t\le t_{b_c}\)</span>, which proves the claim.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li><li><a class="ref" href="r.lem.app-dyn-coupling.html" data-label="lem:app-dyn-coupling">Lemma SE.16</a> <span class=muted>Coupling</span></li><li><a class="ref" href="r.lem.app-dyn-buffer.html" data-label="lem:app-dyn-buffer">Lemma SE.15</a> <span class=muted>Stopped buffer moments</span></li><li><a class="ref" href="r.lem.app-dyn-matrix-martingale.html" data-label="lem:app-dyn-matrix-martingale">Lemma SE.23</a> <span class=muted>Matrix martingale</span></li><li><a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> <span class=muted>Dynamical comparison</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> <span class=muted>Dynamical comparison</span></li><li><a class="ref" href="r.lem.app-dyn-block.html" data-label="lem:app-dyn-block">Lemma SE.26</a> <span class=muted>Block residual</span></li><li><a class="ref" href="r.lem.app-dyn-interval.html" data-label="lem:app-dyn-interval">Lemma SE.27</a> <span class=muted>No exit before <span class="mi">\(T_\star\)</span></span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_diffuse</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Diffuse.lean#L2307">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_diffuse (certOp : Muon.External.GaussianOpNormL6)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (p : DynParams) (P : ∀ k : ℕ, Measure (Ω k)) [∀ k : ℕ, IsProbabilityMeasure (P k)]
+    (m n B : ℕ → ℕ) (S : ∀ k : ℕ, DynSetup p (P k) (m k) (n k) (B k))
+    -- (H1) `hyp:app-dyn-data`: converging aspect ratios and bounded covariances
+    (regime : ProportionalRegime m n B (fun k =&gt; (S k).C))
+    -- (H3) `hyp:app-dyn-initial`: `‖Â₀‖ → 0`
+    (W0_hat : Tendsto (fun k =&gt; opNorm (Ahat (S k).C ((S k).W0 - (S k).alg.Wstar))) atTop (𝓝 0))
+    -- `T &gt; 0` fixed and `ε &gt; 0`
+    (T : ℝ) (hT : 0 &lt; T) (ε : ℝ) (hε : 0 &lt; ε) :
+    Tendsto (fun k : ℕ =&gt; P k {ω | ∃ t : ℕ, (t : ℕ∞) ≤ dynBlockExitTime (S k) ω ∧
+        (t : ℝ) ≤ T * (B k : ℝ) ∧ ε &lt; diffuseness (S k).C (dynDelta (S k) t ω)})
+      atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.dynBlockIndexExit</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Diffuse.lean#L362">source</a></summary><pre class="lean no-mj">def dynBlockIndexExit {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω} {p : DynParams} {m n B : ℕ}
+    (S : DynSetup p P m n B) : Ω → ℕ∞ :=</pre></details><details class="decl"><summary><code>Muon.Dynamics.dynBlockExitTime</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Diffuse.lean#L367">source</a></summary><pre class="lean no-mj">def dynBlockExitTime {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω} {p : DynParams} {m n B : ℕ}
+    (S : DynSetup p P m n B) : Ω → ℕ∞ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

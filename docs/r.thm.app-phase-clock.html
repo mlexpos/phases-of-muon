@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SI.2 (Clock and row equations)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SI.2 (Clock and row equations)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-phase-clock"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-clock.html" data-label="thm:app-phase-clock">Theorem SI.2</a> <span class="thm-title">(Clock and row equations)</span></div><div class="thm-body"><div class="p">Assume (M1) and let <span class="mi">\(Q\)</span> be the solution of <a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a>. For <span class="mi">\(i\in\mathcal I\)</span> and <span class="mi">\(s\ge0\)</span> put</div>
+<div class="md">\[
+E_i(s)\defeq\fQ_i(0)e^{-2\mathfrak d_is}+\lr\mathfrak v_i\int_0^se^{-2\mathfrak d_i(s-v)}\sqrt{Q(v)}\,\dif v,\qquad
+t(s)\defeq\frac1\lr\int_0^s\sqrt{Q(v)}\,\dif v,
+\]</div>
+<div class="p">and <span class="mi">\(t_*\defeq\lim_{s\to\infty}t(s)\in(0,\infty]\)</span>. Then <span class="mi">\(\frac12\sum_i\mu_iE_i(s)=Q(s)\)</span> for every <span class="mi">\(s\)</span>, and <span class="mi">\(t\)</span> is continuously differentiable and strictly increasing from <span class="mi">\([0,\infty)\)</span> onto <span class="mi">\([0,t_*)\)</span>. Its inverse is the clock</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-clock"></span>\begin{equation}\tag{SI.8}
+\clock(t)=\int_0^t\frac{\lr}{\sqrt{\fRisk(t')}}\,\dif t',
+\end{equation}</div>
+<div class="p">where <span class="mi">\(\fQ_i(t)\defeq E_i(\clock(t))\)</span> and <span class="mi">\(\fRisk(t)\defeq Q(\clock(t))\)</span> solve <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-rows" data-label="eqn:app-phase-rows">(SI.2)</a> on <span class="mi">\([0,t_*)\)</span> with continuous positive risk. Every solution of <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-rows" data-label="eqn:app-phase-rows">(SI.2)</a> with continuous positive risk on an interval <span class="mi">\([0,t_1)\)</span> agrees with this one there, and <span class="mi">\([0,t_*)\)</span> is the maximal such interval. If <span class="mi">\(\mathcal S&gt;0\)</span>, then <span class="mi">\(t_*=\infty\)</span> and <span class="mi">\(\fRisk(t)\to\lr^2\mathcal S^2/4\)</span> as <span class="mi">\(t\to\infty\)</span>. If <span class="mi">\(\mathcal S=0\)</span>, then <span class="mi">\(t_*=\lr^{-1}\int_0^\infty\sqrt{F(s)}\,\dif s\)</span>, and <span class="mi">\(\fRisk(t)\to0\)</span> as <span class="mi">\(t\uparrow t_*\)</span> when <span class="mi">\(t_*&lt;\infty\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Summing the formulas for <span class="mi">\(E_i\)</span> with weights <span class="mi">\(\mu_i/2\)</span> and using <a class="ref" href="s.SI.html#L-eqn:app-phase-Fk" data-label="eqn:app-phase-Fk">(SI.3)</a> gives</div>
+<div class="md">\[
+\frac12\sum_i\mu_iE_i(s)=F(s)+\int_0^sk(s-v)\sqrt{Q(v)}\,\dif v=Q(s).
+\]</div>
+<div class="p">Each <span class="mi">\(E_i\)</span> is differentiable, with</div>
+<div class="md">\[
+E_i'=-2\mathfrak d_iE_i+\lr\mathfrak v_i\sqrt Q .
+\]</div>
+<div class="p">Since <span class="mi">\(Q\)</span> is continuous and positive, <span class="mi">\(t'=\sqrt Q/\lr&gt;0\)</span>, so <span class="mi">\(t\)</span> is a continuously differentiable increasing bijection onto <span class="mi">\([0,t_*)\)</span>. Its inverse satisfies <span class="mi">\(\clock'(t)=\lr/\sqrt{Q(\clock(t))}\)</span> and <span class="mi">\(\clock(0)=0\)</span>, which is <a class="ref" href="r.thm.app-phase-clock.html#L-eqn:app-phase-clock" data-label="eqn:app-phase-clock">(SI.8)</a>. The chain rule applied to <span class="mi">\(E_i\circ\clock\)</span> gives</div>
+<div class="md">\[
+\frac{\dif}{\dif t}E_i(\clock(t))=\frac{\lr}{\sqrt{\fRisk(t)}}\big(-2\mathfrak d_iE_i(\clock(t))+\lr\mathfrak v_i\sqrt{\fRisk(t)}\big),
+\]</div>
+<div class="p">which is <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-rows" data-label="eqn:app-phase-rows">(SI.2)</a>.</div>
+<div class="p">Conversely, let <span class="mi">\((\fQ_i)\)</span> solve <a class="ref" href="r.def.app-phase-model.html#L-eqn:app-phase-rows" data-label="eqn:app-phase-rows">(SI.2)</a> on <span class="mi">\([0,t_1)\)</span> with continuous positive risk. Define <span class="mi">\(\clock\)</span> by <a class="ref" href="r.thm.app-phase-clock.html#L-eqn:app-phase-clock" data-label="eqn:app-phase-clock">(SI.8)</a>; it is continuously differentiable with positive derivative. In the time <span class="mi">\(s=\clock(t)\)</span> the chain rule gives <span class="mi">\(\frac{\dif}{\dif s}\fQ_i=-2\mathfrak d_i\fQ_i+\lr\mathfrak v_i\sqrt{\fRisk}\)</span>. Multiplying by <span class="mi">\(e^{2\mathfrak d_is}\)</span> and integrating gives the formula for <span class="mi">\(E_i\)</span> with <span class="mi">\(\fRisk\)</span> in place of <span class="mi">\(Q\)</span>, and summing with weights <span class="mi">\(\mu_i/2\)</span> gives <a class="ref" href="s.SI.html#L-eqn:app-phase-volterra" data-label="eqn:app-phase-volterra">(SI.4)</a> on the image interval. Uniqueness on compact intervals (<a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a>) identifies the risk and every row with the construction.</div>
+<div class="p">If <span class="mi">\(\mathcal S&gt;0\)</span>, the positive limit of <a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a> gives <span class="mi">\(\sqrt Q\ge\bar k/2\)</span> for large <span class="mi">\(s\)</span>, so <span class="mi">\(t_*=\infty\)</span>, and <span class="mi">\(\fRisk(t)=Q(\clock(t))\)</span> converges to <span class="mi">\(\bar k^2\)</span>. If <span class="mi">\(\mathcal S=0\)</span>, then <span class="mi">\(Q=F\)</span> and <span class="mi">\(t_*=\lr^{-1}\int_0^\infty\sqrt F\)</span>. When this is finite, <span class="mi">\(\clock(t)\to\infty\)</span> as <span class="mi">\(t\uparrow t_*\)</span> and <span class="mi">\(\fRisk(t)=F(\clock(t))\to0\)</span>, so no solution with positive continuous risk extends to <span class="mi">\(t_*\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-phase-model.html" data-label="def:app-phase-model">Definition SI.1</a> <span class=muted>Deterministic row model</span></li><li><a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a> <span class=muted>Existence, uniqueness and floor</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-hitting.html" data-label="thm:app-phase-hitting">Theorem SI.3</a> <span class=muted>Hitting times</span></li><li><a class="ref" href="r.prop.app-phase-common.html" data-label="prop:app-phase-common">Proposition SI.2</a> <span class=muted>Common drift</span></li><li><a class="ref" href="r.rem.app-phase-momentum.html" data-label="rem:app-phase-momentum">Remark SI.5</a> <span class=muted>Momentum arrays</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_clock</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Clock.lean#L1145">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_clock [Countable ι] (m : RowModel ι) (Q : ℝ → ℝ)
+    (hQ : IsVolterraSol m Q) :
+    (∀ s ∈ Ici (0:ℝ), (1 / 2 : ℝ) * ∑' i, m.μ i * rowEnergy m Q i s = Q s) ∧
+    (0 &lt; tStar m Q) ∧
+    ContDiffOn ℝ 1 (clockTime m Q) (Ici (0:ℝ)) ∧
+    StrictMonoOn (clockTime m Q) (Ici (0:ℝ)) ∧
+    (clockTime m Q '' Ici (0:ℝ) = {t : ℝ | 0 ≤ t ∧ ENNReal.ofReal t &lt; tStar m Q}) ∧
+    (∀ t : ℝ, 0 ≤ t → ENNReal.ofReal t &lt; tStar m Q →
+      clock m Q t = ∫ t' in (0:ℝ)..t, m.η / Real.sqrt (riskClock m Q t')) ∧
+    (∀ t₁ : ℝ, ENNReal.ofReal t₁ ≤ tStar m Q → IsRowSolution m t₁ (rowsInStepTime m Q)) ∧
+    (∀ t₁ : ℝ, ENNReal.ofReal t₁ ≤ tStar m Q → ∀ Q' : ι → ℝ → ℝ, IsRowSolution m t₁ Q' →
+      ∀ i : ι, ∀ t ∈ Ico (0:ℝ) t₁, Q' i t = rowsInStepTime m Q i t) ∧
+    (∀ t₁ : ℝ, tStar m Q &lt; ENNReal.ofReal t₁ → ∀ Q' : ι → ℝ → ℝ, ¬ IsRowSolution m t₁ Q') ∧
+    (0 &lt; m.S → tStar m Q = ⊤ ∧
+      Tendsto (m.risk (rowsInStepTime m Q)) atTop (𝓝 (m.η ^ 2 * m.S ^ 2 / 4))) ∧
+    (m.S = 0 →
+      tStar m Q = ENNReal.ofReal (m.η⁻¹) *
+          ∫⁻ s in Ioi (0:ℝ), ENNReal.ofReal (Real.sqrt (m.forcing s)) ∧
+        (tStar m Q ≠ ⊤ →
+          Tendsto (m.risk (rowsInStepTime m Q)) (𝓝[&lt;] (tStar m Q).toReal) (𝓝 0))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

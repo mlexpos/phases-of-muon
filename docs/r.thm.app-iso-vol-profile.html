@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.10 (Lag profile at zero ridge)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.10 (Lag profile at zero ridge)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-vol-profile"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-vol-profile.html" data-label="thm:app-iso-vol-profile">Theorem SF.10</a> <span class="thm-title">(Lag profile at zero ridge)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span>, <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\ge\gamma^\circ_\bmom\)</span>. For every integer <span class="mi">\(\ell\ge1\)</span>,</div>
+<div class="md">\[
+-\frac{4\bar{\mathsf e}_\bmom(\mathsf M_1+1)}\gamma\Big(1+\log^+\frac\gamma{4\bar{\mathsf e}_\bmom}\Big)\le\overline C_{1,\ell}(0)-\mathcal G\Big(\frac\ell\gamma\Big)\le\frac{\mathsf K^{\rm pr}_\bmom(1+\log\gamma)}\gamma,
+\]</div>
+<div class="md">\[
+\overline C_{1,\ell}(0)\le\mathsf K^{\rm dec}_\bmom\,e^{-\delta_\bmom(\ell-\gamma)} .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof is the unsummed version of the proof of <a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a>: the same pointwise bounds, with <span class="mi">\(\mathsf T(z)\)</span> replaced by a single weight, compare the integrand with <span class="mi">\((1-\ell/x)_+\)</span>, whose integral over the level is exactly <span class="mi">\(\mathcal G(\ell/\gamma)\)</span>.</div>
+<div class="p"><em>Step 1: representation.</em> By <a class="ref" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> at <span class="mi">\(\ridge=0\)</span> and <a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a>(i),</div>
+<div class="md">\[
+\overline C_{1,\ell}(0)=\frac1\gamma\int_0^\gamma\EE_\star[\Psi_\ell]\,\dif\eta,\qquad
+\Psi_\ell\defeq\mathbf 1\{y&lt;Q_\gamma,\ z_\ell&lt;Q_\gamma\}\,\frac{\mathsf j(y)\,\mathsf j(z_\ell)}{\gamma^2\,\widehat\Delta(y,z)},
+\]</div>
+<div class="p">with <span class="mi">\((y,z)=\Pi(Q_\eta;\cdot)\)</span>. With <span class="mi">\(x=\gamma-\eta\)</span>, direct integration gives</div>
+<div class="md">\[
+\frac1\gamma\int_0^\gamma\Big(1-\frac\ell x\Big)_+\dif\eta=\frac1\gamma\int_\ell^\gamma\Big(1-\frac\ell x\Big)\dif x=\mathcal G\Big(\frac\ell\gamma\Big).
+\]</div>
+<div class="p">One more integral recurs below. For <span class="mi">\(Y&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-minint"></span>\begin{equation}\tag{SF.61}
+\frac1\gamma\int_0^\gamma\min\Big(1,\frac Yx\Big)\dif\eta\le\frac Y\gamma\Big(1+\log^+\frac\gamma Y\Big),
+\end{equation}</div>
+<div class="p">and the right side is nondecreasing in <span class="mi">\(Y\)</span>.</div>
+<div class="p"><em>Step 2: upper bound.</em> As in Steps 2 and 3 of the proof of <a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a>, <span class="mi">\(\mathsf A_\vee\ge\Phi(1)\)</span> on <span class="mi">\(\{\Psi_\ell&gt;0\}\)</span>, and</div>
+<div class="md">\[
+\mathsf j(z_\ell)\,\mathbf 1\{z_\ell&lt;Q_\gamma\}\le(\mathsf A_\vee+E_z-\ell)_++2\bar{\mathsf e}_\bmom ,
+\]</div>
+<div class="p">so that</div>
+<div class="md">\[
+\Psi_\ell\le\frac{(\mathsf A_\vee+2\bar{\mathsf e}_\bmom)\big((\mathsf A_\vee+E_z-\ell)_++2\bar{\mathsf e}_\bmom\big)}{\mathsf A_\vee\max(\mathsf A_\vee-\bar{\mathsf e}_\bmom,\mathsf A_\vee/2)} .
+\]</div>
+<div class="p">If <span class="mi">\(\mathsf A_\vee\ge2\bar{\mathsf e}_\bmom\)</span>, this is at most</div>
+<div class="md">\[
+\Big(1+\frac{6\bar{\mathsf e}_\bmom}{\mathsf A_\vee}\Big)\Big[\Big(1-\frac\ell{\mathsf A_\vee}\Big)_++\frac{E_z+2\bar{\mathsf e}_\bmom}{\mathsf A_\vee}\Big]\le\Big(1-\frac\ell{\mathsf A_\vee}\Big)_++\frac{14\bar{\mathsf e}_\bmom+4E_z}{\mathsf A_\vee} .
+\]</div>
+<div class="p">If <span class="mi">\(\mathsf A_\vee&lt;2\bar{\mathsf e}_\bmom\)</span>, it is at most <span class="mi">\(8\bar{\mathsf e}_\bmom(4\bar{\mathsf e}_\bmom+E_z)/(\Phi(1)\mathsf A_\vee)\)</span>. Hence</div>
+<div class="md">\[
+\Psi_\ell\le\Big(1-\frac\ell{\mathsf A_\vee}\Big)_++\frac{\mathsf K_3+\mathsf K_4E_z}{\mathsf A_\vee} .
+\]</div>
+<div class="p">The first term is compared with its value at <span class="mi">\(x\)</span>. The function <span class="mi">\(A\mapsto(1-\ell/A)_+\)</span> is nondecreasing, and <span class="mi">\((1-\ell/(x+\delta))_+-(1-\ell/x)_+\le\min(1,\delta/x)\)</span> for <span class="mi">\(\delta\ge0\)</span>; with <span class="mi">\(\mathsf A_\vee\le x+\bar{\mathsf e}_\bmom\tau\)</span> this gives</div>
+<div class="md">\[
+\Big(1-\frac\ell{\mathsf A_\vee}\Big)_+\le\Big(1-\frac\ell x\Big)_++\min\Big(1,\frac{1+\bar{\mathsf e}_\bmom\tau}x\Big).
+\]</div>
+<div class="p">The second term is controlled by</div>
+<div class="md">\[
+\frac1{\mathsf A_\vee}\le\frac1{\Phi(1)}\min\Big(1,\frac{2(\Phi(1)+\bar{\mathsf e}_\bmom\tau)}x\Big):
+\]</div>
+<div class="p">if <span class="mi">\(\bar{\mathsf e}_\bmom\tau\le x/2\)</span>, then <span class="mi">\(\mathsf A_\vee\ge\mathsf A(y)\ge x/2\)</span>, and otherwise the minimum is one. Hence</div>
+<div class="md">\[
+\Psi_\ell\le\Big(1-\frac\ell x\Big)_++\min\Big(1,\frac{1+\bar{\mathsf e}_\bmom\tau}x\Big)+\frac{\mathsf K_3+\mathsf K_4\mathsf c^+_\bmom}{\Phi(1)}\min\Big(1,\frac{2(\Phi(1)+\bar{\mathsf e}_\bmom\tau)}x\Big)+\frac{\mathsf K_4\,\mathsf n^-_\bmom(z)}{\Phi(1)} .
+\]</div>
+<div class="p">Integrate with <a class="ref" href="r.thm.app-iso-vol-profile.html#L-eqn:app-iso-minint" data-label="eqn:app-iso-minint">(SF.61)</a>. For <span class="mi">\(Y=1+\bar{\mathsf e}_\bmom\tau\ge1\)</span> the logarithm is at most <span class="mi">\(\log\gamma\)</span>. For <span class="mi">\(Y=2(\Phi(1)+\bar{\mathsf e}_\bmom\tau)\ge2\Phi(1)\)</span> it is at most <span class="mi">\(\log\gamma+\log(1/(2\Phi(1)))\)</span>, and <span class="mi">\(1+a+b\le(1+a)(1+b)\)</span> for <span class="mi">\(a,b\ge0\)</span>. Then take <span class="mi">\(\EE_\star\)</span>, and bound the last term by <a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a>.</div>
+<div class="p"><em>Step 3: lower bound.</em> If <span class="mi">\(\mathsf A(z)&gt;\ell\)</span>, then <span class="mi">\(r(z_\ell)\le r(z)+\ell&lt;\gamma\)</span> and <span class="mi">\(\mathsf j(z_\ell)\ge\mathsf A(z)-\ell\)</span>. With <a class="ref" href="r.lem.app-iso-kernel-bounds.html" data-label="lem:app-iso-kernel-bounds">Lemma SF.15</a>(v),</div>
+<div class="md">\[
+\Psi_\ell\ge\mathbf 1\{y&lt;Q_\gamma\}\,\frac{\mathsf A(y)\,(\mathsf A(z)-\ell)_+}{(\mathsf A_\vee+\bar{\mathsf e}_\bmom)^2} .
+\]</div>
+<div class="p">With <span class="mi">\(\upsilon=\bar{\mathsf e}_\bmom(\tau+1)\)</span> as before, <span class="mi">\(\mathsf A(y)\ge x-\upsilon\)</span>, <span class="mi">\(\mathsf A(z)-\ell\ge x-\ell-\upsilon\)</span> and <span class="mi">\(\mathsf A_\vee+\bar{\mathsf e}_\bmom\le x+\upsilon\)</span>. If <span class="mi">\(x-\ell&gt;4\upsilon\)</span>, put <span class="mi">\(t\defeq\upsilon/x&lt;\frac14\)</span>. Then <span class="mi">\(y&lt;Q_\gamma\)</span>, and</div>
+<div class="md">\[
+\Psi_\ell\ge\frac{1-t}{(1+t)^2}\Big(1-\frac\ell x-t\Big)\ge(1-2t)(1-t)\Big(1-\frac\ell x-t\Big)\ge(1-3t)\Big(1-\frac\ell x-t\Big)\ge1-\frac\ell x-4t .
+\]</div>
+<div class="p">If <span class="mi">\(x-\ell\le4\upsilon\)</span>, then <span class="mi">\((1-\ell/x)_+\le\min(1,4\upsilon/x)\)</span>. Hence</div>
+<div class="md">\[
+\Psi_\ell\ge\Big(1-\frac\ell x\Big)_+-\min\Big(1,\frac{4\upsilon}x\Big)
+\]</div>
+<div class="p">in all cases. Integrate with <a class="ref" href="r.thm.app-iso-vol-profile.html#L-eqn:app-iso-minint" data-label="eqn:app-iso-minint">(SF.61)</a>, using <span class="mi">\(4\upsilon\ge4\bar{\mathsf e}_\bmom\)</span> in the logarithm and <span class="mi">\(\EE_\star[4\upsilon]=4\bar{\mathsf e}_\bmom(\mathsf M_1+1)\)</span>.</div>
+<div class="p"><em>Step 4: decay.</em> Keeping the indicator <span class="mi">\(\mathbf 1\{\ell&lt;L_z\}\)</span> in Step 2, and using <span class="mi">\(L_z-\ell+2\bar{\mathsf e}_\bmom\le\mathsf A_\vee+E_z+2\bar{\mathsf e}_\bmom\)</span> in both cases of <span class="mi">\(\mathsf A_\vee\)</span>, gives</div>
+<div class="md">\[
+\Psi_\ell\le\mathsf K_5\,(1+E_z)\,\mathbf 1\{\ell&lt;L_z\} .
+\]</div>
+<div class="p">Also <span class="mi">\(L_z\le\mathsf A_\vee+E_z\le\gamma+\bar{\mathsf e}_\bmom\tau+\mathsf c^+_\bmom+\mathsf n^-_\bmom(z)\)</span>. With <span class="mi">\(\delta=\delta_\bmom\)</span>, the bounds <span class="mi">\(\mathbf 1\{\ell&lt;L_z\}\le e^{\delta(L_z-\ell)}\)</span> and <span class="mi">\((1+\mathsf c^+_\bmom+n)e^{\delta n}\le(1+\mathsf c^+_\bmom+\delta^{-1})e^{2\delta n}\)</span> for <span class="mi">\(n\ge0\)</span> give</div>
+<div class="md">\[
+\Psi_\ell\le\mathsf K_5\Big(1+\mathsf c^+_\bmom+\frac1\delta\Big)e^{\delta\mathsf c^+_\bmom}\,e^{-\delta(\ell-\gamma)}\,e^{\tau/8}\,e^{(\tau-\sigma)_+/8},
+\]</div>
+<div class="p">because <span class="mi">\(\delta\bar{\mathsf e}_\bmom\le\frac18\)</span> and <span class="mi">\(2\delta\,\mathsf n^-_\bmom(z)\le(\tau-\sigma)_+/8\)</span>, with <span class="mi">\(\sigma=\log((1-\bmom)^2Q_\eta)\)</span> (<a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a>). Finally, with <span class="mi">\(\dif\eta=\mathsf e_\bmom\,\dif\sigma\)</span> and the two bounds on <span class="mi">\(\mathsf e_\bmom\)</span> of the proof of <a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\int_0^\gamma\EE_\star\big[e^{\tau/8}e^{(\tau-\sigma)_+/8}\big]\dif\eta
+&amp;\le\gamma\,\mathsf M_e+\EE_\star\Big[e^{\tau/8}\int_\R\big(e^{(\tau-\sigma)_+/8}-1\big)\mathsf e_\bmom\,\dif\sigma\Big]\\
+&amp;\le\mathsf M_e\Big(\gamma+\frac8{7(1-\bmom^2)}+8\bar{\mathsf e}_\bmom\Big),
+\end{aligned}
+\]</div>
+<div class="p">where the part <span class="mi">\(\sigma&lt;0\)</span> of the inner integral is at most <span class="mi">\(8e^{\tau/8}/(7(1-\bmom^2))\)</span> and the part <span class="mi">\(0\le\sigma&lt;\tau\)</span> is at most <span class="mi">\(8\bar{\mathsf e}_\bmom e^{\tau/8}\)</span>. Dividing by <span class="mi">\(\gamma\ge1\)</span> gives the decay bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-iso-vol-rate.html" data-label="thm:app-iso-vol-rate">Theorem SF.9</a> <span class=muted>Lag sum at zero ridge</span></li><li><a class="ref" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> <span class=muted>Lag coefficients in participation coordinates</span></li><li><a class="ref" href="r.lem.app-iso-averaging.html" data-label="lem:app-iso-averaging">Lemma SF.16</a> <span class=muted>Layer averaging</span></li><li><a class="ref" href="r.lem.app-iso-low-levels.html" data-label="lem:app-iso-low-levels">Lemma SF.17</a> <span class=muted>Low levels</span></li><li><a class="ref" href="r.lem.app-iso-kernel-bounds.html" data-label="lem:app-iso-kernel-bounds">Lemma SF.15</a> <span class=muted>Kernel bounds</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_vol_profile_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolRates.lean#L5105">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_vol_profile_i {β γ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : isoGammaCirc β ≤ γ) {ℓ : ℕ} (hℓ : 1 ≤ ℓ) :
+    -(4 * isoEbar β * (isoM1 + 1) / γ)
+        * (1 + max (Real.log (γ / (4 * isoEbar β))) 0)
+      ≤ lagCoeff β γ 0 ℓ - isoCalG ((ℓ : ℝ) / γ) ∧
+    lagCoeff β γ 0 ℓ - isoCalG ((ℓ : ℝ) / γ)
+      ≤ isoKpr β * (1 + Real.log γ) / γ := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_vol_profile_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolRates.lean#L5178">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_vol_profile_ii {β γ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : isoGammaCirc β ≤ γ) {ℓ : ℕ} (hℓ : 1 ≤ ℓ) :
+    lagCoeff β γ 0 ℓ ≤ isoKdec β * Real.exp (-(isoDecay β) * ((ℓ : ℝ) - γ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.13 (Branch of a profile)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.13 (Branch of a profile)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-closed-branch"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a> <span class="thm-title">(Branch of a profile)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\xi\)</span> be a profile and <span class="mi">\(s&gt;0\)</span>. A <em>branch point</em> of <span class="mi">\(\xi\)</span> at <span class="mi">\(s\)</span> is a quadruple <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\in[0,\infty)^4\)</span> with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-branch"></span>\begin{equation}\tag{SD.66}
+\begin{gathered}
+\sigma=\frac1B\Tr\Sigmaout(s\Id+\tilde s_1\Sigmaout)^{-1},\qquad
+\tilde\sigma=\frac1B\Tr\Sigmain(s\Id+s_1\Sigmain)^{-1},\\
+\tilde s_1=s\tilde\sigma F_\xi(q),\qquad s_1=s\sigma F_\xi(q),
+\end{gathered}
+\end{equation}</div>
+<div class="p">where <span class="mi">\(q\defeq s\sigma\tilde\sigma\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout=0\)</span>, the unique branch point at <span class="mi">\(s\)</span> is <span class="mi">\(\sigma=s_1=0\)</span>, <span class="mi">\(\tilde\sigma=B^{-1}\Tr\Sigmain/s\)</span>, <span class="mi">\(\tilde s_1=B^{-1}\Tr\Sigmain\,F_\xi(0)\)</span>, with <span class="mi">\(q=0\)</span>. The case <span class="mi">\(\Sigmain=0\)</span> is symmetric.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout\ne0\)</span> and <span class="mi">\(\Sigmain\ne0\)</span>, then <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a> has exactly one solution in <span class="mi">\([0,\infty)^4\)</span>. It lies in <span class="mi">\((0,\infty)^4\)</span> and in the box</div>
+<div class="md">\[
+\sigma\le\frac{\Tr\Sigmaout}{Bs},\qquad \tilde\sigma\le\frac{\Tr\Sigmain}{Bs},\qquad
+\tilde s_1\le\frac{\Tr\Sigmain}B\,F_\xi(0),\qquad s_1\le\frac{\Tr\Sigmaout}B\,F_\xi(0),
+\]</div>
+<div class="p">and <span class="mi">\(r_\xi(q)=\tilde s_1\sigma=s_1\tilde\sigma&lt;\min(\operatorname{rank}\Sigmaout,\operatorname{rank}\Sigmain)/B\le\gamma_\star\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">In case (ii), <span class="mi">\(s\mapsto(\sigma,\tilde\sigma,\tilde s_1,s_1,q)(s)\)</span> is real-analytic on <span class="mi">\((0,\infty)\)</span>, and <span class="mi">\(q\)</span> is strictly decreasing in <span class="mi">\(s\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">(Stability.) Let <span class="mi">\(\xi^{(n)}\)</span> be profiles with <span class="mi">\(\sup_{q\ge0}\abs{F_{\xi^{(n)}}(q)-F_\xi(q)}\to0\)</span> and <span class="mi">\(\sup_nF_{\xi^{(n)}}(0)&lt;\infty\)</span>. Then for each <span class="mi">\(s&gt;0\)</span> the branch points of <span class="mi">\(\xi^{(n)}\)</span> at <span class="mi">\(s\)</span> converge to the branch point of <span class="mi">\(\xi\)</span> at <span class="mi">\(s\)</span>.</div></div></li></ol>
+<div class="p">For the EMA weights, <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a> is the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span> for the spectral measures of <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a>, and its branch point is the solution of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i), <span class="mi">\(\sigma=B^{-1}\Tr0=0\)</span> forces <span class="mi">\(q=0\)</span> and <span class="mi">\(s_1=0\)</span>. Then <span class="mi">\(\tilde\sigma=B^{-1}\Tr\Sigmain/s\)</span> and <span class="mi">\(\tilde s_1=s\tilde\sigma F_\xi(0)\)</span>.</div>
+<div class="p">For (ii), we first introduce the inverse traces. For <span class="mi">\(X\in\{\Sigmaout,\Sigmain\}\)</span>, nonzero, with eigenvalues <span class="mi">\((\delta_k)\)</span>, put</div>
+<div class="md">\[
+H_X(x)\defeq\frac1B\sum_k\frac{x\delta_k}{1+x\delta_k}\quad(x\ge0),\qquad p_X\defeq\frac{\operatorname{rank}X}B .
+\]</div>
+<div class="p">Then <span class="mi">\(H_X\)</span> is real-analytic on <span class="mi">\((-1/\norm X,\infty)\)</span> with <span class="mi">\(H_X'&gt;0\)</span>, <span class="mi">\(H_X(0)=0\)</span> and <span class="mi">\(H_X(\infty)=p_X\)</span>. Let <span class="mi">\(A_X:[0,p_X)\to[0,\infty)\)</span> be its inverse, which is real-analytic on <span class="mi">\((0,p_X)\)</span>. The ratio <span class="mi">\(H_X(x)/x=B^{-1}\Tr X(\Id+xX)^{-1}\)</span> is nonincreasing in <span class="mi">\(x\)</span>, with limit <span class="mi">\(B^{-1}\Tr X&gt;0\)</span> at <span class="mi">\(0\)</span>. Hence <span class="mi">\(y\mapsto y/A_X(y)\)</span> is nonincreasing on <span class="mi">\((0,p_X)\)</span>, which is the inequality</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-Aprime"></span>\begin{equation}\tag{SD.67}
+A_X'(y)\ge\frac{A_X(y)}y .
+\end{equation}</div>
+<div class="p">We write <span class="mi">\(H_{\mathrm{out}},A_{\mathrm{out}},p_{\mathrm{out}}\)</span> for <span class="mi">\(X=\Sigmaout\)</span> and <span class="mi">\(H_{\mathrm{in}},A_{\mathrm{in}},p_{\mathrm{in}}\)</span> for <span class="mi">\(X=\Sigmain\)</span>.</div>
+<div class="p">Every solution reduces to a root of one scalar equation. Let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> solve <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a>. The traces <span class="mi">\(\sigma,\tilde\sigma\)</span> are positive, being traces of nonzero positive semidefinite matrices against positive definite matrices. Hence <span class="mi">\(q&gt;0\)</span>, <span class="mi">\(F_\xi(q)&gt;0\)</span> and <span class="mi">\(\tilde s_1,s_1&gt;0\)</span>. Since</div>
+<div class="md">\[
+\tilde s_1\sigma=s\sigma\tilde\sigma F_\xi(q)=r_\xi(q),\qquad \tilde s_1\sigma=H_{\mathrm{out}}(\tilde s_1/s),
+\]</div>
+<div class="p">we get <span class="mi">\(r_\xi(q)&lt;p_{\mathrm{out}}\)</span> and <span class="mi">\(\tilde s_1=sA_{\mathrm{out}}(r_\xi(q))\)</span>; likewise <span class="mi">\(r_\xi(q)&lt;p_{\mathrm{in}}\)</span> and <span class="mi">\(s_1=sA_{\mathrm{in}}(r_\xi(q))\)</span>. Substituting into <span class="mi">\(q=s\sigma\tilde\sigma=s\,r_\xi(q)^2/(\tilde s_1s_1)\)</span> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-closed-scalar-eq"></span>\begin{equation}\tag{SD.68}
+\mathcal Z_\xi(q)=s,\qquad \mathcal Z_\xi(q)\defeq\frac{r_\xi(q)^2}{q\,A_{\mathrm{out}}(r_\xi(q))\,A_{\mathrm{in}}(r_\xi(q))},\qquad
+q\in I_\xi\defeq\{q&gt;0:r_\xi(q)&lt;p_{\min}\},
+\end{equation}</div>
+<div class="p">with <span class="mi">\(p_{\min}\defeq\min(p_{\mathrm{out}},p_{\mathrm{in}})\)</span>.</div>
+<div class="p">Conversely, every root gives a solution. Let <span class="mi">\(q\in I_\xi\)</span> solve <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-scalar-eq" data-label="eqn:app-vol-closed-scalar-eq">(SD.68)</a>, and put <span class="mi">\(\tilde s_1=sA_{\mathrm{out}}(r_\xi(q))\)</span>, <span class="mi">\(s_1=sA_{\mathrm{in}}(r_\xi(q))\)</span>, <span class="mi">\(\sigma=r_\xi(q)/\tilde s_1\)</span> and <span class="mi">\(\tilde\sigma=r_\xi(q)/s_1\)</span>. Then</div>
+<div class="md">\[
+\sigma=\frac{H_{\mathrm{out}}(\tilde s_1/s)}{\tilde s_1}=\frac1B\Tr\Sigmaout(s\Id+\tilde s_1\Sigmaout)^{-1},
+\]</div>
+<div class="p">and likewise for <span class="mi">\(\tilde\sigma\)</span>. Next <span class="mi">\(s\sigma\tilde\sigma=r_\xi^2/(sA_{\mathrm{out}}A_{\mathrm{in}})=q\)</span> by <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-scalar-eq" data-label="eqn:app-vol-closed-scalar-eq">(SD.68)</a>. Finally <span class="mi">\(s\tilde\sigma F_\xi(q)=r_\xi F_\xi/A_{\mathrm{in}}\)</span>, which equals <span class="mi">\(\tilde s_1=sA_{\mathrm{out}}\)</span> exactly when <span class="mi">\(sA_{\mathrm{out}}A_{\mathrm{in}}=r_\xi F_\xi=r_\xi^2/q\)</span>, that is, by <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-scalar-eq" data-label="eqn:app-vol-closed-scalar-eq">(SD.68)</a>; the same holds for <span class="mi">\(s_1\)</span>. So the solutions of <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a> correspond bijectively to the roots of <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-scalar-eq" data-label="eqn:app-vol-closed-scalar-eq">(SD.68)</a>.</div>
+<div class="p">The function <span class="mi">\(\mathcal Z_\xi\)</span> is a strictly decreasing analytic bijection of <span class="mi">\(I_\xi\)</span> onto <span class="mi">\((0,\infty)\)</span>. It is real-analytic on the interval <span class="mi">\(I_\xi\)</span>, and by <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-Aprime" data-label="eqn:app-vol-closed-Aprime">(SD.67)</a> and <span class="mi">\(r_\xi'&gt;0\)</span>,</div>
+<div class="md">\[
+(\log\mathcal Z_\xi)'=\frac{2r_\xi'}{r_\xi}-\frac1q-r_\xi'\Big(\frac{A_{\mathrm{out}}'}{A_{\mathrm{out}}}+\frac{A_{\mathrm{in}}'}{A_{\mathrm{in}}}\Big)\le-\frac1q&lt;0 .
+\]</div>
+<div class="p">As <span class="mi">\(q\downarrow0\)</span>, <span class="mi">\(r_\xi(q)/A_X(r_\xi(q))\to B^{-1}\Tr X&gt;0\)</span> for both <span class="mi">\(X\)</span>, so <span class="mi">\(\mathcal Z_\xi\to\infty\)</span>. At the upper end there are two cases. If <span class="mi">\(n_\xi\le p_{\min}\)</span>, then <span class="mi">\(I_\xi=(0,\infty)\)</span> and <span class="mi">\(\mathcal Z_\xi(q)\le B^{-2}\Tr\Sigmaout\Tr\Sigmain/q\to0\)</span>, since <span class="mi">\(r_\xi/A_X(r_\xi)\le B^{-1}\Tr X\)</span>. If <span class="mi">\(n_\xi&gt;p_{\min}\)</span>, then <span class="mi">\(I_\xi=(0,q_*)\)</span> with <span class="mi">\(r_\xi(q_*)=p_{\min}=p_X\)</span> for some <span class="mi">\(X\)</span>; as <span class="mi">\(q\uparrow q_*\)</span>, <span class="mi">\(A_X(r_\xi(q))\to\infty\)</span> while the other factors stay bounded, so <span class="mi">\(\mathcal Z_\xi\to0\)</span>. Hence <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-scalar-eq" data-label="eqn:app-vol-closed-scalar-eq">(SD.68)</a> has exactly one root.</div>
+<div class="p">The box follows from the equations. The first two bounds are <span class="mi">\(\Sigmaout(s\Id+\tilde s_1\Sigmaout)^{-1}\preceq\Sigmaout/s\)</span> and its input analogue. The last two are <span class="mi">\(\tilde s_1=s\tilde\sigma F_\xi(q)\le B^{-1}\Tr\Sigmain F_\xi(0)\)</span> and its analogue. Finally <span class="mi">\(r_\xi(q)&lt;p_{\min}\le\max(\Nout,\Nin)/B\le\gamma_\star\)</span>.</div>
+<div class="p">For (iii), <span class="mi">\(\mathcal Z_\xi'&lt;0\)</span>, so <span class="mi">\(q(s)=\mathcal Z_\xi^{-1}(s)\)</span> is real-analytic with <span class="mi">\(q'(s)=1/\mathcal Z_\xi'(q(s))&lt;0\)</span>, by the real-analytic inverse function theorem [<a class="cite" href="bibliography.html#bib-krantz2002primer">36</a>, Section 2.5]. The other coordinates are the analytic expressions of the converse construction.</div>
+<div class="p">For (iv), the branch points of <span class="mi">\(\xi^{(n)}\)</span> lie in the compact box of (ii), whose bounds involve <span class="mi">\(F_{\xi^{(n)}}(0)\)</span>, or are given explicitly by (i). Let <span class="mi">\(x\)</span> be a limit point along a subsequence, with <span class="mi">\(q_n\to q\)</span>. The trace maps in <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a> are continuous on <span class="mi">\([0,\infty)^4\)</span>, and</div>
+<div class="md">\[
+\abs{F_{\xi^{(n)}}(q_n)-F_\xi(q)}\le\sup_{p\ge0}\abs{F_{\xi^{(n)}}(p)-F_\xi(p)}+\abs{F_\xi(q_n)-F_\xi(q)}\to0 .
+\]</div>
+<div class="p">So <span class="mi">\(x\)</span> solves <a class="ref" href="r.lem.app-vol-closed-branch.html#L-eqn:app-vol-closed-branch" data-label="eqn:app-vol-closed-branch">(SD.66)</a> for <span class="mi">\(\xi\)</span>, and <span class="mi">\(x\)</span> is its unique branch point. Every subsequence has this limit point, so the whole sequence converges.</div>
+<div class="p">For the EMA weights, <span class="mi">\(F_\xi=\Fw\)</span> by the definition <a class="ref" href="s.SB.html#L-eqn:app-de-JFL" data-label="eqn:app-de-JFL">(SB.1)</a>, and the equations are those of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span>; uniqueness in both results identifies the two solutions.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-closed-kernel.html" data-label="thm:app-vol-closed-kernel">Theorem SD.5</a> <span class=muted>Closed-form lag kernel</span></li><li><a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> <span class=muted>Regularity and bounds</span></li><li><a class="ref" href="r.prop.app-vol-closed-reductions.html" data-label="prop:app-vol-closed-reductions">Proposition SD.1</a> <span class=muted>Two reductions</span></li><li><a class="ref" href="r.lem.app-vol-closed-determinant.html" data-label="lem:app-vol-closed-determinant">Lemma SD.15</a> <span class=muted>Determinant</span></li><li><a class="ref" href="r.lem.app-vol-closed-onebuffer.html" data-label="lem:app-vol-closed-onebuffer">Lemma SD.18</a> <span class=muted>One-buffer sums are the branch</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.IsBranchPoint</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L167">source</a></summary><pre class="lean no-mj">def IsBranchPoint {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ → Prop
+  | (σ, σ', a, c) =&gt;
+    0 ≤ σ ∧ 0 ≤ σ' ∧ 0 ≤ a ∧ 0 ≤ c ∧
+    σ = (B : ℝ)⁻¹ * (C.Sout * (s • (1 : Matrix (Fin m) (Fin m) ℝ) + a • C.Sout)⁻¹).trace ∧
+    σ' = (B : ℝ)⁻¹ * (C.Sin * (s • (1 : Matrix (Fin n) (Fin n) ℝ) + c • C.Sin)⁻¹).trace ∧
+    a = s * σ' * F (s * σ * σ') ∧ c = s * σ * F (s * σ * σ')
+
+open scoped Classical in
+/-- The branch point of `F` at `s`: the chosen solution when one exists, and `0` otherwise
+(the total map, as `Muon.DetEquiv.branchSol`). -/
+def branchPt {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.branchPt</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L178">source</a></summary><pre class="lean no-mj">def branchPt {m n : ℕ} (F : ℝ → ℝ) (C : Muon.Covariances m n) (B : ℕ) (s : ℝ) :
+    ℝ × ℝ × ℝ × ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_branch_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L2662">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_branch_i {m n B : ℕ} (hB : 0 &lt; B) {P : Measure Ω} [IsProbabilityMeasure P]
+    {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ) {s : ℝ} (hs : 0 &lt; s)
+    (C : Muon.Covariances m n) :
+    (C.Sout = 0 →
+      IsBranchPoint (profileF P ξ) C B s
+          (0, (B : ℝ)⁻¹ * C.Sin.trace / s, (B : ℝ)⁻¹ * C.Sin.trace * profileF P ξ 0, 0) ∧
+      ∀ x, IsBranchPoint (profileF P ξ) C B s x →
+          x = (0, (B : ℝ)⁻¹ * C.Sin.trace / s, (B : ℝ)⁻¹ * C.Sin.trace * profileF P ξ 0, 0)) ∧
+    (C.Sin = 0 →
+      IsBranchPoint (profileF P ξ) C B s
+          ((B : ℝ)⁻¹ * C.Sout.trace / s, 0, 0, (B : ℝ)⁻¹ * C.Sout.trace * profileF P ξ 0) ∧
+      ∀ x, IsBranchPoint (profileF P ξ) C B s x →
+          x = ((B : ℝ)⁻¹ * C.Sout.trace / s, 0, 0, (B : ℝ)⁻¹ * C.Sout.trace * profileF P ξ 0)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_branch_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L2780">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_branch_ii {m n B : ℕ} (hB : 0 &lt; B) {P : Measure Ω}
+    [IsProbabilityMeasure P] {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ) {s : ℝ}
+    (hs : 0 &lt; s) (C : Muon.Covariances m n) (hout : C.Sout ≠ 0) (hin : C.Sin ≠ 0)
+    (γ : ℝ) (hγ : (max m n : ℝ) ≤ γ * B) :
+    (∃! x, IsBranchPoint (profileF P ξ) C B s x) ∧
+    ∀ x, IsBranchPoint (profileF P ξ) C B s x →
+      (0 &lt; x.1 ∧ 0 &lt; x.2.1 ∧ 0 &lt; x.2.2.1 ∧ 0 &lt; x.2.2.2) ∧
+      x.1 ≤ C.Sout.trace / (B * s) ∧ x.2.1 ≤ C.Sin.trace / (B * s) ∧
+      x.2.2.1 ≤ C.Sin.trace / B * profileF P ξ 0 ∧
+      x.2.2.2 ≤ C.Sout.trace / B * profileF P ξ 0 ∧
+      profileR P ξ (s * x.1 * x.2.1) = x.2.2.1 * x.1 ∧
+      x.2.2.1 * x.1 = x.2.2.2 * x.2.1 ∧
+      x.2.2.1 * x.1 &lt; (min C.Sout.rank C.Sin.rank : ℝ) / B ∧
+      (min C.Sout.rank C.Sin.rank : ℝ) / B ≤ γ := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_branch_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L3046">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_branch_iii {m n B : ℕ} (hB : 0 &lt; B) {P : Measure Ω}
+    [IsProbabilityMeasure P] {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ)
+    (C : Muon.Covariances m n) (hout : C.Sout ≠ 0) (hin : C.Sin ≠ 0) :
+    AnalyticOnNhd ℝ (fun s =&gt; branchPt (profileF P ξ) C B s) (Ioi 0) ∧
+    StrictAntiOn (fun s =&gt; s * (branchPt (profileF P ξ) C B s).1 *
+      (branchPt (profileF P ξ) C B s).2.1) (Ioi 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_branch_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L3288">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_branch_iv {m n B : ℕ} (hB : 0 &lt; B) {P : Measure Ω}
+    [IsProbabilityMeasure P] {ξ : ι → Ω → ℝ} (hξ : def_app_vol_closed_profile P ξ)
+    (C : Muon.Covariances m n) {ξn : ℕ → ι → Ω → ℝ}
+    (hξn : ∀ k, def_app_vol_closed_profile P (ξn k))
+    (hconv : ∀ ε &gt; (0 : ℝ), ∃ N : ℕ, ∀ k ≥ N, ∀ q ∈ Ici (0 : ℝ),
+      |profileF P (ξn k) q - profileF P ξ q| ≤ ε)
+    (hbdd : BddAbove (Set.range fun k =&gt; profileF P (ξn k) 0)) :
+    ∀ s : ℝ, 0 &lt; s →
+      Tendsto (fun k =&gt; branchPt (profileF P (ξn k)) C B s) atTop
+        (𝓝 (branchPt (profileF P ξ) C B s)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_closed_branch_ema</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Profile.lean#L3463">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_closed_branch_ema {m n B : ℕ} (hB : 0 &lt; B) {P : Measure Ω}
+    [IsProbabilityMeasure P] {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {ℓ : ℕ}
+    {g : ℕ ⊕ Fin ℓ → Ω → ℝ} (hg : IsStdGaussianFamily P g)
+    (C : Muon.Covariances m n) (Cs γ : ℝ) (ν ν' : FiniteMeasure ℝ)
+    (hν : (ν : Measure ℝ) = Muon.nuOut C B) (hν' : (ν' : Measure ℝ) = Muon.nuIn C B)
+    (hK : (ν, ν') ∈ Muon.DetEquiv.classK Cs γ) {s : ℝ} (hs : 0 &lt; s) :
+    profileF P (emaXi₁ β ℓ g) = Muon.DetEquiv.Fw (Muon.emaW β) ∧
+    branchPt (profileF P (emaXi₁ β ℓ g)) C B s =
+      Muon.DetEquiv.branchSol (Muon.DetEquiv.Fw (Muon.emaW β)) ν ν' s := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

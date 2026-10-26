@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SA.1 (Recursion of the algorithm)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SA.1 (Recursion of the algorithm)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-setup-augmented"><div class="thm-head"><a class="thm-name" href="r.cor.app-setup-augmented.html" data-label="cor:app-setup-augmented">Corollary SA.1</a> <span class="thm-title">(Recursion of the algorithm)</span></div><div class="thm-body"><div class="p">In <a class="ref" href="r.def.app-setup-algorithm.html" data-label="def:app-setup-algorithm">Definition SA.2</a>, assume <span class="mi">\(\EE\norm{\Delta_0}_\F^2&lt;\infty\)</span>. Then for every <span class="mi">\(t\ge0\)</span> the identities <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-mode" data-label="eqn:app-setup-mode">(SA.20)</a>, <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-row" data-label="eqn:app-setup-row">(SA.21)</a> and <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-total" data-label="eqn:app-setup-total">(SA.22)</a> hold with <span class="mi">\({\mathsf S}=\Gtilde^\circ\)</span>, with <span class="mi">\(0\le\cV_{ij}(t)\le1\)</span>. In particular</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-augmented"></span>\begin{equation}\tag{SA.24}
+\EE_t\big[\cR(t+1)\big]-\cR(t)=-\lr_t\big\langle\Dt,\EE_t\Gtilde^\circ\big\rangle_\Sigma+\frac{\lr_t^2}2\,\EE_t\norm{\Gtilde^\circ}_\Sigma^2 .
+\end{equation}</div>
+<div class="p">On <span class="mi">\(\{t&lt;t_{\mathrm{stop}}\}\)</span> the conditional expectations in <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-DV" data-label="eqn:app-setup-DV">(SA.19)</a> and <a class="ref" href="r.cor.app-setup-augmented.html#L-eqn:app-setup-augmented" data-label="eqn:app-setup-augmented">(SA.24)</a> are obtained by integrating the fresh batch of step <span class="mi">\(t\)</span> with <span class="mi">\((\Dt,M_{t-1}^\circ)\)</span> held fixed, because the batch is independent of the past; on <span class="mi">\(\{t\ge t_{\mathrm{stop}}\}\)</span> both sides of <a class="ref" href="r.cor.app-setup-augmented.html#L-eqn:app-setup-augmented" data-label="eqn:app-setup-augmented">(SA.24)</a> vanish.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The update satisfies <span class="mi">\(\norm{\Gtilde^\circ}\le1\)</span> and <span class="mi">\(\norm{\Gtilde^\circ}_\F^2\le\min(\Nout,\Nin)\)</span> by <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(i), so <span class="mi">\(\EE\norm{\Dt}_\F^2&lt;\infty\)</span> for every <span class="mi">\(t\)</span> and <a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> applies at every <span class="mi">\(t\)</span>. The identity <a class="ref" href="r.cor.app-setup-augmented.html#L-eqn:app-setup-augmented" data-label="eqn:app-setup-augmented">(SA.24)</a> is <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-total" data-label="eqn:app-setup-total">(SA.22)</a> rewritten with <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-contractions" data-label="eqn:app-setup-contractions">(SA.23)</a> and <a class="ref" href="r.prop.app-setup-moments.html#L-eqn:app-setup-risk-trace" data-label="eqn:app-setup-risk-trace">(SA.4)</a>. The bound <span class="mi">\(\cV_{ij}(t)\le1\)</span> follows from <span class="mi">\(\abs{u_i^\T\Gtilde^\circ v_j}\le\norm{\Gtilde^\circ}\le1\)</span>. On <span class="mi">\(\{t&lt;t_{\mathrm{stop}}\}\)</span> the update is a function of <span class="mi">\((\Dt,M_{t-1}^\circ)\)</span> and of the batch of step <span class="mi">\(t\)</span>; on <span class="mi">\(\{t\ge t_{\mathrm{stop}}\}\)</span> the update vanishes and <span class="mi">\(\Delta_{t+1}=\Dt\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li><li><a class="ref" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> <span class=muted>Conditional recursion of the projected risks</span></li><li><a class="ref" href="r.prop.app-setup-moments.html" data-label="prop:app-setup-moments">Proposition SA.1</a> <span class=muted>Residual and gradient moments</span></li><li><a class="ref" href="r.def.app-setup-algorithm.html" data-label="def:app-setup-algorithm">Definition SA.2</a> <span class=muted>The algorithm</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.cor_app_setup_augmented_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L1144">source</a></summary><pre class="lean no-mj">theorem cor_app_setup_augmented_i {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] {B : ℕ} (hM : ModelLaw P ν B) (S : SpectralData C)
+    (p : AlgParams m n) (s₀ : Ω → AlgState m n)
+    (hs₀W : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).W i j)
+    (hs₀M : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).Mprev i j)
+    (hΔ0 : ∀ i j, MemLp (fun ω =&gt; devRand C p s₀ hM.x 0 ω i j) 2 P) (t : ℕ) :
+    (∀ᵐ ω ∂P, ∀ i j, 0 ≤ condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω
+        ∧ condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω ≤ 1)
+      ∧ (∀ i j, (condExp (hM.ℱ t) P fun ω =&gt; modeQ S (devRand C p s₀ hM.x (t + 1) ω) i j)
+        =ᵐ[P] fun ω =&gt; modeQ S (devRand C p s₀ hM.x t ω) i j
+          - 2 * p.η t * condDrift P (hM.ℱ t) S (devRand C p s₀ hM.x t) (gtRand C p s₀ hM.x t) i j ω
+          + p.η t ^ 2 * condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω)
+      ∧ (∀ i, (condExp (hM.ℱ t) P fun ω =&gt; rowQ S (devRand C p s₀ hM.x (t + 1) ω) i)
+        =ᵐ[P] fun ω =&gt; rowQ S (devRand C p s₀ hM.x t ω) i
+          - 2 * p.η t * (∑ j, condDrift P (hM.ℱ t) S (devRand C p s₀ hM.x t)
+              (gtRand C p s₀ hM.x t) i j ω)
+          + p.η t ^ 2 * (∑ j, condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω))
+      ∧ ((condExp (hM.ℱ t) P fun ω =&gt; riskSigma C (devRand C p s₀ hM.x (t + 1) ω))
+        =ᵐ[P] fun ω =&gt; riskSigma C (devRand C p s₀ hM.x t ω)
+          - p.η t * (∑ i, ∑ j, S.μ i * S.lam j * condDrift P (hM.ℱ t) S (devRand C p s₀ hM.x t)
+              (gtRand C p s₀ hM.x t) i j ω)
+          + p.η t ^ 2 / 2 * (∑ i, ∑ j, S.μ i * S.lam j
+              * condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω)) := by</pre></details><details class="decl"><summary><code>Muon.Setup.cor_app_setup_augmented_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L1223">source</a></summary><pre class="lean no-mj">theorem cor_app_setup_augmented_ii {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] {B : ℕ} (hM : ModelLaw P ν B) (p : AlgParams m n)
+    (s₀ : Ω → AlgState m n)
+    (hs₀W : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).W i j)
+    (hs₀M : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).Mprev i j)
+    (hΔ0 : ∀ i j, MemLp (fun ω =&gt; devRand C p s₀ hM.x 0 ω i j) 2 P) (t : ℕ) :
+    (fun ω =&gt; condExp (hM.ℱ t) P (fun ω' =&gt; riskSigma C (devRand C p s₀ hM.x (t + 1) ω')) ω
+        - riskSigma C (devRand C p s₀ hM.x t ω))
+      =ᵐ[P] fun ω =&gt;
+        - p.η t * pairSigma C (devRand C p s₀ hM.x t ω)
+            (Matrix.of fun a b =&gt; condExp (hM.ℱ t) P (fun ω' =&gt; gtRand C p s₀ hM.x t ω' a b) ω)
+        + p.η t ^ 2 / 2 * condExp (hM.ℱ t) P
+            (fun ω' =&gt; pairSigma C (gtRand C p s₀ hM.x t ω') (gtRand C p s₀ hM.x t ω')) ω := by</pre></details><details class="decl"><summary><code>Muon.Setup.cor_app_setup_augmented_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L1308">source</a></summary><pre class="lean no-mj">theorem cor_app_setup_augmented_iii {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] {B : ℕ} (hM : ModelLaw P ν B) (p : AlgParams m n)
+    (S : SpectralData C) (s₀ : Ω → AlgState m n)
+    (hs₀W : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).W i j)
+    (hs₀M : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).Mprev i j) (t : ℕ) :
+    ∀ᵐ ω ∂P, (t : ℕ∞) &lt; tstopRand C p s₀ hM.x ω →
+      ((∀ a c, condExp (hM.ℱ t) P (fun ω' =&gt; gtRand C p s₀ hM.x t ω' a c) ω
+          = ∫ b, stepUpdate C p (runRand C p s₀ hM.x t ω) b a c
+              ∂(Measure.pi fun _ : Fin B =&gt; ν))
+        ∧ (∀ i j, condVol P (hM.ℱ t) S (gtRand C p s₀ hM.x t) i j ω
+          = ∫ b, (S.u i ⬝ᵥ (stepUpdate C p (runRand C p s₀ hM.x t ω) b *ᵥ S.v j)) ^ 2
+              ∂(Measure.pi fun _ : Fin B =&gt; ν))
+        ∧ (condExp (hM.ℱ t) P
+              (fun ω' =&gt; pairSigma C (gtRand C p s₀ hM.x t ω') (gtRand C p s₀ hM.x t ω')) ω
+          = ∫ b, pairSigma C (stepUpdate C p (runRand C p s₀ hM.x t ω) b)
+              (stepUpdate C p (runRand C p s₀ hM.x t ω) b)
+              ∂(Measure.pi fun _ : Fin B =&gt; ν))) := by</pre></details><details class="decl"><summary><code>Muon.Setup.cor_app_setup_augmented_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L1375">source</a></summary><pre class="lean no-mj">theorem cor_app_setup_augmented_iv {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} {ν : Measure (Vec m × Vec n)}
+    [IsProbabilityMeasure ν] {B : ℕ} (hM : ModelLaw P ν B) (p : AlgParams m n)
+    (s₀ : Ω → AlgState m n)
+    (hs₀W : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).W i j)
+    (hs₀M : ∀ i j, Measurable[hM.ℱ 0] fun ω =&gt; (s₀ ω).Mprev i j) (t : ℕ) :
+    ∀ᵐ ω ∂P, tstopRand C p s₀ hM.x ω ≤ (t : ℕ∞) →
+      (condExp (hM.ℱ t) P (fun ω' =&gt; riskSigma C (devRand C p s₀ hM.x (t + 1) ω')) ω
+          - riskSigma C (devRand C p s₀ hM.x t ω) = 0)
+      ∧ (- p.η t * pairSigma C (devRand C p s₀ hM.x t ω)
+            (Matrix.of fun a b =&gt; condExp (hM.ℱ t) P (fun ω' =&gt; gtRand C p s₀ hM.x t ω' a b) ω)
+          + p.η t ^ 2 / 2 * condExp (hM.ℱ t) P
+              (fun ω' =&gt; pairSigma C (gtRand C p s₀ hM.x t ω') (gtRand C p s₀ hM.x t ω')) ω
+          = 0) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

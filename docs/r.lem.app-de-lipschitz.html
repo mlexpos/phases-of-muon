@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.9 (Nuclear-norm Lipschitz bound)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.9 (Nuclear-norm Lipschitz bound)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-lipschitz"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a> <span class="thm-title">(Nuclear-norm Lipschitz bound)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(K,K'\in\R^{\Nout\times\Nin}\)</span> and <span class="mi">\(s&gt;0\)</span>, <span class="mi">\(\norm{R_s(K)-R_s(K')}_*\le2s^{-3/2}\norm{K-K'}_*\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The resolvent <span class="mi">\(R_s(K)\)</span> is a block of the resolvent of a symmetric matrix at a point at distance <span class="mi">\(\sqrt s\)</span> from the real axis. Let</div>
+<div class="md">\[
+\mathcal D(K)\defeq\begin{pmatrix}0&amp;K\\K^\T&amp;0\end{pmatrix},\qquad
+\mathcal Y(K)\defeq\big(\mathcal D(K)-i\sqrt s\,\Id\big)^{-1}.
+\]</div>
+<div class="p">Since <span class="mi">\(\mathcal D(K)\)</span> is real symmetric, its spectrum is real, and <span class="mi">\(\norm{\mathcal Y(K)}\le s^{-1/2}\)</span>. Block inversion with the Schur complement of the lower-right block <span class="mi">\(-i\sqrt s\,\Id\)</span> shows that the upper-left <span class="mi">\(\Nout\times\Nout\)</span> block of <span class="mi">\(\mathcal Y(K)\)</span> is</div>
+<div class="md">\[
+\Big(-i\sqrt s\,\Id-K\big(-i\sqrt s\big)^{-1}K^\T\Big)^{-1}
+=\Big(-\frac{i}{\sqrt s}\big(KK^\T+s\Id\big)\Big)^{-1}=i\sqrt s\,R_s(K).
+\]</div>
+<div class="p">The difference of the two dilated resolvents is controlled by the resolvent identity:</div>
+<div class="md">\[
+\mathcal Y(K)-\mathcal Y(K')=\mathcal Y(K)\,\mathcal D(K'-K)\,\mathcal Y(K').
+\]</div>
+<div class="p">The nuclear norm is unitarily invariant, so the ideal property <span class="mi">\(\norm{XYZ}_*\le\norm X\,\norm Y_*\,\norm Z\)</span> [<a class="cite" href="bibliography.html#bib-bhatia1997matrix">8</a>, Proposition IV.2.4 and (IV.40)] applies; the singular values of <span class="mi">\(\mathcal D(E)\)</span> are those of <span class="mi">\(E\)</span>, each taken twice, so <span class="mi">\(\norm{\mathcal D(E)}_*=2\norm E_*\)</span>. Hence</div>
+<div class="md">\[
+\norm{\mathcal Y(K)-\mathcal Y(K')}_*\le\norm{\mathcal Y(K)}\,\norm{\mathcal D(K'-K)}_*\,\norm{\mathcal Y(K')}
+\le\frac{2}{s}\,\norm{K-K'}_* .
+\]</div>
+<div class="p">Compression to the upper-left block does not increase the nuclear norm, by the same ideal property with the orthogonal projection <span class="mi">\(P\)</span> onto the first <span class="mi">\(\Nout\)</span> coordinates in place of <span class="mi">\(X\)</span> and <span class="mi">\(Z\)</span>. Therefore</div>
+<div class="md">\[
+\sqrt s\,\norm{R_s(K)-R_s(K')}_*=\norm{P\big(\mathcal Y(K)-\mathcal Y(K')\big)P}_*\le\frac2s\,\norm{K-K'}_* ,
+\]</div>
+<div class="p">which is the claim after division by <span class="mi">\(\sqrt s\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li><li><a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a> <span class=muted>Finite bounds for tested contractions</span></li><li><a class="ref" href="r.lem.app-dyn-minor.html" data-label="lem:app-dyn-minor">Lemma SE.12</a> <span class=muted>The scalar of the minor</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_lipschitz</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L1102">source</a></summary><pre class="lean no-mj">theorem lem_app_de_lipschitz {m n : ℕ} (K K' : Mat m n) (s : ℝ) (hs : 0 &lt; s) :
+    nuc (Rs K s - Rs K' s) ≤ 2 / (s * Real.sqrt s) * nuc (K - K') := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

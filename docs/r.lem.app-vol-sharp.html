@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.1 (Odd spectral functions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.1 (Odd spectral functions)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-sharp"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-sharp.html" data-label="lem:app-vol-sharp">Lemma SD.1</a> <span class="thm-title">(Odd spectral functions)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(f\)</span> be odd, bounded and Lipschitz on <span class="mi">\(\R\)</span>, with <span class="mi">\(\norm f_\infty\defeq\sup_x\abs{f(x)}\)</span> and Lipschitz constant <span class="mi">\(\operatorname{Lip}(f)\)</span>. For all <span class="mi">\(K,K'\in\R^{\Nout\times\Nin}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-sharp-bounds"></span>\begin{equation}\tag{SD.4}
+\begin{gathered}
+\norm{f^\sharp(K)}\le\norm f_\infty,\qquad
+\norm{f^\sharp(K)}_\F\le\sqrt{\min(\Nout,\Nin)}\,\norm f_\infty,\\
+\norm{f^\sharp(K)-f^\sharp(K')}_\F\le\operatorname{Lip}(f)\,\norm{K-K'}_\F .
+\end{gathered}
+\end{equation}</div>
+<div class="p">The filters <a class="ref" href="s.SD.html#L-eqn:app-vol-filters" data-label="eqn:app-vol-filters">(SD.2)</a> satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-filter-constants"></span>\begin{equation}\tag{SD.5}
+\norm{\iota_s}_\infty=\frac1{2\sqrt s},\quad \operatorname{Lip}(\iota_s)\le\frac1s,\qquad
+\norm{\omega_\ridge}_\infty=1,\quad \operatorname{Lip}(\omega_\ridge)\le\ridge^{-1/2},
+\end{equation}</div>
+<div class="p">and, for all <span class="mi">\(s,s'\ge s_\circ&gt;0\)</span> and <span class="mi">\(\ridge,\ridge'\ge\ridge_\circ&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-filter-parameter"></span>\begin{equation}\tag{SD.6}
+\norm{\iota_s-\iota_{s'}}_\infty\le\frac{\abs{s-s'}}{s_\circ^{3/2}},\qquad
+\norm{\omega_\ridge-\omega_{\ridge'}}_\infty\le\frac{\abs{\ridge-\ridge'}}{2\ridge_\circ} .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first two bounds read off the singular values: the singular values of <span class="mi">\(f^\sharp(K)\)</span> are the numbers <span class="mi">\(\abs{f(s_k)}\le\norm f_\infty\)</span>, and there are at most <span class="mi">\(\min(\Nout,\Nin)\)</span> of them.</div>
+<div class="p">The Lipschitz bound is the divided-difference argument in the proof of <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(iii). That argument uses only that the function is odd and Lipschitz: for odd <span class="mi">\(f\)</span> the symmetric dilation satisfies</div>
+<div class="md">\[
+f\big(\mathcal D(K)\big)=\begin{pmatrix}0&amp;f^\sharp(K)\\ f^\sharp(K)^\T&amp;0\end{pmatrix},
+\]</div>
+<div class="p">by the eigenvector computation given there, and the divided-difference bound for <span class="mi">\(\mathcal D(K)\)</span> and <span class="mi">\(\mathcal D(K')\)</span> gives the third bound of <a class="ref" href="r.lem.app-vol-sharp.html#L-eqn:app-vol-sharp-bounds" data-label="eqn:app-vol-sharp-bounds">(SD.4)</a> after cancelling the factor <span class="mi">\(\sqrt2\)</span>.</div>
+<div class="p">The constants of the two filters are elementary. The maximum of <span class="mi">\(x/(x^2+s)\)</span> is attained at <span class="mi">\(x=\sqrt s\)</span>, and</div>
+<div class="md">\[
+\iota_s'(x)=\frac{s-x^2}{(x^2+s)^2},\qquad \abs{\iota_s'(x)}\le\frac{1}{x^2+s}\le\frac1s .
+\]</div>
+<div class="p">The bounds for <span class="mi">\(\omega_\ridge\)</span> are those of the proof of <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(iii). For the parameters,</div>
+<div class="md">\[
+\partial_s\iota_s(x)=-\frac{x}{(x^2+s)^2},\qquad
+\partial_\ridge\omega_\ridge(x)=-\frac{x}{2(x^2+\ridge)^{3/2}},
+\]</div>
+<div class="p">whose absolute values are at most <span class="mi">\(\iota_s(\abs x)/(x^2+s)\le s^{-3/2}\)</span> and <span class="mi">\(1/(2\ridge)\)</span>; the mean value theorem in the parameter gives <a class="ref" href="r.lem.app-vol-sharp.html#L-eqn:app-vol-filter-parameter" data-label="eqn:app-vol-filter-parameter">(SD.6)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a> <span class=muted>Finite bounds for tested contractions</span></li><li><a class="ref" href="r.lem.app-vol-tree-extension.html" data-label="lem:app-vol-tree-extension">Lemma SD.10</a> <span class=muted>Extension to continuous filters</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.cor.app-vol-closed-bounds.html" data-label="cor:app-vol-closed-bounds">Corollary SD.2</a> <span class=muted>Regularity and bounds</span></li><li><a class="ref" href="r.lem.app-dyn-schatten.html" data-label="lem:app-dyn-schatten">Lemma SE.4</a> <span class=muted>Schatten sensitivity of the filter</span></li><li><a class="ref" href="r.lem.app-dyn-second.html" data-label="lem:app-dyn-second">Lemma SE.5</a> <span class=muted>Second-order filter estimates</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_sharp_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L513">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_sharp_i {m n : ℕ} (f : ℝ → ℝ) (hf : IsOddBddLip f) (K K' : Mat m n) :
+    opNorm (oddSharp f K) ≤ supNorm f ∧
+    fro (oddSharp f K) ≤ Real.sqrt ((min m n : ℕ) : ℝ) * supNorm f ∧
+    fro (oddSharp f K - oddSharp f K') ≤ lipConst f * fro (K - K') := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_sharp_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L801">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_sharp_ii {s ϱ : ℝ} (hs : 0 &lt; s) (hϱ : 0 &lt; ϱ) :
+    IsOddBddLip (iotaF s) ∧ IsOddBddLip (omegaF ϱ) ∧
+    supNorm (iotaF s) = 1 / (2 * Real.sqrt s) ∧ lipConst (iotaF s) ≤ 1 / s ∧
+    supNorm (omegaF ϱ) = 1 ∧ lipConst (omegaF ϱ) ≤ 1 / Real.sqrt ϱ := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_sharp_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L837">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_sharp_iii {s s' ϱ ϱ' s₀ ϱ₀ : ℝ} (hs₀ : 0 &lt; s₀) (hϱ₀ : 0 &lt; ϱ₀)
+    (hs : s₀ ≤ s) (hs' : s₀ ≤ s') (hϱ : ϱ₀ ≤ ϱ) (hϱ' : ϱ₀ ≤ ϱ') :
+    supNorm (fun x =&gt; iotaF s x - iotaF s' x) ≤ |s - s'| / s₀ ^ ((3 : ℝ) / 2) ∧
+    supNorm (fun x =&gt; omegaF ϱ x - omegaF ϱ' x) ≤ |ϱ - ϱ'| / (2 * ϱ₀) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

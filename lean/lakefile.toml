@@ -1,0 +1,36 @@
+name = "muon"
+version = "0.1.0"
+defaultTargets = ["Muon"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.34.1"
+
+[[lean_lib]]
+name = "Muon"
+
+# Foundations packages (final integration, 2026-10-25): F.7.P1 measure existence uses SpectralFoundations.
+[[require]]
+name = "spectral_foundations"
+git = "https://github.com/mlexpos/alea-foundations"
+rev = "dbd3879ac4314f15f3d4d88b7bbbfd42a1287335"
+subDir = "spectral-foundations"
+
+[[require]]
+name = "gaussian_foundations"
+git = "https://github.com/mlexpos/alea-foundations"
+rev = "dbd3879ac4314f15f3d4d88b7bbbfd42a1287335"
+subDir = "gaussian-foundations"
+
+[[require]]
+name = "probability_foundations"
+git = "https://github.com/mlexpos/alea-foundations"
+rev = "dbd3879ac4314f15f3d4d88b7bbbfd42a1287335"
+subDir = "probability-foundations"
+
+[[require]]
+name = "matrix_concentration"
+git = "https://github.com/mlexpos/alea-foundations"
+rev = "dbd3879ac4314f15f3d4d88b7bbbfd42a1287335"
+subDir = "matrix-concentration"

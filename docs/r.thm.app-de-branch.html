@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SB.1 (The weighted branch)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SB.1 (The weighted branch)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent · <a href="t.thm.app-de-branch.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-de-branch"><div class="thm-head"><a class="thm-name" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class="thm-title">(The weighted branch)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(w\)</span> be nonnegative, summable and not all zero, and let <span class="mi">\(C_\Sigma,\gamma_\star&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">(Existence and uniqueness.) For every <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span> and every <span class="mi">\(s&gt;0\)</span> the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span> has exactly one solution in <span class="mi">\([0,\infty)^4\)</span>. It satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-box"></span>\begin{equation}\tag{SB.6}
+\sigma,\tilde\sigma\le\frac{\gamma_\star C_\Sigma}{s},\qquad
+\tilde s_1,s_1\le\gamma_\star C_\Sigma\,\sw2,\qquad q\le\frac{(\gamma_\star C_\Sigma)^2}{s}.
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">(Continuity.) Equip <span class="mi">\(\mathcal K\)</span> with the topology of weak convergence against <span class="mi">\(C([0,C_\Sigma])\)</span> in each coordinate. The solution map <span class="mi">\((s,\nu,\tilde\nu)\mapsto(\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> is continuous on <span class="mi">\((0,\infty)\times\mathcal K\)</span>, and for every compact <span class="mi">\(I\subset(0,\infty)\)</span> it is uniformly continuous in <span class="mi">\(s\in I\)</span>, uniformly over <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">(Stability under approximate roots.) Let <span class="mi">\(I\subset(0,\infty)\)</span> be compact with <span class="mi">\(s_-\defeq\min I\)</span>. For every <span class="mi">\(\epsilon&gt;0\)</span> there is <span class="mi">\(\delta&gt;0\)</span>, depending only on <span class="mi">\((\epsilon,I,C_\Sigma,\gamma_\star,w)\)</span>, with the following property. If <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span>, <span class="mi">\(s\in I\)</span>, and <span class="mi">\((\sigma',\tilde\sigma',a',c')\in[0,\gamma_\star C_\Sigma/s_-]^2\times[0,\gamma_\star C_\Sigma\sw2]^2\)</span> satisfy, with <span class="mi">\(q'=s\sigma'\tilde\sigma'\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+\Big|\sigma'-\int\frac{x}{s+a'x}\,\nu(dx)\Big|\le\delta,\qquad
+\Big|\tilde\sigma'-\int\frac{x}{s+c'x}\,\tilde\nu(dx)\Big|\le\delta,\\
+\abs{a'-s\tilde\sigma'F_w(q')}\le\delta,\qquad
+\abs{c'-s\sigma'F_w(q')}\le\delta,
+\end{gathered}
+\]</div>
+<div class="p">then <span class="mi">\(\abs{\sigma'-\sigma}+\abs{\tilde\sigma'-\tilde\sigma}+\abs{a'-\tilde s_1}+\abs{c'-s_1}\le\epsilon\)</span>, where <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> is the solution of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span> for <span class="mi">\((\nu,\tilde\nu)\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">(Smoothness in <span class="mi">\(s\)</span>.) Fix <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span> with <span class="mi">\(\int x\,\nu(dx)&gt;0\)</span> and <span class="mi">\(\int x\,\tilde\nu(dx)&gt;0\)</span>. Then <span class="mi">\(s\mapsto(\sigma,\tilde\sigma,\tilde s_1,s_1,q)(-s)\)</span> is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span>, and <span class="mi">\(\abs{q'(s)}\le q(s)/s\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>.</div><div class="p">Throughout, <span class="mi">\(z=-s\)</span>, and we write <span class="mi">\(r=r_w\)</span> from <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(iii). Set <span class="mi">\(p\defeq\nu((0,C_\Sigma])\)</span> and <span class="mi">\(\tilde p\defeq\tilde\nu((0,C_\Sigma])\)</span>.</div>
+<div class="p"><em>Degenerate cases.</em> If <span class="mi">\(p=0\)</span> the system has the unique solution</div>
+<div class="md">\[
+\sigma=0,\qquad q=0,\qquad s_1=0,\qquad \tilde\sigma=\frac1s\int x\,\tilde\nu(dx),\qquad \tilde s_1=s\tilde\sigma F_w(0)=s\tilde\sigma\,\sw2 .
+\]</div>
+<div class="p">Indeed <span class="mi">\(\nu\)</span> is then a multiple of <span class="mi">\(\delta_0\)</span>, so the first equation forces <span class="mi">\(\sigma=0\)</span> whatever <span class="mi">\(\tilde s_1\)</span> is, and the remaining equations determine the other unknowns in the displayed order. The case <span class="mi">\(\tilde p=0\)</span> is symmetric. Assume now <span class="mi">\(p&gt;0\)</span> and <span class="mi">\(\tilde p&gt;0\)</span>.</div>
+<div class="p"><em>Reduction to one scalar equation.</em> The two trace equations are inverted through the functions</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-H"></span>\begin{equation}\tag{SB.7}
+H(x)\defeq\int\frac{x\lambda}{s+x\lambda}\,\nu(d\lambda),\qquad
+\widetilde H(x)\defeq\int\frac{x\lambda}{s+x\lambda}\,\tilde\nu(d\lambda)\qquad(x\ge0).
+\end{equation}</div>
+<div class="p">The function <span class="mi">\(H\)</span> is continuous and strictly increasing on <span class="mi">\([0,\infty)\)</span>, since <span class="mi">\(p&gt;0\)</span> and the integrand is strictly increasing in <span class="mi">\(x\)</span> for <span class="mi">\(\lambda&gt;0\)</span>, with</div>
+<div class="md">\[
+H(0)=0,\qquad H(x)\uparrow p\ \ (x\to\infty)
+\]</div>
+<div class="p">by monotone convergence. Its quotient</div>
+<div class="md">\[
+\frac{H(x)}{x}=\int\frac{\lambda}{s+x\lambda}\,\nu(d\lambda)
+\]</div>
+<div class="p">is strictly decreasing in <span class="mi">\(x&gt;0\)</span> and tends to <span class="mi">\(m_1/s\)</span> as <span class="mi">\(x\downarrow0\)</span>, where <span class="mi">\(m_1\defeq\int\lambda\,\nu(d\lambda)&gt;0\)</span>. Let <span class="mi">\(X:[0,p)\to[0,\infty)\)</span> be the inverse of <span class="mi">\(H\)</span>. Then <span class="mi">\(X\)</span> is continuous and strictly increasing, <span class="mi">\(X(\rho)\to\infty\)</span> as <span class="mi">\(\rho\uparrow p\)</span>, and</div>
+<div class="md">\[
+\frac{X(\rho)}{\rho}=\Big(\frac{H(X(\rho))}{X(\rho)}\Big)^{-1}
+\]</div>
+<div class="p">is strictly increasing on <span class="mi">\((0,p)\)</span> with limit <span class="mi">\(s/m_1\)</span> at <span class="mi">\(0^+\)</span>. The same holds for <span class="mi">\(\widetilde H\)</span>, <span class="mi">\(\widetilde X\)</span> and <span class="mi">\(\tilde m_1\)</span>.</div>
+<div class="p">Every nonnegative solution is determined by <span class="mi">\(q\)</span>. Let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> be a solution in <span class="mi">\([0,\infty)^4\)</span>. Since <span class="mi">\(p&gt;0\)</span>, the first equation gives <span class="mi">\(\sigma&gt;0\)</span>; likewise <span class="mi">\(\tilde\sigma&gt;0\)</span>; hence <span class="mi">\(q&gt;0\)</span>, <span class="mi">\(F_w(q)&gt;0\)</span> and <span class="mi">\(\tilde s_1,s_1&gt;0\)</span>. The coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a> reads</div>
+<div class="md">\[
+H(\tilde s_1)=\tilde s_1\sigma=r(q),\qquad \widetilde H(s_1)=s_1\tilde\sigma=r(q),
+\]</div>
+<div class="p">so <span class="mi">\(r(q)&lt;\min(p,\tilde p)\)</span> and</div>
+<div class="md">\[
+\tilde s_1=X(r(q)),\qquad s_1=\widetilde X(r(q)),\qquad \sigma=\frac{r(q)}{\tilde s_1},\qquad \tilde\sigma=\frac{r(q)}{s_1}.
+\]</div>
+<div class="p">Substituting into <span class="mi">\(q=s\sigma\tilde\sigma\)</span> gives the scalar equation</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-crossing"></span>\begin{equation}\tag{SB.8}
+\Phi(q)\defeq\frac{X(r(q))}{r(q)}\cdot\frac{\widetilde X(r(q))}{r(q)}-\frac{s}{q}=0,
+\qquad q\in Q\defeq\{q&gt;0:\ r(q)&lt;\min(p,\tilde p)\}.
+\end{equation}</div>
+<div class="p">Conversely, every solution of the scalar equation yields a solution of the system. If <span class="mi">\(q\in Q\)</span> solves <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a>, define <span class="mi">\(\tilde s_1\)</span>, <span class="mi">\(s_1\)</span>, <span class="mi">\(\sigma\)</span>, <span class="mi">\(\tilde\sigma\)</span> by the last display. The first equation of the system holds because</div>
+<div class="md">\[
+\sigma=\frac{H(\tilde s_1)}{\tilde s_1}=\int\frac{\lambda}{s+\tilde s_1\lambda}\,\nu(d\lambda),
+\]</div>
+<div class="p">and likewise the second. The crossing equation gives</div>
+<div class="md">\[
+s\sigma\tilde\sigma=\frac{s\,r(q)^2}{\tilde s_1s_1}=q ,
+\]</div>
+<div class="p">which is the third equation. Finally, the crossing equation and <span class="mi">\(r=qF_w\)</span> give</div>
+<div class="md">\[
+\tilde s_1s_1=\frac{s\,r(q)^2}{q}=sqF_w(q)^2,
+\]</div>
+<div class="p">so</div>
+<div class="md">\[
+\tilde s_1=\frac{sqF_w(q)^2}{s_1}=s\,\frac{r(q)}{s_1}\,F_w(q)=s\tilde\sigma F_w(q),
+\]</div>
+<div class="p">and symmetrically <span class="mi">\(s_1=s\sigma F_w(q)\)</span>. Hence nonnegative solutions of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> are in bijection with solutions of <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a>.</div>
+<div class="p"><em>Exactly one crossing.</em> The scalar equation has exactly one solution because <span class="mi">\(\Phi\)</span> is strictly increasing and changes sign. Since <span class="mi">\(r\)</span> is continuous and strictly increasing from <span class="mi">\(0\)</span>, the set <span class="mi">\(Q\)</span> is an interval <span class="mi">\((0,q_\dagger)\)</span> with <span class="mi">\(q_\dagger\in(0,\infty]\)</span>. On <span class="mi">\(Q\)</span> the first term of <span class="mi">\(\Phi\)</span> is positive, continuous and nondecreasing, as a product of two positive nondecreasing functions of <span class="mi">\(r(q)\)</span>, while <span class="mi">\(s/q\)</span> is continuous and strictly decreasing; so <span class="mi">\(\Phi\)</span> is continuous and strictly increasing on <span class="mi">\(Q\)</span>. At the left endpoint,</div>
+<div class="md">\[
+\lim_{q\downarrow0}\frac{X(r(q))}{r(q)}\cdot\frac{\widetilde X(r(q))}{r(q)}=\frac{s^2}{m_1\tilde m_1}&lt;\infty,\qquad
+\lim_{q\downarrow0}\frac sq=\infty,
+\]</div>
+<div class="p">so <span class="mi">\(\Phi(q)\to-\infty\)</span> as <span class="mi">\(q\downarrow0\)</span>. At the right endpoint there are two cases. If <span class="mi">\(q_\dagger&lt;\infty\)</span> then <span class="mi">\(r(q)\uparrow\min(p,\tilde p)\)</span> as <span class="mi">\(q\uparrow q_\dagger\)</span>, so <span class="mi">\(X(r(q))\)</span> or <span class="mi">\(\widetilde X(r(q))\)</span> tends to infinity while the other factor and <span class="mi">\(s/q\)</span> stay bounded, and <span class="mi">\(\Phi(q)\to+\infty\)</span>. If <span class="mi">\(q_\dagger=\infty\)</span> then <span class="mi">\(s/q\to0\)</span> while the first term stays at least <span class="mi">\(s^2/(m_1\tilde m_1)&gt;0\)</span>, so <span class="mi">\(\liminf_{q\to\infty}\Phi(q)&gt;0\)</span>. In both cases the intermediate value theorem and strict monotonicity give exactly one zero. This proves existence and uniqueness.</div>
+<div class="p">The a priori bounds <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-box" data-label="eqn:app-de-box">(SB.6)</a> follow from the three inequalities</div>
+<div class="md">\[
+\frac{x}{s+ax}\le\frac xs\le\frac{C_\Sigma}{s}\ \ (x\in[0,C_\Sigma],\ a\ge0),\qquad
+F_w\le\sw2,\qquad q=s\sigma\tilde\sigma ,
+\]</div>
+<div class="p">the second by <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>, applied to the two trace equations, to <span class="mi">\(\tilde s_1=s\tilde\sigma F_w(q)\)</span>, and to <span class="mi">\(q\)</span>.</div>
+<div class="p"><em>Continuity and stability.</em> We prove (iii) by compactness and uniqueness. Part (ii) is the special case <span class="mi">\(\delta=0\)</span> of the same argument with varying <span class="mi">\((s,\nu,\tilde\nu)\)</span>. The modulus in <span class="mi">\(s\in I\)</span> uniform over <span class="mi">\(\mathcal K\)</span> follows from continuity by the same compactness: sequences <span class="mi">\(s_n,s_n'\in I\)</span> with <span class="mi">\(\abs{s_n-s_n'}\to0\)</span> and <span class="mi">\((\nu_n,\tilde\nu_n)\in\mathcal K\)</span> have a subsequence along which <span class="mi">\((s_n,\nu_n,\tilde\nu_n)\)</span> and <span class="mi">\((s_n',\nu_n,\tilde\nu_n)\)</span> converge to the same point of <span class="mi">\(I\times\mathcal K\)</span>. Suppose (iii) fails for some <span class="mi">\(\epsilon&gt;0\)</span>. Then there are sequences <span class="mi">\((\nu_n,\tilde\nu_n)\in\mathcal K\)</span>, <span class="mi">\(s_n\in I\)</span> and tuples <span class="mi">\((\sigma_n',\tilde\sigma_n',a_n',c_n')\)</span> in the stated box whose four residuals are at most <span class="mi">\(\delta_n\to0\)</span>, but with</div>
+<div class="md">\[
+\abs{\sigma_n'-\sigma_n}+\abs{\tilde\sigma_n'-\tilde\sigma_n}+\abs{a_n'-\tilde s_{1,n}}+\abs{c_n'-s_{1,n}}&gt;\epsilon
+\]</div>
+<div class="p">for the exact solutions <span class="mi">\((\sigma_n,\tilde\sigma_n,\tilde s_{1,n},s_{1,n})\)</span>.</div>
+<div class="p">All sequences have convergent subsequences. By <a class="ref" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> and the compactness of <span class="mi">\(I\)</span> and of the box, in which the exact solutions also lie by <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-box" data-label="eqn:app-de-box">(SB.6)</a>, we may pass to a subsequence along which</div>
+<div class="md">\[
+\begin{gathered}
+(\nu_n,\tilde\nu_n)\to(\nu,\tilde\nu)\in\mathcal K\ \text{weakly},\qquad s_n\to s\in I,\\
+(\sigma_n',\tilde\sigma_n',a_n',c_n')\to(\sigma',\tilde\sigma',a',c'),\qquad
+(\sigma_n,\tilde\sigma_n,\tilde s_{1,n},s_{1,n})\to(\sigma,\tilde\sigma,a,c).
+\end{gathered}
+\]</div>
+<div class="p">Both limits solve the limit system. By <a class="ref" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> and the continuity of <span class="mi">\(F_w\)</span>, each of the four equations of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> passes to the limit along the subsequence, with residuals <span class="mi">\(\delta_n\to0\)</span> for the approximate tuples and residuals <span class="mi">\(0\)</span> for the exact ones. Hence both limit tuples solve the system at <span class="mi">\(z=-s\)</span> for <span class="mi">\((\nu,\tilde\nu)\)</span>. By uniqueness they coincide, so the displayed distance tends to <span class="mi">\(0\)</span> along the subsequence, which contradicts its being larger than <span class="mi">\(\epsilon\)</span>.</div>
+<div class="p"><em>Smoothness in <span class="mi">\(s\)</span>.</em> Here <span class="mi">\(p,\tilde p&gt;0\)</span> by hypothesis and the measures are fixed. The dependence on <span class="mi">\(s\)</span> is removed from the inverse functions by scaling. Write <span class="mi">\(H(x,s)\)</span> for the function <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-H" data-label="eqn:app-de-H">(SB.7)</a> at the spectral parameter <span class="mi">\(s\)</span> and <span class="mi">\(X(\rho,s)\)</span> for its inverse. Since</div>
+<div class="md">\[
+H(x,s)=\int\frac{(x/s)\lambda}{1+(x/s)\lambda}\,\nu(d\lambda)=H(x/s,1),
+\]</div>
+<div class="p">one has <span class="mi">\(X(\rho,s)=sX(\rho,1)\)</span>. Put <span class="mi">\(\mathsf A(\rho)\defeq X(\rho,1)\)</span> and <span class="mi">\(\widetilde{\mathsf A}(\rho)\defeq\widetilde X(\rho,1)\)</span>. The implicit function theorem applied to <span class="mi">\(H(x,1)=\rho\)</span>, whose <span class="mi">\(x\)</span>-derivative</div>
+<div class="md">\[
+\partial_xH(x,1)=\int\frac{\lambda}{(1+x\lambda)^2}\,\nu(d\lambda)
+\]</div>
+<div class="p">is positive and smooth in <span class="mi">\(x\)</span>, shows that <span class="mi">\(\mathsf A\)</span> is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,p)\)</span>, and likewise <span class="mi">\(\widetilde{\mathsf A}\)</span>.</div>
+<div class="p">The crossing equation becomes an implicit equation with a positive <span class="mi">\(q\)</span>-derivative. Write <span class="mi">\(r\)</span> for <span class="mi">\(r(q)=qF_w(q)\)</span>. Then <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a> reads</div>
+<div class="md">\[
+\frac{s^2\mathsf A(r)\widetilde{\mathsf A}(r)}{r^2}=\frac sq ,
+\]</div>
+<div class="p">that is, <span class="mi">\(\mathsf G(q,s)=0\)</span> with</div>
+<div class="md">\[
+\mathsf G(q,s)\defeq\log s+\log\mathsf A(r(q))+\log\widetilde{\mathsf A}(r(q))-\log q-2\log F_w(q).
+\]</div>
+<div class="p">Since <span class="mi">\(\mathsf A(\rho)/\rho\)</span> is nondecreasing, <span class="mi">\(\mathsf A'/\mathsf A\ge1/\rho\)</span>, and likewise for <span class="mi">\(\widetilde{\mathsf A}\)</span>. With <span class="mi">\(r'=F_w+qF_w'\)</span> this gives</div>
+<div class="md">\[
+\partial_q\mathsf G=\Big(\frac{\mathsf A'}{\mathsf A}+\frac{\widetilde{\mathsf A}'}{\widetilde{\mathsf A}}\Big)r'-\frac1q-\frac{2F_w'}{F_w}
+\ \ge\ \frac{2r'}{r}-\frac1q-\frac{2F_w'}{F_w}=\frac2q+\frac{2F_w'}{F_w}-\frac1q-\frac{2F_w'}{F_w}=\frac1q&gt;0 ,
+\]</div>
+<div class="p">where the inequality uses <span class="mi">\(\mathsf A'/\mathsf A\ge1/r\)</span> and <span class="mi">\(r'&gt;0\)</span>, and the first equality uses <span class="mi">\(r'/r=1/q+F_w'/F_w\)</span>.</div>
+<div class="p">The implicit function theorem concludes. Since <span class="mi">\(\partial_s\mathsf G=1/s\)</span> and <span class="mi">\(\mathsf G\)</span> is <span class="mi">\(C^\infty\)</span>, the function <span class="mi">\(q(s)\)</span> is <span class="mi">\(C^\infty\)</span> with</div>
+<div class="md">\[
+q'(s)=-\frac{\partial_s\mathsf G}{\partial_q\mathsf G},\qquad
+\abs{q'(s)}=\frac{1/s}{\partial_q\mathsf G}\le\frac{q}{s}.
+\]</div>
+<div class="p">The remaining coordinates are the <span class="mi">\(C^\infty\)</span> compositions</div>
+<div class="md">\[
+\tilde s_1=s\,\mathsf A(r(q(s))),\qquad s_1=s\,\widetilde{\mathsf A}(r(q(s))),\qquad
+\sigma=\frac{r(q(s))}{\tilde s_1},\qquad \tilde\sigma=\frac{r(q(s))}{s_1}. \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class=muted>Properties of the scalar functions</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> <span class=muted>Compactness of the spectral class</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.prop.app-de-normalization.html" data-label="prop:app-de-normalization">Proposition SB.2</a> <span class=muted>Normalization checks</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class=muted>Trace closure with bounded tests</span></li><li><a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> <span class=muted>Regularized mean</span></li><li><a class="ref" href="r.prop.app-drift-truncation.html" data-label="prop:app-drift-truncation">Proposition SC.1</a> <span class=muted>History truncation</span></li><li><a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> <span class=muted>Candidate-centered targets</span></li><li><a class="ref" href="r.lem.app-vol-closed-branch.html" data-label="lem:app-vol-closed-branch">Lemma SD.13</a> <span class=muted>Branch of a profile</span></li><li><a class="ref" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a> <span class=muted>Isotropic closure</span></li><li><a class="ref" href="r.prop.app-iso-zero.html" data-label="prop:app-iso-zero">Proposition SF.5</a> <span class=muted>The zero-ridge constant</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_branch_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Branch.lean#L740">source</a></summary><pre class="lean no-mj">theorem thm_app_de_branch_i {F : ℝ → ℝ} (hF : AdmissibleWeightFn F) {Cs γ : ℝ}
+    (hC : 0 &lt; Cs) (hγ : 0 &lt; γ) :
+    ∀ ν ν' : FiniteMeasure ℝ, (ν, ν') ∈ classK Cs γ → ∀ s : ℝ, 0 &lt; s →
+      (∃! x, IsBranchSol F ν ν' s x) ∧
+      ∀ x, IsBranchSol F ν ν' s x →
+        x.1 ≤ γ * Cs / s ∧ x.2.1 ≤ γ * Cs / s ∧
+        x.2.2.1 ≤ γ * Cs * F 0 ∧ x.2.2.2 ≤ γ * Cs * F 0 ∧
+        s * x.1 * x.2.1 ≤ (γ * Cs) ^ 2 / s := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_branch_i_weight</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Branch.lean#L787">source</a></summary><pre class="lean no-mj">theorem thm_app_de_branch_i_weight {w : ℕ → ℝ} (hw : WeightSeq w) {Cs γ : ℝ}
+    (hC : 0 &lt; Cs) (hγ : 0 &lt; γ) :
+    ∀ ν ν' : FiniteMeasure ℝ, (ν, ν') ∈ classK Cs γ → ∀ s : ℝ, 0 &lt; s →
+      (∃! x, IsBranchSol (Fw w) ν ν' s x) ∧
+      ∀ x, IsBranchSol (Fw w) ν ν' s x →
+        x.1 ≤ γ * Cs / s ∧ x.2.1 ≤ γ * Cs / s ∧
+        x.2.2.1 ≤ γ * Cs * sumPow w 2 ∧ x.2.2.2 ≤ γ * Cs * sumPow w 2 ∧
+        s * x.1 * x.2.1 ≤ (γ * Cs) ^ 2 / s := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_branch_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/BranchStability.lean#L354">source</a></summary><pre class="lean no-mj">theorem thm_app_de_branch_ii {F : ℝ → ℝ} (hF : AdmissibleWeightFn F) {Cs γ : ℝ}
+    (hC : 0 &lt; Cs) (hγ : 0 &lt; γ) :
+    ContinuousOn (fun p : ℝ × (FiniteMeasure ℝ × FiniteMeasure ℝ) =&gt; branchSol F p.2.1 p.2.2 p.1)
+      (Ioi 0 ×ˢ classK Cs γ) ∧
+    ∀ I : Set ℝ, IsCompact I → I ⊆ Ioi 0 → ∀ ε &gt; 0, ∃ δ &gt; 0,
+      ∀ p ∈ classK Cs γ, ∀ s ∈ I, ∀ s' ∈ I, |s - s'| &lt; δ →
+        dist (branchSol F p.1 p.2 s) (branchSol F p.1 p.2 s') &lt; ε := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_branch_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/BranchStability.lean#L603">source</a></summary><pre class="lean no-mj">theorem thm_app_de_branch_iii {F : ℝ → ℝ} (hF : AdmissibleWeightFn F) {Cs γ 𝔟 : ℝ}
+    (hC : 0 &lt; Cs) (hγ : 0 &lt; γ) {I : Set ℝ} (hI : IsCompact I) (hI0 : I ⊆ Ioi 0) :
+    ∀ ε &gt; 0, ∃ δ &gt; 0, ∀ ν ν' : FiniteMeasure ℝ, (ν, ν') ∈ classK Cs γ →
+      ∀ s ∈ I, ∀ u v a c : ℝ, u ∈ Icc 0 𝔟 → v ∈ Icc 0 𝔟 → a ∈ Icc 0 𝔟 → c ∈ Icc 0 𝔟 →
+        |u - ∫ t, t / (s + a * t) ∂(ν : Measure ℝ)| ≤ δ →
+        |v - ∫ t, t / (s + c * t) ∂(ν' : Measure ℝ)| ≤ δ →
+        |a - s * v * F (s * u * v)| ≤ δ →
+        |c - s * u * F (s * u * v)| ≤ δ →
+        |u - (branchSol F ν ν' s).1| + |v - (branchSol F ν ν' s).2.1| +
+          |a - (branchSol F ν ν' s).2.2.1| + |c - (branchSol F ν ν' s).2.2.2| ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_branch_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/BranchSmooth.lean#L626">source</a></summary><pre class="lean no-mj">theorem thm_app_de_branch_iv {w : ℕ → ℝ} (hw : WeightSeq w) {Cs γ : ℝ}
+    (hC : 0 &lt; Cs) (hγ : 0 &lt; γ) {ν ν' : FiniteMeasure ℝ} (hp : (ν, ν') ∈ classK Cs γ)
+    (hν : 0 &lt; ∫ t, t ∂(ν : Measure ℝ)) (hν' : 0 &lt; ∫ t, t ∂(ν' : Measure ℝ)) :
+    let q : ℝ → ℝ := fun s =&gt;</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

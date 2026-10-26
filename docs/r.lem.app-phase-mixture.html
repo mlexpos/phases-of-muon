@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.11 (Finite exponential mixtures)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.11 (Finite exponential mixtures)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-mixture"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> <span class="thm-title">(Finite exponential mixtures)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(b_{\min}&gt;0\)</span>, let</div>
+<div class="md">\[
+f(u)=\sum_{i=1}^{n}a_ie^{-b_iu},\qquad g(u)=\sum_{l=1}^{n'}w_l\,c_l\,e^{-c_lu},
+\]</div>
+<div class="p">with <span class="mi">\(a_i\ge0\)</span>, <span class="mi">\(F_0\defeq\sum_ia_i&gt;0\)</span>, <span class="mi">\(b_i,c_l\ge b_{\min}\)</span>, <span class="mi">\(w_l\ge0\)</span> and <span class="mi">\(\sum_lw_l=1\)</span>. Let <span class="mi">\(T\ge4\)</span>, <span class="mi">\(0&lt;\epsilon&lt;F_0/T\)</span>, and let <span class="mi">\(Y&gt;0\)</span> be the continuous solution of <span class="mi">\(Y=f+\sqrt\epsilon\,g*\sqrt Y\)</span>. Put</div>
+<div class="md">\[
+\mathsf J\defeq\int_0^\infty\sqrt{f(u)}\,\dif u,\qquad H\defeq\frac2{b_{\min}}\log\frac{F_0}\epsilon,\qquad\mathsf d\defeq\sqrt\epsilon\,H .
+\]</div>
+<div class="p">Then <span class="mi">\(0&lt;\mathsf J\le2\sqrt{F_0}/b_{\min}\)</span>, the first <span class="mi">\(T\epsilon\)</span> hit <span class="mi">\(\hat u\)</span> satisfies <span class="mi">\(0&lt;\hat u\le H\)</span> and <span class="mi">\(Y(\hat u)=T\epsilon\)</span>, and</div>
+<div class="md">\[
+\mathsf J-\frac{2\sqrt{T\epsilon}}{b_{\min}}\le\int_0^{\hat u}\sqrt Y\,\dif u\le\mathsf J+2\sqrt{\mathsf d\,\mathsf J}+\mathsf d .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The equation has a unique positive continuous solution by <a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a>, applied with the rates <span class="mi">\(b_i\)</span> and <span class="mi">\(c_l\)</span> and zero coefficients where needed. Since <span class="mi">\(f\le F_0e^{-b_{\min}u}\)</span>, the integral <span class="mi">\(\mathsf J\)</span> is positive and at most <span class="mi">\(2\sqrt{F_0}/b_{\min}\)</span>.</div>
+<div class="p">Let <span class="mi">\(h(u)\defeq\sqrt{F_0}\,e^{-b_{\min}u/4}\)</span>, so that <span class="mi">\(f\le h^2\)</span> and <span class="mi">\(h(H)=\sqrt\epsilon\)</span>. Integrating each exponential gives</div>
+<div class="md">\[
+\frac{(g*h)(u)}{h(u)}=\sum_lw_l\,\frac{c_l}{c_l-b_{\min}/4}\big(1-e^{-(c_l-b_{\min}/4)u}\big)\le\frac43 .
+\]</div>
+<div class="p">Hence <span class="mi">\(U\defeq(h+\sqrt\epsilon)^2\)</span> satisfies</div>
+<div class="md">\[
+f+\sqrt\epsilon\,g*\sqrt U\le h^2+\tfrac43\sqrt\epsilon\,h+\epsilon\le U ,
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> with <span class="mi">\(m=\epsilon\)</span> gives <span class="mi">\(Y\le U\)</span> on every compact interval. At <span class="mi">\(H\)</span>, <span class="mi">\(Y(H)\le4\epsilon\le T\epsilon\)</span>, while <span class="mi">\(Y(0)=F_0&gt;T\epsilon\)</span>, so the first hit is attained in <span class="mi">\((0,H]\)</span> with <span class="mi">\(Y(\hat u)=T\epsilon\)</span>.</div>
+<div class="p">For the lower bound, all rates are at least <span class="mi">\(b_{\min}\)</span>, so <span class="mi">\(f(v)\le f(\hat u)e^{-b_{\min}(v-\hat u)}\)</span> for <span class="mi">\(v\ge\hat u\)</span>, and <span class="mi">\(f(\hat u)\le Y(\hat u)=T\epsilon\)</span>. Hence</div>
+<div class="md">\[
+\int_{\hat u}^\infty\sqrt f\,\dif v\le\frac{2\sqrt{T\epsilon}}{b_{\min}},\qquad
+\int_0^{\hat u}\sqrt Y\,\dif u\ge\int_0^{\hat u}\sqrt f\,\dif u\ge\mathsf J-\frac{2\sqrt{T\epsilon}}{b_{\min}} .
+\]</div>
+<div class="p">For the upper bound, write <span class="mi">\(\mathsf I\defeq\int_0^{\hat u}\sqrt Y\)</span>. The inequality <span class="mi">\(\sqrt{x+y}\le\sqrt x+\sqrt y\)</span> and the Cauchy–Schwarz inequality give</div>
+<div class="md">\[
+\mathsf I\le\mathsf J+\epsilon^{1/4}\int_0^{\hat u}\sqrt{(g*\sqrt Y)(u)}\,\dif u\le\mathsf J+\epsilon^{1/4}\Big(\hat u\int_0^{\hat u}(g*\sqrt Y)(u)\,\dif u\Big)^{1/2} .
+\]</div>
+<div class="p">Exchanging the order of integration and using <span class="mi">\(\int g=1\)</span>,</div>
+<div class="md">\[
+\int_0^{\hat u}(g*\sqrt Y)(u)\,\dif u=\int_0^{\hat u}\sqrt{Y(v)}\int_0^{\hat u-v}g(w)\,\dif w\,\dif v\le\mathsf I .
+\]</div>
+<div class="p">Since <span class="mi">\(\sqrt\epsilon\,\hat u\le\mathsf d\)</span>, this gives <span class="mi">\(\mathsf I\le\mathsf J+\sqrt{\mathsf d\,\mathsf I}\)</span>. The quadratic <span class="mi">\(x^2-\sqrt{\mathsf d}\,x-\mathsf J\)</span> is increasing beyond its positive root and nonnegative at <span class="mi">\(x=\sqrt{\mathsf J}+\sqrt{\mathsf d}\)</span>, so <span class="mi">\(\sqrt{\mathsf I}\le\sqrt{\mathsf J}+\sqrt{\mathsf d}\)</span>. Squaring proves the upper bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a> <span class=muted>Existence, uniqueness and floor</span></li><li><a class="ref" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> <span class=muted>Comparison</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-fixed.html" data-label="thm:app-phase-fixed">Theorem SI.11</a> <span class=muted>Fixed arrays</span></li><li><a class="ref" href="r.prop.app-phase-cutoff.html" data-label="prop:app-phase-cutoff">Proposition SI.7</a> <span class=muted>A family outside the windows</span></li><li><a class="ref" href="r.thm.app-phase-frozen.html" data-label="thm:app-phase-frozen">Theorem SI.13</a> <span class=muted>Frozen regime</span></li><li><a class="ref" href="r.lem.app-phase-restart.html" data-label="lem:app-phase-restart">Lemma SI.21</a> <span class=muted>Restart</span></li><li><a class="ref" href="r.lem.app-phase-twophase.html" data-label="lem:app-phase-twophase">Lemma SI.22</a> <span class=muted>Two-phase bound</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_mixture</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L2243">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_mixture
+    {n n' : ℕ} (a b : Fin n → ℝ) (w c : Fin n' → ℝ) (bmin : ℝ) (hbmin : 0 &lt; bmin)
+    (ha : ∀ i, 0 ≤ a i) (hF0 : 0 &lt; ∑ i, a i) (hb : ∀ i, bmin ≤ b i)
+    (hw : ∀ l, 0 ≤ w l) (hw1 : ∑ l, w l = 1) (hc : ∀ l, bmin ≤ c l)
+    {T ε H d : ℝ} (hT : 4 ≤ T) (hε : 0 &lt; ε) (hεF : ε &lt; (∑ i, a i) / T)
+    (hH : H = (2 / bmin) * Real.log ((∑ i, a i) / ε)) (hd : d = Real.sqrt ε * H)
+    {Y : ℝ → ℝ} (hYc : ContinuousOn Y (Ici 0)) (hYpos : ∀ u ∈ Ici (0 : ℝ), 0 &lt; Y u)
+    (hY : ∀ u ∈ Ici (0 : ℝ),
+      Y u = mixF a b u + Real.sqrt ε * oneSidedConv (fun v =&gt; Real.sqrt (Y v)) (mixG w c) u) :
+    0 &lt; mixJ a b ∧ mixJ a b ≤ 2 * Real.sqrt (∑ i, a i) / bmin ∧
+    ∃ û : ℝ, firstHit Y (T * ε) = ENNReal.ofReal û ∧ 0 &lt; û ∧ û ≤ H ∧ Y û = T * ε ∧
+      mixJ a b - 2 * Real.sqrt (T * ε) / bmin ≤ ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ∧
+      ∫ u in (0 : ℝ)..û, Real.sqrt (Y u) ≤ mixJ a b + 2 * Real.sqrt (d * mixJ a b) + d := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_mixture_solution</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/FirstHit.lean#L2507">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_mixture_solution
+    {n n' : ℕ} (a b : Fin n → ℝ) (w c : Fin n' → ℝ) (bmin : ℝ) (hbmin : 0 &lt; bmin)
+    (ha : ∀ i, 0 ≤ a i) (hF0 : 0 &lt; ∑ i, a i) (hb : ∀ i, bmin ≤ b i)
+    (hw : ∀ l, 0 ≤ w l) (hw1 : ∑ l, w l = 1) (hc : ∀ l, bmin ≤ c l)
+    {T ε : ℝ} (hT : 4 ≤ T) (hε : 0 &lt; ε) (hεF : ε &lt; (∑ i, a i) / T) :
+    ∃ Y : ℝ → ℝ, IsMixtureSol a b w c ε Y ∧
+      ∀ Y' : ℝ → ℝ, IsMixtureSol a b w c ε Y' → EqOn Y' Y (Ici 0) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

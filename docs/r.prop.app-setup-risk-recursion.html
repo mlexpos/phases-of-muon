@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SA.4 (Conditional recursion of the projected risks)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SA.4 (Conditional recursion of the projected risks)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-setup-risk-recursion"><div class="thm-head"><a class="thm-name" href="r.prop.app-setup-risk-recursion.html" data-label="prop:app-setup-risk-recursion">Proposition SA.4</a> <span class="thm-title">(Conditional recursion of the projected risks)</span></div><div class="thm-body"><div class="p">In <a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a>, fix <span class="mi">\(t\ge0\)</span>, let <span class="mi">\(\Dt\)</span> be the state at step <span class="mi">\(t\)</span> with <span class="mi">\(\EE\norm{\Dt}_\F^2&lt;\infty\)</span>, let <span class="mi">\({\mathsf S}\)</span> be a random matrix in <span class="mi">\(\R^{\Nout\times\Nin}\)</span> with <span class="mi">\(\EE\norm {\mathsf S}_\F^2&lt;\infty\)</span> (the update, determined by the past and the batch of step <span class="mi">\(t\)</span>), let <span class="mi">\(\lr_t\ge0\)</span> be deterministic, and put <span class="mi">\(\Delta_{t+1}\defeq\Dt-\lr_t{\mathsf S}\)</span>. Define</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-DV"></span>\begin{equation}\tag{SA.19}
+\cD_{ij}(t)\defeq(u_i^\T\Dt v_j)\,\EE_t\big[u_i^\T {\mathsf S}v_j\big],\qquad
+\cV_{ij}(t)\defeq\EE_t\big[(u_i^\T {\mathsf S}v_j)^2\big].
+\end{equation}</div>
+<div class="p">Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-mode"></span><span class="anchor" id="L-eqn:app-setup-row"></span><span class="anchor" id="L-eqn:app-setup-total"></span>\begin{align}
+\EE_t\big[\CMscr Q_{ij}(\Delta_{t+1})\big]&amp;=\CMscr Q_{ij}(\Dt)-2\lr_t\,\cD_{ij}(t)+\lr_t^2\,\cV_{ij}(t),\tag{SA.20}\\
+\EE_t\big[\CMscr Q_{i}(\Delta_{t+1})\big]&amp;=\CMscr Q_{i}(\Dt)-2\lr_t\sum_j\cD_{ij}(t)+\lr_t^2\sum_j\cV_{ij}(t),\tag{SA.21}\\
+\EE_t\big[\tfrac12\norm{\Delta_{t+1}}_\Sigma^2\big]&amp;=\tfrac12\norm{\Dt}_\Sigma^2-\lr_t\sum_{i,j}\mu_i\lambda_j\cD_{ij}(t)+\frac{\lr_t^2}2\sum_{i,j}\mu_i\lambda_j\cV_{ij}(t),\tag{SA.22}
+\end{align}</div>
+<div class="p">with the contractions in the last line equal to</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-contractions"></span>\begin{equation}\tag{SA.23}
+\sum_{i,j}\mu_i\lambda_j\cD_{ij}(t)=\big\langle\Dt,\EE_t{\mathsf S}\big\rangle_\Sigma,\qquad
+\sum_{i,j}\mu_i\lambda_j\cV_{ij}(t)=\EE_t\norm{{\mathsf S}}_\Sigma^2 .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(a_{ij}\defeq u_i^\T\Dt v_j\)</span> and <span class="mi">\(b_{ij}\defeq u_i^\T {\mathsf S}v_j\)</span>; the coefficient <span class="mi">\(a_{ij}\)</span> is determined by the past. The mode identity is the expansion of a square. Pointwise,</div>
+<div class="md">\[
+\CMscr Q_{ij}(\Delta_{t+1})=(a_{ij}-\lr_tb_{ij})^2=a_{ij}^2-2\lr_ta_{ij}b_{ij}+\lr_t^2b_{ij}^2 ,
+\]</div>
+<div class="p">and taking <span class="mi">\(\EE_t\)</span> term by term gives <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-mode" data-label="eqn:app-setup-mode">(SA.20)</a>.</div>
+<div class="p">The row and total identities are finite weighted sums of the mode identity. Summing <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-mode" data-label="eqn:app-setup-mode">(SA.20)</a> over <span class="mi">\(j\)</span> with weight <span class="mi">\(1\)</span>, and over <span class="mi">\((i,j)\)</span> with weight <span class="mi">\(\mu_i\lambda_j/2\)</span>, and applying <a class="ref" href="r.lem.app-setup-decomposition.html" data-label="lem:app-setup-decomposition">Lemma SA.1</a> to <span class="mi">\(\Delta_{t+1}\)</span> and to <span class="mi">\(\Dt\)</span>, gives <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-row" data-label="eqn:app-setup-row">(SA.21)</a> and <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-total" data-label="eqn:app-setup-total">(SA.22)</a>.</div>
+<div class="p">The contraction identities are the eigenexpansion of the pairing. For any <span class="mi">\(V,W\in\R^{\Nout\times\Nin}\)</span>,</div>
+<div class="md">\[
+\langle V,W\rangle_\Sigma=\sum_{i,j}\mu_i\lambda_j\,(u_i^\T Vv_j)(u_i^\T Wv_j),
+\]</div>
+<div class="p">by the computation in the proof of <a class="ref" href="r.lem.app-setup-decomposition.html" data-label="lem:app-setup-decomposition">Lemma SA.1</a> with <span class="mi">\(V\)</span> and <span class="mi">\(W\)</span> in the two slots. Taking <span class="mi">\((V,W)=(\Dt,{\mathsf S})\)</span> and <span class="mi">\(({\mathsf S},{\mathsf S})\)</span> and applying <span class="mi">\(\EE_t\)</span> gives <a class="ref" href="r.prop.app-setup-risk-recursion.html#L-eqn:app-setup-contractions" data-label="eqn:app-setup-contractions">(SA.23)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-decomposition.html" data-label="lem:app-setup-decomposition">Lemma SA.1</a> <span class=muted>Mode and row decomposition</span></li><li><a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a> <span class=muted>Regression model</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-setup-augmented.html" data-label="cor:app-setup-augmented">Corollary SA.1</a> <span class=muted>Recursion of the algorithm</span></li><li><a class="ref" href="r.cor.app-drift-kernel.html" data-label="cor:app-drift-kernel">Corollary SC.1</a> <span class=muted>The drift kernel</span></li><li><a class="ref" href="r.prop.app-drift-onestep.html" data-label="prop:app-drift-onestep">Proposition SC.2</a> <span class=muted>One-step risk drift in the frozen state</span></li><li><a class="ref" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Corollary SC.2</a> <span class=muted>Half-anisotropic input</span></li><li><a class="ref" href="r.thm.app-iso-drift.html" data-label="thm:app-iso-drift">Theorem SF.1</a> <span class=muted>Isotropic drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.prop_app_setup_risk_recursion_mode</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L686">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_risk_recursion_mode {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} (S : SpectralData C)
+    (𝒢 : MeasurableSpace Ω) (h𝒢 : 𝒢 ≤ mΩ) (Δ U : Ω → Mat m n) (η : ℝ) (hη : 0 ≤ η)
+    (hΔm : ∀ i j, Measurable[𝒢] fun ω =&gt; Δ ω i j)
+    (hΔ : ∀ i j, MemLp (fun ω =&gt; Δ ω i j) 2 P)
+    (hU : ∀ i j, MemLp (fun ω =&gt; U ω i j) 2 P) (i : Fin m) (j : Fin n) :
+    condExp 𝒢 P (fun ω =&gt; modeQ S (Δ ω - η • U ω) i j)
+      =ᵐ[P] fun ω =&gt; modeQ S (Δ ω) i j
+        - 2 * η * condDrift P 𝒢 S Δ U i j ω + η ^ 2 * condVol P 𝒢 S U i j ω := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_risk_recursion_row</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L735">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_risk_recursion_row {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} (S : SpectralData C)
+    (𝒢 : MeasurableSpace Ω) (h𝒢 : 𝒢 ≤ mΩ) (Δ U : Ω → Mat m n) (η : ℝ) (hη : 0 ≤ η)
+    (hΔm : ∀ i j, Measurable[𝒢] fun ω =&gt; Δ ω i j)
+    (hΔ : ∀ i j, MemLp (fun ω =&gt; Δ ω i j) 2 P)
+    (hU : ∀ i j, MemLp (fun ω =&gt; U ω i j) 2 P) (i : Fin m) :
+    condExp 𝒢 P (fun ω =&gt; rowQ S (Δ ω - η • U ω) i)
+      =ᵐ[P] fun ω =&gt; rowQ S (Δ ω) i
+        - 2 * η * (∑ j, condDrift P 𝒢 S Δ U i j ω)
+        + η ^ 2 * (∑ j, condVol P 𝒢 S U i j ω) := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_risk_recursion_total</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L786">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_risk_recursion_total {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} (S : SpectralData C)
+    (𝒢 : MeasurableSpace Ω) (h𝒢 : 𝒢 ≤ mΩ) (Δ U : Ω → Mat m n) (η : ℝ) (hη : 0 ≤ η)
+    (hΔm : ∀ i j, Measurable[𝒢] fun ω =&gt; Δ ω i j)
+    (hΔ : ∀ i j, MemLp (fun ω =&gt; Δ ω i j) 2 P)
+    (hU : ∀ i j, MemLp (fun ω =&gt; U ω i j) 2 P) :
+    condExp 𝒢 P (fun ω =&gt; riskSigma C (Δ ω - η • U ω))
+      =ᵐ[P] fun ω =&gt; riskSigma C (Δ ω)
+        - η * (∑ i, ∑ j, S.μ i * S.lam j * condDrift P 𝒢 S Δ U i j ω)
+        + η ^ 2 / 2 * (∑ i, ∑ j, S.μ i * S.lam j * condVol P 𝒢 S U i j ω) := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_risk_recursion_contractions</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Algorithm.lean#L872">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_risk_recursion_contractions {Ω : Type*} [mΩ : MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] {C : Covariances m n} (S : SpectralData C)
+    (𝒢 : MeasurableSpace Ω) (h𝒢 : 𝒢 ≤ mΩ) (Δ U : Ω → Mat m n)
+    (hΔm : ∀ i j, Measurable[𝒢] fun ω =&gt; Δ ω i j)
+    (hΔ : ∀ i j, MemLp (fun ω =&gt; Δ ω i j) 2 P)
+    (hU : ∀ i j, MemLp (fun ω =&gt; U ω i j) 2 P) :
+    (∀ᵐ ω ∂P, ∑ i, ∑ j, S.μ i * S.lam j * condDrift P 𝒢 S Δ U i j ω
+        = pairSigma C (Δ ω) (Matrix.of fun a b =&gt; condExp 𝒢 P (fun ω' =&gt; U ω' a b) ω))
+      ∧ (∀ᵐ ω ∂P, ∑ i, ∑ j, S.μ i * S.lam j * condVol P 𝒢 S U i j ω
+        = condExp 𝒢 P (fun ω' =&gt; pairSigma C (U ω') (U ω')) ω) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

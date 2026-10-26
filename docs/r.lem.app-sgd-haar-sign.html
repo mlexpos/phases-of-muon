@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.7 (Haar sign matrix)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.7 (Haar sign matrix)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-haar-sign"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> <span class="thm-title">(Haar sign matrix)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(U\)</span> be Haar on <span class="mi">\(O(n)\)</span>, <span class="mi">\(n\ge2\)</span>, let <span class="mi">\(a\in\R^n\)</span> be nonzero, and put <span class="mi">\(Y\defeq U^\T\sign(Ua)\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-haar-sign"></span>\begin{equation}\tag{SJ.24}
+\EE_U\big[Y\tensor Y\big]=\Big(1-\frac2\pi\Big)\Id+\frac{2n}\pi\,\frac{a\tensor a}{\norm a^2}.
+\end{equation}</div>
+<div class="p">The same holds conditionally on a random nonzero <span class="mi">\(a\)</span> independent of <span class="mi">\(U\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(v=a/\norm a\)</span>, so that <span class="mi">\(Y=U^\T\sign(Uv)\)</span>. The vector <span class="mi">\(Uv\)</span> is uniform on the sphere, so it has no zero coordinate almost surely, and <span class="mi">\(\norm Y^2=n\)</span>.</div>
+<div class="p">Invariance reduces the second moment to two numbers. If <span class="mi">\(Q\)</span> is orthogonal with <span class="mi">\(Qv=v\)</span>, then <span class="mi">\(UQ\)</span> is Haar and replacing <span class="mi">\(U\)</span> by <span class="mi">\(UQ\)</span> replaces <span class="mi">\(Y\)</span> by <span class="mi">\(Q^\T Y\)</span>. Hence <span class="mi">\(\EE[Y\tensor Y]\)</span> commutes with every such <span class="mi">\(Q\)</span>. In an orthonormal basis starting with <span class="mi">\(v\)</span>, reflections of single other basis vectors make the off-diagonal entries vanish, and permutations of the other basis vectors make their diagonal entries equal. Therefore</div>
+<div class="md">\[
+\EE[Y\tensor Y]=c_n\,v\tensor v+d_n(\Id-v\tensor v).
+\]</div>
+<div class="p">The two numbers follow from two scalar identities. First, <span class="mi">\(v^\T Y=(Uv)^\T\sign(Uv)=\norm{Uv}_1\)</span>, so <span class="mi">\(c_n=1+2(n-1)/\pi\)</span> by <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-l1" data-label="eqn:app-sgd-l1">(SJ.21)</a>. Second, the trace is <span class="mi">\(\EE\norm Y^2=n\)</span>, so <span class="mi">\(c_n+(n-1)d_n=n\)</span>. Solving gives <span class="mi">\(d_n=1-2/\pi\)</span> and <span class="mi">\(c_n-d_n=2n/\pi\)</span>. Conditioning on an independent <span class="mi">\(a\)</span> gives the last claim.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> <span class=muted>Spherical moments</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-sgd-one-sample.html" data-label="prop:app-sgd-one-sample">Proposition SJ.5</a> <span class=muted>One sample</span></li><li><a class="ref" href="r.lem.app-sgd-reduction.html" data-label="lem:app-sgd-reduction">Lemma SJ.11</a> <span class=muted>Haar reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_haar_sign_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L1364">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_haar_sign_i (n : ℕ) (hn : 2 ≤ n)
+    (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)) (hν : IsOrthHaar ν)
+    (a : Fin n → ℝ) (ha : a ≠ 0) (i j : Fin n) :
+    ∫ U, haarSignY a U i * haarSignY a U j ∂ν
+      = (if i = j then 1 - 2 / Real.pi else 0)
+        + 2 * (n : ℝ) / Real.pi * (a i * a j / euclidNorm n a ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_haar_sign_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L1391">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_haar_sign_ii {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (n : ℕ) (hn : 2 ≤ n)
+    (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)) (hν : IsOrthHaar ν)
+    (U : Ω → Matrix.orthogonalGroup (Fin n) ℝ) (hU : Measurable U) (hUlaw : P.map U = ν)
+    (A : Ω → Fin n → ℝ) (hA : Measurable A) (hind : IndepFun U A P)
+    (hA0 : ∀ᵐ ω ∂P, A ω ≠ 0) (i j : Fin n) :
+    condExp (MeasurableSpace.comap A inferInstance) P
+        (fun ω =&gt; haarSignY (A ω) (U ω) i * haarSignY (A ω) (U ω) j)
+      =ᵐ[P] fun ω =&gt; (if i = j then 1 - 2 / Real.pi else 0)
+        + 2 * (n : ℝ) / Real.pi * (A ω i * A ω j / euclidNorm n (A ω) ^ 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

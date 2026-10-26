@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SA.6 (Startup and bias correction)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SA.6 (Startup and bias correction)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-setup-startup"><div class="thm-head"><a class="thm-name" href="r.prop.app-setup-startup.html" data-label="prop:app-setup-startup">Proposition SA.6</a> <span class="thm-title">(Startup and bias correction)</span></div><div class="thm-body"><div class="p">In the frozen-state model let <span class="mi">\(K\in\R^{\Nout\times\Nin}\)</span> be deterministic and let <span class="mi">\((M_t^K)_{t\ge-1}\)</span> be the recursion <span class="mi">\(M_t^K=\bmom M_{t-1}^K+(1-\bmom)G_{t+1}\)</span> started from <span class="mi">\(M_{-1}^K=K\)</span>. Then for <span class="mi">\(t\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-startup"></span>\begin{equation}\tag{SA.34}
+\begin{gathered}
+M_t^K=\bmom^{t+1}K+\sum_{j=0}^t\emaw{j}G_{t+1-j},\qquad
+\EE M_t^K=\bmom^{t+1}K+(1-\bmom^{t+1})\,\EE\Gt,\\
+\Cov(\operatorname{vec}M_t^K)=\sw2\big(1-\bmom^{2(t+1)}\big)\Sigma_G .
+\end{gathered}
+\end{equation}</div>
+<div class="p">The bias-corrected zero-start buffer <span class="mi">\(\widetilde M_t\defeq M_t^0/(1-\bmom^{t+1})\)</span> has mean <span class="mi">\(\EE\Gt\)</span> and covariance <span class="mi">\(\sw2\,\frac{1+\bmom^{t+1}}{1-\bmom^{t+1}}\Sigma_G\)</span>. If <span class="mi">\(M_t^K\)</span> and the stationary buffer <span class="mi">\(\Mt\)</span> are built from the same batches, then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-startup-coupling"></span>\begin{equation}\tag{SA.35}
+M_t^K-\Mt=\bmom^{t+1}(K-M_{-1}),\qquad
+\EE\norm{M_t^K-\Mt}_\F^2=\bmom^{2(t+1)}\big(\norm{K-\EE\Gt}_\F^2+\sw2\mathsf V_B\big).
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The explicit form is an induction on <span class="mi">\(t\)</span>, the case <span class="mi">\(t=0\)</span> being <span class="mi">\(M_0^K=\bmom K+(1-\bmom)G_1\)</span>. The mean and covariance follow from the finite geometric sums</div>
+<div class="md">\[
+\sum_{j=0}^t\emaw j=1-\bmom^{t+1},\qquad
+\sum_{j=0}^t\emaw j^2=(1-\bmom)^2\,\frac{1-\bmom^{2(t+1)}}{1-\bmom^2}=\sw2\big(1-\bmom^{2(t+1)}\big),
+\]</div>
+<div class="p">and the independence of the batches. Dividing by <span class="mi">\(1-\bmom^{t+1}&gt;0\)</span> gives the bias-corrected moments, using <span class="mi">\((1-\bmom^{2(t+1)})/(1-\bmom^{t+1})^2=(1+\bmom^{t+1})/(1-\bmom^{t+1})\)</span>.</div>
+<div class="p">The coupling follows by subtracting the two recursions, whose difference is <span class="mi">\(M_t^K-\Mt=\bmom(M_{t-1}^K-M_{t-1})\)</span>, and iterating down to <span class="mi">\(t=-1\)</span>. Since <span class="mi">\(\EE M_{-1}=\EE\Gt\)</span> and <span class="mi">\(\EE\norm{M_{-1}-\EE\Gt}_\F^2=\sw2\mathsf V_B\)</span> by <a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a>(iii), expanding the square gives the second identity of <a class="ref" href="r.prop.app-setup-startup.html#L-eqn:app-setup-startup-coupling" data-label="eqn:app-setup-startup-coupling">(SA.35)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a> <span class=muted>Stationary EMA law</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a> <span class=muted>Laws of the frozen chains</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.startup_weight_sum</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Weights.lean#L207">source</a></summary><pre class="lean no-mj">theorem startup_weight_sum {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) (t : ℕ) :
+    ∑ j ∈ Finset.range (t + 1), emaW β j = 1 - β ^ (t + 1) := by</pre></details><details class="decl"><summary><code>Muon.Setup.startup_weight_sq_sum</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Weights.lean#L222">source</a></summary><pre class="lean no-mj">theorem startup_weight_sq_sum {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) (t : ℕ) :
+    ∑ j ∈ Finset.range (t + 1), emaW β j ^ 2 = sPow β 2 * (1 - β ^ (2 * (t + 1))) := by</pre></details><details class="decl"><summary><code>Muon.Setup.startup_bias_corrected_variance_scalar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Weights.lean#L243">source</a></summary><pre class="lean no-mj">theorem startup_bias_corrected_variance_scalar {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) (t : ℕ) :
+    sPow β 2 * (1 - β ^ (2 * (t + 1))) / (1 - β ^ (t + 1)) ^ 2
+      = sPow β 2 * (1 + β ^ (t + 1)) / (1 - β ^ (t + 1)) := by</pre></details><details class="decl"><summary><code>Muon.Setup.startupBuf</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L2894">source</a></summary><pre class="lean no-mj">def startupBuf (F : FrozenParams m n B) (S : FrozenSamples P m n B) (K : Mat m n) :
+    ℕ → Ω → Mat m n
+  | 0 =&gt; fun _ =&gt; K
+  | k + 1 =&gt; fun ω =&gt;
+      F.β • startupBuf F S K k ω + (1 - F.β) • frozenBatchG F S ((k : ℤ) + 1) ω
+
+private lemma sb_explicit (F : FrozenParams m n B) (S : FrozenSamples P m n B) (K : Mat m n)
+    (ω : Ω) (k : ℕ) :
+    startupBuf F S K k ω = F.β ^ k • K +
+      ∑ j ∈ Finset.range k, emaW F.β j • frozenBatchG F S ((k : ℤ) - (j : ℤ)) ω := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_startup_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L2976">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_startup_i (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (K : Mat m n) (t : ℕ) (ω : Ω) :
+    startupBuf F S K (t + 1) ω = F.β ^ (t + 1) • K +
+      ∑ j ∈ Finset.range (t + 1), emaW F.β j • frozenBatchG F S ((t : ℤ) + 1 - (j : ℤ)) ω := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_startup_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L3007">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_startup_ii [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (K : Mat m n) (t : ℕ) :
+    mean P (startupBuf F S K (t + 1)) = F.β ^ (t + 1) • K +
+        (1 - F.β ^ (t + 1)) • mean P (frozenBatchG F S ((t : ℤ) + 1)) ∧
+      covT P (startupBuf F S K (t + 1)) =
+        (sPow F.β 2 * (1 - F.β ^ (2 * (t + 1)))) • SigmaG S F := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_startup_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L3067">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_startup_iii [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (t : ℕ) :
+    mean P (fun ω =&gt; (1 - F.β ^ (t + 1))⁻¹ • startupBuf F S 0 (t + 1) ω) =
+        mean P (frozenBatchG F S ((t : ℤ) + 1)) ∧
+      covT P (fun ω =&gt; (1 - F.β ^ (t + 1))⁻¹ • startupBuf F S 0 (t + 1) ω) =
+        (sPow F.β 2 * ((1 + F.β ^ (t + 1)) / (1 - F.β ^ (t + 1)))) • SigmaG S F := by</pre></details><details class="decl"><summary><code>Muon.Setup.prop_app_setup_startup_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L3128">source</a></summary><pre class="lean no-mj">theorem prop_app_setup_startup_iv [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (K : Mat m n) (t : ℕ) :
+    (∀ᵐ ω ∂P, startupBuf F S K (t + 1) ω - frozenBuf F S (t : ℤ) ω =
+        F.β ^ (t + 1) • (K - frozenBuf F S (-1) ω)) ∧
+      ∫ ω, (fro (startupBuf F S K (t + 1) ω - frozenBuf F S (t : ℤ) ω)) ^ 2 ∂P =
+        F.β ^ (2 * (t + 1)) *
+          ((fro (K - mean P (frozenBatchG F S 0))) ^ 2 + sPow F.β 2 * frozenVB S F) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

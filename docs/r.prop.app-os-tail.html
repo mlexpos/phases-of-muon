@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SH.2 (Tail modes)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SH.2 (Tail modes)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum · <a href="t.prop.app-os-tail.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-os-tail"><div class="thm-head"><a class="thm-name" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> <span class="thm-title">(Tail modes)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure and <span class="mi">\(\mu&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">(Split bound.) For every <span class="mi">\(\ell\ge0\)</span> with <span class="mi">\(\mathcal I_\nu(\ell)&lt;\infty\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\le\sqrt{\nu([0,\ell])}\,\sqrt{\frac\mu2}+\mathcal E\big(\mu,\mathcal I_\nu(\ell)\big).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">(Gradient-descent-like upper bound.) If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mathcal I_\nu&lt;\infty\)</span>, then</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\le\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\;\mu\Big[\log\Big(1+\frac1{\mu\mathcal I_\nu}\Big)+2\Big].
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">(Asymptotics.) If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mathcal I_\nu&lt;\infty\)</span>, then, for fixed <span class="mi">\(\nu\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\sim\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\;\mu\log\frac1\mu\qquad(\mu\downarrow0).
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">(Counts.) For every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+C_*\sqrt{\frac{\nu([0,K\mu])}{1+K}}\le\chi_\nu(\mu)\le\sqrt{\nu([0,K\mu])}+\frac{2}{\pi\sqrt K}\big[\log(1+K)+2\big].
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">(Universal lower bound.) If <span class="mi">\(\nu([0,X])=1\)</span> for some <span class="mi">\(X&gt;0\)</span>, then</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac1\pi\,\frac{\mu}{\sqrt X}\Big[\log\Big(1+\frac X\mu\Big)-\frac{X}{X+\mu}\Big]\ge\frac1{2\pi}\,\frac{\mu}{\sqrt X}\,\log\frac X\mu .
+\]</div></div></li><li><span class="li-mark">(vi)</span><div class="li-body"><div class="p">(Sequences.) For probability measures <span class="mi">\(\nu_N\)</span> and numbers <span class="mi">\(\mu_N&gt;0\)</span> put <span class="mi">\(\chi_N\defeq\chi_{\nu_N}(\mu_N)\)</span>. Then <span class="mi">\(\liminf_N\chi_N&gt;0\)</span> if and only if <span class="mi">\(\liminf_N\nu_N([0,K\mu_N])&gt;0\)</span> for some <span class="mi">\(K&gt;0\)</span>; and <span class="mi">\(\chi_N\to0\)</span> if and only if <span class="mi">\(\nu_N([0,K\mu_N])\to0\)</span> for every <span class="mi">\(K&gt;0\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) bounds <span class="mi">\(\sqrt{\Upsilon_\nu}\)</span> by splitting <span class="mi">\(\nu\)</span> at <span class="mi">\(\ell\)</span>. Since <span class="mi">\(c/(c+x)\le1\)</span> on <span class="mi">\([0,\ell]\)</span> and <span class="mi">\(c/(c+x)\le c/x\)</span> on <span class="mi">\((\ell,\infty)\)</span>,</div>
+<div class="md">\[
+1-m_\nu(c)\le\nu([0,\ell])+c\,\mathcal I_\nu(\ell).
+\]</div>
+<div class="p">With <span class="mi">\(\Upsilon_\nu(c)=c(1-m_\nu(c))\le c\)</span>, this gives</div>
+<div class="md">\[
+\sqrt{\Upsilon_\nu(c)}\le\min\Big\{\sqrt c,\ \sqrt{c\,\nu([0,\ell])}+c\sqrt{\mathcal I_\nu(\ell)}\Big\}
+\le\sqrt{c\,\nu([0,\ell])}+\min\Big\{\sqrt c,\ c\sqrt{\mathcal I_\nu(\ell)}\Big\}.
+\]</div>
+<div class="p">The last inequality is checked on the two cases of the inner minimum. Insert this into the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>. The first term gives <span class="mi">\(\sqrt{\nu([0,\ell])}\sqrt{\mu/2}\)</span> by <a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>, and the second term gives <span class="mi">\(\mathcal E(\mu,\mathcal I_\nu(\ell))\)</span>.</div>
+<div class="p">Part (ii) is (i) at <span class="mi">\(\ell=0\)</span>, where <span class="mi">\(\nu([0,0])=\nu(\{0\})=0\)</span>, followed by <a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a>.</div>
+<div class="p">Part (iii) matches the upper bound (ii) with a lower bound. The upper bound is (ii), since</div>
+<div class="md">\[
+\frac{\log(1+1/(\mu\mathcal I_\nu))+2}{\log(1/\mu)}\longrightarrow1\qquad(\mu\downarrow0).
+\]</div>
+<div class="p">For the lower bound, fix <span class="mi">\(c_1&gt;0\)</span>. The transform <span class="mi">\(S_\nu(-c)\)</span> is nonincreasing in <span class="mi">\(c\)</span>, so for <span class="mi">\(c\le c_1\)</span></div>
+<div class="md">\[
+\sqrt{\Upsilon_\nu(c)}=c\sqrt{S_\nu(-c)}\ge c\sqrt{S_\nu(-c_1)} .
+\]</div>
+<div class="p">By the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac{\sqrt2}{\pi}\,\mu\sqrt{S_\nu(-c_1)}\int_0^{c_1}\frac{c\,\dif c}{(c+\mu)^2}
+\ge\frac{\sqrt2}{\pi}\,\mu\sqrt{S_\nu(-c_1)}\Big[\log\Big(1+\frac{c_1}\mu\Big)-1\Big].
+\]</div>
+<div class="p">Dividing by <span class="mi">\(\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\,\mu\log(1/\mu)\)</span> and letting <span class="mi">\(\mu\downarrow0\)</span> gives a <span class="mi">\(\liminf\)</span> of at least <span class="mi">\(\sqrt{S_\nu(-c_1)/\mathcal I_\nu}\)</span>. As <span class="mi">\(c_1\downarrow0\)</span>, <span class="mi">\(S_\nu(-c_1)\uparrow\mathcal I_\nu\)</span> by monotone convergence, and <span class="mi">\(\mathcal I_\nu&gt;0\)</span>, which gives the lower bound.</div>
+<div class="p">Part (iv) combines <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> with (i). The lower bound is <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) with (ii) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>. For the upper bound take <span class="mi">\(\ell=K\mu\)</span> in (i). Then <span class="mi">\(\mathcal I_\nu(K\mu)\le1/(K\mu)\)</span>, so by the monotonicity of <span class="mi">\(\mathcal E\)</span> and <a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a>,</div>
+<div class="md">\[
+\frac{\mathcal E(\mu,\mathcal I_\nu(K\mu))}{\sqrt{\mu/2}}\le\frac{\mathcal E(\mu,1/(K\mu))}{\sqrt{\mu/2}}
+\le\frac{2}{\pi\sqrt K}\big[\log(1+K)+2\big].
+\]</div>
+<div class="p">Dividing (i) by <span class="mi">\(\sqrt{\mu/2}\)</span> and using <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> gives the upper bound.</div>
+<div class="p">Part (v) bounds <span class="mi">\(\sqrt{\Upsilon_\nu}\)</span> from below near the origin. For <span class="mi">\(c\le X\)</span>, since <span class="mi">\(x\le X\)</span> on the support,</div>
+<div class="md">\[
+S_\nu(-c)\ge\frac1{c+X}\ge\frac1{2X},\qquad\text{so}\qquad \sqrt{\Upsilon_\nu(c)}\ge\frac{c}{\sqrt{2X}} .
+\]</div>
+<div class="p">By the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac{\sqrt2}{\pi}\,\frac{\mu}{\sqrt{2X}}\int_0^X\frac{c\,\dif c}{(c+\mu)^2}
+=\frac1\pi\,\frac{\mu}{\sqrt X}\Big[\log\Big(1+\frac X\mu\Big)-\frac X{X+\mu}\Big].
+\]</div>
+<div class="p">The second inequality is <a class="ref" href="r.lem.app-os-log.html" data-label="lem:app-os-log">Lemma SH.13</a> with <span class="mi">\(k=X/\mu\)</span>.</div>
+<div class="p">Part (vi) follows from (iv). Write <span class="mi">\(P_K(N)\defeq\nu_N([0,K\mu_N])\)</span> in this proof. If <span class="mi">\(\liminf_NP_K(N)&gt;0\)</span> for some <span class="mi">\(K\)</span>, then</div>
+<div class="md">\[
+\liminf_N\chi_N\ge C_*\sqrt{\liminf_NP_K(N)/(1+K)}&gt;0 .
+\]</div>
+<div class="p">Conversely, let <span class="mi">\(\liminf_N\chi_N=\underline\chi&gt;0\)</span>, and choose <span class="mi">\(K\)</span> with <span class="mi">\(\frac{2}{\pi\sqrt K}[\log(1+K)+2]\le\underline\chi/4\)</span>. Then (iv) gives <span class="mi">\(\sqrt{P_K(N)}\ge\chi_N-\underline\chi/4\ge\underline\chi/2\)</span> for all large <span class="mi">\(N\)</span>. For the second statement, the lower bound of (iv) gives <span class="mi">\(P_K(N)\le(1+K)\chi_N^2/C_*^2\)</span>, so <span class="mi">\(\chi_N\to0\)</span> forces <span class="mi">\(P_K(N)\to0\)</span> for every <span class="mi">\(K\)</span>. If <span class="mi">\(P_K(N)\to0\)</span> for every <span class="mi">\(K\)</span>, the upper bound of (iv) gives <span class="mi">\(\limsup_N\chi_N\le\frac{2}{\pi\sqrt K}[\log(1+K)+2]\)</span> for every <span class="mi">\(K\)</span>, and the right side tends to <span class="mi">\(0\)</span> as <span class="mi">\(K\to\infty\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class=muted>Representation of the profile</span></li><li><a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a> <span class=muted>Elementary integrals</span></li><li><a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a> <span class=muted>The tail integral</span></li><li><a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class=muted>Square-root law</span></li><li><a class="ref" href="r.lem.app-os-log.html" data-label="lem:app-os-log">Lemma SH.13</a> <span class=muted>A logarithmic inequality</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-os-packed.html" data-label="rem:app-os-packed">Remark SH.3</a> <span class=muted>Where packing holds</span></li><li><a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> <span class=muted>Two-level spectrum</span></li><li><a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class=muted>Acceleration of a slow mode</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L577">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_i (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μ : ℝ} (hμ : 0 &lt; μ) {ℓ : ℝ} (hℓ : 0 ≤ ℓ) (hfin : tailInt ν ℓ &lt; ⊤) :
+    dOsSq ν μ ≤ Real.sqrt (ν (Icc 0 ℓ)).toReal * Real.sqrt (μ / 2)
+      + tailErr μ (tailInt ν ℓ).toReal := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L663">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_ii (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    (hν0 : ν {0} = 0) {μ : ℝ} (hμ : 0 &lt; μ) (hfin : tailInt ν 0 &lt; ⊤) :
+    dOsSq ν μ ≤ Real.sqrt 2 / Real.pi * Real.sqrt (tailInt ν 0).toReal * μ
+      * (Real.log (1 + 1 / (μ * (tailInt ν 0).toReal)) + 2) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L981">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_iii (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    (hν0 : ν {0} = 0) (hfin : tailInt ν 0 &lt; ⊤) :
+    Asymptotics.IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun μ =&gt; dOsSq ν μ)
+      (fun μ =&gt; Real.sqrt 2 / Real.pi * Real.sqrt (tailInt ν 0).toReal * μ * Real.log (1 / μ)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L1125">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_iv (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μ : ℝ} (hμ : 0 &lt; μ) {K : ℝ} (hK : 0 &lt; K) :
+    cStar * Real.sqrt ((ν (Icc 0 (K * μ))).toReal / (1 + K)) ≤ sqrtEff ν μ ∧
+    sqrtEff ν μ ≤ Real.sqrt (ν (Icc 0 (K * μ))).toReal
+      + 2 / (Real.pi * Real.sqrt K) * (Real.log (1 + K) + 2) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L1360">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_v (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μ : ℝ} (hμ : 0 &lt; μ) {X : ℝ} (hX : 0 &lt; X) (hsupp : ν (Icc 0 X) = 1) :
+    1 / Real.pi * (μ / Real.sqrt X) * (Real.log (1 + X / μ) - X / (X + μ)) ≤ dOsSq ν μ ∧
+    1 / (2 * Real.pi) * (μ / Real.sqrt X) * Real.log (X / μ)
+      ≤ 1 / Real.pi * (μ / Real.sqrt X) * (Real.log (1 + X / μ) - X / (X + μ)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.prop_app_os_tail_vi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L1399">source</a></summary><pre class="lean no-mj">theorem prop_app_os_tail_vi (ν : ℕ → Measure ℝ) [∀ N, IsProbabilityMeasure (ν N)]
+    (hν : ∀ N, ν N (Iio 0) = 0) (μ : ℕ → ℝ) (hμ : ∀ N, 0 &lt; μ N) :
+    (0 &lt; liminf (fun N =&gt; sqrtEff (ν N) (μ N)) atTop ↔
+        ∃ K : ℝ, 0 &lt; K ∧ 0 &lt; liminf (fun N =&gt; (ν N (Icc 0 (K * μ N))).toReal) atTop) ∧
+    (Tendsto (fun N =&gt; sqrtEff (ν N) (μ N)) atTop (𝓝 0) ↔
+        ∀ K : ℝ, 0 &lt; K → Tendsto (fun N =&gt; (ν N (Icc 0 (K * μ N))).toReal) atTop (𝓝 0)) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.tailInt_zero_pos</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Tail.lean#L65">source</a></summary><pre class="lean no-mj">theorem tailInt_zero_pos (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    (hν0 : ν {0} = 0) : 0 &lt; tailInt ν 0 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Theorem SF.13 (Fixed ridge, large aspect ratios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Theorem SF.13 (Fixed ridge, large aspect ratios)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-isotropic.html">The isotropic case</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Theorem G.5</strong></span></div><div class="pre"><div class="p">The fixed-ridge participation count and the constants of the counting formula are</div>
+<div class="md">\[
+\widehat{\mathfrak p}_\bmom(\ridge)\defeq\frac{\log\big((1-\bmom)^2\gin\gout/\ridge\big)}{2\log(1/\bmom)},\qquad
+\mathsf c_\bmom\defeq\frac{\sqrt{\pi/2}}{1-\bmom},\qquad
+\mathsf c'_\bmom\defeq1+\frac1{1-\bmom^2},\qquad
+\mathsf c''_\bmom\defeq\frac1{\log(1/\bmom)}+\mathsf c_\bmom+\mathsf c'_\bmom ,
+\]</div>
+<div class="p">and <span class="mi">\(\mathsf k_\bmom\defeq\mathsf e^-_\bmom(e^2-1)e^{-3}/(\pi^2\mathsf e^+_\bmom)\)</span>, with <span class="mi">\(\mathsf e^-_\bmom\defeq\bmom^2\Phi'(1)\)</span> and <span class="mi">\(\mathsf e^+_\bmom\defeq\mathsf c_\bmom+1/(1-\bmom^2)\)</span>.</div></div><div class="thm thm-theorem" id="L-thm:app-iso-fixed-ridge"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-fixed-ridge.html" data-label="thm:app-iso-fixed-ridge">Theorem SF.13</a> <span class="thm-title">(Fixed ridge, large aspect ratios)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span>, <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(\gin,\gout&gt;0\)</span>, write <span class="mi">\(\widehat{\mathfrak p}=\widehat{\mathfrak p}_\bmom(\ridge)\)</span>, and assume</div>
+<div class="md">\[
+\widehat{\mathfrak p}\ge\frac{2\mathsf c'_\bmom}{\log(1/\bmom)\,\gamma_\wedge},\qquad
+\widehat{\mathfrak p}+\mathsf c'_\bmom\le\frac{\gamma_\wedge}2 .
+\]</div>
+<div class="p">Put <span class="mi">\(e_\bmom\defeq\max\big(\mathsf c'_\bmom,\ \mathsf c_\bmom+2(\widehat{\mathfrak p}+\mathsf c'_\bmom)/(\log(1/\bmom)\gamma_\wedge)\big)\)</span>. Then</div>
+<div class="md">\[
+\big|\psi(\ridge)-\widehat{\mathfrak p}\big|\le e_\bmom,\qquad
+\Big|\sqrt{\gin\gout}\;\mathfrak d_{\mathrm{iso}}(\ridge)-\frac{\widehat{\mathfrak p}}{\sqrt\pi}\Big|
+\le\frac1{\sqrt\pi}\Big(e_\bmom+\frac{(\widehat{\mathfrak p}+\mathsf c'_\bmom)^2}{\gamma_\wedge}\Big)+\frac{2.32}{1-\bmom}.
+\]</div>
+<div class="p">If moreover <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\)</span>, then</div>
+<div class="md">\[
+\mathfrak v_{\mathrm{iso}}(\ridge)\ge B\,\psi(\ridge)+\mathsf k_\bmom B\Big(1-\frac{\psi(\ridge)}\gamma\Big)^2\big(\psi(\ridge)-\mathsf c''_\bmom-\mathsf c'_\bmom-1\big)_+^2 .
+\]</div></div></div><section class="note"><div class="p">The theorem describes what a fixed positive ridge does at small batch with momentum. The main text uses the regularized polar map as a model of <span class="mi">\(K\)</span> Newton–Schulz steps, with an effective ridge of order <span class="mi">\(a^{-2K}\)</span>, and cites this theorem for the effect of a small ridge. A past batch of age <span class="mi">\(j\)</span> enters the buffer with weight <span class="mi">\(\emaw j=(1-\bmom)\bmom^j\)</span>, and the ridge whitens it only if its weight is large enough; the number of ages that pass is about <span class="mi">\(\widehat{\mathfrak p}\)</span>. The theorem says that the participation level <span class="mi">\(\psi(\ridge)\)</span> is this count up to a bounded error, that the drift is about <span class="mi">\(\widehat{\mathfrak p}/\sqrt{\pi\gin\gout}\)</span>, which decays like <span class="mi">\(\log\gamma/\gamma\)</span> in the square case instead of reaching the zero-ridge value <span class="mi">\(1/(2\sqrt\pi)\)</span>, and that the volatility is at least of order <span class="mi">\(B\psi(\ridge)^2\)</span>. The two hypotheses ask that the count be past the first age and well below its ceiling <span class="mi">\(\gamma_\wedge\)</span>.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">The participation level counts the ages whose weight passes the threshold set by the root. The terms <span class="mi">\(\Phi(\emaw j^2q)\)</span> of <span class="mi">\(r_\bmom(q)\)</span> are within <span class="mi">\(\sqrt{\pi/2}\,(\emaw j^2q)^{-1/2}\)</span> of one for the ages with <span class="mi">\(\emaw j^2q\ge1\)</span>, and at most <span class="mi">\(\emaw j^2q\)</span> for the others; both corrections decay geometrically with the distance of the age to the threshold. Hence, for <span class="mi">\((1-\bmom)^2q\ge1\)</span> (<a class="ref" href="r.lem.app-iso-count.html" data-label="lem:app-iso-count">Lemma SF.6</a>(i)),</div>
+<div class="md">\[
+\mathsf n_\bmom(q)-\mathsf c_\bmom&lt;r_\bmom(q)\le\mathsf n_\bmom(q)+\mathsf c'_\bmom,\qquad
+\mathsf n_\bmom(q)=\frac{\log\big((1-\bmom)^2q\big)}{2\log(1/\bmom)} ,
+\]</div>
+<div class="p">where <span class="mi">\(\mathsf n_\bmom(q)\)</span> is, up to one, the number of ages with <span class="mi">\(\emaw j^2q\ge1\)</span>.</div>
+<div class="p">At a fixed ridge the root is about <span class="mi">\(\gin\gout/\ridge\)</span>, and the count at that root is <span class="mi">\(\widehat{\mathfrak p}\)</span>. Write <span class="mi">\(H=\psi(\ridge)\)</span> and <span class="mi">\(\mathsf W(m)=\sqrt{(\gin-m)(\gout-m)}\)</span>. The scalar equation at <span class="mi">\(s=\ridge\)</span> says that the root is <span class="mi">\(\mathsf W(H)^2/\ridge\)</span>, so</div>
+<div class="md">\[
+\mathsf n_\bmom\big(q(-\ridge)\big)=\widehat{\mathfrak p}+\frac{\log\big(\mathsf W(H)/\sqrt{\gin\gout}\big)}{\log(1/\bmom)}\le\widehat{\mathfrak p} .
+\]</div>
+<div class="p">The upper count then gives <span class="mi">\(H\le\widehat{\mathfrak p}+\mathsf c'_\bmom\le\gamma_\wedge/2\)</span>. Below half the ceiling, <span class="mi">\(\mathsf W(H)\ge\sqrt{\gin\gout}\,(1-H/\gamma_\wedge)\)</span>, so the logarithm costs at most <span class="mi">\(2H/(\gamma_\wedge\log(1/\bmom))\)</span>, and the lower count gives <span class="mi">\(H\ge\widehat{\mathfrak p}-e_\bmom\)</span>. The case <span class="mi">\((1-\bmom)^2q(-\ridge)&lt;1\)</span>, in which not even the newest batch passes the threshold, would force a ridge that the first hypothesis excludes.</div>
+<div class="p">The drift is a fixed function of the level, so each whitened age contributes the same amount. By the master estimate (<a class="ref" href="r.thm.app-iso-master.html" data-label="thm:app-iso-master">Theorem SF.3</a>, explained in the note on <a class="ref" href="r.thm.app-iso-zero-ridge.html" data-label="thm:app-iso-zero-ridge">Theorem SF.11</a>),</div>
+<div class="md">\[
+\Big|\mathfrak d_{\mathrm{iso}}(\ridge)-\frac1{\sqrt\pi\,\gin\gout}\int_0^{H}\mathsf W(m)\,\dif m\Big|&lt;\frac{2.32}{(1-\bmom)\sqrt{\gin\gout}} .
+\]</div>
+<div class="p">For <span class="mi">\(m\le H\)</span> the integrand lies between <span class="mi">\(\sqrt{\gin\gout}(1-m/\gamma_\wedge)\)</span> and <span class="mi">\(\sqrt{\gin\gout}\)</span>, so the main term times <span class="mi">\(\sqrt{\gin\gout}\)</span> is <span class="mi">\(H/\sqrt\pi\)</span> up to <span class="mi">\(H^2/(\sqrt\pi\gamma_\wedge)\)</span>. With the bound on <span class="mi">\(H\)</span> this gives the drift bound.</div>
+<div class="p">The volatility exceeds its same-time value by the correlations of updates that whiten common ages. By <a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a>(ii), <span class="mi">\(\mathfrak v_{\mathrm{iso}}(\ridge)=B\psi(\ridge)+2N\sum_{\ell\ge1}\overline C_{1,\ell}(\ridge)\)</span>. The lag lower bound (<a class="ref" href="r.lem.app-iso-lag-lower.html" data-label="lem:app-iso-lag-lower">Lemma SF.12</a>) bounds the determinant of the lag kernel by one, writes the double integral in the two roots, and keeps only pairs of roots past the threshold and within a factor <span class="mi">\(e^2\)</span> of each other, where the count is accurate. A shift of <span class="mi">\(\ell\)</span> ages raises the count by about <span class="mi">\(\ell\)</span>, so the lag <span class="mi">\(\ell\)</span> is seen only at levels that stay below <span class="mi">\(\psi(\ridge)\)</span> after the shift, a range of length about <span class="mi">\(\psi(\ridge)-\ell\)</span>:</div>
+<div class="md">\[
+\overline C_{1,\ell}(\ridge)\ge\frac{\mathsf k_\bmom}{\gamma^3}\,\big(\gamma-\psi(\ridge)\big)^2\big(\psi(\ridge)-\ell-\mathsf c''_\bmom-\mathsf c'_\bmom\big)_+ .
+\]</div>
+<div class="p">Summing over <span class="mi">\(\ell\)</span>, with <span class="mi">\(\sum_{\ell\ge1}(X-\ell)_+\ge(X-1)_+^2/2\)</span>, gives the volatility bound. At leading order the integrated volatility is <span class="mi">\(B\psi(\ridge)^2\)</span> (<a class="ref" href="r.cor.app-iso-fixed-ridge.html" data-label="cor:app-iso-fixed-ridge">Corollary SF.2</a>(iii)).</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.thm.app-iso-fixed-ridge.html" data-label="thm:app-iso-fixed-ridge">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><span class=muted>none</span></div></div><div><h3>Depth</h3><p>27 levels, 100 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_fixed_ridge_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/RidgeRegimes.lean#L4325">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_fixed_ridge_i {β γin γout ϱ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hin : 0 &lt; γin) (hout : 0 &lt; γout) (hϱ : 0 &lt; ϱ)
+    (hp1 : 2 * isoC' β / (Real.log (1 / β) * min γin γout) ≤ isoPhat β γin γout ϱ)
+    (hp2 : isoPhat β γin γout ϱ + isoC' β ≤ min γin γout / 2) :
+    |psiIso β γin γout ϱ - isoPhat β γin γout ϱ|
+        ≤ isoEfix β (min γin γout) (isoPhat β γin γout ϱ) ∧
+      |Real.sqrt (γin * γout) * dIso β γin γout ϱ - isoPhat β γin γout ϱ / Real.sqrt Real.pi|
+        ≤ 1 / Real.sqrt Real.pi *
+              (isoEfix β (min γin γout) (isoPhat β γin γout ϱ)
+                + (isoPhat β γin γout ϱ + isoC' β) ^ 2 / min γin γout)
+            + 2.32 / (1 - β) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_fixed_ridge_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/RidgeRegimes.lean#L4510">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_fixed_ridge_ii {β ϱ N B : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hϱ : 0 &lt; ϱ) (hN : 0 &lt; N) (hB : 0 &lt; B)
+    (hp1 : 2 * isoC' β / (Real.log (1 / β) * (N / B))
+      ≤ isoPhat β (N / B) (N / B) ϱ)
+    (hp2 : isoPhat β (N / B) (N / B) ϱ + isoC' β ≤ (N / B) / 2) :
+    Summable (fun ℓ : ℕ =&gt; lagCoeff β (N / B) ϱ (ℓ + 1)) ∧
+      B * psiIso β (N / B) (N / B) ϱ
+          + isoKk β * B * (1 - psiIso β (N / B) (N / B) ϱ / (N / B)) ^ 2
+              * (max (psiIso β (N / B) (N / B) ϱ - isoCpp β - isoC' β - 1) 0) ^ 2
+        ≤ N * isoVolRatio β (N / B) ϱ := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

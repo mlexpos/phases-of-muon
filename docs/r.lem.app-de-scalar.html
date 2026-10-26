@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.1 (Properties of the scalar functions)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.1 (Properties of the scalar functions)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-scalar"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class="thm-title">(Properties of the scalar functions)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(w\)</span> be nonnegative, summable and not all zero.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\Jfun\)</span> is continuous and strictly decreasing on <span class="mi">\([0,\infty)\)</span> with values in <span class="mi">\((0,1]\)</span>, it is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span> with one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+\Jfun(0)=1,\qquad \Jfun'(0)=-3 .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The series defining <span class="mi">\(F_w\)</span> and <span class="mi">\(L_w\)</span> converge uniformly on <span class="mi">\([0,\infty)\)</span>; <span class="mi">\(F_w\)</span> and <span class="mi">\(L_w\)</span> are continuous, <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span> with one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+F_w(0)=\sw2,\qquad F_w'(0)=-3\sw4,\qquad L_w(0)=\sum_jw_j,\qquad L_w'(0)=-3\sw3 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The function</div>
+<div class="md">\[
+r_w(q)\defeq qF_w(q)=\sum_j\EE\frac{w_j^2qg^2}{1+w_j^2qg^2}
+\]</div>
+<div class="p">is strictly increasing on <span class="mi">\([0,\infty)\)</span>, with <span class="mi">\(r_w(0)=0\)</span> and</div>
+<div class="md">\[
+r_w'(q)=\sum_jw_j^2\,\EE\frac{g^2}{(1+w_j^2qg^2)^2}&gt;0 ,
+\]</div>
+<div class="p">and <span class="mi">\(r_w(q)\uparrow\#\{j:w_j&gt;0\}\in\{1,2,\dots\}\cup\{\infty\}\)</span> as <span class="mi">\(q\to\infty\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) is differentiation under the Gaussian integral. The integrand <span class="mi">\(g^2/(1+xg^2)\)</span> is bounded by <span class="mi">\(g^2\)</span> and strictly decreasing in <span class="mi">\(x\)</span> on <span class="mi">\(\{g\ne0\}\)</span>, and its <span class="mi">\(x\)</span>-derivatives satisfy</div>
+<div class="md">\[
+\Big|\frac{\partial^k}{\partial x^k}\frac{g^2}{1+xg^2}\Big|=\frac{k!\,g^{2k+2}}{(1+xg^2)^{k+1}}\le k!\,g^{2k+2}\qquad(x\ge0),
+\]</div>
+<div class="p">and differentiation under the expectation, dominated by these bounds, gives continuity, strict monotonicity, smoothness on <span class="mi">\((0,\infty)\)</span>, one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+\Jfun(0)=\EE g^2=1,\qquad \Jfun'(0)=-\EE g^4=-3 .
+\]</div>
+<div class="p">Part (ii) is uniform convergence of the series and of their derivatives. The <span class="mi">\(j\)</span>-th term of <span class="mi">\(F_w\)</span> is bounded by <span class="mi">\(w_j^2\)</span>, that of <span class="mi">\(L_w\)</span> by <span class="mi">\(w_j\)</span>, and their <span class="mi">\(k\)</span>-th derivatives in <span class="mi">\(q\)</span> are bounded, by the chain rule and part (i), by</div>
+<div class="md">\[
+k!\,\EE g^{2k+2}\,w_j^{2k+2}\qquad\text{and}\qquad k!\,\EE g^{2k+2}\,w_j^{2k+1}.
+\]</div>
+<div class="p">Since <span class="mi">\(\sum_jw_j&lt;\infty\)</span> and <span class="mi">\(w_j\le\sum_kw_k\)</span>, all these series converge uniformly on <span class="mi">\([0,\infty)\)</span>, which gives continuity and smoothness. The values at <span class="mi">\(0\)</span> follow from <span class="mi">\(\Jfun(0)=1\)</span> and <span class="mi">\(\Jfun'(0)=-3\)</span>:</div>
+<div class="md">\[
+\begin{gathered}
+F_w(0)=\sum_jw_j^2=\sw2,\qquad F_w'(0)=-3\sum_jw_j^4=-3\sw4,\\
+L_w(0)=\sum_jw_j,\qquad L_w'(0)=-3\sum_jw_j^3=-3\sw3 .
+\end{gathered}
+\]</div>
+<div class="p">Part (iii) is monotone convergence. Termwise,</div>
+<div class="md">\[
+qF_w(q)=\sum_j\EE\frac{w_j^2qg^2}{1+w_j^2qg^2},\qquad
+\frac{\partial}{\partial x}\frac{xg^2}{1+xg^2}=\frac{g^2}{(1+xg^2)^2}&gt;0\ \text{on }\{g\ne0\},
+\]</div>
+<div class="p">which gives <span class="mi">\(r_w(0)=0\)</span> and the displayed derivative, positive because at least one <span class="mi">\(w_j\)</span> is positive. As <span class="mi">\(q\to\infty\)</span> each term with <span class="mi">\(w_j&gt;0\)</span> increases to <span class="mi">\(\Pr(g\ne0)=1\)</span> by monotone convergence, and so does the sum.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li><li><a class="ref" href="r.rem.app-de-effbatch.html" data-label="rem:app-de-effbatch">Remark SB.2</a> <span class=muted>No scalar effective batch for <span class="mi">\(\bmom&gt;0\)</span></span></li><li><a class="ref" href="r.prop.app-drift-truncation.html" data-label="prop:app-drift-truncation">Proposition SC.1</a> <span class=muted>History truncation</span></li><li><a class="ref" href="r.lem.app-drift-gaussian.html" data-label="lem:app-drift-gaussian">Lemma SC.8</a> <span class=muted>Uniform Gaussian limit of the derivative functional</span></li><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a> <span class=muted>The Gaussian scalar</span></li><li><a class="ref" href="r.prop.app-iso-zero.html" data-label="prop:app-iso-zero">Proposition SF.5</a> <span class=muted>The zero-ridge constant</span></li><li><a class="ref" href="r.lem.app-iso-weights.html" data-label="lem:app-iso-weights">Lemma SF.4</a> <span class=muted>Scalar facts</span></li><li><a class="ref" href="r.thm.app-iso-one.html" data-label="thm:app-iso-one">Theorem SF.6</a> <span class=muted>The constant at aspect ratio one</span></li><li><a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class=muted>The branch in participation coordinates</span></li><li><a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class=muted>Drift at zero ridge</span></li><li><a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> <span class=muted>Scalar bounds</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_scalar_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Scalar.lean#L835">source</a></summary><pre class="lean no-mj">theorem lem_app_de_scalar_i :
+    ContinuousOn J (Ici 0) ∧
+    StrictAntiOn J (Ici 0) ∧
+    (∀ x, 0 ≤ x → 0 &lt; J x ∧ J x ≤ 1) ∧
+    ContDiffOn ℝ (⊤ : ℕ∞) J (Ici 0) ∧
+    HasDerivWithinAt J (-3) (Ici 0) 0 ∧
+    J 0 = 1 := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_scalar_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Scalar.lean#L860">source</a></summary><pre class="lean no-mj">theorem lem_app_de_scalar_ii {w : ℕ → ℝ} (hw : WeightSeq w) :
+    TendstoUniformlyOn
+      (fun (n : ℕ) (q : ℝ) =&gt; ∑ j ∈ Finset.range n, w j ^ 2 * J (w j ^ 2 * q))
+      (Fw w) atTop (Ici 0) ∧
+    TendstoUniformlyOn
+      (fun (n : ℕ) (q : ℝ) =&gt; ∑ j ∈ Finset.range n, w j * J (w j ^ 2 * q))
+      (Lw w) atTop (Ici 0) ∧
+    ContinuousOn (Fw w) (Ici 0) ∧
+    ContinuousOn (Lw w) (Ici 0) ∧
+    ContDiffOn ℝ (⊤ : ℕ∞) (Fw w) (Ici 0) ∧
+    ContDiffOn ℝ (⊤ : ℕ∞) (Lw w) (Ici 0) ∧
+    Fw w 0 = sumPow w 2 ∧
+    HasDerivWithinAt (Fw w) (-3 * sumPow w 4) (Ici 0) 0 ∧
+    Lw w 0 = ∑' j, w j ∧
+    HasDerivWithinAt (Lw w) (-3 * sumPow w 3) (Ici 0) 0 := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_scalar_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Scalar.lean#L978">source</a></summary><pre class="lean no-mj">theorem lem_app_de_scalar_iii {w : ℕ → ℝ} (hw : WeightSeq w) :
+    (∀ q, 0 ≤ q → rW w q =
+      ∑' j, ∫ g, w j ^ 2 * q * g ^ 2 / (1 + w j ^ 2 * q * g ^ 2) ∂(gaussianReal 0 1)) ∧
+    StrictMonoOn (rW w) (Ici 0) ∧
+    rW w 0 = 0 ∧
+    (∀ q ∈ Ioi 0, HasDerivAt (rW w)
+      (∑' j, w j ^ 2 * ∫ g, g ^ 2 / (1 + w j ^ 2 * q * g ^ 2) ^ 2 ∂(gaussianReal 0 1)) q) ∧
+    (∀ q ∈ Ioi 0,
+      0 &lt; ∑' j, w j ^ 2 * ∫ g, g ^ 2 / (1 + w j ^ 2 * q * g ^ 2) ^ 2 ∂(gaussianReal 0 1)) ∧
+    1 ≤ Set.encard {j | 0 &lt; w j} ∧
+    Tendsto (fun q : ℝ =&gt; ENNReal.ofReal (rW w q)) atTop
+      (𝓝 (Set.encard {j | 0 &lt; w j}).toENNReal) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SD.1 (Replacement for the filtered updates)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SD.1 (Replacement for the filtered updates)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-vol-filtered-replacement"><div class="thm-head"><a class="thm-name" href="r.cor.app-vol-filtered-replacement.html" data-label="cor:app-vol-filtered-replacement">Corollary SD.1</a> <span class="thm-title">(Replacement for the filtered updates)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> there is a sequence <span class="mi">\(\varepsilon'_B\to0\)</span>, independent of the lag, such that for every <span class="mi">\(\ell\ge0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-filtered-replacement"></span>\begin{equation}\tag{SD.37}
+\sup_{\ridge,\ridge'\in I}\ \sup_{\norm F,\norm G\le1}
+\abs{\EE\,\mathcal K^{F,G}[\omega_\ridge,\omega_{\ridge'}](\Mt,M_{t+\ell})-\EE\,\mathcal K^{F,G}[\omega_\ridge,\omega_{\ridge'}](M^{\mathrm g}_t,M^{\mathrm g}_{t+\ell})}\le\varepsilon'_B .
+\end{equation}</div>
+<div class="p">Consequently, for symmetric <span class="mi">\(F,G\)</span> with <span class="mi">\(\norm F,\norm G\le1\)</span>, the tested lag covariances of <a class="ref" href="r.def.app-vol-lag.html" data-label="def:app-vol-lag">Definition SD.1</a> and their independent counterparts <span class="mi">\(C^{\mathrm g}_\ell[F,G](\ridge,\ridge')\defeq B^{-1}\EE\Tr[F\,{\mathsf S}^{\mathrm g}_t(\ridge)\,G\,{\mathsf S}^{\mathrm g}_{t+\ell}(\ridge')^\T]\)</span> satisfy</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-C-replacement"></span>\begin{equation}\tag{SD.38}
+\sup_{\ridge,\ridge'\in I}\abs{C_\ell[F,G](\ridge,\ridge')-C^{\mathrm g}_\ell[F,G](\ridge,\ridge')}\le\varepsilon'_B+\frac{(C_\Sigma\ridge_-^{-1/2}+\varepsilon_B)^2}{B}.
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Fix <span class="mi">\(T\ge1\)</span> and put <span class="mi">\(\mathcal J_T\defeq[\ridge_-,\ridge_++T^2]\)</span>. By <a class="ref" href="r.lem.app-vol-square.html" data-label="lem:app-vol-square">Lemma SD.3</a>, applied to both models with <span class="mi">\(C_M'\defeq\max(C_M,C_\Sigma^2\gamma_\star^2)\)</span> by <a class="ref" href="s.SD.html#L-eqn:app-vol-product-moments" data-label="eqn:app-vol-product-moments">(SD.29)</a>, and <a class="ref" href="r.lem.app-vol-replacement.html" data-label="lem:app-vol-replacement">Lemma SD.6</a> on the square <span class="mi">\([0,T]^2\)</span>, the left side of <a class="ref" href="r.cor.app-vol-filtered-replacement.html#L-eqn:app-vol-filtered-replacement" data-label="eqn:app-vol-filtered-replacement">(SD.37)</a> is at most</div>
+<div class="md">\[
+\frac{4T^2}{\pi^2}\,2\varepsilon_B(\mathcal J_T)+\frac{8\sqrt{\gamma_\star C_M'}}{\pi T}.
+\]</div>
+<div class="p">Let <span class="mi">\(\varepsilon'_B\)</span> be the infimum of this expression over <span class="mi">\(T\ge1\)</span>; its limit superior is at most <span class="mi">\(8\sqrt{\gamma_\star C'_M}/(\pi T)\)</span> for every <span class="mi">\(T\)</span>, hence zero. The second statement adds the centering of <a class="ref" href="r.lem.app-vol-centering.html" data-label="lem:app-vol-centering">Lemma SD.4</a>; the independent updates have mean zero.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-vol-square.html" data-label="lem:app-vol-square">Lemma SD.3</a> <span class=muted>Square truncation</span></li><li><a class="ref" href="r.lem.app-vol-replacement.html" data-label="lem:app-vol-replacement">Lemma SD.6</a> <span class=muted>Replacement of the residuals</span></li><li><a class="ref" href="r.lem.app-vol-centering.html" data-label="lem:app-vol-centering">Lemma SD.4</a> <span class=muted>Centering</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li><li><a class="ref" href="r.def.app-vol-lag.html" data-label="def:app-vol-lag">Definition SD.1</a> <span class=muted>Tested lag covariances</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class=muted>Lag reduction</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_filtered_replacement_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Replacement.lean#L5160">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_filtered_replacement_i {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) :
+    ∃ ε' : ℕ → ℝ, Tendsto ε' atTop (𝓝 0) ∧
+      ∀ (t : ℤ) (ℓ : ℕ) (k : ℕ) (ϱ ϱ' : ℝ), ϱ ∈ Icc R.ϱlo R.ϱhi → ϱ' ∈ Icc R.ϱlo R.ϱhi →
+        ∀ F : Mat (R.m k) (R.m k), opNorm F ≤ 1 → ∀ G : Mat (R.n k) (R.n k), opNorm G ≤ 1 →
+          |(∫ ω, contraction (R.B k) F G (omegaF ϱ) (omegaF ϱ')
+                (frozenBuf (R.F k) (S k) t ω) (frozenBuf (R.F k) (S k) (t + (ℓ : ℤ)) ω) ∂(P k)) -
+            (∫ ω, contraction (R.B k) F G (omegaF ϱ) (omegaF ϱ')
+                (def_app_vol_product (R.F k) ω t) (def_app_vol_product (R.F k) ω (t + (ℓ : ℤ)))
+                ∂(indepSpaceLaw (R.m k) (R.n k) (R.B k)))| ≤ ε' k := by</pre></details><details class="decl"><summary><code>Muon.Volatility.cor_app_vol_filtered_replacement_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Replacement.lean#L5374">source</a></summary><pre class="lean no-mj">theorem cor_app_vol_filtered_replacement_ii {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (R : SetupRegime) (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (εB : ℕ → ℝ)
+    (hmean : ∀ k, ∀ s : ℤ, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      fro (Muon.mean (P k) (frozenUpd (R.F k) (S k) ϱ s)) ≤ R.CSig / Real.sqrt R.ϱlo + εB k) :
+    ∃ ε' : ℕ → ℝ, Tendsto ε' atTop (𝓝 0) ∧
+      ∀ (t : ℤ) (ℓ : ℕ) (k : ℕ) (Fo : Mat (R.m k) (R.m k)) (Gi : Mat (R.n k) (R.n k)),
+        Fo ᵀ = Fo → opNorm Fo ≤ 1 → Gi ᵀ = Gi → opNorm Gi ≤ 1 →
+        ∀ ϱ ϱ' : ℝ, ϱ ∈ Icc R.ϱlo R.ϱhi → ϱ' ∈ Icc R.ϱlo R.ϱhi →
+          |def_app_vol_lag (R.F k) (S k) ℓ t Fo Gi ϱ ϱ' -
+              ((R.B k : ℝ))⁻¹ * (∫ ω, Matrix.trace (Fo * indepUpd (R.F k) ϱ ω t * Gi *
+                (indepUpd (R.F k) ϱ' ω (t + (ℓ : ℤ)))ᵀ)
+                ∂(indepSpaceLaw (R.m k) (R.n k) (R.B k)))| ≤
+            ε' k + (R.CSig / Real.sqrt R.ϱlo + εB k) ^ 2 / (R.B k : ℝ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

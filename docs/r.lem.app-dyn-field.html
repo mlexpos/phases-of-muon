@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.1 (The field)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.1 (The field)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-field"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-field.html" data-label="lem:app-dyn-field">Lemma SE.1</a> <span class="thm-title">(The field)</span></div><div class="thm-body"><div class="p">There is <span class="mi">\(C_{\mathsf F}\)</span>, depending only on <span class="mi">\((\macrostep,\ridge,C_\Sigma,E_\star,r_0,r_1)\)</span> and on <span class="mi">\(m_\zeta\)</span>, such that for <span class="mi">\(\chi,\chi'\in\mathfrak M\)</span>:</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\abs{\mathsf F_B(\chi)(\mathbb K)}\le\norm{\mathsf F_B(\chi)}_{\mathrm{TV}}\le C_E\)</span> and <span class="mi">\(\frac12\big|\int\mu\lambda\,\dif\mathsf F_B(\chi)\big|\le C_{\cR}\)</span>;</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\norm{\mathsf F_B(\chi)-\mathsf F_B(\chi')}_{\mathrm{TV}}\le C_{\mathsf F}\norm{\chi-\chi'}_{\mathrm{TV}}\)</span>;</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p"><span class="mi">\(\norm{\mathsf F_B(\chi)-\mathsf F_B(\chi')}_\BL\le C_{\mathsf F}\norm{\chi-\chi'}_\BL\)</span>.</div></div></li></ol>
+<div class="p">The same statements hold, with <span class="mi">\(C_E\)</span>, <span class="mi">\(C_{\cR}\)</span>, <span class="mi">\(C_{\mathsf F}\)</span> depending also on the bounds, on every set defined as <span class="mi">\(\mathfrak M\)</span> with other positive bounds on the mass and the risk.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The mass bound is <a class="ref" href="s.SE.html#L-eqn:app-dyn-coefficient-bounds" data-label="eqn:app-dyn-coefficient-bounds">(SE.6)</a>. On <span class="mi">\(\mathfrak M\)</span>,</div>
+<div class="md">\[
+\norm{\mathsf F_B(\chi)}_{\mathrm{TV}}\le\frac{2\macrostep\,\mathfrak d_{\max}\,\chi(\mathbb K)}{\sqrt{\fRisk(\chi)}}+\macrostep^2\zeta(\mathbb K)\le\frac{2\macrostep\,\mathfrak d_{\max}(E_\star+1)}{\sqrt{r_0/2}}+\macrostep^2m_\zeta=C_E .
+\]</div>
+<div class="p">The risk bound uses <span class="mi">\(\mathfrak d\le\mathfrak d_{\max}\)</span> inside the risk integral. Since <span class="mi">\(\int\mu\lambda\,\mathfrak d\,\dif\chi\le\mathfrak d_{\max}\int\mu\lambda\,\dif\chi=2\mathfrak d_{\max}\fRisk(\chi)\)</span> and <span class="mi">\(\mu\lambda\le C_\Sigma^2\)</span> on <span class="mi">\(\mathbb K\)</span>,</div>
+<div class="md">\[
+\frac12\Big|\int\mu\lambda\,\dif\mathsf F_B(\chi)\Big|\le\frac{\macrostep}{\sqrt{\fRisk(\chi)}}\,2\mathfrak d_{\max}\fRisk(\chi)+\frac{\macrostep^2C_\Sigma^2}{2}\zeta(\mathbb K)
+\le2\macrostep\,\mathfrak d_{\max}\sqrt{r_1+1}+\frac{\macrostep^2C_\Sigma^2m_\zeta}{2}=C_{\cR} .
+\]</div>
+<div class="p">The Lipschitz bounds follow from one decomposition. The forcing cancels in the difference, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-field-diff"></span>\begin{equation}\tag{SE.12}
+\mathsf F_B(\chi)-\mathsf F_B(\chi')=-\frac{2\macrostep}{\sqrt{\fRisk(\chi)}}\,\mathfrak d\,(\chi-\chi')
+-2\macrostep\Big(\frac{1}{\sqrt{\fRisk(\chi)}}-\frac{1}{\sqrt{\fRisk(\chi')}}\Big)\mathfrak d\,\chi' .
+\end{equation}</div>
+<div class="p">For <span class="mi">\(\fRisk,\fRisk'\ge r_0/2\)</span> the mean value theorem gives</div>
+<div class="md">\[
+\Big|\frac{1}{\sqrt{\fRisk}}-\frac{1}{\sqrt{\fRisk'}}\Big|\le\frac12\Big(\frac{r_0}{2}\Big)^{-3/2}\abs{\fRisk-\fRisk'} .
+\]</div>
+<div class="p">In total variation, <span class="mi">\(\norm{\mathfrak d(\chi-\chi')}_{\mathrm{TV}}\le\mathfrak d_{\max}\norm{\chi-\chi'}_{\mathrm{TV}}\)</span> and <span class="mi">\(\abs{\fRisk(\chi)-\fRisk(\chi')}\le\frac12C_\Sigma^2\norm{\chi-\chi'}_{\mathrm{TV}}\)</span>, which with <span class="mi">\(\norm{\mathfrak d\chi'}_{\mathrm{TV}}\le\mathfrak d_{\max}(E_\star+1)\)</span> proves (ii).</div>
+<div class="p">In the bounded-Lipschitz norm we use that multiplication by a bounded Lipschitz function maps the unit ball of test functions into a multiple of it. If <span class="mi">\(\norm\phi_\infty\le1\)</span> and <span class="mi">\(\phi\)</span> is <span class="mi">\(1\)</span>-Lipschitz for <span class="mi">\(\abs\cdot_1\)</span>, then by <a class="ref" href="s.SE.html#L-eqn:app-dyn-coefficient-bounds" data-label="eqn:app-dyn-coefficient-bounds">(SE.6)</a></div>
+<div class="md">\[
+\norm{\phi\,\mathfrak d}_\infty\le\mathfrak d_{\max},\qquad
+\abs{\phi\mathfrak d(x)-\phi\mathfrak d(y)}\le\Big(\mathfrak d_{\max}+\frac{C_\Sigma}{\sqrt{2\ridge}}\Big)\abs{x-y}_1 ,
+\]</div>
+<div class="p">so <span class="mi">\(\abs{\int\phi\,\mathfrak d\,\dif(\chi-\chi')}\le c_1\norm{\chi-\chi'}_\BL\)</span> with <span class="mi">\(c_1\defeq2\mathfrak d_{\max}+C_\Sigma/\sqrt{2\ridge}\)</span>. The function <span class="mi">\(\mu\lambda\)</span> has supremum <span class="mi">\(C_\Sigma^2\)</span> and <span class="mi">\(\abs\cdot_1\)</span>-Lipschitz constant <span class="mi">\(C_\Sigma\)</span> on <span class="mi">\(\mathbb K\)</span>, so <span class="mi">\(\abs{\fRisk(\chi)-\fRisk(\chi')}\le\frac12(2C_\Sigma^2+C_\Sigma)\norm{\chi-\chi'}_\BL\)</span>. Inserting these two bounds in <a class="ref" href="r.lem.app-dyn-field.html#L-eqn:app-dyn-field-diff" data-label="eqn:app-dyn-field-diff">(SE.12)</a>, with <span class="mi">\(\abs{\int\phi\,\mathfrak d\,\dif\chi'}\le\mathfrak d_{\max}(E_\star+1)\)</span>, proves (iii). The last sentence is the same computation with the other bounds.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-dyn-ode.html" data-label="prop:app-dyn-ode">Proposition SE.1</a> <span class=muted>Well-posedness</span></li><li><a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> <span class=muted>Dynamical comparison</span></li><li><a class="ref" href="r.cor.app-dyn-continuum.html" data-label="cor:app-dyn-continuum">Corollary SE.2</a> <span class=muted>Continuum equation</span></li><li><a class="ref" href="r.lem.app-dyn-block.html" data-label="lem:app-dyn-block">Lemma SE.26</a> <span class=muted>Block residual</span></li><li><a class="ref" href="r.lem.app-dyn-interval.html" data-label="lem:app-dyn-interval">Lemma SE.27</a> <span class=muted>No exit before <span class="mi">\(T_\star\)</span></span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_field_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/ODE.lean#L619">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_field_i {m n : ℕ} {C : Covariances m n} (p : DynParams) (S : SpectralData C)
+    {B : ℕ} (c : DynCoeff p S B)
+    (hSout : opNorm C.Sout ≤ p.CSig) (hSin : opNorm C.Sin ≤ p.CSig)
+    (χ : Measure (ℝ × ℝ)) (hχ : χ ∈ admMeasures p) :
+    |fieldOp p.h c.d c.ζ χ (fun _ =&gt; 1)| ≤ CE p ∧
+    BddAbove ((fun φ =&gt; |fieldOp p.h c.d c.ζ χ φ|) ''
+      {φ : ℝ × ℝ → ℝ | Measurable φ ∧ ∀ x, |φ x| ≤ 1}) ∧
+    tvNorm (fun φ =&gt; fieldOp p.h c.d c.ζ χ φ) ≤ CE p ∧
+    (1 / 2) * |fieldOp p.h c.d c.ζ χ (fun x =&gt; x.1 * x.2)| ≤ CR p := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_field_i_gen</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/ODE.lean#L665">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_field_i_gen {m n : ℕ} {C : Covariances m n} (p : DynParams)
+    (S : SpectralData C) {B : ℕ} (c : DynCoeff p S B)
+    (hSout : opNorm C.Sout ≤ p.CSig) (hSin : opNorm C.Sin ≤ p.CSig) (M rlo rhi : ℝ) (hrlo : 0 &lt; rlo)
+    (χ : Measure (ℝ × ℝ)) (hχ : χ ∈ Adm p.CSig M rlo rhi) :
+    |fieldOp p.h c.d c.ζ χ (fun _ =&gt; 1)| ≤ 2 * p.h * dMax p * M / Real.sqrt rlo + p.h ^ 2 * mZeta p ∧
+    BddAbove ((fun φ =&gt; |fieldOp p.h c.d c.ζ χ φ|) ''
+      {φ : ℝ × ℝ → ℝ | Measurable φ ∧ ∀ x, |φ x| ≤ 1}) ∧
+    tvNorm (fun φ =&gt; fieldOp p.h c.d c.ζ χ φ) ≤
+      2 * p.h * dMax p * M / Real.sqrt rlo + p.h ^ 2 * mZeta p ∧
+    (1 / 2) * |fieldOp p.h c.d c.ζ χ (fun x =&gt; x.1 * x.2)| ≤
+      2 * p.h * dMax p * Real.sqrt rhi + p.h ^ 2 * p.CSig ^ 2 * mZeta p / 2 := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_field_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/ODE.lean#L702">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_field_ii (p : DynParams) (M rlo rhi : ℝ) (hrlo : 0 &lt; rlo) :
+    ∃ CF : ℝ, ∀ {m n : ℕ} {C : Covariances m n} (S : SpectralData C) {B : ℕ}
+      (c : DynCoeff p S B) (χ χ' : Measure (ℝ × ℝ)),
+      χ ∈ Adm p.CSig M rlo rhi → χ' ∈ Adm p.CSig M rlo rhi →
+      BddAbove ((fun φ =&gt; |fieldOp p.h c.d c.ζ χ φ - fieldOp p.h c.d c.ζ χ' φ|) ''
+          {φ : ℝ × ℝ → ℝ | Measurable φ ∧ ∀ x, |φ x| ≤ 1}) ∧
+        tvNorm (fun φ =&gt; fieldOp p.h c.d c.ζ χ φ - fieldOp p.h c.d c.ζ χ' φ) ≤
+          CF * tvDist χ χ' := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_field_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/ODE.lean#L743">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_field_iii (p : DynParams) (M rlo rhi : ℝ) (hrlo : 0 &lt; rlo) :
+    ∃ CF : ℝ, ∀ {m n : ℕ} {C : Covariances m n} (S : SpectralData C) {B : ℕ}
+      (c : DynCoeff p S B) (χ χ' : Measure (ℝ × ℝ)),
+      χ ∈ Adm p.CSig M rlo rhi → χ' ∈ Adm p.CSig M rlo rhi →
+      BddAbove ((fun φ =&gt; |fieldOp p.h c.d c.ζ χ φ - fieldOp p.h c.d c.ζ χ' φ|) '' blTest p.CSig) ∧
+        blNorm p.CSig (fun φ =&gt; fieldOp p.h c.d c.ζ χ φ - fieldOp p.h c.d c.ζ χ' φ) ≤
+          CF * blDist p.CSig χ χ' := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

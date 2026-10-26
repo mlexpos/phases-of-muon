@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SG.5 (The profiles)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SG.5 (The profiles)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum · <a href="t.prop.app-pl-profiles.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-pl-profiles"><div class="thm-head"><a class="thm-name" href="r.prop.app-pl-profiles.html" data-label="prop:app-pl-profiles">Proposition SG.5</a> <span class="thm-title">(The profiles)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\Psi_\alpha\)</span> and <span class="mi">\(\Gamma_\alpha\)</span> are finite, positive and continuous on <span class="mi">\((0,1]\)</span>, <span class="mi">\(\Psi_\alpha\)</span> is bounded below by a positive constant there, and as <span class="mi">\(x\downarrow0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-bulk-small"></span>\begin{equation}\tag{SG.27}
+\begin{gathered}
+\Psi_\alpha(x)\sim\begin{cases}\dfrac{c_0}{\sqrt{1-\alpha}}\log(x^{-\alpha}),&amp;\alpha&lt;1,\\[6pt]
+\dfrac23c_0\big[\log(1/x)\big]^{3/2},&amp;\alpha=1,\\[6pt]
+d_\alpha\sqrt{K_\alpha}\,x^{-(\alpha-1)/2},&amp;\alpha&gt;1,\end{cases}
+\\
+\Gamma_\alpha(x)\sim\begin{cases}\dfrac{x^\alpha\big[\log(x^{-\alpha})\big]^2}{1-\alpha},&amp;\alpha&lt;1,\\[6pt]
+\dfrac49x\big[\log(1/x)\big]^3,&amp;\alpha=1,\\[6pt]
+\dfrac{4K_\alpha^2}{\alpha-1}\,x,&amp;\alpha&gt;1.\end{cases}
+\end{gathered}
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For <span class="mi">\(\alpha&gt;1\)</span>, <span class="mi">\(\Phi_{\alpha,\bmom}\)</span> and <span class="mi">\(G_{\alpha,\bmom}\)</span> are finite, positive and continuous on <span class="mi">\((0,\infty)\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-crossover-ends"></span>\begin{equation}\tag{SG.28}
+\begin{gathered}
+\Phi_{\alpha,\bmom}(y)\sim\sqrt{y/\sw2}\ (y\to\infty),\quad
+\Phi_{\alpha,\bmom}(y)\sim d_\alpha\,y^{\frac{\alpha-1}{2\alpha}}\ (y\downarrow0),\\
+G_{\alpha,\bmom}(X)\to\frac1{\sw2}\ (X\downarrow0),\quad
+G_{\alpha,\bmom}(X)\sim\frac{4K_\alpha}{\alpha-1}X\ (X\to\infty).
+\end{gathered}
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-pl-profiles.html" data-label="prop:app-pl-profiles">Proposition SG.5</a>.</div><div class="p">Part (i) is <a class="ref" href="r.lem.app-pl-Psi.html" data-label="lem:app-pl-Psi">Lemma SG.9</a>, the proof of <a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a>(i) for the positivity and continuity of <span class="mi">\(\Gamma_\alpha\)</span>, <a class="ref" href="r.lem.app-pl-matching.html" data-label="lem:app-pl-matching">Lemma SG.21</a> for <span class="mi">\(\alpha\le1\)</span> and <a class="ref" href="r.lem.app-pl-supervol.html" data-label="lem:app-pl-supervol">Lemma SG.23</a> for <span class="mi">\(\alpha&gt;1\)</span>. Part (ii) is <a class="ref" href="r.lem.app-pl-super.html" data-label="lem:app-pl-super">Lemma SG.13</a> and <a class="ref" href="r.lem.app-pl-supervol.html" data-label="lem:app-pl-supervol">Lemma SG.23</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-pl-Psi.html" data-label="lem:app-pl-Psi">Lemma SG.9</a> <span class=muted>The profile <span class="mi">\(\Psi_\alpha\)</span></span></li><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li><li><a class="ref" href="r.lem.app-pl-matching.html" data-label="lem:app-pl-matching">Lemma SG.21</a> <span class=muted>Continuum matching below and at one</span></li><li><a class="ref" href="r.lem.app-pl-supervol.html" data-label="lem:app-pl-supervol">Lemma SG.23</a> <span class=muted>Supercritical volatility</span></li><li><a class="ref" href="r.lem.app-pl-super.html" data-label="lem:app-pl-super">Lemma SG.13</a> <span class=muted>The supercritical drift profile</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-pl-Psi.html" data-label="lem:app-pl-Psi">Lemma SG.9</a> <span class=muted>The profile <span class="mi">\(\Psi_\alpha\)</span></span></li><li><a class="ref" href="r.lem.app-pl-matching.html" data-label="lem:app-pl-matching">Lemma SG.21</a> <span class=muted>Continuum matching below and at one</span></li><li><a class="ref" href="r.lem.app-pl-supervol.html" data-label="lem:app-pl-supervol">Lemma SG.23</a> <span class=muted>Supercritical volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_profiles_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L196">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_profiles_i {α : ℝ} (hα : 0 &lt; α) :
+    (∀ x ∈ Ioc (0 : ℝ) 1, IntervalIntegrable
+      (fun p : ℝ =&gt; Real.sqrt ((1 - p) / (p * contV α p)) * profF α x p) volume 0 1) ∧
+    (∀ x ∈ Ioc (0 : ℝ) 1, IntervalIntegrable (fun τ : ℝ =&gt; profC α x τ) volume 0 1) ∧
+    ContinuousOn (fun x : ℝ =&gt; profPsi α x) (Ioc 0 1) ∧
+    ContinuousOn (fun x : ℝ =&gt; profGamma α x) (Ioc 0 1) ∧
+    (∀ x ∈ Ioc (0 : ℝ) 1, 0 &lt; profPsi α x ∧ 0 &lt; profGamma α x) ∧
+    (∃ κ : ℝ, 0 &lt; κ ∧ ∀ x ∈ Ioc (0 : ℝ) 1, κ ≤ profPsi α x) ∧
+    (α &lt; 1 → IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profPsi α x)
+        (fun x : ℝ =&gt; c0 / Real.sqrt (1 - α) * Real.log (x ^ (-α))) ∧
+      IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profGamma α x)
+        (fun x : ℝ =&gt; x ^ α * Real.log (x ^ (-α)) ^ 2 / (1 - α))) ∧
+    (α = 1 → IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profPsi α x)
+        (fun x : ℝ =&gt; 2 / 3 * c0 * Real.log (1 / x) ^ (3 / 2 : ℝ)) ∧
+      IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profGamma α x)
+        (fun x : ℝ =&gt; 4 / 9 * x * Real.log (1 / x) ^ (3 : ℕ))) ∧
+    (1 &lt; α → IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profPsi α x)
+        (fun x : ℝ =&gt; dAl α * Real.sqrt (Kc α) * x ^ (-(α - 1) / 2)) ∧
+      IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun x : ℝ =&gt; profGamma α x)
+        (fun x : ℝ =&gt; 4 * Kc α ^ 2 / (α - 1) * x)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_profiles_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Main.lean#L258">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_profiles_ii {α β : ℝ} (hα : 1 &lt; α) (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    (∀ y ∈ Ioi (0 : ℝ), IntegrableOn (fun q : ℝ =&gt; Real.sqrt q * Lw (emaW β) q *
+        rW (emaW β) q ^ (-(α + 1) / 2) *
+        (y * rW (emaW β) q ^ α / (1 + y * rW (emaW β) q ^ α)) *
+        (1 + (α - 1) * q * deriv (rW (emaW β)) q / rW (emaW β) q) / q) (Ioi 0)) ∧
+    ContinuousOn (fun y : ℝ =&gt; profPhi α β y) (Ioi 0) ∧
+    (∀ y ∈ Ioi (0 : ℝ), 0 &lt; profPhi α β y) ∧
+    IsEquivalent atTop (fun y : ℝ =&gt; profPhi α β y)
+      (fun y : ℝ =&gt; Real.sqrt (y / sPow β 2)) ∧
+    IsEquivalent (𝓝[&gt;] (0 : ℝ)) (fun y : ℝ =&gt; profPhi α β y)
+      (fun y : ℝ =&gt; dAl α * y ^ ((α - 1) / (2 * α))) ∧
+    (∀ X ∈ Ioi (0 : ℝ),
+      (∀ ℓ : ℤ, IntegrableOn (fun p : ℝ × ℝ =&gt;
+          Real.sqrt (profZeta α X p.1 * (1 - profZeta α X p.1) *
+              (profZeta α X p.2 * (1 - profZeta α X p.2))) / Real.sqrt (p.1 * p.2) *
+            (DLag β (Qm β p.1) (Qm β p.2) ℓ * profTheta α β p.1 * profTheta α β p.2 /
+              profDelta α β ℓ p.1 p.2))
+          (Ioi 0 ×ˢ Ioi 0)) ∧
+      Summable (fun ℓ : ℤ =&gt; ∫ u in Ioi (0 : ℝ), ∫ v in Ioi (0 : ℝ),
+          Real.sqrt (profZeta α X u * (1 - profZeta α X u) *
+              (profZeta α X v * (1 - profZeta α X v))) / Real.sqrt (u * v) *
+            (DLag β (Qm β u) (Qm β v) ℓ * profTheta α β u * profTheta α β v /
+              profDelta α β ℓ u v))) ∧
+    (∀ X ∈ Ioi (0 : ℝ), 0 &lt; profG α β X) ∧
+    ContinuousOn (fun X : ℝ =&gt; profG α β X) (Ioi 0) ∧
+    Tendsto (fun X : ℝ =&gt; profG α β X) (𝓝[&gt;] (0 : ℝ)) (𝓝 (1 / sPow β 2)) ∧
+    IsEquivalent atTop (fun X : ℝ =&gt; profG α β X) (fun X : ℝ =&gt; 4 * Kc α / (α - 1) * X) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

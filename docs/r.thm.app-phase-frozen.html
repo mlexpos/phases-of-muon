@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SI.13 (Frozen regime)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SI.13 (Frozen regime)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map · <a href="t.thm.app-phase-frozen.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-phase-frozen"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-frozen.html" data-label="thm:app-phase-frozen">Theorem SI.13</a> <span class="thm-title">(Frozen regime)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(\texp\)</span> with <span class="mi">\(p=\alpha+\texp&gt;1\)</span>, and <span class="mi">\(T\ge4\)</span>. Consider a sequence of <span class="mi">\((N,B,\epsilon)\)</span> with <span class="mi">\(N\to\infty\)</span>, integers <span class="mi">\(B\ge N\)</span> and <span class="mi">\(x=\epsilon/\epsilon_N\to0\)</span>. For all large indices both first hits are attained, and for both <span class="mi">\(j\)</span></div>
+<div class="md">\[
+\frac{\mathsf I_j}{J_N(p,q_j)}\longrightarrow1,\qquad
+t^j_{T\epsilon}\sim\frac{\mathcal S_jT_0^j\,J_N(p,q_j)}{2\sqrt\epsilon},\qquad
+\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}\sim\rho_N .
+\]</div>
+<div class="p">Moreover, if <span class="mi">\(r_j&lt;1\)</span>, there are <span class="mi">\(N_2\)</span> and <span class="mi">\(c\)</span> such that</div>
+<div class="md">\[
+\Big|\frac{\mathsf I_j}{J_N(p,q_j)}-1\Big|\le c\,\Big(x^{1/4}+x^{1/2}\log\big(e+x^{-1/2}\big)\Big)^{1/2}
+\]</div>
+<div class="p">for all <span class="mi">\(N\ge N_2\)</span>, <span class="mi">\(B\ge N\)</span>, <span class="mi">\(\epsilon&lt;1/(2T)\)</span> and <span class="mi">\(x\le1\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-phase-frozen.html" data-label="thm:app-phase-frozen">Theorem SI.13</a>.</div><div class="p">Drop the index <span class="mi">\(j\)</span> and write <span class="mi">\(q=q_j\)</span>, <span class="mi">\(r=r_j\)</span>, <span class="mi">\(\mathsf y=\mathsf y_j\)</span>, <span class="mi">\(\mathsf I=\mathsf I_j\)</span> and <span class="mi">\(J_N=J_N(p,q)\)</span>. Along the sequence <span class="mi">\(\epsilon=x\epsilon_N\to0\)</span>, so eventually <span class="mi">\(\epsilon&lt;1/(2T)\)</span> and <a class="ref" href="s.SI.html#L-eqn:app-phase-FMmodel" data-label="eqn:app-phase-FMmodel">(SI.59)</a> holds; in particular both hits are attained. The lower bound in <a class="ref" href="s.SI.html#L-eqn:app-phase-FMmodel" data-label="eqn:app-phase-FMmodel">(SI.59)</a> costs <span class="mi">\(\sqrt{T\epsilon}\,N^q=\sqrt{T\mathsf y}\)</span> in every case. The three regimes of <span class="mi">\(r\)</span> differ only in how the upper error is controlled.</div>
+<div class="p"><em>Case <span class="mi">\(r&gt;1\)</span>.</em> Here <span class="mi">\(\mathsf y=xN^{-2q(r-1)}\)</span>, so <span class="mi">\(\sqrt{T\epsilon}\,N^q=\sqrt{Tx}\,N^{-q(r-1)}\to0\)</span>. By <a class="ref" href="s.SI.html#L-eqn:app-phase-FMmodel" data-label="eqn:app-phase-FMmodel">(SI.59)</a> and <span class="mi">\(\sqrt x\log(1/x)\le2/e\)</span>,</div>
+<div class="md">\[
+\mathsf d\le N^{-q(r-1)}\Big[\sqrt x\Big(\log\frac{\zeta(p)}2+(p-1)\log N\Big)+\frac2e\Big]\longrightarrow0 .
+\]</div>
+<div class="p">Since <span class="mi">\(J_N\to J(p,q)\in(0,\infty)\)</span> by <a class="ref" href="s.SI.html#L-eqn:app-phase-Jall" data-label="eqn:app-phase-Jall">(SI.43)</a>, <a class="ref" href="s.SI.html#L-eqn:app-phase-FMmodel" data-label="eqn:app-phase-FMmodel">(SI.59)</a> gives <span class="mi">\(\mathsf I/J_N\to1\)</span>.</div>
+<div class="p"><em>Case <span class="mi">\(r=1\)</span>.</em> Here <span class="mi">\(p-1=2q\)</span>, <span class="mi">\(\mathsf y=x\)</span>, and <span class="mi">\(J_N=\sqrt{q/8}\log N+O(1)\)</span> by <a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a>(i). The lower error is <span class="mi">\(\sqrt{Tx}\to0\)</span>, and</div>
+<div class="md">\[
+\mathsf d\le\sqrt x\Big(\log\frac{\zeta(p)}2+2q\log N\Big)+\frac2e=o(\log N) .
+\]</div>
+<div class="p">Thus <span class="mi">\((\mathsf I-J_N)/J_N\le2\sqrt{\mathsf d/J_N}+\mathsf d/J_N\to0\)</span>.</div>
+<div class="p"><em>Case <span class="mi">\(r&lt;1\)</span>.</em> <a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> alone would give a relative error of order <span class="mi">\(\sqrt x\log N\)</span>; the restart removes the logarithm. Use the phase-one data <span class="mi">\((D,\tau,N^\circ)\)</span> with <span class="mi">\(u_0=\tau N^q\)</span> and <span class="mi">\(w=0\)</span>, and take <span class="mi">\(N\)</span> so large that <span class="mi">\(N\ge N^\circ\)</span> and <span class="mi">\(D\le u_0\)</span>. Put <span class="mi">\(C=C_{p,q}\)</span> and <span class="mi">\(\mathsf e_r\defeq q(1-r)\)</span>.</div>
+<div class="p">The first phase costs a fraction <span class="mi">\(x^{1/4}\)</span>. <a class="ref" href="r.lem.app-phase-twophase.html" data-label="lem:app-phase-twophase">Lemma SI.22</a>(a) with <span class="mi">\(G=2h+\sqrt\epsilon\)</span> gives, on <span class="mi">\([0,u_0]\)</span>,</div>
+<div class="md">\[
+\sqrt Y\le\sqrt f+\sqrt2\,\epsilon^{1/4}\sqrt h+\sqrt\epsilon .
+\]</div>
+<div class="p">Integrating the envelope, <span class="mi">\(\int_0^{u_0}\sqrt h\le\sqrt C\,D^{r/2}(D+u_0)^{1-r/2}/(1-\frac r2)\)</span>, and <span class="mi">\(D+u_0\le2\tau N^q\)</span>. Since <span class="mi">\(\frac{p-1}4=\frac{qr}2\)</span>, one has <span class="mi">\(\epsilon^{1/4}N^{q(1-r/2)}=x^{1/4}N^{\mathsf e_r}\)</span>, and by <a class="ref" href="s.SI.html#L-eqn:app-phase-scales" data-label="eqn:app-phase-scales">(SI.40)</a> <span class="mi">\(\sqrt\epsilon\,u_0=\tau\sqrt{\mathsf y}=\tau x^{1/2}N^{\mathsf e_r}\)</span>. Hence</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-phase1"></span>\begin{equation}\tag{SI.63}
+\int_0^{u_0}\sqrt Y\,\dif u\le\int_0^{u_0}\sqrt f\,\dif u+\big(c_1x^{1/4}+\tau x^{1/2}\big)N^{\mathsf e_r},\qquad
+c_1\defeq\frac{\sqrt{2C}\,D^{r/2}(2\tau)^{1-r/2}}{1-r/2} .
+\end{equation}</div>
+<div class="p">The restart costs the same fraction. At the end of the first phase <span class="mi">\(h(u_0)\le C(D/\tau)^rN^{-qr}\)</span> and <span class="mi">\(\sqrt\epsilon=\sqrt x\,N^{-qr}\)</span>, so</div>
+<div class="md">\[
+\frac{h(u_0)}{\sqrt\epsilon}\le c_2x^{-1/2},\qquad c_2\defeq C\Big(\frac D\tau\Big)^r,\qquad
+\Theta_0\le1+c_2x^{-1/2} .
+\]</div>
+<div class="p">In <a class="ref" href="r.lem.app-phase-twophase.html" data-label="lem:app-phase-twophase">Lemma SI.22</a>(c), <span class="mi">\(G(u_0)=2h(u_0)+\sqrt\epsilon\)</span> and</div>
+<div class="md">\[
+N^q\epsilon^{1/4}\big(2h(u_0)+\sqrt\epsilon\big)^{1/2}\le\sqrt{\mathsf y}\,\big(\sqrt{2c_2}\,x^{-1/4}+1\big) .
+\]</div>
+<div class="p">With <a class="ref" href="s.SI.html#L-eqn:app-phase-scales" data-label="eqn:app-phase-scales">(SI.40)</a> this gives</div>
+<div class="md">\[
+\tilde{\mathsf J}\le\int_{u_0}^\infty\sqrt f\,\dif u+\big(\sqrt{2c_2}\,x^{1/4}+x^{1/2}\big)N^{\mathsf e_r},\qquad
+\tilde{\mathsf d}\le2x^{1/2}\log\big(1+c_2x^{-1/2}\big)N^{\mathsf e_r} .
+\]</div>
+<div class="p">Adding <a class="ref" href="r.thm.app-phase-frozen.html#L-eqn:app-phase-phase1" data-label="eqn:app-phase-phase1">(SI.63)</a> and using <span class="mi">\(\int_0^{u_0}\sqrt f+\int_{u_0}^\infty\sqrt f=J_N\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-frozenerr"></span>\begin{equation}\tag{SI.64}
+\mathsf I\le J_N+a_1(x)N^{\mathsf e_r}+2\sqrt{\big(J_N+a_2(x)N^{\mathsf e_r}\big)\tilde{\mathsf d}}+\tilde{\mathsf d},
+\end{equation}</div>
+<div class="p">with <span class="mi">\(a_1(x)\defeq(c_1+\sqrt{2c_2})x^{1/4}+(\tau+1)x^{1/2}\)</span> and <span class="mi">\(a_2(x)\defeq\sqrt{2c_2}\,x^{1/4}+x^{1/2}\)</span>.</div>
+<div class="p">The relative error is of order the square root of <span class="mi">\(\mathfrak e(x)\defeq x^{1/4}+x^{1/2}\log(e+x^{-1/2})\)</span>. Since <span class="mi">\(\log(1+c_2t)\le(1+\log\max\{1,c_2\})\log(e+t)\)</span> for <span class="mi">\(t\ge0\)</span>, each of <span class="mi">\(a_1(x)\)</span>, <span class="mi">\(a_2(x)\)</span> and <span class="mi">\(\tilde{\mathsf d}/N^{\mathsf e_r}\)</span> is at most <span class="mi">\(c\,\mathfrak e(x)\)</span> for <span class="mi">\(x\le1\)</span>. By <a class="ref" href="r.prop.app-phase-forcing-r.html" data-label="prop:app-phase-forcing-r">Proposition SI.8</a>(i),(ii), <span class="mi">\(c_JN^{\mathsf e_r}\le J_N\le c_J'N^{\mathsf e_r}\)</span> for large <span class="mi">\(N\)</span>, with fixed <span class="mi">\(c_J,c_J'&gt;0\)</span>. Since <span class="mi">\(\mathfrak e\)</span> is bounded on <span class="mi">\((0,1]\)</span>, <a class="ref" href="r.thm.app-phase-frozen.html#L-eqn:app-phase-frozenerr" data-label="eqn:app-phase-frozenerr">(SI.64)</a> gives</div>
+<div class="md">\[
+\frac{\mathsf I-J_N}{J_N}\le c\,\mathfrak e(x)^{1/2}\qquad(x\le1).
+\]</div>
+<div class="p">The lower bound of <a class="ref" href="s.SI.html#L-eqn:app-phase-FMmodel" data-label="eqn:app-phase-FMmodel">(SI.59)</a> gives</div>
+<div class="md">\[
+\frac{J_N-\mathsf I}{J_N}\le\frac{\sqrt{T\mathsf y}}{J_N}=\frac{\sqrt T\,x^{1/2}N^{\mathsf e_r}}{J_N}\le c\,x^{1/2}\le c\,\mathfrak e(x)^{1/2} .
+\]</div>
+<div class="p">Here <span class="mi">\(N_2\)</span> is the largest of <span class="mi">\(N^\circ\)</span>, the threshold of <a class="ref" href="r.prop.app-phase-forcing-r.html" data-label="prop:app-phase-forcing-r">Proposition SI.8</a>(ii), and the threshold for <span class="mi">\(D\le\tau N^q\)</span>.</div>
+<div class="p">In all three cases <span class="mi">\(\mathsf I_j/J_N(p,q_j)\to1\)</span>, and no bound depends on <span class="mi">\(B\)</span>. The two equivalents follow from <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-time" data-label="eqn:app-phase-time">(SI.30)</a> and <a class="ref" href="s.SI.html#L-eqn:app-phase-clockint" data-label="eqn:app-phase-clockint">(SI.41)</a>, and dividing <span class="mi">\(D_N\mathsf I_{\text{s-SGD}}/\mathsf I_{\text{s-SVD}}\)</span> by <span class="mi">\(\rho_N=D_NJ_N(p,\alpha)/J_N(p,\alpha/2)\)</span> gives the ratio.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-forcing-integrals.html" data-label="lem:app-phase-forcing-integrals">Lemma SI.12</a> <span class=muted>Two finite forcing integrals</span></li><li><a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> <span class=muted>Finite exponential mixtures</span></li><li><a class="ref" href="r.lem.app-phase-twophase.html" data-label="lem:app-phase-twophase">Lemma SI.22</a> <span class=muted>Two-phase bound</span></li><li><a class="ref" href="r.prop.app-phase-forcing-r.html" data-label="prop:app-phase-forcing-r">Proposition SI.8</a> <span class=muted>Forcing integrals below the critical exponent</span></li><li><a class="ref" href="r.prop.app-phase-prefactors.html" data-label="prop:app-phase-prefactors">Proposition SI.4</a> <span class=muted>Noise constants, kernels and clocks</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-omega.html" data-label="thm:app-phase-omega">Theorem SI.15</a> <span class=muted>Accuracy-exponent map</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2023">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_i {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (D : FrozenSeq α ς) :
+    ∀ᶠ n in atTop,
+      dimHit (D.QS n) (svdT0 (D.N n) (D.B n)) T (D.ε n) ≠ ⊤ ∧
+        dimHit (D.QG n) (sgdT0 α (D.N n) (D.B n)) T (D.ε n) ≠ ⊤ := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2036">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_ii {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (D : FrozenSeq α ς) :
+    Tendsto (fun n =&gt; phaseClockI (D.QS n) (svdT0 (D.N n) (D.B n)) T (D.ε n) /
+        JN (D.N n) (α + ς) (α / 2)) atTop (𝓝 1) ∧
+      Tendsto (fun n =&gt; phaseClockI (D.QG n) (sgdT0 α (D.N n) (D.B n)) T (D.ε n) /
+        JN (D.N n) (α + ς) α) atTop (𝓝 1) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2050">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_iii {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (D : FrozenSeq α ς) :
+    IsEquivalent atTop (fun n =&gt; (stepHit (D.mS n) (D.QS n) T (D.ε n)).toReal)
+        (fun n =&gt; (svdArrays α ς (D.N n) (D.B n)).S * svdT0 (D.N n) (D.B n) *
+          JN (D.N n) (α + ς) (α / 2) / (2 * Real.sqrt (D.ε n))) ∧
+      IsEquivalent atTop (fun n =&gt; (stepHit (D.mG n) (D.QG n) T (D.ε n)).toReal)
+        (fun n =&gt; (sgdArrays α ς (D.N n) (D.B n)).S * sgdT0 α (D.N n) (D.B n) *
+          JN (D.N n) (α + ς) α / (2 * Real.sqrt (D.ε n))) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2098">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_iv {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (D : FrozenSeq α ς) :
+    IsEquivalent atTop
+      (fun n =&gt; (stepHit (D.mG n) (D.QG n) T (D.ε n)).toReal /
+        (stepHit (D.mS n) (D.QS n) T (D.ε n)).toReal)
+      (fun n =&gt; phaseRhoN α ς (D.N n)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_v_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2314">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_v_i {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (hr : rq (α + ς) (α / 2) &lt; 1) :
+    ∃ (N2 : ℕ) (c : ℝ), ∀ (N B : ℕ) (ε : ℝ) (m : RowModel (Fin N)) (Q : ℝ → ℝ),
+      N2 ≤ N → N ≤ B → 0 &lt; ε → ε &lt; 1 / (2 * T) → phaseX (α + ς) N ε ≤ 1 →
+      IsMatchedModel (svdArrays α ς N B) m ε → IsVolterraSol m Q →
+      |phaseClockI Q (svdT0 N B) T ε / JN N (α + ς) (α / 2) - 1| ≤
+        c * frozenRate (phaseX (α + ς) N ε) ^ (1 / 2 : ℝ) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_frozen_v_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Frozen.lean#L2344">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_frozen_v_ii {α ς T : ℝ} (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (hr : rq (α + ς) α &lt; 1) :
+    ∃ (N2 : ℕ) (c : ℝ), ∀ (N B : ℕ) (ε : ℝ) (m : RowModel (Fin N)) (Q : ℝ → ℝ),
+      N2 ≤ N → N ≤ B → 0 &lt; ε → ε &lt; 1 / (2 * T) → phaseX (α + ς) N ε ≤ 1 →
+      IsMatchedModel (sgdArrays α ς N B) m ε → IsVolterraSol m Q →
+      |phaseClockI Q (sgdT0 α N B) T ε / JN N (α + ς) α - 1| ≤
+        c * frozenRate (phaseX (α + ς) N ε) ^ (1 / 2 : ℝ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

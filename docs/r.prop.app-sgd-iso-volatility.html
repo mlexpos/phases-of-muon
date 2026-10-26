@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SJ.2 (Isotropic volatility)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SJ.2 (Isotropic volatility)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-sgd-iso-volatility"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-iso-volatility.html" data-label="prop:app-sgd-iso-volatility">Proposition SJ.2</a> <span class="thm-title">(Isotropic volatility)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(\Sigmaout=\Idout\)</span> in <a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a>, let <span class="mi">\(\Delta\in\R^{\Nout\times\Nin}\)</span> be deterministic, and let <span class="mi">\(S=\sign(G^\circ)\)</span> for a batch of size <span class="mi">\(B\ge1\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:signsgd-vol-exact"></span>\begin{equation}\tag{SJ.8}
+\EE\norm S_\Sigma^2=\EE\norm S_\F^2=\begin{cases}\Nin\Nout,&amp;\Delta\ne0,\\ 0,&amp;\Delta=0.\end{cases}
+\end{equation}</div>
+<div class="p">In particular the step <a class="ref" href="r.def.app-sgd-update.html#L-eqn:app-sgd-update" data-label="eqn:app-sgd-update">(SJ.1)</a> satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-risk"></span>\begin{equation}\tag{SJ.9}
+\EE\,\cR(\Delta^+)=\cR(\Delta)-\lr\,\langle\Delta,\EE S\rangle_\F+\frac{\lr^2}2\,\Nin\Nout\,\mathbf 1_{\{\Delta\ne0\}} .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">With identity covariances, <span class="mi">\(\norm S_\Sigma^2=\Tr(SS^\T)=\norm S_\F^2\)</span> by <a class="ref" href="r.def.app-setup-model.html#L-eqn:app-setup-pairing" data-label="eqn:app-setup-pairing">(SA.2)</a>, so the first equality holds pointwise.</div>
+<div class="p">If <span class="mi">\(\Delta=0\)</span> then <span class="mi">\(G^\circ=0\)</span> and <span class="mi">\(S=0\)</span>.</div>
+<div class="p">If <span class="mi">\(\Delta\ne0\)</span>, every entry of <span class="mi">\(G^\circ\)</span> is nonzero almost surely. Indeed <span class="mi">\(BG^\circ_{ij}\)</span> is a polynomial in the batch coordinates. Setting all samples but the first to zero leaves the polynomial</div>
+<div class="md">\[
+(z_1)_i\,(w_1)_j\,\big(z_1^\T\Delta w_1\big),
+\]</div>
+<div class="p">a product of three polynomials that are not identically zero, the last one because some <span class="mi">\(\Delta_{kl}\ne0\)</span>. A product of polynomials that are not identically zero is not identically zero. The batch has a Gaussian density, so the zero set of this polynomial has probability zero [<a class="cite" href="bibliography.html#bib-mityagin2020zero">46</a>]. A finite union over the entries shows that <span class="mi">\(\norm S_\F^2=\Nin\Nout\)</span> almost surely.</div>
+<div class="p">The risk identity is <a class="ref" href="s.SJ.html#L-eqn:app-sgd-risk" data-label="eqn:app-sgd-risk">(SJ.2)</a> at a deterministic state, with <span class="mi">\(\langle\Delta,\EE S\rangle_\Sigma=\langle\Delta,\EE S\rangle_\F\)</span> for identity covariances.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-setup-model.html" data-label="def:app-setup-model">Definition SA.1</a> <span class=muted>Regression model</span></li><li><a class="ref" href="r.assum.data-target.html" data-label="assum:data-target">Assumption S1</a> <span class=muted>Data-target normalization</span></li><li><a class="ref" href="r.def.app-sgd-update.html" data-label="def:app-sgd-update">Definition SJ.1</a> <span class=muted><span class="sc">SignSGD</span> step</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-sgd-iso.html" data-label="prop:app-sgd-iso">Proposition SJ.4</a> <span class=muted>Isotropic <span class="sc">SignSGD</span> recursion</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_iso_volatility_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/Isotropic.lean#L348">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_iso_volatility_i {Nout Nin B : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] (hB : 1 ≤ B)
+    (C : Covariances Nout Nin) (hSout : C.Sout = 1) (hSin : C.Sin = 1)
+    (ν : Measure (Vec Nout × Vec Nin)) (hν : Muon.Setup.assum_data_target C ν)
+    (β : Ω → Batch Nout Nin B)
+    (hβ : Muon.Setup.IIDBatch P ν (fun a ω =&gt; ((β ω).xout a, (β ω).xin a)))
+    (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) :
+    ∫ ω, Muon.Setup.pairSigma C (signGrad Δ (β ω)) (signGrad Δ (β ω)) ∂P
+        = ∫ ω, frobNorm (signGrad Δ (β ω)) ^ 2 ∂P ∧
+      (Δ = 0 → ∫ ω, Muon.Setup.pairSigma C (signGrad Δ (β ω)) (signGrad Δ (β ω)) ∂P = 0) ∧
+      (Δ ≠ 0 → ∫ ω, Muon.Setup.pairSigma C (signGrad Δ (β ω)) (signGrad Δ (β ω)) ∂P
+        = (Nin : ℝ) * (Nout : ℝ)) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_iso_volatility_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/Isotropic.lean#L393">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_iso_volatility_ii {Nout Nin B : ℕ} {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P] (hB : 1 ≤ B)
+    (C : Covariances Nout Nin) (hSout : C.Sout = 1) (hSin : C.Sin = 1)
+    (ν : Measure (Vec Nout × Vec Nin)) (hν : Muon.Setup.assum_data_target C ν)
+    (β : Ω → Batch Nout Nin B)
+    (hβ : Muon.Setup.IIDBatch P ν (fun a ω =&gt; ((β ω).xout a, (β ω).xin a)))
+    (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (η : ℝ) (hη : 0 ≤ η) :
+    ∫ ω, Muon.Setup.riskSigma C (def_app_sgd_update η Δ (β ω)) ∂P
+      = Muon.Setup.riskSigma C Δ
+        - η * ∑ i, ∑ j, Δ i j * batchMean P (fun ω =&gt; signGrad Δ (β ω)) i j
+        + η ^ 2 / 2 * (if Δ = 0 then 0 else (Nin : ℝ) * (Nout : ℝ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

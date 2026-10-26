@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.4 (Rank-two deletion)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.4 (Rank-two deletion)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-deletion"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class="thm-title">(Rank-two deletion)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(M=M_0+\mathsf h\,\mathsf u\tensor\mathsf v\)</span> with <span class="mi">\(M_0\in\R^{\Nout\times\Nin}\)</span>, <span class="mi">\(\mathsf h\in\R\)</span>, <span class="mi">\(\mathsf u\in\R^{\Nout}\)</span>, <span class="mi">\(\mathsf v\in\R^{\Nin}\)</span>, and <span class="mi">\(s&gt;0\)</span>. Write <span class="mi">\(R_0=R_s(M_0)\)</span>, <span class="mi">\(\widetilde R_0=\widetilde R_s(M_0)\)</span>, <span class="mi">\(\mathsf X_0=\mathsf X_s(M_0)\)</span>, <span class="mi">\(R=R_s(M)\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-UVC"></span>\begin{equation}\tag{SB.12}
+\mathsf U\defeq\mathsf u^\T R_0\mathsf u,\qquad
+\mathsf V\defeq\mathsf v^\T\widetilde R_0\mathsf v,\qquad
+\mathsf C\defeq\mathsf u^\T\mathsf X_0\mathsf v,\qquad
+\Lambda\defeq(1+\mathsf h\mathsf C)^2+s\mathsf h^2\,\mathsf U\mathsf V .
+\end{equation}</div>
+<div class="p">Then <span class="mi">\(\Lambda&gt;0\)</span>, and with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-coefficients"></span>\begin{equation}\tag{SB.13}
+\alpha_1\defeq\frac{\mathsf h(1+\mathsf h\mathsf C)}{\Lambda},\qquad
+\alpha_2\defeq\frac{\mathsf h^2\,\mathsf U}{\Lambda},\qquad
+\alpha_3\defeq-\frac{s\mathsf h^2\,\mathsf V}{\Lambda},
+\end{equation}</div>
+<div class="p">one has</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-deletion-R"></span><span class="anchor" id="L-eqn:app-de-deletion-RMv"></span>\begin{align}
+R-R_0&amp;=\alpha_3\,(R_0\mathsf u)\tensor(R_0\mathsf u)-\alpha_1\,(R_0\mathsf u)\tensor(\mathsf X_0\mathsf v)
+-\alpha_1\,(\mathsf X_0\mathsf v)\tensor(R_0\mathsf u)+\alpha_2\,(\mathsf X_0\mathsf v)\tensor(\mathsf X_0\mathsf v) ,
+\tag{SB.14}\\
+\mathsf h\,RM\mathsf v&amp;=-\alpha_3\,R_0\mathsf u+\alpha_1\,\mathsf X_0\mathsf v .
+\tag{SB.15}
+\end{align}</div>
+<div class="p">Moreover, if <span class="mi">\(\Lambda'\)</span> denotes the quantity <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> computed from <span class="mi">\(M\)</span> in place of <span class="mi">\(M_0\)</span> and <span class="mi">\(-\mathsf h\)</span> in place of <span class="mi">\(\mathsf h\)</span>, then <span class="mi">\(\Lambda\Lambda'=1\)</span>, and consequently</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Lambda-inverse"></span>\begin{equation}\tag{SB.16}
+\Lambda^{-1}\le\Big(1+\frac{3}{4\sqrt s}\,\abs{\mathsf h}\,\mathsf N\Big)^2,\qquad
+\mathsf N\defeq\norm{\mathsf u}^2+\norm{\mathsf v}^2 .
+\end{equation}</div>
+<div class="p">The same holds at <span class="mi">\(z\in\mathbb S\)</span> in place of <span class="mi">\(s\)</span>, with <span class="mi">\(x\defeq\Ree z\)</span>, in the following form. Define <span class="mi">\(R_0,\widetilde R_0,\mathsf X_0,R\)</span> and <span class="mi">\(\mathsf U,\mathsf V,\mathsf C,\Lambda,\alpha_1,\alpha_2,\alpha_3\)</span> by the formulas above with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>; they are complex. Then <span class="mi">\(\Lambda\ne0\)</span>, <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> and <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a> hold, <span class="mi">\(\Lambda\Lambda'=1\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Lambda-inverse-sector"></span>\begin{equation}\tag{SB.17}
+\abs\Lambda^{-1}\le\Big(1+\frac{\abs{\mathsf h}\,\mathsf N}{\sqrt x}\Big)^2 .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For <span class="mi">\(K\in\R^{\Nout\times\Nin}\)</span> let</div>
+<div class="md">\[
+\mathcal L(K)\defeq\begin{pmatrix}s\Id_{\Nout}&amp;K\\K^\T&amp;-\Id_{\Nin}\end{pmatrix}.
+\]</div>
+<div class="p">Block inversion with the Schur complement <span class="mi">\(s\Id+KK^\T\)</span> of the block <span class="mi">\(-\Id\)</span> gives, for every <span class="mi">\(K\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-blockinverse"></span>\begin{equation}\tag{SB.18}
+\mathcal L(K)^{-1}=\begin{pmatrix}R_s(K)&amp;\mathsf X_s(K)\\ \mathsf X_s(K)^\T&amp;-\Id_{\Nin}+K^\T R_s(K)K\end{pmatrix}
+=\begin{pmatrix}R_s(K)&amp;\mathsf X_s(K)\\ \mathsf X_s(K)^\T&amp;-s\widetilde R_s(K)\end{pmatrix},
+\end{equation}</div>
+<div class="p">where the second form uses <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>. The rank-one change of <span class="mi">\(M\)</span> is a rank-two change of <span class="mi">\(\mathcal L\)</span>:</div>
+<div class="md">\[
+\mathcal L(M)=\mathcal L(M_0)+\mathsf h\big(\tilde{\mathsf u}\tensor\tilde{\mathsf v}+\tilde{\mathsf v}\tensor\tilde{\mathsf u}\big)=\mathcal L(M_0)+PSP^\T,
+\]</div>
+<div class="p">with</div>
+<div class="md">\[
+\tilde{\mathsf u}\defeq\begin{pmatrix}\mathsf u\\0\end{pmatrix},\qquad
+\tilde{\mathsf v}\defeq\begin{pmatrix}0\\ \mathsf v\end{pmatrix},\qquad
+P\defeq\big[\tilde{\mathsf u}\ \ \tilde{\mathsf v}\big],\qquad
+S\defeq\mathsf h\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}.
+\]</div>
+<div class="p">Assume first <span class="mi">\(\mathsf h\ne0\)</span>. By <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a>,</div>
+<div class="md">\[
+W\defeq P^\T\mathcal L(M_0)^{-1}P=\begin{pmatrix}\mathsf U&amp;\mathsf C\\ \mathsf C&amp;-s\mathsf V\end{pmatrix},\qquad
+S^{-1}+W=\begin{pmatrix}\mathsf U&amp;\mathsf C+\mathsf h^{-1}\\ \mathsf C+\mathsf h^{-1}&amp;-s\mathsf V\end{pmatrix}.
+\]</div>
+<div class="p">The determinant of <span class="mi">\(S^{-1}+W\)</span> is expressed through <span class="mi">\(\Lambda\)</span>:</div>
+<div class="md">\[
+\det(S^{-1}+W)=-s\mathsf U\mathsf V-\big(\mathsf C+\mathsf h^{-1}\big)^2
+=-\frac{s\mathsf h^2\mathsf U\mathsf V+(1+\mathsf h\mathsf C)^2}{\mathsf h^2}=-\frac{\Lambda}{\mathsf h^2}.
+\]</div>
+<div class="p">Positivity of <span class="mi">\(\Lambda\)</span> follows from the positive definiteness of <span class="mi">\(R_0\)</span> and <span class="mi">\(\widetilde R_0\)</span>. Indeed <span class="mi">\(\mathsf U\ge0\)</span> and <span class="mi">\(\mathsf V\ge0\)</span>, with <span class="mi">\(\mathsf U=0\)</span> only if <span class="mi">\(\mathsf u=0\)</span> and <span class="mi">\(\mathsf V=0\)</span> only if <span class="mi">\(\mathsf v=0\)</span>. If <span class="mi">\(\mathsf u=0\)</span> or <span class="mi">\(\mathsf v=0\)</span>, then <span class="mi">\(\mathsf C\)</span> vanishes and <span class="mi">\(\Lambda=1\)</span>; otherwise <span class="mi">\(\Lambda\ge s\mathsf h^2\mathsf U\mathsf V&gt;0\)</span>. In particular <span class="mi">\(S^{-1}+W\)</span> is invertible, and the Sherman–Morrison–Woodbury formula [<a class="cite" href="bibliography.html#bib-golub2012matrix">26</a>, Section 2.1.4] gives</div>
+<div class="md">\[
+\mathcal L(M)^{-1}=\mathcal L(M_0)^{-1}-\mathcal L(M_0)^{-1}P\,\Theta\,P^\T\mathcal L(M_0)^{-1},
+\]</div>
+<div class="p">where</div>
+<div class="md">\[
+\Theta\defeq(S^{-1}+W)^{-1}=\frac{1}{\Lambda}\begin{pmatrix}s\mathsf h^2\mathsf V&amp;\mathsf h(1+\mathsf h\mathsf C)\\ \mathsf h(1+\mathsf h\mathsf C)&amp;-\mathsf h^2\mathsf U\end{pmatrix}
+=\begin{pmatrix}-\alpha_3&amp;\alpha_1\\ \alpha_1&amp;-\alpha_2\end{pmatrix}.
+\]</div>
+<div class="p">The two identities are read off from the blocks of the Woodbury identity. By <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a>, the columns of <span class="mi">\(\mathcal L(M_0)^{-1}P\)</span> are</div>
+<div class="md">\[
+\mathcal L(M_0)^{-1}\tilde{\mathsf u}=\begin{pmatrix}R_0\mathsf u\\ \mathsf X_0^\T\mathsf u\end{pmatrix},\qquad
+\mathcal L(M_0)^{-1}\tilde{\mathsf v}=\begin{pmatrix}\mathsf X_0\mathsf v\\ -s\widetilde R_0\mathsf v\end{pmatrix}.
+\]</div>
+<div class="p">The upper-left block of the Woodbury identity is therefore</div>
+<div class="md">\[
+R-R_0=-\big[R_0\mathsf u\ \ \mathsf X_0\mathsf v\big]\begin{pmatrix}-\alpha_3&amp;\alpha_1\\ \alpha_1&amp;-\alpha_2\end{pmatrix}\big[R_0\mathsf u\ \ \mathsf X_0\mathsf v\big]^\T ,
+\]</div>
+<div class="p">which, expanded, is <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>. The upper-right block is</div>
+<div class="md">\[
+\begin{aligned}
+RM={}&amp;\mathsf X_0+\alpha_3\,(R_0\mathsf u)\tensor(\mathsf X_0^\T\mathsf u)+s\alpha_1\,(R_0\mathsf u)\tensor(\widetilde R_0\mathsf v)\\
+&amp;-\alpha_1\,(\mathsf X_0\mathsf v)\tensor(\mathsf X_0^\T\mathsf u)-s\alpha_2\,(\mathsf X_0\mathsf v)\tensor(\widetilde R_0\mathsf v) .
+\end{aligned}
+\]</div>
+<div class="p">Multiplying on the right by <span class="mi">\(\mathsf v\)</span> and using the definitions of <span class="mi">\(\mathsf C\)</span> and <span class="mi">\(\mathsf V\)</span> in <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> gives</div>
+<div class="md">\[
+RM\mathsf v=R_0\mathsf u\,(\alpha_3\mathsf C+s\alpha_1\mathsf V)+\mathsf X_0\mathsf v\,(1-\alpha_1\mathsf C-s\alpha_2\mathsf V).
+\]</div>
+<div class="p">The two scalar coefficients simplify by the definitions <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-coefficients" data-label="eqn:app-de-coefficients">(SB.13)</a>:</div>
+<div class="md">\[
+\alpha_3\mathsf C+s\alpha_1\mathsf V=\frac{s\mathsf h\mathsf V}{\Lambda}\big(-\mathsf h\mathsf C+1+\mathsf h\mathsf C\big)=\frac{s\mathsf h\mathsf V}{\Lambda}=-\frac{\alpha_3}{\mathsf h},
+\]</div>
+<div class="md">\[
+1-\alpha_1\mathsf C-s\alpha_2\mathsf V=\frac{\Lambda-\mathsf h\mathsf C(1+\mathsf h\mathsf C)-s\mathsf h^2\mathsf U\mathsf V}{\Lambda}=\frac{(1+\mathsf h\mathsf C)^2-\mathsf h\mathsf C(1+\mathsf h\mathsf C)}{\Lambda}=\frac{1+\mathsf h\mathsf C}{\Lambda}=\frac{\alpha_1}{\mathsf h}.
+\]</div>
+<div class="p">Multiplying <span class="mi">\(RM\mathsf v\)</span> by <span class="mi">\(\mathsf h\)</span> gives <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a>. If <span class="mi">\(\mathsf h=0\)</span>, then <span class="mi">\(M=M_0\)</span>, so <span class="mi">\(R=R_0\)</span> and all three coefficients vanish; both identities hold.</div>
+<div class="p">The relation <span class="mi">\(\Lambda\Lambda'=1\)</span> is a determinant identity. We factor</div>
+<div class="md">\[
+\mathcal L(M)=\mathcal L(M_0)\big(\Id+\mathcal L(M_0)^{-1}PSP^\T\big).
+\]</div>
+<div class="p">Sylvester’s identity <span class="mi">\(\det(\Id+XY)=\det(\Id+YX)\)</span> [<a class="cite" href="bibliography.html#bib-horn2013matrix">28</a>, Section 0.8.5], applied to the second factor, gives</div>
+<div class="md">\[
+\begin{aligned}
+\det\mathcal L(M)&amp;=\det\mathcal L(M_0)\,\det(\Id_2+SW)
+=\det\mathcal L(M_0)\,\det(S)\det(S^{-1}+W)\\
+&amp;=\det\mathcal L(M_0)\,(-\mathsf h^2)\Big(-\frac{\Lambda}{\mathsf h^2}\Big)
+=\det\mathcal L(M_0)\,\Lambda .
+\end{aligned}
+\]</div>
+<div class="p">Both determinants are nonzero, because the block inverse <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a> exists for every <span class="mi">\(K\)</span>. Exchanging the roles of <span class="mi">\(M\)</span> and <span class="mi">\(M_0\)</span> and replacing <span class="mi">\(\mathsf h\)</span> by <span class="mi">\(-\mathsf h\)</span> is the same situation, because <span class="mi">\(M_0=M-\mathsf h\,\mathsf u\tensor\mathsf v\)</span>; it gives</div>
+<div class="md">\[
+\det\mathcal L(M_0)=\det\mathcal L(M)\,\Lambda' ,
+\]</div>
+<div class="p">and the two relations together give <span class="mi">\(\Lambda\Lambda'=1\)</span>.</div>
+<div class="p">The inverse bound follows from the norm bounds of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> applied to <span class="mi">\(M\)</span>. The primed quantities satisfy</div>
+<div class="md">\[
+0\le\mathsf U'\le\frac{\norm{\mathsf u}^2}{s},\qquad
+0\le\mathsf V'\le\frac{\norm{\mathsf v}^2}{s},\qquad
+\abs{\mathsf C'}\le\frac{\norm{\mathsf u}\norm{\mathsf v}}{2\sqrt s}\le\frac{\mathsf N}{4\sqrt s},
+\]</div>
+<div class="p">the last step by <span class="mi">\(2\norm{\mathsf u}\norm{\mathsf v}\le\mathsf N\)</span>. Using <span class="mi">\((1+x)^2+y^2\le(1+x+y)^2\)</span> for <span class="mi">\(x,y\ge0\)</span> in the last step,</div>
+<div class="md">\[
+\Lambda^{-1}=\Lambda'=(1-\mathsf h\mathsf C')^2+s\mathsf h^2\mathsf U'\mathsf V'
+\le\Big(1+\frac{\abs{\mathsf h}\mathsf N}{4\sqrt s}\Big)^2+\Big(\frac{\abs{\mathsf h}\mathsf N}{2\sqrt s}\Big)^2
+\le\Big(1+\frac{3\abs{\mathsf h}\mathsf N}{4\sqrt s}\Big)^2 .
+\]</div>
+<div class="p">At <span class="mi">\(z\in\mathbb S\)</span> the argument is the same with <span class="mi">\(s\)</span> replaced by <span class="mi">\(z\)</span>, except for the nonvanishing of <span class="mi">\(\Lambda\)</span> and the inverse bound. The block inverse <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a> holds with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>, since <span class="mi">\(z\Id+KK^\T\)</span> is invertible by <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>. Sylvester’s identity is used first: directly from the definitions,</div>
+<div class="md">\[
+\Id_2+SW=\begin{pmatrix}1+\mathsf h\mathsf C&amp;-z\mathsf h\mathsf V\\ \mathsf h\mathsf U&amp;1+\mathsf h\mathsf C\end{pmatrix},\qquad
+\det(\Id_2+SW)=\Lambda ,
+\]</div>
+<div class="p">so <span class="mi">\(\det\mathcal L(M)=\Lambda\det\mathcal L(M_0)\)</span> with both determinants nonzero, and <span class="mi">\(\Lambda\ne0\)</span>. For <span class="mi">\(\mathsf h\ne0\)</span> this gives <span class="mi">\(\det(S^{-1}+W)=-\Lambda/\mathsf h^2\ne0\)</span>, and the Woodbury step, the reading of the blocks and the relation <span class="mi">\(\Lambda\Lambda'=1\)</span> are unchanged. For the inverse bound, <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> at <span class="mi">\(z\)</span> applied to <span class="mi">\(M\)</span> gives <span class="mi">\(\abs{\mathsf U'}\le\norm{\mathsf u}^2/x\)</span>, <span class="mi">\(\abs{\mathsf V'}\le\norm{\mathsf v}^2/x\)</span> and <span class="mi">\(\abs{\mathsf C'}\le\mathsf N/(4\sqrt x)\)</span>, and with <span class="mi">\(\abs z\le\frac{\sqrt5}{2}x\)</span> and <span class="mi">\(\norm{\mathsf u}^2\norm{\mathsf v}^2\le\mathsf N^2/4\)</span>, writing <span class="mi">\(t\defeq\abs{\mathsf h}\mathsf N/\sqrt x\)</span>,</div>
+<div class="md">\[
+\abs\Lambda^{-1}=\abs{\Lambda'}\le\abs{1-\mathsf h\mathsf C'}^2+\abs z\,\mathsf h^2\abs{\mathsf U'}\abs{\mathsf V'}
+\le\Big(1+\frac t4\Big)^2+\frac{\sqrt5}{8}\,t^2\le(1+t)^2 ,
+\]</div>
+<div class="p">the last step by <span class="mi">\((1+a)^2+b^2\le(1+a+b)^2\)</span> with <span class="mi">\(a=t/4\)</span>, <span class="mi">\(b=(\sqrt5/8)^{1/2}t\le\frac34t\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class=muted>Coefficient bounds</span></li><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.lem.app-drift-column.html" data-label="lem:app-drift-column">Lemma SC.1</a> <span class=muted>Deletion identities for the mixed resolvent</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> <span class=muted>Rank sensitivity of the conditional Gram coefficient</span></li><li><a class="ref" href="r.lem.app-vol-replacement.html" data-label="lem:app-vol-replacement">Lemma SD.6</a> <span class=muted>Replacement of the residuals</span></li><li><a class="ref" href="r.lem.app-dyn-derivative.html" data-label="lem:app-dyn-derivative">Lemma SE.9</a> <span class=muted>Residual derivatives</span></li><li><a class="ref" href="r.lem.app-dyn-coefficients.html" data-label="lem:app-dyn-coefficients">Lemma SE.10</a> <span class=muted>Derivative coefficients</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_deletion</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L664">source</a></summary><pre class="lean no-mj">theorem lem_app_de_deletion {m n : ℕ} (M₀ : Mat m n) (h : ℝ) (u : Vec m) (v : Vec n)
+    (M : Mat m n) (s : ℝ) (hM : M = M₀ + h • outer u v) (hs : 0 &lt; s) :
+    0 &lt; delLambda M₀ h u v s ∧
+    Rs M s - Rs M₀ s =
+      (alpha3 M₀ h u v s) • outer (Rs M₀ s *ᵥ u) (Rs M₀ s *ᵥ u)
+        - (alpha1 M₀ h u v s) • outer (Rs M₀ s *ᵥ u) (Xs M₀ s *ᵥ v)
+        - (alpha1 M₀ h u v s) • outer (Xs M₀ s *ᵥ v) (Rs M₀ s *ᵥ u)
+        + (alpha2 M₀ h u v s) • outer (Xs M₀ s *ᵥ v) (Xs M₀ s *ᵥ v) ∧
+    h • (Rs M s *ᵥ (M *ᵥ v)) =
+      (-alpha3 M₀ h u v s) • (Rs M₀ s *ᵥ u) + (alpha1 M₀ h u v s) • (Xs M₀ s *ᵥ v) ∧
+    delLambda M₀ h u v s * delLambda M (-h) u v s = 1 ∧
+    (delLambda M₀ h u v s)⁻¹ ≤ (1 + 3 / (4 * Real.sqrt s) * |h| * (sqNorm u + sqNorm v)) ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.sqNorm</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L33">source</a></summary><pre class="lean no-mj">def sqNorm {k : ℕ} (x : Vec k) : ℝ := ∑ i, x i ^ 2</pre></details><details class="decl"><summary><code>Muon.DetEquiv.delU</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L50">source</a></summary><pre class="lean no-mj">def delU {m n : ℕ} (M₀ : Mat m n) (u : Vec m) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.delV</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L54">source</a></summary><pre class="lean no-mj">def delV {m n : ℕ} (M₀ : Mat m n) (v : Vec n) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.delC</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L58">source</a></summary><pre class="lean no-mj">def delC {m n : ℕ} (M₀ : Mat m n) (u : Vec m) (v : Vec n) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.delLambda</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L63">source</a></summary><pre class="lean no-mj">def delLambda {m n : ℕ} (M₀ : Mat m n) (h : ℝ) (u : Vec m) (v : Vec n) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.alpha1</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L67">source</a></summary><pre class="lean no-mj">def alpha1 {m n : ℕ} (M₀ : Mat m n) (h : ℝ) (u : Vec m) (v : Vec n) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.alpha2</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L71">source</a></summary><pre class="lean no-mj">def alpha2 {m n : ℕ} (M₀ : Mat m n) (h : ℝ) (u : Vec m) (v : Vec n) (s : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.DetEquiv.alpha3</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L75">source</a></summary><pre class="lean no-mj">def alpha3 {m n : ℕ} (M₀ : Mat m n) (h : ℝ) (u : Vec m) (v : Vec n) (s : ℝ) : ℝ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

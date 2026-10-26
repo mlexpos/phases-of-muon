@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Overview: Corollary SH.2 (Packed modes)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-top">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="top" data-title="Overview: Corollary SH.2 (Packed modes)">
+<article class="top-page"><div class="eyebrow"><a href="c.ch-powerlaw.html">Power-law spectra and the large-batch regime</a> · cited in the main text</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span><span class="chip">Theorem numbering in the paper: <strong>Corollary H.3</strong></span></div><div class="pre"><div class="p">A mode <span class="mi">\(\mu_i&gt;0\)</span> is <span class="mi">\((K,\delta)\)</span>-packed, for <span class="mi">\(K\ge1\)</span> and <span class="mi">\(\delta\in(0,1]\)</span>, if <span class="mi">\(\#\{k\le N:\mu_k\le K\mu_i\}\ge\delta N\)</span>, as in <a class="ref" href="paper.pdf#definition.4.1" data-label="def:packed">Definition 4.1</a> (<a class="ref" href="r.def.app-os-packed.html" data-label="def:app-os-packed">Definition SH.2</a>).</div></div><div class="thm thm-corollary" id="L-cor:app-os-packed"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Corollary SH.2</a> <span class="thm-title">(Packed modes)</span></div><div class="thm-body"><div class="p">Assume <span class="mi">\(\Nout=\Nin=N\)</span> and <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, and let <span class="mi">\(\mathfrak d_i(0)\)</span> be the zero-ridge coefficient of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(ii). For every mode with <span class="mi">\(\mu_i&gt;0\)</span>,</div>
+<div class="md">\[
+\mathfrak d_i(0)\le\frac1{1-\epsilon_{\rm os}}\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i},
+\]</div>
+<div class="p">and if <span class="mi">\(\mu_i\)</span> is <span class="mi">\((K,\delta)\)</span>-packed, then</div>
+<div class="md">\[
+\mathfrak d_i(0)\ge(1-\epsilon_{\rm os})\,C_*\sqrt{\frac{\delta}{1+K}}\,\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i},
+\qquad C_*=\frac12+\frac{2\log2}\pi .
+\]</div></div></div><section class="note"><div class="p">This corollary is <a class="ref" href="paper.pdf#theorem.4.1" data-label="thm:large-batch">Theorem 4.1</a> of the main text, whose constant <span class="mi">\(0.94\)</span> is <span class="mi">\(C_*\)</span> rounded. When the effective batch exceeds <span class="mi">\(3(1+\bmom)^2N\)</span>, the drift of every mode is at most the square-root law <span class="mi">\(\sqrt{B_{\rm eff}/(2N)}\sqrt{\mu_i}\)</span>, up to the factor <span class="mi">\((1-\epsilon_{\rm os})^{-1}\)</span>, and it is within a constant of that law whenever a fixed fraction <span class="mi">\(\delta\)</span> of the spectrum lies below a fixed multiple <span class="mi">\(K\mu_i\)</span> of the mode. Both bounds concern the deterministic zero-ridge coefficient.</div>
+<div class="sketch"><div class="proof-head">Proof sketch.</div><div class="p">The oversampled law reduces the coefficient to the profile. At zero ridge (<a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iii), <a class="ref" href="e.E5.html" data-label="sk:E5">Section C.5</a>),</div>
+<div class="md">\[
+\mathfrak d_i(0)=\vartheta_i\sqrt{\frac{B_{\rm eff}}N}\;\mathfrak d^{\rm os}_{\hat\nu}(\mu_i)=\vartheta_i\sqrt{\frac{B_{\rm eff}}N}\sqrt{\frac{\mu_i}2}\;\chi_{\hat\nu}(\mu_i),\qquad
+\vartheta_i\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big],
+\]</div>
+<div class="p">and <span class="mi">\(\chi\le1\)</span> gives the upper bound.</div>
+<div class="p">The efficiency is at least <span class="mi">\(C_*\)</span> times the square root of the soft fraction of the spectrum below the mode. Since <span class="mi">\(1-m_\nu\)</span> is nondecreasing, and since <span class="mi">\(\mu y/(\mu y+x)\ge y\,\mu/(\mu+x)\)</span> for <span class="mi">\(y\le1\)</span>,</div>
+<div class="md">\[
+1-m_\nu(\mu y)\ge1-m_\nu(\mu)\quad(y\ge1),\qquad 1-m_\nu(\mu y)\ge y\,\big(1-m_\nu(\mu)\big)\quad(y\le1).
+\]</div>
+<div class="p">Inserted in the definition of <span class="mi">\(\chi_\nu\)</span>, these give <span class="mi">\(\chi_\nu(\mu)\ge\sqrt{1-m_\nu(\mu)}\cdot\frac2\pi\big[(\log2-\frac12)+(\frac\pi4+\frac12)\big]=C_*\sqrt{1-m_\nu(\mu)}\)</span>, the two brackets being <span class="mi">\(\int_0^1y(1+y)^{-2}\dif y\)</span> and <span class="mi">\(\int_1^\infty\sqrt y(1+y)^{-2}\dif y\)</span> (<a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i)). Packing bounds the soft fraction below: <span class="mi">\(\mu/(\mu+x)\ge1/(1+K)\)</span> for <span class="mi">\(x\le K\mu\)</span>, so <span class="mi">\(1-m_{\hat\nu}(\mu_i)\ge\hat\nu([0,K\mu_i])/(1+K)\ge\delta/(1+K)\)</span> (<a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(ii)), which gives the lower bound.</div></div></section><div class="open-proof-row"><a class="open-proof" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Read the full proof</a><span class="muted">Opens over this page; close it to come back here.</span></div><section class="meta"><div><h3>Proof engines</h3><div class="pills"><a class="engine-pill" href="e.E5.html">E5 · Power-law and large-batch asymptotics</a></div></div><div><h3>Depth</h3><p>4 levels, 14 statements below it.</p></div></section><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_packed_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L911">source</a></summary><pre class="lean no-mj">theorem cor_app_os_packed_i {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {N B : ℕ}
+    (hN : 1 ≤ N) (hB : 1 ≤ B) (C : Muon.Covariances N N)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn N B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn N B)
+    (hε : epsOs β (gammaIn N B) &lt; 1)
+    (br : HalfAnisoBranch β (gammaIn N B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br)
+    (i : Fin N) (hμ : 0 &lt; eigOut C i) :
+    dZero br (eigOut C i) ≤
+      (1 - epsOs β (gammaIn N B))⁻¹ * Real.sqrt (bEff β B / (2 * (N : ℝ))) *
+        Real.sqrt (eigOut C i) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_packed_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Model.lean#L964">source</a></summary><pre class="lean no-mj">theorem cor_app_os_packed_ii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {N B : ℕ}
+    (hN : 1 ≤ N) (hB : 1 ≤ B) (C : Muon.Covariances N N)
+    (hSin : C.Sin = 1) (hcond : 0 &lt; β ∨ (β = 0 ∧ gammaIn N B &lt; 1))
+    {qs : ℝ} (hqs : 0 &lt; qs ∧ qs * Muon.DetEquiv.Fw (Muon.emaW β) qs = gammaIn N B)
+    (hε : epsOs β (gammaIn N B) &lt; 1)
+    (br : HalfAnisoBranch β (gammaIn N B) (Muon.nuOut C B)) (hbr : IsModelBranch C B hB β br)
+    {K δ : ℝ} (hK : 1 ≤ K) (hδ : 0 &lt; δ ∧ δ ≤ 1) (i : Fin N)
+    (hp : def_app_os_packed K δ (eigOut C) i) :
+    (1 - epsOs β (gammaIn N B)) * cStar * Real.sqrt (δ / (1 + K)) *
+        Real.sqrt (bEff β B / (2 * (N : ℝ))) * Real.sqrt (eigOut C i) ≤
+      dZero br (eigOut C i) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

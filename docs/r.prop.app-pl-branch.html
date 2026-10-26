@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SG.1 (The branch in participation coordinates)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SG.1 (The branch in participation coordinates)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-pl-branch"><div class="thm-head"><a class="thm-name" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class="thm-title">(The branch in participation coordinates)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The function <span class="mi">\(s_N\)</span> is a smooth strictly decreasing bijection of <span class="mi">\((0,\gamma)\)</span> onto <span class="mi">\((0,\infty)\)</span>, and <span class="mi">\(-\frac{\dif}{\dif m}\log s_N(m)=\vartheta_N(m)&gt;0\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For <span class="mi">\(s&gt;0\)</span> let <span class="mi">\(m=m(s)\in(0,\gamma)\)</span> be the solution of <span class="mi">\(s_N(m)=s\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-branch"></span>\begin{equation}\tag{SG.6}
+\begin{gathered}
+q(-s)=Q_m,\qquad \tilde s_1(-s)=s\,\Lambda_N(m),\qquad s_1(-s)=\frac{s\,m}{\gamma-m},\\
+\sigma(-s)=\frac{m}{s\,\Lambda_N(m)},\qquad \tilde\sigma(-s)=\frac{\gamma-m}{s},\qquad
+\frac{\tilde s_1(-s)\mu_i}{s+\tilde s_1(-s)\mu_i}=f_i(m).
+\end{gathered}
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-drift-single"></span>\begin{equation}\tag{SG.7}
+\mathfrak d_i(\ridge)=\frac{\sqrt2}{\pi\gamma}\int_0^\infty
+\frac{\Lw(Q_{m(\ridge+u^2)})}{\Fw(Q_{m(\ridge+u^2)})}\,f_i\big(m(\ridge+u^2)\big)\,\dif u,
+\qquad \volraw_i(\ridge)=f_i\big(m(\ridge)\big).
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) rests on the monotonicity of <span class="mi">\(\Lambda_N(m)/m\)</span>. Since <span class="mi">\(m_N(\Lambda)/\Lambda\)</span> is decreasing in <span class="mi">\(\Lambda\)</span>, its inverse relation makes <span class="mi">\(\Lambda_N(m)/m\)</span> nondecreasing, so that</div>
+<div class="md">\[
+\frac{\Lambda_N'(m)}{\Lambda_N(m)}\ge\frac1m .
+\]</div>
+<div class="p">The logarithmic derivative of <span class="mi">\(s_N\)</span> is, by <span class="mi">\(\frac{\dif}{\dif m}\log Q_m=1/E(m)\)</span>,</div>
+<div class="md">\[
+\frac{\dif}{\dif m}\log s_N(m)=-\frac1{\gamma-m}+\frac1m-\frac1{E(m)}-\frac{\Lambda_N'(m)}{\Lambda_N(m)}=-\vartheta_N(m),
+\]</div>
+<div class="p">and the preceding inequality gives <span class="mi">\(\vartheta_N(m)\ge1/(\gamma-m)+1/E(m)&gt;0\)</span>. At the left endpoint, <span class="mi">\(\Lambda_N(m)\sim Bm/\sum_i\mu_i\)</span> and <span class="mi">\(Q_m\sim m/\sw2\)</span> as <span class="mi">\(m\downarrow0\)</span>, by <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(ii), so that</div>
+<div class="md">\[
+s_N(m)\sim\frac{\gamma\,\sw2}{m}\cdot\frac1B\sum_i\mu_i\longrightarrow\infty .
+\]</div>
+<div class="p">At the right endpoint, <span class="mi">\(\Lambda_N(m)\to\infty\)</span> and <span class="mi">\(Q_m\to Q_\gamma&lt;\infty\)</span>, so <span class="mi">\(s_N(m)\to0\)</span>.</div>
+<div class="p">Part (ii) uses the coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a>. Let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1,q)\)</span> be the branch at <span class="mi">\(-s\)</span> and put <span class="mi">\(m\defeq\tilde s_1\sigma=s_1\tilde\sigma=r_\bmom(q)\)</span>, so that <span class="mi">\(q=Q_m\)</span>. The second trace equation of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for <span class="mi">\(\tilde\nu=\gamma\delta_1\)</span> reads <span class="mi">\(\tilde\sigma=\gamma/(s+s_1)\)</span>, hence</div>
+<div class="md">\[
+s\tilde\sigma=\gamma-s_1\tilde\sigma=\gamma-m,\qquad
+\tilde s_1=s\tilde\sigma\,\Fw(q)=(\gamma-m)\,\Fw(Q_m).
+\]</div>
+<div class="p">Put <span class="mi">\(\Lambda\defeq\tilde s_1/s\)</span>. The first trace equation gives</div>
+<div class="md">\[
+m=\tilde s_1\sigma=\frac1B\sum_i\frac{\tilde s_1\mu_i}{s+\tilde s_1\mu_i}=m_N(\Lambda),
+\]</div>
+<div class="p">so <span class="mi">\(\Lambda=\Lambda_N(m)\)</span>, and, with <span class="mi">\(\Fw(Q_m)=m/Q_m\)</span>,</div>
+<div class="md">\[
+s=\frac{\tilde s_1}{\Lambda}=\frac{(\gamma-m)\Fw(Q_m)}{\Lambda_N(m)}=s_N(m).
+\]</div>
+<div class="p">By (i) this determines <span class="mi">\(m=m(s)\)</span>. The remaining identities of <a class="ref" href="r.prop.app-pl-branch.html#L-eqn:app-pl-branch" data-label="eqn:app-pl-branch">(SG.6)</a> are <span class="mi">\(s_1=m/\tilde\sigma\)</span>, <span class="mi">\(\sigma=m/\tilde s_1\)</span> and <span class="mi">\(\tilde s_1\mu_i/(s+\tilde s_1\mu_i)=\Lambda\mu_i/(1+\Lambda\mu_i)\)</span>.</div>
+<div class="p">Part (iii) is a computation in these coordinates. By (ii),</div>
+<div class="md">\[
+s+s_1=\frac{s\gamma}{\gamma-m},\qquad
+\frac{\mu_i}{s+\tilde s_1\mu_i}=\frac{f_i(m)}{\tilde s_1}=\frac{f_i(m)}{(\gamma-m)\Fw(Q_m)},
+\]</div>
+<div class="p">so the integrand of <a class="ref" href="s.SC.html#L-eqn:app-drift-kernel" data-label="eqn:app-drift-kernel">(SC.4)</a> at <span class="mi">\((\mu,\lambda)=(\mu_i,1)\)</span> is</div>
+<div class="md">\[
+\frac{s\,\Lw(q)\,\mu_i}{(s+\tilde s_1\mu_i)(s+s_1)}=\frac{\Lw(Q_m)}{\gamma\,\Fw(Q_m)}\,f_i(m),\qquad m=m(s),
+\]</div>
+<div class="p">which gives the first identity with <span class="mi">\(s=\ridge+u^2\)</span>. The second is the last identity of <a class="ref" href="r.prop.app-pl-branch.html#L-eqn:app-pl-branch" data-label="eqn:app-pl-branch">(SG.6)</a> at <span class="mi">\(s=\ridge\)</span>, compared with <a class="ref" href="s.SD.html#L-eqn:app-vol-half-candidates" data-label="eqn:app-vol-half-candidates">(SD.22)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class=muted>Properties of the scalar functions</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class=muted>Drift at zero ridge</span></li><li><a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class=muted>Volatility at zero ridge</span></li><li><a class="ref" href="r.lem.app-pl-amplitude.html" data-label="lem:app-pl-amplitude">Lemma SG.4</a> <span class=muted>Spectral amplitude</span></li><li><a class="ref" href="r.rem.app-pl-nomomentum.html" data-label="rem:app-pl-nomomentum">Remark SG.1</a> <span class=muted>No momentum</span></li><li><a class="ref" href="r.prop.app-pl-nomomentum-endpoints.html" data-label="prop:app-pl-nomomentum-endpoints">Proposition SG.8</a> <span class=muted>No-momentum endpoints</span></li><li><a class="ref" href="r.lem.app-pl-elasticity.html" data-label="lem:app-pl-elasticity">Lemma SG.7</a> <span class=muted>Elasticity</span></li><li><a class="ref" href="r.lem.app-pl-drift-participation.html" data-label="lem:app-pl-drift-participation">Lemma SG.8</a> <span class=muted>Drift in the participation coordinate</span></li><li><a class="ref" href="r.lem.app-pl-head.html" data-label="lem:app-pl-head">Lemma SG.11</a> <span class=muted>Head</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_branch_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Participation.lean#L771">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_branch_i {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i) :
+    ContDiffOn ℝ ∞ (sN β B μ) (Ioo 0 (gammaOf N B)) ∧
+      StrictAntiOn (sN β B μ) (Ioo 0 (gammaOf N B)) ∧
+      Set.BijOn (sN β B μ) (Ioo 0 (gammaOf N B)) (Ioi 0) ∧
+      ∀ m ∈ Ioo 0 (gammaOf N B),
+        -(deriv (sN β B μ) m / sN β B μ m) = thetaN β B μ m ∧ 0 &lt; thetaN β B μ m := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_branch_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/BranchLink.lean#L147">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_branch_ii {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {ν ν' : FiniteMeasure ℝ} {Cs : ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (hμCs : ∀ i, μ i ≤ Cs) (h1Cs : 1 ≤ Cs)
+    {s m : ℝ} (hs : 0 &lt; s) (hm : m ∈ Ioo 0 (gammaOf N B)) (hsm : sN β B μ m = s) :
+    s * (branchSol (Fw (emaW β)) ν ν' s).1 * (branchSol (Fw (emaW β)) ν ν' s).2.1 = Qm β m ∧
+      (branchSol (Fw (emaW β)) ν ν' s).2.2.1 = s * partLam B μ m ∧
+      (branchSol (Fw (emaW β)) ν ν' s).2.2.2 = s * m / (gammaOf N B - m) ∧
+      (branchSol (Fw (emaW β)) ν ν' s).1 = m / (s * partLam B μ m) ∧
+      (branchSol (Fw (emaW β)) ν ν' s).2.1 = (gammaOf N B - m) / s ∧
+      ∀ i : Fin N,
+        (branchSol (Fw (emaW β)) ν ν' s).2.2.1 * μ i /
+            (s + (branchSol (Fw (emaW β)) ν ν' s).2.2.1 * μ i) = partF B μ i m := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_branch_iii_kernel</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/BranchLink.lean#L334">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_branch_iii_kernel {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β)
+    (hβ1 : β &lt; 1) (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {ν ν' : FiniteMeasure ℝ} {Cs : ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (hμCs : ∀ i, μ i ≤ Cs) (h1Cs : 1 ≤ Cs)
+    {ϱ : ℝ} (hϱ : 0 &lt; ϱ) (i : Fin N) :
+    Muon.Drift.kernel (emaW β) ν ν' ϱ (μ i) 1 = dPart β B μ i ϱ := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_branch_iii_volraw</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/BranchLink.lean#L396">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_branch_iii_volraw {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β)
+    (hβ1 : β &lt; 1) (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {ν ν' : FiniteMeasure ℝ} {Cs : ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (hμCs : ∀ i, μ i ≤ Cs) (h1Cs : 1 ≤ Cs)
+    {ϱ : ℝ} (hϱ : 0 &lt; ϱ) (i : Fin N) :
+    Muon.Volatility.volraw β ν ν' (μ i) ϱ = partF B μ i (mOf β B μ ϱ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

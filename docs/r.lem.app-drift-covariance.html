@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SC.5 (Covariance of the Gram coefficient and the mixed resolvent)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SC.5 (Covariance of the Gram coefficient and the mixed resolvent)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SC.html">Section SC</a> · Drift: the expected regularized update</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-drift-covariance"><div class="thm-head"><a class="thm-name" href="r.lem.app-drift-covariance.html" data-label="lem:app-drift-covariance">Lemma SC.5</a> <span class="thm-title">(Covariance of the Gram coefficient and the mixed resolvent)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(s_\circ&gt;0\)</span>. For every age <span class="mi">\(j\)</span> and every <span class="mi">\(s\ge s_\circ\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-covariance"></span>\begin{equation}\tag{SC.27}
+\norm{\mathcal C_j}_\F\le\frac{C\,\emaw j^2}{s^{3/2}\sqrt B},\qquad\text{hence}\qquad
+\sum_{j\ge0}\norm{\mathcal C_j}_\F\le\frac{C\,\sw2}{s^{3/2}\sqrt B},
+\end{equation}</div>
+<div class="p">with <span class="mi">\(C\)</span> depending only on <span class="mi">\((s_\circ,C_\Sigma,\gamma_\star)\)</span>. The same bounds, with <span class="mi">\(s\)</span> replaced by <span class="mi">\(x\defeq\Ree z\)</span>, hold at every <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(x\ge s_\circ\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The covariance is expanded along a martingale over the remaining samples. Enumerate the samples other than <span class="mi">\((j,1)\)</span> as <span class="mi">\(l=1,2,\dots\)</span>, age by age, and let <span class="mi">\(\mathcal A_l\)</span> be the <span class="mi">\(\sigma\)</span>-field generated by the first <span class="mi">\(l\)</span> of them, <span class="mi">\(\mathcal A_0\)</span> the trivial one. Put</div>
+<div class="md">\[
+D_l\defeq\EE[\phi_j\mid\mathcal A_l]-\EE[\phi_j\mid\mathcal A_{l-1}]\qquad(l\ge1).
+\]</div>
+<div class="p">Since <span class="mi">\(\phi_j\)</span> is bounded by <a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> and is a function of the enumerated samples, Lévy’s upward theorem [<a class="cite" href="bibliography.html#bib-williams1991probability">74</a>, Theorem 14.2] gives <span class="mi">\(\EE[\phi_j\mid\mathcal A_l]\to\phi_j\)</span> almost surely, hence in <span class="mi">\(L^2\)</span> by boundedness; that is, <span class="mi">\(\phi_j-b_j=\sum_{l\ge1}D_l\)</span> in <span class="mi">\(L^2\)</span>. At fixed dimension <span class="mi">\(\norm{\mathsf X_0^{(j1)}}_\F\le\sqrt{\min(\Nout,\Nin)}/(2\sqrt s)\)</span>, so the Cauchy–Schwarz inequality passes the expansion to the covariance:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-mart-expansion"></span>\begin{equation}\tag{SC.28}
+\mathcal C_j=\sum_{l\ge1}\EE\big[D_l\,\mathsf X_0^{(j1)}\big].
+\end{equation}</div>
+<div class="p">Each martingale difference is bounded by the rank sensitivity. Let <span class="mi">\(\phi_j^{[l]}\)</span> denote <span class="mi">\(\phi_j\)</span> with the sample <span class="mi">\(l\)</span> replaced by an independent copy. Conditioning on <span class="mi">\(\mathcal A_l\)</span> after this replacement is the same as conditioning on <span class="mi">\(\mathcal A_{l-1}\)</span>, so <span class="mi">\(D_l=\EE[\phi_j-\phi_j^{[l]}\mid\mathcal A_l]\)</span>. The replacement changes the minor <span class="mi">\(M_0^{(j1)}\)</span> by a matrix of rank at most two, and <a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> with <span class="mi">\(k=2\)</span> gives, for every value of the samples,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-drift-Dl"></span>\begin{equation}\tag{SC.29}
+\abs{D_l}\le\sup\big\{\abs{\phi_{\emaw j}(K)-\phi_{\emaw j}(K')}:\ \operatorname{rank}(K-K')\le2\big\}\le\frac{2C\,\emaw j^2}{\sqrt s\,B}.
+\end{equation}</div>
+<div class="p">Each term of <a class="ref" href="r.lem.app-drift-covariance.html#L-eqn:app-drift-mart-expansion" data-label="eqn:app-drift-mart-expansion">(SC.28)</a> is a deletion term. Let <span class="mi">\(\mathsf X_0^{(j1),[-l]}\)</span> be the mixed resolvent of the buffer with both samples <span class="mi">\((j,1)\)</span> and <span class="mi">\(l\)</span> deleted. Conditionally on all samples other than <span class="mi">\(l\)</span>, the matrix <span class="mi">\(\mathsf X_0^{(j1),[-l]}\)</span> is fixed, while <span class="mi">\(D_l\)</span> is a function of the samples up to <span class="mi">\(l\)</span> with <span class="mi">\(\EE[D_l\mid\mathcal A_{l-1}]=0\)</span>; since the sample <span class="mi">\(l\)</span> is independent of the others, the conditional mean of <span class="mi">\(D_l\)</span> given all samples other than <span class="mi">\(l\)</span> is <span class="mi">\(\EE[D_l\mid\mathcal A_{l-1}]=0\)</span>. Hence <span class="mi">\(\EE[D_l\mathsf X_0^{(j1),[-l]}]=0\)</span> and</div>
+<div class="md">\[
+\EE\big[D_l\,\mathsf X_0^{(j1)}\big]=\EE\big[D_l\big(\mathsf X_0^{(j1)}-\mathsf X_0^{(j1),[-l]}\big)\big].
+\]</div>
+<div class="p">If the sample <span class="mi">\(l\)</span> has age <span class="mi">\(k\)</span>, this is the situation of <a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> with <span class="mi">\(M=M_0^{(j1)}\)</span>, the minor <span class="mi">\(M_0^{(j1),[-l]}\)</span>, <span class="mi">\(\varpi=\emaw k\)</span> and the multiplier <span class="mi">\(h=D_l\)</span>, bounded by <a class="ref" href="r.lem.app-drift-covariance.html#L-eqn:app-drift-Dl" data-label="eqn:app-drift-Dl">(SC.29)</a>; conditioning on all samples other than <span class="mi">\(l\)</span> and then taking expectations gives</div>
+<div class="md">\[
+\big\|\EE\big[D_l\,\mathsf X_0^{(j1)}\big]\big\|_\F\le\frac{2C\emaw j^2}{\sqrt sB}\cdot\frac{C\emaw k}{s\sqrt B}=\frac{C\,\emaw j^2\,\emaw k}{s^{3/2}B\sqrt B}.
+\]</div>
+<div class="p">The terms are summed over the enumeration. There are at most <span class="mi">\(B\)</span> samples of each age <span class="mi">\(k\)</span>, so</div>
+<div class="md">\[
+\norm{\mathcal C_j}_\F\le\sum_{k\ge0}B\,\frac{C\emaw j^2\emaw k}{s^{3/2}B\sqrt B}=\frac{C\emaw j^2}{s^{3/2}\sqrt B}\sum_{k\ge0}\emaw k\le\frac{C\emaw j^2}{s^{3/2}\sqrt B},
+\]</div>
+<div class="p">by <a class="ref" href="s.SC.html#L-eqn:app-drift-weights" data-label="eqn:app-drift-weights">(SC.1)</a>. Summing over <span class="mi">\(j\)</span> gives the second bound of <a class="ref" href="r.lem.app-drift-covariance.html#L-eqn:app-drift-covariance" data-label="eqn:app-drift-covariance">(SC.27)</a>.</div>
+<div class="p">At <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(x\ge s_\circ\)</span> the proof is the same with <span class="mi">\(s\)</span> replaced by <span class="mi">\(x\)</span> in the bounds. The variables <span class="mi">\(\phi_j\)</span> and <span class="mi">\(D_l\)</span> are complex: Lévy’s theorem is applied to the real and imaginary parts of <span class="mi">\(\phi_j\)</span>, <a class="ref" href="r.lem.app-drift-covariance.html#L-eqn:app-drift-Dl" data-label="eqn:app-drift-Dl">(SC.29)</a> follows from <a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> at <span class="mi">\(z\)</span>, <span class="mi">\(\norm{\mathsf X_0^{(j1)}}_\F\le\sqrt{\min(\Nout,\Nin)}/(2\sqrt x)\)</span>, and the deletion terms are bounded by <a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> at <span class="mi">\(z\)</span> with the complex multiplier <span class="mi">\(h=D_l\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> <span class=muted>Rank sensitivity of the conditional Gram coefficient</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a> <span class=muted>Mixed resolvent closure and tail bound</span></li><li><a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class=muted>Response equation</span></li><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Drift.lem_app_drift_covariance</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Covariance.lean#L1751">source</a></summary><pre class="lean no-mj">theorem lem_app_drift_covariance (s0 : ℝ) (hs0 : 0 &lt; s0) (CS γ : ℝ) (hγ : 0 ≤ γ) :
+    ∃ C : ℝ, ∀ (Ω : Type) [MeasurableSpace Ω] (m n B : ℕ) (P : Measure Ω) [IsProbabilityMeasure P]
+      (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+      opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+      ∀ s : ℝ, s0 ≤ s →
+        (∀ (j : ℕ) (i : Fin m) (k : Fin n),
+            Integrable (fun ω =&gt; (phiJ (Muon.emaW F.β) F S t j s ω -
+              bj (Muon.emaW F.β) F S t j s) *
+              Xs (delBufAge (Muon.emaW F.β) F S t j ω) s i k) P) ∧
+        (∀ j : ℕ, fro (Cj (Muon.emaW F.β) F S t j s) ≤
+          C * Muon.emaW F.β j ^ 2 / (s * Real.sqrt s * Real.sqrt (B : ℝ))) ∧
+        Summable (fun j : ℕ =&gt; fro (Cj (Muon.emaW F.β) F S t j s)) ∧
+        (∑' j : ℕ, fro (Cj (Muon.emaW F.β) F S t j s)) ≤
+          C * Muon.sPow F.β 2 / (s * Real.sqrt s * Real.sqrt (B : ℝ)) := by</pre></details><details class="decl"><summary><code>Muon.Drift.lem_app_drift_covariance_weights</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Drift/Covariance.lean#L1715">source</a></summary><pre class="lean no-mj">theorem lem_app_drift_covariance_weights (s0 : ℝ) (hs0 : 0 &lt; s0) (CS γ : ℝ) (hγ : 0 ≤ γ) :
+    ∃ C : ℝ, ∀ (Ω : Type) [MeasurableSpace Ω] (m n B : ℕ) (P : Measure Ω) [IsProbabilityMeasure P]
+      (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ) (w : ℕ → ℝ),
+      ((∀ j, 0 ≤ w j) ∧ Summable w ∧ (∀ j, w j ≤ 1) ∧ (∑' j, w j) ≤ 1) →
+      opNorm F.C.Sout ≤ CS → opNorm F.C.Sin ≤ CS →
+      (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+      ∀ s : ℝ, s0 ≤ s →
+        (∀ (j : ℕ) (i : Fin m) (k : Fin n),
+            Integrable (fun ω =&gt; (phiJ w F S t j s ω - bj w F S t j s) *
+              Xs (delBufAge w F S t j ω) s i k) P) ∧
+        (∀ j : ℕ, fro (Cj w F S t j s) ≤ C * w j ^ 2 / (s * Real.sqrt s * Real.sqrt (B : ℝ))) ∧
+        Summable (fun j : ℕ =&gt; fro (Cj w F S t j s)) ∧
+        (∑' j : ℕ, fro (Cj w F S t j s)) ≤
+          C * sumPow w 2 / (s * Real.sqrt s * Real.sqrt (B : ℝ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

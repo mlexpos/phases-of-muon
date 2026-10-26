@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Section SB: Deterministic equivalents for the EMA Gram resolvent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-section">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="section" data-title="Section SB: Deterministic equivalents for the EMA Gram resolvent">
+<article class="sec-page"><nav class="secnav"><a class="" href="s.SA.html">SA</a><a class="on" href="s.SB.html">SB</a><a class="" href="s.SC.html">SC</a><a class="" href="s.SD.html">SD</a><a class="" href="s.SE.html">SE</a><a class="" href="s.SF.html">SF</a><a class="" href="s.SG.html">SG</a><a class="" href="s.SH.html">SH</a><a class="" href="s.SI.html">SI</a><a class="" href="s.SJ.html">SJ</a><a class="" href="s.SK.html">SK</a><a class="" href="s.SL.html">SL</a><a class="" href="s.SM.html">SM</a><a class="" href="s.SN.html">SN</a></nav><h1><span class="h-num">SB</span> Deterministic equivalents for the EMA Gram resolvent</h1><ol class=toc><li class="lvl2"><a href="#L-sec:app-de-branch">SB.1 The weighted fixed-point system</a></li><li class="lvl2"><a href="#L-sec:app-de-finite">SB.2 Finite identities</a></li><li class="lvl2"><a href="#L-sec:app-de-gram">SB.3 The Gram closure</a></li></ol><div class="p">This section proves the first random-matrix input of the appendix. In the frozen-state model of <a class="ref" href="r.def.app-setup-frozen.html" data-label="def:app-setup-frozen">Definition SA.3</a>, the exponential moving average <span class="mi">\(\Mt\)</span> of the normalized minibatch gradients is a weighted sum of independent batches, and the resolvent of its Gram matrix <span class="mi">\(\Mt\Mt^\T\)</span> on the negative real axis has a deterministic equivalent</div>
+<div class="md">\[
+\Rbar(z)=\big(\tilde s_1(z)\,\Sigmaout-z\,\Id_{\Nout}\big)^{-1},\qquad z=-s&lt;0,
+\]</div>
+<div class="p">where <span class="mi">\(\tilde s_1(z)\)</span> is determined by the weighted fixed-point system of <a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a>. At <span class="mi">\(\bmom=0\)</span> the system is the one displayed in <a class="ref" href="paper.pdf#section.2" data-label="sec:deterministic_dynamics">Section 2</a>. The section has three main results. <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> shows that the weighted system has exactly one nonnegative solution and that this solution is continuous in the spectral data and stable under approximate roots. <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> shows that the expected Gram resolvents converge to <span class="mi">\(\Rbar\)</span> and <span class="mi">\(\Rtbar\)</span> in operator norm, uniformly on compact subsets of the negative axis. <a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> gives the normalized-trace form of the closure, with bounded deterministic tests, in expected squared compact supremum.</div>
+<div class="p">The section works in the setting of <a class="ref" href="s.SA.html" data-label="sec:app-setup">Section SA</a>: its conventions (<a class="ref" href="s.SA.html#L-sec:app-setup-conventions" data-label="sec:app-setup-conventions">Section SA.1</a>), the frozen-state model of <a class="ref" href="r.def.app-setup-frozen.html" data-label="def:app-setup-frozen">Definition SA.3</a> under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, the normalized state <span class="mi">\(\Ahat\)</span> of <a class="ref" href="s.SA.html#L-eqn:app-setup-normalized" data-label="eqn:app-setup-normalized">(SA.10)</a>, the EMA weights of <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>, the Gram resolvents <span class="mi">\(R(z)\)</span> and <span class="mi">\(\widetilde R(z)\)</span> of <a class="ref" href="s.SA.html#L-eqn:app-setup-resolvents" data-label="eqn:app-setup-resolvents">(SA.36)</a>, and the spectral measures of <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a>. From that section it also takes the convergence of the buffer series (<a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a>(i)), its truncation bound (<a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(i)) and the residual law (<a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>).</div>
+<h3 id="L-sec:app-de-branch"><span class="h-num">SB.1</span> The weighted fixed-point system</h3>
+<div class="p"><strong class="runin">Scalar functions.</strong>  Let <span class="mi">\(w=(w_j)_{j\ge0}\)</span> be a sequence of nonnegative numbers, not all zero, with <span class="mi">\(\sum_jw_j&lt;\infty\)</span>; write <span class="mi">\(\sw{p}=\sum_jw_j^p\)</span> for <span class="mi">\(p\ge2\)</span>. The EMA weights of <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a> are the case of interest, and for them we write <span class="mi">\(\Fw\)</span> and <span class="mi">\(\Lw\)</span> for the functions <span class="mi">\(F_w\)</span> and <span class="mi">\(L_w\)</span> defined now. For <span class="mi">\(g\sim\mathcal N(0,1)\)</span> and <span class="mi">\(x,q\ge0\)</span> put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-JFL"></span>\begin{equation}\tag{SB.1}
+\Jfun(x)\defeq\EE\frac{g^2}{1+xg^2},\qquad
+F_w(q)\defeq\sum_{j\ge0}w_j^2\,\Jfun(w_j^2q),\qquad
+L_w(q)\defeq\sum_{j\ge0}w_j\,\Jfun(w_j^2q).
+\end{equation}</div><div class="thm thm-lemma" id="L-lem:app-de-scalar"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class="thm-title">(Properties of the scalar functions)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(w\)</span> be nonnegative, summable and not all zero.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><span class="mi">\(\Jfun\)</span> is continuous and strictly decreasing on <span class="mi">\([0,\infty)\)</span> with values in <span class="mi">\((0,1]\)</span>, it is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span> with one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+\Jfun(0)=1,\qquad \Jfun'(0)=-3 .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The series defining <span class="mi">\(F_w\)</span> and <span class="mi">\(L_w\)</span> converge uniformly on <span class="mi">\([0,\infty)\)</span>; <span class="mi">\(F_w\)</span> and <span class="mi">\(L_w\)</span> are continuous, <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span> with one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+F_w(0)=\sw2,\qquad F_w'(0)=-3\sw4,\qquad L_w(0)=\sum_jw_j,\qquad L_w'(0)=-3\sw3 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The function</div>
+<div class="md">\[
+r_w(q)\defeq qF_w(q)=\sum_j\EE\frac{w_j^2qg^2}{1+w_j^2qg^2}
+\]</div>
+<div class="p">is strictly increasing on <span class="mi">\([0,\infty)\)</span>, with <span class="mi">\(r_w(0)=0\)</span> and</div>
+<div class="md">\[
+r_w'(q)=\sum_jw_j^2\,\EE\frac{g^2}{(1+w_j^2qg^2)^2}&gt;0 ,
+\]</div>
+<div class="p">and <span class="mi">\(r_w(q)\uparrow\#\{j:w_j&gt;0\}\in\{1,2,\dots\}\cup\{\infty\}\)</span> as <span class="mi">\(q\to\infty\)</span>.</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) is differentiation under the Gaussian integral. The integrand <span class="mi">\(g^2/(1+xg^2)\)</span> is bounded by <span class="mi">\(g^2\)</span> and strictly decreasing in <span class="mi">\(x\)</span> on <span class="mi">\(\{g\ne0\}\)</span>, and its <span class="mi">\(x\)</span>-derivatives satisfy</div>
+<div class="md">\[
+\Big|\frac{\partial^k}{\partial x^k}\frac{g^2}{1+xg^2}\Big|=\frac{k!\,g^{2k+2}}{(1+xg^2)^{k+1}}\le k!\,g^{2k+2}\qquad(x\ge0),
+\]</div>
+<div class="p">and differentiation under the expectation, dominated by these bounds, gives continuity, strict monotonicity, smoothness on <span class="mi">\((0,\infty)\)</span>, one-sided derivatives at <span class="mi">\(0\)</span>, and</div>
+<div class="md">\[
+\Jfun(0)=\EE g^2=1,\qquad \Jfun'(0)=-\EE g^4=-3 .
+\]</div>
+<div class="p">Part (ii) is uniform convergence of the series and of their derivatives. The <span class="mi">\(j\)</span>-th term of <span class="mi">\(F_w\)</span> is bounded by <span class="mi">\(w_j^2\)</span>, that of <span class="mi">\(L_w\)</span> by <span class="mi">\(w_j\)</span>, and their <span class="mi">\(k\)</span>-th derivatives in <span class="mi">\(q\)</span> are bounded, by the chain rule and part (i), by</div>
+<div class="md">\[
+k!\,\EE g^{2k+2}\,w_j^{2k+2}\qquad\text{and}\qquad k!\,\EE g^{2k+2}\,w_j^{2k+1}.
+\]</div>
+<div class="p">Since <span class="mi">\(\sum_jw_j&lt;\infty\)</span> and <span class="mi">\(w_j\le\sum_kw_k\)</span>, all these series converge uniformly on <span class="mi">\([0,\infty)\)</span>, which gives continuity and smoothness. The values at <span class="mi">\(0\)</span> follow from <span class="mi">\(\Jfun(0)=1\)</span> and <span class="mi">\(\Jfun'(0)=-3\)</span>:</div>
+<div class="md">\[
+\begin{gathered}
+F_w(0)=\sum_jw_j^2=\sw2,\qquad F_w'(0)=-3\sum_jw_j^4=-3\sw4,\\
+L_w(0)=\sum_jw_j,\qquad L_w'(0)=-3\sum_jw_j^3=-3\sw3 .
+\end{gathered}
+\]</div>
+<div class="p">Part (iii) is monotone convergence. Termwise,</div>
+<div class="md">\[
+qF_w(q)=\sum_j\EE\frac{w_j^2qg^2}{1+w_j^2qg^2},\qquad
+\frac{\partial}{\partial x}\frac{xg^2}{1+xg^2}=\frac{g^2}{(1+xg^2)^2}&gt;0\ \text{on }\{g\ne0\},
+\]</div>
+<div class="p">which gives <span class="mi">\(r_w(0)=0\)</span> and the displayed derivative, positive because at least one <span class="mi">\(w_j\)</span> is positive. As <span class="mi">\(q\to\infty\)</span> each term with <span class="mi">\(w_j&gt;0\)</span> increases to <span class="mi">\(\Pr(g\ne0)=1\)</span> by monotone convergence, and so does the sum.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-definition" id="L-def:app-de-branch"><div class="thm-head"><a class="thm-name" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class="thm-title">(Weighted fixed-point system)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\((\nu,\tilde\nu)\)</span> be finite positive Borel measures on <span class="mi">\([0,\infty)\)</span> with compact support, let <span class="mi">\(w\)</span> be as above, and let <span class="mi">\(z=-s\)</span> with <span class="mi">\(s&gt;0\)</span>. The weighted fixed-point system at <span class="mi">\(z\)</span> is the system of equations in the four unknowns <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\in[0,\infty)^4\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-system"></span>\begin{equation}\tag{SB.2}
+\begin{aligned}
+\sigma&amp;=\int\frac{x}{\tilde s_1x-z}\,\nu(dx),\qquad&amp;
+\tilde\sigma&amp;=\int\frac{x}{s_1x-z}\,\tilde\nu(dx),\\
+q&amp;=-z\,\sigma\tilde\sigma,\qquad&amp;
+\tilde s_1&amp;=-z\,\tilde\sigma\,F_w(q),\qquad s_1=-z\,\sigma\,F_w(q).
+\end{aligned}
+\end{equation}</div>
+<div class="p">For the spectral measures of <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a> the first two equations read</div>
+<div class="md">\[
+\sigma=\frac1B\Tr\big(\Sigmaout(\tilde s_1\Sigmaout-z\Id_{\Nout})^{-1}\big),\qquad
+\tilde\sigma=\frac1B\Tr\big(\Sigmain(s_1\Sigmain-z\Id_{\Nin})^{-1}\big),
+\]</div>
+<div class="p">and we define the deterministic equivalents</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Rbar"></span>\begin{equation}\tag{SB.3}
+\Rbar(z)\defeq\big(\tilde s_1(z)\,\Sigmaout-z\,\Id_{\Nout}\big)^{-1},\qquad
+\Rtbar(z)\defeq\big(s_1(z)\,\Sigmain-z\,\Id_{\Nin}\big)^{-1},
+\end{equation}</div>
+<div class="p">where <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)(z)\)</span> is the solution given by <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>.</div></div></div><div class="p">In this appendix <span class="mi">\(\sigma(z)\)</span>, <span class="mi">\(\tilde\sigma(z)\)</span>, <span class="mi">\(\tilde s_1(z)\)</span> and <span class="mi">\(s_1(z)\)</span> always denote the solution of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a>; the random traces are written out as <span class="mi">\(\frac1B\Tr(\Sigmaout R(z))\)</span>. The letters are those of <a class="ref" href="paper.pdf#section.2" data-label="sec:deterministic_dynamics">Section 2</a>.</div>
+<div class="p">Multiplying the last two equations of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> by <span class="mi">\(\sigma\)</span> and <span class="mi">\(\tilde\sigma\)</span> gives the coupling</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-coupling"></span>\begin{equation}\tag{SB.4}
+\tilde s_1\,\sigma=s_1\,\tilde\sigma=qF_w(q)=r_w(q),
+\end{equation}</div>
+<div class="p">which at <span class="mi">\(\bmom=0\)</span> is the third line of the system of <a class="ref" href="paper.pdf#section.2" data-label="sec:deterministic_dynamics">Section 2</a> (<a class="ref" href="r.prop.app-de-nomomentum.html" data-label="prop:app-de-nomomentum">Proposition SB.1</a>).</div>
+<div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> the pair <span class="mi">\((\nu_{\mathrm{out}},\nu_{\mathrm{in}})\)</span> of <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a> belongs to the class</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-class"></span>\begin{equation}\tag{SB.5}
+\mathcal K\defeq\big\{(\nu,\tilde\nu):\ \nu,\tilde\nu\text{ finite positive Borel measures on }[0,C_\Sigma],\
+\nu([0,C_\Sigma])\le\gamma_\star,\ \tilde\nu([0,C_\Sigma])\le\gamma_\star\big\}.
+\end{equation}</div><div class="thm thm-theorem" id="L-thm:app-de-branch"><div class="thm-head"><a class="thm-name" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class="thm-title">(The weighted branch)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(w\)</span> be nonnegative, summable and not all zero, and let <span class="mi">\(C_\Sigma,\gamma_\star&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">(Existence and uniqueness.) For every <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span> and every <span class="mi">\(s&gt;0\)</span> the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span> has exactly one solution in <span class="mi">\([0,\infty)^4\)</span>. It satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-box"></span>\begin{equation}\tag{SB.6}
+\sigma,\tilde\sigma\le\frac{\gamma_\star C_\Sigma}{s},\qquad
+\tilde s_1,s_1\le\gamma_\star C_\Sigma\,\sw2,\qquad q\le\frac{(\gamma_\star C_\Sigma)^2}{s}.
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">(Continuity.) Equip <span class="mi">\(\mathcal K\)</span> with the topology of weak convergence against <span class="mi">\(C([0,C_\Sigma])\)</span> in each coordinate. The solution map <span class="mi">\((s,\nu,\tilde\nu)\mapsto(\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> is continuous on <span class="mi">\((0,\infty)\times\mathcal K\)</span>, and for every compact <span class="mi">\(I\subset(0,\infty)\)</span> it is uniformly continuous in <span class="mi">\(s\in I\)</span>, uniformly over <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">(Stability under approximate roots.) Let <span class="mi">\(I\subset(0,\infty)\)</span> be compact with <span class="mi">\(s_-\defeq\min I\)</span>. For every <span class="mi">\(\epsilon&gt;0\)</span> there is <span class="mi">\(\delta&gt;0\)</span>, depending only on <span class="mi">\((\epsilon,I,C_\Sigma,\gamma_\star,w)\)</span>, with the following property. If <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span>, <span class="mi">\(s\in I\)</span>, and <span class="mi">\((\sigma',\tilde\sigma',a',c')\in[0,\gamma_\star C_\Sigma/s_-]^2\times[0,\gamma_\star C_\Sigma\sw2]^2\)</span> satisfy, with <span class="mi">\(q'=s\sigma'\tilde\sigma'\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+\Big|\sigma'-\int\frac{x}{s+a'x}\,\nu(dx)\Big|\le\delta,\qquad
+\Big|\tilde\sigma'-\int\frac{x}{s+c'x}\,\tilde\nu(dx)\Big|\le\delta,\\
+\abs{a'-s\tilde\sigma'F_w(q')}\le\delta,\qquad
+\abs{c'-s\sigma'F_w(q')}\le\delta,
+\end{gathered}
+\]</div>
+<div class="p">then <span class="mi">\(\abs{\sigma'-\sigma}+\abs{\tilde\sigma'-\tilde\sigma}+\abs{a'-\tilde s_1}+\abs{c'-s_1}\le\epsilon\)</span>, where <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> is the solution of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span> for <span class="mi">\((\nu,\tilde\nu)\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">(Smoothness in <span class="mi">\(s\)</span>.) Fix <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span> with <span class="mi">\(\int x\,\nu(dx)&gt;0\)</span> and <span class="mi">\(\int x\,\tilde\nu(dx)&gt;0\)</span>. Then <span class="mi">\(s\mapsto(\sigma,\tilde\sigma,\tilde s_1,s_1,q)(-s)\)</span> is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,\infty)\)</span>, and <span class="mi">\(\abs{q'(s)}\le q(s)/s\)</span>.</div></div></li></ol></div></div><div class="p">The proof uses a compactness lemma for the class <span class="mi">\(\mathcal K\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-de-compact"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> <span class="thm-title">(Compactness of the spectral class)</span></div><div class="thm-body"><div class="p">Every sequence in <span class="mi">\(\mathcal K\)</span> has a subsequence that converges, weakly against <span class="mi">\(C([0,C_\Sigma])\)</span> in each coordinate, to an element of <span class="mi">\(\mathcal K\)</span>. If <span class="mi">\(\nu_n\to\nu\)</span> weakly in this sense, <span class="mi">\(s_n\to s&gt;0\)</span> and <span class="mi">\(a_n\to a\ge0\)</span>, then <span class="mi">\(\int\frac{x}{s_n+a_nx}\,\nu_n(dx)\to\int\frac{x}{s+ax}\,\nu(dx)\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">By the Riesz representation theorem [<a class="cite" href="bibliography.html#bib-rudin1987real">56</a>, Theorem 6.19], a finite positive Borel measure <span class="mi">\(\nu\)</span> on <span class="mi">\([0,C_\Sigma]\)</span> is the same as a positive bounded linear functional on <span class="mi">\(C([0,C_\Sigma])\)</span>, with norm <span class="mi">\(\nu([0,C_\Sigma])\)</span>. The closed ball of radius <span class="mi">\(\gamma_\star\)</span> in the dual of <span class="mi">\(C([0,C_\Sigma])\)</span> is weak-<span class="mi">\(*\)</span> compact by the Banach–Alaoglu theorem [<a class="cite" href="bibliography.html#bib-rudin1991functional">57</a>, Theorem 3.15] and, since <span class="mi">\(C([0,C_\Sigma])\)</span> is separable, weak-<span class="mi">\(*\)</span> metrizable [<a class="cite" href="bibliography.html#bib-rudin1991functional">57</a>, Theorem 3.16], hence weak-<span class="mi">\(*\)</span> sequentially compact. Positivity of a functional <span class="mi">\(\ell\)</span> and the bound <span class="mi">\(\ell(1)\le\gamma_\star\)</span> are preserved under weak-<span class="mi">\(*\)</span> limits, so the limit is again in <span class="mi">\(\mathcal K\)</span>.</div>
+<div class="p">The second claim is continuity of the integrand in its parameters. The function <span class="mi">\(\phi_{s,a}(x)\defeq x/(s+ax)\)</span> is continuous on <span class="mi">\([0,C_\Sigma]\)</span>, with parameter derivatives</div>
+<div class="md">\[
+\partial_s\phi_{s,a}(x)=-\frac{x}{(s+ax)^2},\qquad \partial_a\phi_{s,a}(x)=-\frac{x^2}{(s+ax)^2}.
+\]</div>
+<div class="p">For <span class="mi">\(s_n,s\ge s_\circ&gt;0\)</span> and <span class="mi">\(a_n,a\ge0\)</span> the mean value theorem in <span class="mi">\((s,a)\)</span> therefore gives</div>
+<div class="md">\[
+\sup_{x\in[0,C_\Sigma]}\abs{\phi_{s_n,a_n}(x)-\phi_{s,a}(x)}\le\frac{C_\Sigma\abs{s_n-s}+C_\Sigma^2\abs{a_n-a}}{s_\circ^2}.
+\]</div>
+<div class="p">Splitting the difference of the integrals into a change of integrand and a change of measure,</div>
+<div class="md">\[
+\Big|\int\phi_{s_n,a_n}\,d\nu_n-\int\phi_{s,a}\,d\nu\Big|
+\le\gamma_\star\,\norm{\phi_{s_n,a_n}-\phi_{s,a}}_\infty+\Big|\int\phi_{s,a}\,d\nu_n-\int\phi_{s,a}\,d\nu\Big|\longrightarrow0 ,
+\]</div>
+<div class="p">the first term by the displayed bound and the second by weak convergence.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>.</div><div class="p">Throughout, <span class="mi">\(z=-s\)</span>, and we write <span class="mi">\(r=r_w\)</span> from <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(iii). Set <span class="mi">\(p\defeq\nu((0,C_\Sigma])\)</span> and <span class="mi">\(\tilde p\defeq\tilde\nu((0,C_\Sigma])\)</span>.</div>
+<div class="p"><em>Degenerate cases.</em> If <span class="mi">\(p=0\)</span> the system has the unique solution</div>
+<div class="md">\[
+\sigma=0,\qquad q=0,\qquad s_1=0,\qquad \tilde\sigma=\frac1s\int x\,\tilde\nu(dx),\qquad \tilde s_1=s\tilde\sigma F_w(0)=s\tilde\sigma\,\sw2 .
+\]</div>
+<div class="p">Indeed <span class="mi">\(\nu\)</span> is then a multiple of <span class="mi">\(\delta_0\)</span>, so the first equation forces <span class="mi">\(\sigma=0\)</span> whatever <span class="mi">\(\tilde s_1\)</span> is, and the remaining equations determine the other unknowns in the displayed order. The case <span class="mi">\(\tilde p=0\)</span> is symmetric. Assume now <span class="mi">\(p&gt;0\)</span> and <span class="mi">\(\tilde p&gt;0\)</span>.</div>
+<div class="p"><em>Reduction to one scalar equation.</em> The two trace equations are inverted through the functions</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-H"></span>\begin{equation}\tag{SB.7}
+H(x)\defeq\int\frac{x\lambda}{s+x\lambda}\,\nu(d\lambda),\qquad
+\widetilde H(x)\defeq\int\frac{x\lambda}{s+x\lambda}\,\tilde\nu(d\lambda)\qquad(x\ge0).
+\end{equation}</div>
+<div class="p">The function <span class="mi">\(H\)</span> is continuous and strictly increasing on <span class="mi">\([0,\infty)\)</span>, since <span class="mi">\(p&gt;0\)</span> and the integrand is strictly increasing in <span class="mi">\(x\)</span> for <span class="mi">\(\lambda&gt;0\)</span>, with</div>
+<div class="md">\[
+H(0)=0,\qquad H(x)\uparrow p\ \ (x\to\infty)
+\]</div>
+<div class="p">by monotone convergence. Its quotient</div>
+<div class="md">\[
+\frac{H(x)}{x}=\int\frac{\lambda}{s+x\lambda}\,\nu(d\lambda)
+\]</div>
+<div class="p">is strictly decreasing in <span class="mi">\(x&gt;0\)</span> and tends to <span class="mi">\(m_1/s\)</span> as <span class="mi">\(x\downarrow0\)</span>, where <span class="mi">\(m_1\defeq\int\lambda\,\nu(d\lambda)&gt;0\)</span>. Let <span class="mi">\(X:[0,p)\to[0,\infty)\)</span> be the inverse of <span class="mi">\(H\)</span>. Then <span class="mi">\(X\)</span> is continuous and strictly increasing, <span class="mi">\(X(\rho)\to\infty\)</span> as <span class="mi">\(\rho\uparrow p\)</span>, and</div>
+<div class="md">\[
+\frac{X(\rho)}{\rho}=\Big(\frac{H(X(\rho))}{X(\rho)}\Big)^{-1}
+\]</div>
+<div class="p">is strictly increasing on <span class="mi">\((0,p)\)</span> with limit <span class="mi">\(s/m_1\)</span> at <span class="mi">\(0^+\)</span>. The same holds for <span class="mi">\(\widetilde H\)</span>, <span class="mi">\(\widetilde X\)</span> and <span class="mi">\(\tilde m_1\)</span>.</div>
+<div class="p">Every nonnegative solution is determined by <span class="mi">\(q\)</span>. Let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)\)</span> be a solution in <span class="mi">\([0,\infty)^4\)</span>. Since <span class="mi">\(p&gt;0\)</span>, the first equation gives <span class="mi">\(\sigma&gt;0\)</span>; likewise <span class="mi">\(\tilde\sigma&gt;0\)</span>; hence <span class="mi">\(q&gt;0\)</span>, <span class="mi">\(F_w(q)&gt;0\)</span> and <span class="mi">\(\tilde s_1,s_1&gt;0\)</span>. The coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a> reads</div>
+<div class="md">\[
+H(\tilde s_1)=\tilde s_1\sigma=r(q),\qquad \widetilde H(s_1)=s_1\tilde\sigma=r(q),
+\]</div>
+<div class="p">so <span class="mi">\(r(q)&lt;\min(p,\tilde p)\)</span> and</div>
+<div class="md">\[
+\tilde s_1=X(r(q)),\qquad s_1=\widetilde X(r(q)),\qquad \sigma=\frac{r(q)}{\tilde s_1},\qquad \tilde\sigma=\frac{r(q)}{s_1}.
+\]</div>
+<div class="p">Substituting into <span class="mi">\(q=s\sigma\tilde\sigma\)</span> gives the scalar equation</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-crossing"></span>\begin{equation}\tag{SB.8}
+\Phi(q)\defeq\frac{X(r(q))}{r(q)}\cdot\frac{\widetilde X(r(q))}{r(q)}-\frac{s}{q}=0,
+\qquad q\in Q\defeq\{q&gt;0:\ r(q)&lt;\min(p,\tilde p)\}.
+\end{equation}</div>
+<div class="p">Conversely, every solution of the scalar equation yields a solution of the system. If <span class="mi">\(q\in Q\)</span> solves <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a>, define <span class="mi">\(\tilde s_1\)</span>, <span class="mi">\(s_1\)</span>, <span class="mi">\(\sigma\)</span>, <span class="mi">\(\tilde\sigma\)</span> by the last display. The first equation of the system holds because</div>
+<div class="md">\[
+\sigma=\frac{H(\tilde s_1)}{\tilde s_1}=\int\frac{\lambda}{s+\tilde s_1\lambda}\,\nu(d\lambda),
+\]</div>
+<div class="p">and likewise the second. The crossing equation gives</div>
+<div class="md">\[
+s\sigma\tilde\sigma=\frac{s\,r(q)^2}{\tilde s_1s_1}=q ,
+\]</div>
+<div class="p">which is the third equation. Finally, the crossing equation and <span class="mi">\(r=qF_w\)</span> give</div>
+<div class="md">\[
+\tilde s_1s_1=\frac{s\,r(q)^2}{q}=sqF_w(q)^2,
+\]</div>
+<div class="p">so</div>
+<div class="md">\[
+\tilde s_1=\frac{sqF_w(q)^2}{s_1}=s\,\frac{r(q)}{s_1}\,F_w(q)=s\tilde\sigma F_w(q),
+\]</div>
+<div class="p">and symmetrically <span class="mi">\(s_1=s\sigma F_w(q)\)</span>. Hence nonnegative solutions of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> are in bijection with solutions of <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a>.</div>
+<div class="p"><em>Exactly one crossing.</em> The scalar equation has exactly one solution because <span class="mi">\(\Phi\)</span> is strictly increasing and changes sign. Since <span class="mi">\(r\)</span> is continuous and strictly increasing from <span class="mi">\(0\)</span>, the set <span class="mi">\(Q\)</span> is an interval <span class="mi">\((0,q_\dagger)\)</span> with <span class="mi">\(q_\dagger\in(0,\infty]\)</span>. On <span class="mi">\(Q\)</span> the first term of <span class="mi">\(\Phi\)</span> is positive, continuous and nondecreasing, as a product of two positive nondecreasing functions of <span class="mi">\(r(q)\)</span>, while <span class="mi">\(s/q\)</span> is continuous and strictly decreasing; so <span class="mi">\(\Phi\)</span> is continuous and strictly increasing on <span class="mi">\(Q\)</span>. At the left endpoint,</div>
+<div class="md">\[
+\lim_{q\downarrow0}\frac{X(r(q))}{r(q)}\cdot\frac{\widetilde X(r(q))}{r(q)}=\frac{s^2}{m_1\tilde m_1}&lt;\infty,\qquad
+\lim_{q\downarrow0}\frac sq=\infty,
+\]</div>
+<div class="p">so <span class="mi">\(\Phi(q)\to-\infty\)</span> as <span class="mi">\(q\downarrow0\)</span>. At the right endpoint there are two cases. If <span class="mi">\(q_\dagger&lt;\infty\)</span> then <span class="mi">\(r(q)\uparrow\min(p,\tilde p)\)</span> as <span class="mi">\(q\uparrow q_\dagger\)</span>, so <span class="mi">\(X(r(q))\)</span> or <span class="mi">\(\widetilde X(r(q))\)</span> tends to infinity while the other factor and <span class="mi">\(s/q\)</span> stay bounded, and <span class="mi">\(\Phi(q)\to+\infty\)</span>. If <span class="mi">\(q_\dagger=\infty\)</span> then <span class="mi">\(s/q\to0\)</span> while the first term stays at least <span class="mi">\(s^2/(m_1\tilde m_1)&gt;0\)</span>, so <span class="mi">\(\liminf_{q\to\infty}\Phi(q)&gt;0\)</span>. In both cases the intermediate value theorem and strict monotonicity give exactly one zero. This proves existence and uniqueness.</div>
+<div class="p">The a priori bounds <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-box" data-label="eqn:app-de-box">(SB.6)</a> follow from the three inequalities</div>
+<div class="md">\[
+\frac{x}{s+ax}\le\frac xs\le\frac{C_\Sigma}{s}\ \ (x\in[0,C_\Sigma],\ a\ge0),\qquad
+F_w\le\sw2,\qquad q=s\sigma\tilde\sigma ,
+\]</div>
+<div class="p">the second by <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>, applied to the two trace equations, to <span class="mi">\(\tilde s_1=s\tilde\sigma F_w(q)\)</span>, and to <span class="mi">\(q\)</span>.</div>
+<div class="p"><em>Continuity and stability.</em> We prove (iii) by compactness and uniqueness. Part (ii) is the special case <span class="mi">\(\delta=0\)</span> of the same argument with varying <span class="mi">\((s,\nu,\tilde\nu)\)</span>. The modulus in <span class="mi">\(s\in I\)</span> uniform over <span class="mi">\(\mathcal K\)</span> follows from continuity by the same compactness: sequences <span class="mi">\(s_n,s_n'\in I\)</span> with <span class="mi">\(\abs{s_n-s_n'}\to0\)</span> and <span class="mi">\((\nu_n,\tilde\nu_n)\in\mathcal K\)</span> have a subsequence along which <span class="mi">\((s_n,\nu_n,\tilde\nu_n)\)</span> and <span class="mi">\((s_n',\nu_n,\tilde\nu_n)\)</span> converge to the same point of <span class="mi">\(I\times\mathcal K\)</span>. Suppose (iii) fails for some <span class="mi">\(\epsilon&gt;0\)</span>. Then there are sequences <span class="mi">\((\nu_n,\tilde\nu_n)\in\mathcal K\)</span>, <span class="mi">\(s_n\in I\)</span> and tuples <span class="mi">\((\sigma_n',\tilde\sigma_n',a_n',c_n')\)</span> in the stated box whose four residuals are at most <span class="mi">\(\delta_n\to0\)</span>, but with</div>
+<div class="md">\[
+\abs{\sigma_n'-\sigma_n}+\abs{\tilde\sigma_n'-\tilde\sigma_n}+\abs{a_n'-\tilde s_{1,n}}+\abs{c_n'-s_{1,n}}&gt;\epsilon
+\]</div>
+<div class="p">for the exact solutions <span class="mi">\((\sigma_n,\tilde\sigma_n,\tilde s_{1,n},s_{1,n})\)</span>.</div>
+<div class="p">All sequences have convergent subsequences. By <a class="ref" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> and the compactness of <span class="mi">\(I\)</span> and of the box, in which the exact solutions also lie by <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-box" data-label="eqn:app-de-box">(SB.6)</a>, we may pass to a subsequence along which</div>
+<div class="md">\[
+\begin{gathered}
+(\nu_n,\tilde\nu_n)\to(\nu,\tilde\nu)\in\mathcal K\ \text{weakly},\qquad s_n\to s\in I,\\
+(\sigma_n',\tilde\sigma_n',a_n',c_n')\to(\sigma',\tilde\sigma',a',c'),\qquad
+(\sigma_n,\tilde\sigma_n,\tilde s_{1,n},s_{1,n})\to(\sigma,\tilde\sigma,a,c).
+\end{gathered}
+\]</div>
+<div class="p">Both limits solve the limit system. By <a class="ref" href="r.lem.app-de-compact.html" data-label="lem:app-de-compact">Lemma SB.2</a> and the continuity of <span class="mi">\(F_w\)</span>, each of the four equations of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> passes to the limit along the subsequence, with residuals <span class="mi">\(\delta_n\to0\)</span> for the approximate tuples and residuals <span class="mi">\(0\)</span> for the exact ones. Hence both limit tuples solve the system at <span class="mi">\(z=-s\)</span> for <span class="mi">\((\nu,\tilde\nu)\)</span>. By uniqueness they coincide, so the displayed distance tends to <span class="mi">\(0\)</span> along the subsequence, which contradicts its being larger than <span class="mi">\(\epsilon\)</span>.</div>
+<div class="p"><em>Smoothness in <span class="mi">\(s\)</span>.</em> Here <span class="mi">\(p,\tilde p&gt;0\)</span> by hypothesis and the measures are fixed. The dependence on <span class="mi">\(s\)</span> is removed from the inverse functions by scaling. Write <span class="mi">\(H(x,s)\)</span> for the function <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-H" data-label="eqn:app-de-H">(SB.7)</a> at the spectral parameter <span class="mi">\(s\)</span> and <span class="mi">\(X(\rho,s)\)</span> for its inverse. Since</div>
+<div class="md">\[
+H(x,s)=\int\frac{(x/s)\lambda}{1+(x/s)\lambda}\,\nu(d\lambda)=H(x/s,1),
+\]</div>
+<div class="p">one has <span class="mi">\(X(\rho,s)=sX(\rho,1)\)</span>. Put <span class="mi">\(\mathsf A(\rho)\defeq X(\rho,1)\)</span> and <span class="mi">\(\widetilde{\mathsf A}(\rho)\defeq\widetilde X(\rho,1)\)</span>. The implicit function theorem applied to <span class="mi">\(H(x,1)=\rho\)</span>, whose <span class="mi">\(x\)</span>-derivative</div>
+<div class="md">\[
+\partial_xH(x,1)=\int\frac{\lambda}{(1+x\lambda)^2}\,\nu(d\lambda)
+\]</div>
+<div class="p">is positive and smooth in <span class="mi">\(x\)</span>, shows that <span class="mi">\(\mathsf A\)</span> is <span class="mi">\(C^\infty\)</span> on <span class="mi">\((0,p)\)</span>, and likewise <span class="mi">\(\widetilde{\mathsf A}\)</span>.</div>
+<div class="p">The crossing equation becomes an implicit equation with a positive <span class="mi">\(q\)</span>-derivative. Write <span class="mi">\(r\)</span> for <span class="mi">\(r(q)=qF_w(q)\)</span>. Then <a class="ref" href="r.thm.app-de-branch.html#L-eqn:app-de-crossing" data-label="eqn:app-de-crossing">(SB.8)</a> reads</div>
+<div class="md">\[
+\frac{s^2\mathsf A(r)\widetilde{\mathsf A}(r)}{r^2}=\frac sq ,
+\]</div>
+<div class="p">that is, <span class="mi">\(\mathsf G(q,s)=0\)</span> with</div>
+<div class="md">\[
+\mathsf G(q,s)\defeq\log s+\log\mathsf A(r(q))+\log\widetilde{\mathsf A}(r(q))-\log q-2\log F_w(q).
+\]</div>
+<div class="p">Since <span class="mi">\(\mathsf A(\rho)/\rho\)</span> is nondecreasing, <span class="mi">\(\mathsf A'/\mathsf A\ge1/\rho\)</span>, and likewise for <span class="mi">\(\widetilde{\mathsf A}\)</span>. With <span class="mi">\(r'=F_w+qF_w'\)</span> this gives</div>
+<div class="md">\[
+\partial_q\mathsf G=\Big(\frac{\mathsf A'}{\mathsf A}+\frac{\widetilde{\mathsf A}'}{\widetilde{\mathsf A}}\Big)r'-\frac1q-\frac{2F_w'}{F_w}
+\ \ge\ \frac{2r'}{r}-\frac1q-\frac{2F_w'}{F_w}=\frac2q+\frac{2F_w'}{F_w}-\frac1q-\frac{2F_w'}{F_w}=\frac1q&gt;0 ,
+\]</div>
+<div class="p">where the inequality uses <span class="mi">\(\mathsf A'/\mathsf A\ge1/r\)</span> and <span class="mi">\(r'&gt;0\)</span>, and the first equality uses <span class="mi">\(r'/r=1/q+F_w'/F_w\)</span>.</div>
+<div class="p">The implicit function theorem concludes. Since <span class="mi">\(\partial_s\mathsf G=1/s\)</span> and <span class="mi">\(\mathsf G\)</span> is <span class="mi">\(C^\infty\)</span>, the function <span class="mi">\(q(s)\)</span> is <span class="mi">\(C^\infty\)</span> with</div>
+<div class="md">\[
+q'(s)=-\frac{\partial_s\mathsf G}{\partial_q\mathsf G},\qquad
+\abs{q'(s)}=\frac{1/s}{\partial_q\mathsf G}\le\frac{q}{s}.
+\]</div>
+<div class="p">The remaining coordinates are the <span class="mi">\(C^\infty\)</span> compositions</div>
+<div class="md">\[
+\tilde s_1=s\,\mathsf A(r(q(s))),\qquad s_1=s\,\widetilde{\mathsf A}(r(q(s))),\qquad
+\sigma=\frac{r(q(s))}{\tilde s_1},\qquad \tilde\sigma=\frac{r(q(s))}{s_1}. \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p"><strong class="runin">The case <span class="mi">\(\bmom=0\)</span>.</strong>  At <span class="mi">\(\bmom=0\)</span> the only weight is <span class="mi">\(\emaw0=1\)</span>, so that</div>
+<div class="md">\[
+F_0=L_0=\Jfun,\qquad \tilde s_1\sigma=s_1\tilde\sigma=q\Jfun(q),
+\]</div>
+<div class="p">the second identity being the coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a>. The next proposition identifies <span class="mi">\(q\Jfun(q)\)</span> with the closure function <span class="mi">\(f\)</span> of <a class="ref" href="paper.pdf#section.2" data-label="sec:deterministic_dynamics">Section 2</a>.</div><div class="thm thm-proposition" id="L-prop:app-de-nomomentum"><div class="thm-head"><a class="thm-name" href="r.prop.app-de-nomomentum.html" data-label="prop:app-de-nomomentum">Proposition SB.1</a> <span class="thm-title">(No-momentum closure)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(q&gt;0\)</span> put <span class="mi">\(\xi\defeq(2q)^{-1/2}\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-erfc"></span>\begin{equation}\tag{SB.9}
+q\Jfun(q)=\EE\frac{qg^2}{1+qg^2}=\EE\frac{g^2}{g^2+2\xi^2}
+=1-\sqrt\pi\,\xi\,e^{\xi^2}\operatorname{erfc}(\xi).
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first two equalities are the definition of <span class="mi">\(\Jfun\)</span> and <span class="mi">\(q=1/(2\xi^2)\)</span>.</div>
+<div class="p">The third equality is a Laplace-transform computation. Since</div>
+<div class="md">\[
+\EE\frac{qg^2}{1+qg^2}=1-\EE\frac{1}{1+qg^2},
+\]</div>
+<div class="p">it suffices to compute the last expectation. It is computed from the Laplace representation and the Gaussian integral</div>
+<div class="md">\[
+\frac{1}{1+qg^2}=\int_0^\infty e^{-u(1+qg^2)}\,du,\qquad
+\EE e^{-uqg^2}=(1+2uq)^{-1/2},
+\]</div>
+<div class="p">which give</div>
+<div class="md">\[
+\EE\frac{1}{1+qg^2}=\int_0^\infty e^{-u}\,\EE e^{-uqg^2}\,du
+=\int_0^\infty e^{-u}\Big(1+\frac{u}{\xi^2}\Big)^{-1/2}du .
+\]</div>
+<div class="p">The substitution <span class="mi">\(u=\rho^2-\xi^2\)</span> with <span class="mi">\(\rho\in[\xi,\infty)\)</span> turns the last integral into</div>
+<div class="md">\[
+\int_\xi^\infty e^{-(\rho^2-\xi^2)}\,\frac{\xi}{\rho}\,2\rho\,d\rho
+=2\xi e^{\xi^2}\int_\xi^\infty e^{-\rho^2}\,d\rho=\sqrt\pi\,\xi\,e^{\xi^2}\operatorname{erfc}(\xi). \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-de-nomomentum"><div class="thm-head"><a class="thm-name" href="r.rem.app-de-nomomentum.html" data-label="rem:app-de-nomomentum">Remark SB.1</a> <span class="thm-title">(Dictionary to the no-momentum system)</span></div><div class="thm-body"><div class="p">At <span class="mi">\(\bmom=0\)</span>, with <span class="mi">\(z=-s\)</span>, the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the spectral measures <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a> is</div>
+<div class="md">\[
+\begin{gathered}
+\sigma=\frac1B\Tr\big(\Sigmaout(\tilde s_1\Sigmaout-z\Id)^{-1}\big),\qquad
+\tilde\sigma=\frac1B\Tr\big(\Sigmain(s_1\Sigmain-z\Id)^{-1}\big),\\
+\tilde s_1\sigma=s_1\tilde\sigma=q\Jfun(q),\qquad q=-z\sigma\tilde\sigma .
+\end{gathered}
+\]</div>
+<div class="p">Put</div>
+<div class="md">\[
+\xi\defeq\frac{1}{\sqrt{-2z\sigma\tilde\sigma}}=(2q)^{-1/2},\qquad
+f(\xi)\defeq\EE\frac{V^2}{V^2+2\xi^2}\quad(V\sim\mathcal N(0,1)).
+\]</div>
+<div class="p">By <a class="ref" href="r.prop.app-de-nomomentum.html" data-label="prop:app-de-nomomentum">Proposition SB.1</a>,</div>
+<div class="md">\[
+q\Jfun(q)=f(\xi)=1-\sqrt\pi\,\xi\,e^{\xi^2}\operatorname{erfc}(\xi),
+\]</div>
+<div class="p">which is the third line of the fixed-point system of <a class="ref" href="paper.pdf#section.2" data-label="sec:deterministic_dynamics">Section 2</a>; the relation <span class="mi">\(s_1=\tilde s_1\sigma/\tilde\sigma\)</span> is its coupling relation. The deterministic equivalents <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a> are the ones displayed there. The trace identity</div>
+<div class="md">\[
+\tilde s_1\sigma-\frac{\Nout}B=z\,\frac1B\Tr\Rbar(z)
+\]</div>
+<div class="p">is the sum over the eigenvalues <span class="mi">\(\mu\)</span> of <span class="mi">\(\Sigmaout\)</span> of</div>
+<div class="md">\[
+\frac{\tilde s_1\mu}{\tilde s_1\mu-z}-1=\frac{z}{\tilde s_1\mu-z}.
+\]</div>
+<div class="p">For <span class="mi">\(\bmom&gt;0\)</span> the single function <span class="mi">\(f\)</span> is replaced by <span class="mi">\(qF_{\bmom}(q)\)</span>, and the drift section uses <span class="mi">\(L_{\bmom}\)</span> in place of <span class="mi">\(\Jfun\)</span> in the source factor.</div></div></div><div class="thm thm-proposition" id="L-prop:app-de-normalization"><div class="thm-head"><a class="thm-name" href="r.prop.app-de-normalization.html" data-label="prop:app-de-normalization">Proposition SB.2</a> <span class="thm-title">(Normalization checks)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\((\nu,\tilde\nu)\in\mathcal K\)</span> and <span class="mi">\(s&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">(One weight.) Let <span class="mi">\(w=(\varpi,0,0,\dots)\)</span> with <span class="mi">\(\varpi&gt;0\)</span>, and let <span class="mi">\((\sigma_1,\tilde\sigma_1,\tilde s_{1,1},s_{1,1})(-s')\)</span> denote the solution for the unit weight <span class="mi">\((1,0,0,\dots)\)</span> at the spectral parameter <span class="mi">\(s'=s/\varpi^2\)</span>. Then the solution for <span class="mi">\(w\)</span> at <span class="mi">\(s\)</span> is</div>
+<div class="md">\[
+\begin{gathered}
+\sigma=\varpi^{-2}\sigma_1(-s'),\qquad\tilde\sigma=\varpi^{-2}\tilde\sigma_1(-s'),\qquad
+q=\varpi^{-2}q_1(-s'),\\
+\tilde s_1=\varpi^2\tilde s_{1,1}(-s'),\qquad s_1=\varpi^2s_{1,1}(-s'),
+\end{gathered}
+\]</div>
+<div class="p">and <span class="mi">\(\Rbar_w(-s)=\varpi^{-2}\Rbar_1(-s')\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">(<span class="mi">\(K\)</span> equal weights.) Let <span class="mi">\(w_j=1/K\)</span> for <span class="mi">\(0\le j&lt;K\)</span> and <span class="mi">\(w_j=0\)</span> otherwise. Then <span class="mi">\(F_w(q)=K^{-1}\Jfun(q/K^2)\)</span>, and the solution for <span class="mi">\(w\)</span> at <span class="mi">\((\nu,\tilde\nu)\)</span> is related to the solution <span class="mi">\((\sigma',\tilde\sigma',\tilde s_1',s_1')\)</span> for the unit weight at the measures <span class="mi">\((\nu/K,\tilde\nu/K)\)</span> by</div>
+<div class="md">\[
+\sigma=K\sigma',\qquad \tilde\sigma=K\tilde\sigma',\qquad q=K^2q',\qquad
+\tilde s_1=\tilde s_1',\qquad s_1=s_1'.
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">In both parts the displayed tuple is checked against the four equations of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> and then identified with the solution by the uniqueness in <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(i).</div>
+<div class="p">For (i), the weight function is <span class="mi">\(F_w(q)=\varpi^2\Jfun(\varpi^2q)\)</span>. The first trace equation holds at <span class="mi">\(s\)</span> because, for every <span class="mi">\(x\ge0\)</span>,</div>
+<div class="md">\[
+\frac{x}{s+\varpi^2\tilde s_{1,1}x}=\varpi^{-2}\,\frac{x}{s'+\tilde s_{1,1}x},
+\]</div>
+<div class="p">and the second likewise. The equation for <span class="mi">\(q\)</span> holds because</div>
+<div class="md">\[
+s\sigma\tilde\sigma=\varpi^2s'\cdot\varpi^{-4}\sigma_1\tilde\sigma_1=\varpi^{-2}q_1 .
+\]</div>
+<div class="p">The equation for <span class="mi">\(\tilde s_1\)</span> holds because</div>
+<div class="md">\[
+s\tilde\sigma F_w(q)=\varpi^2s'\cdot\varpi^{-2}\tilde\sigma_1\cdot\varpi^2\Jfun(\varpi^2\varpi^{-2}q_1)=\varpi^2\,s'\tilde\sigma_1\Jfun(q_1)=\varpi^2\tilde s_{1,1},
+\]</div>
+<div class="p">and the equation for <span class="mi">\(s_1\)</span> symmetrically. The resolvent relation follows from</div>
+<div class="md">\[
+\big(s\Id+\varpi^2\tilde s_{1,1}\Sigmaout\big)^{-1}=\varpi^{-2}\big(s'\Id+\tilde s_{1,1}\Sigmaout\big)^{-1}.
+\]</div>
+<div class="p">For (ii), the weight function is</div>
+<div class="md">\[
+F_w(q)=\sum_{j&lt;K}K^{-2}\Jfun(q/K^2)=K^{-1}\Jfun(q/K^2).
+\]</div>
+<div class="p">The first trace equation holds because</div>
+<div class="md">\[
+\int\frac{x}{s+\tilde s_1'x}\,\nu(dx)=K\int\frac{x}{s+\tilde s_1'x}\,\frac{\nu(dx)}{K}=K\sigma',
+\]</div>
+<div class="p">and the second likewise. The equation for <span class="mi">\(q\)</span> holds because</div>
+<div class="md">\[
+s\sigma\tilde\sigma=K^2s\sigma'\tilde\sigma'=K^2q',
+\]</div>
+<div class="p">and the equation for <span class="mi">\(\tilde s_1\)</span> because</div>
+<div class="md">\[
+s\tilde\sigma F_w(q)=s\,K\tilde\sigma'\,K^{-1}\Jfun(q')=s\tilde\sigma'\Jfun(q')=\tilde s_1' ,
+\]</div>
+<div class="p">with the equation for <span class="mi">\(s_1\)</span> symmetric.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-de-effbatch"><div class="thm-head"><a class="thm-name" href="r.rem.app-de-effbatch.html" data-label="rem:app-de-effbatch">Remark SB.2</a> <span class="thm-title">(No scalar effective batch for <span class="mi">\(\bmom&gt;0\)</span>)</span></div><div class="thm-body"><div class="p">By <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(ii), the value and the slope of <span class="mi">\(F_w\)</span> at <span class="mi">\(0\)</span> are <span class="mi">\(\sw2\)</span> and <span class="mi">\(-3\sw4\)</span>. For <span class="mi">\(K\)</span> equal weights, <span class="mi">\(\sw4/\sw2^{\,3}=1\)</span>, so a uniform average over <span class="mi">\(K\)</span> batches, equivalently a batch of size <span class="mi">\(KB\)</span> by <a class="ref" href="r.prop.app-de-normalization.html" data-label="prop:app-de-normalization">Proposition SB.2</a>(ii), is determined to first order at <span class="mi">\(q=0\)</span> by <span class="mi">\(\sw2\)</span> alone. For the EMA weights with <span class="mi">\(\bmom\in(0,1)\)</span>,</div>
+<div class="md">\[
+\frac{\sw4}{\sw2^{\,3}}=\frac{(1+\bmom)^2}{1+\bmom^2}&gt;1,\qquad
+\frac{\sw3}{\sw2^{\,2}}=\frac{(1+\bmom)^2}{1+\bmom+\bmom^2}&gt;1 ,
+\]</div>
+<div class="p">so no choice of an effective batch size <span class="mi">\(B_{\mathrm{eff}}=B/\sw2\)</span> reproduces the function <span class="mi">\(F_{\bmom}\)</span>, nor <span class="mi">\(L_{\bmom}\)</span>, beyond the value at <span class="mi">\(q=0\)</span>. This is why the system is stated with the full weight sequence.</div></div></div><h3 id="L-sec:app-de-finite"><span class="h-num">SB.2</span> Finite identities</h3>
+<div class="p">The closure theorem is proved by deleting one sample from the buffer. This subsection collects the exact finite-dimensional identities and bounds that the proof uses. Throughout, <span class="mi">\(s&gt;0\)</span> and <span class="mi">\(M\in\R^{\Nout\times\Nin}\)</span> is a deterministic or random matrix; we write</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-RXdef"></span>\begin{equation}\tag{SB.10}
+R_s(M)\defeq(MM^\T+s\Id_{\Nout})^{-1},\quad
+\widetilde R_s(M)\defeq(M^\T M+s\Id_{\Nin})^{-1},\quad
+\mathsf X_s(M)\defeq R_s(M)M .
+\end{equation}</div>
+<div class="p">The dynamics section also needs these objects at complex parameters in the sector</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-sector"></span>\begin{equation}\tag{SB.11}
+\mathbb S\defeq\{z\in\mathbb C:\ \Ree z&gt;0,\ \abs{\Img z}\le\Ree z/2\},
+\end{equation}</div>
+<div class="p">which contains <span class="mi">\((0,\infty)\)</span>. For <span class="mi">\(z\in\mathbb S\)</span> we define <span class="mi">\(R_z(M)\)</span>, <span class="mi">\(\widetilde R_z(M)\)</span> and <span class="mi">\(\mathsf X_z(M)\)</span> by <a class="ref" href="s.SB.html#L-eqn:app-de-RXdef" data-label="eqn:app-de-RXdef">(SB.10)</a> with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>; the inverses exist by <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>. Transposes of complex matrices are not conjugated.</div><div class="thm thm-lemma" id="L-lem:app-de-resolvent"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class="thm-title">(Resolvent identities)</span></div><div class="thm-body"><div class="p">For every <span class="mi">\(M\)</span> and <span class="mi">\(s&gt;0\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+\norm{R_s(M)}\le\frac1s,\qquad
+\norm{\widetilde R_s(M)}\le\frac1s,\qquad \norm{\mathsf X_s(M)}\le\frac{1}{2\sqrt s},\\
+R_s(M)M=M\widetilde R_s(M),\qquad
+M^\T R_s(M)M=\Id_{\Nin}-s\widetilde R_s(M),\\
+R_s(M)MM^\T=\Id_{\Nout}-sR_s(M),
+\end{gathered}
+\]</div>
+<div class="p">and for <span class="mi">\(s,s'&gt;0\)</span>,</div>
+<div class="md">\[
+\norm{R_s(M)-R_{s'}(M)}\le\frac{\abs{s-s'}}{ss'}.
+\]</div>
+<div class="p">For <span class="mi">\(z\in\mathbb S\)</span> with <span class="mi">\(x\defeq\Ree z\)</span>, the matrices <span class="mi">\(MM^\T+z\Id_{\Nout}\)</span> and <span class="mi">\(M^\T M+z\Id_{\Nin}\)</span> are invertible, the three identities hold with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>, and</div>
+<div class="md">\[
+\norm{R_z(M)}\le\frac1x,\qquad
+\norm{\widetilde R_z(M)}\le\frac1x,\qquad \norm{\mathsf X_z(M)}\le\frac{1}{2\sqrt x},\qquad
+\frac{\abs z}{x}\le\frac{\sqrt5}{2}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The norm bounds follow from a singular value decomposition <span class="mi">\(M=\sum_ks_k\,p_k\tensor r_k\)</span>. In it, the three matrices are</div>
+<div class="md">\[
+\begin{gathered}
+R_s(M)=\sum_k\frac{p_k\tensor p_k}{s_k^2+s}+\frac{\Pi_{\mathrm{out}}}{s},\qquad
+\widetilde R_s(M)=\sum_k\frac{r_k\tensor r_k}{s_k^2+s}+\frac{\Pi_{\mathrm{in}}}{s},\\
+\mathsf X_s(M)=\sum_k\frac{s_k}{s_k^2+s}\,p_k\tensor r_k ,
+\end{gathered}
+\]</div>
+<div class="p">where <span class="mi">\(\Pi_{\mathrm{out}}\)</span> and <span class="mi">\(\Pi_{\mathrm{in}}\)</span> are the orthogonal projections onto the left and right null spaces of <span class="mi">\(M\)</span>. The coefficients satisfy</div>
+<div class="md">\[
+\frac{1}{s_k^2+s}\le\frac1s,\qquad \frac{s_k}{s_k^2+s}\le\frac{1}{2\sqrt s},
+\]</div>
+<div class="p">the second by the inequality <span class="mi">\(s_k^2+s\ge2s_k\sqrt s\)</span> between arithmetic and geometric means.</div>
+<div class="p">The intertwining identity follows from the elementary identity</div>
+<div class="md">\[
+(MM^\T+s\Id_{\Nout})M=M(M^\T M+s\Id_{\Nin}).
+\]</div>
+<div class="p">Multiplying it by <span class="mi">\(R_s(M)\)</span> on the left and by <span class="mi">\(\widetilde R_s(M)\)</span> on the right gives <span class="mi">\(R_s(M)M=M\widetilde R_s(M)\)</span>.</div>
+<div class="p">The second identity follows from the first. Multiplying <span class="mi">\(R_s(M)M=M\widetilde R_s(M)\)</span> on the left by <span class="mi">\(M^\T\)</span> gives</div>
+<div class="md">\[
+M^\T R_s(M)M=M^\T M\,\widetilde R_s(M)=(M^\T M+s\Id_{\Nin}-s\Id_{\Nin})\widetilde R_s(M)=\Id_{\Nin}-s\widetilde R_s(M).
+\]</div>
+<div class="p">The third identity is the same computation with <span class="mi">\(MM^\T\)</span>:</div>
+<div class="md">\[
+R_s(M)MM^\T=R_s(M)(MM^\T+s\Id_{\Nout}-s\Id_{\Nout})=\Id_{\Nout}-sR_s(M).
+\]</div>
+<div class="p">The Lipschitz bound is the resolvent identity. For <span class="mi">\(s,s'&gt;0\)</span>,</div>
+<div class="md">\[
+R_s(M)-R_{s'}(M)=R_s(M)\big((MM^\T+s'\Id)-(MM^\T+s\Id)\big)R_{s'}(M)=(s'-s)\,R_s(M)R_{s'}(M),
+\]</div>
+<div class="p">and the norm bound follows from <span class="mi">\(\norm{R_s(M)}\le1/s\)</span> and <span class="mi">\(\norm{R_{s'}(M)}\le1/s'\)</span>.</div>
+<div class="p">The sector statement is the same computation with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>. In the singular value decomposition, <span class="mi">\(MM^\T+z\Id\)</span> and <span class="mi">\(M^\T M+z\Id\)</span> have the real orthonormal eigenvectors <span class="mi">\(p_k\)</span>, <span class="mi">\(r_k\)</span> and the null-space vectors, with eigenvalues <span class="mi">\(s_k^2+z\)</span> and <span class="mi">\(z\)</span>, whose real parts are at least <span class="mi">\(x&gt;0\)</span>; so both matrices are invertible, and <span class="mi">\(R_z(M)\)</span>, <span class="mi">\(\widetilde R_z(M)\)</span>, <span class="mi">\(\mathsf X_z(M)\)</span> are the displayed sums with <span class="mi">\(s\)</span> replaced by <span class="mi">\(z\)</span>. Since <span class="mi">\(R_z(M)\)</span> and <span class="mi">\(\widetilde R_z(M)\)</span> are diagonal in real orthonormal bases, their norms are the largest moduli of their eigenvalues, and the singular values of <span class="mi">\(\mathsf X_z(M)\)</span> are <span class="mi">\(s_k/\abs{s_k^2+z}\)</span>. The bound <span class="mi">\(\abs{s_k^2+z}\ge\Ree(s_k^2+z)=s_k^2+x\)</span> gives</div>
+<div class="md">\[
+\frac{1}{\abs{s_k^2+z}}\le\frac1x,\qquad \frac{s_k}{\abs{s_k^2+z}}\le\frac{s_k}{s_k^2+x}\le\frac{1}{2\sqrt x}.
+\]</div>
+<div class="p">The identities are algebraic and hold verbatim. Finally <span class="mi">\(\abs z^2=x^2+(\Img z)^2\le\frac54x^2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-deletion"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class="thm-title">(Rank-two deletion)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(M=M_0+\mathsf h\,\mathsf u\tensor\mathsf v\)</span> with <span class="mi">\(M_0\in\R^{\Nout\times\Nin}\)</span>, <span class="mi">\(\mathsf h\in\R\)</span>, <span class="mi">\(\mathsf u\in\R^{\Nout}\)</span>, <span class="mi">\(\mathsf v\in\R^{\Nin}\)</span>, and <span class="mi">\(s&gt;0\)</span>. Write <span class="mi">\(R_0=R_s(M_0)\)</span>, <span class="mi">\(\widetilde R_0=\widetilde R_s(M_0)\)</span>, <span class="mi">\(\mathsf X_0=\mathsf X_s(M_0)\)</span>, <span class="mi">\(R=R_s(M)\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-UVC"></span>\begin{equation}\tag{SB.12}
+\mathsf U\defeq\mathsf u^\T R_0\mathsf u,\qquad
+\mathsf V\defeq\mathsf v^\T\widetilde R_0\mathsf v,\qquad
+\mathsf C\defeq\mathsf u^\T\mathsf X_0\mathsf v,\qquad
+\Lambda\defeq(1+\mathsf h\mathsf C)^2+s\mathsf h^2\,\mathsf U\mathsf V .
+\end{equation}</div>
+<div class="p">Then <span class="mi">\(\Lambda&gt;0\)</span>, and with</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-coefficients"></span>\begin{equation}\tag{SB.13}
+\alpha_1\defeq\frac{\mathsf h(1+\mathsf h\mathsf C)}{\Lambda},\qquad
+\alpha_2\defeq\frac{\mathsf h^2\,\mathsf U}{\Lambda},\qquad
+\alpha_3\defeq-\frac{s\mathsf h^2\,\mathsf V}{\Lambda},
+\end{equation}</div>
+<div class="p">one has</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-deletion-R"></span><span class="anchor" id="L-eqn:app-de-deletion-RMv"></span>\begin{align}
+R-R_0&amp;=\alpha_3\,(R_0\mathsf u)\tensor(R_0\mathsf u)-\alpha_1\,(R_0\mathsf u)\tensor(\mathsf X_0\mathsf v)
+-\alpha_1\,(\mathsf X_0\mathsf v)\tensor(R_0\mathsf u)+\alpha_2\,(\mathsf X_0\mathsf v)\tensor(\mathsf X_0\mathsf v) ,
+\tag{SB.14}\\
+\mathsf h\,RM\mathsf v&amp;=-\alpha_3\,R_0\mathsf u+\alpha_1\,\mathsf X_0\mathsf v .
+\tag{SB.15}
+\end{align}</div>
+<div class="p">Moreover, if <span class="mi">\(\Lambda'\)</span> denotes the quantity <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> computed from <span class="mi">\(M\)</span> in place of <span class="mi">\(M_0\)</span> and <span class="mi">\(-\mathsf h\)</span> in place of <span class="mi">\(\mathsf h\)</span>, then <span class="mi">\(\Lambda\Lambda'=1\)</span>, and consequently</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Lambda-inverse"></span>\begin{equation}\tag{SB.16}
+\Lambda^{-1}\le\Big(1+\frac{3}{4\sqrt s}\,\abs{\mathsf h}\,\mathsf N\Big)^2,\qquad
+\mathsf N\defeq\norm{\mathsf u}^2+\norm{\mathsf v}^2 .
+\end{equation}</div>
+<div class="p">The same holds at <span class="mi">\(z\in\mathbb S\)</span> in place of <span class="mi">\(s\)</span>, with <span class="mi">\(x\defeq\Ree z\)</span>, in the following form. Define <span class="mi">\(R_0,\widetilde R_0,\mathsf X_0,R\)</span> and <span class="mi">\(\mathsf U,\mathsf V,\mathsf C,\Lambda,\alpha_1,\alpha_2,\alpha_3\)</span> by the formulas above with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>; they are complex. Then <span class="mi">\(\Lambda\ne0\)</span>, <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> and <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a> hold, <span class="mi">\(\Lambda\Lambda'=1\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Lambda-inverse-sector"></span>\begin{equation}\tag{SB.17}
+\abs\Lambda^{-1}\le\Big(1+\frac{\abs{\mathsf h}\,\mathsf N}{\sqrt x}\Big)^2 .
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">For <span class="mi">\(K\in\R^{\Nout\times\Nin}\)</span> let</div>
+<div class="md">\[
+\mathcal L(K)\defeq\begin{pmatrix}s\Id_{\Nout}&amp;K\\K^\T&amp;-\Id_{\Nin}\end{pmatrix}.
+\]</div>
+<div class="p">Block inversion with the Schur complement <span class="mi">\(s\Id+KK^\T\)</span> of the block <span class="mi">\(-\Id\)</span> gives, for every <span class="mi">\(K\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-blockinverse"></span>\begin{equation}\tag{SB.18}
+\mathcal L(K)^{-1}=\begin{pmatrix}R_s(K)&amp;\mathsf X_s(K)\\ \mathsf X_s(K)^\T&amp;-\Id_{\Nin}+K^\T R_s(K)K\end{pmatrix}
+=\begin{pmatrix}R_s(K)&amp;\mathsf X_s(K)\\ \mathsf X_s(K)^\T&amp;-s\widetilde R_s(K)\end{pmatrix},
+\end{equation}</div>
+<div class="p">where the second form uses <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>. The rank-one change of <span class="mi">\(M\)</span> is a rank-two change of <span class="mi">\(\mathcal L\)</span>:</div>
+<div class="md">\[
+\mathcal L(M)=\mathcal L(M_0)+\mathsf h\big(\tilde{\mathsf u}\tensor\tilde{\mathsf v}+\tilde{\mathsf v}\tensor\tilde{\mathsf u}\big)=\mathcal L(M_0)+PSP^\T,
+\]</div>
+<div class="p">with</div>
+<div class="md">\[
+\tilde{\mathsf u}\defeq\begin{pmatrix}\mathsf u\\0\end{pmatrix},\qquad
+\tilde{\mathsf v}\defeq\begin{pmatrix}0\\ \mathsf v\end{pmatrix},\qquad
+P\defeq\big[\tilde{\mathsf u}\ \ \tilde{\mathsf v}\big],\qquad
+S\defeq\mathsf h\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}.
+\]</div>
+<div class="p">Assume first <span class="mi">\(\mathsf h\ne0\)</span>. By <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a>,</div>
+<div class="md">\[
+W\defeq P^\T\mathcal L(M_0)^{-1}P=\begin{pmatrix}\mathsf U&amp;\mathsf C\\ \mathsf C&amp;-s\mathsf V\end{pmatrix},\qquad
+S^{-1}+W=\begin{pmatrix}\mathsf U&amp;\mathsf C+\mathsf h^{-1}\\ \mathsf C+\mathsf h^{-1}&amp;-s\mathsf V\end{pmatrix}.
+\]</div>
+<div class="p">The determinant of <span class="mi">\(S^{-1}+W\)</span> is expressed through <span class="mi">\(\Lambda\)</span>:</div>
+<div class="md">\[
+\det(S^{-1}+W)=-s\mathsf U\mathsf V-\big(\mathsf C+\mathsf h^{-1}\big)^2
+=-\frac{s\mathsf h^2\mathsf U\mathsf V+(1+\mathsf h\mathsf C)^2}{\mathsf h^2}=-\frac{\Lambda}{\mathsf h^2}.
+\]</div>
+<div class="p">Positivity of <span class="mi">\(\Lambda\)</span> follows from the positive definiteness of <span class="mi">\(R_0\)</span> and <span class="mi">\(\widetilde R_0\)</span>. Indeed <span class="mi">\(\mathsf U\ge0\)</span> and <span class="mi">\(\mathsf V\ge0\)</span>, with <span class="mi">\(\mathsf U=0\)</span> only if <span class="mi">\(\mathsf u=0\)</span> and <span class="mi">\(\mathsf V=0\)</span> only if <span class="mi">\(\mathsf v=0\)</span>. If <span class="mi">\(\mathsf u=0\)</span> or <span class="mi">\(\mathsf v=0\)</span>, then <span class="mi">\(\mathsf C\)</span> vanishes and <span class="mi">\(\Lambda=1\)</span>; otherwise <span class="mi">\(\Lambda\ge s\mathsf h^2\mathsf U\mathsf V&gt;0\)</span>. In particular <span class="mi">\(S^{-1}+W\)</span> is invertible, and the Sherman–Morrison–Woodbury formula [<a class="cite" href="bibliography.html#bib-golub2012matrix">26</a>, Section 2.1.4] gives</div>
+<div class="md">\[
+\mathcal L(M)^{-1}=\mathcal L(M_0)^{-1}-\mathcal L(M_0)^{-1}P\,\Theta\,P^\T\mathcal L(M_0)^{-1},
+\]</div>
+<div class="p">where</div>
+<div class="md">\[
+\Theta\defeq(S^{-1}+W)^{-1}=\frac{1}{\Lambda}\begin{pmatrix}s\mathsf h^2\mathsf V&amp;\mathsf h(1+\mathsf h\mathsf C)\\ \mathsf h(1+\mathsf h\mathsf C)&amp;-\mathsf h^2\mathsf U\end{pmatrix}
+=\begin{pmatrix}-\alpha_3&amp;\alpha_1\\ \alpha_1&amp;-\alpha_2\end{pmatrix}.
+\]</div>
+<div class="p">The two identities are read off from the blocks of the Woodbury identity. By <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a>, the columns of <span class="mi">\(\mathcal L(M_0)^{-1}P\)</span> are</div>
+<div class="md">\[
+\mathcal L(M_0)^{-1}\tilde{\mathsf u}=\begin{pmatrix}R_0\mathsf u\\ \mathsf X_0^\T\mathsf u\end{pmatrix},\qquad
+\mathcal L(M_0)^{-1}\tilde{\mathsf v}=\begin{pmatrix}\mathsf X_0\mathsf v\\ -s\widetilde R_0\mathsf v\end{pmatrix}.
+\]</div>
+<div class="p">The upper-left block of the Woodbury identity is therefore</div>
+<div class="md">\[
+R-R_0=-\big[R_0\mathsf u\ \ \mathsf X_0\mathsf v\big]\begin{pmatrix}-\alpha_3&amp;\alpha_1\\ \alpha_1&amp;-\alpha_2\end{pmatrix}\big[R_0\mathsf u\ \ \mathsf X_0\mathsf v\big]^\T ,
+\]</div>
+<div class="p">which, expanded, is <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>. The upper-right block is</div>
+<div class="md">\[
+\begin{aligned}
+RM={}&amp;\mathsf X_0+\alpha_3\,(R_0\mathsf u)\tensor(\mathsf X_0^\T\mathsf u)+s\alpha_1\,(R_0\mathsf u)\tensor(\widetilde R_0\mathsf v)\\
+&amp;-\alpha_1\,(\mathsf X_0\mathsf v)\tensor(\mathsf X_0^\T\mathsf u)-s\alpha_2\,(\mathsf X_0\mathsf v)\tensor(\widetilde R_0\mathsf v) .
+\end{aligned}
+\]</div>
+<div class="p">Multiplying on the right by <span class="mi">\(\mathsf v\)</span> and using the definitions of <span class="mi">\(\mathsf C\)</span> and <span class="mi">\(\mathsf V\)</span> in <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> gives</div>
+<div class="md">\[
+RM\mathsf v=R_0\mathsf u\,(\alpha_3\mathsf C+s\alpha_1\mathsf V)+\mathsf X_0\mathsf v\,(1-\alpha_1\mathsf C-s\alpha_2\mathsf V).
+\]</div>
+<div class="p">The two scalar coefficients simplify by the definitions <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-coefficients" data-label="eqn:app-de-coefficients">(SB.13)</a>:</div>
+<div class="md">\[
+\alpha_3\mathsf C+s\alpha_1\mathsf V=\frac{s\mathsf h\mathsf V}{\Lambda}\big(-\mathsf h\mathsf C+1+\mathsf h\mathsf C\big)=\frac{s\mathsf h\mathsf V}{\Lambda}=-\frac{\alpha_3}{\mathsf h},
+\]</div>
+<div class="md">\[
+1-\alpha_1\mathsf C-s\alpha_2\mathsf V=\frac{\Lambda-\mathsf h\mathsf C(1+\mathsf h\mathsf C)-s\mathsf h^2\mathsf U\mathsf V}{\Lambda}=\frac{(1+\mathsf h\mathsf C)^2-\mathsf h\mathsf C(1+\mathsf h\mathsf C)}{\Lambda}=\frac{1+\mathsf h\mathsf C}{\Lambda}=\frac{\alpha_1}{\mathsf h}.
+\]</div>
+<div class="p">Multiplying <span class="mi">\(RM\mathsf v\)</span> by <span class="mi">\(\mathsf h\)</span> gives <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a>. If <span class="mi">\(\mathsf h=0\)</span>, then <span class="mi">\(M=M_0\)</span>, so <span class="mi">\(R=R_0\)</span> and all three coefficients vanish; both identities hold.</div>
+<div class="p">The relation <span class="mi">\(\Lambda\Lambda'=1\)</span> is a determinant identity. We factor</div>
+<div class="md">\[
+\mathcal L(M)=\mathcal L(M_0)\big(\Id+\mathcal L(M_0)^{-1}PSP^\T\big).
+\]</div>
+<div class="p">Sylvester’s identity <span class="mi">\(\det(\Id+XY)=\det(\Id+YX)\)</span> [<a class="cite" href="bibliography.html#bib-horn2013matrix">28</a>, Section 0.8.5], applied to the second factor, gives</div>
+<div class="md">\[
+\begin{aligned}
+\det\mathcal L(M)&amp;=\det\mathcal L(M_0)\,\det(\Id_2+SW)
+=\det\mathcal L(M_0)\,\det(S)\det(S^{-1}+W)\\
+&amp;=\det\mathcal L(M_0)\,(-\mathsf h^2)\Big(-\frac{\Lambda}{\mathsf h^2}\Big)
+=\det\mathcal L(M_0)\,\Lambda .
+\end{aligned}
+\]</div>
+<div class="p">Both determinants are nonzero, because the block inverse <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a> exists for every <span class="mi">\(K\)</span>. Exchanging the roles of <span class="mi">\(M\)</span> and <span class="mi">\(M_0\)</span> and replacing <span class="mi">\(\mathsf h\)</span> by <span class="mi">\(-\mathsf h\)</span> is the same situation, because <span class="mi">\(M_0=M-\mathsf h\,\mathsf u\tensor\mathsf v\)</span>; it gives</div>
+<div class="md">\[
+\det\mathcal L(M_0)=\det\mathcal L(M)\,\Lambda' ,
+\]</div>
+<div class="p">and the two relations together give <span class="mi">\(\Lambda\Lambda'=1\)</span>.</div>
+<div class="p">The inverse bound follows from the norm bounds of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> applied to <span class="mi">\(M\)</span>. The primed quantities satisfy</div>
+<div class="md">\[
+0\le\mathsf U'\le\frac{\norm{\mathsf u}^2}{s},\qquad
+0\le\mathsf V'\le\frac{\norm{\mathsf v}^2}{s},\qquad
+\abs{\mathsf C'}\le\frac{\norm{\mathsf u}\norm{\mathsf v}}{2\sqrt s}\le\frac{\mathsf N}{4\sqrt s},
+\]</div>
+<div class="p">the last step by <span class="mi">\(2\norm{\mathsf u}\norm{\mathsf v}\le\mathsf N\)</span>. Using <span class="mi">\((1+x)^2+y^2\le(1+x+y)^2\)</span> for <span class="mi">\(x,y\ge0\)</span> in the last step,</div>
+<div class="md">\[
+\Lambda^{-1}=\Lambda'=(1-\mathsf h\mathsf C')^2+s\mathsf h^2\mathsf U'\mathsf V'
+\le\Big(1+\frac{\abs{\mathsf h}\mathsf N}{4\sqrt s}\Big)^2+\Big(\frac{\abs{\mathsf h}\mathsf N}{2\sqrt s}\Big)^2
+\le\Big(1+\frac{3\abs{\mathsf h}\mathsf N}{4\sqrt s}\Big)^2 .
+\]</div>
+<div class="p">At <span class="mi">\(z\in\mathbb S\)</span> the argument is the same with <span class="mi">\(s\)</span> replaced by <span class="mi">\(z\)</span>, except for the nonvanishing of <span class="mi">\(\Lambda\)</span> and the inverse bound. The block inverse <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-blockinverse" data-label="eqn:app-de-blockinverse">(SB.18)</a> holds with <span class="mi">\(z\)</span> in place of <span class="mi">\(s\)</span>, since <span class="mi">\(z\Id+KK^\T\)</span> is invertible by <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>. Sylvester’s identity is used first: directly from the definitions,</div>
+<div class="md">\[
+\Id_2+SW=\begin{pmatrix}1+\mathsf h\mathsf C&amp;-z\mathsf h\mathsf V\\ \mathsf h\mathsf U&amp;1+\mathsf h\mathsf C\end{pmatrix},\qquad
+\det(\Id_2+SW)=\Lambda ,
+\]</div>
+<div class="p">so <span class="mi">\(\det\mathcal L(M)=\Lambda\det\mathcal L(M_0)\)</span> with both determinants nonzero, and <span class="mi">\(\Lambda\ne0\)</span>. For <span class="mi">\(\mathsf h\ne0\)</span> this gives <span class="mi">\(\det(S^{-1}+W)=-\Lambda/\mathsf h^2\ne0\)</span>, and the Woodbury step, the reading of the blocks and the relation <span class="mi">\(\Lambda\Lambda'=1\)</span> are unchanged. For the inverse bound, <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> at <span class="mi">\(z\)</span> applied to <span class="mi">\(M\)</span> gives <span class="mi">\(\abs{\mathsf U'}\le\norm{\mathsf u}^2/x\)</span>, <span class="mi">\(\abs{\mathsf V'}\le\norm{\mathsf v}^2/x\)</span> and <span class="mi">\(\abs{\mathsf C'}\le\mathsf N/(4\sqrt x)\)</span>, and with <span class="mi">\(\abs z\le\frac{\sqrt5}{2}x\)</span> and <span class="mi">\(\norm{\mathsf u}^2\norm{\mathsf v}^2\le\mathsf N^2/4\)</span>, writing <span class="mi">\(t\defeq\abs{\mathsf h}\mathsf N/\sqrt x\)</span>,</div>
+<div class="md">\[
+\abs\Lambda^{-1}=\abs{\Lambda'}\le\abs{1-\mathsf h\mathsf C'}^2+\abs z\,\mathsf h^2\abs{\mathsf U'}\abs{\mathsf V'}
+\le\Big(1+\frac t4\Big)^2+\frac{\sqrt5}{8}\,t^2\le(1+t)^2 ,
+\]</div>
+<div class="p">the last step by <span class="mi">\((1+a)^2+b^2\le(1+a+b)^2\)</span> with <span class="mi">\(a=t/4\)</span>, <span class="mi">\(b=(\sqrt5/8)^{1/2}t\le\frac34t\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-coeff"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class="thm-title">(Coefficient bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(I\subset(0,\infty)\)</span> be compact with <span class="mi">\(s_-=\min I\)</span> and put <span class="mi">\(C_I\defeq\max(1,s_-^{-1})\big(1+\tfrac{3}{4\sqrt{s_-}}\big)^3\)</span>. In the setting of <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> with <span class="mi">\(\mathsf h=\varpi\,d\)</span>, <span class="mi">\(0\le\varpi\le1\)</span>, <span class="mi">\(d\in\R\)</span>, and <span class="mi">\(s\in I\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-coeff-bounds"></span>\begin{equation}\tag{SB.19}
+\abs{\alpha_1}\le C_I\,\varpi\,(1+\abs d)^4(1+\mathsf N)^3,\qquad
+\abs{\alpha_2}+\abs{\alpha_3}\le C_I\,\varpi^2(1+\abs d)^4(1+\mathsf N)^3 ,
+\end{equation}</div>
+<div class="p">and the same bounds hold for <span class="mi">\(\alpha_1/\varpi\)</span> and <span class="mi">\((\alpha_2,\alpha_3)/\varpi^2\)</span> with the factors <span class="mi">\(\varpi\)</span>, <span class="mi">\(\varpi^2\)</span> removed. Moreover <span class="mi">\(R-R_0\)</span> has rank at most two and <span class="mi">\(\norm{R-R_0}_*\le4/s\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The three scalars of <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> are bounded by the norm bounds of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> applied to <span class="mi">\(M_0\)</span>:</div>
+<div class="md">\[
+0\le\mathsf U\le\frac{\mathsf N}{s},\qquad 0\le s\mathsf V\le\mathsf N,\qquad
+\abs{\mathsf C}\le\frac{\norm{\mathsf u}\norm{\mathsf v}}{2\sqrt s}\le\frac{\mathsf N}{4\sqrt s}.
+\]</div>
+<div class="p">We also use <span class="mi">\(\abs{\mathsf h}\le\abs d\)</span>, which holds because <span class="mi">\(\varpi\le1\)</span>, the inverse bound <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a>, and the elementary inequality</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-elementary"></span>\begin{equation}\tag{SB.20}
+1+c\abs d\mathsf N\le(1+c)(1+\abs d)(1+\mathsf N)\qquad(c\ge0).
+\end{equation}</div>
+<div class="p">For <span class="mi">\(\alpha_1\)</span> these give</div>
+<div class="md">\[
+\abs{\alpha_1}=\frac{\abs{\mathsf h}\,\abs{1+\mathsf h\mathsf C}}{\Lambda}
+\le \varpi\abs d\Big(1+\frac{\abs d\mathsf N}{4\sqrt s}\Big)\Big(1+\frac{3\abs d\mathsf N}{4\sqrt s}\Big)^2
+\le \varpi\abs d\Big(1+\frac{3}{4\sqrt{s_-}}\Big)^3(1+\abs d)^3(1+\mathsf N)^3 ,
+\]</div>
+<div class="p">the first inequality by <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a> and <span class="mi">\(\abs{\mathsf C}\le\mathsf N/(4\sqrt s)\)</span>, the second by <a class="ref" href="r.lem.app-de-coeff.html#L-eqn:app-de-elementary" data-label="eqn:app-de-elementary">(SB.20)</a> applied to each factor with <span class="mi">\(s\ge s_-\)</span>. For <span class="mi">\(\alpha_2\)</span> and <span class="mi">\(\alpha_3\)</span> the two numerators are bounded together. Since <span class="mi">\(s\mathsf U\le\norm{\mathsf u}^2\)</span> and <span class="mi">\(s\mathsf V\le\norm{\mathsf v}^2\)</span>,</div>
+<div class="md">\[
+\mathsf U+s\mathsf V\le\frac{\norm{\mathsf u}^2}{s}+\norm{\mathsf v}^2\le\max(1,s_-^{-1})\,\mathsf N .
+\]</div>
+<div class="p">Since <span class="mi">\(\alpha_2\ge0\ge\alpha_3\)</span>, the first inequality below follows from this bound, <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a> and <span class="mi">\(\abs{\mathsf h}\le\abs d\)</span>, and the second from <a class="ref" href="r.lem.app-de-coeff.html#L-eqn:app-de-elementary" data-label="eqn:app-de-elementary">(SB.20)</a>:</div>
+<div class="md">\[
+\abs{\alpha_2}+\abs{\alpha_3}=\frac{\mathsf h^2(\mathsf U+s\mathsf V)}{\Lambda}
+\le\max(1,s_-^{-1})\,\varpi^2d^2\,\mathsf N\Big(1+\frac{3\abs d\mathsf N}{4\sqrt s}\Big)^2
+\le\max(1,s_-^{-1})\Big(1+\frac{3}{4\sqrt{s_-}}\Big)^2\varpi^2(1+\abs d)^4(1+\mathsf N)^3 .
+\]</div>
+<div class="p">Since <span class="mi">\(\abs d\le1+\abs d\)</span> and <span class="mi">\(1+\frac{3}{4\sqrt{s_-}}\ge1\)</span>, both right sides are at most <span class="mi">\(C_I\)</span> times <span class="mi">\(\varpi(1+\abs d)^4(1+\mathsf N)^3\)</span>, respectively <span class="mi">\(\varpi^2(1+\abs d)^4(1+\mathsf N)^3\)</span>, with the stated <span class="mi">\(C_I\)</span>. The bounds for the normalized coefficients are the same inequalities with the factor <span class="mi">\(\varpi\)</span> or <span class="mi">\(\varpi^2\)</span> of <span class="mi">\(\mathsf h\)</span> or <span class="mi">\(\mathsf h^2\)</span> cancelled before bounding <span class="mi">\(\abs{\mathsf h}\)</span> by <span class="mi">\(\abs d\)</span>.</div>
+<div class="p">The rank claim follows from <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>, whose right side has range in the span of <span class="mi">\(R_0\mathsf u\)</span> and <span class="mi">\(\mathsf X_0\mathsf v\)</span>. For a matrix of rank at most two the nuclear norm is at most twice the operator norm, so</div>
+<div class="md">\[
+\norm{R-R_0}_*\le2\norm{R-R_0}\le2\big(\norm R+\norm{R_0}\big)\le\frac4s . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-moments"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class="thm-title">(Gaussian moment bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span>, <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent, let <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span> and <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>, let <span class="mi">\(\Ahat\in\R^{\Nout\times\Nin}\)</span> with <span class="mi">\(\norm{\Ahat}_\F=1\)</span>, and put <span class="mi">\(\mathsf u=\Sigmaout^{1/2}z/\sqrt B\)</span>, <span class="mi">\(\mathsf v=\Sigmain^{1/2}w/\sqrt B\)</span>, <span class="mi">\(\mathsf N=\norm{\mathsf u}^2+\norm{\mathsf v}^2\)</span> and <span class="mi">\(d=z^\T\Ahat w\)</span>. Then for every integer <span class="mi">\(p\ge1\)</span></div>
+<div class="md">\[
+\begin{gathered}
+\norm{\mathsf N}_p\le2C_\Sigma\gamma_\star\big((2p-1)!!\big)^{1/p},\qquad
+\norm{d}_{2p}\le\big((2p-1)!!\big)^{1/p},\\
+\big\|\abs d\,\norm{\mathsf u}\norm{\mathsf v}\big\|_2\le 15^{2/3}\,C_\Sigma\gamma_\star\le 7\,C_\Sigma\gamma_\star .
+\end{gathered}
+\]</div>
+<div class="p">Also, for any symmetric <span class="mi">\(A\in\R^{\Nout\times\Nout}\)</span>,</div>
+<div class="md">\[
+\EE[z^\T Az]=\Tr A,\qquad \Var(z^\T Az)=2\norm{A}_\F^2 .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The bound on <span class="mi">\(\mathsf N\)</span> reduces to the moments of <span class="mi">\(\norm z^2\)</span>. The covariance bound gives</div>
+<div class="md">\[
+\norm{\mathsf u}^2=\frac{z^\T\Sigmaout z}{B}\le\frac{C_\Sigma\norm z^2}{B},
+\]</div>
+<div class="p">and Jensen’s inequality for the convex function <span class="mi">\(x\mapsto x^p\)</span>, applied to the average of the <span class="mi">\(\Nout\)</span> coordinates, gives</div>
+<div class="md">\[
+\EE\Big(\frac{\norm z^2}{\Nout}\Big)^p\le\frac1{\Nout}\sum_{i=1}^{\Nout}\EE z_i^{2p}=(2p-1)!! .
+\]</div>
+<div class="p">Together,</div>
+<div class="md">\[
+\norm{\norm{\mathsf u}^2}_p\le C_\Sigma\,\frac{\Nout}{B}\,\big((2p-1)!!\big)^{1/p}\le C_\Sigma\gamma_\star\big((2p-1)!!\big)^{1/p},
+\]</div>
+<div class="p">the same bound holds for <span class="mi">\(\norm{\mathsf v}^2\)</span>, and the triangle inequality in <span class="mi">\(L^p\)</span> gives the bound on <span class="mi">\(\mathsf N\)</span>.</div>
+<div class="p">The bound on <span class="mi">\(d\)</span> is <a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>(i).</div>
+<div class="p">The bound on the product is the generalized Hölder inequality with three exponents equal to <span class="mi">\(3\)</span>:</div>
+<div class="md">\[
+\EE\big[d^2\norm{\mathsf u}^2\norm{\mathsf v}^2\big]\le\norm{d^2}_3\,\norm{\norm{\mathsf u}^2}_3\,\norm{\norm{\mathsf v}^2}_3
+\le15^{2/3}\cdot\big(15^{1/3}C_\Sigma\gamma_\star\big)^2=15^{4/3}(C_\Sigma\gamma_\star)^2 ,
+\]</div>
+<div class="p">where the second inequality uses the bounds on <span class="mi">\(d\)</span> and on <span class="mi">\(\norm{\mathsf u}^2\)</span>, <span class="mi">\(\norm{\mathsf v}^2\)</span> with <span class="mi">\(p=3\)</span>:</div>
+<div class="md">\[
+\norm{d^2}_3=\norm d_6^2\le(5!!)^{2/3},\qquad
+\norm{\norm{\mathsf u}^2}_3,\ \norm{\norm{\mathsf v}^2}_3\le(5!!)^{1/3}C_\Sigma\gamma_\star .
+\]</div>
+<div class="p">Taking the square root gives the bound <span class="mi">\(15^{2/3}C_\Sigma\gamma_\star\)</span>, which is at most <span class="mi">\(7C_\Sigma\gamma_\star\)</span>.</div>
+<div class="p">The quadratic form is diagonalized by an orthogonal <span class="mi">\(O\)</span> with <span class="mi">\(A=O\diag(a)O^\T\)</span>:</div>
+<div class="md">\[
+z^\T Az=\sum_ia_i\,(O^\T z)_i^2 ,
+\]</div>
+<div class="p">a sum of independent terms with means <span class="mi">\(a_i\)</span> and variances <span class="mi">\(2a_i^2\)</span>, since <span class="mi">\(O^\T z\sim\mathcal N(0,\Id_{\Nout})\)</span> and a standard Gaussian square has variance <span class="mi">\(2\)</span>. Summing over <span class="mi">\(i\)</span> gives</div>
+<div class="md">\[
+\EE[z^\T Az]=\sum_ia_i=\Tr A,\qquad \Var(z^\T Az)=2\sum_ia_i^2=2\norm A_\F^2 . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-bessel"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> <span class="thm-title">(Bessel bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span> and <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent of each other and of a <span class="mi">\(\sigma\)</span>-field <span class="mi">\(\mathcal G\)</span>, and let <span class="mi">\(e\)</span> be a real or complex random variable depending on <span class="mi">\(z\)</span>, <span class="mi">\(w\)</span> and <span class="mi">\(\mathcal G\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-bessel"></span>\begin{equation}\tag{SB.21}
+\begin{gathered}
+\norm{\EE_{\mathcal G}[(z\tensor w)\,e]}_\F\le\norm{e}_{2,\mathcal G},\qquad
+\norm{\EE_{\mathcal G}[(z\tensor z-\Id)\,e]}_\F\le\sqrt2\,\norm{e}_{2,\mathcal G},\\
+\norm{\EE_{\mathcal G}[(w\tensor w-\Id)\,e]}_\F\le\sqrt2\,\norm{e}_{2,\mathcal G}.
+\end{gathered}
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Since <span class="mi">\((z,w)\)</span> is independent of <span class="mi">\(\mathcal G\)</span>, it suffices to prove the inequalities with <span class="mi">\(\EE\)</span> in place of <span class="mi">\(\EE_{\mathcal G}\)</span>, in the <span class="mi">\(L^2\)</span> space of <span class="mi">\((z,w)\)</span>.</div>
+<div class="p">The inequalities are Bessel’s inequality for two orthonormal families. By the Gaussian fourth-moment identity <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-wick4" data-label="eqn:app-setup-wick4">(SA.30)</a> and the independence of <span class="mi">\(z\)</span> and <span class="mi">\(w\)</span>, the products <span class="mi">\(z_iw_l\)</span> (<span class="mi">\(i\le\Nout\)</span>, <span class="mi">\(l\le\Nin\)</span>) form an orthonormal family in <span class="mi">\(L^2\)</span>, and the variables <span class="mi">\((z_i^2-1)/\sqrt2\)</span> (<span class="mi">\(i\le\Nout\)</span>) and <span class="mi">\(z_iz_k\)</span> (<span class="mi">\(i&lt;k\)</span>) form another orthonormal family.</div>
+<div class="p">Bessel’s inequality for the first family gives the first bound:</div>
+<div class="md">\[
+\norm{\EE[(z\tensor w)\,e]}_\F^2=\sum_{i,l}\abs{\EE[z_iw_le]}^2\le\EE\abs e^2 .
+\]</div>
+<div class="p">Bessel’s inequality for the second family gives</div>
+<div class="md">\[
+\sum_{i&lt;k}\abs{\EE[z_iz_ke]}^2+\sum_i\frac{\abs{\EE[(z_i^2-1)e]}^2}{2}\le\EE\abs e^2 .
+\]</div>
+<div class="p">Each off-diagonal entry of the symmetric matrix <span class="mi">\(\EE[(z\tensor z-\Id)\,e]\)</span> occurs twice in its squared Frobenius norm, so</div>
+<div class="md">\[
+\norm{\EE[(z\tensor z-\Id)\,e]}_\F^2=2\sum_{i&lt;k}\abs{\EE[z_iz_ke]}^2+\sum_i\abs{\EE[(z_i^2-1)e]}^2\le2\,\EE\abs e^2 ,
+\]</div>
+<div class="p">which is the second bound. The third bound is the second with <span class="mi">\(w\)</span> in place of <span class="mi">\(z\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-stein"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class="thm-title">(Gaussian response)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(A\in\R^{\Nout\times\Nin}\)</span> be deterministic, <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span>, <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> independent, and <span class="mi">\(d=z^\T Aw\)</span>. Let <span class="mi">\(f\in C^3(\R)\)</span> and <span class="mi">\(\psi\in C^2(\R)\)</span> have polynomially bounded derivatives up to the stated orders. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein1"></span><span class="anchor" id="L-eqn:app-de-stein2"></span>\begin{align}
+\EE[(z\tensor w)\,f(d)]&amp;=A\,\EE f'(d)+A\,\EE[(w\tensor w)\,f'''(d)]\,A^\T A,
+\tag{SB.22}\\
+\norm{\EE[(z\tensor w)\,f(d)]-A\,\EE f'(d)}_\F&amp;\le\norm{f'''}_\infty\norm A^2\norm A_\F,
+\notag\\
+\EE[(z\tensor z-\Id)\,\psi(d)]&amp;=A\,\EE[(w\tensor w)\,\psi''(d)]\,A^\T,
+\tag{SB.23}\\
+\norm{\EE[(z\tensor z-\Id)\,\psi(d)]}_\F&amp;\le\norm{\psi''}_\infty\norm A\norm A_\F,
+\notag
+\end{align}</div>
+<div class="p">and both <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> hold with <span class="mi">\((z,w,A)\)</span> replaced by <span class="mi">\((w,z,A^\T)\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The tool is Stein’s lemma [<a class="cite" href="bibliography.html#bib-stein1981estimation">62</a>, Lemma 1]: for <span class="mi">\(g\sim\mathcal N(0,1)\)</span> and an absolutely continuous <span class="mi">\(\phi\)</span> with <span class="mi">\(\EE\abs{\phi'(g)}&lt;\infty\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein-lemma"></span>\begin{equation}\tag{SB.24}
+\EE[g\,\phi(g)]=\EE\phi'(g).
+\end{equation}</div>
+<div class="p">We apply it to one coordinate of <span class="mi">\(z\)</span> or <span class="mi">\(w\)</span> at a time, conditionally on all other coordinates. The partial derivatives of <span class="mi">\(d=z^\T Aw\)</span> are</div>
+<div class="md">\[
+\partial_{z_i}d=(Aw)_i,\qquad \partial_{w_l}d=(A^\T z)_l .
+\]</div>
+<div class="p">The first identity is obtained by three applications of <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a>. Applying it to the coordinate <span class="mi">\(z_i\)</span> gives</div>
+<div class="md">\[
+\EE[z_iw_lf(d)]=\EE\big[w_l\,\partial_{z_i}f(d)\big]=\EE\big[w_l\,(Aw)_i\,f'(d)\big].
+\]</div>
+<div class="p">Applying it to the coordinate <span class="mi">\(w_l\)</span>, with the product rule, gives</div>
+<div class="md">\[
+\EE\big[w_l\,(Aw)_i\,f'(d)\big]=\EE\big[\partial_{w_l}\big((Aw)_if'(d)\big)\big]
+=A_{il}\,\EE f'(d)+\EE\big[(Aw)_i\,(A^\T z)_l\,f''(d)\big].
+\]</div>
+<div class="p">In matrix form the two steps read</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-stein-step2"></span>\begin{equation}\tag{SB.25}
+\EE[(z\tensor w)\,f(d)]=A\,\EE f'(d)+A\,\EE[(w\tensor z)\,f''(d)]\,A .
+\end{equation}</div>
+<div class="p">Applying <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a> to the coordinate <span class="mi">\(z_l\)</span> inside the remaining expectation gives</div>
+<div class="md">\[
+\EE[w_kz_lf''(d)]=\EE\big[w_k\,(Aw)_l\,f'''(d)\big],\qquad\text{that is,}\qquad
+\EE[(w\tensor z)\,f''(d)]=\EE[(w\tensor w)\,f'''(d)]\,A^\T .
+\]</div>
+<div class="p">Substituting this into <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-step2" data-label="eqn:app-de-stein-step2">(SB.25)</a> proves <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a>.</div>
+<div class="p">The bound for the first identity has two steps. The matrix <span class="mi">\(N\defeq\EE[(w\tensor w)\,f'''(d)]\)</span> satisfies</div>
+<div class="md">\[
+\norm N=\sup_{\norm x=\norm y=1}\big|\EE\big[(x^\T w)(y^\T w)f'''(d)\big]\big|
+\le\norm{f'''}_\infty\sup_{\norm x=\norm y=1}\EE\big[\abs{x^\T w}\,\abs{y^\T w}\big]\le\norm{f'''}_\infty ,
+\]</div>
+<div class="p">the last step by the Cauchy–Schwarz inequality and <span class="mi">\(\EE(x^\T w)^2=\norm x^2\)</span>. Then</div>
+<div class="md">\[
+\norm{A\,N\,A^\T A}_\F\le\norm A\,\norm N\,\norm{A^\T A}_\F\le\norm A\,\norm N\,\norm A\,\norm A_\F
+\le\norm{f'''}_\infty\norm A^2\norm A_\F ,
+\]</div>
+<div class="p">using <span class="mi">\(\norm{XY}_\F\le\norm X\norm Y_\F\)</span> twice.</div>
+<div class="p">The second identity is obtained by two applications of <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein-lemma" data-label="eqn:app-de-stein-lemma">(SB.24)</a>. Applying it to the coordinate <span class="mi">\(z_i\)</span> of <span class="mi">\(z_i\cdot z_k\psi(d)\)</span> gives</div>
+<div class="md">\[
+\EE[z_iz_k\psi(d)]=\EE\big[\partial_{z_i}\big(z_k\psi(d)\big)\big]
+=\delta_{ik}\,\EE\psi(d)+\EE\big[z_k\,(Aw)_i\,\psi'(d)\big],
+\]</div>
+<div class="p">that is, in matrix form,</div>
+<div class="md">\[
+\EE[(z\tensor z-\Id)\,\psi(d)]=A\,\EE[(w\tensor z)\,\psi'(d)].
+\]</div>
+<div class="p">The step from <span class="mi">\(\EE[(w\tensor z)\,f''(d)]\)</span> to <span class="mi">\(\EE[(w\tensor w)\,f'''(d)]A^\T\)</span> above, applied with <span class="mi">\(\psi'\)</span> in place of <span class="mi">\(f''\)</span>, gives <span class="mi">\(\EE[(w\tensor z)\,\psi'(d)]=\EE[(w\tensor w)\,\psi''(d)]A^\T\)</span>, which proves <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a>. Its bound is the same two-step estimate with <span class="mi">\(\norm{\psi''}_\infty\)</span> in place of <span class="mi">\(\norm{f'''}_\infty\)</span> and one factor of <span class="mi">\(\norm A\)</span> fewer:</div>
+<div class="md">\[
+\norm{A\,\EE[(w\tensor w)\,\psi''(d)]\,A^\T}_\F\le\norm A\,\norm{\psi''}_\infty\,\norm{A^\T}_\F=\norm{\psi''}_\infty\norm A\norm A_\F .
+\]</div>
+<div class="p">The last claim follows from the symmetry <span class="mi">\(d=w^\T A^\T z\)</span>: the same computations with the roles of <span class="mi">\(z\)</span> and <span class="mi">\(w\)</span> exchanged and <span class="mi">\(A\)</span> replaced by <span class="mi">\(A^\T\)</span> give both identities and both bounds for <span class="mi">\((w,z,A^\T)\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-lipschitz"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a> <span class="thm-title">(Nuclear-norm Lipschitz bound)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(K,K'\in\R^{\Nout\times\Nin}\)</span> and <span class="mi">\(s&gt;0\)</span>, <span class="mi">\(\norm{R_s(K)-R_s(K')}_*\le2s^{-3/2}\norm{K-K'}_*\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The resolvent <span class="mi">\(R_s(K)\)</span> is a block of the resolvent of a symmetric matrix at a point at distance <span class="mi">\(\sqrt s\)</span> from the real axis. Let</div>
+<div class="md">\[
+\mathcal D(K)\defeq\begin{pmatrix}0&amp;K\\K^\T&amp;0\end{pmatrix},\qquad
+\mathcal Y(K)\defeq\big(\mathcal D(K)-i\sqrt s\,\Id\big)^{-1}.
+\]</div>
+<div class="p">Since <span class="mi">\(\mathcal D(K)\)</span> is real symmetric, its spectrum is real, and <span class="mi">\(\norm{\mathcal Y(K)}\le s^{-1/2}\)</span>. Block inversion with the Schur complement of the lower-right block <span class="mi">\(-i\sqrt s\,\Id\)</span> shows that the upper-left <span class="mi">\(\Nout\times\Nout\)</span> block of <span class="mi">\(\mathcal Y(K)\)</span> is</div>
+<div class="md">\[
+\Big(-i\sqrt s\,\Id-K\big(-i\sqrt s\big)^{-1}K^\T\Big)^{-1}
+=\Big(-\frac{i}{\sqrt s}\big(KK^\T+s\Id\big)\Big)^{-1}=i\sqrt s\,R_s(K).
+\]</div>
+<div class="p">The difference of the two dilated resolvents is controlled by the resolvent identity:</div>
+<div class="md">\[
+\mathcal Y(K)-\mathcal Y(K')=\mathcal Y(K)\,\mathcal D(K'-K)\,\mathcal Y(K').
+\]</div>
+<div class="p">The nuclear norm is unitarily invariant, so the ideal property <span class="mi">\(\norm{XYZ}_*\le\norm X\,\norm Y_*\,\norm Z\)</span> [<a class="cite" href="bibliography.html#bib-bhatia1997matrix">8</a>, Proposition IV.2.4 and (IV.40)] applies; the singular values of <span class="mi">\(\mathcal D(E)\)</span> are those of <span class="mi">\(E\)</span>, each taken twice, so <span class="mi">\(\norm{\mathcal D(E)}_*=2\norm E_*\)</span>. Hence</div>
+<div class="md">\[
+\norm{\mathcal Y(K)-\mathcal Y(K')}_*\le\norm{\mathcal Y(K)}\,\norm{\mathcal D(K'-K)}_*\,\norm{\mathcal Y(K')}
+\le\frac{2}{s}\,\norm{K-K'}_* .
+\]</div>
+<div class="p">Compression to the upper-left block does not increase the nuclear norm, by the same ideal property with the orthogonal projection <span class="mi">\(P\)</span> onto the first <span class="mi">\(\Nout\)</span> coordinates in place of <span class="mi">\(X\)</span> and <span class="mi">\(Z\)</span>. Therefore</div>
+<div class="md">\[
+\sqrt s\,\norm{R_s(K)-R_s(K')}_*=\norm{P\big(\mathcal Y(K)-\mathcal Y(K')\big)P}_*\le\frac2s\,\norm{K-K'}_* ,
+\]</div>
+<div class="p">which is the claim after division by <span class="mi">\(\sqrt s\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h3 id="L-sec:app-de-gram"><span class="h-num">SB.3</span> The Gram closure</h3>
+<div class="p">In the frozen-state model the buffer is a series over samples,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-M-samples"></span>\begin{equation}\tag{SB.26}
+\Mt=\sum_{j\ge0}\sum_{a=1}^B\mathsf h_{ja}\,\mathsf u_{ja}\tensor\mathsf v_{ja},\qquad
+\mathsf h_{ja}\defeq\emaw{j}d_{ja},\quad
+\mathsf u_{ja}\defeq\frac{\Sigmaout^{1/2}z_{ja}}{\sqrt B},\quad
+\mathsf v_{ja}\defeq\frac{\Sigmain^{1/2}w_{ja}}{\sqrt B},
+\end{equation}</div>
+<div class="p">and, with <span class="mi">\(z=-s\)</span> and the notation <a class="ref" href="s.SB.html#L-eqn:app-de-RXdef" data-label="eqn:app-de-RXdef">(SB.10)</a>, the Gram resolvents are</div>
+<div class="md">\[
+R(-s)=R_s(\Mt),\qquad \widetilde R(-s)=\widetilde R_s(\Mt).
+\]</div>
+<div class="p">The results of this subsection are stated for a fixed weight sequence <span class="mi">\(w=(\emaw j)_{j\ge0}\)</span> satisfying</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-weightclass"></span>\begin{equation}\tag{SB.27}
+0\le\emaw j\le1\quad(j\ge0),\qquad \sum_{j\ge0}\emaw j\le1,\qquad \emaw j&gt;0\ \text{for some }j ,
+\end{equation}</div>
+<div class="p">where the frozen-state model with weights <span class="mi">\(w\)</span> is <a class="ref" href="r.def.app-setup-frozen.html" data-label="def:app-setup-frozen">Definition SA.3</a> with <span class="mi">\(\emaw j\)</span> in place of the EMA weight of age <span class="mi">\(j\)</span> in <a class="ref" href="r.def.app-setup-frozen.html#L-eqn:app-setup-frozen-objects" data-label="eqn:app-setup-frozen-objects">(SA.26)</a>. The EMA weights satisfy <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a> by <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>, and the truncated weights of the drift section do as well. Under <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a> one has <span class="mi">\(\sw2\le1\)</span> and <span class="mi">\(\sw3\le1\)</span>, and these two sums are the only way the weights enter the constants below.</div><div class="thm thm-theorem" id="L-thm:app-de-gram"><div class="thm-head"><a class="thm-name" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class="thm-title">(Gram closure)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, in the frozen-state model with a weight sequence <span class="mi">\(w\)</span> satisfying <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>, let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)(z)\)</span> be the solution of the weighted system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the weights <span class="mi">\(w\)</span> and the spectral measures <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a>, and let <span class="mi">\(\Rbar,\Rtbar\)</span> be as in <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a>. Then for every compact <span class="mi">\(I\subset(0,\infty)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-gram-closure"></span>\begin{equation}\tag{SB.28}
+\sup_{s\in I}\Big(\norm{\EE R(-s)-\Rbar(-s)}+\norm{\EE\widetilde R(-s)-\Rtbar(-s)}\Big)\longrightarrow0 .
+\end{equation}</div></div></div><div class="thm thm-corollary" id="L-cor:app-de-trace"><div class="thm-head"><a class="thm-name" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class="thm-title">(Trace closure with bounded tests)</span></div><div class="thm-body"><div class="p">Under the hypotheses of <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>, let <span class="mi">\(I\subset(0,\infty)\)</span> be compact and let <span class="mi">\(T=T_B\in\mathbb{C}^{\Nout\times\Nout}\)</span> and <span class="mi">\(\widetilde T=\widetilde T_B\in\mathbb{C}^{\Nin\times\Nin}\)</span> be deterministic with <span class="mi">\(\norm{T_B},\norm{\widetilde T_B}\le C_T\)</span> for all <span class="mi">\(B\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-trace-closure"></span>\begin{equation}\tag{SB.29}
+\EE\sup_{s\in I}\Big|\frac1{\Nout}\Tr\big[T\big(R(-s)-\Rbar(-s)\big)\big]\Big|^2\longrightarrow0,\qquad
+\EE\sup_{s\in I}\Big|\frac1{\Nin}\Tr\big[\widetilde T\big(\widetilde R(-s)-\Rtbar(-s)\big)\big]\Big|^2\longrightarrow0 .
+\end{equation}</div>
+<div class="p">In particular, in mean square and uniformly on compact <span class="mi">\(s\)</span>-intervals,</div>
+<div class="md">\[
+\frac1B\Tr\big(\Sigmaout R(-s)\big)\longrightarrow\sigma(-s),\qquad
+\frac1B\Tr\big(\Sigmain\widetilde R(-s)\big)\longrightarrow\tilde\sigma(-s).
+\]</div></div></div><div class="p">The proof of <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> occupies the rest of the subsection. We fix a compact <span class="mi">\(I\subset(0,\infty)\)</span>, write <span class="mi">\(s_-=\min I\)</span>, and let <span class="mi">\(C_I\)</span> denote constants depending only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>. <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a>, <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> and <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> are finite-dimensional: they hold at every dimension in the frozen-state model with a weight sequence in the class <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>, <span class="mi">\(\norm{\Ahat}_\F=1\)</span>, <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span> and <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>, with no condition on <span class="mi">\(\norm{\Ahat}\)</span>, and their constants <span class="mi">\(C_I\)</span> depend on nothing else. For a sample <span class="mi">\((j,a)\)</span> we write <span class="mi">\(M_{0}^{(ja)}\defeq\Mt-\mathsf h_{ja}\,\mathsf u_{ja}\tensor\mathsf v_{ja}\)</span> for the buffer with that sample deleted, <span class="mi">\(R_0^{(ja)}=R_s(M_0^{(ja)})\)</span>, <span class="mi">\(\widetilde R_0^{(ja)}\)</span>, <span class="mi">\(\mathsf X_0^{(ja)}\)</span> accordingly, and <span class="mi">\(\mathsf U_{ja},\mathsf V_{ja},\mathsf C_{ja},\Lambda_{ja},\alpha_{1,ja},\alpha_{2,ja},\alpha_{3,ja}\)</span> for the quantities of <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> with <span class="mi">\((M_0,\mathsf h,\mathsf u,\mathsf v)=(M_0^{(ja)},\mathsf h_{ja},\mathsf u_{ja},\mathsf v_{ja})\)</span>. The deleted buffer is independent of <span class="mi">\((z_{ja},w_{ja})\)</span>, and <span class="mi">\(\mathcal G_{ja}\)</span> denotes the <span class="mi">\(\sigma\)</span>-field generated by all samples other than <span class="mi">\((j,a)\)</span>. Since samples of the same age are exchangeable, the law of <span class="mi">\((M_0^{(ja)},z_{ja},w_{ja})\)</span> does not depend on <span class="mi">\(a\)</span>, and we drop <span class="mi">\(a\)</span> from the notation when only the law matters. Finally we define the expected resolvents and traces</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-expected"></span>\begin{equation}\tag{SB.30}
+\begin{gathered}
+\mathcal P(s)\defeq\EE R(-s),\qquad \mathcal P_j(s)\defeq\EE R_0^{(j1)},\\
+\sigma_B(s)\defeq\frac1B\Tr\big(\Sigmaout\mathcal P(s)\big),\qquad
+\tilde\sigma_B(s)\defeq\frac1B\Tr\big(\Sigmain\,\EE\widetilde R(-s)\big),
+\end{gathered}
+\end{equation}</div>
+<div class="p">and <span class="mi">\(q_B(s)\defeq s\sigma_B(s)\tilde\sigma_B(s)\)</span>. Since <span class="mi">\(\norm{R(-s)}\le1/s\)</span> and <span class="mi">\(\Tr\Sigmaout\le C_\Sigma\Nout\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-qI"></span>\begin{equation}\tag{SB.31}
+0\le\sigma_B,\tilde\sigma_B\le\frac{C_\Sigma\gamma_\star}{s},\qquad
+0\le q_B(s)\le q_I\defeq\frac{(C_\Sigma\gamma_\star)^2}{s_-}\qquad(s\in I).
+\end{equation}</div><div class="thm thm-lemma" id="L-lem:app-de-variance"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class="thm-title">(Variance of normalized traces)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(T\in\mathbb{C}^{\Nout\times\Nout}\)</span> be deterministic with <span class="mi">\(\norm T\le C_T\)</span> and put <span class="mi">\(Y(s)\defeq\frac1B\Tr\big(TR(-s)\big)\)</span>. Then <span class="mi">\(\Var Y(s)\le C_IC_T^2\,\sw2/B\)</span> for <span class="mi">\(s\in I\)</span>. The same bound holds for <span class="mi">\(\frac1B\Tr(\widetilde TR_s(\Mt^\T))\)</span> with <span class="mi">\(\norm{\widetilde T}\le C_T\)</span>, and for the traces of the resolvents of any buffer with one sample deleted.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The variance is controlled by the Efron–Stein inequality for a truncated history, and the truncation is removed by an <span class="mi">\(L^2\)</span> limit. For <span class="mi">\(J\ge0\)</span> let</div>
+<div class="md">\[
+M^{(J)}\defeq\sum_{j\le J}\sum_{a=1}^B\mathsf h_{ja}\,\mathsf u_{ja}\tensor\mathsf v_{ja},\qquad
+Y^{(J)}\defeq\frac1B\Tr\big(TR_s(M^{(J)})\big),
+\]</div>
+<div class="p">so that <span class="mi">\(Y^{(J)}\)</span> is a function of the <span class="mi">\(B(J+1)\)</span> independent samples of ages <span class="mi">\(0,\dots,J\)</span>.</div>
+<div class="p">The effect of one replaced sample is bounded through the nuclear norm. Replacing the sample <span class="mi">\((j,a)\)</span> by an independent copy <span class="mi">\((d',\mathsf u',\mathsf v')\)</span> produces <span class="mi">\(Y^{(J),(ja)'}\)</span> and changes <span class="mi">\(M^{(J)}\)</span> by the rank-two matrix <span class="mi">\(\emaw j(d\,\mathsf u\tensor\mathsf v-d'\,\mathsf u'\tensor\mathsf v')\)</span>, whose nuclear norm is at most <span class="mi">\(\emaw j(\abs d\norm{\mathsf u}\norm{\mathsf v}+\abs{d'}\norm{\mathsf u'}\norm{\mathsf v'})\)</span>. By trace duality <span class="mi">\(\abs{\Tr(TX)}\le\norm T\norm X_*\)</span> and <a class="ref" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a>,</div>
+<div class="md">\[
+\big|Y^{(J)}-Y^{(J),(ja)'}\big|\le\frac{C_T}{B}\cdot\frac{2}{s^{3/2}}\,\emaw j\big(\abs d\norm{\mathsf u}\norm{\mathsf v}+\abs{d'}\norm{\mathsf u'}\norm{\mathsf v'}\big),
+\]</div>
+<div class="p">and by <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> and the triangle inequality in <span class="mi">\(L^2\)</span>,</div>
+<div class="md">\[
+\big\|Y^{(J)}-Y^{(J),(ja)'}\big\|_2\le\frac{C_T}{B}\cdot\frac{2}{s_-^{3/2}}\,\emaw j\cdot2\cdot7C_\Sigma\gamma_\star=\frac{C_IC_T\,\emaw j}{B}.
+\]</div>
+<div class="p">The Efron–Stein inequality [<a class="cite" href="bibliography.html#bib-boucheron2013concentration">13</a>, Theorem 3.1] then gives</div>
+<div class="md">\[
+\Var Y^{(J)}\le\frac12\sum_{j\le J}\sum_{a=1}^B\EE\big[(Y^{(J)}-Y^{(J),(ja)'})^2\big]
+\le\frac12\sum_{j\le J}B\,\frac{C_I^2C_T^2\emaw j^2}{B^2}\le\frac{C_I^2C_T^2\sw2}{2B}.
+\]</div>
+<div class="p">The truncation is removed at fixed dimension. By <a class="ref" href="r.lem.app-de-lipschitz.html" data-label="lem:app-de-lipschitz">Lemma SB.9</a>, trace duality, and <span class="mi">\(\norm E_*\le\sqrt{\min(\Nout,\Nin)}\norm E_\F\)</span>,</div>
+<div class="md">\[
+\big|Y-Y^{(J)}\big|\le\frac{C_T}{B}\cdot\frac{2}{s^{3/2}}\sqrt{\min(\Nout,\Nin)}\,\norm{\Mt-M^{(J)}}_\F ,
+\]</div>
+<div class="p">and <span class="mi">\(\EE\norm{\Mt-M^{(J)}}_\F^2\to0\)</span> as <span class="mi">\(J\to\infty\)</span>. Indeed, the batches of different ages are independent with the common mean <span class="mi">\(\EE\Gt\)</span> and the common Frobenius variance <span class="mi">\(\mathsf V_B\)</span> of <a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a>, so</div>
+<div class="md">\[
+\EE\norm{\Mt-M^{(J)}}_\F^2=\Big(\sum_{j&gt;J}\emaw j\Big)^2\norm{\EE\Gt}_\F^2+\sum_{j&gt;J}\emaw j^2\,\mathsf V_B ,
+\]</div>
+<div class="p">and both tail sums vanish as <span class="mi">\(J\to\infty\)</span> because <span class="mi">\(\sum_j\emaw j\le1\)</span>. (For the EMA weights this is <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(i).) Hence <span class="mi">\(Y^{(J)}\to Y\)</span> in <span class="mi">\(L^2\)</span>, and</div>
+<div class="md">\[
+\Var Y=\lim_{J\to\infty}\Var Y^{(J)}\le\frac{C_I^2C_T^2\sw2}{2B}.
+\]</div>
+<div class="p">The input side is the same argument for <span class="mi">\(\Mt^\T=\sum_{j,a}\mathsf h_{ja}\,\mathsf v_{ja}\tensor\mathsf u_{ja}\)</span>, and deleting one sample removes one term from the Efron–Stein sum.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-scalars"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class="thm-title">(Concentration of the deleted-sample scalars)</span></div><div class="thm-body"><div class="p">For every age <span class="mi">\(j\)</span> and <span class="mi">\(s\in I\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-scalars"></span>\begin{equation}\tag{SB.32}
+\norm{\mathsf U_{j}-\sigma_B(s)}_2+\norm{\mathsf V_{j}-\tilde\sigma_B(s)}_2+\norm{\mathsf C_{j}}_2\le\frac{C_I}{\sqrt B}.
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Write <span class="mi">\(R_0=R_0^{(j1)}\)</span>, <span class="mi">\(\mathsf u=\mathsf u_{j1}\)</span>, and so on. Decompose</div>
+<div class="md">\[
+\begin{aligned}
+\mathsf U-\sigma_B={}&amp;\Big(\mathsf u^\T R_0\mathsf u-\frac{\Tr(\Sigmaout R_0)}{B}\Big)
++\frac{\Tr\big(\Sigmaout(R_0-R(-s))\big)}{B}\\
+&amp;+\Big(\frac{\Tr(\Sigmaout R(-s))}{B}-\EE\frac{\Tr(\Sigmaout R(-s))}{B}\Big).
+\end{aligned}
+\]</div>
+<div class="p">The first term is a centered Gaussian quadratic form given <span class="mi">\(\mathcal G_{j1}\)</span>. Indeed</div>
+<div class="md">\[
+\mathsf u^\T R_0\mathsf u=z^\T\Big(\frac{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}{B}\Big)z .
+\]</div>
+<div class="p">Since <span class="mi">\(R_0\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span>, of which <span class="mi">\(z\)</span> is independent, <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> gives the conditional mean <span class="mi">\(\Tr(\Sigmaout R_0)/B\)</span> and the conditional variance</div>
+<div class="md">\[
+\frac{2\norm{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}_\F^2}{B^2}\le\frac{2\Nout\norm{\Sigmaout^{1/2}R_0\Sigmaout^{1/2}}^2}{B^2}
+\le\frac{2\Nout C_\Sigma^2}{B^2s^2}\le\frac{2\gamma_\star C_\Sigma^2}{Bs_-^2},
+\]</div>
+<div class="p">using <span class="mi">\(\norm X_\F^2\le\Nout\norm X^2\)</span>, <span class="mi">\(\norm{R_0}\le1/s\)</span> and <span class="mi">\(\Nout\le\gamma_\star B\)</span>.</div>
+<div class="p">The second term is a rank-two correction. By trace duality and <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a>,</div>
+<div class="md">\[
+\frac{\big|\Tr\big(\Sigmaout(R_0-R(-s))\big)\big|}{B}\le\frac{\norm{\Sigmaout}\,\norm{R_0-R(-s)}_*}{B}\le\frac{4C_\Sigma}{Bs_-}.
+\]</div>
+<div class="p">The third term is the fluctuation of a normalized trace. By <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> with <span class="mi">\(T=\Sigmaout\)</span> and <span class="mi">\(C_T=C_\Sigma\)</span>, its <span class="mi">\(L^2\)</span> norm is at most <span class="mi">\((C_IC_\Sigma^2\sw2/B)^{1/2}\)</span>. Adding the three bounds gives <span class="mi">\(\norm{\mathsf U-\sigma_B}_2\le C_I/\sqrt B\)</span>. The bound for <span class="mi">\(\mathsf V\)</span> is the same argument with <span class="mi">\(\Sigmain\)</span>, <span class="mi">\(\widetilde R_0\)</span> and the input-side statements of <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a>.</div>
+<div class="p">The bound for <span class="mi">\(\mathsf C\)</span> is a conditional second-moment computation. We write</div>
+<div class="md">\[
+\mathsf C=\mathsf u^\T\mathsf X_0\mathsf v=\frac{z^\T\big(\Sigmaout^{1/2}\mathsf X_0\Sigmain^{1/2}\big)w}{B}.
+\]</div>
+<div class="p">The matrix <span class="mi">\(\mathsf X_0\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span>, and <span class="mi">\(\EE[(z^\T Aw)^2]=\norm A_\F^2\)</span> for deterministic <span class="mi">\(A\)</span>. With <span class="mi">\(\norm A_\F^2\le\operatorname{rank}(A)\norm A^2\)</span> and the bound <span class="mi">\(\norm{\mathsf X_0}\le(2\sqrt s)^{-1}\)</span> of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, this gives</div>
+<div class="md">\[
+\EE_{\mathcal G_{j1}}\mathsf C^2=\frac{\norm{\Sigmaout^{1/2}\mathsf X_0\Sigmain^{1/2}}_\F^2}{B^2}
+\le\frac{C_\Sigma^2\min(\Nout,\Nin)\norm{\mathsf X_0}^2}{B^2}\le\frac{C_\Sigma^2\gamma_\star}{4Bs_-}.
+\]</div>
+<div class="p">Taking expectations and square roots gives <span class="mi">\(\norm{\mathsf C}_2\le C_I/\sqrt B\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-replace"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class="thm-title">(Replacement of the deletion coefficients)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(x\ge0\)</span> put <span class="mi">\(f_x(d)\defeq\frac{d}{1+xd^2}\)</span> and <span class="mi">\(\psi_x(d)\defeq\frac{d^2}{1+xd^2}\)</span>, and for a sample of age <span class="mi">\(j\)</span> and <span class="mi">\(s\in I\)</span> define the target coefficients</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-targets"></span>\begin{equation}\tag{SB.33}
+\check\alpha_{1,j}\defeq\emaw j\,f_{\emaw j^2q_B}(d_j),\qquad
+\check\alpha_{2,j}\defeq\emaw j^2\,\sigma_B\,\psi_{\emaw j^2q_B}(d_j),\qquad
+\check\alpha_{3,j}\defeq-s\,\emaw j^2\,\tilde\sigma_B\,\psi_{\emaw j^2q_B}(d_j).
+\end{equation}</div>
+<div class="p">There is a sequence <span class="mi">\(e_B\to0\)</span>, depending only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>, such that in every frozen-state model with the hypotheses stated before <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a>, whatever its weights, its dimension and its normalized state <span class="mi">\(\Ahat\)</span>, for every age <span class="mi">\(j\)</span> and every <span class="mi">\(s\in I\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-replace"></span>\begin{equation}\tag{SB.34}
+\norm{\alpha_{1,j}-\check\alpha_{1,j}}_2\le\emaw j\,e_B,\qquad
+\norm{\alpha_{2,j}-\check\alpha_{2,j}}_2\le\emaw j^2\,e_B,\qquad
+\norm{\alpha_{3,j}-\check\alpha_{3,j}}_2\le\emaw j^2\,e_B .
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Fix <span class="mi">\(j\)</span> with <span class="mi">\(\emaw j&gt;0\)</span> (for <span class="mi">\(\emaw j=0\)</span> both sides of <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-replace" data-label="eqn:app-de-replace">(SB.34)</a> vanish) and <span class="mi">\(s\in I\)</span>, and abbreviate <span class="mi">\(\varpi=\emaw j\)</span>, <span class="mi">\(d=d_j\)</span>, <span class="mi">\(\mathsf h=\varpi d\)</span> and</div>
+<div class="md">\[
+\check D\defeq1+\varpi^2q_Bd^2\ge1 .
+\]</div>
+<div class="p">We treat <span class="mi">\(\alpha_1\)</span> in full; the other two coefficients are handled at the end by the same argument with different numerators.</div>
+<div class="p">The deviation of the deleted-sample scalars from their expected values is collected in one random variable,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Xi"></span>\begin{equation}\tag{SB.35}
+\Xi\defeq s\sigma_B\abs{\tilde\sigma_B-\mathsf V}+s\mathsf V\abs{\sigma_B-\mathsf U}+(1+q_B)\abs{\mathsf C}+\mathsf C^2 ,
+\end{equation}</div>
+<div class="p">whose expectation is small. Indeed <span class="mi">\(s\sigma_B\le C_\Sigma\gamma_\star\)</span> by <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a>, and <span class="mi">\(\norm{s\mathsf V}_2\le\norm{\norm{\mathsf v}^2}_2\le C_I\)</span> by <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a>; so the Cauchy–Schwarz inequality and <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> give</div>
+<div class="md">\[
+\EE\,\Xi\le C_\Sigma\gamma_\star\norm{\tilde\sigma_B-\mathsf V}_2+\norm{s\mathsf V}_2\norm{\sigma_B-\mathsf U}_2+(1+q_I)\norm{\mathsf C}_2+\norm{\mathsf C}_2^2\le\frac{C_I}{\sqrt B}.
+\]</div>
+<div class="p">The numerators of the differences are linear in <span class="mi">\(\Xi\)</span> on bounded residuals. Using</div>
+<div class="md">\[
+q_B-s\mathsf U\mathsf V=s\sigma_B(\tilde\sigma_B-\mathsf V)+s\mathsf V(\sigma_B-\mathsf U),
+\]</div>
+<div class="p">direct expansion of <span class="mi">\(\Lambda=(1+\mathsf h\mathsf C)^2+s\mathsf h^2\mathsf U\mathsf V\)</span> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-num1"></span><span class="anchor" id="L-eqn:app-de-num2"></span>\begin{align}
+(1+\mathsf h\mathsf C)\check D-\Lambda
+&amp;=\varpi^2d^2\,(q_B-s\mathsf U\mathsf V)+\varpi^3d^3\mathsf Cq_B-\varpi d\mathsf C-\varpi^2d^2\mathsf C^2,
+\tag{SB.36}\\
+\Lambda-\check D&amp;=2\varpi d\mathsf C+\varpi^2d^2\mathsf C^2+\varpi^2d^2\,(s\mathsf U\mathsf V-q_B).
+\tag{SB.37}
+\end{align}</div>
+<div class="p">Fix a level <span class="mi">\(\mathsf m&gt;0\)</span>, which is sent to infinity at the end of the argument. Since <span class="mi">\(\varpi\le1\)</span> and <span class="mi">\(q_B\le q_I\)</span>, on the event <span class="mi">\(\{\abs d\le\mathsf m\}\)</span> both right sides are bounded in absolute value by <span class="mi">\((1+\mathsf m)^3\,\Xi\)</span>.</div>
+<div class="p">The normalized difference is small in probability. Let</div>
+<div class="md">\[
+Z\defeq\frac{\alpha_1}{\varpi}-\frac{\check\alpha_1}{\varpi}
+=\frac{d(1+\mathsf h\mathsf C)}{\Lambda}-\frac{d}{\check D}
+=\frac{d\,\big[(1+\mathsf h\mathsf C)\check D-\Lambda\big]}{\Lambda \check D},
+\]</div>
+<div class="p">and let <span class="mi">\(E\defeq\{\abs d\le\mathsf m\}\cap\{\Lambda\ge1/2\}\)</span>. On <span class="mi">\(E\)</span>, since <span class="mi">\(\check D\ge1\)</span> and by <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-num1" data-label="eqn:app-de-num1">(SB.36)</a>,</div>
+<div class="md">\[
+\abs Z\le\frac{\abs d\,\abs{(1+\mathsf h\mathsf C)\check D-\Lambda}}{\Lambda}\le2\mathsf m(1+\mathsf m)^3\,\Xi .
+\]</div>
+<div class="p">On the complement, either <span class="mi">\(\abs d&gt;\mathsf m\)</span>, or <span class="mi">\(\abs d\le\mathsf m\)</span> and <span class="mi">\(\Lambda&lt;1/2\le \check D-1/2\)</span>, so that <span class="mi">\(\abs{\Lambda-\check D}&gt;1/2\)</span>. Chebyshev’s inequality with <span class="mi">\(\EE d^2=1\)</span>, Markov’s inequality and <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-num2" data-label="eqn:app-de-num2">(SB.37)</a> give</div>
+<div class="md">\[
+\Pr(E^c)\le\Pr(\abs d&gt;\mathsf m)+\Pr\big(\abs d\le\mathsf m,\ \abs{\Lambda-\check D}&gt;1/2\big)
+\le\mathsf m^{-2}+2(1+\mathsf m)^3\,\EE\,\Xi .
+\]</div>
+<div class="p">Combining the two bounds, for every <span class="mi">\(a&gt;0\)</span>,</div>
+<div class="md">\[
+\Pr(\abs Z&gt;a)\le\Pr(E^c)+\Pr\big(E,\ 2\mathsf m(1+\mathsf m)^3\Xi&gt;a\big)
+\le\mathsf m^{-2}+2(1+\mathsf m)^3\,\EE\,\Xi+\frac{2\mathsf m(1+\mathsf m)^3\,\EE\,\Xi}{a}.
+\]</div>
+<div class="p">Convergence in probability is upgraded to <span class="mi">\(L^2\)</span> by a uniform fourth moment. By <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> with the factor <span class="mi">\(\varpi\)</span> removed and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a>, <span class="mi">\(\norm{\alpha_1/\varpi}_4\le C_I\)</span>, and <span class="mi">\(\norm{\check\alpha_1/\varpi}_4\le\norm d_4\le C_I\)</span>; hence <span class="mi">\(\norm Z_4\le C_I\)</span>. Splitting at level <span class="mi">\(a\)</span> and applying the Cauchy–Schwarz inequality to the second piece,</div>
+<div class="md">\[
+\begin{aligned}
+\EE Z^2&amp;=\EE\big[Z^2\mathbf 1_{\abs Z\le a}\big]+\EE\big[Z^2\mathbf 1_{\abs Z&gt;a}\big]
+\le a^2+\norm Z_4^2\,\Pr(\abs Z&gt;a)^{1/2}\\
+&amp;\le a^2+C_I\Big(\mathsf m^{-2}+C_I(1+\mathsf m)^4\big(1+a^{-1}\big)B^{-1/2}\Big)^{1/2},
+\end{aligned}
+\]</div>
+<div class="p">where the last step uses <span class="mi">\(\EE\,\Xi\le C_IB^{-1/2}\)</span> and <span class="mi">\(\mathsf m\le1+\mathsf m\)</span>. The right side does not depend on <span class="mi">\(j\)</span> or on <span class="mi">\(s\in I\)</span>. Taking first <span class="mi">\(B\to\infty\)</span>, then <span class="mi">\(\mathsf m\to\infty\)</span> and then <span class="mi">\(a\downarrow0\)</span> shows that</div>
+<div class="md">\[
+\sup_{j,\ s\in I}\frac{\norm{\alpha_{1,j}-\check\alpha_{1,j}}_2}{\emaw j}\longrightarrow0 .
+\]</div>
+<div class="p">The other two coefficients follow by the same argument. The normalized differences are</div>
+<div class="md">\[
+Z_2\defeq\frac{\alpha_2-\check\alpha_2}{\varpi^2}=\frac{d^2\big[\mathsf U\check D-\sigma_B\Lambda\big]}{\Lambda \check D},\qquad
+Z_3\defeq\frac{\alpha_3-\check\alpha_3}{\varpi^2}=-\frac{s\,d^2\big[\mathsf V\check D-\tilde\sigma_B\Lambda\big]}{\Lambda \check D},
+\]</div>
+<div class="p">whose numerators satisfy</div>
+<div class="md">\[
+\mathsf U\check D-\sigma_B\Lambda=(\mathsf U-\sigma_B)\check D+\sigma_B(\check D-\Lambda),\qquad
+\mathsf V\check D-\tilde\sigma_B\Lambda=(\mathsf V-\tilde\sigma_B)\check D+\tilde\sigma_B(\check D-\Lambda).
+\]</div>
+<div class="p">On <span class="mi">\(\{\abs d\le\mathsf m\}\)</span> these are bounded by <span class="mi">\((1+q_I\mathsf m^2)\abs{\mathsf U-\sigma_B}+C_I(1+\mathsf m)^3\Xi\)</span>, respectively the same expression with <span class="mi">\((\mathsf V,\tilde\sigma_B)\)</span>, and their expectations are at most <span class="mi">\(C_I(1+\mathsf m)^3B^{-1/2}\)</span> by <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a>. The fourth moments of <span class="mi">\(Z_2\)</span> and <span class="mi">\(Z_3\)</span> are bounded by <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> with the factor <span class="mi">\(\varpi^2\)</span> removed, together with <span class="mi">\(\norm{d^2}_4\le C_I\)</span>. The event decomposition and the <span class="mi">\(L^2\)</span> upgrade are then identical.</div>
+<div class="p">The sequence is defined from these bounds, not from the model. Every constant <span class="mi">\(C_I\)</span> above depends only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>, since <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a>, <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> involve neither <span class="mi">\(\norm{\Ahat}\)</span> nor the weights beyond <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>. Let <span class="mi">\(\epsilon_B(\mathsf m,a)\)</span> be the largest of the three right sides obtained for <span class="mi">\(\EE Z^2\)</span>, <span class="mi">\(\EE Z_2^2\)</span> and <span class="mi">\(\EE Z_3^2\)</span>, and put</div>
+<div class="md">\[
+e_B\defeq\inf_{\mathsf m\ge1,\ 0&lt;a\le1}\epsilon_B(\mathsf m,a)^{1/2}.
+\]</div>
+<div class="p">Then <span class="mi">\(e_B\)</span> depends only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span> and <span class="mi">\(B\)</span>, it bounds the three normalized errors for every model, every age and every <span class="mi">\(s\in I\)</span>, and <span class="mi">\(e_B\to0\)</span> by the order of limits used for <span class="mi">\(\alpha_1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-de-gaussian"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> <span class="thm-title">(Uniform Gaussian limit of the residual functional)</span></div><div class="thm-body"><div class="p">With <span class="mi">\(\psi_x\)</span> as in <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> and <span class="mi">\(d=z^\T\Ahat w\)</span>,</div>
+<div class="md">\[
+r_B\defeq\sup_{0\le x\le q_I}\abs{\EE\,\psi_x(d)-\Jfun(x)}\longrightarrow0 .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Pointwise convergence holds at each <span class="mi">\(x\)</span>. The function <span class="mi">\(\psi_x\)</span> is continuous with <span class="mi">\(0\le\psi_x(d)\le d^2\)</span>, so <a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>(iii) gives</div>
+<div class="md">\[
+\EE\,\psi_x(d)\longrightarrow\EE\,\psi_x(g)=\Jfun(x).
+\]</div>
+<div class="p">The family is uniformly Lipschitz in <span class="mi">\(x\)</span>. For <span class="mi">\(x,x'\in[0,q_I]\)</span>,</div>
+<div class="md">\[
+\abs{\psi_x(d)-\psi_{x'}(d)}=\frac{d^4\,\abs{x-x'}}{(1+xd^2)(1+x'd^2)}\le\abs{x-x'}\,d^4 ,
+\]</div>
+<div class="p">so, by <span class="mi">\(\EE d^4\le9\)</span> from <a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>(i) and <span class="mi">\(\EE g^4=3\)</span>,</div>
+<div class="md">\[
+\abs{\EE\psi_x(d)-\EE\psi_{x'}(d)}\le9\abs{x-x'},\qquad \abs{\Jfun(x)-\Jfun(x')}\le3\abs{x-x'}.
+\]</div>
+<div class="p">Pointwise convergence of a uniformly Lipschitz family on a compact interval is uniform. Given <span class="mi">\(\epsilon&gt;0\)</span>, choose a finite <span class="mi">\(\epsilon/36\)</span>-net of <span class="mi">\([0,q_I]\)</span> and then <span class="mi">\(B\)</span> so large that the pointwise error is below <span class="mi">\(\epsilon/3\)</span> at every point of the net. For every <span class="mi">\(x\in[0,q_I]\)</span> and its nearest net point <span class="mi">\(x'\)</span>,</div>
+<div class="md">\[
+\abs{\EE\psi_x(d)-\Jfun(x)}\le9\abs{x-x'}+\abs{\EE\psi_{x'}(d)-\Jfun(x')}+3\abs{x-x'}\le\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{12}&lt;\epsilon . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>.</div><div class="p">We prove the output-side statement. The input side is the same argument applied to <span class="mi">\(\Mt^\T=\sum_{j,a}\mathsf h_{ja}\,\mathsf v_{ja}\tensor\mathsf u_{ja}\)</span>, with the roles of <span class="mi">\((\Sigmaout,z_{ja},\Ahat)\)</span> and <span class="mi">\((\Sigmain,w_{ja},\Ahat^\T)\)</span> exchanged; this exchange leaves <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> and every lemma above invariant, and it produces the same scalars <span class="mi">\((\sigma_B,\tilde\sigma_B,q_B)\)</span>. Fix <span class="mi">\(s\in I\)</span>; all bounds below are uniform in <span class="mi">\(s\in I\)</span>.</div>
+<div class="p"><em>Step 1: the deletion identity in expectation.</em> The starting point is the third identity of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>,</div>
+<div class="md">\[
+\Id-sR(-s)=R(-s)\Mt\Mt^\T .
+\]</div>
+<div class="p">By <a class="ref" href="s.SB.html#L-eqn:app-de-M-samples" data-label="eqn:app-de-M-samples">(SB.26)</a>, the right side is a sum over samples,</div>
+<div class="md">\[
+R(-s)\Mt\Mt^\T=\sum_{j\ge0}\sum_{a=1}^B\big(\mathsf h_{ja}R(-s)\Mt\mathsf v_{ja}\big)\tensor\mathsf u_{ja} ,
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a>, applied to each sample with the deleted buffer <span class="mi">\(M_0^{(ja)}\)</span>, rewrites each term through the deleted resolvents:</div>
+<div class="md">\[
+R(-s)\Mt\Mt^\T=\sum_{j\ge0}\sum_{a=1}^B\big(-\alpha_{3,ja}R_0^{(ja)}\mathsf u_{ja}+\alpha_{1,ja}\mathsf X_0^{(ja)}\mathsf v_{ja}\big)\tensor\mathsf u_{ja} .
+\]</div>
+<div class="p">Taking expectations and using exchangeability within each age,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-step1"></span>\begin{equation}\tag{SB.38}
+\Id-s\,\mathcal P(s)=B\sum_{j\ge0}\EE\big[-\alpha_{3,j}\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)+\alpha_{1,j}\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big].
+\end{equation}</div>
+<div class="p"><em>Step 2: the Gram term.</em> Fix <span class="mi">\(j\)</span> and write</div>
+<div class="md">\[
+\varpi\defeq\emaw j,\qquad x\defeq\varpi^2q_B\in[0,q_I],\qquad \psi\defeq\psi_x .
+\]</div>
+<div class="p">Adding and subtracting the target coefficient <span class="mi">\(\check\alpha_{3,j}\)</span> of <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-targets" data-label="eqn:app-de-targets">(SB.33)</a> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-step2-split"></span>\begin{equation}\tag{SB.39}
+\begin{aligned}
+B\,\EE\big[-\alpha_{3,j}R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]
+={}&amp;B\,\EE\big[(-\alpha_{3,j}+\check\alpha_{3,j})R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]\\
+&amp;+s\,\varpi^2\tilde\sigma_B\cdot B\,\EE\big[\psi(d_j)\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big].
+\end{aligned}
+\end{equation}</div>
+<div class="p">The first term of <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step2-split" data-label="eqn:app-de-step2-split">(SB.39)</a> is a replacement error, bounded by the Bessel inequality. Put <span class="mi">\(e\defeq-\alpha_{3,j}+\check\alpha_{3,j}\)</span> and write <span class="mi">\(\mathcal G=\mathcal G_{j1}\)</span>. We use the two identities</div>
+<div class="md">\[
+B\,\mathsf u_j\tensor\mathsf u_j=\Sigmaout^{1/2}(z_j\tensor z_j)\Sigmaout^{1/2},\qquad
+\EE_{\mathcal G}[(z_j\tensor z_j)\,e]=\EE_{\mathcal G}[(z_j\tensor z_j-\Id)\,e]+\Id\,\EE_{\mathcal G}e .
+\]</div>
+<div class="p">With <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> for the centered part and <span class="mi">\(\abs{\EE_{\mathcal G}e}\le\norm e_{2,\mathcal G}\)</span> for the second, they give</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-bessel-uu"></span>\begin{equation}\tag{SB.40}
+\big\|B\,\EE_{\mathcal G}[(\mathsf u_j\tensor\mathsf u_j)\,e]\big\|\le C_\Sigma\big(\sqrt2+1\big)\norm e_{2,\mathcal G}.
+\end{equation}</div>
+<div class="p">The matrix <span class="mi">\(R_0^{(j)}\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span> and satisfies <span class="mi">\(\norm{R_0^{(j)}}\le1/s\)</span>, and <span class="mi">\(\EE\norm e_{2,\mathcal G}\le\norm e_2\)</span> by Jensen’s inequality. Hence, by the tower property, <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-bessel-uu" data-label="eqn:app-de-bessel-uu">(SB.40)</a> and <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[e\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]\Big\|
+=\Big\|\EE\big[R_0^{(j)}\,B\,\EE_{\mathcal G}[(\mathsf u_j\tensor\mathsf u_j)\,e]\big]\Big\|
+\le\frac{(1+\sqrt2)C_\Sigma}{s_-}\norm e_2\le C_I\,\varpi^2e_B .
+\]</div>
+<div class="p">The second derivative of <span class="mi">\(\psi_x\)</span> is bounded by <span class="mi">\(6\)</span>, by a scaling computation. For <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+\psi_x(d)=\frac1x\,\chi(\sqrt x\,d),\qquad \chi(y)\defeq\frac{y^2}{1+y^2},
+\]</div>
+<div class="p">so that</div>
+<div class="md">\[
+\psi_x''(d)=\chi''(\sqrt x\,d),\qquad \chi''(y)=\frac{2-6y^2}{(1+y^2)^3},\qquad \abs{\chi''(y)}\le\frac{2+6y^2}{(1+y^2)^3}\le6 ,
+\]</div>
+<div class="p">and at <span class="mi">\(x=0\)</span> the second derivative is the constant <span class="mi">\(\psi_0''=2\)</span>.</div>
+<div class="p">The second term of <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step2-split" data-label="eqn:app-de-step2-split">(SB.39)</a> factorizes by independence and is a Gaussian response. Since <span class="mi">\(R_0^{(j)}\)</span> is independent of <span class="mi">\((z_j,w_j)\)</span>, and with <span class="mi">\(d=z^\T\Ahat w\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+B\,\EE\big[\psi(d_j)R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]=\mathcal P_j(s)\,\Sigmaout^{1/2}\,\EE[(z\tensor z)\,\psi(d)]\,\Sigmaout^{1/2},\\
+\EE[(z\tensor z)\,\psi(d)]=\Id\,\EE\psi(d)+\EE[(z\tensor z-\Id)\,\psi(d)].
+\end{gathered}
+\]</div>
+<div class="p">The second summand is bounded by <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> with <span class="mi">\(A=\Ahat\)</span> and <span class="mi">\(\norm{\Ahat}_\F=1\)</span>:</div>
+<div class="md">\[
+\norm{\EE[(z\tensor z-\Id)\,\psi(d)]}_\F\le\norm{\psi_x''}_\infty\norm{\Ahat}\le6\norm{\Ahat}.
+\]</div>
+<div class="p">The first summand equals <span class="mi">\(\Id\,\Jfun(x)\)</span> up to <span class="mi">\(r_B\)</span> by <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a>. Combining the two summands with <span class="mi">\(\norm{\mathcal P_j(s)}\le1/s_-\)</span>, <span class="mi">\(\norm{\Sigmaout}\le C_\Sigma\)</span> and <span class="mi">\(s\tilde\sigma_B\le C_\Sigma\gamma_\star\)</span> from <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a>,</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\Big\|s\,\varpi^2\tilde\sigma_B\cdot B\,\EE\big[\psi(d_j)R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]-s\,\varpi^2\tilde\sigma_B\,\Jfun(\varpi^2q_B)\,\mathcal P_j(s)\Sigmaout\Big\|\\
+&amp;\qquad\le s\tilde\sigma_B\,\varpi^2\,\frac{C_\Sigma}{s_-}\big(r_B+6\norm{\Ahat}\big)\le C_I\varpi^2\big(r_B+\norm{\Ahat}\big).
+\end{aligned}
+\]</div>
+<div class="p"><em>Step 3: the mixed term.</em> The mixed term splits in the same way as the Gram term, with <span class="mi">\(f\defeq f_x\)</span> and <span class="mi">\(x=\varpi^2q_B\)</span>:</div>
+<div class="md">\[
+\begin{aligned}
+B\,\EE\big[\alpha_{1,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]
+={}&amp;B\,\EE\big[(\alpha_{1,j}-\check\alpha_{1,j})\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\\
+&amp;+\varpi\cdot B\,\EE\big[f(d_j)\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big].
+\end{aligned}
+\]</div>
+<div class="p">The replacement error is bounded by the first inequality of <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a>. Put <span class="mi">\(e\defeq\alpha_{1,j}-\check\alpha_{1,j}\)</span>, and use</div>
+<div class="md">\[
+B\,\mathsf v_j\tensor\mathsf u_j=\Sigmain^{1/2}(w_j\tensor z_j)\Sigmaout^{1/2}
+\]</div>
+<div class="p">and <span class="mi">\(\norm{\mathsf X_0^{(j)}}\le(2\sqrt{s_-})^{-1}\)</span>. The tower property, Jensen’s inequality and <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> give</div>
+<div class="md">\[
+\begin{aligned}
+\Big\|B\,\EE\big[e\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\Big\|
+&amp;\le\frac{1}{2\sqrt{s_-}}\,\EE\Big\|\Sigmain^{1/2}\,\EE_{\mathcal G}[(w_j\tensor z_j)\,e]\,\Sigmaout^{1/2}\Big\|_\F\\
+&amp;\le\frac{C_\Sigma}{2\sqrt{s_-}}\norm e_2\le C_I\,\varpi\,e_B .
+\end{aligned}
+\]</div>
+<div class="p">The first and third derivatives of <span class="mi">\(f=f_x\)</span> are bounded, by a scaling computation:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-f-derivatives"></span>\begin{equation}\tag{SB.41}
+\norm{f'}_\infty\le1,\qquad\norm{f'''}_\infty\le36x\le36q_I .
+\end{equation}</div>
+<div class="p">Indeed, for <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+f_x(d)=\frac{1}{\sqrt x}\,\phi(\sqrt x\,d),\qquad \phi(y)\defeq\frac{y}{1+y^2},
+\]</div>
+<div class="p">so that, at <span class="mi">\(y=\sqrt x\,d\)</span>,</div>
+<div class="md">\[
+f_x'(d)=\phi'(y)=\frac{1-y^2}{(1+y^2)^2},\qquad
+f_x'''(d)=x\,\phi'''(y)=x\,\frac{-6y^4+36y^2-6}{(1+y^2)^4}.
+\]</div>
+<div class="p">The two numerators are bounded by the elementary inequalities</div>
+<div class="md">\[
+\abs{1-y^2}\le(1+y^2)^2,\qquad 6y^4+36y^2+6\le36(1+y^2)^2 .
+\]</div>
+<div class="p">At <span class="mi">\(x=0\)</span> the function <span class="mi">\(f_0\)</span> is the identity, whose first derivative is <span class="mi">\(1\)</span> and whose third derivative vanishes.</div>
+<div class="p">The main part is a Gaussian response whose leading term carries <span class="mi">\(\Ahat^\T\)</span>. Independence of <span class="mi">\(\mathsf X_0^{(j)}\)</span> from <span class="mi">\((z_j,w_j)\)</span> gives</div>
+<div class="md">\[
+B\,\EE\big[f(d_j)\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]=\EE\big[\mathsf X_0^{(j)}\big]\,\Sigmain^{1/2}\,\EE[(w\tensor z)\,f(d)]\,\Sigmaout^{1/2},
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> applied to <span class="mi">\((w,z,\Ahat^\T)\)</span>, with <span class="mi">\(\norm{\Ahat^\T}_\F=1\)</span> and the derivative bounds <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-f-derivatives" data-label="eqn:app-de-f-derivatives">(SB.41)</a>, gives</div>
+<div class="md">\[
+\norm{\EE[(w\tensor z)\,f(d)]}\le\norm{\Ahat^\T\,\EE f'(d)}+\norm{f'''}_\infty\norm{\Ahat}^2
+\le\norm{\Ahat}+36q_I\norm{\Ahat}^2 .
+\]</div>
+<div class="p">Here the spectral diffuseness <span class="mi">\(\norm{\Ahat}\to0\)</span> is used in operator norm: the leading term <span class="mi">\(\Ahat^\T\,\EE f'(d)\)</span> of the mixed response has Frobenius norm <span class="mi">\(\abs{\EE f'(d)}\)</span> but operator norm at most <span class="mi">\(\norm{\Ahat}\)</span>. Combining the two parts with <span class="mi">\(\norm{\EE[\mathsf X_0^{(j)}]}\le(2\sqrt{s_-})^{-1}\)</span> and <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[\alpha_{1,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\Big\|\le C_I\,\varpi\,\big(e_B+\norm{\Ahat}+\norm{\Ahat}^2\big).
+\]</div>
+<div class="p"><em>Step 4: summation and the closure identity.</em> Summing the bounds of Steps 2 and 3 over <span class="mi">\(j\)</span> in <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step1" data-label="eqn:app-de-step1">(SB.38)</a>, with the weight sums of <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>,</div>
+<div class="md">\[
+\Big\|\Id-s\,\mathcal P(s)-\sum_{j\ge0}s\,\emaw j^2\tilde\sigma_B\,\Jfun(\emaw j^2q_B)\,\mathcal P_j(s)\Sigmaout\Big\|
+\le C_I\big[\sw2(e_B+r_B+\norm{\Ahat})+e_B+\norm{\Ahat}+\norm{\Ahat}^2\big].
+\]</div>
+<div class="p">Next we replace <span class="mi">\(\mathcal P_j\)</span> by <span class="mi">\(\mathcal P\)</span>, at the cost of one deletion per age:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Pj-P"></span>\begin{equation}\tag{SB.42}
+\norm{\mathcal P(s)-\mathcal P_j(s)}\le\frac{C_I\,\emaw j}{B}.
+\end{equation}</div>
+<div class="p">Taking <span class="mi">\(\EE_{\mathcal G_{j1}}\)</span> in <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> and then the full expectation writes <span class="mi">\(\mathcal P(s)-\mathcal P_j(s)\)</span> as a sum of four terms, each an outer factor <span class="mi">\(R_0^{(j)}\)</span> or <span class="mi">\(\mathsf X_0^{(j)}\)</span> on either side of a conditional moment of a rank-one matrix. The outer factors satisfy <span class="mi">\(\norm{R_0^{(j)}}\le1/s_-\)</span> and <span class="mi">\(\norm{\mathsf X_0^{(j)}}\le(2\sqrt{s_-})^{-1}\)</span>. The conditional moments are bounded by <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-bessel-uu" data-label="eqn:app-de-bessel-uu">(SB.40)</a> and by its two analogues</div>
+<div class="md">\[
+B\,\norm{\EE_{\mathcal G}[(\mathsf v\tensor\mathsf v)\,e]}\le(1+\sqrt2)C_\Sigma\norm e_{2,\mathcal G},\qquad
+B\,\norm{\EE_{\mathcal G}[(\mathsf u\tensor\mathsf v)\,e]}_\F\le C_\Sigma\norm e_{2,\mathcal G},
+\]</div>
+<div class="p">which follow from <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> in the same way, applied with <span class="mi">\(e=\alpha_{3,j},\alpha_{1,j},\alpha_{2,j}\)</span>. Since <span class="mi">\((d_j,\mathsf N_j)\)</span> are functions of the deleted sample only, <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> bound the conditional <span class="mi">\(L^2\)</span> norms of these three coefficients by <span class="mi">\(C_I\emaw j^2\)</span>, <span class="mi">\(C_I\emaw j\)</span> and <span class="mi">\(C_I\emaw j^2\)</span>. Multiplying the three kinds of bounds gives <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-Pj-P" data-label="eqn:app-de-Pj-P">(SB.42)</a>.</div>
+<div class="p">The replacement of <span class="mi">\(\mathcal P_j\)</span> by <span class="mi">\(\mathcal P\)</span> costs at most <span class="mi">\(C_I\sw3/B\)</span>. Since <span class="mi">\(s\tilde\sigma_B\Jfun\le C_\Sigma\gamma_\star\)</span> and <span class="mi">\(\norm{\Sigmaout}\le C_\Sigma\)</span>, <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-Pj-P" data-label="eqn:app-de-Pj-P">(SB.42)</a> gives</div>
+<div class="md">\[
+\Big\|\sum_{j\ge0}s\,\emaw j^2\tilde\sigma_B\,\Jfun(\emaw j^2q_B)\,\big(\mathcal P_j(s)-\mathcal P(s)\big)\Sigmaout\Big\|
+\le\sum_{j\ge0}C_\Sigma^2\gamma_\star\,\emaw j^2\,\frac{C_I\emaw j}{B}=\frac{C_I\sw3}{B}.
+\]</div>
+<div class="p">Writing</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-aB"></span>\begin{equation}\tag{SB.43}
+a_B(s)\defeq s\,\tilde\sigma_B(s)\,\Fw(q_B(s)),\qquad
+c_B(s)\defeq s\,\sigma_B(s)\,\Fw(q_B(s)),
+\end{equation}</div>
+<div class="p">and recalling <span class="mi">\(\Fw(q)=\sum_j\emaw j^2\Jfun(\emaw j^2q)\)</span>, we have shown</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-closure-error"></span>\begin{equation}\tag{SB.44}
+\begin{gathered}
+E_B(s)\defeq\Id-s\,\mathcal P(s)-a_B(s)\,\mathcal P(s)\Sigmaout,\\
+\sup_{s\in I}\norm{E_B(s)}\le C_I\big[e_B+r_B+\norm{\Ahat}+\norm{\Ahat}^2+B^{-1}\big]\longrightarrow0 ,
+\end{gathered}
+\end{equation}</div>
+<div class="p">by <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> and <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> and <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>.</div>
+<div class="p">The closure error controls the distance to the candidate resolvent. Since <span class="mi">\(\mathcal P(s)(s\Id+a_B\Sigmaout)=\Id-E_B(s)\)</span> and <span class="mi">\(a_B\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-P-approx"></span>\begin{equation}\tag{SB.45}
+\norm{\mathcal P(s)-(s\Id+a_B(s)\Sigmaout)^{-1}}=\norm{E_B(s)(s\Id+a_B\Sigmaout)^{-1}}\le\frac{\norm{E_B(s)}}{s_-}.
+\end{equation}</div>
+<div class="p">The input-side argument gives in the same way</div>
+<div class="md">\[
+\norm{\EE\widetilde R(-s)-(s\Id+c_B(s)\Sigmain)^{-1}}\le\frac{\norm{\widetilde E_B(s)}}{s_-},
+\qquad \sup_{s\in I}\norm{\widetilde E_B(s)}\longrightarrow0 .
+\]</div>
+<div class="p"><em>Step 5: identification of the branch.</em> The tuple <span class="mi">\((\sigma_B,\tilde\sigma_B,a_B,c_B)(s)\)</span> is nonnegative and lies in the box of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(iii) by <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a> and <span class="mi">\(\Fw\le\sw2\)</span>. Its third and fourth residuals vanish by <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-aB" data-label="eqn:app-de-aB">(SB.43)</a>, and its first residual is</div>
+<div class="md">\[
+\begin{aligned}
+\Big|\sigma_B-\frac1B\Tr\big(\Sigmaout(s\Id+a_B\Sigmaout)^{-1}\big)\Big|
+&amp;=\Big|\frac1B\Tr\big(\Sigmaout(\mathcal P-(s\Id+a_B\Sigmaout)^{-1})\big)\Big|\\
+&amp;\le\frac{\Tr\Sigmaout}{B}\,\frac{\norm{E_B(s)}}{s_-}\le\frac{C_\Sigma\gamma_\star}{s_-}\norm{E_B(s)},
+\end{aligned}
+\]</div>
+<div class="p">with the same bound for the second residual in terms of <span class="mi">\(\widetilde E_B\)</span>. Both residuals tend to zero uniformly in <span class="mi">\(s\in I\)</span>. By <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(iii), applied with <span class="mi">\((\nu,\tilde\nu)=(\nu_{\mathrm{out}},\nu_{\mathrm{in}})\in\mathcal K\)</span>,</div>
+<div class="md">\[
+\sup_{s\in I}\Big(\abs{\sigma_B-\sigma}+\abs{\tilde\sigma_B-\tilde\sigma}+\abs{a_B-\tilde s_1}+\abs{c_B-s_1}\Big)(-s)\longrightarrow0 .
+\]</div>
+<div class="p">The conclusion follows from the resolvent identity. For every <span class="mi">\(s\in I\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\norm{(s\Id+a_B\Sigmaout)^{-1}-(s\Id+\tilde s_1\Sigmaout)^{-1}}\\
+&amp;\qquad=\norm{(s\Id+a_B\Sigmaout)^{-1}\,(\tilde s_1-a_B)\Sigmaout\,(s\Id+\tilde s_1\Sigmaout)^{-1}}
+\le\frac{C_\Sigma\abs{a_B-\tilde s_1}}{s_-^2},
+\end{aligned}
+\]</div>
+<div class="p">and together with <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-P-approx" data-label="eqn:app-de-P-approx">(SB.45)</a> and the triangle inequality,</div>
+<div class="md">\[
+\sup_{s\in I}\norm{\EE R(-s)-\Rbar(-s)}\le\sup_{s\in I}\Big(\frac{\norm{E_B(s)}}{s_-}+\frac{C_\Sigma\abs{a_B(s)-\tilde s_1(-s)}}{s_-^2}\Big)\longrightarrow0 .
+\]</div>
+<div class="p">The input side is identical.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a>.</div><div class="p">Put</div>
+<div class="md">\[
+\varepsilon(s)\defeq\frac1{\Nout}\Tr\big[T\big(R(-s)-\Rbar(-s)\big)\big].
+\]</div>
+<div class="p">At a fixed <span class="mi">\(s\in I\)</span> the error splits into a fluctuation and a bias. We use the trace bound</div>
+<div class="md">\[
+\frac{\abs{\Tr(TX)}}{\Nout}\le\frac{\norm T\,\norm X_*}{\Nout}\le\norm T\,\norm X ,
+\]</div>
+<div class="p">and <span class="mi">\(\Nout\ge B\gout/2\)</span> for all large <span class="mi">\(B\)</span>. By <span class="mi">\((x+y)^2\le2x^2+2y^2\)</span>, <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> rescaled from <span class="mi">\(B\)</span> to <span class="mi">\(\Nout\)</span>, and <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\EE\abs{\varepsilon(s)}^2&amp;\le2\Var\Big(\frac{\Tr(TR(-s))}{\Nout}\Big)+2\,\Big|\frac{\Tr[T(\mathcal P(s)-\Rbar(-s))]}{\Nout}\Big|^2\\
+&amp;\le\frac{8C_IC_T^2\sw2}{\gout^2B}+2C_T^2\norm{\mathcal P(s)-\Rbar(-s)}^2\longrightarrow0 .
+\end{aligned}
+\]</div>
+<div class="p">The error is equicontinuous in <span class="mi">\(s\)</span>, uniformly in the dimension and the realization. By <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>, for <span class="mi">\(s,s'\in I\)</span>,</div>
+<div class="md">\[
+\norm{R(-s)-R(-s')}\le\frac{\abs{s-s'}}{s_-^2},
+\]</div>
+<div class="p">and by the resolvent identity applied to <span class="mi">\(\Rbar\)</span>,</div>
+<div class="md">\[
+\norm{\Rbar(-s)-\Rbar(-s')}\le\frac{C_\Sigma\abs{\tilde s_1(-s)-\tilde s_1(-s')}+\abs{s-s'}}{s_-^2}.
+\]</div>
+<div class="p">By <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(ii) the map <span class="mi">\(s\mapsto\tilde s_1(-s)\)</span> has a modulus of continuity <span class="mi">\(\omega_I\)</span> on <span class="mi">\(I\)</span> that is uniform over <span class="mi">\(\mathcal K\)</span>, hence over the dimension. With the trace bound this gives a deterministic modulus <span class="mi">\(\varkappa\)</span>, uniform in the dimension and the realization, such that</div>
+<div class="md">\[
+\abs{\varepsilon(s)-\varepsilon(s')}\le\varkappa(\abs{s-s'})\qquad(s,s'\in I).
+\]</div>
+<div class="p">The supremum is reduced to a finite net. Let <span class="mi">\(I_\eta\subset I\)</span> be a finite <span class="mi">\(\eta\)</span>-net. Then</div>
+<div class="md">\[
+\sup_{s\in I}\abs{\varepsilon(s)}\le\max_{s\in I_\eta}\abs{\varepsilon(s)}+\varkappa(\eta),
+\]</div>
+<div class="p">and squaring, bounding the maximum by the sum and taking expectations,</div>
+<div class="md">\[
+\EE\sup_{s\in I}\abs{\varepsilon(s)}^2\le2\sum_{s\in I_\eta}\EE\abs{\varepsilon(s)}^2+2\varkappa(\eta)^2 .
+\]</div>
+<div class="p">Taking first the limit in the dimension at fixed <span class="mi">\(\eta\)</span> and then <span class="mi">\(\eta\downarrow0\)</span> proves the first claim. The input side is identical.</div>
+<div class="p">The last claim is the case <span class="mi">\(T=\Sigmaout\,B/\Nout\)</span> and <span class="mi">\(\widetilde T=\Sigmain\,B/\Nin\)</span>, admissible since <span class="mi">\(B/\Nout\le2/\gout\)</span> for large <span class="mi">\(B\)</span>, for which</div>
+<div class="md">\[
+\frac1{\Nout}\Tr\big(T\Rbar(-s)\big)=\frac1B\Tr\big(\Sigmaout\Rbar(-s)\big)=\sigma(-s)
+\]</div>
+<div class="p">by <a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><nav class="pn"><a href="s.SA.html">&larr; SA</a><a href="s.SC.html">SC &rarr;</a></nav></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

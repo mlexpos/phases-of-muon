@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.16 (Closed walks on trees)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.16 (Closed walks on trees)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-closed-contour"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-closed-contour.html" data-label="lem:app-vol-closed-contour">Lemma SD.16</a> <span class="thm-title">(Closed walks on trees)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(T\)</span> be a finite tree with <span class="mi">\(n\)</span> edges and <span class="mi">\(W=(W_0,\dots,W_{2n})\)</span> a closed walk in <span class="mi">\(T\)</span> that traverses every edge exactly twice. Root <span class="mi">\(T\)</span> at <span class="mi">\(W_0\)</span> and order the children of every vertex by the time of their first visit. Then <span class="mi">\(W\)</span> is the contour of this ordered tree.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Each subtree is visited during exactly one time interval. Let <span class="mi">\(e=\{x,x'\}\)</span> be an edge with <span class="mi">\(x'\)</span> farther from <span class="mi">\(W_0\)</span>, and <span class="mi">\(T_e\)</span> the component of <span class="mi">\(T-e\)</span> containing <span class="mi">\(x'\)</span>. The walk starts and ends outside <span class="mi">\(T_e\)</span> and can enter or leave <span class="mi">\(T_e\)</span> only through <span class="mi">\(e\)</span>, and entries and exits alternate. Since <span class="mi">\(e\)</span> is traversed exactly twice, there is one entry and one exit. So <span class="mi">\(W\)</span> lies in <span class="mi">\(T_e\)</span> during one time interval <span class="mi">\(I_e\)</span>, on which it is a closed walk from <span class="mi">\(x'\)</span> in <span class="mi">\(T_e\)</span> traversing every edge of <span class="mi">\(T_e\)</span> exactly twice.</div>
+<div class="p">We argue by induction on <span class="mi">\(n\)</span>, the case <span class="mi">\(n=0\)</span> being trivial. Let <span class="mi">\(x_1,\dots,x_m\)</span> be the children of the root <span class="mi">\(v=W_0\)</span>, in the order of first visits, and <span class="mi">\(e_r=\{v,x_r\}\)</span>. The intervals <span class="mi">\(I_{e_r}\)</span> are disjoint and appear in this order. At every time outside them the walk is at <span class="mi">\(v\)</span>, since the vertex set is <span class="mi">\(\{v\}\cup\bigcup_rT_{e_r}\)</span>. Consecutive vertices of a walk are adjacent, hence distinct, so the walk is at <span class="mi">\(v\)</span> exactly once between consecutive intervals, once before the first and once after the last. Thus <span class="mi">\(W\)</span> is <span class="mi">\(v\)</span>, the walk on <span class="mi">\(I_{e_1}\)</span>, <span class="mi">\(v\)</span>, …, the walk on <span class="mi">\(I_{e_m}\)</span>, <span class="mi">\(v\)</span>. By induction each inner walk is the contour of <span class="mi">\(T_{e_r}\)</span> with its children ordered by first visits, and so <span class="mi">\(W\)</span> is the contour of <span class="mi">\(T\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-vol-closed-encoding.html" data-label="lem:app-vol-closed-encoding">Lemma SD.17</a> <span class=muted>Encoding of retained pairings</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="decl"><code>Muon.Volatility.lem_app_vol_closed_contour</code></div><details class="decl"><summary><code>Muon.Volatility.PlaneTree</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Trees.lean#L43">source</a></summary><pre class="lean no-mj">inductive PlaneTree : Type where</pre></details><details class="decl"><summary><code>Muon.Volatility.PlaneTree.vtxs</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Trees.lean#L50">source</a></summary><pre class="lean no-mj">def PlaneTree.vtxs : PlaneTree → List (List ℕ)
+  | .node cs =&gt; [] :: vtxsForest cs 0
+
+/-- Vertex addresses of a list of subtrees, the first subtree having child index `i`. -/
+def vtxsForest : List PlaneTree → ℕ → List (List ℕ)
+  | [], _ =&gt; []
+  | c :: cs, i =&gt; (PlaneTree.vtxs c).map (List.cons i) ++ vtxsForest cs (i + 1)
+
+end
+
+mutual
+
+/-- The contour of a plane tree (l.2069–2077), as a list of addresses: the contour of a vertex `x` with
+children `x₁,…,x_m` is `x`, the contour of `x₁`, `x`, …, the contour of `x_m`, `x`. Its length is
+`2n+1` for `n` edges. -/
+def PlaneTree.contour : PlaneTree → List (List ℕ)
+  | .node cs =&gt; [] :: contourForest cs 0
+
+/-- Contour of a list of subtrees, the first subtree having child index `i`; each subtree is followed by
+the parent's visit. -/
+def contourForest : List PlaneTree → ℕ → List (List ℕ)
+  | [], _ =&gt; []
+  | c :: cs, i =&gt; (PlaneTree.contour c).map (List.cons i) ++ [[]] ++ contourForest cs (i + 1)
+
+end
+
+/-- Number of children of the address `u` in `P`. -/
+def PlaneTree.childCount (P : PlaneTree) (u : List ℕ) : ℕ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.vtxsForest</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Closed/Trees.lean#L54">source</a></summary><pre class="lean no-mj">def vtxsForest : List PlaneTree → ℕ → List (List ℕ)
+  | [], _ =&gt; []
+  | c :: cs, i =&gt; (PlaneTree.vtxs c).map (List.cons i) ++ vtxsForest cs (i + 1)
+
+end
+
+mutual
+
+/-- The contour of a plane tree (l.2069–2077), as a list of addresses: the contour of a vertex `x` with
+children `x₁,…,x_m` is `x`, the contour of `x₁`, `x`, …, the contour of `x_m`, `x`. Its length is
+`2n+1` for `n` edges. -/
+def PlaneTree.contour : PlaneTree → List (List ℕ)
+  | .node cs =&gt; [] :: contourForest cs 0
+
+/-- Contour of a list of subtrees, the first subtree having child index `i`; each subtree is followed by
+the parent's visit. -/
+def contourForest : List PlaneTree → ℕ → List (List ℕ)
+  | [], _ =&gt; []
+  | c :: cs, i =&gt; (PlaneTree.contour c).map (List.cons i) ++ [[]] ++ contourForest cs (i + 1)
+
+end
+
+/-- Number of children of the address `u` in `P`. -/
+def PlaneTree.childCount (P : PlaneTree) (u : List ℕ) : ℕ :=</pre></details><div class="decl"><code>Muon.Volatility.PlaneTree.contour</code></div><div class="decl"><code>Muon.Volatility.contourForest</code></div><div class="decl"><code>Muon.Volatility.firstVisit</code></div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

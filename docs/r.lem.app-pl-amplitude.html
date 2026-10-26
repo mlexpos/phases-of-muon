@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SG.4 (Spectral amplitude)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SG.4 (Spectral amplitude)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-lemma" id="L-lem:app-pl-amplitude"><div class="thm-head"><a class="thm-name" href="r.lem.app-pl-amplitude.html" data-label="lem:app-pl-amplitude">Lemma SG.4</a> <span class="thm-title">(Spectral amplitude)</span></div><div class="thm-body"><div class="p">Write <span class="mi">\(\mathfrak d_i(\ridge;\mu)\)</span>, <span class="mi">\(\overline C_{i,\ell}(\ridge;\mu)\)</span> and <span class="mi">\(\mathfrak v_i(\ridge;\mu)\)</span> for the coefficients of the spectrum <span class="mi">\(\mu=(\mu_j)\)</span>. For every <span class="mi">\(c&gt;0\)</span> and <span class="mi">\(\ridge\ge0\)</span>,</div>
+<div class="md">\[
+\mathfrak d_i(\ridge;c\mu)=\sqrt c\,\mathfrak d_i(\ridge/c;\mu),\qquad
+\overline C_{i,\ell}(\ridge;c\mu)=\overline C_{i,\ell}(\ridge/c;\mu),\qquad
+\mathfrak v_i(\ridge;c\mu)=\mathfrak v_i(\ridge/c;\mu).
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For the drift, <span class="mi">\(m_N(\Lambda;c\mu)=m_N(c\Lambda;\mu)\)</span>, so <span class="mi">\(\Lambda_N(m;c\mu)=\Lambda_N(m;\mu)/c\)</span>, the functions <span class="mi">\(f_i\)</span> are unchanged, and <span class="mi">\(s_N(m;c\mu)=c\,s_N(m;\mu)\)</span>. In <a class="ref" href="r.prop.app-pl-branch.html#L-eqn:app-pl-drift-single" data-label="eqn:app-pl-drift-single">(SG.7)</a> for <span class="mi">\(c\mu\)</span> the participation at <span class="mi">\(\ridge+u^2\)</span> is therefore the participation for <span class="mi">\(\mu\)</span> at <span class="mi">\(\ridge/c+(u/\sqrt c)^2\)</span>, and the substitution <span class="mi">\(u=\sqrt c\,u'\)</span> gives the first identity; the case <span class="mi">\(\ridge=0\)</span> is the same computation in <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-drift-zero" data-label="eqn:app-pl-drift-zero">(SG.12)</a>. For the volatility, the buffer of the independent model with covariance <span class="mi">\(c\Sigmaout\)</span> has the law of <span class="mi">\(\sqrt c\,M^{\mathrm g}_t\)</span>, and <span class="mi">\(\Qridge\ridge(\sqrt cK)=\Qridge{\ridge/c}(K)\)</span> because <span class="mi">\(\sqrt cx/\sqrt{cx^2+\ridge}=x/\sqrt{x^2+\ridge/c}\)</span>. The independent row covariances of the two spectra therefore coincide at every order of replication, and so do their limits <span class="mi">\(\overline C_{i,\ell}\)</span> (<a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a>). The integrated and zero-ridge statements follow by summation and by the limits of <a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class=muted>The branch in participation coordinates</span></li><li><a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class=muted>Drift at zero ridge</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class=muted>Volatility at zero ridge</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-pl-triple.html" data-label="thm:app-pl-triple">Theorem SG.1</a> <span class=muted>The coefficient pair</span></li><li><a class="ref" href="r.thm.app-pl-drift.html" data-label="thm:app-pl-drift">Theorem SG.2</a> <span class=muted>Drift crossover</span></li><li><a class="ref" href="r.thm.app-pl-volatility.html" data-label="thm:app-pl-volatility">Theorem SG.3</a> <span class=muted>Volatility crossover and bulk profile</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_amplitude_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L5099">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_amplitude_i (cert : Muon.External.GaussianOpNorm)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {c : ℝ} (hc : 0 &lt; c)
+    (γs1 CS1 : ℝ) (hγ1 : gammaOf N B ≤ γs1) (hμC1 : ∀ i, μ i ≤ CS1) (hC11 : 1 ≤ CS1)
+    (γs2 CS2 : ℝ) (hγ2 : gammaOf N B ≤ γs2) (hμC2 : ∀ i, c * μ i ≤ CS2) (hC12 : 1 ≤ CS2)
+    {ν νc ν' : FiniteMeasure ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hνc : (νc : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (c * μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (i : Fin N) {ϱ : ℝ} (hϱ : 0 &lt; ϱ) :
+    plRowExists cert γs1 CS1 β B μ i ∧ plRowExists cert γs2 CS2 β B (fun j =&gt; c * μ j) i ∧
+    Summable (fun ℓ : ℕ =&gt; lagRowBar cert γs2 CS2 β (ℓ + 1) B (fun j =&gt; c * μ j)
+      (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ) ∧
+    Summable (fun ℓ : ℕ =&gt; lagRowBar cert γs1 CS1 β (ℓ + 1) B μ (fun _ : Fin N =&gt; (1 : ℝ))
+      i (ϱ / c) (ϱ / c)) ∧
+    Muon.Drift.kernel (emaW β) νc ν' ϱ (c * μ i) 1 =
+      Real.sqrt c * Muon.Drift.kernel (emaW β) ν ν' (ϱ / c) (μ i) 1 ∧
+    (∀ ℓ : ℕ, lagRowBar cert γs2 CS2 β ℓ B (fun j =&gt; c * μ j) (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ =
+      lagRowBar cert γs1 CS1 β ℓ B μ (fun _ : Fin N =&gt; (1 : ℝ)) i (ϱ / c) (ϱ / c)) ∧
+    rowVBar cert γs2 CS2 β B (fun j =&gt; c * μ j) (fun _ : Fin N =&gt; (1 : ℝ)) i ϱ ϱ =
+      rowVBar cert γs1 CS1 β B μ (fun _ : Fin N =&gt; (1 : ℝ)) i (ϱ / c) (ϱ / c) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.lem_app_pl_amplitude_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/ZeroRidge.lean#L5162">source</a></summary><pre class="lean no-mj">theorem lem_app_pl_amplitude_ii (cert : Muon.External.GaussianOpNorm)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N)
+    {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (μ : Fin N → ℝ) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {c : ℝ} (hc : 0 &lt; c)
+    (γs1 CS1 : ℝ) (hγ1 : gammaOf N B ≤ γs1) (hμC1 : ∀ i, μ i ≤ CS1) (hC11 : 1 ≤ CS1)
+    (γs2 CS2 : ℝ) (hγ2 : gammaOf N B ≤ γs2) (hμC2 : ∀ i, c * μ i ≤ CS2) (hC12 : 1 ≤ CS2)
+    (i : Fin N) :
+    IntegrableOn (fun u : ℝ =&gt; Gfun β B μ i (u ^ 2)) (Ioi (0 : ℝ)) ∧
+    IntegrableOn (fun u : ℝ =&gt; Gfun β B (fun j =&gt; c * μ j) i (u ^ 2)) (Ioi (0 : ℝ)) ∧
+    dZero β B (fun j =&gt; c * μ j) i = Real.sqrt c * dZero β B μ i ∧
+    (∀ ℓ : ℕ, cbarZero cert γs2 CS2 β B (fun j =&gt; c * μ j) i ℓ = cbarZero cert γs1 CS1 β B μ i ℓ) ∧
+    vZero cert γs2 CS2 β B (fun j =&gt; c * μ j) i = vZero cert γs1 CS1 β B μ i := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

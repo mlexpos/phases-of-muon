@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SD.2 (Lag reduction)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SD.2 (Lag reduction)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-vol-lag-reduction"><div class="thm-head"><a class="thm-name" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class="thm-title">(Lag reduction)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(F,G\)</span> be symmetric with <span class="mi">\(\norm F,\norm G\le1\)</span>, let <span class="mi">\(I=[\ridge_-,\ridge_+]\)</span> with <span class="mi">\(\ridge_-&gt;0\)</span>, and let <span class="mi">\(\ridge,\ridge'\in I\)</span>. Parts (i)–(iii) hold at every finite dimension with <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span> and <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span>, and at every normalized state; part (iv) holds under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every integer <span class="mi">\(T\ge1\)</span>, with <span class="mi">\(S_T(\ridge)\defeq\sum_{t'=1}^T{\mathsf S}^{\mathrm c}_{t'}(\ridge)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-finite-time"></span>\begin{equation}\tag{SD.40}
+\begin{aligned}
+&amp;\frac1{BT}\EE\Tr\big[F\,S_T(\ridge)\,G\,S_T(\ridge')^\T\big]\\
+&amp;\qquad=C_0[F,G](\ridge,\ridge')+\sum_{\ell=1}^{T-1}\Big(1-\frac\ell T\Big)\Big(C_\ell[F,G](\ridge,\ridge')+C_\ell[F,G](\ridge',\ridge)\Big).
+\end{aligned}
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\abs{C_0[F,G](\ridge,\ridge')}\le\gamma_\star\)</span> and <span class="mi">\(\abs{C_\ell[F,G](\ridge,\ridge')}\le\mathsf K_\star\bmom^\ell\)</span> for <span class="mi">\(\ell\ge1\)</span>; at <span class="mi">\(\bmom=0\)</span>, <span class="mi">\(C_\ell[F,G]=0\)</span> for every <span class="mi">\(\ell\ge1\)</span>. The same bounds hold for the independent covariances <span class="mi">\(C^{\mathrm g}_\ell[F,G]\)</span> of <a class="ref" href="r.cor.app-vol-filtered-replacement.html" data-label="cor:app-vol-filtered-replacement">Corollary SD.1</a>, under the size conditions.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The series <a class="ref" href="r.def.app-vol-lag.html#L-eqn:app-vol-Gamma" data-label="eqn:app-vol-Gamma">(SD.17)</a> converges absolutely, and the left side of <a class="ref" href="r.thm.app-vol-lag-reduction.html#L-eqn:app-vol-finite-time" data-label="eqn:app-vol-finite-time">(SD.40)</a> differs from <span class="mi">\(\Gamma[F,G](\ridge,\ridge')\)</span> by at most</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-finite-time-error"></span>\begin{equation}\tag{SD.41}
+2\mathsf K_\star\Big(\frac{\bmom^T}{1-\bmom}+\frac{\bmom}{T(1-\bmom)^2}\Big).
+\end{equation}</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every fixed <span class="mi">\(\ell\ge0\)</span>, <span class="mi">\(\sup_{\ridge,\ridge'\in I}\sup_{F,G}\abs{C_\ell[F,G]-C^{\mathrm g}_\ell[F,G]}\to0\)</span>, and <span class="mi">\(\sup_{\ridge,\ridge'\in I}\sup_{F,G}\abs{\Gamma[F,G]-\Gamma^{\mathrm g}[F,G]}\to0\)</span>, where <span class="mi">\(\Gamma^{\mathrm g}\)</span> is the integrated sum of the <span class="mi">\(C^{\mathrm g}_\ell\)</span> and the suprema run over symmetric <span class="mi">\(F,G\)</span> of norm at most one.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a>.</div><div class="p">Part (i) expands the double sum. For symmetric <span class="mi">\(F,G\)</span> the trace pairing is symmetric, <span class="mi">\(\Tr[FXGY^\T]=\Tr[(FXGY^\T)^\T]=\Tr[FYGX^\T]\)</span>. By the stationarity of <a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a>(ii), the term with times <span class="mi">\(t'&lt;t''\)</span> equals <span class="mi">\(B\,C_{t''-t'}[F,G](\ridge,\ridge')\)</span>, and by the symmetry the term with <span class="mi">\(t'&gt;t''\)</span> equals <span class="mi">\(B\,C_{t'-t''}[F,G](\ridge',\ridge)\)</span>. There are <span class="mi">\(T-\ell\)</span> pairs at lag <span class="mi">\(\ell\)</span>, which gives <a class="ref" href="r.thm.app-vol-lag-reduction.html#L-eqn:app-vol-finite-time" data-label="eqn:app-vol-finite-time">(SD.40)</a>.</div>
+<div class="p">Part (ii) for <span class="mi">\(\ell=0\)</span> is the Cauchy–Schwarz inequality for the Frobenius pairing together with <span class="mi">\(\EE\norm{{\mathsf S}^{\mathrm c}_t}_\F^2\le\EE\norm{{\mathsf S}_t}_\F^2\le\gamma_\star B\)</span>, by <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(i). For <span class="mi">\(\ell\ge1\)</span> we couple with an independent past. Let <span class="mi">\(M_t'\)</span> be built as <span class="mi">\(\Mt\)</span> from independent batches of the times <span class="mi">\(t'\le t+1\)</span>, independent of everything else, and put</div>
+<div class="md">\[
+M^*\defeq\bmom^\ell M_t'+\sum_{r=0}^{\ell-1}\emaw rG_{t+\ell+1-r}.
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-setup-ema-law.html#L-eqn:app-setup-lag-decomposition" data-label="eqn:app-setup-lag-decomposition">(SA.33)</a>, <span class="mi">\(M^*\)</span> has the law of <span class="mi">\(M_{t+\ell}\)</span>, it is independent of <span class="mi">\(\Mt\)</span>, and <span class="mi">\(M_{t+\ell}-M^*=\bmom^\ell(\Mt-M_t')\)</span>. Since <span class="mi">\({\mathsf S}^{\mathrm c}_t\)</span> is centered and independent of <span class="mi">\(\Qridge{\ridge'}(M^*)\)</span>,</div>
+<div class="md">\[
+C_\ell[F,G](\ridge,\ridge')=\frac1B\EE\Tr\Big[F\,{\mathsf S}^{\mathrm c}_t(\ridge)\,G\,\big(\Qridge{\ridge'}(M_{t+\ell})-\Qridge{\ridge'}(M^*)\big)^\T\Big].
+\]</div>
+<div class="p">The Cauchy–Schwarz inequality, <a class="ref" href="r.lem.app-setup-filter.html#L-eqn:app-setup-lipschitz" data-label="eqn:app-setup-lipschitz">(SA.13)</a> and <span class="mi">\(\EE\norm{\Mt-M_t'}_\F^2=2\sw2\mathsf V_B\)</span> (<a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a>(iii)) give</div>
+<div class="md">\[
+\abs{C_\ell[F,G](\ridge,\ridge')}\le\frac1B\sqrt{\gamma_\star B}\;\ridge_-^{-1/2}\bmom^\ell\sqrt{2\sw2\mathsf V_B}
+\le\sqrt{\gamma_\star}\,\ridge_-^{-1/2}\bmom^\ell\Big(\frac{2\mathsf V_B}{B}\Big)^{1/2}\le\mathsf K_\star\bmom^\ell ,
+\]</div>
+<div class="p">using <span class="mi">\(\mathsf V_B/B\le C_\Sigma^2(\gamma_\star^2+4\gamma_\star+3)\)</span> from <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(iv) and <span class="mi">\(B\ge1\)</span>. At <span class="mi">\(\bmom=0\)</span> the buffers <span class="mi">\(\Mt\)</span> and <span class="mi">\(M_{t+\ell}\)</span> are built from disjoint batches, hence independent, and the covariance vanishes. For the independent model, the bound at <span class="mi">\(\ell=0\)</span> is the same Cauchy–Schwarz inequality, since <span class="mi">\(\norm{{\mathsf S}^{\mathrm g}_t(\ridge)}_\F^2\le\min(\Nout,\Nin)\le\gamma_\star B\)</span> pointwise by <a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a>(i). For <span class="mi">\(\ell\ge1\)</span> the same coupling applies, with <span class="mi">\(\EE\norm{M^{\mathrm g}_t-M^{\mathrm g\prime}_t}_\F^2=2\sw2B^{-1}\Tr\Sigmaout\Tr\Sigmain\le2C_\Sigma^2\gamma_\star^2B\)</span> in place of <span class="mi">\(2\sw2\mathsf V_B\)</span>.</div>
+<div class="p">Part (iii) follows from (ii). The series converges absolutely, and the difference between <a class="ref" href="r.thm.app-vol-lag-reduction.html#L-eqn:app-vol-finite-time" data-label="eqn:app-vol-finite-time">(SD.40)</a> and <a class="ref" href="r.def.app-vol-lag.html#L-eqn:app-vol-Gamma" data-label="eqn:app-vol-Gamma">(SD.17)</a> consists of the lags <span class="mi">\(\ell\ge T\)</span> and of the weights <span class="mi">\(\ell/T\)</span> for <span class="mi">\(\ell&lt;T\)</span>, so it is at most</div>
+<div class="md">\[
+\sum_{\ell\ge T}2\mathsf K_\star\bmom^\ell+\frac1T\sum_{\ell\ge1}2\mathsf K_\star\,\ell\bmom^\ell
+=2\mathsf K_\star\Big(\frac{\bmom^T}{1-\bmom}+\frac{\bmom}{T(1-\bmom)^2}\Big).
+\]</div>
+<div class="p">Part (iv) for a fixed lag is <a class="ref" href="r.cor.app-vol-filtered-replacement.html#L-eqn:app-vol-C-replacement" data-label="eqn:app-vol-C-replacement">(SD.38)</a>, whose bound does not depend on <span class="mi">\(\ell\)</span>. The integrated statement is <a class="ref" href="r.lem.app-vol-lagsum.html" data-label="lem:app-vol-lagsum">Lemma SD.7</a> with <span class="mi">\(p=(\ridge,\ridge',F,G)\)</span>, applied to the two orders of the ridges, with the envelopes of (ii).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a> <span class=muted>Stationary EMA law</span></li><li><a class="ref" href="r.lem.app-setup-filter.html" data-label="lem:app-setup-filter">Lemma SA.2</a> <span class=muted>Filter bounds and Lipschitz estimate</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li><li><a class="ref" href="r.def.app-vol-lag.html" data-label="def:app-vol-lag">Definition SD.1</a> <span class=muted>Tested lag covariances</span></li><li><a class="ref" href="r.cor.app-vol-filtered-replacement.html" data-label="cor:app-vol-filtered-replacement">Corollary SD.1</a> <span class=muted>Replacement for the filtered updates</span></li><li><a class="ref" href="r.lem.app-vol-lagsum.html" data-label="lem:app-vol-lagsum">Lemma SD.7</a> <span class=muted>Lag summation</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.thm.app-vol-mode-kernels.html" data-label="thm:app-vol-mode-kernels">Theorem SD.7</a> <span class=muted>Mode-resolved coefficients, <span class="mi">\(\Sigmain=\Id\)</span></span></li><li><a class="ref" href="r.thm.app-vol-joint-forcing.html" data-label="thm:app-vol-joint-forcing">Theorem SD.8</a> <span class=muted>Joint forcing measure</span></li><li><a class="ref" href="r.prop.app-vol-disintegration.html" data-label="prop:app-vol-disintegration">Proposition SD.3</a> <span class=muted>Mode coefficients</span></li><li><a class="ref" href="r.rem.app-vol-nomomentum.html" data-label="rem:app-vol-nomomentum">Remark SD.3</a> <span class=muted>No momentum</span></li><li><a class="ref" href="r.lem.app-dyn-startup.html" data-label="lem:app-dyn-startup">Lemma SE.17</a> <span class=muted>Stationary block sums and the startup cross term</span></li><li><a class="ref" href="r.lem.app-pl-two-ridge.html" data-label="lem:app-pl-two-ridge">Lemma SG.3</a> <span class=muted>Two ridges and the lag envelope</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1143">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_i (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (T : ℕ) (hT : 1 ≤ T) (t : ℤ) :
+    finiteTimeCov F S T ϱ ϱ' Fo Gi =
+      def_app_vol_lag F S 0 t Fo Gi ϱ ϱ' +
+        ∑ ℓ ∈ Finset.Ico 1 T, (1 - (ℓ : ℝ) / (T : ℝ)) *
+          (def_app_vol_lag F S ℓ t Fo Gi ϱ ϱ' + def_app_vol_lag F S ℓ t Fo Gi ϱ' ϱ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.finiteTimeCov</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L46">source</a></summary><pre class="lean no-mj">def finiteTimeCov (F : FrozenParams m n B) (S : FrozenSamples P m n B) (T : ℕ) (ϱ ϱ' : ℝ)
+    (Fo : Mat m m) (Gi : Mat n n) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_ii_actual</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1244">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_ii_actual (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (t : ℤ) :
+    |def_app_vol_lag F S 0 t Fo Gi ϱ ϱ'| ≤ γstar ∧
+      ∀ ℓ : ℕ, 1 ≤ ℓ → |def_app_vol_lag F S ℓ t Fo Gi ϱ ϱ'| ≤
+        Muon.Dynamics.kStar CSig γstar ϱlo * F.β ^ ℓ := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_ii_zero</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1308">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_ii_zero (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (t : ℤ) (hβ0 : F.β = 0) :
+    ∀ ℓ : ℕ, 1 ≤ ℓ → def_app_vol_lag F S ℓ t Fo Gi ϱ ϱ' = 0 := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_ii_indep</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1657">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_ii_indep (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (t : ℤ) :
+    |(B : ℝ)⁻¹ * ∫ ω, Matrix.trace (Fo * indepUpd F ϱ ω t * Gi * (indepUpd F ϱ' ω t)ᵀ)
+        ∂(indepSpaceLaw m n B)| ≤ γstar ∧
+      ∀ ℓ : ℕ, 1 ≤ ℓ →
+        |(B : ℝ)⁻¹ * ∫ ω, Matrix.trace (Fo * indepUpd F ϱ ω t * Gi *
+            (indepUpd F ϱ' ω (t + (ℓ : ℤ)))ᵀ) ∂(indepSpaceLaw m n B)| ≤
+          Muon.Dynamics.kStar CSig γstar ϱlo * F.β ^ ℓ := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_iii_summable</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1956">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_iii_summable (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (t : ℤ) :
+    Summable fun ℓ : ℕ =&gt; |def_app_vol_lag F S (ℓ + 1) t Fo Gi ϱ ϱ' +
+      def_app_vol_lag F S (ℓ + 1) t Fo Gi ϱ' ϱ| := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_iii_bound</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagReduction.lean#L1991">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_iii_bound (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    [IsProbabilityMeasure P]
+    (γstar CSig ϱlo ϱhi : ℝ) (hS : SizeFin F.C B γstar CSig) (hCSig : 1 ≤ CSig)
+    (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi)
+    (Fo : Mat m m) (Gi : Mat n n) (hFs : Fo.transpose = Fo) (hGs : Gi.transpose = Gi)
+    (hF : opNorm Fo ≤ 1) (hG : opNorm Gi ≤ 1)
+    (ϱ ϱ' : ℝ) (hϱI : ϱ ∈ Set.Icc ϱlo ϱhi) (hϱ'I : ϱ' ∈ Set.Icc ϱlo ϱhi)
+    (T : ℕ) (hT : 1 ≤ T) (t : ℤ) :
+    |finiteTimeCov F S T ϱ ϱ' Fo Gi - integratedLag F S t Fo Gi ϱ ϱ'| ≤
+      2 * Muon.Dynamics.kStar CSig γstar ϱlo *
+        (F.β ^ T / (1 - F.β) + F.β / ((T : ℝ) * (1 - F.β) ^ 2)) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.indepLagCov</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagKernel.lean#L7679">source</a></summary><pre class="lean no-mj">def indepLagCov {m n B : ℕ} (F : FrozenParams m n B) (ℓ : ℕ) (t : ℤ) (Fo : Mat m m) (Gi : Mat n n)
+    (ϱ ϱ' : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.indepIntegratedLag</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagKernel.lean#L7689">source</a></summary><pre class="lean no-mj">def indepIntegratedLag {m n B : ℕ} (F : FrozenParams m n B) (t : ℤ) (Fo : Mat m m) (Gi : Mat n n)
+    (ϱ ϱ' : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_iv_lag</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagKernel.lean#L7715">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_iv_lag (R : SetupRegime) (Ω : ℕ → Type)
+    [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (ℓ : ℕ) :
+    ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ,
+      ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ (Fo : Mat (R.m k) (R.m k)) (Gi : Mat (R.n k) (R.n k)),
+        Fo.transpose = Fo → opNorm Fo ≤ 1 → Gi.transpose = Gi → opNorm Gi ≤ 1 →
+        |def_app_vol_lag (R.F k) (S k) ℓ t Fo Gi ϱ ϱ' -
+          indepLagCov (R.F k) ℓ t Fo Gi ϱ ϱ'| ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_lag_reduction_iv_integrated</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/LagKernel.lean#L7784">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_lag_reduction_iv_integrated (R : SetupRegime) (Ω : ℕ → Type)
+    [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) :
+    ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ,
+      ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ (Fo : Mat (R.m k) (R.m k)) (Gi : Mat (R.n k) (R.n k)),
+        Fo.transpose = Fo → opNorm Fo ≤ 1 → Gi.transpose = Gi → opNorm Gi ≤ 1 →
+        |integratedLag (R.F k) (S k) t Fo Gi ϱ ϱ' -
+          indepIntegratedLag (R.F k) t Fo Gi ϱ ϱ'| ≤ ε := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

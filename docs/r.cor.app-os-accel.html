@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SH.4 (Acceleration of a slow mode)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SH.4 (Acceleration of a slow mode)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-os-accel"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class="thm-title">(Acceleration of a slow mode)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure with <span class="mi">\(\nu([0,\mu_+])=1\)</span> for some <span class="mi">\(\mu_+&gt;0\)</span>, and let <span class="mi">\(0&lt;\mu\le\mu_+/2\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">One has</div>
+<div class="md">\[
+\chi_\nu(\mu)\sqrt\varkappa\le\mathcal A\le\frac{\sqrt2}{C_*}\,\chi_\nu(\mu)\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">One has</div>
+<div class="md">\[
+\frac{1}{\sqrt2\,\pi}\log\varkappa\le\mathcal A\le\frac{\sqrt2}{C_*}\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+C_*\sqrt{\frac{\nu([0,K\mu])}{1+K}}\,\sqrt\varkappa\le\mathcal A
+\le\frac{\sqrt2}{C_*}\Big[\sqrt{\nu([0,K\mu])}+\frac{2(\log(1+K)+2)}{\pi\sqrt K}\Big]\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mu_+\mathcal I_\nu\le\Gamma&lt;\infty\)</span>, then</div>
+<div class="md">\[
+\mathcal A\le\frac{2\sqrt2}{\pi C_*}\sqrt\Gamma\,\big[\log(1+\varkappa)+2\big].
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">For the two-level spectrum of <a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a>, with <span class="mi">\(\mu_+=1\)</span> and <span class="mi">\(\mu=1/\varkappa\)</span>,</div>
+<div class="md">\[
+\frac{1}{\sqrt2\,\pi}\max\big\{\sqrt{p\varkappa},\ \log\varkappa\big\}\le\mathcal A\le c_{\rm hi}\max\big\{\sqrt{p\varkappa},\ \log\varkappa\big\}.
+\]</div></div></li><li><span class="li-mark">(vi)</span><div class="li-body"><div class="p">Along sequences <span class="mi">\((\nu_N,\mu_{+,N},\mu_N)\)</span> satisfying the hypotheses, with acceleration <span class="mi">\(\mathcal A_N\)</span> and ratio <span class="mi">\(\varkappa_N\)</span>, one has <span class="mi">\(\liminf_N\mathcal A_N/\sqrt{\varkappa_N}&gt;0\)</span> if and only if <span class="mi">\(\liminf_N\nu_N([0,K\mu_N])&gt;0\)</span> for some <span class="mi">\(K&gt;0\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The top mode is pinned by <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i). Since <span class="mi">\(x\le\mu_+\)</span> on the support, <span class="mi">\(1-m_\nu(\mu_+)\ge\frac12\)</span>, so</div>
+<div class="md">\[
+\frac{C_*}2\sqrt{\mu_+}\le\mathfrak d^{\rm os}_\nu(\mu_+)\le\sqrt{\frac{\mu_+}2}.
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, <span class="mi">\(\mathcal A=\varkappa\,\chi_\nu(\mu)\sqrt{\mu/2}/\mathfrak d^{\rm os}_\nu(\mu_+)\)</span>, and the two bounds give (i).</div>
+<div class="p">Part (ii) uses <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(v) with <span class="mi">\(X=\mu_+\)</span> for the lower bound,</div>
+<div class="md">\[
+\mathcal A\ge\varkappa\,\frac{\frac1{2\pi}\,\mu\,\mu_+^{-1/2}\log\varkappa}{\sqrt{\mu_+/2}}=\frac{\log\varkappa}{\sqrt2\,\pi},
+\]</div>
+<div class="p">and <span class="mi">\(\chi_\nu\le1\)</span> in (i) for the upper bound. Part (iii) is (i) with <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(iv).</div>
+<div class="p">For part (iv), <span class="mi">\(\mathcal I_\nu\le\Gamma/\mu_+\)</span>, and <span class="mi">\(\mathcal I_\nu\ge1/\mu_+\)</span> because the support lies in <span class="mi">\((0,\mu_+]\)</span>, so <span class="mi">\(1/(\mu\mathcal I_\nu)\le\varkappa\)</span>. <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(ii) and the lower bound for <span class="mi">\(\mathfrak d^{\rm os}_\nu(\mu_+)\)</span> give</div>
+<div class="md">\[
+\mathcal A\le\varkappa\,\frac{\frac{\sqrt2}{\pi}\sqrt{\Gamma/\mu_+}\;\mu\,\big[\log(1+\varkappa)+2\big]}{\frac{C_*}2\sqrt{\mu_+}}
+=\frac{2\sqrt2}{\pi C_*}\sqrt\Gamma\,\big[\log(1+\varkappa)+2\big].
+\]</div>
+<div class="p">Part (v) is <a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> multiplied by <span class="mi">\(\varkappa\)</span>. Part (vi) is (i) together with <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(vi).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class=muted>Square-root law</span></li><li><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class=muted>Representation of the profile</span></li><li><a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> <span class=muted>Tail modes</span></li><li><a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> <span class=muted>Two-level spectrum</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a> <span class=muted>Power-law spectra</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.accelA</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L650">source</a></summary><pre class="lean no-mj">def accelA (ν : Measure ℝ) (μp μ : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L774">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_i (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μp μ : ℝ} (hsupp : ν (Icc 0 μp) = 1) (hμp : 0 &lt; μp) (hμ : 0 &lt; μ) (hμle : μ ≤ μp / 2) :
+    sqrtEff ν μ * Real.sqrt (μp / μ) ≤ accelA ν μp μ ∧
+      accelA ν μp μ ≤ Real.sqrt 2 / cStar * sqrtEff ν μ * Real.sqrt (μp / μ) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L824">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_ii (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μp μ : ℝ} (hsupp : ν (Icc 0 μp) = 1) (hμp : 0 &lt; μp) (hμ : 0 &lt; μ) (hμle : μ ≤ μp / 2) :
+    1 / (Real.sqrt 2 * Real.pi) * Real.log (μp / μ) ≤ accelA ν μp μ ∧
+      accelA ν μp μ ≤ Real.sqrt 2 / cStar * Real.sqrt (μp / μ) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L889">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_iii (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μp μ : ℝ} (hsupp : ν (Icc 0 μp) = 1) (hμp : 0 &lt; μp) (hμ : 0 &lt; μ) (hμle : μ ≤ μp / 2) :
+    ∀ K : ℝ, 0 &lt; K →
+      cStar * Real.sqrt ((ν (Icc 0 (K * μ))).toReal / (1 + K)) * Real.sqrt (μp / μ)
+          ≤ accelA ν μp μ ∧
+        accelA ν μp μ ≤ Real.sqrt 2 / cStar *
+          (Real.sqrt (ν (Icc 0 (K * μ))).toReal + 2 * (Real.log (1 + K) + 2) / (Real.pi * Real.sqrt K)) *
+            Real.sqrt (μp / μ) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L956">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_iv (ν : Measure ℝ) [IsProbabilityMeasure ν] (hν : ν (Iio 0) = 0)
+    {μp μ Γ : ℝ} (hsupp : ν (Icc 0 μp) = 1) (hμp : 0 &lt; μp) (hμ : 0 &lt; μ) (hμle : μ ≤ μp / 2)
+    (h0 : ν {0} = 0) (hΓ : ENNReal.ofReal μp * tailInt ν 0 ≤ ENNReal.ofReal Γ) :
+    accelA ν μp μ ≤ 2 * Real.sqrt 2 / (Real.pi * cStar) * Real.sqrt Γ * (Real.log (1 + μp / μ) + 2) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1092">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_v {p κ : ℝ} (hp0 : 0 &lt; p) (hp1 : p &lt; 1) (hκ : 2 ≤ κ) :
+    1 / (Real.sqrt 2 * Real.pi) * max (Real.sqrt (p * κ)) (Real.log κ)
+        ≤ accelA (nuTL p κ) 1 (1 / κ) ∧
+      accelA (nuTL p κ) 1 (1 / κ) ≤ cHi * max (Real.sqrt (p * κ)) (Real.log κ) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_accel_vi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1196">source</a></summary><pre class="lean no-mj">theorem cor_app_os_accel_vi (ν : ℕ → Measure ℝ) [∀ N, IsProbabilityMeasure (ν N)]
+    (hν : ∀ N, ν N (Iio 0) = 0) (μp μ : ℕ → ℝ) (hsupp : ∀ N, ν N (Icc 0 (μp N)) = 1)
+    (hμp : ∀ N, 0 &lt; μp N) (hμ : ∀ N, 0 &lt; μ N) (hμle : ∀ N, μ N ≤ μp N / 2) :
+    0 &lt; liminf (fun N =&gt; accelA (ν N) (μp N) (μ N) / Real.sqrt (μp N / μ N)) atTop ↔
+      ∃ K : ℝ, 0 &lt; K ∧ 0 &lt; liminf (fun N =&gt; (ν N (Icc 0 (K * μ N))).toReal) atTop := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SD.7 (Mode-resolved coefficients, =)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SD.7 (Mode-resolved coefficients, =)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-vol-mode-kernels"><div class="thm-head"><a class="thm-name" href="r.thm.app-vol-mode-kernels.html" data-label="thm:app-vol-mode-kernels">Theorem SD.7</a> <span class="thm-title">(Mode-resolved coefficients, <span class="mi">\(\Sigmain=\Id\)</span>)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, for every fixed <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-rows-lag"></span>\begin{equation}\tag{SD.76}
+\sup_{\ridge,\ridge'\in I}\frac1B\sum_{i=1}^{\Nout}\abs{C_{i,\ell}(\ridge,\ridge')-\overline C_{i,\ell}(\ridge,\ridge')}\longrightarrow0 .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">At every finite dimension, <span class="mi">\(B^{-1}\sum_i\abs{\overline C_{i,0}}\le\gamma_\star\)</span> and <span class="mi">\(B^{-1}\sum_i\abs{\overline C_{i,\ell}}\le\mathsf K_\star\bmom^\ell\)</span> for <span class="mi">\(\ell\ge1\)</span>, and the same bounds hold for <span class="mi">\(C_{i,\ell}\)</span> under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Each series <span class="mi">\(\mathfrak v_i\)</span> converges absolutely, <span class="mi">\(\mathfrak v_i(\ridge)\ge0\)</span>, and under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a></div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-rows-integrated"></span>\begin{equation}\tag{SD.77}
+\sup_{\ridge,\ridge'\in I}\frac1B\sum_{i=1}^{\Nout}\abs{\Gamma_i(\ridge,\ridge')-\mathfrak v_i(\ridge,\ridge')}\longrightarrow0 .
+\end{equation}</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">The coefficients <span class="mi">\(\overline C_{i,\ell}\)</span> and <span class="mi">\(\mathfrak v_i\)</span> depend on <span class="mi">\(i\)</span> only through <span class="mi">\(\mu_i\)</span>. They vanish when <span class="mi">\(\mu_i=0\)</span>, and so do <span class="mi">\(C_{i,\ell}\)</span> and <span class="mi">\(\Gamma_i\)</span>. At <span class="mi">\(\bmom=0\)</span>, <span class="mi">\(\overline C_{i,\ell}=0\)</span> for <span class="mi">\(\ell\ge1\)</span>. At zero lag and equal ridges, <span class="mi">\(\overline C_{i,0}(\ridge,\ridge)=\volraw_i(\ridge)\)</span> of <a class="ref" href="s.SD.html#L-eqn:app-vol-half-candidates" data-label="eqn:app-vol-half-candidates">(SD.22)</a>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For signs <span class="mi">\(\epsilon=(\epsilon_i)\in\{\pm1\}^{\Nout}\)</span> let <span class="mi">\(F_\epsilon\defeq\sum_i\epsilon_i\,u_i\tensor u_i\)</span>, a diagonal symmetric test of norm one. By <a class="ref" href="r.def.app-vol-lag.html#L-eqn:app-vol-Cil" data-label="eqn:app-vol-Cil">(SD.18)</a> and the linearity of <span class="mi">\(\overline C_\ell\)</span> in <span class="mi">\(F\)</span>,</div>
+<div class="md">\[
+\frac1B\sum_i\epsilon_i\big(C_{i,\ell}-\overline C_{i,\ell}\big)=C_\ell[F_\epsilon,\Id]-\overline C_\ell[F_\epsilon,\Id],
+\]</div>
+<div class="p">and the left side of <a class="ref" href="r.thm.app-vol-mode-kernels.html#L-eqn:app-vol-rows-lag" data-label="eqn:app-vol-rows-lag">(SD.76)</a> is the supremum of the right side over <span class="mi">\(\epsilon\)</span> and the ridges; the actual clause of <a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> proves (i). The same identity with the bounds of <a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a>(ii) and <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(ii) proves (ii). For (iii), each <span class="mi">\(\abs{\overline C_{i,\ell}}\le B\mathsf K_\star\bmom^\ell\)</span> at fixed dimension, which gives absolute convergence; positivity is <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(iii) with <span class="mi">\(F=u_i\tensor u_i\)</span>, <span class="mi">\(G=\Id\)</span>; and <a class="ref" href="r.thm.app-vol-mode-kernels.html#L-eqn:app-vol-rows-integrated" data-label="eqn:app-vol-rows-integrated">(SD.77)</a> is <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(iv) for the tests <span class="mi">\(F_\epsilon\)</span>.</div>
+<div class="p">For (iv), the tree values of <a class="ref" href="r.def.app-vol-tree.html" data-label="def:app-vol-tree">Definition SD.4</a> with <span class="mi">\(F=u_i\tensor u_i\)</span> contain the mark through the single factor <span class="mi">\(B^{-1}\mu_i^{p_V}\)</span> with <span class="mi">\(p_V\ge1\)</span>, which depends on <span class="mi">\(i\)</span> only through <span class="mi">\(\mu_i\)</span> and vanishes when <span class="mi">\(\mu_i=0\)</span>; both properties pass to the extension and the limits. The actual row vanishes when <span class="mi">\(\mu_i=0\)</span> by <a class="ref" href="r.thm.app-vol-half-same.html" data-label="thm:app-vol-half-same">Theorem SD.1</a>(ii). The case <span class="mi">\(\bmom=0\)</span> is <a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a>(ii). The zero-lag value is <a class="ref" href="r.cor.app-vol-marginals.html#L-eqn:app-vol-marginals-tests" data-label="eqn:app-vol-marginals-tests">(SD.82)</a> of <a class="ref" href="r.cor.app-vol-marginals.html" data-label="cor:app-vol-marginals">Corollary SD.4</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-vol-lag.html" data-label="def:app-vol-lag">Definition SD.1</a> <span class=muted>Tested lag covariances</span></li><li><a class="ref" href="r.thm.app-vol-lag-kernel.html" data-label="thm:app-vol-lag-kernel">Theorem SD.3</a> <span class=muted>Deterministic joint moment response</span></li><li><a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class=muted>Lag reduction</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.def.app-vol-tree.html" data-label="def:app-vol-tree">Definition SD.4</a> <span class=muted>Tree moment equations</span></li><li><a class="ref" href="r.thm.app-vol-half-same.html" data-label="thm:app-vol-half-same">Theorem SD.1</a> <span class=muted>Same-time energies of rows and columns</span></li><li><a class="ref" href="r.cor.app-vol-marginals.html" data-label="cor:app-vol-marginals">Corollary SD.4</a> <span class=muted>Same-step marginals</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-vol-half-spectral.html" data-label="rem:app-vol-half-spectral">Remark SD.1</a> <span class=muted>The spectral form of the row coefficient</span></li><li><a class="ref" href="r.prop.app-vol-half-recovery.html" data-label="prop:app-vol-half-recovery">Proposition SD.4</a> <span class=muted>Recovery of the rows</span></li><li><a class="ref" href="r.rem.app-vol-nomomentum.html" data-label="rem:app-vol-nomomentum">Remark SD.3</a> <span class=muted>No momentum</span></li><li><a class="ref" href="r.thm.app-iso-volatility.html" data-label="thm:app-iso-volatility">Theorem SF.2</a> <span class=muted>Isotropic volatility</span></li><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.rem.app-pl-nomomentum.html" data-label="rem:app-pl-nomomentum">Remark SG.1</a> <span class=muted>No momentum</span></li><li><a class="ref" href="r.prop.app-pl-nomomentum-endpoints.html" data-label="prop:app-pl-nomomentum-endpoints">Proposition SG.8</a> <span class=muted>No-momentum endpoints</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1520">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_i (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C)
+    (hId : ∀ k : ℕ, (R.F k).C.Sin = 1) :
+    ∀ ℓ : ℕ, ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      (R.B k : ℝ)⁻¹ * (∑ i : Fin (R.m k),
+        |rowLag (R.F k) (S k) (Sp k) i ℓ t ϱ ϱ' -
+          lagRowBar cert R.γstar R.CSig (R.F k).β ℓ (R.B k) (Sp k).μ (Sp k).lam i ϱ ϱ'|) ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_ii_bar</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1581">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_ii_bar (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi) :
+    (∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      (B : ℝ)⁻¹ * (∑ i : Fin m, |lagRowBar cert γstar CSig Fp.β 0 B S.μ S.lam i ϱ ϱ'|) ≤ γstar) ∧
+    (∀ ℓ : ℕ, 1 ≤ ℓ → ∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      (B : ℝ)⁻¹ * (∑ i : Fin m, |lagRowBar cert γstar CSig Fp.β ℓ B S.μ S.lam i ϱ ϱ'|) ≤
+        Muon.Dynamics.kStar CSig γstar ϱlo * Fp.β ^ ℓ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_ii_actual</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1656">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_ii_actual (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C)
+    (hId : ∀ k : ℕ, (R.F k).C.Sin = 1) :
+    ∀ k : ℕ, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      (R.B k : ℝ)⁻¹ * (∑ i : Fin (R.m k), |rowLag (R.F k) (S k) (Sp k) i 0 t ϱ ϱ'|) ≤ R.γstar ∧
+      (∀ ℓ : ℕ, 1 ≤ ℓ → (R.B k : ℝ)⁻¹ * (∑ i : Fin (R.m k),
+          |rowLag (R.F k) (S k) (Sp k) i ℓ t ϱ ϱ'|) ≤
+            Muon.Dynamics.kStar R.CSig R.γstar R.ϱlo * (R.F k).β ^ ℓ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iii_series</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1725">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iii_series (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1) (ϱlo ϱhi : ℝ) (hϱ : 0 &lt; ϱlo ∧ ϱlo ≤ ϱhi) :
+    (∀ i : Fin m, ∀ ϱ ∈ Set.Icc ϱlo ϱhi, ∀ ϱ' ∈ Set.Icc ϱlo ϱhi,
+      Summable (fun ℓ : ℕ =&gt; |lagRowBar cert γstar CSig Fp.β (ℓ + 1) B S.μ S.lam i ϱ ϱ' +
+        lagRowBar cert γstar CSig Fp.β (ℓ + 1) B S.μ S.lam i ϱ' ϱ|)) ∧
+    (∀ i : Fin m, ∀ ϱ ∈ Set.Icc ϱlo ϱhi, 0 ≤ rowVBar cert γstar CSig Fp.β B S.μ S.lam i ϱ ϱ) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iii_summable</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1802">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iii_summable (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C)
+    (hId : ∀ k : ℕ, (R.F k).C.Sin = 1) :
+    ∀ k : ℕ, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi, ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi, ∀ i : Fin (R.m k),
+      Summable (fun ℓ : ℕ =&gt; |rowLag (R.F k) (S k) (Sp k) i (ℓ + 1) t ϱ ϱ' +
+        rowLag (R.F k) (S k) (Sp k) i (ℓ + 1) t ϱ' ϱ|) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iii_limit</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1847">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iii_limit (cert : Muon.External.GaussianOpNorm)
+    (R : SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (Sp : ∀ k : ℕ, SpectralData (R.F k).C)
+    (hId : ∀ k : ℕ, (R.F k).C.Sin = 1) :
+    ∀ ε : ℝ, 0 &lt; ε → ∀ᶠ k in atTop, ∀ t : ℤ, ∀ ϱ ∈ Set.Icc R.ϱlo R.ϱhi,
+      ∀ ϱ' ∈ Set.Icc R.ϱlo R.ϱhi,
+      (R.B k : ℝ)⁻¹ * (∑ i : Fin (R.m k),
+        |rowGamma (R.F k) (S k) (Sp k) i t ϱ ϱ' -
+          rowVBar cert R.γstar R.CSig (R.F k).β (R.B k) (Sp k).μ (Sp k).lam i ϱ ϱ'|) ≤ ε := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iv_mu</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L1996">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iv_mu (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1) (ℓ : ℕ) (ϱ ϱ' : ℝ) (hϱ : 0 &lt; ϱ) (hϱ' : 0 &lt; ϱ')
+    (i i' : Fin m) (hμ : S.μ i = S.μ i') :
+    lagRowBar cert γstar CSig Fp.β ℓ B S.μ S.lam i ϱ ϱ' =
+        lagRowBar cert γstar CSig Fp.β ℓ B S.μ S.lam i' ϱ ϱ' ∧
+      rowVBar cert γstar CSig Fp.β B S.μ S.lam i ϱ ϱ' =
+        rowVBar cert γstar CSig Fp.β B S.μ S.lam i' ϱ ϱ' := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iv_vanish</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L2239">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iv_vanish {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω}
+    [IsProbabilityMeasure P] (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : FrozenSamples P m n B) (Sp : SpectralData Fp.C)
+    (hS : SizeFin Fp.C B γstar CSig) (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1)
+    (i : Fin m) (hμ : Sp.μ i = 0) (ℓ : ℕ) (ϱ ϱ' : ℝ) (hϱ : 0 &lt; ϱ) (hϱ' : 0 &lt; ϱ') :
+    lagRowBar cert γstar CSig Fp.β ℓ B Sp.μ Sp.lam i ϱ ϱ' = 0 ∧
+      rowVBar cert γstar CSig Fp.β B Sp.μ Sp.lam i ϱ ϱ' = 0 ∧
+      (∀ t : ℤ, rowLag Fp S Sp i ℓ t ϱ ϱ' = 0) ∧
+      (∀ t : ℤ, rowGamma Fp S Sp i t ϱ ϱ' = 0) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iv_beta0</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L2295">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iv_beta0 (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1) (hβ : Fp.β = 0) (i : Fin m) (ℓ : ℕ) (hℓ : 1 ≤ ℓ)
+    (ϱ ϱ' : ℝ) (hϱ : 0 &lt; ϱ) (hϱ' : 0 &lt; ϱ') :
+    lagRowBar cert γstar CSig Fp.β ℓ B S.μ S.lam i ϱ ϱ' = 0 := by</pre></details><details class="decl"><summary><code>Muon.Volatility.thm_app_vol_mode_kernels_iv_zero_lag</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/Modes.lean#L2336">source</a></summary><pre class="lean no-mj">theorem thm_app_vol_mode_kernels_iv_zero_lag (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {m n B : ℕ} (Fp : FrozenParams m n B) (S : SpectralData Fp.C) (hS : SizeFin Fp.C B γstar CSig)
+    (hCSig : 1 ≤ CSig) (hId : Fp.C.Sin = 1) (ν ν' : FiniteMeasure ℝ)
+    (hν : (ν : Measure ℝ) = Muon.nuOut Fp.C B) (hν' : (ν' : Measure ℝ) = Muon.nuIn Fp.C B)
+    (i : Fin m) (ϱ : ℝ) (hϱ : 0 &lt; ϱ) :
+    lagRowBar cert γstar CSig Fp.β 0 B S.μ S.lam i ϱ ϱ = volraw Fp.β ν ν' (S.μ i) ϱ := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

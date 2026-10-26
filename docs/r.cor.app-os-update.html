@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SH.1 (Expected regularized update)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SH.1 (Expected regularized update)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum · <a href="t.cor.app-os-update.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-os-update"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> <span class="thm-title">(Expected regularized update)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> with <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, and assume that <span class="mi">\(\epsilon_{\rm os}=3(1-\bmom^2)\Nin/B\le\bar\epsilon\)</span> along the sequence of dimensions for a fixed <span class="mi">\(\bar\epsilon&lt;1\)</span>. For <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span> let <span class="mi">\(\vartheta_\ridge\)</span> be the function of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iv) at the current dimension. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-update"></span>\begin{equation}\tag{SH.12}
+\sup_{\ridge\in[\ridge_-,\ridge_+]}\Big\|\EE\,\Qridge\ridge(\Mt)
+-\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,
+\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}\Big(\Sigmaout;\frac{\ridge}{\sw2\gin}\Big)\,
+\frac{\Dt}{\sqrt{\cR(t)}}\Big\|_\F\longrightarrow0,
+\end{equation}</div>
+<div class="p">and <span class="mi">\(\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big]\)</span> at every dimension and for every <span class="mi">\(\ridge\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The candidate of <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> is the drift operator applied to the state. With <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, the deterministic equivalents of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a> are <span class="mi">\(\Rbar(-s)=(s\Id+\tilde s_1(-s)\Sigmaout)^{-1}\)</span> and <span class="mi">\(\Rtbar(-s)=(s+s_1(-s))^{-1}\Id\)</span>, so the candidate <span class="mi">\(T\)</span> of <a class="ref" href="s.SC.html#L-eqn:app-drift-H" data-label="eqn:app-drift-H">(SC.2)</a> is</div>
+<div class="md">\[
+T(s)=\frac{s\,\Lw(q(-s))}{s+s_1(-s)}\,\Sigmaout\big(s\Id+\tilde s_1(-s)\Sigmaout\big)^{-1}\frac{\Dt}{\sqrt{2\cR(t)}}
+=\mathsf k(s;\Sigmaout)\,\frac{\Dt}{\sqrt{2\cR(t)}} .
+\]</div>
+<div class="p">Integrating against <span class="mi">\(\frac2\pi\,\dif u\)</span> at <span class="mi">\(s=\ridge+u^2\)</span>, as in <a class="ref" href="s.SC.html#L-eqn:app-drift-Gbar" data-label="eqn:app-drift-Gbar">(SC.3)</a>, and using <span class="mi">\(\frac2\pi=\sqrt2\cdot\frac{\sqrt2}{\pi}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-Gbar"></span>\begin{equation}\tag{SH.13}
+\Gtildebar_\ridge=\sqrt2\,\mathfrak d_\ridge(\Sigmaout)\,\frac{\Dt}{\sqrt{2\cR(t)}}
+=\mathfrak d_\ridge(\Sigmaout)\,\frac{\Dt}{\sqrt{\cR(t)}} .
+\end{equation}</div>
+<div class="p">The drift operator is then rewritten by <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>. At every dimension <span class="mi">\(\epsilon_{\rm os}\le\bar\epsilon&lt;1\)</span>, so <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iv) gives the hypothesis of the theorem and <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span>. <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iv) gives</div>
+<div class="md">\[
+\mathfrak d_\ridge(\Sigmaout)=\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,
+\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}(\Sigmaout;\hat\ridge),
+\qquad\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big].
+\]</div>
+<div class="p">Inserting this into <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-Gbar" data-label="eqn:app-os-Gbar">(SH.13)</a>, <a class="ref" href="r.thm.app-drift-mean.html#L-eqn:app-drift-mean" data-label="eqn:app-drift-mean">(SC.8)</a> of <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> gives <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-update" data-label="eqn:app-os-update">(SH.12)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> <span class=muted>Regularized mean</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> <span class=muted>Oversampled limit law</span></li><li><a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> <span class=muted>Scalar bounds</span></li><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-os-normalization.html" data-label="rem:app-os-normalization">Remark SH.5</a> <span class=muted>Normalization of the oversampled drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.OsUpdateHyp</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Update.lean#L28">source</a></summary><pre class="lean no-mj">structure OsUpdateHyp (R : Muon.Setup.SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) (t : ℤ) where</pre></details><details class="decl"><summary><code>Muon.Oversampled.osUpdateTarget</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Update.lean#L55">source</a></summary><pre class="lean no-mj">def osUpdateTarget (R : Muon.Setup.SetupRegime) (Ω : ℕ → Type) [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) (t : ℤ) (H : OsUpdateHyp R Ω P t) (k : ℕ) (ϱ : ℝ) :
+    Mat (R.m k) (R.n k) :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_update_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Update.lean#L429">source</a></summary><pre class="lean no-mj">theorem cor_app_os_update_i (R : Muon.Setup.SetupRegime)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, Muon.Setup.FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (H : OsUpdateHyp R Ω P t) :
+    ∀ η &gt; 0, ∀ᶠ k in atTop, ∀ ϱ ∈ Icc R.ϱlo R.ϱhi,
+      Muon.fro (Muon.Drift.EQ (Muon.emaW R.β) (R.F k) (S k) t ϱ -
+        osUpdateTarget R Ω P t H k ϱ) &lt; η := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_update_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Update.lean#L451">source</a></summary><pre class="lean no-mj">theorem cor_app_os_update_ii (R : Muon.Setup.SetupRegime)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)]
+    (P : ∀ k, Measure (Ω k)) [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, Muon.Setup.FrozenSamples (P k) (R.m k) (R.n k) (R.B k)) (t : ℤ)
+    (H : OsUpdateHyp R Ω P t) :
+    ∀ k, ∀ ϱ : ℝ, 0 ≤ ϱ →
+      spectrum ℝ (cfc (fun μ : ℝ =&gt; thetaRidge (H.br k) (nuHatOut (R.F k).C)
+          ((R.m k : ℝ) / (R.n k : ℝ)) ϱ μ) (R.F k).C.Sout) ⊆
+        Icc (1 - epsOs R.β (gammaIn (R.n k) (R.B k)))
+            (1 - epsOs R.β (gammaIn (R.n k) (R.B k)))⁻¹ := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

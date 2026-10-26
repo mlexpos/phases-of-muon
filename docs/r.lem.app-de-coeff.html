@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.5 (Coefficient bounds)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.5 (Coefficient bounds)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-coeff"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class="thm-title">(Coefficient bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(I\subset(0,\infty)\)</span> be compact with <span class="mi">\(s_-=\min I\)</span> and put <span class="mi">\(C_I\defeq\max(1,s_-^{-1})\big(1+\tfrac{3}{4\sqrt{s_-}}\big)^3\)</span>. In the setting of <a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> with <span class="mi">\(\mathsf h=\varpi\,d\)</span>, <span class="mi">\(0\le\varpi\le1\)</span>, <span class="mi">\(d\in\R\)</span>, and <span class="mi">\(s\in I\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-coeff-bounds"></span>\begin{equation}\tag{SB.19}
+\abs{\alpha_1}\le C_I\,\varpi\,(1+\abs d)^4(1+\mathsf N)^3,\qquad
+\abs{\alpha_2}+\abs{\alpha_3}\le C_I\,\varpi^2(1+\abs d)^4(1+\mathsf N)^3 ,
+\end{equation}</div>
+<div class="p">and the same bounds hold for <span class="mi">\(\alpha_1/\varpi\)</span> and <span class="mi">\((\alpha_2,\alpha_3)/\varpi^2\)</span> with the factors <span class="mi">\(\varpi\)</span>, <span class="mi">\(\varpi^2\)</span> removed. Moreover <span class="mi">\(R-R_0\)</span> has rank at most two and <span class="mi">\(\norm{R-R_0}_*\le4/s\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The three scalars of <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-UVC" data-label="eqn:app-de-UVC">(SB.12)</a> are bounded by the norm bounds of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> applied to <span class="mi">\(M_0\)</span>:</div>
+<div class="md">\[
+0\le\mathsf U\le\frac{\mathsf N}{s},\qquad 0\le s\mathsf V\le\mathsf N,\qquad
+\abs{\mathsf C}\le\frac{\norm{\mathsf u}\norm{\mathsf v}}{2\sqrt s}\le\frac{\mathsf N}{4\sqrt s}.
+\]</div>
+<div class="p">We also use <span class="mi">\(\abs{\mathsf h}\le\abs d\)</span>, which holds because <span class="mi">\(\varpi\le1\)</span>, the inverse bound <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a>, and the elementary inequality</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-elementary"></span>\begin{equation}\tag{SB.20}
+1+c\abs d\mathsf N\le(1+c)(1+\abs d)(1+\mathsf N)\qquad(c\ge0).
+\end{equation}</div>
+<div class="p">For <span class="mi">\(\alpha_1\)</span> these give</div>
+<div class="md">\[
+\abs{\alpha_1}=\frac{\abs{\mathsf h}\,\abs{1+\mathsf h\mathsf C}}{\Lambda}
+\le \varpi\abs d\Big(1+\frac{\abs d\mathsf N}{4\sqrt s}\Big)\Big(1+\frac{3\abs d\mathsf N}{4\sqrt s}\Big)^2
+\le \varpi\abs d\Big(1+\frac{3}{4\sqrt{s_-}}\Big)^3(1+\abs d)^3(1+\mathsf N)^3 ,
+\]</div>
+<div class="p">the first inequality by <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a> and <span class="mi">\(\abs{\mathsf C}\le\mathsf N/(4\sqrt s)\)</span>, the second by <a class="ref" href="r.lem.app-de-coeff.html#L-eqn:app-de-elementary" data-label="eqn:app-de-elementary">(SB.20)</a> applied to each factor with <span class="mi">\(s\ge s_-\)</span>. For <span class="mi">\(\alpha_2\)</span> and <span class="mi">\(\alpha_3\)</span> the two numerators are bounded together. Since <span class="mi">\(s\mathsf U\le\norm{\mathsf u}^2\)</span> and <span class="mi">\(s\mathsf V\le\norm{\mathsf v}^2\)</span>,</div>
+<div class="md">\[
+\mathsf U+s\mathsf V\le\frac{\norm{\mathsf u}^2}{s}+\norm{\mathsf v}^2\le\max(1,s_-^{-1})\,\mathsf N .
+\]</div>
+<div class="p">Since <span class="mi">\(\alpha_2\ge0\ge\alpha_3\)</span>, the first inequality below follows from this bound, <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-Lambda-inverse" data-label="eqn:app-de-Lambda-inverse">(SB.16)</a> and <span class="mi">\(\abs{\mathsf h}\le\abs d\)</span>, and the second from <a class="ref" href="r.lem.app-de-coeff.html#L-eqn:app-de-elementary" data-label="eqn:app-de-elementary">(SB.20)</a>:</div>
+<div class="md">\[
+\abs{\alpha_2}+\abs{\alpha_3}=\frac{\mathsf h^2(\mathsf U+s\mathsf V)}{\Lambda}
+\le\max(1,s_-^{-1})\,\varpi^2d^2\,\mathsf N\Big(1+\frac{3\abs d\mathsf N}{4\sqrt s}\Big)^2
+\le\max(1,s_-^{-1})\Big(1+\frac{3}{4\sqrt{s_-}}\Big)^2\varpi^2(1+\abs d)^4(1+\mathsf N)^3 .
+\]</div>
+<div class="p">Since <span class="mi">\(\abs d\le1+\abs d\)</span> and <span class="mi">\(1+\frac{3}{4\sqrt{s_-}}\ge1\)</span>, both right sides are at most <span class="mi">\(C_I\)</span> times <span class="mi">\(\varpi(1+\abs d)^4(1+\mathsf N)^3\)</span>, respectively <span class="mi">\(\varpi^2(1+\abs d)^4(1+\mathsf N)^3\)</span>, with the stated <span class="mi">\(C_I\)</span>. The bounds for the normalized coefficients are the same inequalities with the factor <span class="mi">\(\varpi\)</span> or <span class="mi">\(\varpi^2\)</span> of <span class="mi">\(\mathsf h\)</span> or <span class="mi">\(\mathsf h^2\)</span> cancelled before bounding <span class="mi">\(\abs{\mathsf h}\)</span> by <span class="mi">\(\abs d\)</span>.</div>
+<div class="p">The rank claim follows from <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a>, whose right side has range in the span of <span class="mi">\(R_0\mathsf u\)</span> and <span class="mi">\(\mathsf X_0\mathsf v\)</span>. For a matrix of rank at most two the nuclear norm is at most twice the operator norm, so</div>
+<div class="md">\[
+\norm{R-R_0}_*\le2\norm{R-R_0}\le2\big(\norm R+\norm{R_0}\big)\le\frac4s . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class=muted>Rank-two deletion</span></li><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class=muted>Concentration of the deleted-sample scalars</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_coeff</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L882">source</a></summary><pre class="lean no-mj">theorem lem_app_de_coeff {I : Set ℝ} (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    {m n : ℕ} (M₀ : Mat m n) (u : Vec m) (v : Vec n) (M : Mat m n) (d ϖ : ℝ)
+    (hM : M = M₀ + (ϖ * d) • outer u v) (hϖ0 : 0 ≤ ϖ) (hϖ1 : ϖ ≤ 1) :
+    ∀ s ∈ I,
+      |alpha1 M₀ (ϖ * d) u v s| ≤
+          coeffConst I * ϖ * (1 + |d|) ^ 4 * (1 + (sqNorm u + sqNorm v)) ^ 3 ∧
+      |alpha2 M₀ (ϖ * d) u v s| + |alpha3 M₀ (ϖ * d) u v s| ≤
+          coeffConst I * ϖ ^ 2 * (1 + |d|) ^ 4 * (1 + (sqNorm u + sqNorm v)) ^ 3 ∧
+      (0 &lt; ϖ → |alpha1 M₀ (ϖ * d) u v s / ϖ| ≤
+          coeffConst I * (1 + |d|) ^ 4 * (1 + (sqNorm u + sqNorm v)) ^ 3) ∧
+      (0 &lt; ϖ → (|alpha2 M₀ (ϖ * d) u v s| + |alpha3 M₀ (ϖ * d) u v s|) / ϖ ^ 2 ≤
+          coeffConst I * (1 + |d|) ^ 4 * (1 + (sqNorm u + sqNorm v)) ^ 3) ∧
+      Matrix.rank (Rs M s - Rs M₀ s) ≤ 2 ∧
+      nuc (Rs M s - Rs M₀ s) ≤ 4 / s := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.coeffConst</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Resolvent.lean#L80">source</a></summary><pre class="lean no-mj">def coeffConst (I : Set ℝ) : ℝ :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

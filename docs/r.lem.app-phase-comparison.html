@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.3 (Comparison)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.3 (Comparison)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-comparison"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-comparison.html" data-label="lem:app-phase-comparison">Lemma SI.3</a> <span class="thm-title">(Comparison)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(S'&gt;0\)</span>, let <span class="mi">\(\mathsf k\ge0\)</span> be integrable on <span class="mi">\((0,S')\)</span>, let <span class="mi">\(G\ge0\)</span> be continuous on <span class="mi">\([0,S']\)</span>, and let <span class="mi">\(m&gt;0\)</span>. Let <span class="mi">\(x\)</span> and <span class="mi">\(y\)</span> be continuous and nonnegative on <span class="mi">\([0,S']\)</span>, with <span class="mi">\(y\ge m\)</span> and</div>
+<div class="md">\[
+x\le G+\mathsf k*\sqrt x,\qquad y\ge G+\mathsf k*\sqrt y\qquad\text{on }[0,S'].
+\]</div>
+<div class="p">Then <span class="mi">\(x\le y\)</span> on <span class="mi">\([0,S']\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Put <span class="mi">\(d\defeq(x-y)_+\)</span>. Where <span class="mi">\(x&gt;y\)</span> one has</div>
+<div class="md">\[
+\sqrt x-\sqrt y=\frac{x-y}{\sqrt x+\sqrt y}\le\frac{d}{\sqrt m},
+\]</div>
+<div class="p">so <span class="mi">\((\sqrt x-\sqrt y)_+\le d/\sqrt m\)</span> everywhere. Subtracting the two inequalities and using <span class="mi">\(\mathsf k\ge0\)</span> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-dcomp"></span>\begin{equation}\tag{SI.6}
+d\le\frac1{\sqrt m}\,\mathsf k*d\qquad\text{on }[0,S'].
+\end{equation}</div>
+<div class="p">Since <span class="mi">\(\mathsf k\)</span> is integrable, there is <span class="mi">\(\iota&gt;0\)</span> with <span class="mi">\(m^{-1/2}\int_0^{\iota}\mathsf k\le\frac12\)</span>. Suppose <span class="mi">\(d=0\)</span> on <span class="mi">\([0,j\iota]\cap[0,S']\)</span> for some integer <span class="mi">\(j\ge0\)</span>. For <span class="mi">\(s\)</span> in <span class="mi">\([j\iota,(j+1)\iota]\cap[0,S']\)</span> the integrand of <span class="mi">\(\mathsf k*d\)</span> vanishes for <span class="mi">\(v\le j\iota\)</span>, so <a class="ref" href="r.lem.app-phase-comparison.html#L-eqn:app-phase-dcomp" data-label="eqn:app-phase-dcomp">(SI.6)</a> gives</div>
+<div class="md">\[
+d(s)\le\frac1{\sqrt m}\int_{j\iota}^s\mathsf k(s-v)\,d(v)\,\dif v\le\frac12\sup_{[j\iota,(j+1)\iota]\cap[0,S']}d .
+\]</div>
+<div class="p">Taking the supremum over <span class="mi">\(s\)</span> shows that this supremum vanishes. Finitely many steps cover <span class="mi">\([0,S']\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-volterra.html" data-label="thm:app-phase-volterra">Theorem SI.1</a> <span class=muted>Existence, uniqueness and floor</span></li><li><a class="ref" href="r.thm.app-phase-hitting.html" data-label="thm:app-phase-hitting">Theorem SI.3</a> <span class=muted>Hitting times</span></li><li><a class="ref" href="r.lem.app-phase-square.html" data-label="lem:app-phase-square">Lemma SI.9</a> <span class=muted>Square supersolution</span></li><li><a class="ref" href="r.lem.app-phase-mixture.html" data-label="lem:app-phase-mixture">Lemma SI.11</a> <span class=muted>Finite exponential mixtures</span></li><li><a class="ref" href="r.lem.app-phase-log-global.html" data-label="lem:app-phase-log-global">Lemma SI.18</a> <span class=muted><span class="sc">SignSVD</span> kernel, <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(\texp&gt;1\)</span></span></li><li><a class="ref" href="r.lem.app-phase-square-tail.html" data-label="lem:app-phase-square-tail">Lemma SI.20</a> <span class=muted>Square supersolution with a tail term</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_comparison</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Volterra.lean#L767">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_comparison
+    (S' : ℝ) (hS' : 0 &lt; S') (kc : ℝ → ℝ)
+    (hkc_nonneg : ∀ s ∈ Ioo (0 : ℝ) S', 0 ≤ kc s) (hkc_int : IntegrableOn kc (Ioo 0 S'))
+    (G : ℝ → ℝ) (hG : ContinuousOn G (Icc 0 S')) (hG_nonneg : ∀ s ∈ Icc (0 : ℝ) S', 0 ≤ G s)
+    (m : ℝ) (hm : 0 &lt; m)
+    (x y : ℝ → ℝ) (hx : ContinuousOn x (Icc 0 S')) (hx_nonneg : ∀ s ∈ Icc (0 : ℝ) S', 0 ≤ x s)
+    (hy : ContinuousOn y (Icc 0 S')) (hy_nonneg : ∀ s ∈ Icc (0 : ℝ) S', 0 ≤ y s)
+    (hym : ∀ s ∈ Icc (0 : ℝ) S', m ≤ y s)
+    (hxsub : ∀ s ∈ Icc (0 : ℝ) S', x s ≤ G s + oneSidedConv (fun u =&gt; Real.sqrt (x u)) kc s)
+    (hysub : ∀ s ∈ Icc (0 : ℝ) S', G s + oneSidedConv (fun u =&gt; Real.sqrt (y u)) kc s ≤ y s) :
+    ∀ s ∈ Icc (0 : ℝ) S', x s ≤ y s := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

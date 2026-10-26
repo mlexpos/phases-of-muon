@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.4 (Small aspect ratios)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.4 (Small aspect ratios)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.thm.app-iso-small.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-small"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a> <span class="thm-title">(Small aspect ratios)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\gin^{(j)},\gout^{(j)}\to0\)</span> with <span class="mi">\(r_j\defeq\gout^{(j)}/\gin^{(j)}\to r\in(0,\infty)\)</span>, and let <span class="mi">\((\mathfrak m_{\mathrm{out}}^{(j)},\mathfrak m_{\mathrm{in}}^{(j)})\)</span> be the isotropic measure pair at <span class="mi">\((\gin^{(j)},\gout^{(j)})\)</span> of <a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a>. Let <span class="mi">\(\mathsf P_j\)</span> be the image of the probability measure <span class="mi">\(\mathfrak m_{\mathrm{out}}^{(j)}/\gout^{(j)}\)</span> under <span class="mi">\(\lambda\mapsto\lambda/\gout^{(j)}\)</span>, and write <span class="mi">\(\mathsf m_j(t)\defeq S_{\mathsf P_j}(-t)\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(t&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-small-residual"></span>\begin{equation}\tag{SF.37}
+\Big|t\,\mathsf m_j(t)^2+\Big(t+\frac1{r_j}-1\Big)\mathsf m_j(t)-1\Big|\le\frac{3\gout^{(j)}}{r_j^2t^2}.
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><span class="mi">\(\mathsf P_j\to\mathsf M_r\)</span> weakly, and <span class="mi">\(\int\sqrt x\,\mathsf P_j(\dif x)\to J_r\defeq\int\sqrt x\,\mathsf M_r(\dif x)&gt;0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The constant satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-small"></span>\begin{equation}\tag{SF.38}
+\begin{gathered}
+C\big(\gin^{(j)},\gout^{(j)}\big)=\frac{r_j}{\sqrt{2\gout^{(j)}}}\int\sqrt x\,\mathsf P_j(\dif x)
+\sim\frac{r}{\sqrt{2\gout^{(j)}}}\,J_r,\\
+J_r=\int_{a_r}^{b_r}\frac{\sqrt{(b_r-x)(x-a_r)}}{2\pi\sqrt x}\,\dif x .
+\end{gathered}
+\end{equation}</div>
+<div class="p">In particular <span class="mi">\(J_1=8/(3\pi)\)</span>, and <span class="mi">\(C(\gamma)\sim8/(3\pi\sqrt{2\gamma})\)</span> as <span class="mi">\(\gamma\downarrow0\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">We drop the index <span class="mi">\(j\)</span> from <span class="mi">\(\gin,\gout,\mathfrak m_{\mathrm{out}},\sigma,\tilde\sigma\)</span> and keep it on <span class="mi">\(r_j\)</span>, <span class="mi">\(\mathsf P_j\)</span> and <span class="mi">\(\mathsf m_j\)</span>. Fix <span class="mi">\(t&gt;0\)</span>.</div>
+<div class="p">The transform of <span class="mi">\(\mathsf P_j\)</span> is the branch at <span class="mi">\(-\gout t\)</span>:</div>
+<div class="md">\[
+\mathsf m_j(t)=\frac{1}{\gout}\int\frac{\mathfrak m_{\mathrm{out}}(\dif\lambda)}{\lambda/\gout+t}=\sigma(-\gout t),
+\]</div>
+<div class="p">and by <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-anchors" data-label="eqn:app-iso-anchors">(SF.6)</a> the companion is</div>
+<div class="md">\[
+\tilde\sigma(-\gout t)=\sigma(-\gout t)+\frac{\gin-\gout}{\gout t}=\mathsf m_j(t)+\frac{1/r_j-1}{t}.
+\]</div>
+<div class="p">Both transforms are bounded by the mass over <span class="mi">\(\gout t\)</span>: since <span class="mi">\(\mathsf P_j\)</span> is a probability measure, <span class="mi">\(\mathsf m_j(t)\le1/t\)</span>, and <span class="mi">\(\tilde\sigma(-\gout t)\le\gin/(\gout t)=1/(r_jt)\)</span>. The argument of <span class="mi">\(\Phi\)</span> in the closure is therefore small:</div>
+<div class="md">\[
+v_j\defeq\gout t\,\sigma(-\gout t)\,\tilde\sigma(-\gout t)=\gout\,\mathsf m_j\Big(t\,\mathsf m_j+\frac1{r_j}-1\Big)\le\frac{\gout}{r_jt}.
+\]</div>
+<div class="p">For part (i), the closure <a class="ref" href="r.def.app-iso-measure.html#L-eqn:app-iso-hypothesis" data-label="eqn:app-iso-hypothesis">(SF.25)</a> at <span class="mi">\(\gout t\)</span> reads</div>
+<div class="md">\[
+\gout\big(1-t\,\mathsf m_j\big)=\Phi(v_j)=v_j-e_j,\qquad 0\le e_j\le3v_j^2,
+\]</div>
+<div class="p">by <a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a>(iii). Dividing by <span class="mi">\(\gout\)</span> and inserting <span class="mi">\(v_j\)</span>,</div>
+<div class="md">\[
+t\,\mathsf m_j^2+\Big(t+\frac1{r_j}-1\Big)\mathsf m_j-1=\frac{e_j}{\gout},
+\]</div>
+<div class="p">and <span class="mi">\(e_j/\gout\le3v_j^2/\gout\le3\gout/(r_j^2t^2)\)</span>.</div>
+<div class="p">For part (ii), the residual <a class="ref" href="r.thm.app-iso-small.html#L-eqn:app-iso-small-residual" data-label="eqn:app-iso-small-residual">(SF.37)</a> tends to zero and <span class="mi">\(\mathsf m_j(t)\in[0,1/t]\)</span>. Every limit point <span class="mi">\(m\)</span> of <span class="mi">\((\mathsf m_j(t))_j\)</span> is therefore a nonnegative root of <a class="ref" href="r.lem.app-iso-mp.html#L-eqn:app-iso-mp-quadratic" data-label="eqn:app-iso-mp-quadratic">(SF.34)</a>, and <span class="mi">\(m\ne0\)</span> because the constant term is <span class="mi">\(-1\)</span>. By <a class="ref" href="r.lem.app-iso-mp.html" data-label="lem:app-iso-mp">Lemma SF.9</a>, <span class="mi">\(m=m_r(t)\)</span>, so <span class="mi">\(\mathsf m_j(t)\to S_{\mathsf M_r}(-t)\)</span> for every <span class="mi">\(t&gt;0\)</span>. The first moments are bounded: by <a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a>(ii),</div>
+<div class="md">\[
+\int x\,\mathsf P_j(\dif x)=\frac{1}{\gout^2}\int\lambda\,\mathfrak m_{\mathrm{out}}(\dif\lambda)=\frac{\gin\gout}{\gout^2}=\frac1{r_j},
+\]</div>
+<div class="p">and <span class="mi">\(\mathsf M_r\)</span> has first moment <span class="mi">\(1/r\)</span>. <a class="ref" href="r.lem.app-iso-transforms.html" data-label="lem:app-iso-transforms">Lemma SF.2</a>(i) gives the weak convergence and the convergence of the half-moments. The limit <span class="mi">\(J_r\)</span> is positive because <span class="mi">\(\mathsf M_r\)</span> gives positive mass <span class="mi">\(\min(1,1/r)\)</span> to <span class="mi">\((a_r,b_r)\subset(0,\infty)\)</span>.</div>
+<div class="p">For part (iii), <a class="ref" href="r.prop.app-iso-spectral.html#L-eqn:app-iso-C-moment" data-label="eqn:app-iso-C-moment">(SF.27)</a> and the change of variables <span class="mi">\(\lambda=\gout x\)</span> give</div>
+<div class="md">\[
+C(\gin,\gout)=\frac{1}{\sqrt2\,\gin\gout}\,\gout^{3/2}\int\sqrt x\,\mathsf P_j(\dif x)
+=\frac{r_j}{\sqrt{2\gout}}\int\sqrt x\,\mathsf P_j(\dif x),
+\]</div>
+<div class="p">and part (ii) gives the asymptotic equivalence. The atom of <span class="mi">\(\mathsf M_r\)</span> at <span class="mi">\(0\)</span> does not contribute to <span class="mi">\(J_r\)</span>. For <span class="mi">\(r=1\)</span>, <span class="mi">\(a_1=0\)</span> and <span class="mi">\(b_1=4\)</span>, so</div>
+<div class="md">\[
+J_1=\frac1{2\pi}\int_0^4\sqrt{4-x}\,\dif x=\frac{1}{2\pi}\cdot\frac{16}{3}=\frac{8}{3\pi}.
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a> <span class=muted>Isotropic closure</span></li><li><a class="ref" href="r.def.app-iso-measure.html" data-label="def:app-iso-measure">Definition SF.2</a> <span class=muted>Isotropic measure pair</span></li><li><a class="ref" href="r.lem.app-iso-gaussian.html" data-label="lem:app-iso-gaussian">Lemma SF.1</a> <span class=muted>The Gaussian scalar</span></li><li><a class="ref" href="r.lem.app-iso-mp.html" data-label="lem:app-iso-mp">Lemma SF.9</a> <span class=muted>The limiting law</span></li><li><a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a> <span class=muted>Moments and atoms</span></li><li><a class="ref" href="r.lem.app-iso-transforms.html" data-label="lem:app-iso-transforms">Lemma SF.2</a> <span class=muted>Negative-axis transforms</span></li><li><a class="ref" href="r.prop.app-iso-spectral.html" data-label="prop:app-iso-spectral">Proposition SF.7</a> <span class=muted>Spectral form of the constant</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-iso-reciprocity.html" data-label="prop:app-iso-reciprocity">Proposition SF.8</a> <span class=muted>Reciprocity</span></li><li><a class="ref" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a> <span class=muted>Small aspect ratios with momentum</span></li><li><a class="ref" href="r.rem.app-os-isotropic.html" data-label="rem:app-os-isotropic">Remark SH.4</a> <span class=muted>Agreement with the isotropic results</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L1926">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_i (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ) (r : ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hr : 0 &lt; r)
+    (hin : Tendsto gin atTop (𝓝 0)) (hout : Tendsto gout atTop (𝓝 0))
+    (hratio : Tendsto (fun j =&gt; gout j / gin j) atTop (𝓝 r)) :
+    ∀ j : ℕ, ∀ t : ℝ, 0 &lt; t →
+      |t * isoNegStieltjes (isoNormMeasure (gout j) (mo j)) t ^ 2 +
+          (t + gin j / gout j - 1) * isoNegStieltjes (isoNormMeasure (gout j) (mo j)) t - 1| ≤
+        3 * gout j / ((gout j / gin j) ^ 2 * t ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L2145">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_ii (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ) (r : ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hr : 0 &lt; r)
+    (hin : Tendsto gin atTop (𝓝 0)) (hout : Tendsto gout atTop (𝓝 0))
+    (hratio : Tendsto (fun j =&gt; gout j / gin j) atTop (𝓝 r)) :
+    (∀ f : BoundedContinuousFunction ℝ ℝ,
+      Tendsto (fun j =&gt; ∫ x, f x ∂(isoNormMeasure (gout j) (mo j))) atTop
+        (𝓝 (∫ x, f x ∂(isoMP r)))) ∧
+    Tendsto (fun j =&gt; ∫ x, Real.sqrt x ∂(isoNormMeasure (gout j) (mo j))) atTop
+        (𝓝 (isoJr r)) ∧
+    0 &lt; isoJr r := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L2305">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_iii (gin gout : ℕ → ℝ) (mo mi : ℕ → Measure ℝ) (r : ℝ)
+    (hp : ∀ j, IsIsoMeasurePair (gin j) (gout j) (mo j) (mi j))
+    (hr : 0 &lt; r)
+    (hin : Tendsto gin atTop (𝓝 0)) (hout : Tendsto gout atTop (𝓝 0))
+    (hratio : Tendsto (fun j =&gt; gout j / gin j) atTop (𝓝 r)) :
+    (∀ j : ℕ, Cbeta 0 (gin j) (gout j) =
+        gout j / gin j / Real.sqrt (2 * gout j) *
+          ∫ x, Real.sqrt x ∂(isoNormMeasure (gout j) (mo j))) ∧
+    Asymptotics.IsEquivalent atTop (fun j =&gt; Cbeta 0 (gin j) (gout j))
+        (fun j =&gt; r / Real.sqrt (2 * gout j) * isoJr r) ∧
+    isoJr r = ∫ x in isoMPa r..isoMPb r,
+        Real.sqrt ((isoMPb r - x) * (x - isoMPa r)) / (2 * Real.pi * Real.sqrt x) ∧
+    isoJr 1 = 8 / (3 * Real.pi) ∧
+    Tendsto (fun γ : ℝ =&gt; Cbeta 0 γ γ / (8 / (3 * Real.pi * Real.sqrt (2 * γ))))
+      (𝓝[&gt;] (0 : ℝ)) (𝓝 1) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

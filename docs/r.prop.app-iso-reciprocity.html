@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SF.8 (Reciprocity)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SF.8 (Reciprocity)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-iso-reciprocity"><div class="thm-head"><a class="thm-name" href="r.prop.app-iso-reciprocity.html" data-label="prop:app-iso-reciprocity">Proposition SF.8</a> <span class="thm-title">(Reciprocity)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">Let <span class="mi">\((\mathfrak m_{\mathrm{out}},\mathfrak m_{\mathrm{in}})\)</span> be the isotropic measure pair at <span class="mi">\((\gin,\gout)\)</span>, let <span class="mi">\(b=\gin\gout\)</span>, and let <span class="mi">\(\mathsf P\)</span> be the image of <span class="mi">\(\mathfrak m_{\mathrm{out}}/\gout\)</span> under <span class="mi">\(\lambda\mapsto\lambda/\gout\)</span>. Then <span class="mi">\(\mathsf P\)</span> is the image of <span class="mi">\(\widehat{\mathfrak m}_b/\gout\)</span> under <span class="mi">\(x\mapsto\gin x\)</span>. If <span class="mi">\(\widehat{\mathfrak m}_b\)</span> has a density <span class="mi">\(\widehat\rho\)</span>, then <span class="mi">\(\mathsf P\)</span> has the density <span class="mi">\(\widehat\rho(x/\gin)/(\gin\gout)\)</span>. Its transform and the constant are</div>
+<div class="md">\[
+S_{\mathsf P}(-t)=\sigma(-\gout t)=\frac{1}{\gin\gout}\,S_{\widehat{\mathfrak m}_b}\Big(-\frac{t}{\gin}\Big),\qquad
+C(\gin,\gout)=\frac{\sqrt{\gout}}{\sqrt2\,\gin}\int\sqrt x\,\mathsf P(\dif x).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every <span class="mi">\(r&gt;0\)</span>, <span class="mi">\(J_{1/r}=r^{3/2}J_r\)</span>, and the right side of <a class="ref" href="r.thm.app-iso-small.html#L-eqn:app-iso-small" data-label="eqn:app-iso-small">(SF.38)</a> is unchanged when <span class="mi">\(\gin\)</span> and <span class="mi">\(\gout\)</span> are exchanged (with <span class="mi">\(r\)</span> replaced by <span class="mi">\(1/r\)</span>).</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(r&gt;0\)</span> the endpoint pairs <span class="mi">\(\{(1\pm\sqrt r)^2/r\}\)</span> and <span class="mi">\(\{(1\pm1/\sqrt r)^2\}\)</span> are equal.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For part (i), the image of <span class="mi">\(\lambda\)</span> under the two maps is <span class="mi">\(\lambda/(\gin\gout)\)</span> followed by <span class="mi">\(\gin\lambda/(\gin\gout)=\lambda/\gout\)</span>. The density is the change of variables with the Jacobian <span class="mi">\(1/\gin\)</span> and the mass normalization <span class="mi">\(1/\gout\)</span>. The transform is the first computation of the proof of <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a> together with <span class="mi">\(S_{\widehat{\mathfrak m}_b}(-t/\gin)=b\,\sigma(-\gout t)\)</span> from <a class="ref" href="r.prop.app-iso-spectral.html" data-label="prop:app-iso-spectral">Proposition SF.7</a>, and the constant is the computation of <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a>(iii) with <span class="mi">\(r_j=\gout/\gin\)</span>, since <span class="mi">\(r_j/\sqrt{\gout}=\sqrt{\gout}/\gin\)</span>.</div>
+<div class="p">For part (ii), the endpoints at <span class="mi">\(1/r\)</span> are <span class="mi">\(a_{1/r}=r\,a_r\)</span> and <span class="mi">\(b_{1/r}=r\,b_r\)</span>. Writing <span class="mi">\(\rho_r\)</span> for the density of the continuous part of <span class="mi">\(\mathsf M_r\)</span>, direct substitution gives</div>
+<div class="md">\[
+\rho_{1/r}(ry)=\frac{\sqrt{r^2(b_r-y)(y-a_r)}}{2\pi ry}=\rho_r(y),
+\]</div>
+<div class="p">so that</div>
+<div class="md">\[
+J_{1/r}=\int\sqrt x\,\rho_{1/r}(x)\,\dif x=\int\sqrt{ry}\,\rho_r(y)\,r\,\dif y=r^{3/2}J_r .
+\]</div>
+<div class="p">Exchanging the ratios replaces <span class="mi">\((r,\gout)\)</span> by <span class="mi">\((1/r,\gin)\)</span> in <a class="ref" href="r.thm.app-iso-small.html#L-eqn:app-iso-small" data-label="eqn:app-iso-small">(SF.38)</a>, and with <span class="mi">\(\gout=r\gin\)</span>,</div>
+<div class="md">\[
+\frac{1/r}{\sqrt{2\gin}}\,J_{1/r}=\frac{\sqrt r\,J_r}{\sqrt{2\gin}}=\frac{r\,J_r}{\sqrt{2\gout}} .
+\]</div>
+<div class="p">Part (iii) is the identity <span class="mi">\((1\pm\sqrt r)^2/r=(1/\sqrt r\pm1)^2\)</span>, whose right side is <span class="mi">\((1\pm1/\sqrt r)^2\)</span> for the same choice of sign.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a> <span class=muted>Small aspect ratios</span></li><li><a class="ref" href="r.prop.app-iso-spectral.html" data-label="prop:app-iso-spectral">Proposition SF.7</a> <span class=muted>Spectral form of the constant</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_reciprocity_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L742">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_reciprocity_ii :
+    (∀ r : ℝ, 0 &lt; r → isoJr (1 / r) = r ^ (3 / 2 : ℝ) * isoJr r) ∧
+      (∀ γin γout : ℝ, 0 &lt; γin → 0 &lt; γout →
+        γout / γin * isoJr (γout / γin) / Real.sqrt (2 * γout) =
+          γin / γout * isoJr (γin / γout) / Real.sqrt (2 * γin)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_reciprocity_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Aspect.lean#L792">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_reciprocity_iii :
+    ∀ r : ℝ, 0 &lt; r →
+      ({(1 - Real.sqrt r) ^ 2 / r, (1 + Real.sqrt r) ^ 2 / r} : Set ℝ) =
+        {(1 - 1 / Real.sqrt r) ^ 2, (1 + 1 / Real.sqrt r) ^ 2} := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_reciprocity_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Measure.lean#L1741">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_reciprocity_i {γin γout : ℝ} {mo mi : Measure ℝ}
+    (hp : IsIsoMeasurePair γin γout mo mi) :
+    isoNormMeasure γout mo =
+        Measure.map (fun x : ℝ =&gt; γin * x)
+          (ENNReal.ofReal γout⁻¹ • isoScaledImage (γin * γout) mo) ∧
+    (∀ ρ : ℝ → ℝ, isoScaledImage (γin * γout) mo = volume.withDensity (fun x =&gt; ENNReal.ofReal (ρ x)) →
+      isoNormMeasure γout mo =
+        volume.withDensity (fun y =&gt; ENNReal.ofReal (ρ (y / γin) / (γin * γout)))) ∧
+    (∀ t : ℝ, 0 &lt; t →
+      isoNegStieltjes (isoNormMeasure γout mo) t = isoNegStieltjes mo (γout * t) ∧
+      isoNegStieltjes (isoNormMeasure γout mo) t =
+        1 / (γin * γout) * isoNegStieltjes (isoScaledImage (γin * γout) mo) (t / γin)) ∧
+    Cbeta 0 γin γout =
+      Real.sqrt γout / (Real.sqrt 2 * γin) * ∫ x, Real.sqrt x ∂(isoNormMeasure γout mo) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

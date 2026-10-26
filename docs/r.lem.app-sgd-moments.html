@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.3 (Moments of one coordinate)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.3 (Moments of one coordinate)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-moments"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> <span class="thm-title">(Moments of one coordinate)</span></div><div class="thm-body"><div class="p">The coordinate <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> has mean <span class="mi">\(\EE X=\Delta_{ij}\)</span>, variance</div>
+<div class="md">\[
+s^2\defeq\Var X=F^2+2\norm{\Delta_{i\cdot}}^2+2\norm{\Delta_{\cdot j}}^2+3\Delta_{ij}^2,\qquad F^2\le s^2\le8F^2,
+\]</div>
+<div class="p">and third centered moment</div>
+<div class="md">\[
+m_3\defeq\EE(X-\Delta_{ij})^3=24\Delta_{ij}\norm{\bar\Delta}_\F^2+126\Delta_{ij}\big(\norm r^2+\norm q^2\big)+200\Delta_{ij}^3+54\,q^\T\bar\Delta r,
+\]</div>
+<div class="p">so that <span class="mi">\(\abs{m_3}\le200\abs{\Delta_{ij}}F^2+54F\norm r\norm q\)</span>. For every integer <span class="mi">\(p\ge1\)</span>, <span class="mi">\(\EE\abs X^p\le((2p-1)!!)^2F^p\)</span>, and the standardized coordinate <span class="mi">\(Y\defeq(X-\Delta_{ij})/s\)</span> satisfies <span class="mi">\(\EE Y^4\le88208\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Call the four terms of <a class="ref" href="s.SJ.html#L-eqn:app-sgd-coordinate" data-label="eqn:app-sgd-coordinate">(SJ.10)</a> <span class="mi">\(T_1,\dots,T_4\)</span>. The moments are Gaussian pairings [<a class="cite" href="bibliography.html#bib-isserlis1918formula">29</a>]; a product with an odd total degree in one of the independent blocks has mean zero. Only <span class="mi">\(T_1\)</span> has even degree in every block, so <span class="mi">\(\EE X=\Delta_{ij}\EE\xi^2\EE\zeta^2=\Delta_{ij}\)</span>.</div>
+<div class="p">The second moment is the sum of the four squares, because every cross product has odd degree in <span class="mi">\(z'\)</span> or in <span class="mi">\(w'\)</span>:</div>
+<div class="md">\[
+\EE X^2=9\Delta_{ij}^2+3\norm r^2+3\norm q^2+\norm{\bar\Delta}_\F^2 .
+\]</div>
+<div class="p">With <span class="mi">\(F^2=\norm{\bar\Delta}_\F^2+\norm r^2+\norm q^2+\Delta_{ij}^2\)</span>, <span class="mi">\(\norm{\Delta_{i\cdot}}^2=\norm r^2+\Delta_{ij}^2\)</span> and <span class="mi">\(\norm{\Delta_{\cdot j}}^2=\norm q^2+\Delta_{ij}^2\)</span>, subtracting <span class="mi">\(\Delta_{ij}^2\)</span> gives the formula for <span class="mi">\(s^2\)</span>. Each added term is at most <span class="mi">\(F^2\)</span> times its coefficient, so <span class="mi">\(F^2\le s^2\le8F^2\)</span>.</div>
+<div class="p">The third moment keeps <span class="mi">\(T_1^3\)</span>, the terms <span class="mi">\(3T_1T_k^2\)</span> for <span class="mi">\(k=2,3,4\)</span>, and <span class="mi">\(6T_2T_3T_4\)</span>. With <span class="mi">\(\EE\xi^4=3\)</span> and <span class="mi">\(\EE\xi^6=15\)</span>,</div>
+<div class="md">\[
+\EE X^3=225\Delta_{ij}^3+135\Delta_{ij}\big(\norm r^2+\norm q^2\big)+27\Delta_{ij}\norm{\bar\Delta}_\F^2+54\,q^\T\bar\Delta r .
+\]</div>
+<div class="p">Here <span class="mi">\(54=6\,\EE\xi^4\EE\zeta^4\)</span> and <span class="mi">\(\EE[(r^\T w')(q^\T z')(z'^\T\bar\Delta w')]=q^\T\bar\Delta r\)</span>. The centered moment is <span class="mi">\(m_3=\EE X^3-3\Delta_{ij}\EE X^2+2\Delta_{ij}^3\)</span>, which gives the stated formula. Its coefficients <span class="mi">\(24,126,200\)</span> are at most <span class="mi">\(200\)</span>, and <span class="mi">\(\abs{q^\T\bar\Delta r}\le F\norm q\norm r\)</span>, which gives the bound.</div>
+<div class="p">For the absolute moments, put <span class="mi">\(d=z^\T\Delta w\)</span>. Conditionally on <span class="mi">\(w\)</span>, <span class="mi">\(d\)</span> is centered Gaussian with variance <span class="mi">\(\norm{\Delta w}^2\)</span>, so</div>
+<div class="md">\[
+\EE d^{2p}=(2p-1)!!\,\EE\norm{\Delta w}^{2p}\le\big((2p-1)!!\big)^2F^{2p}.
+\]</div>
+<div class="p">The inequality holds because <span class="mi">\(\norm{\Delta w}^2=F^2\sum_l\pi_lg_l^2\)</span> for weights <span class="mi">\(\pi_l\ge0\)</span> summing to <span class="mi">\(1\)</span> (the normalized eigenvalues of <span class="mi">\(\Delta^\T\Delta\)</span>) and independent standard Gaussian <span class="mi">\(g_l\)</span>, and Jensen’s inequality gives <span class="mi">\((\sum_l\pi_lg_l^2)^p\le\sum_l\pi_lg_l^{2p}\)</span>. The Cauchy–Schwarz inequality, which needs no independence of <span class="mi">\(d\)</span> and <span class="mi">\(\xi\zeta\)</span>, gives</div>
+<div class="md">\[
+\EE\abs X^p\le\big(\EE d^{2p}\,\EE\abs{\xi\zeta}^{2p}\big)^{1/2}\le\big((2p-1)!!\big)^2F^p .
+\]</div>
+<div class="p">Finally <span class="mi">\((a+b)^4\le8(a^4+b^4)\)</span>, <span class="mi">\(\EE X^4\le105^2F^4=11025F^4\)</span> and <span class="mi">\(s\ge F\)</span> give</div>
+<div class="md">\[
+\EE Y^4\le\frac{8\,(\EE X^4+\Delta_{ij}^4)}{s^4}\le8\,(11025+1)=88208 .\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-sgd-decay.html" data-label="lem:app-sgd-decay">Lemma SJ.4</a> <span class=muted>Decay of the characteristic function</span></li><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li><li><a class="ref" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a> <span class=muted>Isotropic drift</span></li><li><a class="ref" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class=muted>Column moments</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L918">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_i {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    ∫ p, sgdCoord Δ i j p ∂(gaussBatch Nout Nin) = Δ i j := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L968">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_ii {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    variance (sgdCoord Δ i j) (gaussBatch Nout Nin)
+      = frobNorm Δ ^ 2 + 2 * (∑ l, Δ i l ^ 2) + 2 * (∑ k, Δ k j ^ 2) + 3 * Δ i j ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L1065">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_iii {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    frobNorm Δ ^ 2 ≤ variance (sgdCoord Δ i j) (gaussBatch Nout Nin) ∧
+      variance (sgdCoord Δ i j) (gaussBatch Nout Nin) ≤ 8 * frobNorm Δ ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L1660">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_iv {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    ∫ p, (sgdCoord Δ i j p - Δ i j) ^ 3 ∂(gaussBatch Nout Nin)
+      = 24 * Δ i j * frobNorm (sgdDeletedBlock Δ i j) ^ 2
+        + 126 * Δ i j * (∑ l, sgdRow Δ i j l ^ 2 + ∑ k, sgdCol Δ i j k ^ 2)
+        + 200 * Δ i j ^ 3
+        + 54 * dotProduct (sgdCol Δ i j) (Matrix.mulVec (sgdDeletedBlock Δ i j) (sgdRow Δ i j)) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L1742">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_v {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    |∫ p, (sgdCoord Δ i j p - Δ i j) ^ 3 ∂(gaussBatch Nout Nin)|
+      ≤ 200 * |Δ i j| * frobNorm Δ ^ 2
+        + 54 * frobNorm Δ * Real.sqrt (∑ l, sgdRow Δ i j l ^ 2)
+          * Real.sqrt (∑ k, sgdCol Δ i j k ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_vi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L1973">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_vi {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    ∀ p : ℕ, 1 ≤ p →
+      ∫ x, |sgdCoord Δ i j x| ^ p ∂(gaussBatch Nout Nin)
+        ≤ (((2 * p - 1).doubleFactorial : ℕ) : ℝ) ^ 2 * frobNorm Δ ^ p := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_moments_vii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/CoordinateMoments.lean#L2097">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_moments_vii {Nout Nin : ℕ} (Δ : Matrix (Fin Nout) (Fin Nin) ℝ) (hΔ : Δ ≠ 0)
+    (i : Fin Nout) (j : Fin Nin) :
+    ∫ x, sgdStdCoord Δ i j x ^ 4 ∂(gaussBatch Nout Nin) ≤ 88208 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

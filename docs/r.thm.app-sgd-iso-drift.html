@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SJ.1 (Isotropic drift)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SJ.1 (Isotropic drift)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-sgd-iso-drift"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-iso-drift.html" data-label="thm:app-sgd-iso-drift">Theorem SJ.1</a> <span class="thm-title">(Isotropic drift)</span></div><div class="thm-body"><div class="p">There is a constant <span class="mi">\(C_r\)</span> depending only on <span class="mi">\(K,f_-,C_\Delta\)</span> such that, for every state in the isotropic regime with <span class="mi">\(k\ge k_0\defeq\max\{4,8KC_\Delta^2/f_-^2\}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-entry"></span>\begin{equation}\tag{SJ.16}
+\Big|\EE\sign(G^\circ_{ij})-\sqrt{\frac2\pi}\,\mathcal N_B\frac{\Delta_{ij}}F\Big|\le e_k\defeq\frac{C_2}B+\frac{C_r}{k^{3/2}}\qquad\text{for all }(i,j).
+\end{equation}</div>
+<div class="p">With <span class="mi">\(\mathsf D\defeq\langle\Delta,\EE S\rangle_\F\)</span> and <span class="mi">\(\mathsf D_0\defeq\sqrt{2/\pi}\,\mathcal N_BF=\mathcal N_B\sqrt{4\cR(\Delta)/\pi}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-iso-sum"></span>\begin{equation}\tag{SJ.17}
+\abs{\mathsf D-\mathsf D_0}\le KF\Big(C_2+\frac{C_r}{\sqrt k}\Big),\qquad
+\Big|\frac{\mathsf D}{\mathsf D_0}-1\Big|\le\frac{K(C_2+C_r/\sqrt k)}{\sqrt{2/\pi}\,\mathcal N_B}\le\frac{\pi K(C_2+C_r)}{2\sqrt{2/\pi}\,\sqrt k}.
+\end{equation}</div>
+<div class="p">No hypothesis is made on the operator norm or the rank of <span class="mi">\(\Delta\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The entry bound makes the deleted block large. Every row and column has squared norm at most <span class="mi">\(KkC_\Delta^2/k^2=KC_\Delta^2/k\)</span>, so for <span class="mi">\(k\ge k_0\)</span></div>
+<div class="md">\[
+\norm{\bar\Delta}_\F^2\ge F^2-\frac{2KC_\Delta^2}k\ge\frac34F^2 ,
+\]</div>
+<div class="p">and <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> applies to every entry.</div>
+<div class="p">The four non-batch terms of <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a> are of order <span class="mi">\(k^{-3/2}\)</span>. With <span class="mi">\(V\defeq(4K+3)C_\Delta^2\)</span> and <span class="mi">\(K_3\defeq200C_\Delta/f_-+54KC_\Delta^2/f_-^2\)</span>, <a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> gives</div>
+<div class="md">\[
+0\le s^2-F^2\le\frac Vk,\qquad \frac{\abs{m_3}}{s^3}\le\frac{K_3}k .
+\]</div>
+<div class="p">Insert these, <span class="mi">\(k\le B\le Kk\)</span>, <span class="mi">\(\abs{\Delta_{ij}}\le C_\Delta/k\)</span> and <span class="mi">\(s\ge F\ge f_-\)</span> into <a class="ref" href="r.prop.app-sgd-coordinate.html#L-eqn:app-sgd-coordinate-bound" data-label="eqn:app-sgd-coordinate-bound">(SJ.14)</a>. The result is <a class="ref" href="r.thm.app-sgd-iso-drift.html#L-eqn:app-sgd-iso-entry" data-label="eqn:app-sgd-iso-entry">(SJ.16)</a> with</div>
+<div class="md">\[
+C_r\defeq C_1K_3+\frac{K^{3/2}C_\Delta^3}{3\sqrt{2\pi}\,f_-^3}+\sqrt{\frac2\pi}\,\frac{\sqrt K\,C_\Delta V}{2f_-^3}+\sqrt{\frac2\pi}\,\frac{4C_\Delta}{f_-}.
+\]</div>
+<div class="p">The sum over entries costs the <span class="mi">\(\ell^1\)</span> norm of <span class="mi">\(\Delta\)</span>. Since <span class="mi">\(\sum_{ij}\Delta_{ij}^2/F=F\)</span>,</div>
+<div class="md">\[
+\abs{\mathsf D-\mathsf D_0}\le\sum_{i,j}\abs{\Delta_{ij}}\,e_k\le\sqrt{\Nout\Nin}\,F\,e_k\le KkF\Big(\frac{C_2}k+\frac{C_r}{k^{3/2}}\Big).
+\]</div>
+<div class="p">Dividing by <span class="mi">\(\mathsf D_0\)</span> and using <span class="mi">\(\mathcal N_B\ge\frac2\pi\sqrt B\ge\frac2\pi\sqrt k\)</span> from <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> gives the relative bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li><li><a class="ref" href="r.lem.app-sgd-moments.html" data-label="lem:app-sgd-moments">Lemma SJ.3</a> <span class=muted>Moments of one coordinate</span></li><li><a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> <span class=muted>The batch constant</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-sgd-iso.html" data-label="prop:app-sgd-iso">Proposition SJ.4</a> <span class=muted>Isotropic <span class="sc">SignSGD</span> recursion</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_iso_drift</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/Isotropic.lean#L1088">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_iso_drift :
+    ∃ C₂ : ℝ, 0 ≤ C₂ ∧ ∀ K fMin Cdelta : ℝ, 1 ≤ K → 0 &lt; fMin → 0 &lt; Cdelta →
+      ∃ Cr : ℝ, 0 ≤ Cr ∧ ∀ P : IsoParams, P.K = K → P.fMin = fMin → P.Cdelta = Cdelta →
+        ∀ (Nout Nin B : ℕ) (Δ : Matrix (Fin Nout) (Fin Nin) ℝ),
+          def_app_sgd_iso_regime P Nout Nin B Δ →
+          isoK0 P ≤ (kOf Nout Nin B : ℝ) →
+          (∀ i j, |expSignEntry Nout Nin B Δ i j
+              - Real.sqrt (2 / Real.pi) * batchConst B * Δ i j / frobNorm Δ|
+              ≤ C₂ / (B : ℝ) + Cr / (kOf Nout Nin B : ℝ) ^ (3 / 2 : ℝ))
+          ∧ |∑ i, ∑ j, Δ i j * expSignEntry Nout Nin B Δ i j
+              - Real.sqrt (2 / Real.pi) * batchConst B * frobNorm Δ|
+              ≤ P.K * frobNorm Δ * (C₂ + Cr / Real.sqrt (kOf Nout Nin B : ℝ))
+          ∧ |(∑ i, ∑ j, Δ i j * expSignEntry Nout Nin B Δ i j)
+                / (Real.sqrt (2 / Real.pi) * batchConst B * frobNorm Δ) - 1|
+              ≤ P.K * (C₂ + Cr / Real.sqrt (kOf Nout Nin B : ℝ))
+                  / (Real.sqrt (2 / Real.pi) * batchConst B)
+          ∧ P.K * (C₂ + Cr / Real.sqrt (kOf Nout Nin B : ℝ))
+                  / (Real.sqrt (2 / Real.pi) * batchConst B)
+              ≤ Real.pi * P.K * (C₂ + Cr)
+                  / (2 * Real.sqrt (2 / Real.pi) * Real.sqrt (kOf Nout Nin B : ℝ)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

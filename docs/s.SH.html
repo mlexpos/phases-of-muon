@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Section SH: Large-batch drift for a general spectrum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-section">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="section" data-title="Section SH: Large-batch drift for a general spectrum">
+<article class="sec-page"><nav class="secnav"><a class="" href="s.SA.html">SA</a><a class="" href="s.SB.html">SB</a><a class="" href="s.SC.html">SC</a><a class="" href="s.SD.html">SD</a><a class="" href="s.SE.html">SE</a><a class="" href="s.SF.html">SF</a><a class="" href="s.SG.html">SG</a><a class="on" href="s.SH.html">SH</a><a class="" href="s.SI.html">SI</a><a class="" href="s.SJ.html">SJ</a><a class="" href="s.SK.html">SK</a><a class="" href="s.SL.html">SL</a><a class="" href="s.SM.html">SM</a><a class="" href="s.SN.html">SN</a></nav><h1><span class="h-num">SH</span> Large-batch drift for a general spectrum</h1><ol class=toc><li class="lvl2"><a href="#L-sec:app-os-brief">SH.1 The results in brief</a></li><li class="lvl2"><a href="#L-sec:app-os-setup">SH.2 Standing setup</a></li><li class="lvl2"><a href="#L-sec:app-os-profile">SH.3 The limit profile</a></li><li class="lvl2"><a href="#L-sec:app-os-scalar">SH.4 Scalar bounds</a></li><li class="lvl2"><a href="#L-sec:app-os-limit">SH.5 The oversampled limit law</a></li><li class="lvl2"><a href="#L-sec:app-os-square">SH.6 The square case: the square-root law and head modes</a></li><li class="lvl2"><a href="#L-sec:app-os-tail">SH.7 Tail modes and acceleration</a></li><li class="lvl2"><a href="#L-sec:app-os-examples">SH.8 Power-law spectra, the identity and the normalization</a></li></ol><div class="p">This section computes the half-anisotropic drift coefficient <span class="mi">\(\mathfrak d_i=\mathfrak d(\mu_i,1)\)</span> of <a class="ref" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Corollary SC.2</a> when the batch oversamples the input dimension, for an arbitrary output spectrum. The main result, <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>, shows that when <span class="mi">\(3(1-\bmom^2)\Nin&lt;B\)</span> the coefficient equals <span class="mi">\(\sqrt{B_{\rm eff}/\Nin}\)</span> times a profile <span class="mi">\(\mathfrak d^{\rm os}\)</span> of the empirical spectral distribution of <span class="mi">\(\Sigmaout\)</span>, up to a factor in <span class="mi">\([1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}]\)</span> with <span class="mi">\(\epsilon_{\rm os}=3(1-\bmom^2)\Nin/B\)</span>. This holds at every normalized ridge, including zero ridge, for every eigenvalue, every spectrum and every pair of dimensions. <a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> reads the result as the expected regularized update.</div>
+<div class="p">Every statement except <a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> concerns the deterministic coefficient at a fixed finite dimension. No statement concerns the algorithm at zero ridge, a joint limit in the aspect ratio and the dimension, or the volatility.</div>
+<h3 id="L-sec:app-os-brief"><span class="h-num">SH.1</span> The results in brief</h3>
+<div class="p">This subsection states the results informally, in the square case <span class="mi">\(\Nout=\Nin=N\)</span> at zero ridge, and points to the formal statements.</div>
+<div class="p"><strong class="runin">The square-root law and packed modes.</strong>  When <span class="mi">\(B_{\rm eff}\)</span> exceeds <span class="mi">\(3(1+\bmom)^2N\)</span>, the drift coefficient of every mode is at most the square-root law,</div>
+<div class="md">\[
+\mathfrak d_i\lesssim\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i},
+\]</div>
+<div class="p">and it is within a constant of this law whenever the mode is <em>packed</em>: a positive fraction <span class="mi">\(\delta\)</span> of all eigenvalues lies below a fixed multiple <span class="mi">\(K\mu_i\)</span> (<a class="ref" href="r.def.app-os-packed.html" data-label="def:app-os-packed">Definition SH.2</a> and <a class="ref" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Corollary SH.2</a>). The constant is <span class="mi">\(0.94\sqrt{\delta/(1+K)}\)</span>. Packing at the smallest eigenvalue implies packing at every mode, and every mode of a power law is packed (<a class="ref" href="r.rem.app-os-packed.html" data-label="rem:app-os-packed">Remark SH.3</a>). In expectation the update is then <span class="mi">\(\sqrt{B_{\rm eff}/(2N)}\)</span> times a square-root preconditioner applied to the error, on every packed mode (<a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a>).</div>
+<div class="p"><strong class="runin">The exact law.</strong>  The two-sided bound comes from an exact formula (<a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>),</div>
+<div class="md">\[
+\mathfrak d_i=\vartheta_i\,\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i}\;\chi(\mu_i),
+\qquad
+\chi(\mu)=\int_0^\infty\frac2\pi\frac{\sqrt y}{(1+y)^2}\sqrt{1-m(\mu y)}\,\dif y,
+\qquad
+m(c)=\frac1N\sum_k\frac{\mu_k}{c+\mu_k},
+\]</div>
+<div class="p">with <span class="mi">\(\vartheta_i\)</span> within a factor <span class="mi">\(1\pm O(N/B_{\rm eff})\)</span> of one. The efficiency <span class="mi">\(\chi(\mu)\in(0,1]\)</span> has a probabilistic meaning (<a class="ref" href="r.rem.app-os-probabilistic.html" data-label="rem:app-os-probabilistic">Remark SH.2</a>): <span class="mi">\(1-m(c)\)</span> is the fraction of the spectrum below <span class="mi">\(c\)</span> after each eigenvalue is multiplied by an independent random factor, and <span class="mi">\(\chi(\mu)\)</span> is an average of its square root around the level <span class="mi">\(\mu\)</span>. It is bounded by an explicit count,</div>
+<div class="md">\[
+\mathsf s(\mu)\le\chi(\mu)\le\sqrt{\mathsf s(\mu)},\qquad
+\mathsf s(\mu)=\frac1N\sum_k\frac{1+2\sqrt{\mu_k/\mu}}{\big(1+\sqrt{\mu_k/\mu}\big)^2}
+\]</div>
+<div class="p">(<a class="ref" href="r.lem.app-os-count.html" data-label="lem:app-os-count">Lemma SH.11</a>), where each eigenvalue contributes about <span class="mi">\(1\)</span> if it is below <span class="mi">\(\mu\)</span> and about <span class="mi">\(2\sqrt{\mu/\mu_k}\)</span> if it is far above.</div>
+<div class="p"><strong class="runin">Head and tail modes.</strong>  The efficiency tends to one exactly on head modes, which lie above all but a vanishing fraction of the spectrum (<a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>). A mode that lies far below most of the spectrum is a tail mode: its drift is of gradient-descent order up to a logarithm (<a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>). For the slowest mode, the gain over gradient descent lies between the logarithm and the square root of the condition number, according to how much of the spectrum sits near the smallest eigenvalue (<a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> and <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>). For power laws every mode keeps the square-root law up to a constant depending only on the exponent, so the slowest mode gains the square root of the condition number (<a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a>).</div>
+<h3 id="L-sec:app-os-setup"><span class="h-num">SH.2</span> Standing setup</h3>
+<div class="p"><strong class="runin">Data and scales.</strong>  Throughout the section the input covariance is <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, and the output covariance is <span class="mi">\(\Sigmaout=\sum_{k=1}^{\Nout}\mu_k\,u_k\tensor u_k\)</span>, positive semidefinite with orthonormal eigenvectors <span class="mi">\((u_k)\)</span>. The integers <span class="mi">\(\Nout,\Nin,B\ge1\)</span> are arbitrary. The momentum <span class="mi">\(\bmom\in[0,1)\)</span> is fixed, the weights are the EMA weights <span class="mi">\(\emaw j=(1-\bmom)\bmom^j\)</span> of <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>, and</div>
+<div class="md">\[
+\sw2=\frac{1-\bmom}{1+\bmom},\qquad
+B_{\rm eff}\defeq\frac{B}{\sw2},\qquad
+\gin=\frac{\Nin}B,\qquad \gout=\frac{\Nout}B,\qquad
+r\defeq\frac{\gout}{\gin}=\frac{\Nout}{\Nin}.
+\]</div>
+<div class="p">The effective batch <span class="mi">\(B_{\rm eff}\)</span> is that of <a class="ref" href="paper.pdf#section.3" data-label="sec:isotropic">Section 3</a>. The largest weight is <span class="mi">\(\emaw0=1-\bmom\)</span>, and <span class="mi">\(\emaw0^2/\sw2=1-\bmom^2\)</span>. For a function <span class="mi">\(\phi\)</span> on <span class="mi">\([0,\infty)\)</span> we write <span class="mi">\(\phi(\Sigmaout)\defeq\sum_k\phi(\mu_k)\,u_k\tensor u_k\)</span>.</div>
+<div class="p"><strong class="runin">The branch and the drift coefficient.</strong>  For <span class="mi">\(s&gt;0\)</span>, <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1,q)(-s)\)</span> denotes the solution of the weighted system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the EMA weights and the spectral measures <span class="mi">\(\nu_{\mathrm{out}}=B^{-1}\sum_k\delta_{\mu_k}\)</span> and <span class="mi">\(\nu_{\mathrm{in}}=\gin\,\delta_1\)</span> of <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a>. It exists and is unique by <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(i), applied with <span class="mi">\(C_\Sigma=\max(1,\norm{\Sigmaout})\)</span> and <span class="mi">\(\gamma_\star=\max(\gin,\gout)\)</span>, and it is continuous in <span class="mi">\(s\)</span> by <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(ii). Since <span class="mi">\(\nu_{\mathrm{in}}\)</span> is a point mass, the system reads, with every quantity evaluated at <span class="mi">\(-s\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-branch"></span>\begin{equation}\tag{SH.1}
+\sigma=\int\frac{x\,\nu_{\mathrm{out}}(\dif x)}{s+\tilde s_1x},\qquad
+\tilde\sigma=\frac{\gin}{s+s_1},\qquad
+q=s\sigma\tilde\sigma,\qquad
+\tilde s_1=s\tilde\sigma\,\Fw(q),\qquad
+s_1=s\sigma\,\Fw(q).
+\end{equation}</div>
+<div class="p">The functions <span class="mi">\(\Jfun\)</span>, <span class="mi">\(\Fw\)</span> and <span class="mi">\(\Lw\)</span> are those of <a class="ref" href="s.SB.html#L-eqn:app-de-JFL" data-label="eqn:app-de-JFL">(SB.1)</a> for the EMA weights. For <span class="mi">\(s&gt;0\)</span> and <span class="mi">\(\mu\ge0\)</span> put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-k"></span>\begin{equation}\tag{SH.2}
+\mathsf k(s;\mu)\defeq\frac{s\,\Lw\big(q(-s)\big)\,\mu}{\big(s+\tilde s_1(-s)\mu\big)\big(s+s_1(-s)\big)},
+\end{equation}</div>
+<div class="p">and for <span class="mi">\(\ridge&gt;0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-d"></span>\begin{equation}\tag{SH.3}
+\mathfrak d_\ridge(\mu)\defeq\frac{\sqrt2}{\pi}\int_0^\infty\mathsf k(\ridge+u^2;\mu)\,\dif u,
+\qquad \mathfrak d_i(\ridge)\defeq\mathfrak d_\ridge(\mu_i).
+\end{equation}</div>
+<div class="p">This is the kernel <span class="mi">\(\mathfrak d(\mu,1)\)</span> of <a class="ref" href="s.SC.html#L-eqn:app-drift-kernel" data-label="eqn:app-drift-kernel">(SC.4)</a> at the ridge <span class="mi">\(\ridge\)</span>, and <span class="mi">\(\mathfrak d_i(\ridge)\)</span> is the row coefficient of <a class="ref" href="r.cor.app-drift-halfaniso.html" data-label="cor:app-drift-halfaniso">Corollary SC.2</a>. Since <span class="mi">\(0\le\Jfun\le1\)</span>, one has <span class="mi">\(0\le\Lw\le\sum_j\emaw j=1\)</span>, and the integrand satisfies <span class="mi">\(0\le\mathsf k(s;\mu)\le\mu/s\)</span>; it is continuous in <span class="mi">\(s&gt;0\)</span> because the branch is continuous and <span class="mi">\(\Lw\)</span> is continuous (<a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(ii)). The zero-ridge coefficients <span class="mi">\(\mathfrak d_0(\mu)\)</span> and <span class="mi">\(\mathfrak d_i(0)\)</span> are defined in <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(ii) as the limits as <span class="mi">\(\ridge\downarrow0\)</span>. In the square case with <span class="mi">\(\bmom&gt;0\)</span> and a positive spectrum, <a class="ref" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a>(ii) shows that <span class="mi">\(\mathfrak d_i(\ridge)\)</span> converges to the coefficient <span class="mi">\(\mathfrak d_i(0)\)</span> of <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-drift-zero" data-label="eqn:app-pl-drift-zero">(SG.12)</a>, so the two definitions of <span class="mi">\(\mathfrak d_i(0)\)</span> agree.</div>
+<div class="p"><strong class="runin">Conventions.</strong>  A probability measure is a Borel probability measure on <span class="mi">\([0,\infty)\)</span>; the generic letter is <span class="mi">\(\nu\)</span>. The variable <span class="mi">\(g\)</span> is standard Gaussian. Every constant of the section is an explicit absolute number unless its dependence is stated.</div>
+<h3 id="L-sec:app-os-profile"><span class="h-num">SH.3</span> The limit profile</h3>
+<div class="p">For a probability measure <span class="mi">\(\nu\)</span> and <span class="mi">\(c&gt;0\)</span> put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-m"></span>\begin{equation}\tag{SH.4}
+m_\nu(c)\defeq\int\frac{x\,\nu(\dif x)}{c+x},\qquad
+1-m_\nu(c)=\int\frac{c\,\nu(\dif x)}{c+x}\in(0,1].
+\end{equation}</div>
+<div class="p">For the empirical measure of a spectrum, each eigenvalue <span class="mi">\(x\)</span> enters <span class="mi">\(m_\nu(c)\)</span> with the weight <span class="mi">\(x/(c+x)\)</span>, which is close to one when <span class="mi">\(x\gg c\)</span> and close to zero when <span class="mi">\(x\ll c\)</span>. The number <span class="mi">\(m_\nu(c)\)</span> is therefore a soft count of the share of the spectrum above <span class="mi">\(c\)</span>. It is nonincreasing in <span class="mi">\(c\)</span>. For <span class="mi">\(\hat s&gt;0\)</span> and <span class="mi">\(b\ge0\)</span> we also write</div>
+<div class="md">\[
+m_\nu(\hat s/b)\defeq\int\frac{bx\,\nu(\dif x)}{\hat s+bx},
+\]</div>
+<div class="p">which agrees with <a class="ref" href="s.SH.html#L-eqn:app-os-m" data-label="eqn:app-os-m">(SH.4)</a> for <span class="mi">\(b&gt;0\)</span> and vanishes at <span class="mi">\(b=0\)</span>. In the square case <span class="mi">\(\Nout=\Nin=N\)</span>, the participation function of <a class="ref" href="r.def.app-pl-participation.html" data-label="def:app-pl-participation">Definition SG.1</a> is <span class="mi">\(m_N(\Lambda)=\gamma\,m_{\hat\nu}(1/\Lambda)\)</span>, where <span class="mi">\(\hat\nu=N^{-1}\sum_k\delta_{\mu_k}\)</span> and <span class="mi">\(\gamma=N/B\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-os-root"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-root.html" data-label="lem:app-os-root">Lemma SH.1</a> <span class="thm-title">(The profile equation)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure and <span class="mi">\(r&gt;0\)</span>. For every <span class="mi">\(\hat s&gt;0\)</span> the equation</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-root"></span>\begin{equation}\tag{SH.5}
+b+r\,m_\nu(\hat s/b)=1
+\end{equation}</div>
+<div class="p">has exactly one solution <span class="mi">\(b=b_0(\hat s)\)</span> in <span class="mi">\((0,1]\)</span>. The function <span class="mi">\(b_0\)</span> is continuous and nondecreasing on <span class="mi">\((0,\infty)\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The left side of <a class="ref" href="r.lem.app-os-root.html#L-eqn:app-os-root" data-label="eqn:app-os-root">(SH.5)</a> is a continuous strictly increasing function of <span class="mi">\(b\in[0,1]\)</span>. Its integrand <span class="mi">\(bx/(\hat s+bx)\)</span> lies in <span class="mi">\([0,1)\)</span> and is nondecreasing in <span class="mi">\(b\)</span>, so for <span class="mi">\(0\le b&lt;b'\le1\)</span></div>
+<div class="md">\[
+\big(b'+r\,m_\nu(\hat s/b')\big)-\big(b+r\,m_\nu(\hat s/b)\big)\ge b'-b ,
+\]</div>
+<div class="p">and the left side is continuous in <span class="mi">\(b\)</span>. At <span class="mi">\(b=0\)</span> the left side is <span class="mi">\(0\)</span>, and at <span class="mi">\(b=1\)</span> it is at least <span class="mi">\(1\)</span>. The intermediate value theorem gives exactly one root in <span class="mi">\((0,1]\)</span>.</div>
+<div class="p">The root is continuous in <span class="mi">\(\hat s\)</span> by a compactness argument. The map <span class="mi">\((\hat s,b)\mapsto m_\nu(\hat s/b)\)</span> is jointly continuous on <span class="mi">\((0,\infty)\times[0,1]\)</span>. If <span class="mi">\(\hat s_n\to\hat s&gt;0\)</span>, every limit point <span class="mi">\(b^*\in[0,1]\)</span> of <span class="mi">\(b_0(\hat s_n)\)</span> therefore satisfies <span class="mi">\(b^*+r\,m_\nu(\hat s/b^*)=1\)</span>, and <span class="mi">\(b^*=b_0(\hat s)\)</span> by uniqueness.</div>
+<div class="p">The root is nondecreasing because <span class="mi">\(m_\nu(\hat s/b)\)</span> is nonincreasing in <span class="mi">\(\hat s\)</span>. For <span class="mi">\(\hat s'\ge\hat s\)</span>, the left side of <a class="ref" href="r.lem.app-os-root.html#L-eqn:app-os-root" data-label="eqn:app-os-root">(SH.5)</a> at <span class="mi">\(\hat s'\)</span> is at most the left side at <span class="mi">\(\hat s\)</span>, for every <span class="mi">\(b\)</span>, so its root is at least <span class="mi">\(b_0(\hat s)\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-definition" id="L-def:app-os-objects"><div class="thm-head"><a class="thm-name" href="r.def.app-os-objects.html" data-label="def:app-os-objects">Definition SH.1</a> <span class="thm-title">(Oversampled objects)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure and <span class="mi">\(r&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The profile root <span class="mi">\(b_0=b_0^{\nu,r}\)</span> is the function of <a class="ref" href="r.lem.app-os-root.html" data-label="lem:app-os-root">Lemma SH.1</a>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For <span class="mi">\(\mu\ge0\)</span> and <span class="mi">\(\hat\ridge\ge0\)</span>, the oversampled drift profile is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-profile"></span>\begin{equation}\tag{SH.6}
+\mathfrak d^{\rm os}_{\nu,r}(\mu;\hat\ridge)\defeq\frac{\sqrt2}{\pi}\int_0^\infty
+\frac{b_0(\hat s)\,\mu}{\hat s+b_0(\hat s)\,\mu}\,\dif v,\qquad \hat s=\hat\ridge+v^2 .
+\end{equation}</div>
+<div class="p">In the square case we write <span class="mi">\(\mathfrak d^{\rm os}_\nu\defeq\mathfrak d^{\rm os}_{\nu,1}\)</span> and <span class="mi">\(\mathfrak d^{\rm os}_\nu(\mu)\defeq\mathfrak d^{\rm os}_{\nu,1}(\mu;0)\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The density <span class="mi">\(\varpi\)</span> on <span class="mi">\((0,\infty)\)</span> and the square-root efficiency <span class="mi">\(\chi_\nu\)</span> are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-chi"></span>\begin{equation}\tag{SH.7}
+\varpi(y)\defeq\frac2\pi\,\frac{\sqrt y}{(1+y)^2},\qquad
+\chi_\nu(\mu)\defeq\int_0^\infty\varpi(y)\sqrt{1-m_\nu(\mu y)}\,\dif y\qquad(\mu&gt;0).
+\end{equation}</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">At a finite dimension, the empirical spectral probability measure of <span class="mi">\(\Sigmaout\)</span>, the rescaled ridge and the small parameter are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-eps"></span>\begin{equation}\tag{SH.8}
+\begin{gathered}
+\hat\nu_{\mathrm{out}}\defeq\frac1{\Nout}\sum_{k=1}^{\Nout}\delta_{\mu_k}=\frac{\nu_{\mathrm{out}}}{\gout},\qquad
+\hat\ridge\defeq\frac{\ridge}{\sw2\gin}\quad(\ridge\ge0),\\
+\epsilon_{\rm os}\defeq3(1-\bmom^2)\gin=3(1+\bmom)^2\frac{\Nin}{B_{\rm eff}} .
+\end{gathered}
+\end{equation}</div></div></li></ol></div></div><div class="p">The profile depends on the spectrum only through the probability measure and the shape ratio, and on the ridge only through the rescaled ridge. The oversampled regime of this section is <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, that is <span class="mi">\(B&gt;3(1-\bmom^2)\Nin\)</span>. <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> below shows that <span class="mi">\(\mathfrak d^{\rm os}_\nu(\mu)=\sqrt{\mu/2}\,\chi_\nu(\mu)\)</span> in the square case.</div><div class="thm thm-lemma" id="L-lem:app-os-profile"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a> <span class="thm-title">(Ceilings of the profile)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure, <span class="mi">\(r&gt;0\)</span> and <span class="mi">\(\mu\ge0\)</span>. The profile <span class="mi">\(\mathfrak d^{\rm os}_{\nu,r}(\mu;\hat\ridge)\)</span> is finite, continuous in <span class="mi">\(\hat\ridge\in[0,\infty)\)</span>, positive if and only if <span class="mi">\(\mu&gt;0\)</span>, and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-ceiling"></span>\begin{equation}\tag{SH.9}
+\mathfrak d^{\rm os}_{\nu,r}(\mu;\hat\ridge)\le\sqrt{\mu/2},\qquad
+\mathfrak d^{\rm os}_{\nu,r}(\mu;\hat\ridge)\le\frac{\mu}{\sqrt{2\hat\ridge}}\quad(\hat\ridge&gt;0).
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The bounds come from <span class="mi">\(b_0\le1\)</span>. The map <span class="mi">\(y\mapsto y\mu/(\hat s+y\mu)\)</span> is nondecreasing, and <span class="mi">\(\hat s=\hat\ridge+v^2\)</span>, so the integrand of <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-profile" data-label="eqn:app-os-profile">(SH.6)</a> satisfies</div>
+<div class="md">\[
+\frac{b_0(\hat s)\,\mu}{\hat s+b_0(\hat s)\,\mu}\le\frac{\mu}{\hat s+\mu}
+\le\min\Big\{\frac{\mu}{v^2+\mu},\ \frac{\mu}{\hat\ridge+v^2}\Big\}.
+\]</div>
+<div class="p">The two elementary integrals</div>
+<div class="md">\[
+\frac{\sqrt2}{\pi}\int_0^\infty\frac{\mu\,\dif v}{v^2+\mu}=\sqrt{\mu/2},\qquad
+\frac{\sqrt2}{\pi}\int_0^\infty\frac{\mu\,\dif v}{\hat\ridge+v^2}=\frac{\mu}{\sqrt{2\hat\ridge}}
+\]</div>
+<div class="p">give <a class="ref" href="r.lem.app-os-profile.html#L-eqn:app-os-ceiling" data-label="eqn:app-os-ceiling">(SH.9)</a>. Continuity in <span class="mi">\(\hat\ridge\)</span> is dominated convergence with the majorant <span class="mi">\(\mu/(v^2+\mu)\)</span>, using the continuity of <span class="mi">\(b_0\)</span> (<a class="ref" href="r.lem.app-os-root.html" data-label="lem:app-os-root">Lemma SH.1</a>). The integrand is positive when <span class="mi">\(\mu&gt;0\)</span> because <span class="mi">\(b_0&gt;0\)</span>, and it vanishes when <span class="mi">\(\mu=0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h3 id="L-sec:app-os-scalar"><span class="h-num">SH.4</span> Scalar bounds</h3>
+<div class="p">The error constant of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> comes from two-sided bounds on <span class="mi">\(\Fw\)</span> and <span class="mi">\(\Lw\)</span> and from an a priori bound on the branch variable <span class="mi">\(q\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-os-scalar"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> <span class="thm-title">(Scalar bounds)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For <span class="mi">\(x\ge0\)</span>,</div>
+<div class="md">\[
+\frac1{1+3x}\le\Jfun(x)\le1 .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For <span class="mi">\(q\ge0\)</span>,</div>
+<div class="md">\[
+\frac{\sw2}{1+3(1-\bmom)^2q}\le\Fw(q)\le\sw2,\qquad
+\frac{1}{1+3(1-\bmom)^2q}\le\Lw(q)\le1 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Assume that <span class="mi">\(\bmom&gt;0\)</span>, or that <span class="mi">\(\bmom=0\)</span> and <span class="mi">\(\gin&lt;1\)</span>. Then there is a unique <span class="mi">\(q_\star&gt;0\)</span> with <span class="mi">\(q_\star\Fw(q_\star)=\gin\)</span>, and <span class="mi">\(q\Fw(q)&lt;\gin\)</span> holds if and only if <span class="mi">\(q&lt;q_\star\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, then the hypothesis of (iii) holds and</div>
+<div class="md">\[
+1+3(1-\bmom)^2q_\star\le\frac1{1-\epsilon_{\rm os}} .
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The lower bound in (i) is the Cauchy–Schwarz inequality with the Gaussian moments <span class="mi">\(\EE g^2=1\)</span> and <span class="mi">\(\EE g^4=3\)</span>:</div>
+<div class="md">\[
+1=\EE g^2=\EE\Big[\Big(\frac{g^2}{1+xg^2}\Big)^{1/2}\big(g^2(1+xg^2)\big)^{1/2}\Big]
+\le\Jfun(x)^{1/2}\,(1+3x)^{1/2}.
+\]</div>
+<div class="p">The upper bound holds because <span class="mi">\(g^2/(1+xg^2)\le g^2\)</span>.</div>
+<div class="p">Part (ii) follows from (i) term by term. Every weight satisfies <span class="mi">\(\emaw j\le\emaw0=1-\bmom\)</span>, so</div>
+<div class="md">\[
+\emaw j^2\,\Jfun(\emaw j^2q)\ge\frac{\emaw j^2}{1+3(1-\bmom)^2q},\qquad
+\emaw j\,\Jfun(\emaw j^2q)\ge\frac{\emaw j}{1+3(1-\bmom)^2q}.
+\]</div>
+<div class="p">Summing with <span class="mi">\(\sum_j\emaw j^2=\sw2\)</span> and <span class="mi">\(\sum_j\emaw j=1\)</span> gives the lower bounds, and <span class="mi">\(\Jfun\le1\)</span> gives the upper bounds.</div>
+<div class="p">Part (iii) is <a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>(iii). The function <span class="mi">\(q\mapsto q\Fw(q)\)</span> increases strictly from <span class="mi">\(0\)</span> to the number of positive weights, which is <span class="mi">\(\infty\)</span> for <span class="mi">\(\bmom&gt;0\)</span> and <span class="mi">\(1\)</span> for <span class="mi">\(\bmom=0\)</span>. In both cases <span class="mi">\(\gin\)</span> lies in its range.</div>
+<div class="p">For part (iv), if <span class="mi">\(\bmom=0\)</span> then <span class="mi">\(\gin=\epsilon_{\rm os}/3&lt;1\)</span>, so the hypothesis of (iii) holds. The lower bound of (ii) at <span class="mi">\(q_\star\)</span> gives</div>
+<div class="md">\[
+\frac{\sw2\,q_\star}{1+3(1-\bmom)^2q_\star}\le q_\star\Fw(q_\star)=\gin .
+\]</div>
+<div class="p">Multiplying by <span class="mi">\((1-\bmom)^2/\sw2=1-\bmom^2\)</span> and writing <span class="mi">\(y=3(1-\bmom)^2q_\star\)</span>, this reads <span class="mi">\(y\le\epsilon_{\rm os}(1+y)\)</span>, that is <span class="mi">\(y(1-\epsilon_{\rm os})\le\epsilon_{\rm os}\)</span>. Hence</div>
+<div class="md">\[
+1+y\le1+\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}=\frac1{1-\epsilon_{\rm os}} .\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><h3 id="L-sec:app-os-limit"><span class="h-num">SH.5</span> The oversampled limit law</h3>
+<div class="p">The proof of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> is exact rather than asymptotic. In the rescaled variables <span class="mi">\(\hat s=s/(\sw2\gin)\)</span> and <span class="mi">\(b=\tilde s_1(-s)/(\sw2\gin)\)</span>, the branch <a class="ref" href="s.SH.html#L-eqn:app-os-branch" data-label="eqn:app-os-branch">(SH.1)</a> becomes the profile equation <a class="ref" href="r.lem.app-os-root.html#L-eqn:app-os-root" data-label="eqn:app-os-root">(SH.5)</a> with one extra factor <span class="mi">\(\Fw(q)/\sw2\in(0,1]\)</span> (<a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>). A comparison lemma places <span class="mi">\(b\)</span> between this factor times <span class="mi">\(b_0\)</span> and <span class="mi">\(b_0\)</span> (<a class="ref" href="r.lem.app-os-compare.html" data-label="lem:app-os-compare">Lemma SH.5</a>). The coupling identity bounds <span class="mi">\(q\)</span> by <span class="mi">\(q_\star\)</span>, and <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a> then bounds the two scalar factors uniformly in <span class="mi">\(s\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-os-reduction"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a> <span class="thm-title">(Exact reduction of the half-anisotropic branch)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(s&gt;0\)</span>, write <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1,q)\)</span> for the branch at <span class="mi">\(-s\)</span>, and put <span class="mi">\(F=\Fw(q)\)</span>, <span class="mi">\(L=\Lw(q)\)</span> and <span class="mi">\(\widehat F\defeq F/\sw2\in(0,1]\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p">One has <span class="mi">\(s+s_1=s(1+\sigma F)\)</span> and <span class="mi">\(\tilde s_1=\gin F/(1+\sigma F)&gt;0\)</span>.</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p">One has <span class="mi">\(qF=\sigma\tilde s_1=\gin\sigma F/(1+\sigma F)&lt;\gin\)</span>, and <span class="mi">\(\tilde s_1=F\,(\gin-qF)\)</span>.</div></div></li><li><span class="li-mark">(c)</span><div class="li-body"><div class="p">With <span class="mi">\(\hat s\defeq s/(\sw2\gin)\)</span> and <span class="mi">\(b\defeq\tilde s_1/(\sw2\gin)\)</span>, one has <span class="mi">\(b\in(0,\widehat F]\)</span> and</div>
+<div class="md">\[
+\frac{b}{\widehat F}+r\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b)=1 .
+\]</div></div></li><li><span class="li-mark">(d)</span><div class="li-body"><div class="p">For every <span class="mi">\(\mu\ge0\)</span>,</div>
+<div class="md">\[
+\mathsf k(s;\mu)=\frac{1}{\sw2\gin}\,\frac{L}{\widehat F}\,\frac{b\mu}{\hat s+b\mu}.
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (a) is substitution in <a class="ref" href="s.SH.html#L-eqn:app-os-branch" data-label="eqn:app-os-branch">(SH.1)</a>. From <span class="mi">\(s_1=s\sigma F\)</span> we get <span class="mi">\(s+s_1=s(1+\sigma F)\)</span>. Hence <span class="mi">\(\tilde\sigma=\gin/(s(1+\sigma F))\)</span>, and</div>
+<div class="md">\[
+\tilde s_1=s\tilde\sigma F=\frac{\gin F}{1+\sigma F},
+\]</div>
+<div class="p">which is positive because <span class="mi">\(F\ge\sw2/(1+3(1-\bmom)^2q)&gt;0\)</span> by <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(ii). The same lemma gives <span class="mi">\(\widehat F\in(0,1]\)</span>.</div>
+<div class="p">Part (b) is the coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a> in this setting. By the definition of <span class="mi">\(q\)</span> and by (a),</div>
+<div class="md">\[
+qF=s\sigma\tilde\sigma F=\sigma\tilde s_1=\frac{\gin\sigma F}{1+\sigma F}&lt;\gin .
+\]</div>
+<div class="p">Rewriting <span class="mi">\(\tilde s_1(1+\sigma F)=\gin F\)</span> as <span class="mi">\(\tilde s_1=\gin F-F\sigma\tilde s_1\)</span> gives <span class="mi">\(\tilde s_1=F(\gin-qF)\)</span>.</div>
+<div class="p">Part (c) is (b) in the rescaled variables. Since <span class="mi">\(\nu_{\mathrm{out}}=\gout\hat\nu_{\mathrm{out}}=r\gin\hat\nu_{\mathrm{out}}\)</span>,</div>
+<div class="md">\[
+\sigma=r\gin\int\frac{x\,\hat\nu_{\mathrm{out}}(\dif x)}{\sw2\gin(\hat s+bx)}
+=\frac{r}{\sw2}\int\frac{x\,\hat\nu_{\mathrm{out}}(\dif x)}{\hat s+bx},
+\qquad\text{so}\qquad
+qF=\sigma\tilde s_1=r\gin\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b).
+\]</div>
+<div class="p">The identity <span class="mi">\(\tilde s_1=F(\gin-qF)\)</span> of (b) then reads <span class="mi">\(\sw2\gin\,b=F\gin\big(1-r\,m_{\hat\nu_{\mathrm{out}}}(\hat s/b)\big)\)</span>, which is the displayed equation after division by <span class="mi">\(\sw2\gin\widehat F\)</span>. One has <span class="mi">\(b&gt;0\)</span> by (a), and <span class="mi">\(b\le\widehat F\)</span> because <span class="mi">\(m_{\hat\nu_{\mathrm{out}}}\ge0\)</span>.</div>
+<div class="p">Part (d) uses (a) twice. By (a), <span class="mi">\(s+s_1=s(1+\sigma F)\)</span> and <span class="mi">\(1/(1+\sigma F)=\tilde s_1/(\gin F)\)</span>, so</div>
+<div class="md">\[
+\mathsf k(s;\mu)=\frac{L\mu}{(s+\tilde s_1\mu)(1+\sigma F)}
+=\frac{L}{\gin F}\,\frac{\tilde s_1\mu}{s+\tilde s_1\mu}
+=\frac{L}{\sw2\gin\,\widehat F}\,\frac{b\mu}{\hat s+b\mu}.\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-os-compare"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-compare.html" data-label="lem:app-os-compare">Lemma SH.5</a> <span class="thm-title">(Comparison)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure, <span class="mi">\(r&gt;0\)</span>, <span class="mi">\(\hat s&gt;0\)</span> and <span class="mi">\(\widehat F\in(0,1]\)</span>, and let <span class="mi">\(b&gt;0\)</span> satisfy <span class="mi">\(b/\widehat F+r\,m_\nu(\hat s/b)=1\)</span>. Then <span class="mi">\(\widehat F\,b_0(\hat s)\le b\le b_0(\hat s)\)</span>, and for every <span class="mi">\(\mu\ge0\)</span></div>
+<div class="md">\[
+\widehat F\,\frac{b_0(\hat s)\,\mu}{\hat s+b_0(\hat s)\,\mu}\le\frac{b\mu}{\hat s+b\mu}
+\le\frac{b_0(\hat s)\,\mu}{\hat s+b_0(\hat s)\,\mu}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Both bounds on <span class="mi">\(b\)</span> come from the strictly increasing function <span class="mi">\(y\mapsto y/\widehat F+r\,m_\nu(\hat s/y)\)</span>, which equals <span class="mi">\(1\)</span> at <span class="mi">\(y=b\)</span>. At <span class="mi">\(y=b_0=b_0(\hat s)\)</span>, since <span class="mi">\(\widehat F\le1\)</span>,</div>
+<div class="md">\[
+\frac{b_0}{\widehat F}+r\,m_\nu(\hat s/b_0)\ge b_0+r\,m_\nu(\hat s/b_0)=1,
+\qquad\text{so}\qquad b\le b_0 .
+\]</div>
+<div class="p">At <span class="mi">\(y=\widehat F b_0\)</span>, since <span class="mi">\(m_\nu(\hat s/y)\)</span> is nondecreasing in <span class="mi">\(y\)</span> and <span class="mi">\(\widehat F b_0\le b_0\)</span>,</div>
+<div class="md">\[
+b_0+r\,m_\nu\big(\hat s/(\widehat F b_0)\big)\le b_0+r\,m_\nu(\hat s/b_0)=1,
+\qquad\text{so}\qquad \widehat F b_0\le b .
+\]</div>
+<div class="p">The map <span class="mi">\(y\mapsto y\mu/(\hat s+y\mu)\)</span> is nondecreasing, which gives the right inequality of the display. The left one follows from</div>
+<div class="md">\[
+\frac{b\mu}{\hat s+b\mu}\ge\frac{\widehat F b_0\mu}{\hat s+\widehat F b_0\mu}
+\ge\widehat F\,\frac{b_0\mu}{\hat s+b_0\mu}.\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-theorem" id="L-thm:app-os-limit"><div class="thm-head"><a class="thm-name" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> <span class="thm-title">(Oversampled limit law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\Nout,\Nin,B\ge1\)</span>, let <span class="mi">\(\Sigmaout\)</span> be positive semidefinite, let <span class="mi">\(\bmom\in[0,1)\)</span>, and assume that <span class="mi">\(\bmom&gt;0\)</span>, or that <span class="mi">\(\bmom=0\)</span> and <span class="mi">\(\gin&lt;1\)</span>. Let <span class="mi">\(q_\star\)</span> be as in <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iii), and put <span class="mi">\(\Lambda\defeq1+3(1-\bmom)^2q_\star\)</span>. Write <span class="mi">\(\mathfrak d^{\rm os}=\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(\mu\ge0\)</span>,</div>
+<div class="md">\[
+\Lambda^{-1}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)\le\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)\le\Lambda\,\mathfrak d^{\rm os}(\mu;\hat\ridge).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every <span class="mi">\(\mu\ge0\)</span> the limit</div>
+<div class="md">\[
+\mathfrak d_0(\mu)\defeq\lim_{\ridge\downarrow0}\mathfrak d_\ridge(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty\mathsf k(u^2;\mu)\,\dif u
+\]</div>
+<div class="p">exists in <span class="mi">\([0,\infty)\)</span>, and it satisfies the bounds of (i) with <span class="mi">\(\ridge=\hat\ridge=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, then <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span>. Consequently, for every <span class="mi">\(\ridge\ge0\)</span> and <span class="mi">\(1\le i\le\Nout\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-limit"></span>\begin{equation}\tag{SH.10}
+\mathfrak d_i(\ridge)=\vartheta_i\,\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\mathfrak d^{\rm os}(\mu_i;\hat\ridge)
+\qquad\text{for some }\vartheta_i\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big],
+\end{equation}</div>
+<div class="p">and for every <span class="mi">\(\mu\ge0\)</span></div>
+<div class="md">\[
+\Big|\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)-\mathfrak d^{\rm os}(\mu;\hat\ridge)\Big|
+\le\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)
+\le\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\sqrt{\frac\mu2}.
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For <span class="mi">\(\ridge\ge0\)</span> let <span class="mi">\(\vartheta_\ridge(\mu)\defeq\sqrt{\sw2\gin}\,\mathfrak d_\ridge(\mu)/\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span> for <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(\vartheta_\ridge(0)\defeq1\)</span>. Then <span class="mi">\(\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset[\Lambda^{-1},\Lambda]\)</span> and</div>
+<div class="md">\[
+\mathfrak d_\ridge(\Sigmaout)=\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,\mathfrak d^{\rm os}(\Sigmaout;\hat\ridge).
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof starts from a uniform bound on the two scalar factors. For <span class="mi">\(s&gt;0\)</span> let <span class="mi">\(b(s)\)</span>, <span class="mi">\(\widehat F(s)\)</span> and <span class="mi">\(L(s)\)</span> be as in <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(b), <span class="mi">\(q(-s)\Fw(q(-s))&lt;\gin\)</span>, so <span class="mi">\(q(-s)&lt;q_\star\)</span> by <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iii). <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(ii) then gives, for every <span class="mi">\(s&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-factors"></span>\begin{equation}\tag{SH.11}
+L(s)\ge\frac1{1+3(1-\bmom)^2q(-s)}\ge\Lambda^{-1},\qquad
+\widehat F(s)\ge\frac1{1+3(1-\bmom)^2q(-s)}\ge\Lambda^{-1}.
+\end{equation}</div>
+<div class="p">Part (i) is a pointwise sandwich of the integrands. Substitute <span class="mi">\(u=\sqrt{\sw2\gin}\,v\)</span> in <a class="ref" href="s.SH.html#L-eqn:app-os-d" data-label="eqn:app-os-d">(SH.3)</a>, so that <span class="mi">\(\ridge+u^2=\sw2\gin\,\hat s\)</span> with <span class="mi">\(\hat s=\hat\ridge+v^2\)</span>. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(d),</div>
+<div class="md">\[
+\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty I(\hat s)\,\dif v,\qquad
+I(\hat s)\defeq\frac{L}{\widehat F}\,\frac{b\mu}{\hat s+b\mu}\Big|_{s=\sw2\gin\hat s}.
+\]</div>
+<div class="p">Write <span class="mi">\(I_0(\hat s)\defeq b_0(\hat s)\mu/(\hat s+b_0(\hat s)\mu)\)</span> with <span class="mi">\(b_0=b_0^{\hat\nu_{\mathrm{out}},r}\)</span>. <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(c) places <span class="mi">\(b\)</span> under the hypotheses of <a class="ref" href="r.lem.app-os-compare.html" data-label="lem:app-os-compare">Lemma SH.5</a>, which gives</div>
+<div class="md">\[
+L\,I_0\le I\le\widehat F^{-1}I_0 ,
+\]</div>
+<div class="p">using <span class="mi">\(L\le1\)</span> on the right. By <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-factors" data-label="eqn:app-os-factors">(SH.11)</a>, <span class="mi">\(\Lambda^{-1}I_0\le I\le\Lambda I_0\)</span> for every <span class="mi">\(\hat s&gt;0\)</span>. Integrating in <span class="mi">\(v\)</span> proves (i), since <span class="mi">\(\frac{\sqrt2}{\pi}\int_0^\infty I_0\,\dif v=\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span>.</div>
+<div class="p">Part (ii) is dominated convergence with a majorant that does not depend on the ridge. By <a class="ref" href="r.lem.app-os-reduction.html" data-label="lem:app-os-reduction">Lemma SH.4</a>(d), <span class="mi">\(b\le\widehat F\le1\)</span>, <span class="mi">\(L\le1\)</span> and <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-factors" data-label="eqn:app-os-factors">(SH.11)</a>,</div>
+<div class="md">\[
+\mathsf k(s;\mu)\le\frac{\Lambda}{\sw2\gin}\min\Big\{1,\ \frac{b\mu}{\hat s}\Big\}
+\le\Lambda\min\Big\{\frac1{\sw2\gin},\ \frac\mu s\Big\},
+\]</div>
+<div class="p">and the right side is nonincreasing in <span class="mi">\(s\)</span>. Hence, for <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(u&gt;0\)</span>,</div>
+<div class="md">\[
+\mathsf k(\ridge+u^2;\mu)\le\Lambda\min\Big\{\frac1{\sw2\gin},\ \frac{\mu}{u^2}\Big\},
+\]</div>
+<div class="p">which is integrable on <span class="mi">\((0,\infty)\)</span>. The integrand <span class="mi">\(\mathsf k(\cdot;\mu)\)</span> is continuous on <span class="mi">\((0,\infty)\)</span> (<a class="ref" href="s.SH.html#L-sec:app-os-setup" data-label="sec:app-os-setup">Section SH.2</a>), so <span class="mi">\(\mathsf k(\ridge+u^2;\mu)\to\mathsf k(u^2;\mu)\)</span> for every <span class="mi">\(u&gt;0\)</span>, and dominated convergence gives the existence and the value of the limit. At <span class="mi">\(\ridge=0\)</span> the substitution and the pointwise sandwich of (i) apply without change, with <span class="mi">\(\hat s=v^2&gt;0\)</span>.</div>
+<div class="p">Part (iii) combines (i) and (ii) with <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iv), which gives <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span> and <span class="mi">\(\Lambda^{-1}\ge1-\epsilon_{\rm os}\)</span>. If <span class="mi">\(\mu_i=0\)</span>, both sides of <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-limit" data-label="eqn:app-os-limit">(SH.10)</a> vanish and <span class="mi">\(\vartheta_i=1\)</span> serves. If <span class="mi">\(\mu_i&gt;0\)</span>, the profile is positive by <a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a>, and <span class="mi">\(\vartheta_i\defeq\sqrt{\sw2\gin}\,\mathfrak d_i(\ridge)/\mathfrak d^{\rm os}(\mu_i;\hat\ridge)\)</span> lies in <span class="mi">\([\Lambda^{-1},\Lambda]\)</span>. The identity <span class="mi">\((\sw2\gin)^{-1/2}=\sqrt{B/(\sw2\Nin)}=\sqrt{B_{\rm eff}/\Nin}\)</span> gives <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-limit" data-label="eqn:app-os-limit">(SH.10)</a>. For the error bound, the two-sided bound gives</div>
+<div class="md">\[
+\Big|\sqrt{\sw2\gin}\;\mathfrak d_\ridge(\mu)-\mathfrak d^{\rm os}(\mu;\hat\ridge)\Big|
+\le\max\Big\{\epsilon_{\rm os},\ \frac1{1-\epsilon_{\rm os}}-1\Big\}\,\mathfrak d^{\rm os}(\mu;\hat\ridge)
+=\frac{\epsilon_{\rm os}}{1-\epsilon_{\rm os}}\,\mathfrak d^{\rm os}(\mu;\hat\ridge),
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a> bounds <span class="mi">\(\mathfrak d^{\rm os}(\mu;\hat\ridge)\)</span> by <span class="mi">\(\sqrt{\mu/2}\)</span>.</div>
+<div class="p">Part (iv) is (i) and (ii) eigenvalue by eigenvalue. At <span class="mi">\(\mu=0\)</span> both <span class="mi">\(\mathfrak d_\ridge(0)\)</span> and <span class="mi">\(\mathfrak d^{\rm os}(0;\hat\ridge)\)</span> vanish, and at <span class="mi">\(\mu&gt;0\)</span> the ratio <span class="mi">\(\vartheta_\ridge(\mu)\)</span> lies in <span class="mi">\([\Lambda^{-1},\Lambda]\)</span> by (i) and (ii). The functions of <span class="mi">\(\Sigmaout\)</span> act on each eigenvector <span class="mi">\(u_k\)</span> by the value at <span class="mi">\(\mu_k\)</span>, which gives the operator identity.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The relative error <span class="mi">\(\epsilon_{\rm os}/(1-\epsilon_{\rm os})\)</span> in <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iii) depends only on <span class="mi">\(\epsilon_{\rm os}\)</span>. It does not depend on <span class="mi">\(\Nout\)</span>, <span class="mi">\(\Nin\)</span>, the spectrum or its norm, the eigenvalue or the ridge, and it is at most <span class="mi">\(2\epsilon_{\rm os}\)</span> when <span class="mi">\(\epsilon_{\rm os}\le\frac12\)</span>. Because the error is relative to the profile, the theorem is also accurate on modes where <span class="mi">\(\mathfrak d^{\rm os}(\mu)\ll\sqrt\mu\)</span>. The shape ratio <span class="mi">\(r\)</span> is arbitrary in the theorem; <a class="ref" href="s.SH.html#L-sec:app-os-square" data-label="sec:app-os-square">Section SH.6</a>, <a class="ref" href="s.SH.html#L-sec:app-os-tail" data-label="sec:app-os-tail">Section SH.7</a> and <a class="ref" href="s.SH.html#L-sec:app-os-examples" data-label="sec:app-os-examples">Section SH.8</a> specialize to <span class="mi">\(r=1\)</span>.</div><div class="thm thm-corollary" id="L-cor:app-os-update"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> <span class="thm-title">(Expected regularized update)</span></div><div class="thm-body"><div class="p">Assume <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> with <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, and assume that <span class="mi">\(\epsilon_{\rm os}=3(1-\bmom^2)\Nin/B\le\bar\epsilon\)</span> along the sequence of dimensions for a fixed <span class="mi">\(\bar\epsilon&lt;1\)</span>. For <span class="mi">\(\ridge\in[\ridge_-,\ridge_+]\)</span> let <span class="mi">\(\vartheta_\ridge\)</span> be the function of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iv) at the current dimension. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-update"></span>\begin{equation}\tag{SH.12}
+\sup_{\ridge\in[\ridge_-,\ridge_+]}\Big\|\EE\,\Qridge\ridge(\Mt)
+-\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,
+\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}\Big(\Sigmaout;\frac{\ridge}{\sw2\gin}\Big)\,
+\frac{\Dt}{\sqrt{\cR(t)}}\Big\|_\F\longrightarrow0,
+\end{equation}</div>
+<div class="p">and <span class="mi">\(\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big]\)</span> at every dimension and for every <span class="mi">\(\ridge\)</span>.</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The candidate of <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> is the drift operator applied to the state. With <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, the deterministic equivalents of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a> are <span class="mi">\(\Rbar(-s)=(s\Id+\tilde s_1(-s)\Sigmaout)^{-1}\)</span> and <span class="mi">\(\Rtbar(-s)=(s+s_1(-s))^{-1}\Id\)</span>, so the candidate <span class="mi">\(T\)</span> of <a class="ref" href="s.SC.html#L-eqn:app-drift-H" data-label="eqn:app-drift-H">(SC.2)</a> is</div>
+<div class="md">\[
+T(s)=\frac{s\,\Lw(q(-s))}{s+s_1(-s)}\,\Sigmaout\big(s\Id+\tilde s_1(-s)\Sigmaout\big)^{-1}\frac{\Dt}{\sqrt{2\cR(t)}}
+=\mathsf k(s;\Sigmaout)\,\frac{\Dt}{\sqrt{2\cR(t)}} .
+\]</div>
+<div class="p">Integrating against <span class="mi">\(\frac2\pi\,\dif u\)</span> at <span class="mi">\(s=\ridge+u^2\)</span>, as in <a class="ref" href="s.SC.html#L-eqn:app-drift-Gbar" data-label="eqn:app-drift-Gbar">(SC.3)</a>, and using <span class="mi">\(\frac2\pi=\sqrt2\cdot\frac{\sqrt2}{\pi}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-Gbar"></span>\begin{equation}\tag{SH.13}
+\Gtildebar_\ridge=\sqrt2\,\mathfrak d_\ridge(\Sigmaout)\,\frac{\Dt}{\sqrt{2\cR(t)}}
+=\mathfrak d_\ridge(\Sigmaout)\,\frac{\Dt}{\sqrt{\cR(t)}} .
+\end{equation}</div>
+<div class="p">The drift operator is then rewritten by <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>. At every dimension <span class="mi">\(\epsilon_{\rm os}\le\bar\epsilon&lt;1\)</span>, so <a class="ref" href="r.lem.app-os-scalar.html" data-label="lem:app-os-scalar">Lemma SH.3</a>(iv) gives the hypothesis of the theorem and <span class="mi">\(\Lambda\le(1-\epsilon_{\rm os})^{-1}\)</span>. <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iv) gives</div>
+<div class="md">\[
+\mathfrak d_\ridge(\Sigmaout)=\sqrt{\frac{B_{\rm eff}}{\Nin}}\;\vartheta_\ridge(\Sigmaout)\,
+\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}},r}(\Sigmaout;\hat\ridge),
+\qquad\operatorname{spec}\vartheta_\ridge(\Sigmaout)\subset\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big].
+\]</div>
+<div class="p">Inserting this into <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-Gbar" data-label="eqn:app-os-Gbar">(SH.13)</a>, <a class="ref" href="r.thm.app-drift-mean.html#L-eqn:app-drift-mean" data-label="eqn:app-drift-mean">(SC.8)</a> of <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> gives <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-update" data-label="eqn:app-os-update">(SH.12)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p"><a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> is an iterated statement. The dimension limit is taken at a fixed momentum, at ridges in a fixed compact subset of <span class="mi">\((0,\infty)\)</span> and at converging aspect ratios, as in <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>. The factor <span class="mi">\(\vartheta_\ridge(\Sigmaout)\)</span> is within <span class="mi">\(\epsilon_{\rm os}/(1-\epsilon_{\rm os})\)</span> of the identity at every dimension, uniformly in the spectrum, so no exchange of limits occurs. The zero-ridge coefficient <span class="mi">\(\mathfrak d_0\)</span> of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(ii) is a deterministic limit, and the corollary makes no statement about the algorithm at zero ridge.</div>
+<div class="p">The relevant ridge for the profile is the rescaled ridge <span class="mi">\(\hat\ridge=\ridge/(\sw2\gin)\)</span>. At a fixed normalized ridge <span class="mi">\(\ridge&gt;0\)</span> and <span class="mi">\(\gin\downarrow0\)</span>, one has <span class="mi">\(\hat\ridge\to\infty\)</span>, and <a class="ref" href="r.lem.app-os-profile.html" data-label="lem:app-os-profile">Lemma SH.2</a> gives <span class="mi">\(\mathfrak d^{\rm os}(\mu;\hat\ridge)\le\mu/\sqrt{2\hat\ridge}\)</span>, a bound linear in <span class="mi">\(\mu\)</span>. The square-root law of the next subsection concerns bounded <span class="mi">\(\hat\ridge\)</span>, in particular <span class="mi">\(\hat\ridge=0\)</span>.</div><div class="thm thm-remark" id="L-rem:app-os-linear"><div class="thm-head"><a class="thm-name" href="r.rem.app-os-linear.html" data-label="rem:app-os-linear">Remark SH.1</a> <span class="thm-title">(Scope of the linear response; heuristic)</span></div><div class="thm-body"><div class="p">This remark is heuristic, and no statement of the appendix uses it. <a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a> requires the diffuseness <span class="mi">\(\norm{\Ahat}\to0\)</span> of <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, which suffices at fixed aspect ratios. At the scale of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>, the spectral parameter that carries the profile is <span class="mi">\(s=\sw2\gin\hat s\)</span> with <span class="mi">\(\hat s\)</span> of order one, so the squared singular values of the noise part of the buffer that the filter resolves are of order <span class="mi">\(\sw2\gin\)</span>. In the square case <span class="mi">\(\Nout=\Nin=N\)</span>, a delocalized mean gradient <span class="mi">\(\EE\Gt=\Sigmaout^{1/2}\Ahat\)</span>, of Frobenius norm of order one and of rank of order <span class="mi">\(N\)</span>, has operator norm of order <span class="mi">\(N^{-1/2}\)</span>. The response of the filter to the mean gradient should then be linear when <span class="mi">\(N^{-1/2}\ll\sqrt{\sw2\gin}\)</span>, that is when</div>
+<div class="md">\[
+B_{\rm eff}\ll N^2 .
+\]</div>
+<div class="p">For larger batches the response is presumably nonlinear in <span class="mi">\(\Dt\)</span>, and <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> then describes the deterministic coefficient only.</div></div></div><h3 id="L-sec:app-os-square"><span class="h-num">SH.6</span> The square case: the square-root law and head modes</h3>
+<div class="p">Throughout this subsection and the next two, <span class="mi">\(r=1\)</span>, which is the profile that <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a> attaches to the square case <span class="mi">\(\Nout=\Nin\)</span>, and <span class="mi">\(\nu\)</span> is an arbitrary probability measure. As in <a class="ref" href="s.SF.html" data-label="sec:app-iso">Section SF</a>, the Stieltjes transform on the negative axis is <span class="mi">\(S_\nu(-c)\defeq\int\nu(\dif x)/(c+x)\)</span> for <span class="mi">\(c&gt;0\)</span>, and we put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-Upsilon"></span>\begin{equation}\tag{SH.14}
+\Upsilon_\nu(c)\defeq c\,\big(1-m_\nu(c)\big)=\int\frac{c^2\,\nu(\dif x)}{c+x}=c^2S_\nu(-c)\qquad(c&gt;0).
+\end{equation}</div><div class="thm thm-lemma" id="L-lem:app-os-integrals"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a> <span class="thm-title">(Elementary integrals)</span></div><div class="thm-body"><div class="p">One has</div>
+<div class="md">\[
+\int_0^1\frac{\sqrt y\,\dif y}{(1+y)^2}=\frac\pi4-\frac12,\qquad
+\int_1^\infty\frac{\sqrt y\,\dif y}{(1+y)^2}=\frac\pi4+\frac12,\qquad
+\int_0^1\frac{y\,\dif y}{(1+y)^2}=\log2-\frac12 .
+\]</div>
+<div class="p">In particular <span class="mi">\(\varpi\)</span> is a probability density on <span class="mi">\((0,\infty)\)</span>, and for <span class="mi">\(\mu&gt;0\)</span></div>
+<div class="md">\[
+\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\sqrt c\,\dif c}{(c+\mu)^2}=\sqrt{\mu/2}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first two integrals have the antiderivative <span class="mi">\(\arctan\sqrt y-\sqrt y/(1+y)\)</span>. Its derivative is</div>
+<div class="md">\[
+\frac{1}{2\sqrt y\,(1+y)}-\frac{1-y}{2\sqrt y\,(1+y)^2}=\frac{\sqrt y}{(1+y)^2},
+\]</div>
+<div class="p">and it takes the values <span class="mi">\(0\)</span>, <span class="mi">\(\pi/4-1/2\)</span> and <span class="mi">\(\pi/2\)</span> at <span class="mi">\(y=0\)</span>, <span class="mi">\(y=1\)</span> and <span class="mi">\(y=\infty\)</span>. The third integral uses <span class="mi">\(y(1+y)^{-2}=(1+y)^{-1}-(1+y)^{-2}\)</span>. The sum of the first two is <span class="mi">\(\pi/2\)</span>, which is the normalization of <span class="mi">\(\varpi\)</span>. The last identity is the substitution <span class="mi">\(c=\mu y\)</span> together with <span class="mi">\(\int_0^\infty\sqrt y\,(1+y)^{-2}\,\dif y=\pi/2\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-lemma" id="L-lem:app-os-cparam"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a> <span class="thm-title">(The <span class="mi">\(c\)</span>-parametrization)</span></div><div class="thm-body"><div class="p">The function <span class="mi">\(\Upsilon_\nu\)</span> is continuously differentiable on <span class="mi">\((0,\infty)\)</span>, with</div>
+<div class="md">\[
+\Upsilon_\nu'(c)=\int\Big(1-\frac{x^2}{(c+x)^2}\Big)\nu(\dif x)\in(0,1],
+\]</div>
+<div class="p">and <span class="mi">\(0&lt;\Upsilon_\nu(c)\le c\)</span>. It tends to <span class="mi">\(0\)</span> as <span class="mi">\(c\downarrow0\)</span> and to <span class="mi">\(\infty\)</span> as <span class="mi">\(c\to\infty\)</span>, so it is an increasing bijection of <span class="mi">\((0,\infty)\)</span>. With <span class="mi">\(c_\nu\defeq\Upsilon_\nu^{-1}\)</span> one has <span class="mi">\(c_\nu(\hat s)\ge\hat s\)</span>, and the profile root of the square case is</div>
+<div class="md">\[
+b_0^{\nu,1}(\hat s)=\frac{\hat s}{c_\nu(\hat s)},\qquad
+\frac{b_0^{\nu,1}(\hat s)\,\mu}{\hat s+b_0^{\nu,1}(\hat s)\,\mu}=\frac{\mu}{c_\nu(\hat s)+\mu}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The derivative of the integrand of <a class="ref" href="s.SH.html#L-eqn:app-os-Upsilon" data-label="eqn:app-os-Upsilon">(SH.14)</a> in <span class="mi">\(c\)</span> is</div>
+<div class="md">\[
+\partial_c\frac{c^2}{c+x}=1-\frac{x^2}{(c+x)^2}\in(0,1]\qquad(c&gt;0),
+\]</div>
+<div class="p">which gives the formula for <span class="mi">\(\Upsilon_\nu'\)</span>. The bounds <span class="mi">\(0&lt;\Upsilon_\nu(c)\le c\)</span> hold because <span class="mi">\(0&lt;c/(c+x)\le1\)</span>, and they give <span class="mi">\(\Upsilon_\nu(c)\to0\)</span> as <span class="mi">\(c\downarrow0\)</span>. As <span class="mi">\(c\to\infty\)</span>, <span class="mi">\(1-m_\nu(c)\uparrow1\)</span> by monotone convergence, so <span class="mi">\(\Upsilon_\nu(c)\ge c/2\)</span> for large <span class="mi">\(c\)</span>.</div>
+<div class="p">The identification of <span class="mi">\(b_0\)</span> is a change of unknown. For <span class="mi">\(b_0=b_0^{\nu,1}(\hat s)\)</span> put <span class="mi">\(c\defeq\hat s/b_0\)</span>. Then <a class="ref" href="r.lem.app-os-root.html#L-eqn:app-os-root" data-label="eqn:app-os-root">(SH.5)</a> with <span class="mi">\(r=1\)</span> reads</div>
+<div class="md">\[
+\frac{\hat s}{c}+m_\nu(c)=1,\qquad\text{that is}\qquad \Upsilon_\nu(c)=\hat s .
+\]</div>
+<div class="p">Hence <span class="mi">\(c=c_\nu(\hat s)\)</span>, and <span class="mi">\(c\ge\Upsilon_\nu(c)=\hat s\)</span>. Substituting <span class="mi">\(b_0=\hat s/c\)</span> gives the last identity.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The next lemma is the central representation. It writes the profile as the square-root law times a <span class="mi">\(\varpi\)</span>-average of <span class="mi">\(\sqrt{1-m_\nu}\)</span>.</div><div class="thm thm-lemma" id="L-lem:app-os-repr"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class="thm-title">(Representation of the profile)</span></div><div class="thm-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span> and every <span class="mi">\(\mu&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-repr"></span>\begin{equation}\tag{SH.15}
+\mathfrak d^{\rm os}_\nu(\mu)=\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\sqrt{\Upsilon_\nu(c)}}{(c+\mu)^2}\,\dif c
+=\sqrt{\frac\mu2}\;\chi_\nu(\mu),
+\qquad \chi_\nu(\mu)\in(0,1].
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The first step changes the variable from <span class="mi">\(v\)</span> to <span class="mi">\(c\)</span>. By <a class="ref" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a>, at <span class="mi">\(\hat\ridge=0\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)=\frac{\sqrt2}{\pi}\int_0^\infty\frac{\mu\,\dif v}{c_\nu(v^2)+\mu}.
+\]</div>
+<div class="p">The map <span class="mi">\(c\mapsto\sqrt{\Upsilon_\nu(c)}\)</span> is an increasing continuously differentiable bijection of <span class="mi">\((0,\infty)\)</span>, by <a class="ref" href="r.lem.app-os-cparam.html" data-label="lem:app-os-cparam">Lemma SH.7</a>. Substituting <span class="mi">\(v=\sqrt{\Upsilon_\nu(c)}\)</span>, so that <span class="mi">\(c_\nu(v^2)=c\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\frac{\mu\,\dif v}{c_\nu(v^2)+\mu}=\int_0^\infty\frac{\mu}{c+\mu}\,\frac{\dif}{\dif c}\sqrt{\Upsilon_\nu(c)}\,\dif c .
+\]</div>
+<div class="p">The second step integrates by parts. The boundary term satisfies</div>
+<div class="md">\[
+0\le\frac{\mu\sqrt{\Upsilon_\nu(c)}}{c+\mu}\le\frac{\mu\sqrt c}{c+\mu},
+\]</div>
+<div class="p">which tends to <span class="mi">\(0\)</span> as <span class="mi">\(c\downarrow0\)</span> and as <span class="mi">\(c\to\infty\)</span>. The derivative of <span class="mi">\(\mu/(c+\mu)\)</span> is <span class="mi">\(-\mu/(c+\mu)^2\)</span>, which gives the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>.</div>
+<div class="p">The third step substitutes <span class="mi">\(c=\mu y\)</span>. Since <span class="mi">\(\Upsilon_\nu(\mu y)=\mu y\,(1-m_\nu(\mu y))\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\sqrt{\Upsilon_\nu(c)}}{(c+\mu)^2}\,\dif c
+&amp;=\frac{\sqrt2}{\pi}\sqrt\mu\int_0^\infty\frac{\sqrt y\,\sqrt{1-m_\nu(\mu y)}}{(1+y)^2}\,\dif y\\
+&amp;=\sqrt{\frac\mu2}\int_0^\infty\varpi(y)\sqrt{1-m_\nu(\mu y)}\,\dif y .
+\end{aligned}
+\]</div>
+<div class="p">Finally, <span class="mi">\(0&lt;1-m_\nu\le1\)</span> and <span class="mi">\(\int\varpi=1\)</span> (<a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>) give <span class="mi">\(\chi_\nu(\mu)\in(0,1]\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The <span class="mi">\(\varpi\)</span>-average of the ratio <span class="mi">\(m_\nu\)</span> has a closed form, which makes the analysis of head modes exact.</div><div class="thm thm-lemma" id="L-lem:app-os-average"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-average.html" data-label="lem:app-os-average">Lemma SH.9</a> <span class="thm-title">(The averaged ratio)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(x\ge0\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\varpi(y)\,\frac{x}{\mu y+x}\,\dif y=\frac{x}{(\sqrt\mu+\sqrt x)^2}.
+\]</div>
+<div class="p">The right side is nondecreasing in <span class="mi">\(x\)</span> and at most <span class="mi">\(\min\{x/\mu,\,1,\,x/(\mu+x)\}\)</span>. Consequently</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-mbar"></span>\begin{equation}\tag{SH.16}
+m^\varpi_\nu(\mu)\defeq\int_0^\infty\varpi(y)\,m_\nu(\mu y)\,\dif y=\int\frac{x\,\nu(\dif x)}{(\sqrt\mu+\sqrt x)^2}\le m_\nu(\mu).
+\end{equation}</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">For <span class="mi">\(x=0\)</span> both sides vanish. For <span class="mi">\(a,\xi&gt;0\)</span> we first compute two integrals. The substitution <span class="mi">\(y=w^2\)</span> and the partial fractions</div>
+<div class="md">\[
+\frac{w^2}{(w^2+a)(w^2+\xi)}=\frac{1}{\xi-a}\Big(\frac{\xi}{w^2+\xi}-\frac{a}{w^2+a}\Big)\qquad(a\ne\xi)
+\]</div>
+<div class="p">give, after letting <span class="mi">\(a\to\xi\)</span> in the case <span class="mi">\(a=\xi\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\frac{\sqrt y\,\dif y}{(y+a)(y+\xi)}=\frac{\pi}{\sqrt a+\sqrt\xi}.
+\]</div>
+<div class="p">Differentiating in <span class="mi">\(a\)</span> gives</div>
+<div class="md">\[
+\int_0^\infty\frac{\sqrt y\,\dif y}{(y+a)^2(y+\xi)}=\frac{\pi}{2\sqrt a\,(\sqrt a+\sqrt\xi)^2}.
+\]</div>
+<div class="p">The identity follows at <span class="mi">\(a=1\)</span> and <span class="mi">\(\xi=x/\mu\)</span>. Since <span class="mi">\(x/(\mu y+x)=\xi/(y+\xi)\)</span>,</div>
+<div class="md">\[
+\int_0^\infty\varpi(y)\,\frac{\xi}{y+\xi}\,\dif y=\frac2\pi\,\xi\,\frac{\pi}{2(1+\sqrt\xi)^2}=\frac{\xi}{(1+\sqrt\xi)^2}
+=\frac{x}{(\sqrt\mu+\sqrt x)^2}.
+\]</div>
+<div class="p">The right side equals <span class="mi">\((\sqrt x/(\sqrt\mu+\sqrt x))^2\)</span>, which is nondecreasing in <span class="mi">\(x\)</span> and at most <span class="mi">\(1\)</span> and <span class="mi">\(x/\mu\)</span>. It is at most <span class="mi">\(x/(\mu+x)\)</span> because <span class="mi">\((\sqrt\mu+\sqrt x)^2\ge\mu+x\)</span>. Integrating the identity against <span class="mi">\(\nu(\dif x)\)</span> gives <a class="ref" href="r.lem.app-os-average.html#L-eqn:app-os-mbar" data-label="eqn:app-os-mbar">(SH.16)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The defect <span class="mi">\(1-\chi_\nu\)</span> is comparable to the averaged ratio within a factor of two.</div><div class="thm thm-lemma" id="L-lem:app-os-defect"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a> <span class="thm-title">(Defect bounds)</span></div><div class="thm-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span> and every <span class="mi">\(\mu&gt;0\)</span>,</div>
+<div class="md">\[
+\tfrac12\,m^\varpi_\nu(\mu)\le1-\chi_\nu(\mu)\le m^\varpi_\nu(\mu).
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">For <span class="mi">\(m\in[0,1]\)</span> one has</div>
+<div class="md">\[
+\frac m2\le1-\sqrt{1-m}\le m,
+\]</div>
+<div class="p">because <span class="mi">\(\sqrt{1-m}\ge1-m\)</span> and <span class="mi">\((1-\frac m2)^2\ge1-m\)</span>. Apply this with <span class="mi">\(m=m_\nu(\mu y)\)</span> and integrate against <span class="mi">\(\varpi(y)\,\dif y\)</span>, using <span class="mi">\(\int\varpi=1\)</span> and the definitions <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a> and <a class="ref" href="r.lem.app-os-average.html#L-eqn:app-os-mbar" data-label="eqn:app-os-mbar">(SH.16)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The complement of the averaged ratio is an explicit count of the spectrum, and it determines the efficiency up to a square root.</div><div class="thm thm-lemma" id="L-lem:app-os-count"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-count.html" data-label="lem:app-os-count">Lemma SH.11</a> <span class="thm-title">(Smoothed count)</span></div><div class="thm-body"><div class="p">For a probability measure <span class="mi">\(\nu\)</span> and <span class="mi">\(\mu&gt;0\)</span> put</div>
+<div class="md"><span class="anchor" id="L-eqn:app-os-count"></span>\begin{equation}\tag{SH.17}
+\mathsf s_\nu(\mu)\defeq1-m^\varpi_\nu(\mu)=\int\frac{1+2\sqrt{x/\mu}}{\big(1+\sqrt{x/\mu}\big)^2}\,\nu(\dif x)\in(0,1].
+\end{equation}</div>
+<div class="p">Then</div>
+<div class="md">\[
+\mathsf s_\nu(\mu)\le\chi_\nu(\mu)\le\sqrt{\mathsf s_\nu(\mu)} .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The formula for <span class="mi">\(\mathsf s_\nu\)</span> is <a class="ref" href="r.lem.app-os-average.html#L-eqn:app-os-mbar" data-label="eqn:app-os-mbar">(SH.16)</a>, since <span class="mi">\(1-\xi/(1+\sqrt\xi)^2=(1+2\sqrt\xi)/(1+\sqrt\xi)^2\)</span> with <span class="mi">\(\xi=x/\mu\)</span>. The integrand is positive and at most <span class="mi">\(1\)</span>, so <span class="mi">\(\mathsf s_\nu(\mu)\in(0,1]\)</span>.</div>
+<div class="p">The lower bound is the upper bound of <a class="ref" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a>.</div>
+<div class="p">The upper bound is Jensen’s inequality for the concave function <span class="mi">\(\sqrt{\cdot}\)</span> and the probability density <span class="mi">\(\varpi\)</span>:</div>
+<div class="md">\[
+\chi_\nu(\mu)=\int_0^\infty\varpi(y)\sqrt{1-m_\nu(\mu y)}\,\dif y
+\le\Big(\int_0^\infty\varpi(y)\big(1-m_\nu(\mu y)\big)\,\dif y\Big)^{1/2}
+=\sqrt{1-m^\varpi_\nu(\mu)} . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-os-probabilistic"><div class="thm-head"><a class="thm-name" href="r.rem.app-os-probabilistic.html" data-label="rem:app-os-probabilistic">Remark SH.2</a> <span class="thm-title">(Probabilistic reading)</span></div><div class="thm-body"><div class="p">The objects of <a class="ref" href="r.def.app-os-objects.html" data-label="def:app-os-objects">Definition SH.1</a> are probabilities. The density <span class="mi">\(\varpi\)</span> is the law of <span class="mi">\(Y=(g_1^2+g_2^2+g_3^2)/g_4^2\)</span> with independent standard Gaussians <span class="mi">\(g_j\)</span>, since the ratio of independent <span class="mi">\(\chi^2_3\)</span> and <span class="mi">\(\chi^2_1\)</span> variables has density proportional to <span class="mi">\(y^{1/2}(1+y)^{-2}\)</span>. Let <span class="mi">\(L=E/E'\)</span> with independent standard exponentials <span class="mi">\(E,E'\)</span>, so that <span class="mi">\(\Pr(L\le t)=t/(1+t)\)</span>, and let <span class="mi">\(X\sim\nu\)</span> be independent of <span class="mi">\(L\)</span> and <span class="mi">\(Y\)</span>. Then <span class="mi">\(c/(c+x)=\Pr(xL\le c)\)</span> gives</div>
+<div class="md">\[
+1-m_\nu(c)=\Pr(XL\le c),\qquad
+\chi_\nu(\mu)=\EE_Y\Big[\Pr\big(XL\le\mu Y\,\big|\,Y\big)^{1/2}\Big],\qquad
+\mathsf s_\nu(\mu)=\Pr(XL\le\mu Y).
+\]</div>
+<div class="p">For the empirical measure <span class="mi">\(\nu=\hat\nu_{\mathrm{out}}\)</span>, <span class="mi">\(X\)</span> is a uniformly chosen eigenvalue, and <span class="mi">\(1-m_\nu(c)\)</span> is the fraction of the spectrum below <span class="mi">\(c\)</span> after each eigenvalue is multiplied by an independent random factor. The efficiency <span class="mi">\(\chi_\nu(\mu)\)</span> is thus an averaged square root of the fraction of the spectrum lying below <span class="mi">\(\mu\)</span>, on a logarithmic scale.</div></div></div><div class="thm thm-theorem" id="L-thm:app-os-sqrt"><div class="thm-head"><a class="thm-name" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class="thm-title">(Square-root law)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(C_*\defeq\frac12+\frac{2\log2}{\pi}\approx0.9413\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span> and every <span class="mi">\(\mu&gt;0\)</span>,</div>
+<div class="md">\[
+\max\Big\{C_*\sqrt{1-m_\nu(\mu)},\ 1-m_\nu(\mu)\Big\}\sqrt{\frac\mu2}\ \le\ \mathfrak d^{\rm os}_\nu(\mu)\ \le\ \sqrt{\frac\mu2}.
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span>, every <span class="mi">\(\mu&gt;0\)</span> and every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_\nu(\mu)\ge\frac{\nu([0,K\mu])}{1+K};\qquad\text{in particular}\qquad 1-m_\nu(\mu)\ge\tfrac12\,\nu([0,\mu]).
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">In the square case <span class="mi">\(\Nout=\Nin\)</span>, let <span class="mi">\(\underline{\mathfrak d}(\mu)\defeq C_*\sqrt{1-m_{\hat\nu_{\mathrm{out}}}(\mu)}\sqrt{\mu/2}\)</span> for <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(\underline{\mathfrak d}(0)\defeq0\)</span>. Then</div>
+<div class="md">\[
+\underline{\mathfrak d}(\Sigmaout)\preceq\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}}}(\Sigmaout)\preceq\Big(\frac{\Sigmaout}2\Big)^{1/2},
+\]</div>
+<div class="p">where, for <span class="mi">\(\mu_k&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_{\hat\nu_{\mathrm{out}}}(\mu_k)=\frac1{\Nout}\sum_{l=1}^{\Nout}\frac{\mu_k}{\mu_k+\mu_l}.
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The upper bound in (i) is <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, since <span class="mi">\(\chi_\nu\le1\)</span>.</div>
+<div class="p">The first lower bound compares <span class="mi">\(1-m_\nu(\mu y)\)</span> with <span class="mi">\(1-m_\nu(\mu)\)</span> on each side of <span class="mi">\(y=1\)</span>. For <span class="mi">\(y\ge1\)</span>, monotonicity gives <span class="mi">\(1-m_\nu(\mu y)\ge1-m_\nu(\mu)\)</span>. For <span class="mi">\(y\le1\)</span>, since <span class="mi">\(\mu+x\ge\mu y+x\)</span>,</div>
+<div class="md">\[
+\frac{\mu y}{\mu y+x}\ge y\,\frac{\mu}{\mu+x},\qquad\text{so}\qquad 1-m_\nu(\mu y)\ge y\,\big(1-m_\nu(\mu)\big).
+\]</div>
+<div class="p">Inserting both bounds into <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a> and using <a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>,</div>
+<div class="md">\[
+\begin{aligned}
+\chi_\nu(\mu)&amp;\ge\sqrt{1-m_\nu(\mu)}\;\frac2\pi\Big[\int_0^1\frac{y\,\dif y}{(1+y)^2}+\int_1^\infty\frac{\sqrt y\,\dif y}{(1+y)^2}\Big]\\
+&amp;=\sqrt{1-m_\nu(\mu)}\;\frac2\pi\Big(\log2+\frac\pi4\Big)=C_*\sqrt{1-m_\nu(\mu)}.
+\end{aligned}
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> turns this into the first lower bound of (i).</div>
+<div class="p">The second lower bound in (i) follows from the averaged ratio. By <a class="ref" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a> and <a class="ref" href="r.lem.app-os-average.html" data-label="lem:app-os-average">Lemma SH.9</a>,</div>
+<div class="md">\[
+\chi_\nu(\mu)\ge1-m^\varpi_\nu(\mu)\ge1-m_\nu(\mu),
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> again converts this into a bound on the profile.</div>
+<div class="p">Part (ii) holds because <span class="mi">\(\mu/(\mu+x)\ge1/(1+K)\)</span> for <span class="mi">\(x\le K\mu\)</span>, so</div>
+<div class="md">\[
+1-m_\nu(\mu)=\int\frac{\mu\,\nu(\dif x)}{\mu+x}\ge\frac{\nu([0,K\mu])}{1+K}.
+\]</div>
+<div class="p">Part (iii) is (i) applied to each eigenvalue, with <span class="mi">\(\nu=\hat\nu_{\mathrm{out}}\)</span>. On the kernel of <span class="mi">\(\Sigmaout\)</span> all three operators vanish. The formula for <span class="mi">\(1-m_{\hat\nu_{\mathrm{out}}}(\mu_k)\)</span> is <a class="ref" href="s.SH.html#L-eqn:app-os-m" data-label="eqn:app-os-m">(SH.4)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The factor <span class="mi">\(\sqrt{1-m_\nu(\mu)}\)</span> is the only loss against the square-root law, and by (ii) it is bounded below by the square root of the fraction of the spectrum lying within a bounded factor of <span class="mi">\(\mu\)</span>. The next proposition determines when the loss disappears.</div><div class="thm thm-proposition" id="L-prop:app-os-head"><div class="thm-head"><a class="thm-name" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a> <span class="thm-title">(Head modes)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every probability measure <span class="mi">\(\nu\)</span>, every <span class="mi">\(\mu&gt;0\)</span> and every <span class="mi">\(\delta&gt;0\)</span>,</div>
+<div class="md">\[
+\frac{\delta}{2(1+\sqrt\delta)^2}\,\nu\big([\delta\mu,\infty)\big)\le1-\chi_\nu(\mu)\le\delta+\nu\big([\delta\mu,\infty)\big).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every sequence of probability measures <span class="mi">\(\nu_N\)</span> and numbers <span class="mi">\(\mu_N&gt;0\)</span>, one has <span class="mi">\(\mathfrak d^{\rm os}_{\nu_N}(\mu_N)/\sqrt{\mu_N/2}\to1\)</span> if and only if <span class="mi">\(\nu_N([\delta\mu_N,\infty))\to0\)</span> for every <span class="mi">\(\delta&gt;0\)</span>.</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) bounds the averaged ratio of <a class="ref" href="r.lem.app-os-average.html" data-label="lem:app-os-average">Lemma SH.9</a> from both sides. By that lemma, <span class="mi">\(m^\varpi_\nu(\mu)=\int x(\sqrt\mu+\sqrt x)^{-2}\,\nu(\dif x)\)</span> with a nondecreasing integrand, so</div>
+<div class="md">\[
+m^\varpi_\nu(\mu)\ge\frac{\delta\mu}{(\sqrt\mu+\sqrt{\delta\mu})^2}\,\nu\big([\delta\mu,\infty)\big)
+=\frac{\delta}{(1+\sqrt\delta)^2}\,\nu\big([\delta\mu,\infty)\big).
+\]</div>
+<div class="p">The integrand is at most <span class="mi">\(x/\mu&lt;\delta\)</span> on <span class="mi">\(\{x&lt;\delta\mu\}\)</span> and at most <span class="mi">\(1\)</span> elsewhere, so</div>
+<div class="md">\[
+m^\varpi_\nu(\mu)\le\delta+\nu\big([\delta\mu,\infty)\big).
+\]</div>
+<div class="p"><a class="ref" href="r.lem.app-os-defect.html" data-label="lem:app-os-defect">Lemma SH.10</a> converts the two bounds into (i).</div>
+<div class="p">Part (ii) follows from (i) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, which gives <span class="mi">\(\mathfrak d^{\rm os}_{\nu_N}(\mu_N)/\sqrt{\mu_N/2}=\chi_{\nu_N}(\mu_N)\)</span>. If the masses vanish for every <span class="mi">\(\delta\)</span>, the upper bound of (i) gives <span class="mi">\(\limsup_N(1-\chi_{\nu_N}(\mu_N))\le\delta\)</span> for every <span class="mi">\(\delta&gt;0\)</span>. Conversely, if <span class="mi">\(\chi_{\nu_N}(\mu_N)\to1\)</span>, the lower bound of (i) forces <span class="mi">\(\nu_N([\delta\mu_N,\infty))\to0\)</span> for each <span class="mi">\(\delta&gt;0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">A mode <span class="mi">\(\mu\)</span> of a spectrum is a head mode when it lies above all but a vanishing fraction of the spectrum, in the sense of <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(ii). On head modes the profile is the square-root law <span class="mi">\(\sqrt{\mu/2}\)</span> to leading order.</div>
+<div class="p">The lower bound of <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> needs only a count of the spectrum below a multiple of the mode. We name this condition and record the resulting two-sided bound on the drift coefficient itself.</div><div class="thm thm-definition" id="L-def:app-os-packed"><div class="thm-head"><a class="thm-name" href="r.def.app-os-packed.html" data-label="def:app-os-packed">Definition SH.2</a> <span class="thm-title">(Packed mode)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(K\ge1\)</span> and <span class="mi">\(\delta\in(0,1]\)</span>. In the square case <span class="mi">\(\Nout=\Nin=N\)</span>, an eigenvalue <span class="mi">\(\mu_i&gt;0\)</span> of <span class="mi">\(\Sigmaout\)</span> is <em><span class="mi">\((K,\delta)\)</span>-packed</em> if</div>
+<div class="md">\[
+\#\{k\le N:\ \mu_k\le K\mu_i\}\ge\delta N .
+\]</div></div></div><div class="thm thm-corollary" id="L-cor:app-os-packed"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-packed.html" data-label="cor:app-os-packed">Corollary SH.2</a> <span class="thm-title">(Packed modes)</span></div><div class="thm-body"><div class="p">Assume <span class="mi">\(\Nout=\Nin=N\)</span> and <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, and let <span class="mi">\(\mathfrak d_i(0)\)</span> be the zero-ridge coefficient of <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(ii). For every mode with <span class="mi">\(\mu_i&gt;0\)</span>,</div>
+<div class="md">\[
+\mathfrak d_i(0)\le\frac1{1-\epsilon_{\rm os}}\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i},
+\]</div>
+<div class="p">and if <span class="mi">\(\mu_i\)</span> is <span class="mi">\((K,\delta)\)</span>-packed, then</div>
+<div class="md">\[
+\mathfrak d_i(0)\ge(1-\epsilon_{\rm os})\,C_*\sqrt{\frac{\delta}{1+K}}\,\sqrt{\frac{B_{\rm eff}}{2N}}\,\sqrt{\mu_i},
+\qquad C_*=\frac12+\frac{2\log2}\pi .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p"><a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iii) at <span class="mi">\(\ridge=0\)</span> gives</div>
+<div class="md">\[
+\mathfrak d_i(0)=\vartheta_i\sqrt{\frac{B_{\rm eff}}N}\,\mathfrak d^{\rm os}_{\hat\nu_{\mathrm{out}}}(\mu_i),
+\qquad\vartheta_i\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big].
+\]</div>
+<div class="p">The upper bound of <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) gives the first inequality. For the second, <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(ii) with <span class="mi">\(\nu=\hat\nu_{\mathrm{out}}\)</span> and the packing condition give</div>
+<div class="md">\[
+1-m_{\hat\nu_{\mathrm{out}}}(\mu_i)\ge\frac{\hat\nu_{\mathrm{out}}([0,K\mu_i])}{1+K}
+=\frac{\#\{k:\mu_k\le K\mu_i\}}{N(1+K)}\ge\frac{\delta}{1+K},
+\]</div>
+<div class="p">and the first lower bound of <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) gives the second inequality.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-os-packed"><div class="thm-head"><a class="thm-name" href="r.rem.app-os-packed.html" data-label="rem:app-os-packed">Remark SH.3</a> <span class="thm-title">(Where packing holds)</span></div><div class="thm-body"><div class="p">The count <span class="mi">\(\#\{k:\mu_k\le K\mu\}\)</span> is nondecreasing in <span class="mi">\(\mu\)</span>, so if the smallest positive eigenvalue is <span class="mi">\((K,\delta)\)</span>-packed, then every mode is. If all eigenvalues lie in <span class="mi">\([\mu_{\min},\kappa\mu_{\min}]\)</span> with <span class="mi">\(\mu_{\min}&gt;0\)</span>, every mode is <span class="mi">\((\kappa,1)\)</span>-packed, since <span class="mi">\(\mu_k\le\kappa\mu_{\min}\le\kappa\mu_i\)</span> for all <span class="mi">\(k\)</span>. If the spectrum consists of clusters of equal eigenvalues, each holding at least <span class="mi">\(pN\)</span> of them, every mode is <span class="mi">\((1,p)\)</span>-packed, since its own cluster lies in <span class="mi">\([0,\mu_i]\)</span>. For the geometric spectrum <span class="mi">\(\mu_k=q^k\)</span> with fixed <span class="mi">\(q\in(0,1)\)</span>, the smallest eigenvalue <span class="mi">\(\mu_N\)</span> has only <span class="mi">\(1+\lfloor\log K/\log(1/q)\rfloor\)</span> eigenvalues in <span class="mi">\([0,K\mu_N]\)</span>, a vanishing fraction as <span class="mi">\(N\to\infty\)</span>, so it is not <span class="mi">\((K,\delta)\)</span>-packed for any fixed <span class="mi">\(K,\delta\)</span> once <span class="mi">\(N\)</span> is large. For the power law <span class="mi">\(\mu_k=c_Nk^{-\alpha}\)</span>, <span class="mi">\(1\le k\le N\)</span>, every mode is <span class="mi">\((2,1-2^{-1/\alpha})\)</span>-packed, because <span class="mi">\(\mu_k\le2\mu_i\)</span> for every <span class="mi">\(k\ge2^{-1/\alpha}i\)</span>, and there are at least <span class="mi">\(N-2^{-1/\alpha}i\ge(1-2^{-1/\alpha})N\)</span> such <span class="mi">\(k\)</span>. Conversely, packing is necessary for a lower bound of this form: by <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(vi), along a sequence of spectra the efficiency <span class="mi">\(\chi_{\nu_N}(\mu_N)\)</span> stays bounded below only if, for some <span class="mi">\(K\)</span>, the fraction of the spectrum in <span class="mi">\([0,K\mu_N]\)</span> stays bounded below, and by <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(ii),(iii) a mode far below most of the spectrum receives drift of gradient-descent order up to a logarithm.</div></div></div><h3 id="L-sec:app-os-tail"><span class="h-num">SH.7</span> Tail modes and acceleration</h3>
+<div class="p">For a probability measure <span class="mi">\(\nu\)</span> and <span class="mi">\(\ell\ge0\)</span> put</div>
+<div class="md">\[
+\mathcal I_\nu(\ell)\defeq\int_{(\ell,\infty)}\frac{\nu(\dif x)}{x}\in[0,\infty],\qquad
+\mathcal I_\nu\defeq\mathcal I_\nu(0).
+\]</div>
+<div class="p">When <span class="mi">\(\nu(\{0\})=0\)</span>, <span class="mi">\(\mathcal I_\nu=\int x^{-1}\nu(\dif x)\)</span> is the limit of <span class="mi">\(S_\nu(-c)\)</span> as <span class="mi">\(c\downarrow0\)</span>. Tail modes are controlled by the following integral.</div><div class="thm thm-lemma" id="L-lem:app-os-tailint"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a> <span class="thm-title">(The tail integral)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(\mu&gt;0\)</span> and <span class="mi">\(\Gamma\ge0\)</span> put</div>
+<div class="md">\[
+\mathcal E(\mu,\Gamma)\defeq\frac{\sqrt2}{\pi}\,\mu\int_0^\infty\frac{\min\{\sqrt c,\ c\sqrt\Gamma\}}{(c+\mu)^2}\,\dif c .
+\]</div>
+<div class="p">Then <span class="mi">\(\mathcal E\)</span> is nondecreasing in <span class="mi">\(\Gamma\)</span>, <span class="mi">\(\mathcal E(\mu,0)=0\)</span>, and for <span class="mi">\(\Gamma&gt;0\)</span></div>
+<div class="md">\[
+\mathcal E(\mu,\Gamma)\le\frac{\sqrt2}{\pi}\sqrt\Gamma\,\mu\Big[\log\Big(1+\frac1{\mu\Gamma}\Big)+2\Big].
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Monotonicity and the value at <span class="mi">\(\Gamma=0\)</span> are read off the integrand. For the bound, split the integral at <span class="mi">\(a=1/\Gamma\)</span>, where the two terms of the minimum cross, and use <span class="mi">\(c\sqrt\Gamma\)</span> below <span class="mi">\(a\)</span> and <span class="mi">\(\sqrt c\)</span> above <span class="mi">\(a\)</span>. The two pieces are</div>
+<div class="md">\[
+\int_0^a\frac{c\,\dif c}{(c+\mu)^2}=\log\Big(1+\frac a\mu\Big)-\frac{a}{a+\mu}\le\log\Big(1+\frac a\mu\Big),\qquad
+\int_a^\infty\frac{\sqrt c\,\dif c}{(c+\mu)^2}\le\int_a^\infty c^{-3/2}\,\dif c=2\sqrt\Gamma .
+\]</div>
+<div class="p">Multiplying the first by <span class="mi">\(\sqrt\Gamma\)</span> and adding the second gives the bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The universal lower bound of <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(v) rests on one scalar inequality.</div><div class="thm thm-lemma" id="L-lem:app-os-log"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-log.html" data-label="lem:app-os-log">Lemma SH.13</a> <span class="thm-title">(A logarithmic inequality)</span></div><div class="thm-body"><div class="p">For every <span class="mi">\(k&gt;0\)</span>,</div>
+<div class="md">\[
+\log(1+k)-\frac{k}{1+k}\ge\frac12\log k .
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Let <span class="mi">\(D(k)\)</span> be the left side minus the right side. Its derivative is</div>
+<div class="md">\[
+D'(k)=\frac1{1+k}-\frac1{(1+k)^2}-\frac1{2k}=\frac{k^2-2k-1}{2k(1+k)^2},
+\]</div>
+<div class="p">which is negative on <span class="mi">\((0,1+\sqrt2)\)</span> and positive on <span class="mi">\((1+\sqrt2,\infty)\)</span>. So <span class="mi">\(D\)</span> attains its minimum at <span class="mi">\(k_*=1+\sqrt2\)</span>. There <span class="mi">\(1+k_*=\sqrt2\,k_*\)</span> and <span class="mi">\(k_*/(1+k_*)=1/\sqrt2\)</span>, so</div>
+<div class="md">\[
+D(k_*)=\tfrac12\log2+\tfrac12\log k_*-\tfrac1{\sqrt2}=\tfrac12\log(2+2\sqrt2)-\tfrac1{\sqrt2}.
+\]</div>
+<div class="p">This is positive because <span class="mi">\(e^{\sqrt2}&lt;e^{3/2}&lt;4.5&lt;2+2\sqrt2\)</span>, where the middle inequality is <span class="mi">\(e^3&lt;20.1&lt;20.25\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-proposition" id="L-prop:app-os-tail"><div class="thm-head"><a class="thm-name" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> <span class="thm-title">(Tail modes)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure and <span class="mi">\(\mu&gt;0\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">(Split bound.) For every <span class="mi">\(\ell\ge0\)</span> with <span class="mi">\(\mathcal I_\nu(\ell)&lt;\infty\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\le\sqrt{\nu([0,\ell])}\,\sqrt{\frac\mu2}+\mathcal E\big(\mu,\mathcal I_\nu(\ell)\big).
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">(Gradient-descent-like upper bound.) If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mathcal I_\nu&lt;\infty\)</span>, then</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\le\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\;\mu\Big[\log\Big(1+\frac1{\mu\mathcal I_\nu}\Big)+2\Big].
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">(Asymptotics.) If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mathcal I_\nu&lt;\infty\)</span>, then, for fixed <span class="mi">\(\nu\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\sim\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\;\mu\log\frac1\mu\qquad(\mu\downarrow0).
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">(Counts.) For every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+C_*\sqrt{\frac{\nu([0,K\mu])}{1+K}}\le\chi_\nu(\mu)\le\sqrt{\nu([0,K\mu])}+\frac{2}{\pi\sqrt K}\big[\log(1+K)+2\big].
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">(Universal lower bound.) If <span class="mi">\(\nu([0,X])=1\)</span> for some <span class="mi">\(X&gt;0\)</span>, then</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac1\pi\,\frac{\mu}{\sqrt X}\Big[\log\Big(1+\frac X\mu\Big)-\frac{X}{X+\mu}\Big]\ge\frac1{2\pi}\,\frac{\mu}{\sqrt X}\,\log\frac X\mu .
+\]</div></div></li><li><span class="li-mark">(vi)</span><div class="li-body"><div class="p">(Sequences.) For probability measures <span class="mi">\(\nu_N\)</span> and numbers <span class="mi">\(\mu_N&gt;0\)</span> put <span class="mi">\(\chi_N\defeq\chi_{\nu_N}(\mu_N)\)</span>. Then <span class="mi">\(\liminf_N\chi_N&gt;0\)</span> if and only if <span class="mi">\(\liminf_N\nu_N([0,K\mu_N])&gt;0\)</span> for some <span class="mi">\(K&gt;0\)</span>; and <span class="mi">\(\chi_N\to0\)</span> if and only if <span class="mi">\(\nu_N([0,K\mu_N])\to0\)</span> for every <span class="mi">\(K&gt;0\)</span>.</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) bounds <span class="mi">\(\sqrt{\Upsilon_\nu}\)</span> by splitting <span class="mi">\(\nu\)</span> at <span class="mi">\(\ell\)</span>. Since <span class="mi">\(c/(c+x)\le1\)</span> on <span class="mi">\([0,\ell]\)</span> and <span class="mi">\(c/(c+x)\le c/x\)</span> on <span class="mi">\((\ell,\infty)\)</span>,</div>
+<div class="md">\[
+1-m_\nu(c)\le\nu([0,\ell])+c\,\mathcal I_\nu(\ell).
+\]</div>
+<div class="p">With <span class="mi">\(\Upsilon_\nu(c)=c(1-m_\nu(c))\le c\)</span>, this gives</div>
+<div class="md">\[
+\sqrt{\Upsilon_\nu(c)}\le\min\Big\{\sqrt c,\ \sqrt{c\,\nu([0,\ell])}+c\sqrt{\mathcal I_\nu(\ell)}\Big\}
+\le\sqrt{c\,\nu([0,\ell])}+\min\Big\{\sqrt c,\ c\sqrt{\mathcal I_\nu(\ell)}\Big\}.
+\]</div>
+<div class="p">The last inequality is checked on the two cases of the inner minimum. Insert this into the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>. The first term gives <span class="mi">\(\sqrt{\nu([0,\ell])}\sqrt{\mu/2}\)</span> by <a class="ref" href="r.lem.app-os-integrals.html" data-label="lem:app-os-integrals">Lemma SH.6</a>, and the second term gives <span class="mi">\(\mathcal E(\mu,\mathcal I_\nu(\ell))\)</span>.</div>
+<div class="p">Part (ii) is (i) at <span class="mi">\(\ell=0\)</span>, where <span class="mi">\(\nu([0,0])=\nu(\{0\})=0\)</span>, followed by <a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a>.</div>
+<div class="p">Part (iii) matches the upper bound (ii) with a lower bound. The upper bound is (ii), since</div>
+<div class="md">\[
+\frac{\log(1+1/(\mu\mathcal I_\nu))+2}{\log(1/\mu)}\longrightarrow1\qquad(\mu\downarrow0).
+\]</div>
+<div class="p">For the lower bound, fix <span class="mi">\(c_1&gt;0\)</span>. The transform <span class="mi">\(S_\nu(-c)\)</span> is nonincreasing in <span class="mi">\(c\)</span>, so for <span class="mi">\(c\le c_1\)</span></div>
+<div class="md">\[
+\sqrt{\Upsilon_\nu(c)}=c\sqrt{S_\nu(-c)}\ge c\sqrt{S_\nu(-c_1)} .
+\]</div>
+<div class="p">By the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac{\sqrt2}{\pi}\,\mu\sqrt{S_\nu(-c_1)}\int_0^{c_1}\frac{c\,\dif c}{(c+\mu)^2}
+\ge\frac{\sqrt2}{\pi}\,\mu\sqrt{S_\nu(-c_1)}\Big[\log\Big(1+\frac{c_1}\mu\Big)-1\Big].
+\]</div>
+<div class="p">Dividing by <span class="mi">\(\frac{\sqrt2}{\pi}\sqrt{\mathcal I_\nu}\,\mu\log(1/\mu)\)</span> and letting <span class="mi">\(\mu\downarrow0\)</span> gives a <span class="mi">\(\liminf\)</span> of at least <span class="mi">\(\sqrt{S_\nu(-c_1)/\mathcal I_\nu}\)</span>. As <span class="mi">\(c_1\downarrow0\)</span>, <span class="mi">\(S_\nu(-c_1)\uparrow\mathcal I_\nu\)</span> by monotone convergence, and <span class="mi">\(\mathcal I_\nu&gt;0\)</span>, which gives the lower bound.</div>
+<div class="p">Part (iv) combines <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> with (i). The lower bound is <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) with (ii) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>. For the upper bound take <span class="mi">\(\ell=K\mu\)</span> in (i). Then <span class="mi">\(\mathcal I_\nu(K\mu)\le1/(K\mu)\)</span>, so by the monotonicity of <span class="mi">\(\mathcal E\)</span> and <a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a>,</div>
+<div class="md">\[
+\frac{\mathcal E(\mu,\mathcal I_\nu(K\mu))}{\sqrt{\mu/2}}\le\frac{\mathcal E(\mu,1/(K\mu))}{\sqrt{\mu/2}}
+\le\frac{2}{\pi\sqrt K}\big[\log(1+K)+2\big].
+\]</div>
+<div class="p">Dividing (i) by <span class="mi">\(\sqrt{\mu/2}\)</span> and using <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> gives the upper bound.</div>
+<div class="p">Part (v) bounds <span class="mi">\(\sqrt{\Upsilon_\nu}\)</span> from below near the origin. For <span class="mi">\(c\le X\)</span>, since <span class="mi">\(x\le X\)</span> on the support,</div>
+<div class="md">\[
+S_\nu(-c)\ge\frac1{c+X}\ge\frac1{2X},\qquad\text{so}\qquad \sqrt{\Upsilon_\nu(c)}\ge\frac{c}{\sqrt{2X}} .
+\]</div>
+<div class="p">By the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_\nu(\mu)\ge\frac{\sqrt2}{\pi}\,\frac{\mu}{\sqrt{2X}}\int_0^X\frac{c\,\dif c}{(c+\mu)^2}
+=\frac1\pi\,\frac{\mu}{\sqrt X}\Big[\log\Big(1+\frac X\mu\Big)-\frac X{X+\mu}\Big].
+\]</div>
+<div class="p">The second inequality is <a class="ref" href="r.lem.app-os-log.html" data-label="lem:app-os-log">Lemma SH.13</a> with <span class="mi">\(k=X/\mu\)</span>.</div>
+<div class="p">Part (vi) follows from (iv). Write <span class="mi">\(P_K(N)\defeq\nu_N([0,K\mu_N])\)</span> in this proof. If <span class="mi">\(\liminf_NP_K(N)&gt;0\)</span> for some <span class="mi">\(K\)</span>, then</div>
+<div class="md">\[
+\liminf_N\chi_N\ge C_*\sqrt{\liminf_NP_K(N)/(1+K)}&gt;0 .
+\]</div>
+<div class="p">Conversely, let <span class="mi">\(\liminf_N\chi_N=\underline\chi&gt;0\)</span>, and choose <span class="mi">\(K\)</span> with <span class="mi">\(\frac{2}{\pi\sqrt K}[\log(1+K)+2]\le\underline\chi/4\)</span>. Then (iv) gives <span class="mi">\(\sqrt{P_K(N)}\ge\chi_N-\underline\chi/4\ge\underline\chi/2\)</span> for all large <span class="mi">\(N\)</span>. For the second statement, the lower bound of (iv) gives <span class="mi">\(P_K(N)\le(1+K)\chi_N^2/C_*^2\)</span>, so <span class="mi">\(\chi_N\to0\)</span> forces <span class="mi">\(P_K(N)\to0\)</span> for every <span class="mi">\(K\)</span>. If <span class="mi">\(P_K(N)\to0\)</span> for every <span class="mi">\(K\)</span>, the upper bound of (iv) gives <span class="mi">\(\limsup_N\chi_N\le\frac{2}{\pi\sqrt K}[\log(1+K)+2]\)</span> for every <span class="mi">\(K\)</span>, and the right side tends to <span class="mi">\(0\)</span> as <span class="mi">\(K\to\infty\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The two-level spectrum shows that the crossover between square-root and gradient-descent-like behaviour sits at <span class="mi">\(p\varkappa\asymp\log^2\varkappa\)</span> and not at <span class="mi">\(p\varkappa\asymp1\)</span>.</div><div class="thm thm-corollary" id="L-cor:app-os-twolevel"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> <span class="thm-title">(Two-level spectrum)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu_{p,\varkappa}\defeq(1-p)\delta_1+p\,\delta_{1/\varkappa}\)</span> with <span class="mi">\(p\in(0,1)\)</span> and <span class="mi">\(\varkappa\ge2\)</span>, write <span class="mi">\(\mathfrak d^{\rm os}=\mathfrak d^{\rm os}_{\nu_{p,\varkappa}}\)</span>, and put</div>
+<div class="md">\[
+\Omega_{p,\varkappa}\defeq\max\Big\{\sqrt{\frac p\varkappa},\ \frac{\log\varkappa}{\varkappa}\Big\},\qquad
+c_{\rm hi}\defeq\frac2{C_*}\Big(\frac1{\sqrt2}+\frac{\sqrt2}{\pi}\,\frac{\log3+2}{\log2}\Big)\le5.78 .
+\]</div>
+<div class="p">Then</div>
+<div class="md">\[
+\begin{gathered}
+\mathfrak d^{\rm os}(1)\in\Big[\frac{C_*}2,\frac1{\sqrt2}\Big],\\
+\max\Big\{\frac{C_*}2\sqrt{\frac p\varkappa},\ \frac1{2\pi}\frac{\log\varkappa}\varkappa\Big\}
+\le\mathfrak d^{\rm os}(1/\varkappa)\le\sqrt{\frac{p}{2\varkappa}}+\frac{\sqrt2}{\pi}\,\frac{\log(1+\varkappa)+2}{\varkappa},
+\end{gathered}
+\]</div>
+<div class="p">and consequently</div>
+<div class="md">\[
+\frac{\Omega_{p,\varkappa}}{\sqrt2\,\pi}\le\frac{\mathfrak d^{\rm os}(1/\varkappa)}{\mathfrak d^{\rm os}(1)}\le c_{\rm hi}\,\Omega_{p,\varkappa}.
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The top mode is controlled by <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i), since</div>
+<div class="md">\[
+1-m_{\nu_{p,\varkappa}}(1)=\frac{1-p}2+\frac{p\varkappa}{1+\varkappa}\ge\frac12 .
+\]</div>
+<div class="p">The upper bound for <span class="mi">\(\mathfrak d^{\rm os}(1/\varkappa)\)</span> is <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(i) with <span class="mi">\(\ell=1/\varkappa\)</span>. There <span class="mi">\(\nu_{p,\varkappa}([0,\ell])=p\)</span> and <span class="mi">\(\mathcal I_{\nu_{p,\varkappa}}(\ell)=1-p\le1\)</span>, so by <a class="ref" href="r.lem.app-os-tailint.html" data-label="lem:app-os-tailint">Lemma SH.12</a> at <span class="mi">\(\mu=1/\varkappa\)</span></div>
+<div class="md">\[
+\mathcal E(1/\varkappa,1-p)\le\mathcal E(1/\varkappa,1)\le\frac{\sqrt2}{\pi}\,\frac{\log(1+\varkappa)+2}{\varkappa}.
+\]</div>
+<div class="p">The two lower bounds for <span class="mi">\(\mathfrak d^{\rm os}(1/\varkappa)\)</span> are <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) with <span class="mi">\(1-m_{\nu_{p,\varkappa}}(1/\varkappa)\ge\frac12\nu_{p,\varkappa}([0,1/\varkappa])=\frac p2\)</span> (<a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(ii)), and <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(v) with <span class="mi">\(X=1\)</span>.</div>
+<div class="p">The ratio bounds follow by dividing by <span class="mi">\(\mathfrak d^{\rm os}(1)\)</span>. On the lower side, <span class="mi">\(\min\{C_*/2,1/(2\pi)\}=1/(2\pi)\)</span> and <span class="mi">\(\mathfrak d^{\rm os}(1)\le1/\sqrt2\)</span>. On the upper side, <span class="mi">\(\mathfrak d^{\rm os}(1)\ge C_*/2\)</span>, and <span class="mi">\((\log(1+\varkappa)+2)/\log\varkappa\le(\log3+2)/\log2\)</span> for <span class="mi">\(\varkappa\ge2\)</span>. The last ratio is decreasing in <span class="mi">\(\varkappa\)</span>, because the numerator of its derivative is</div>
+<div class="md">\[
+\frac{\log\varkappa}{1+\varkappa}-\frac{\log(1+\varkappa)+2}{\varkappa}&lt;0 .
+\]</div>
+<div class="p">The numerical value is <span class="mi">\(c_{\rm hi}=5.778\ldots\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">The two terms of <span class="mi">\(\Omega_{p,\varkappa}\)</span> cross at <span class="mi">\(p\varkappa=\log^2\varkappa\)</span>. The square-root term dominates when <span class="mi">\(p\varkappa\gg\log^2\varkappa\)</span>, and the gradient-descent term times a logarithm dominates when <span class="mi">\(p\varkappa\ll\log^2\varkappa\)</span>. In the window <span class="mi">\(1\ll p\varkappa\ll\log^2\varkappa\)</span> the slow mode is still gradient-descent-like up to the logarithm, although a non-negligible count of eigenvalues sits at <span class="mi">\(1/\varkappa\)</span>. <a class="ref" href="s.SH.html#L-fig:app-os-twolevel" data-label="fig:app-os-twolevel">Figure S2</a> shows the two regimes.</div>
+<figure class="fig" id="L-fig:app-os-twolevel"><img class="tikz" src="fig/tikz-d6c64e6620.png" alt=""><figcaption><span class="fig-num">Figure S2. </span>Regimes of the two-level spectrum <span class="mi">\((1-p)\delta_1+p\,\delta_{1/\varkappa}\)</span> (<a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> and <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>). Admissible parameters lie below the line <span class="mi">\(p=1\)</span>. The thick curve <span class="mi">\(p\varkappa=\log^2\varkappa\)</span> separates square-root acceleration from acceleration by a logarithm; the dashed line <span class="mi">\(p\varkappa=1\)</span> is not the boundary.</figcaption></figure>
+<div class="p"><strong class="runin">Acceleration.</strong>  For a mode <span class="mi">\(\mu\)</span> below the top <span class="mi">\(\mu_+\)</span> of the spectrum, gradient descent contracts the mode at the rate <span class="mi">\(\mu/\mu_+\)</span> relative to the top mode. We measure the oversampled profile against this rate by</div>
+<div class="md">\[
+\mathcal A\defeq\frac{\mathfrak d^{\rm os}_\nu(\mu)/\mathfrak d^{\rm os}_\nu(\mu_+)}{\mu/\mu_+},\qquad
+\varkappa\defeq\frac{\mu_+}{\mu}.
+\]</div><div class="thm thm-corollary" id="L-cor:app-os-accel"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class="thm-title">(Acceleration of a slow mode)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\nu\)</span> be a probability measure with <span class="mi">\(\nu([0,\mu_+])=1\)</span> for some <span class="mi">\(\mu_+&gt;0\)</span>, and let <span class="mi">\(0&lt;\mu\le\mu_+/2\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">One has</div>
+<div class="md">\[
+\chi_\nu(\mu)\sqrt\varkappa\le\mathcal A\le\frac{\sqrt2}{C_*}\,\chi_\nu(\mu)\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">One has</div>
+<div class="md">\[
+\frac{1}{\sqrt2\,\pi}\log\varkappa\le\mathcal A\le\frac{\sqrt2}{C_*}\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For every <span class="mi">\(K&gt;0\)</span>,</div>
+<div class="md">\[
+C_*\sqrt{\frac{\nu([0,K\mu])}{1+K}}\,\sqrt\varkappa\le\mathcal A
+\le\frac{\sqrt2}{C_*}\Big[\sqrt{\nu([0,K\mu])}+\frac{2(\log(1+K)+2)}{\pi\sqrt K}\Big]\sqrt\varkappa .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(\nu(\{0\})=0\)</span> and <span class="mi">\(\mu_+\mathcal I_\nu\le\Gamma&lt;\infty\)</span>, then</div>
+<div class="md">\[
+\mathcal A\le\frac{2\sqrt2}{\pi C_*}\sqrt\Gamma\,\big[\log(1+\varkappa)+2\big].
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">For the two-level spectrum of <a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a>, with <span class="mi">\(\mu_+=1\)</span> and <span class="mi">\(\mu=1/\varkappa\)</span>,</div>
+<div class="md">\[
+\frac{1}{\sqrt2\,\pi}\max\big\{\sqrt{p\varkappa},\ \log\varkappa\big\}\le\mathcal A\le c_{\rm hi}\max\big\{\sqrt{p\varkappa},\ \log\varkappa\big\}.
+\]</div></div></li><li><span class="li-mark">(vi)</span><div class="li-body"><div class="p">Along sequences <span class="mi">\((\nu_N,\mu_{+,N},\mu_N)\)</span> satisfying the hypotheses, with acceleration <span class="mi">\(\mathcal A_N\)</span> and ratio <span class="mi">\(\varkappa_N\)</span>, one has <span class="mi">\(\liminf_N\mathcal A_N/\sqrt{\varkappa_N}&gt;0\)</span> if and only if <span class="mi">\(\liminf_N\nu_N([0,K\mu_N])&gt;0\)</span> for some <span class="mi">\(K&gt;0\)</span>.</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The top mode is pinned by <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i). Since <span class="mi">\(x\le\mu_+\)</span> on the support, <span class="mi">\(1-m_\nu(\mu_+)\ge\frac12\)</span>, so</div>
+<div class="md">\[
+\frac{C_*}2\sqrt{\mu_+}\le\mathfrak d^{\rm os}_\nu(\mu_+)\le\sqrt{\frac{\mu_+}2}.
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, <span class="mi">\(\mathcal A=\varkappa\,\chi_\nu(\mu)\sqrt{\mu/2}/\mathfrak d^{\rm os}_\nu(\mu_+)\)</span>, and the two bounds give (i).</div>
+<div class="p">Part (ii) uses <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(v) with <span class="mi">\(X=\mu_+\)</span> for the lower bound,</div>
+<div class="md">\[
+\mathcal A\ge\varkappa\,\frac{\frac1{2\pi}\,\mu\,\mu_+^{-1/2}\log\varkappa}{\sqrt{\mu_+/2}}=\frac{\log\varkappa}{\sqrt2\,\pi},
+\]</div>
+<div class="p">and <span class="mi">\(\chi_\nu\le1\)</span> in (i) for the upper bound. Part (iii) is (i) with <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(iv).</div>
+<div class="p">For part (iv), <span class="mi">\(\mathcal I_\nu\le\Gamma/\mu_+\)</span>, and <span class="mi">\(\mathcal I_\nu\ge1/\mu_+\)</span> because the support lies in <span class="mi">\((0,\mu_+]\)</span>, so <span class="mi">\(1/(\mu\mathcal I_\nu)\le\varkappa\)</span>. <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(ii) and the lower bound for <span class="mi">\(\mathfrak d^{\rm os}_\nu(\mu_+)\)</span> give</div>
+<div class="md">\[
+\mathcal A\le\varkappa\,\frac{\frac{\sqrt2}{\pi}\sqrt{\Gamma/\mu_+}\;\mu\,\big[\log(1+\varkappa)+2\big]}{\frac{C_*}2\sqrt{\mu_+}}
+=\frac{2\sqrt2}{\pi C_*}\sqrt\Gamma\,\big[\log(1+\varkappa)+2\big].
+\]</div>
+<div class="p">Part (v) is <a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> multiplied by <span class="mi">\(\varkappa\)</span>. Part (vi) is (i) together with <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a>(vi).</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">Full <span class="mi">\(\sqrt\varkappa\)</span> acceleration of a slow mode, up to absolute constants, holds exactly when a fraction of the spectrum bounded below lies within a bounded factor of that mode (<a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>(vi)). Acceleration is always at least of order <span class="mi">\(\log\varkappa\)</span>, and it is of order <span class="mi">\(\log\varkappa\)</span> only when <span class="mi">\(\mu_+\mathcal I_\nu=O(1)\)</span>, for instance for a single small eigenvalue (<a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>(ii),(iv)).</div>
+<h3 id="L-sec:app-os-examples"><span class="h-num">SH.8</span> Power-law spectra, the identity and the normalization</h3><div class="thm thm-lemma" id="L-lem:app-os-scale"><div class="thm-head"><a class="thm-name" href="r.lem.app-os-scale.html" data-label="lem:app-os-scale">Lemma SH.14</a> <span class="thm-title">(Scale invariance)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(a&gt;0\)</span> let <span class="mi">\(\nu^a\)</span> be the image of a probability measure <span class="mi">\(\nu\)</span> under <span class="mi">\(x\mapsto ax\)</span>, and let <span class="mi">\(r&gt;0\)</span>. Then, for <span class="mi">\(\hat s,c,\mu&gt;0\)</span> and <span class="mi">\(\hat\ridge\ge0\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+b_0^{\nu^a,r}(a\hat s)=b_0^{\nu,r}(\hat s),\qquad
+\mathfrak d^{\rm os}_{\nu^a,r}(a\mu;a\hat\ridge)=\sqrt a\,\mathfrak d^{\rm os}_{\nu,r}(\mu;\hat\ridge),\\
+m_{\nu^a}(ac)=m_\nu(c),\qquad
+\chi_{\nu^a}(a\mu)=\chi_\nu(\mu).
+\end{gathered}
+\]</div></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">The third identity is the substitution <span class="mi">\(x\mapsto ax\)</span> in <a class="ref" href="s.SH.html#L-eqn:app-os-m" data-label="eqn:app-os-m">(SH.4)</a>. It gives <span class="mi">\(m_{\nu^a}(a\hat s/b)=m_\nu(\hat s/b)\)</span>, so the equations <a class="ref" href="r.lem.app-os-root.html#L-eqn:app-os-root" data-label="eqn:app-os-root">(SH.5)</a> for <span class="mi">\((\nu^a,a\hat s)\)</span> and for <span class="mi">\((\nu,\hat s)\)</span> coincide, and so do their roots. The second identity follows by substituting <span class="mi">\(v=\sqrt a\,w\)</span> in <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-profile" data-label="eqn:app-os-profile">(SH.6)</a>. Then <span class="mi">\(a\hat\ridge+v^2=a(\hat\ridge+w^2)\)</span>, the root is unchanged by the first identity, and the integrand is unchanged. The fourth identity is the third inserted in <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-corollary" id="L-cor:app-os-powerlaw"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a> <span class="thm-title">(Power-law spectra)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(N\ge1\)</span> and <span class="mi">\(c_N&gt;0\)</span>, let <span class="mi">\(\mu_k=c_Nk^{-\alpha}\)</span> for <span class="mi">\(1\le k\le N\)</span>, and put <span class="mi">\(\nu_N\defeq N^{-1}\sum_{k=1}^N\delta_{\mu_k}\)</span>. For <span class="mi">\(0&lt;x\le1\)</span> put</div>
+<div class="md">\[
+\Xi_\alpha(x)\defeq\int_0^\infty\varpi(y)\Big(\int_0^1\frac{y\,u^\alpha}{y\,u^\alpha+x^\alpha}\,\dif u\Big)^{1/2}\dif y .
+\]</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(1\le i\le N\)</span>,</div>
+<div class="md">\[
+0\le\chi_{\nu_N}(\mu_i)-\Xi_\alpha(i/N)\le N^{-1/2}.
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(i\le\varepsilon N\)</span> with <span class="mi">\(\varepsilon\in(0,1]\)</span>, then <span class="mi">\(1-2\varepsilon^{\alpha/(1+\alpha)}\le\chi_{\nu_N}(\mu_i)\le1\)</span>. Consequently, for every sequence <span class="mi">\(\varepsilon_N\to0\)</span>,</div>
+<div class="md">\[
+\max_{i\le\varepsilon_NN}\Big|\frac{\mathfrak d^{\rm os}_{\nu_N}(\mu_i)}{\sqrt{\mu_i/2}}-1\Big|\longrightarrow0 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The function <span class="mi">\(\Xi_\alpha\)</span> is nonincreasing on <span class="mi">\((0,1]\)</span>, and</div>
+<div class="md">\[
+1-\Xi_\alpha(x)\le2x^{\alpha/(1+\alpha)},\qquad \Xi_\alpha(x)\ge\frac{C_*}{\sqrt{2(1+\alpha)}} .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every <span class="mi">\(1\le i\le N\)</span>,</div>
+<div class="md">\[
+\frac{C_*}{\sqrt{2(1+\alpha)}}\sqrt{\frac{\mu_i}2}\le\mathfrak d^{\rm os}_{\nu_N}(\mu_i)\le\sqrt{\frac{\mu_i}2}.
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">If <span class="mi">\(N^\alpha\ge2\)</span>, the acceleration of <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> for <span class="mi">\(\nu=\nu_N\)</span>, <span class="mi">\(\mu_+=\mu_1\)</span> and <span class="mi">\(\mu=\mu_N\)</span>, for which <span class="mi">\(\varkappa=N^\alpha\)</span>, satisfies</div>
+<div class="md">\[
+\frac{C_*}{\sqrt{2(1+\alpha)}}\,N^{\alpha/2}\le\mathcal A\le\frac{\sqrt2}{C_*}\,N^{\alpha/2}.
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">By <a class="ref" href="r.lem.app-os-scale.html" data-label="lem:app-os-scale">Lemma SH.14</a> with <span class="mi">\(a=N^\alpha/c_N\)</span>, the efficiencies <span class="mi">\(\chi_{\nu_N}(\mu_i)\)</span> do not change when <span class="mi">\(\mu_k\)</span> is replaced by <span class="mi">\((k/N)^{-\alpha}\)</span>, and neither does the mass <span class="mi">\(\nu_N([\delta\mu_i,\infty))\)</span> for <span class="mi">\(\delta&gt;0\)</span>. Parts (i) and (ii) concern only these quantities, so in their proofs <span class="mi">\(\mu_k=(k/N)^{-\alpha}\)</span>.</div>
+<div class="p">Part (i) compares a Riemann sum with its integral. For <span class="mi">\(c&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_{\nu_N}(c)=\frac1N\sum_{k=1}^N\phi_c(k/N),\qquad \phi_c(u)\defeq\frac{c\,u^\alpha}{c\,u^\alpha+1},
+\]</div>
+<div class="p">and <span class="mi">\(\phi_c\)</span> is nondecreasing on <span class="mi">\([0,1]\)</span> with values in <span class="mi">\([0,1)\)</span>. For a nondecreasing <span class="mi">\(\phi\ge0\)</span> and <span class="mi">\(k&lt;N\)</span>,</div>
+<div class="md">\[
+\int_{(k-1)/N}^{k/N}\phi\le\frac{\phi(k/N)}N\le\int_{k/N}^{(k+1)/N}\phi .
+\]</div>
+<div class="p">Summing over <span class="mi">\(k\)</span>, with the last term <span class="mi">\(\phi_c(1)/N\)</span> kept separately, gives</div>
+<div class="md">\[
+0\le\frac1N\sum_{k=1}^N\phi_c(k/N)-\int_0^1\phi_c\le\frac{\phi_c(1)}N\le\frac1N .
+\]</div>
+<div class="p">Since <span class="mi">\(\abs{\sqrt a-\sqrt b}\le\sqrt{\abs{a-b}}\)</span> and <span class="mi">\(\int\varpi=1\)</span>, the definition <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a> gives</div>
+<div class="md">\[
+0\le\chi_{\nu_N}(\mu)-\int_0^\infty\varpi(y)\Big(\int_0^1\phi_{\mu y}\Big)^{1/2}\dif y\le N^{-1/2}.
+\]</div>
+<div class="p">At <span class="mi">\(\mu=\mu_i=x^{-\alpha}\)</span> with <span class="mi">\(x=i/N\)</span> one has <span class="mi">\(\phi_{x^{-\alpha}y}(u)=y\,u^\alpha/(y\,u^\alpha+x^\alpha)\)</span>, which is (i).</div>
+<div class="p">Part (ii) is <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(i). The mass above <span class="mi">\(\delta\mu_i\)</span> is</div>
+<div class="md">\[
+\nu_N\big([\delta\mu_i,\infty)\big)=\frac1N\,\#\big\{k:\ k\le i\,\delta^{-1/\alpha}\big\}\le\varepsilon\,\delta^{-1/\alpha},
+\]</div>
+<div class="p">and the choice <span class="mi">\(\delta=\varepsilon^{\alpha/(1+\alpha)}\)</span> gives <span class="mi">\(1-\chi_{\nu_N}(\mu_i)\le2\varepsilon^{\alpha/(1+\alpha)}\)</span>. The uniform statement follows with <span class="mi">\(\varepsilon=\varepsilon_N\)</span> and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>.</div>
+<div class="p">Part (iii) identifies <span class="mi">\(\Xi_\alpha\)</span> with the efficiency of a limiting measure. Let <span class="mi">\(\nu_\infty\)</span> be the law of <span class="mi">\(U^{-\alpha}\)</span> with <span class="mi">\(U\)</span> uniform on <span class="mi">\((0,1)\)</span>. Then</div>
+<div class="md">\[
+1-m_{\nu_\infty}(c)=\int_0^1\frac{c\,\dif u}{c+u^{-\alpha}}=\int_0^1\phi_c,
+\qquad\text{so}\qquad \Xi_\alpha(x)=\chi_{\nu_\infty}(x^{-\alpha}).
+\]</div>
+<div class="p">Since <span class="mi">\(1-m_\nu\)</span> is nondecreasing, <span class="mi">\(\chi_\nu\)</span> is nondecreasing in <span class="mi">\(\mu\)</span>, and <span class="mi">\(\Xi_\alpha\)</span> is nonincreasing in <span class="mi">\(x\)</span>. The mass of <span class="mi">\(\nu_\infty\)</span> above <span class="mi">\(\delta x^{-\alpha}\)</span> is</div>
+<div class="md">\[
+\nu_\infty\big([\delta x^{-\alpha},\infty)\big)=\Pr\big(U\le x\,\delta^{-1/\alpha}\big)\le x\,\delta^{-1/\alpha},
+\]</div>
+<div class="p">and <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(i) with <span class="mi">\(\delta=x^{\alpha/(1+\alpha)}\)</span> gives <span class="mi">\(1-\Xi_\alpha(x)\le2x^{\alpha/(1+\alpha)}\)</span>. Finally, since <span class="mi">\(u^\alpha+x^\alpha\le2\)</span> for <span class="mi">\(u,x\le1\)</span>,</div>
+<div class="md">\[
+1-m_{\nu_\infty}(x^{-\alpha})=\int_0^1\frac{u^\alpha\,\dif u}{u^\alpha+x^\alpha}\ge\int_0^1\frac{u^\alpha}2\,\dif u=\frac1{2(1+\alpha)},
+\]</div>
+<div class="p">and <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) with <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, which give <span class="mi">\(\chi_\nu(\mu)\ge C_*\sqrt{1-m_\nu(\mu)}\)</span>, yield <span class="mi">\(\Xi_\alpha(x)\ge C_*/\sqrt{2(1+\alpha)}\)</span>.</div>
+<div class="p">Part (iv) combines (i), (iii) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>: one has <span class="mi">\(\chi_{\nu_N}(\mu_i)\ge\Xi_\alpha(i/N)\ge C_*/\sqrt{2(1+\alpha)}\)</span> and <span class="mi">\(\chi_{\nu_N}\le1\)</span>.</div>
+<div class="p">Part (v) is <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>(i). The support of <span class="mi">\(\nu_N\)</span> lies in <span class="mi">\([0,\mu_1]\)</span>, the slowest mode satisfies <span class="mi">\(\mu_N=\mu_1N^{-\alpha}\le\mu_1/2\)</span>, and <span class="mi">\(\chi_{\nu_N}(\mu_N)\)</span> lies between <span class="mi">\(C_*/\sqrt{2(1+\alpha)}\)</span> and <span class="mi">\(1\)</span> by (iv).</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="p">In the square case <span class="mi">\(\Nout=\Nin=N\)</span> with the spectrum of <a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a>, the measure <span class="mi">\(\nu_N\)</span> is <span class="mi">\(\hat\nu_{\mathrm{out}}\)</span>, and <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iii) at zero ridge reads <span class="mi">\(\sqrt2\,\mathfrak d_i(0)=\sqrt{\mu_i/(\gamma\sw2)}\;\vartheta_i\,\chi_{\nu_N}(\mu_i)\)</span> with <span class="mi">\(\gamma=N/B\)</span>, when <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>. This has the leading form of the resolved-window endpoint <span class="mi">\(\sqrt2\,\mathfrak d_i(0)\sim\sqrt{\mu_i/(\gamma\sw2)}\)</span> of <a class="ref" href="r.cor.app-pl-endpoints.html" data-label="cor:app-pl-endpoints">Corollary SG.1</a>(ii). The two results hold in disjoint regimes, <span class="mi">\(\gamma&lt;1/(3(1-\bmom^2))\)</span> here and <span class="mi">\(\gamma\to\infty\)</span> under <a class="ref" href="r.assum.app-pl-regime.html" data-label="assum:app-pl-regime">Assumption S4</a> there, and neither implies the other.</div><div class="thm thm-corollary" id="L-cor:app-os-identity"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a> <span class="thm-title">(Identity covariance)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">One has <span class="mi">\(\mathfrak d^{\rm os}_{\delta_1}(1)=\dfrac{4\sqrt2}{3\pi}=\dfrac{8}{3\pi\sqrt2}\)</span>.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout=\Id_N\)</span>, <span class="mi">\(\Nout=\Nin=N\)</span>, <span class="mi">\(\gamma=N/B\)</span> and <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, then</div>
+<div class="md">\[
+\mathfrak d_0(1)=\frac{8\,\vartheta}{3\pi\sqrt{2\sw2\gamma}}\qquad\text{for some }\vartheta\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big].
+\]</div></div></li></ol></div></div><details class="proof-fold" open><summary>Proof</summary><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) is an explicit integral. For <span class="mi">\(\nu=\delta_1\)</span> one has <span class="mi">\(\Upsilon_{\delta_1}(c)=c^2/(1+c)\)</span>, so by the first formula of <a class="ref" href="r.lem.app-os-repr.html#L-eqn:app-os-repr" data-label="eqn:app-os-repr">(SH.15)</a> and the substitution <span class="mi">\(w=1+c\)</span>,</div>
+<div class="md">\[
+\mathfrak d^{\rm os}_{\delta_1}(1)=\frac{\sqrt2}{\pi}\int_0^\infty\frac{c\,\dif c}{(1+c)^{5/2}}
+=\frac{\sqrt2}{\pi}\int_1^\infty(w-1)\,w^{-5/2}\,\dif w=\frac{\sqrt2}{\pi}\Big(2-\frac23\Big)=\frac{4\sqrt2}{3\pi}.
+\]</div>
+<div class="p">Part (ii) is <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(ii)–(iii) at <span class="mi">\(\ridge=0\)</span>, <span class="mi">\(r=1\)</span> and <span class="mi">\(\mu=1\)</span>, where <span class="mi">\(\hat\nu_{\mathrm{out}}=\delta_1\)</span> and <span class="mi">\(\sqrt{B_{\rm eff}/N}=(\sw2\gamma)^{-1/2}\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></details><div class="thm thm-remark" id="L-rem:app-os-isotropic"><div class="thm-head"><a class="thm-name" href="r.rem.app-os-isotropic.html" data-label="rem:app-os-isotropic">Remark SH.4</a> <span class="thm-title">(Agreement with the isotropic results)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(\Sigmaout=\Id_N\)</span> and <span class="mi">\(\Nout=\Nin=N\)</span>, the kernel <span class="mi">\(\mathfrak d_\ridge(1)\)</span> is the isotropic kernel of <a class="ref" href="s.SF.html" data-label="sec:app-iso">Section SF</a> at the ridge <span class="mi">\(\ridge\)</span>, and its limit as <span class="mi">\(\ridge\downarrow0\)</span> is the zero-ridge constant <span class="mi">\(C_\bmom(\gamma)\)</span> of <a class="ref" href="s.SF.html#L-eqn:app-iso-C" data-label="eqn:app-iso-C">(SF.21)</a>, by <a class="ref" href="r.prop.app-iso-zero.html" data-label="prop:app-iso-zero">Proposition SF.5</a>(ii). Hence <span class="mi">\(\mathfrak d_0(1)=C_\bmom(\gamma)\)</span>, and <a class="ref" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a>(ii) is a second two-sided estimate of the square-case constant. It has the form of <a class="ref" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a>(ii), which gives <span class="mi">\(C_\bmom(\gamma)=8\vartheta/(3\pi\sqrt{2\sw2\gamma})\)</span> with <span class="mi">\(\vartheta\in[1-\varepsilon_\bmom,(1-\varepsilon_\bmom)^{-1/2}]\)</span> and <span class="mi">\(\varepsilon_\bmom=6\gamma(1-\bmom^2)\le\frac12\)</span>. The window of <a class="ref" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a>, <span class="mi">\((1-\bmom^2)\gamma&lt;\frac13\)</span>, is four times wider than the window <span class="mi">\((1-\bmom^2)\gamma\le\frac1{12}\)</span> of that theorem. Both estimates carry the momentum factor <span class="mi">\(\sw2^{-1/2}\)</span>, which is the replacement of <span class="mi">\(B\)</span> by <span class="mi">\(B_{\rm eff}\)</span>. At <span class="mi">\(\bmom=0\)</span>, <a class="ref" href="r.cor.app-os-identity.html" data-label="cor:app-os-identity">Corollary SH.6</a>(ii) gives the limit <span class="mi">\(C(\gamma)\sim8/(3\pi\sqrt{2\gamma})\)</span> of <a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a>(iii) with the rate <span class="mi">\(\abs{\vartheta-1}\le3\gamma/(1-3\gamma)\)</span>.</div></div></div><div class="thm thm-remark" id="L-rem:app-os-normalization"><div class="thm-head"><a class="thm-name" href="r.rem.app-os-normalization.html" data-label="rem:app-os-normalization">Remark SH.5</a> <span class="thm-title">(Normalization of the oversampled drift)</span></div><div class="thm-body"><div class="p">The drift coefficient enters the expected update through the identity <span class="mi">\(\Gtildebar_\ridge=\mathfrak d_\ridge(\Sigmaout)\Dt/\sqrt{\cR(t)}\)</span> of <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-Gbar" data-label="eqn:app-os-Gbar">(SH.13)</a>, with <span class="mi">\(\cR(t)=\frac12\norm{\Sigmaout^{1/2}\Dt}_\F^2\)</span>. In the row recursion <a class="ref" href="paper.pdf#equation.4.14" data-label="eqn:ri-recursion">(14)</a>, the row <span class="mi">\(i\)</span> loses <span class="mi">\(2\lr\,\mathfrak d_i\,\fQ_i/\sqrt{\fRisk}\)</span> per step at first order. In the square case <span class="mi">\(\Nout=\Nin=N\)</span> at zero ridge with <span class="mi">\(\epsilon_{\rm os}&lt;1\)</span>, <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>(iii) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> give</div>
+<div class="md">\[
+\mathfrak d_i(0)=\sqrt{\frac{B_{\rm eff}}{N}}\;\vartheta_i\,\chi_{\hat\nu_{\mathrm{out}}}(\mu_i)\,\sqrt{\frac{\mu_i}2},
+\qquad\vartheta_i\in\big[1-\epsilon_{\rm os},(1-\epsilon_{\rm os})^{-1}\big].
+\]</div>
+<div class="p">On head modes <span class="mi">\(\chi_{\hat\nu_{\mathrm{out}}}(\mu_i)\to1\)</span> (<a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>), so there <span class="mi">\(\mathfrak d_i(0)\approx\sqrt{\mu_iB_{\rm eff}/(2N)}\)</span>, and the expected update restricted to head modes is approximately</div>
+<div class="md">\[
+\sqrt{\frac{B_{\rm eff}}{N}}\,\Big(\frac{\Sigmaout}2\Big)^{1/2}\frac{\Dt}{\sqrt{\cR(t)}}
+=\sqrt{\frac{B_{\rm eff}}{N}}\,\Sigmaout^{1/2}\,\frac{\Dt}{\sqrt{2\cR(t)}} .
+\]</div>
+<div class="p">The square-root law therefore carries the factor <span class="mi">\(2^{-1/2}\)</span>: against <span class="mi">\(\Dt/\sqrt{\cR(t)}\)</span> it is <span class="mi">\((\Sigmaout/2)^{1/2}\)</span>, not <span class="mi">\(\Sigmaout^{1/2}\)</span>. On the other modes the efficiency <span class="mi">\(\chi_{\hat\nu_{\mathrm{out}}}(\mu_i)&lt;1\)</span> multiplies this law. The approximation is that of <a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a> at a positive ridge; at zero ridge the display concerns the deterministic coefficient only.</div></div></div><div class="p"><strong class="runin">What the main text uses.</strong>  The half-anisotropic section of the main text (<a class="ref" href="paper.pdf#section.4" data-label="sec:half-aniso">Section 4</a>) uses <a class="ref" href="r.thm.app-os-limit.html" data-label="thm:app-os-limit">Theorem SH.1</a>, in the form <a class="ref" href="r.thm.app-os-limit.html#L-eqn:app-os-limit" data-label="eqn:app-os-limit">(SH.10)</a> at zero ridge, and <a class="ref" href="r.cor.app-os-update.html" data-label="cor:app-os-update">Corollary SH.1</a>, in the form <a class="ref" href="r.cor.app-os-update.html#L-eqn:app-os-update" data-label="eqn:app-os-update">(SH.12)</a>, for the drift of <span class="sc">Muon</span> when <span class="mi">\(N\le B_{\rm eff}\)</span>, together with the normalization of <a class="ref" href="r.rem.app-os-normalization.html" data-label="rem:app-os-normalization">Remark SH.5</a>. Its power-law subsection uses <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) and <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(ii) for the square-root law and its scope, <a class="ref" href="r.prop.app-os-tail.html" data-label="prop:app-os-tail">Proposition SH.2</a> and <a class="ref" href="r.cor.app-os-twolevel.html" data-label="cor:app-os-twolevel">Corollary SH.3</a> and <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> for the head and tail dichotomy and the acceleration of the slowest mode, and <a class="ref" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a>(iv)–(v) for power-law spectra. No later appendix section depends on this one.</div><nav class="pn"><a href="s.SG.html">&larr; SG</a><a href="s.SI.html">SI &rarr;</a></nav></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

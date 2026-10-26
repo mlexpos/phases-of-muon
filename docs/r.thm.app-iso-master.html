@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.3 (Master drift estimate)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.3 (Master drift estimate)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-iso-master"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-master.html" data-label="thm:app-iso-master">Theorem SF.3</a> <span class="thm-title">(Master drift estimate)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span>, <span class="mi">\(\gin,\gout&gt;0\)</span> and <span class="mi">\(\ridge\ge0\)</span>, with the convention <span class="mi">\(\psi(0)\defeq\gamma_\wedge\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The drift satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-master"></span>\begin{equation}\tag{SF.31}
+\Big|\mathfrak d_{\mathrm{iso}}(\ridge)-\frac{1}{\sqrt\pi\,\gin\gout}\int_0^{\psi(\ridge)}\mathsf W(m)\,\dif m\Big|
+\le\frac{\sqrt2\,(\mathsf g_\bmom+\mathsf g'_\bmom/2)}{\pi\sqrt{\gin\gout}}
+&lt;\frac{2.32}{(1-\bmom)\sqrt{\gin\gout}} .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">In the square case, with <span class="mi">\(\Xi_0(x)\defeq\pi^{-1/2}\big(x-\tfrac12x^2\big)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-Xi"></span>\begin{equation}\tag{SF.32}
+\Big|\mathfrak d_{\mathrm{iso}}(\ridge)-\Xi_0\Big(\frac{\psi(\ridge)}\gamma\Big)\Big|&lt;\frac{2.32}{(1-\bmom)\gamma} .
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For part (i) write <span class="mi">\(H\defeq\psi(\ridge)=m_\ridge\)</span> and <span class="mi">\(\Lambda_\bmom(Q_m)=\sqrt{2\pi}\,m+k(m)\)</span>, so that <span class="mi">\(\abs k\le\mathsf g'_\bmom\)</span> by <a class="ref" href="r.lem.app-iso-constants.html" data-label="lem:app-iso-constants">Lemma SF.7</a>(iii) and <span class="mi">\(r_\bmom(Q_m)=m\)</span>. An integration by parts gives</div>
+<div class="md">\[
+\int_0^Hm\big(-\mathsf W'(m)\big)\,\dif m+H\,\mathsf W(H)=\int_0^H\mathsf W(m)\,\dif m .
+\]</div>
+<div class="p">By <a class="ref" href="r.lem.app-iso-participation.html" data-label="lem:app-iso-participation">Lemma SF.8</a>, therefore,</div>
+<div class="md">\[
+\int_0^\infty\mathsf G_\bmom(\ridge+u^2)\,\dif u=\frac{\sqrt{2\pi}}2\int_0^H\mathsf W(m)\,\dif m+R,
+\]</div>
+<div class="md">\[
+R=\int_0^H\big(-\mathsf W'(m)\big)\Big[\sqrt{Q_m}\,\Lw(Q_m)+\frac{k(m)}2\Big]\dif m+\frac12\mathsf W(H)\,k(H)+E_\ridge,
+\]</div>
+<div class="p">where <span class="mi">\(0\le E_\ridge\le\mathsf g_\bmom\,\mathsf W(H)\)</span> by <a class="ref" href="r.lem.app-iso-participation.html#L-eqn:app-iso-participation" data-label="eqn:app-iso-participation">(SF.30)</a>, whose last term is at most <span class="mi">\(\mathsf g_\bmom\,\mathsf W(H)\)</span>.</div>
+<div class="p">Since <span class="mi">\(-\mathsf W'\ge0\)</span> and <span class="mi">\(0\le\sqrt{Q_m}\Lw(Q_m)\le\mathsf g_\bmom\)</span>,</div>
+<div class="md">\[
+\abs R\le\Big(\mathsf g_\bmom+\frac{\mathsf g'_\bmom}2\Big)\big(\mathsf W(0)-\mathsf W(H)\big)+\Big(\mathsf g_\bmom+\frac{\mathsf g'_\bmom}2\Big)\mathsf W(H)
+=\Big(\mathsf g_\bmom+\frac{\mathsf g'_\bmom}2\Big)\sqrt{\gin\gout} .
+\]</div>
+<div class="p">Multiplying by <span class="mi">\(\sqrt2/(\pi\gin\gout)\)</span> (<a class="ref" href="s.SF.html#L-eqn:app-iso-drift-G" data-label="eqn:app-iso-drift-G">(SF.29)</a>) and using <span class="mi">\(\sqrt2\cdot\sqrt{2\pi}/(2\pi)=\pi^{-1/2}\)</span> gives the first inequality of <a class="ref" href="r.thm.app-iso-master.html#L-eqn:app-iso-master" data-label="eqn:app-iso-master">(SF.31)</a>. By <a class="ref" href="r.lem.app-iso-constants.html" data-label="lem:app-iso-constants">Lemma SF.7</a>(ii),(iii), <span class="mi">\(\mathsf g_\bmom+\mathsf g'_\bmom/2&lt;(2+\pi)/(1-\bmom)\)</span>, and <span class="mi">\(\sqrt2(2+\pi)/\pi=2.3146\ldots\)</span>.</div>
+<div class="p">Part (ii) is part (i) at <span class="mi">\(\gin=\gout=\gamma\)</span>, where</div>
+<div class="md">\[
+\frac1{\gamma^2}\int_0^{\psi}(\gamma-m)\,\dif m=\frac\psi\gamma-\frac12\Big(\frac\psi\gamma\Big)^2 .
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-iso-constants.html" data-label="lem:app-iso-constants">Lemma SF.7</a> <span class=muted>Two constants</span></li><li><a class="ref" href="r.lem.app-iso-participation.html" data-label="lem:app-iso-participation">Lemma SF.8</a> <span class=muted>Participation identity</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-iso-zero-ridge.html" data-label="thm:app-iso-zero-ridge">Theorem SF.11</a> <span class=muted>Zero ridge, large aspect ratios</span></li><li><a class="ref" href="r.thm.app-iso-fixed-ridge.html" data-label="thm:app-iso-fixed-ridge">Theorem SF.13</a> <span class=muted>Fixed ridge, large aspect ratios</span></li><li><a class="ref" href="r.thm.app-iso-crossover.html" data-label="thm:app-iso-crossover">Theorem SF.14</a> <span class=muted>Crossover</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_master_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/ZeroRidge.lean#L2003">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_master_i {β γin γout ϱ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hϱ : 0 ≤ ϱ) :
+    |dIso β γin γout ϱ
+        - 1 / (Real.sqrt Real.pi * γin * γout)
+          * ∫ m in (0 : ℝ)..(isoMLevel β γin γout ϱ), isoWm γin γout m|
+      ≤ Real.sqrt 2 * (isoGSup β + isoGPrimeSup β / 2) / (Real.pi * Real.sqrt (γin * γout)) ∧
+    Real.sqrt 2 * (isoGSup β + isoGPrimeSup β / 2) / (Real.pi * Real.sqrt (γin * γout))
+      &lt; 2.32 / ((1 - β) * Real.sqrt (γin * γout)) := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_master_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/ZeroRidge.lean#L2035">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_master_ii {β γ ϱ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : 0 &lt; γ) (hϱ : 0 ≤ ϱ) :
+    |dIso β γ γ ϱ - isoXi0 (isoMLevel β γ γ ϱ / γ)| &lt; 2.32 / ((1 - β) * γ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

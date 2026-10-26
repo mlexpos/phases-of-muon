@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SF.1 (Isotropic closure)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SF.1 (Isotropic closure)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-iso-closure"><div class="thm-head"><a class="thm-name" href="r.prop.app-iso-closure.html" data-label="prop:app-iso-closure">Proposition SF.1</a> <span class="thm-title">(Isotropic closure)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in[0,1)\)</span>, <span class="mi">\(\gin,\gout&gt;0\)</span> and <span class="mi">\(s&gt;0\)</span>, and let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1,q)=(\sigma,\tilde\sigma,\tilde s_1,s_1,q)(-s)\)</span> be the solution of <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the measures <a class="ref" href="s.SF.html#L-eqn:app-iso-measures" data-label="eqn:app-iso-measures">(SF.1)</a>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The branch satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-closure"></span>\begin{equation}\tag{SF.5}
+\sigma=\frac{\gout}{s+\tilde s_1},\qquad
+\tilde\sigma=\frac{\gin}{s+s_1},\qquad
+\tilde s_1\sigma=s_1\tilde\sigma=\psi(s),
+\end{equation}</div>
+<div class="p">and the two anchors and their consequences</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-anchors"></span>\begin{equation}\tag{SF.6}
+\psi(s)=\gout-s\sigma=\gin-s\tilde\sigma,\qquad
+\tilde\sigma-\sigma=\frac{\gin-\gout}{s},\qquad
+(s+\tilde s_1)(s+s_1)=\frac{s\,\gin\gout}{q}.
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The number <span class="mi">\(q=q(-s)\)</span> is the unique <span class="mi">\(q&gt;0\)</span> with <span class="mi">\(q\Fw(q)&lt;\min(\gin,\gout)\)</span> and</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-scalar-q"></span>\begin{equation}\tag{SF.7}
+s\,q=\big(\gout-q\Fw(q)\big)\big(\gin-q\Fw(q)\big).
+\end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">At <span class="mi">\(\bmom=0\)</span>, with <span class="mi">\(\xi\defeq(2q)^{-1/2}=(2s\sigma\tilde\sigma)^{-1/2}\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-iso-closure-f"></span>\begin{equation}\tag{SF.8}
+\psi(s)=\Phi(q)=f(\xi)=1-\sqrt\pi\,\xi\,e^{\xi^2}\erfc(\xi).
+\end{equation}</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) is the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at point masses. For <span class="mi">\(\nu=\gout\delta_1\)</span> the first trace equation is</div>
+<div class="md">\[
+\sigma=\int\frac{x}{\tilde s_1x+s}\,\gout\delta_1(dx)=\frac{\gout}{\tilde s_1+s},
+\]</div>
+<div class="p">and the second is the same computation for <span class="mi">\(\gin\delta_1\)</span>. The third identity of <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-closure" data-label="eqn:app-iso-closure">(SF.5)</a> is the coupling <a class="ref" href="s.SB.html#L-eqn:app-de-coupling" data-label="eqn:app-de-coupling">(SB.4)</a>. Multiplying the first identity by <span class="mi">\(s+\tilde s_1\)</span> gives</div>
+<div class="md">\[
+s\sigma+\tilde s_1\sigma=\gout ,
+\]</div>
+<div class="p">which is the first anchor, and the second anchor is the same computation on the input side. Subtracting the anchors gives the second identity of <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-anchors" data-label="eqn:app-iso-anchors">(SF.6)</a>. The product of the first two identities of <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-closure" data-label="eqn:app-iso-closure">(SF.5)</a> and <span class="mi">\(q=s\sigma\tilde\sigma\)</span> give</div>
+<div class="md">\[
+(s+\tilde s_1)(s+s_1)=\frac{\gin\gout}{\sigma\tilde\sigma}=\frac{s\,\gin\gout}{q}.
+\]</div>
+<div class="p">Part (ii) eliminates <span class="mi">\(\sigma\)</span> and <span class="mi">\(\tilde\sigma\)</span>. By the anchors,</div>
+<div class="md">\[
+\sigma=\frac{\gout-\psi(s)}{s},\qquad \tilde\sigma=\frac{\gin-\psi(s)}{s},
+\]</div>
+<div class="p">and inserting both into <span class="mi">\(q=s\sigma\tilde\sigma\)</span> gives <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-scalar-q" data-label="eqn:app-iso-scalar-q">(SF.7)</a>. Since <span class="mi">\(\tilde s_1\ge0\)</span>, the first identity of <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-closure" data-label="eqn:app-iso-closure">(SF.5)</a> gives <span class="mi">\(\sigma&gt;0\)</span>, so <span class="mi">\(\psi(s)&lt;\gout\)</span>; likewise <span class="mi">\(\psi(s)&lt;\gin\)</span>, and <span class="mi">\(q&gt;0\)</span>.</div>
+<div class="p">Conversely, let <span class="mi">\(q'&gt;0\)</span> satisfy <span class="mi">\(q'\Fw(q')&lt;\min(\gin,\gout)\)</span> and <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-scalar-q" data-label="eqn:app-iso-scalar-q">(SF.7)</a>, and put <span class="mi">\(\psi'\defeq q'\Fw(q')\)</span> and</div>
+<div class="md">\[
+\sigma'\defeq\frac{\gout-\psi'}{s},\qquad \tilde\sigma'\defeq\frac{\gin-\psi'}{s},\qquad
+a'\defeq\frac{\psi'}{\sigma'},\qquad c'\defeq\frac{\psi'}{\tilde\sigma'} .
+\]</div>
+<div class="p">These four numbers are nonnegative. The tuple solves the system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> at <span class="mi">\(z=-s\)</span>. Indeed the first trace equation holds because</div>
+<div class="md">\[
+s+a'=s+\frac{s\,\psi'}{\gout-\psi'}=\frac{s\,\gout}{\gout-\psi'}=\frac{\gout}{\sigma'} ,
+\]</div>
+<div class="p">the second holds by the same computation, the equation <span class="mi">\(q'=s\sigma'\tilde\sigma'\)</span> is <a class="ref" href="r.prop.app-iso-closure.html#L-eqn:app-iso-scalar-q" data-label="eqn:app-iso-scalar-q">(SF.7)</a>, and</div>
+<div class="md">\[
+s\,\tilde\sigma'\,\Fw(q')=\frac{s\,\tilde\sigma'\,\psi'}{q'}=\frac{\psi'}{\sigma'}=a',
+\]</div>
+<div class="p">with the equation for <span class="mi">\(c'\)</span> symmetric. The uniqueness in <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(i) gives <span class="mi">\(q'=q\)</span>.</div>
+<div class="p">Part (iii) is <a class="ref" href="r.prop.app-de-nomomentum.html" data-label="prop:app-de-nomomentum">Proposition SB.1</a>: at <span class="mi">\(\bmom=0\)</span> the only weight is <span class="mi">\(\emaw0=1\)</span>, so <span class="mi">\(\Fw=\Jfun\)</span> and <span class="mi">\(\psi(s)=q\Jfun(q)=\Phi(q)\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li><li><a class="ref" href="r.prop.app-de-nomomentum.html" data-label="prop:app-de-nomomentum">Proposition SB.1</a> <span class=muted>No-momentum closure</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-iso-drift.html" data-label="thm:app-iso-drift">Theorem SF.1</a> <span class=muted>Isotropic drift</span></li><li><a class="ref" href="r.thm.app-iso-volatility.html" data-label="thm:app-iso-volatility">Theorem SF.2</a> <span class=muted>Isotropic volatility</span></li><li><a class="ref" href="r.prop.app-iso-volatility-zero.html" data-label="prop:app-iso-volatility-zero">Proposition SF.2</a> <span class=muted>Zero-ridge isotropic volatility without momentum</span></li><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.prop.app-iso-zero.html" data-label="prop:app-iso-zero">Proposition SF.5</a> <span class=muted>The zero-ridge constant</span></li><li><a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a> <span class=muted>Moments and atoms</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li><li><a class="ref" href="r.lem.app-iso-comparison.html" data-label="lem:app-iso-comparison">Lemma SF.5</a> <span class=muted>Root comparison</span></li><li><a class="ref" href="r.thm.app-iso-small.html" data-label="thm:app-iso-small">Theorem SF.4</a> <span class=muted>Small aspect ratios</span></li><li><a class="ref" href="r.thm.app-iso-one.html" data-label="thm:app-iso-one">Theorem SF.6</a> <span class=muted>The constant at aspect ratio one</span></li><li><a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a> <span class=muted>Isotropic lag response</span></li><li><a class="ref" href="r.lem.app-iso-lag-lower.html" data-label="lem:app-iso-lag-lower">Lemma SF.12</a> <span class=muted>Lag lower bound</span></li><li><a class="ref" href="r.prop.app-iso-vol-representation.html" data-label="prop:app-iso-vol-representation">Proposition SF.10</a> <span class=muted>Lag coefficients in participation coordinates</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_closure_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Closure.lean#L125">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_closure_i {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {γin γout s : ℝ}
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hs : 0 &lt; s)
+    {ν ν' : FiniteMeasure ℝ} (hν : (ν : Measure ℝ) = isoSpecMeasure γout)
+    (hν' : (ν' : Measure ℝ) = isoSpecMeasure γin)
+    {x : ℝ × ℝ × ℝ × ℝ} (hx : IsBranchSol (Fw (Muon.emaW β)) ν ν' s x) :
+    x.1 = γout / (s + x.2.2.1) ∧
+    x.2.1 = γin / (s + x.2.2.2) ∧
+    x.2.2.1 * x.1 = isoPsi β s x ∧
+    x.2.2.2 * x.2.1 = isoPsi β s x ∧
+    isoPsi β s x = γout - s * x.1 ∧
+    isoPsi β s x = γin - s * x.2.1 ∧
+    x.2.1 - x.1 = (γin - γout) / s ∧
+    (s + x.2.2.1) * (s + x.2.2.2) = s * γin * γout / isoQ s x := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_closure_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Closure.lean#L246">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_closure_ii {β : ℝ} (hβ0 : 0 ≤ β) (hβ1 : β &lt; 1) {γin γout s : ℝ}
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hs : 0 &lt; s)
+    {ν ν' : FiniteMeasure ℝ} (hν : (ν : Measure ℝ) = isoSpecMeasure γout)
+    (hν' : (ν' : Measure ℝ) = isoSpecMeasure γin)
+    {x : ℝ × ℝ × ℝ × ℝ} (hx : IsBranchSol (Fw (Muon.emaW β)) ν ν' s x) :
+    0 &lt; isoQ s x ∧
+    rW (Muon.emaW β) (isoQ s x) &lt; min γin γout ∧
+    s * isoQ s x =
+      (γout - rW (Muon.emaW β) (isoQ s x)) * (γin - rW (Muon.emaW β) (isoQ s x)) ∧
+    ∀ q : ℝ, 0 &lt; q → rW (Muon.emaW β) q &lt; min γin γout →
+      s * q = (γout - rW (Muon.emaW β) q) * (γin - rW (Muon.emaW β) q) →
+      q = isoQ s x := by</pre></details><details class="decl"><summary><code>Muon.Isotropic.prop_app_iso_closure_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/Closure.lean#L326">source</a></summary><pre class="lean no-mj">theorem prop_app_iso_closure_iii {γin γout s : ℝ}
+    (hγin : 0 &lt; γin) (hγout : 0 &lt; γout) (hs : 0 &lt; s)
+    {ν ν' : FiniteMeasure ℝ} (hν : (ν : Measure ℝ) = isoSpecMeasure γout)
+    (hν' : (ν' : Measure ℝ) = isoSpecMeasure γin)
+    {x : ℝ × ℝ × ℝ × ℝ} (hx : IsBranchSol (Fw (Muon.emaW 0)) ν ν' s x) :
+    isoPsi 0 s x = isoPhi (isoQ s x) ∧
+    isoPhi (isoQ s x) = isoF (isoXi (isoQ s x)) ∧
+    isoPhi (isoQ s x) =
+      1 - Real.sqrt Real.pi * isoXi (isoQ s x) * Real.exp (isoXi (isoQ s x) ^ 2) *
+        Muon.Foundations.erfc (isoXi (isoQ s x)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

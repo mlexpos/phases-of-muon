@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.23 (Matrix martingale)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.23 (Matrix martingale)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-matrix-martingale"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-matrix-martingale.html" data-label="lem:app-dyn-matrix-martingale">Lemma SE.23</a> <span class="thm-title">(Matrix martingale)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(Z_0,Z_1,\dots\)</span> be random selfadjoint <span class="mi">\(d\times d\)</span> matrices such that <span class="mi">\(Z_b\)</span> is determined by the past at block <span class="mi">\(b+1\)</span>, has conditional mean zero given the past at block <span class="mi">\(b\)</span>, and satisfies <span class="mi">\(\norm{Z_b}\le c\)</span>. Then for <span class="mi">\(x&gt;0\)</span> and every integer <span class="mi">\(N\ge1\)</span>,</div>
+<div class="md">\[
+\Pr\Big(\max_{j\le N}\Big\|\sum_{b&lt;j}Z_b\Big\|\ge x\Big)\le2dN\exp\Big(-\frac{x^2}{2Nc^2}\Big).
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">A centered increment has a subgaussian matrix moment generating function. For <span class="mi">\(u&gt;0\)</span> and <span class="mi">\(\abs y\le c\)</span>, convexity gives <span class="mi">\(e^{uy}\le\cosh(uc)+(y/c)\sinh(uc)\)</span>, so by the spectral theorem <span class="mi">\(e^{uZ_b}\preceq\cosh(uc)\Id+\sinh(uc)Z_b/c\)</span>; conditioning on the past at block <span class="mi">\(b\)</span> and using <span class="mi">\(\cosh(uc)\le e^{u^2c^2/2}\)</span> gives <span class="mi">\(\EE_b\,e^{uZ_b}\preceq e^{u^2c^2/2}\Id\)</span>.</div>
+<div class="p">The trace exponential of the sum is bounded by induction. Put <span class="mi">\(S_j\defeq\sum_{b&lt;j}Z_b\)</span>. The Golden–Thompson inequality [<a class="cite" href="bibliography.html#bib-bhatia1997matrix">8</a>, Theorem IX.3.7 and (IX.19)] gives <span class="mi">\(\Tr e^{uS_{j+1}}\le\Tr\big(e^{uS_j}e^{uZ_j}\big)\)</span>. Conditioning on the past at block <span class="mi">\(j\)</span>, and using <span class="mi">\(\Tr(PQ)\le\Tr(PQ')\)</span> for <span class="mi">\(P\succeq0\)</span> and <span class="mi">\(Q\preceq Q'\)</span>,</div>
+<div class="md">\[
+\EE\,\Tr e^{uS_{j+1}}\le e^{u^2c^2/2}\,\EE\,\Tr e^{uS_j}\le d\,e^{(j+1)u^2c^2/2}.
+\]</div>
+<div class="p">Markov’s inequality applied to <span class="mi">\(\Tr e^{uS_j}\ge e^{u\lambda_{\max}(S_j)}\)</span> with <span class="mi">\(u=x/(jc^2)\)</span> gives <span class="mi">\(\Pr(\lambda_{\max}(S_j)\ge x)\le d\,e^{-x^2/(2jc^2)}\le d\,e^{-x^2/(2Nc^2)}\)</span> for <span class="mi">\(j\le N\)</span>. The same bound for <span class="mi">\(-S_j\)</span> and a union bound over <span class="mi">\(j\le N\)</span> prove the claim.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-dyn-diffuse.html" data-label="lem:app-dyn-diffuse">Lemma SE.24</a> <span class=muted>Persistence of diffuseness</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_matrix_martingale</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Diffuse.lean#L278">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_matrix_martingale {Ω : Type*} [mΩ : MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P]
+    -- the dimension `d` and the filtration `ℱ` (the past at block `b`)
+    (d : ℕ) (ℱ : ℕ → MeasurableSpace Ω) (hmono : Monotone ℱ) (hle : ∀ b, ℱ b ≤ mΩ)
+    -- the increments `Z_b`
+    (Z : ℕ → Ω → Matrix (Fin d) (Fin d) ℝ) (hsa : ∀ b ω, (Z b ω).IsHermitian)
+    -- `Z_b` is determined by the past at block `b+1`
+    (hmeas : ∀ b i j, Measurable[ℱ (b + 1)] (fun ω =&gt; Z b ω i j))
+    -- conditional mean zero given the past at block `b` (entrywise)
+    (hmean : ∀ b i j, MeasureTheory.condExp (ℱ b) P (fun ω =&gt; Z b ω i j) =ᵐ[P] 0)
+    -- the bound `‖Z_b‖ ≤ c`
+    (c : ℝ) (hbd : ∀ b ω, opNorm (Z b ω) ≤ c)
+    -- `x &gt; 0` and `N ≥ 1`
+    (x : ℝ) (hx : 0 &lt; x) (N : ℕ) (hN : 1 ≤ N) :
+    (∀ b i j, Integrable (fun ω =&gt; Z b ω i j) P) ∧
+    P {ω | ∃ j ≤ N, x ≤ opNorm (∑ b ∈ Finset.range j, Z b ω)} ≤
+      ENNReal.ofReal (2 * (d : ℝ) * (N : ℝ) * Real.exp (-(x ^ 2) / (2 * (N : ℝ) * c ^ 2))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

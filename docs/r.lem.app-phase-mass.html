@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.13 (Local mass)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.13 (Local mass)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-mass"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-mass.html" data-label="lem:app-phase-mass">Lemma SI.13</a> <span class="thm-title">(Local mass)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(g\ge0\)</span> be continuous and nonincreasing on <span class="mi">\([0,\infty)\)</span>, and put <span class="mi">\(m_g(u)\defeq\int_0^ug(v)\,\dif v\)</span>. Let <span class="mi">\(C,D&gt;0\)</span>, <span class="mi">\(0&lt;r&lt;1\)</span> and <span class="mi">\(h(u)\defeq C(1+u/D)^{-r}\)</span>. Then</div>
+<div class="md">\[
+(g*h)(u)\le\frac{m_g(u)}{1-r}\,h(u)\qquad(u\ge0).
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">At <span class="mi">\(u=0\)</span> both sides vanish. Fix <span class="mi">\(u&gt;0\)</span>. On <span class="mi">\([0,u]\)</span> the function <span class="mi">\(g\)</span> is nonincreasing and <span class="mi">\(v\mapsto h(u-v)\)</span> is nondecreasing, so</div>
+<div class="md">\[
+\int_0^u\!\!\int_0^u\big(g(v)-g(v')\big)\big(h(u-v)-h(u-v')\big)\,\dif v\,\dif v'\le0 .
+\]</div>
+<div class="p">Expanding the product gives</div>
+<div class="md">\[
+u\,(g*h)(u)\le m_g(u)\int_0^uh(v)\,\dif v .
+\]</div>
+<div class="p">Direct integration gives</div>
+<div class="md">\[
+\frac1{u\,h(u)}\int_0^uh(v)\,\dif v=\frac{D+u-D(1+u/D)^r}{(1-r)\,u}\le\frac1{1-r} ,
+\]</div>
+<div class="p">since <span class="mi">\((1+u/D)^r\ge1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li><li><a class="ref" href="r.lem.app-phase-svd-small.html" data-label="lem:app-phase-svd-small">Lemma SI.15</a> <span class=muted><span class="sc">SignSVD</span> kernel, <span class="mi">\(0&lt;\alpha&lt;2\)</span>, small times</span></li><li><a class="ref" href="r.lem.app-phase-log.html" data-label="lem:app-phase-log">Lemma SI.17</a> <span class=muted><span class="sc">SignSVD</span> kernel, <span class="mi">\(\alpha=2\)</span></span></li><li><a class="ref" href="r.lem.app-phase-G-small.html" data-label="lem:app-phase-G-small">Lemma SI.24</a> <span class=muted><span class="sc">SignSGD</span> kernel below the critical exponent</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_mass</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Kernels.lean#L296">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_mass (g : ℝ → ℝ) (hgc : ContinuousOn g (Ici 0))
+    (hgnn : ∀ v ∈ Ici (0 : ℝ), 0 ≤ g v) (hgm : AntitoneOn g (Ici 0))
+    (C D r : ℝ) (hC : 0 &lt; C) (hD : 0 &lt; D) (hr0 : 0 &lt; r) (hr1 : r &lt; 1) :
+    ∀ u : ℝ, 0 ≤ u →
+      oneSidedConv (fun w =&gt; C * (1 + w / D) ^ (-r)) g u
+        ≤ (∫ v in (0 : ℝ)..u, g v) / (1 - r) * (C * (1 + u / D) ^ (-r)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

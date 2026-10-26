@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.13 (Column norms)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.13 (Column norms)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-column-norm"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-column-norm.html" data-label="lem:app-sgd-column-norm">Lemma SJ.13</a> <span class="thm-title">(Column norms)</span></div><div class="thm-body"><div class="p">In the Haar model put <span class="mi">\(x_0\defeq2\cR\Tr\Lambda/B\)</span>. There are admissible constants <span class="mi">\(C_{\rm good}\)</span>, <span class="mi">\(C_{\rm bad}\)</span> such that, for every column <span class="mi">\(j\)</span> and row <span class="mi">\(i\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-ratio"></span>\begin{equation}\tag{SJ.42}
+\EE\Big|\frac{(h_j)_i^2}{\norm{h_j}^2}-\frac{(h_j)_i^2}{x_0}\Big|\le\frac{C_{\rm good}}{k^{3/2}}+\frac{C_{\rm bad}}{k^2}.
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p"><em>The centered norm.</em> Write <span class="mi">\(h_j=m_j+S_B/B\)</span> with <span class="mi">\(S_B\)</span> as in <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> for <span class="mi">\(Z=X-m_j\)</span>. Then exactly</div>
+<div class="md">\[
+\norm{h_j}^2-\EE\norm{h_j}^2=\frac{2m_j^\T S_B}B+\frac{\mathcal D_B}{B^2}+\frac{\mathcal W}{B^2}.
+\]</div>
+<div class="p">The first term has fourth moment at most <span class="mi">\(48A_4\norm{m_j}^4/B^2\le48A_4H_0^2/k^2\)</span>. <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> and <span class="mi">\(\Nout\le Kk\le KB\)</span> bound the other two by <span class="mi">\((16A_8+3A_4^2)K^4/k^2\)</span> and <span class="mi">\(144A_4^2K^2/k^2\)</span>. With <span class="mi">\(\abs{x+y+z}^4\le27(x^4+y^4+z^4)\)</span>,</div>
+<div class="md">\[
+\EE\big(\norm{h_j}^2-\EE\norm{h_j}^2\big)^4\le\frac{F_4}{k^2},\qquad F_4\defeq27\big[48A_4H_0^2+(16A_8+3A_4^2)K^4+144A_4^2K^2\big].
+\]</div>
+<div class="p"><em>The bias.</em> Taking traces in <a class="ref" href="r.lem.app-sgd-column.html#L-eqn:app-sgd-hh" data-label="eqn:app-sgd-hh">(SJ.33)</a>,</div>
+<div class="md">\[
+0\le\EE\norm{h_j}^2-x_0=\frac{2C_j\Tr\Lambda+2\Tr T_D}B+\Big(1+\frac3B\Big)\norm{m_j}^2\le\frac{b_0}k,
+\]</div>
+<div class="p">with <span class="mi">\(b_0\defeq2L^2KC_{\rm col}+2LP_++4L^2C_{\rm col}\)</span>. Hence, with <span class="mi">\(Q_4\defeq8(F_4+b_0^4)\)</span>,</div>
+<div class="md">\[
+\EE\big(\norm{h_j}^2-x_0\big)^4\le\frac{Q_4}{k^2},\qquad \EE\big(\norm{h_j}^2-x_0\big)^2\le\frac{\sqrt{Q_4}}k .
+\]</div>
+<div class="p">The same decomposition and <a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> give <span class="mi">\(\EE(h_j)_i^4\le H_4/k^2\)</span> with <span class="mi">\(H_4\defeq8(L^4C_{\rm col}^2+3A_4)\)</span>. Also <span class="mi">\(x_0\ge a_0\defeq P_-c/K\)</span>.</div>
+<div class="p"><em>The ratio.</em> Put <span class="mi">\(\delta\defeq\norm{h_j}^2-x_0\)</span>. On <span class="mi">\(\{\norm{h_j}^2\ge x_0/2\}\)</span>,</div>
+<div class="md">\[
+(h_j)_i^2\,\Big|\frac1{\norm{h_j}^2}-\frac1{x_0}\Big|\le\frac{2}{a_0^2}\,(h_j)_i^2\abs\delta ,
+\]</div>
+<div class="p">whose mean is at most <span class="mi">\(2a_0^{-2}(H_4/k^2)^{1/2}(\sqrt{Q_4}/k)^{1/2}=C_{\rm good}k^{-3/2}\)</span> by Cauchy–Schwarz. Markov’s inequality gives <span class="mi">\(\PP(\norm{h_j}^2&lt;x_0/2)\le16Q_4/(a_0^4k^2)\defeq b_1/k^2\)</span>. On that event <span class="mi">\((h_j)_i^2/\norm{h_j}^2\le1\)</span>, and Cauchy–Schwarz gives</div>
+<div class="md">\[
+\frac1{x_0}\,\EE\big[(h_j)_i^2\,\mathbf 1_{\{\norm{h_j}^2&lt;x_0/2\}}\big]\le\frac{\sqrt{H_4b_1}}{a_0k^2}.
+\]</div>
+<div class="p">Adding the three contributions gives <a class="ref" href="r.lem.app-sgd-column-norm.html#L-eqn:app-sgd-ratio" data-label="eqn:app-sgd-ratio">(SJ.42)</a> with <span class="mi">\(C_{\rm bad}\defeq b_1+\sqrt{H_4b_1}/a_0\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-partition.html" data-label="lem:app-sgd-partition">Lemma SJ.12</a> <span class=muted>Fourth moments of sums</span></li><li><a class="ref" href="r.lem.app-sgd-column.html" data-label="lem:app-sgd-column">Lemma SJ.10</a> <span class=muted>Column moments</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-sgd-modes.html" data-label="thm:app-sgd-modes">Theorem SJ.4</a> <span class=muted>Corrected row volatility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_column_norm</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/RowVolatility.lean#L1531">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_column_norm (P : HaarParams) :
+    ∃ Cgood Cbad : ℝ, 0 ≤ Cgood ∧ 0 ≤ Cbad ∧
+      ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ),
+        def_app_sgd_state_law P n m B μ D → ∀ (j : Fin m) (i : Fin n),
+          (∀ᵐ β ∂(batchLaw n m B), hCol μ D β j ≠ 0) ∧
+          ∫⁻ β, ENNReal.ofReal
+              |hCol μ D β j i ^ 2 / (hCol μ D β j ⬝ᵥ hCol μ D β j) - hCol μ D β j i ^ 2 / haarX0 B μ D|
+            ∂(batchLaw n m B)
+            ≤ ENNReal.ofReal (Cgood / ((kOf n m B : ℝ) * Real.sqrt (kOf n m B : ℝ))
+                + Cbad / (kOf n m B : ℝ) ^ 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

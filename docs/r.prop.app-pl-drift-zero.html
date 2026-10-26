@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SG.2 (Drift at zero ridge)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SG.2 (Drift at zero ridge)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SG.html">Section SG</a> · Power-law coefficient profiles with momentum</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-pl-drift-zero"><div class="thm-head"><a class="thm-name" href="r.prop.app-pl-drift-zero.html" data-label="prop:app-pl-drift-zero">Proposition SG.2</a> <span class="thm-title">(Drift at zero ridge)</span></div><div class="thm-body"><ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">As <span class="mi">\(s\downarrow0\)</span>, <span class="mi">\(Q_{m(s)}\to Q_\gamma&lt;\infty\)</span> and <span class="mi">\(s\,\Lambda_N(m(s))^2\to F_\star\,B^{-1}\sum_i\mu_i^{-1}\)</span>. For <span class="mi">\(0&lt;s\le z_1\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-deficit"></span>\begin{equation}\tag{SG.11}
+1-\volraw_i(s)=\frac1{1+\Lambda_N(m(s))\mu_i}\le D_i\sqrt s .
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The integral</div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-drift-zero"></span>\begin{equation}\tag{SG.12}
+\mathfrak d_i(0)\defeq\frac{\sqrt2}{\pi\gamma}\int_0^\infty\mathcal G_i(u^2)\,\dif u
+\end{equation}</div>
+<div class="p">is finite, and for every <span class="mi">\(\ridge&gt;0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-pl-drift-ridge"></span>\begin{equation}\tag{SG.13}
+\max_{1\le i\le N}\abs{\mathfrak d_i(\ridge)-\mathfrak d_i(0)}\le\frac{C_\bmom}{\gamma}\sqrt\ridge\,\big(1+\sqrt{Q_\gamma}\big),
+\end{equation}</div>
+<div class="p">with <span class="mi">\(C_\bmom\)</span> depending only on <span class="mi">\(\bmom\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) reads the endpoint off the participation coordinate. As <span class="mi">\(s\downarrow0\)</span>, <span class="mi">\(m(s)\to\gamma\)</span> and <span class="mi">\(\Lambda\defeq\Lambda_N(m(s))\to\infty\)</span>, and</div>
+<div class="md">\[
+\gamma-m_N(\Lambda)=\frac1B\sum_i\frac{1}{1+\Lambda\mu_i},\qquad
+\Lambda\big(\gamma-m_N(\Lambda)\big)\longrightarrow\frac1B\sum_i\frac1{\mu_i}.
+\]</div>
+<div class="p">Since <span class="mi">\(s\Lambda=(\gamma-m)\Fw(Q_m)\)</span> by <a class="ref" href="r.def.app-pl-participation.html#L-eqn:app-pl-sm" data-label="eqn:app-pl-sm">(SG.5)</a>, the product <span class="mi">\(s\Lambda^2\)</span> has the stated limit. For the deficit, <span class="mi">\(\Fw\)</span> is decreasing, so <span class="mi">\(\Fw(Q_m)\ge F_\star\)</span>, and <span class="mi">\(\gamma-m_N(\Lambda)\ge\gamma/(1+\Lambda\mu_1)\)</span>. If <span class="mi">\(s\le z_1\)</span> then <span class="mi">\(\Lambda\ge1\)</span>, and</div>
+<div class="md">\[
+s=\frac{(\gamma-m)\Fw(Q_m)}{\Lambda}\ge\frac{\gamma F_\star}{\Lambda(1+\Lambda\mu_1)}\ge\frac{\gamma F_\star}{(1+\mu_1)\Lambda^2}.
+\]</div>
+<div class="p">Hence <span class="mi">\(1/(1+\Lambda\mu_i)\le1/(\Lambda\mu_i)\le D_i\sqrt s\)</span>, and the identity in <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-deficit" data-label="eqn:app-pl-deficit">(SG.11)</a> is <a class="ref" href="r.prop.app-pl-branch.html#L-eqn:app-pl-drift-single" data-label="eqn:app-pl-drift-single">(SG.7)</a>.</div>
+<div class="p">Part (ii) bounds the variation of <span class="mi">\(\mathcal G_i\)</span>. As <span class="mi">\(s\)</span> decreases from <span class="mi">\(\infty\)</span> to <span class="mi">\(0\)</span>, <span class="mi">\(q=Q_{m(s)}\)</span> increases from <span class="mi">\(0\)</span> to <span class="mi">\(Q_\gamma\)</span>, and <span class="mi">\(\mathcal G_i=\mathsf R(q)\,f_i(r_\bmom(q))\)</span> with <span class="mi">\(\mathsf R\defeq\Lw/\Fw\)</span>. The factor <span class="mi">\(f_i(r_\bmom(q))\)</span> increases from <span class="mi">\(0\)</span> to <span class="mi">\(1\)</span>, so</div>
+<div class="md">\[
+\int_0^\infty\Big|\frac{\dif\mathcal G_i}{\dif s}\Big|\,\dif s\le\sup_{[0,Q_\gamma]}\mathsf R+\int_0^{Q_\gamma}\abs{\mathsf R'(q)}\,\dif q .
+\]</div>
+<div class="p">On <span class="mi">\([0,1]\)</span>, <span class="mi">\(\mathsf R\)</span> and <span class="mi">\(\mathsf R'\)</span> are bounded by constants depending on <span class="mi">\(\bmom\)</span>, because <span class="mi">\(\Fw\ge\Fw(1)&gt;0\)</span>, <span class="mi">\(\Lw\le1\)</span>, <span class="mi">\(\abs{\Fw'}\le3\sw4\)</span> and <span class="mi">\(\abs{\Lw'}\le3\sw3\)</span> (<a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a>). On <span class="mi">\([1,\infty)\)</span>, <a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a>(ii),(iii) and <span class="mi">\(r_\bmom(q)\ge r_\bmom(1)\)</span> give</div>
+<div class="md">\[
+\mathsf R(q)=\frac{\sqrt q\cdot\sqrt q\Lw(q)}{r_\bmom(q)}\le C_\bmom\sqrt q,\qquad
+\abs{\mathsf R'(q)}\le\frac{\abs{\Lw'}}{\Fw}+\frac{\Lw\abs{\Fw'}}{\Fw^2}\le\frac{2\Lw(q)}{q\Fw(q)}=\frac{2\sqrt q\Lw(q)}{\sqrt q\,r_\bmom(q)}\le\frac{C_\bmom}{\sqrt q}.
+\]</div>
+<div class="p">Integrating, the variation of <span class="mi">\(\mathcal G_i\)</span> is at most <span class="mi">\(C_\bmom(1+\sqrt{Q_\gamma})\)</span>.</div>
+<div class="p">The ridge shift is a pairing of this variation with a bounded function. The integrand of <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-drift-zero" data-label="eqn:app-pl-drift-zero">(SG.12)</a> is bounded, by <span class="mi">\(\sup\mathsf R\)</span>, and for large <span class="mi">\(s\)</span> it is at most <span class="mi">\(\mathsf R\,\Lambda\mu_i\le C\gamma\sw2\mu_i/s\)</span>, since <span class="mi">\(\Lambda\mu_i=\tilde s_1\mu_i/s\)</span> and <span class="mi">\(\tilde s_1=(\gamma-m)\Fw\le\gamma\sw2\)</span>; so the integral is finite. With <span class="mi">\(\delta_\ridge(t)\defeq\sqrt{(t-\ridge)_+}-\sqrt t\)</span>, the substitutions <span class="mi">\(t=\ridge+u^2\)</span> and <span class="mi">\(t=u^2\)</span> give</div>
+<div class="md">\[
+\frac{\pi\gamma}{\sqrt2}\big(\mathfrak d_i(\ridge)-\mathfrak d_i(0)\big)=\int_0^\infty\mathcal G_i(t)\,\delta_\ridge'(t)\,\dif t
+=-\int_0^\infty\delta_\ridge(t)\,\mathcal G_i'(t)\,\dif t ,
+\]</div>
+<div class="p">by integration by parts on <span class="mi">\([0,\ridge]\)</span> and <span class="mi">\([\ridge,T]\)</span> [<a class="cite" href="bibliography.html#bib-rudin1976principles">55</a>, Theorem 6.22] and <span class="mi">\(T\to\infty\)</span>, the boundary terms vanishing because <span class="mi">\(\delta_\ridge(0)=0\)</span>, <span class="mi">\(\delta_\ridge\)</span> is continuous and <span class="mi">\(\abs{\delta_\ridge(T)\mathcal G_i(T)}\le\sqrt\ridge\,C\gamma\sw2\mu_i/T\)</span>. Since <span class="mi">\(\abs{\delta_\ridge}\le\sqrt\ridge\)</span>, the variation bound gives <a class="ref" href="r.prop.app-pl-drift-zero.html#L-eqn:app-pl-drift-ridge" data-label="eqn:app-pl-drift-ridge">(SG.13)</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-pl-participation.html" data-label="def:app-pl-participation">Definition SG.1</a> <span class=muted>Participation coordinates</span></li><li><a class="ref" href="r.prop.app-pl-branch.html" data-label="prop:app-pl-branch">Proposition SG.1</a> <span class=muted>The branch in participation coordinates</span></li><li><a class="ref" href="r.lem.app-de-scalar.html" data-label="lem:app-de-scalar">Lemma SB.1</a> <span class=muted>Properties of the scalar functions</span></li><li><a class="ref" href="r.lem.app-pl-weights.html" data-label="lem:app-pl-weights">Lemma SG.1</a> <span class=muted>Weight functions</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-pl-vol-zero.html" data-label="prop:app-pl-vol-zero">Proposition SG.4</a> <span class=muted>Volatility at zero ridge</span></li><li><a class="ref" href="r.def.app-pl-coefficients.html" data-label="def:app-pl-coefficients">Definition SG.2</a> <span class=muted>Coefficients at zero normalized ridge</span></li><li><a class="ref" href="r.lem.app-pl-amplitude.html" data-label="lem:app-pl-amplitude">Lemma SG.4</a> <span class=muted>Spectral amplitude</span></li><li><a class="ref" href="r.prop.app-pl-ridge.html" data-label="prop:app-pl-ridge">Proposition SG.7</a> <span class=muted>Negligible ridge</span></li><li><a class="ref" href="r.rem.app-pl-nomomentum.html" data-label="rem:app-pl-nomomentum">Remark SG.1</a> <span class=muted>No momentum</span></li><li><a class="ref" href="r.prop.app-pl-nomomentum-endpoints.html" data-label="prop:app-pl-nomomentum-endpoints">Proposition SG.8</a> <span class=muted>No-momentum endpoints</span></li><li><a class="ref" href="r.lem.app-pl-drift-participation.html" data-label="lem:app-pl-drift-participation">Lemma SG.8</a> <span class=muted>Drift in the participation coordinate</span></li><li><a class="ref" href="r.lem.app-pl-head.html" data-label="lem:app-pl-head">Lemma SG.11</a> <span class=muted>Head</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_drift_zero_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Participation.lean#L1575">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_drift_zero_i {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β)
+    (hβ1 : β &lt; 1) (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i) :
+    Tendsto (fun s =&gt; Qm β (mOf β B μ s)) (nhdsWithin (0 : ℝ) (Ioi 0))
+        (𝓝 (Qm β (gammaOf N B))) ∧
+      Tendsto (fun s =&gt; s * partLam B μ (mOf β B μ s) ^ 2) (nhdsWithin (0 : ℝ) (Ioi 0))
+        (𝓝 (Fw (emaW β) (Qm β (gammaOf N B)) * ((B : ℝ)⁻¹ * ∑ i, (μ i)⁻¹))) ∧
+      ∀ i : Fin N, ∀ s : ℝ, 0 &lt; s → s ≤ sN β B μ (partMN B μ 1) →
+        1 - partF B μ i (mOf β B μ s) = 1 / (1 + partLam B μ (mOf β B μ s) * μ i) ∧
+        1 / (1 + partLam B μ (mOf β B μ s) * μ i) ≤
+          (1 / μ i) * Real.sqrt ((1 + μ ⟨0, hN⟩) /
+            (gammaOf N B * Fw (emaW β) (Qm β (gammaOf N B)))) * Real.sqrt s := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_drift_zero_ii_fin</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Participation.lean#L1732">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_drift_zero_ii_fin {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β)
+    (hβ1 : β &lt; 1) (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    (i : Fin N) :
+    Integrable (fun u : ℝ =&gt; Gfun β B μ i (u ^ 2)) (volume.restrict (Ioi 0)) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_drift_zero_ii_bound</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/Participation.lean#L1763">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_drift_zero_ii_bound {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    ∃ C : ℝ, ∀ (N B : ℕ) (μ : Fin N → ℝ), 0 &lt; B → 0 &lt; N → Antitone μ → (∀ i, 0 &lt; μ i) →
+      ∀ ϱ : ℝ, 0 &lt; ϱ → ∀ i : Fin N,
+        |dPart β B μ i ϱ - dZero β B μ i| ≤
+          C / gammaOf N B * Real.sqrt ϱ * (1 + Real.sqrt (Qm β (gammaOf N B))) := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_drift_zero_i_volraw</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/BranchLink.lean#L412">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_drift_zero_i_volraw {N B : ℕ} {β : ℝ} (μ : Fin N → ℝ) (hβ0 : 0 &lt; β)
+    (hβ1 : β &lt; 1) (hB : 0 &lt; B) (hN : 0 &lt; N) (hanti : Antitone μ) (hpos : ∀ i, 0 &lt; μ i)
+    {ν ν' : FiniteMeasure ℝ} {Cs : ℝ}
+    (hν : (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i))
+    (hν' : (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ))
+    (hμCs : ∀ i, μ i ≤ Cs) (h1Cs : 1 ≤ Cs)
+    (i : Fin N) {s : ℝ} (hs : 0 &lt; s) (hsz : s ≤ sN β B μ (partMN B μ 1)) :
+    1 - Muon.Volatility.volraw β ν ν' (μ i) s = 1 / (1 + partLam B μ (mOf β B μ s) * μ i) ∧
+      1 / (1 + partLam B μ (mOf β B μ s) * μ i) ≤
+        (1 / μ i) * Real.sqrt ((1 + μ ⟨0, hN⟩) /
+          (gammaOf N B * Fw (emaW β) (Qm β (gammaOf N B)))) * Real.sqrt s := by</pre></details><details class="decl"><summary><code>Muon.PowerLaw.prop_app_pl_drift_zero_ii_kernel</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/PowerLaw/BranchLink.lean#L378">source</a></summary><pre class="lean no-mj">theorem prop_app_pl_drift_zero_ii_kernel {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1) :
+    ∃ C : ℝ, ∀ (N B : ℕ) (μ : Fin N → ℝ) (ν ν' : FiniteMeasure ℝ) (Cs : ℝ),
+      0 &lt; B → 0 &lt; N → Antitone μ → (∀ i, 0 &lt; μ i) →
+      (∀ i, μ i ≤ Cs) → 1 ≤ Cs →
+      (ν : Measure ℝ) = ENNReal.ofReal ((B : ℝ)⁻¹) • ∑ i, Measure.dirac (μ i) →
+      (ν' : Measure ℝ) = ENNReal.ofReal (gammaOf N B) • Measure.dirac (1 : ℝ) →
+      ∀ ϱ : ℝ, 0 &lt; ϱ → ∀ i : Fin N,
+        |Muon.Drift.kernel (emaW β) ν ν' ϱ (μ i) 1 - dZero β B μ i| ≤
+          C / gammaOf N B * Real.sqrt ϱ * (1 + Real.sqrt (Qm β (gammaOf N B))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

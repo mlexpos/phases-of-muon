@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.4 (An integral for the drift constant)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.4 (An integral for the drift constant)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-ratio-integral"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-ratio-integral.html" data-label="lem:app-phase-ratio-integral">Lemma SI.4</a> <span class="thm-title">(An integral for the drift constant)</span></div><div class="thm-body"><div class="p">The map <span class="mi">\(\Phi\)</span> is a continuously differentiable increasing bijection from <span class="mi">\((0,\infty)\)</span> onto <span class="mi">\((0,1)\)</span>; let <span class="mi">\(V\)</span> be its inverse and <span class="mi">\(w(y)\defeq V(y)^{-1/2}\)</span> for <span class="mi">\(0&lt;y&lt;1\)</span>. The function <span class="mi">\(w_\circ(y)\defeq\sqrt y\,w(y)\)</span> is positive, strictly decreasing, at most <span class="mi">\(1\)</span>, and tends to <span class="mi">\(1\)</span> as <span class="mi">\(y\downarrow0\)</span>. For every <span class="mi">\(\gamma&gt;0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-CI"></span>\begin{equation}\tag{SI.18}
+C(\gamma)=\frac{\sqrt2}{\pi\gamma^2}\,I(\gamma),\qquad I(\gamma)\defeq\int_0^{\min(\gamma,1)}(\gamma-y)\,w(y)\,\dif y .
+\end{equation}</div>
+<div class="p">Moreover</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-AD"></span>\begin{equation}\tag{SI.19}
+\mathcal A\defeq\int_0^1w(y)\,\dif y=\sqrt{\frac\pi2},\qquad \mathcal D\defeq\int_0^1y\,w(y)\,\dif y\in(0,\mathcal A),\qquad I(\gamma)=\gamma\mathcal A-\mathcal D\quad(\gamma\ge1).
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The map <span class="mi">\(\Phi\)</span> is continuously differentiable with</div>
+<div class="md">\[
+\Phi'(v)=\EE\frac{Z^2}{(1+vZ^2)^2}&gt;0 .
+\]</div>
+<div class="p">The quotient <span class="mi">\(\Phi(v)/v=\EE[Z^2/(1+vZ^2)]\)</span> is strictly decreasing in <span class="mi">\(v\)</span>, tends to <span class="mi">\(\EE Z^2=1\)</span> as <span class="mi">\(v\downarrow0\)</span>, and <span class="mi">\(\Phi(v)\to1\)</span> as <span class="mi">\(v\to\infty\)</span>. Hence <span class="mi">\(\Phi\)</span> is an increasing bijection onto <span class="mi">\((0,1)\)</span> with a continuously differentiable inverse. Since</div>
+<div class="md">\[
+w_\circ(y)^2=\frac{y}{V(y)}=\frac{\Phi(V(y))}{V(y)}
+\]</div>
+<div class="p">and <span class="mi">\(V\)</span> is increasing, <span class="mi">\(w_\circ\)</span> is strictly decreasing, at most <span class="mi">\(1\)</span>, and tends to <span class="mi">\(1\)</span> at <span class="mi">\(0\)</span>. In particular <span class="mi">\(w(y)\le y^{-1/2}\)</span>, so every integral in the statement is finite.</div>
+<div class="p">The function <span class="mi">\(\psi_\gamma\)</span> is the inverse of an explicit function. For <span class="mi">\(0&lt;y&lt;\min(\gamma,1)\)</span> put <span class="mi">\(\Theta_\gamma(y)\defeq(\gamma-y)^2/V(y)\)</span>. It is strictly decreasing. It tends to <span class="mi">\(\infty\)</span> as <span class="mi">\(y\downarrow0\)</span>, because <span class="mi">\(V(y)/y\to1\)</span>. It tends to <span class="mi">\(0\)</span> at the upper endpoint, because the numerator tends to <span class="mi">\(0\)</span> if <span class="mi">\(\gamma&lt;1\)</span> and the denominator tends to <span class="mi">\(\infty\)</span> if <span class="mi">\(\gamma\ge1\)</span>. So <span class="mi">\(\Theta_\gamma\)</span> is a bijection onto <span class="mi">\((0,\infty)\)</span>. The quantity <span class="mi">\(t\sigma_\gamma(t)=\int t(x+t)^{-1}\mu_\gamma(\dif x)\)</span> lies in <span class="mi">\((0,\gamma]\)</span>, and <a class="ref" href="r.def.app-phase-scalar.html#L-eqn:app-phase-scalar" data-label="eqn:app-phase-scalar">(SI.17)</a> gives <span class="mi">\(\psi_\gamma(t)=\Phi(\cdot)\in(0,1)\)</span>; hence <span class="mi">\(0&lt;\psi_\gamma(t)&lt;\min(\gamma,1)\)</span>. By <a class="ref" href="r.def.app-phase-scalar.html#L-eqn:app-phase-scalar" data-label="eqn:app-phase-scalar">(SI.17)</a>, <span class="mi">\(V(\psi_\gamma(t))=t\sigma_\gamma(t)^2=(\gamma-\psi_\gamma(t))^2/t\)</span>, that is,</div>
+<div class="md">\[
+t=\Theta_\gamma(\psi_\gamma(t))\qquad(t&gt;0).
+\]</div>
+<div class="p">The half moment is an integral of <span class="mi">\(\psi_\gamma\)</span>. The half-moment formula <a class="ref" href="r.lem.app-iso-moments.html#L-eqn:app-iso-half-moment" data-label="eqn:app-iso-half-moment">(SF.26)</a> of <a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a>(v), applied to <span class="mi">\(\nu=\mu_\gamma\)</span>, expresses <span class="mi">\(\int\sqrt x\,\mu_\gamma(\dif x)\)</span> through <span class="mi">\(\int x(x+t)^{-1}\mu_\gamma(\dif x)\)</span>. This inner integral is</div>
+<div class="md">\[
+\int\frac{x}{x+t}\,\mu_\gamma(\dif x)=\gamma-t\sigma_\gamma(t)=\psi_\gamma(t),
+\]</div>
+<div class="p">so that</div>
+<div class="md">\[
+\int\sqrt x\,\mu_\gamma(\dif x)=\frac1\pi\int_0^\infty t^{-1/2}\psi_\gamma(t)\,\dif t .
+\]</div>
+<div class="p">The change of variables <span class="mi">\(t=\Theta_\gamma(y)\)</span> and an integration by parts evaluate this integral:</div>
+<div class="md">\begin{align*}
+\int_0^\infty t^{-1/2}\psi_\gamma(t)\,\dif t&amp;=\int_0^{\min(\gamma,1)}y\,\big(-\Theta_\gamma'(y)\big)\Theta_\gamma(y)^{-1/2}\,\dif y\\
+&amp;=\Big[-2y\sqrt{\Theta_\gamma(y)}\Big]_0^{\min(\gamma,1)}+2\int_0^{\min(\gamma,1)}\sqrt{\Theta_\gamma(y)}\,\dif y .
+\end{align*}</div>
+<div class="p">The boundary term vanishes at <span class="mi">\(0\)</span> because <span class="mi">\(\sqrt{\Theta_\gamma(y)}=(\gamma-y)w(y)\le\gamma y^{-1/2}\)</span>, and at the upper endpoint because <span class="mi">\(y\le1\)</span> and <span class="mi">\(\Theta_\gamma\to0\)</span>. Hence the integral equals <span class="mi">\(2I(\gamma)\)</span>, and the definition of <span class="mi">\(C(\gamma)\)</span> gives <a class="ref" href="r.lem.app-phase-ratio-integral.html#L-eqn:app-phase-CI" data-label="eqn:app-phase-CI">(SI.18)</a>.</div>
+<div class="p">For <a class="ref" href="r.lem.app-phase-ratio-integral.html#L-eqn:app-phase-AD" data-label="eqn:app-phase-AD">(SI.19)</a>, the substitution <span class="mi">\(y=\Phi(v)\)</span> gives</div>
+<div class="md">\[
+\mathcal A=\int_0^\infty v^{-1/2}\Phi'(v)\,\dif v=\EE\int_0^\infty\frac{Z^2v^{-1/2}}{(1+vZ^2)^2}\,\dif v=\EE\abs Z\int_0^\infty\frac{y'^{-1/2}}{(1+y')^2}\,\dif y'=\sqrt{\frac2\pi}\cdot\frac\pi2 ,
+\]</div>
+<div class="p">with <span class="mi">\(y'=vZ^2\)</span> in the third step. The last integral is the Beta integral <span class="mi">\(\Gamma(\frac12)\Gamma(\frac32)/\Gamma(2)=\pi/2\)</span> [<a class="cite" href="bibliography.html#bib-DLMF">21</a>, 5.12.3], and <span class="mi">\(\EE\abs Z=\sqrt{2/\pi}\)</span>. Since <span class="mi">\(0&lt;y&lt;1\)</span> and <span class="mi">\(w&gt;0\)</span>, <span class="mi">\(0&lt;\mathcal D&lt;\mathcal A\)</span>. For <span class="mi">\(\gamma\ge1\)</span> the range of integration in <span class="mi">\(I(\gamma)\)</span> is <span class="mi">\((0,1)\)</span>, which gives the last formula.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.def.app-phase-scalar.html" data-label="def:app-phase-scalar">Definition SI.2</a> <span class=muted>Scalar measure hypothesis</span></li><li><a class="ref" href="r.lem.app-iso-moments.html" data-label="lem:app-iso-moments">Lemma SF.3</a> <span class=muted>Moments and atoms</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-iso-extrema.html" data-label="thm:app-phase-iso-extrema">Theorem SI.5</a> <span class=muted>Extrema of the isotropic ratio</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_ratio_integral</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/IsoRatio.lean#L856">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_ratio_integral :
+    ContDiffOn ℝ 1 isoPhi (Ioi 0) ∧ StrictMonoOn isoPhi (Ioi 0) ∧
+    BijOn isoPhi (Ioi 0) (Ioo 0 1) ∧
+    (∀ y ∈ Ioo (0 : ℝ) 1, isoV y ∈ Ioi 0 ∧ isoPhi (isoV y) = y) ∧
+    ContDiffOn ℝ 1 isoV (Ioo 0 1) ∧
+    (∀ y ∈ Ioo (0 : ℝ) 1, 0 &lt; isoWcirc y ∧ isoWcirc y ≤ 1) ∧
+    StrictAntiOn isoWcirc (Ioo 0 1) ∧
+    Tendsto isoWcirc (𝓝[&gt;] 0) (𝓝 1) ∧
+    (∀ γ : ℝ, 0 &lt; γ → ∀ μ : Measure ℝ, def_app_phase_scalar γ μ →
+      Integrable (fun x : ℝ =&gt; Real.sqrt x) μ ∧
+      (Real.sqrt 2 * γ ^ 2)⁻¹ * ∫ x, Real.sqrt x ∂μ = isoDriftConst γ) ∧
+    isoA = Real.sqrt (Real.pi / 2) ∧
+    0 &lt; isoD ∧ isoD &lt; isoA ∧
+    (∀ γ : ℝ, 1 ≤ γ → isoI γ = γ * isoA - isoD) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

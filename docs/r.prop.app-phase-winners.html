@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SI.6 (Limits of the ratio)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SI.6 (Limits of the ratio)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map · <a href="t.prop.app-phase-winners.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-phase-winners"><div class="thm-head"><a class="thm-name" href="r.prop.app-phase-winners.html" data-label="prop:app-phase-winners">Proposition SI.6</a> <span class="thm-title">(Limits of the ratio)</span></div><div class="thm-body"><div class="p">Write <span class="mi">\(\mathsf R\defeq t^{\text{s-SGD}}_{T\epsilon}/t^{\text{s-SVD}}_{T\epsilon}\)</span>, and consider sequences with <span class="mi">\(N\to\infty\)</span>, <span class="mi">\(\epsilon\downarrow0\)</span> and <span class="mi">\(B_N\ge N\)</span> in the indicated windows. The constants in <span class="mi">\(\asymp\)</span> and <span class="mi">\(O\)</span> depend only on <span class="mi">\(\alpha\)</span>, <span class="mi">\(\texp\)</span> and <span class="mi">\(T\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p"><em>The range <span class="mi">\(\texp&lt;1\)</span></em> (window of <a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a>). With <span class="mi">\(\Xi_N\defeq\epsilon N^{p-1}\)</span> and <span class="mi">\(r_{\text{s-SVD}}=(p-1)/\alpha\)</span>,</div>
+<div class="md">\[
+\mathsf R\asymp\begin{cases}
+\Xi_N^{-1/(2r_{\text{s-SVD}})},&amp;0&lt;\alpha&lt;1,\\
+(\log N)\,\Xi_N^{-1/(2r_{\text{s-SVD}})},&amp;\alpha=1,\\
+N^{\alpha-1}\,\Xi_N^{-1/(2r_{\text{s-SVD}})},&amp;1&lt;\alpha&lt;2,\\
+(N/\log N)\,\Xi_N^{-1/(2r_{\text{s-SVD}})},&amp;\alpha=2,\\
+\epsilon^{-1/(2r_{\text{s-SVD}})},&amp;\alpha&gt;2.
+\end{cases}
+\]</div>
+<div class="p">Hence <span class="mi">\(\mathsf R\to0\)</span> for <span class="mi">\(0&lt;\alpha&lt;1\)</span> along sequences with <span class="mi">\(\Xi_N\to\infty\)</span>, and <span class="mi">\(\mathsf R\to\infty\)</span> for <span class="mi">\(\alpha&gt;2\)</span>. For <span class="mi">\(\alpha=1\)</span> and <span class="mi">\(\epsilon_N=N^{-r_{\text{s-SVD}}}(\log N)^{b}\)</span> with <span class="mi">\(b&gt;0\)</span>, <span class="mi">\(\mathsf R\to\infty\)</span> if <span class="mi">\(b&lt;2r_{\text{s-SVD}}\)</span> and <span class="mi">\(\mathsf R\to0\)</span> if <span class="mi">\(b&gt;2r_{\text{s-SVD}}\)</span>. For <span class="mi">\(1&lt;\alpha&lt;2\)</span> and <span class="mi">\(\epsilon_N=N^{-\omega}\)</span> with <span class="mi">\(0&lt;\omega&lt;p-1\)</span>, put <span class="mi">\(\omega_c\defeq r_{\text{s-SVD}}(2-\alpha)\in(0,p-1)\)</span>; then <span class="mi">\(\mathsf R\to0\)</span> if <span class="mi">\(\omega&lt;\omega_c\)</span> and <span class="mi">\(\mathsf R\to\infty\)</span> if <span class="mi">\(\omega&gt;\omega_c\)</span>. For <span class="mi">\(\alpha=2\)</span> and <span class="mi">\(\epsilon_N=(\log N)^{-\omega}\)</span> with <span class="mi">\(\omega&gt;0\)</span>, <span class="mi">\(\mathsf R\to0\)</span> if <span class="mi">\(\omega&lt;2r_{\text{s-SVD}}\)</span> and <span class="mi">\(\mathsf R\to\infty\)</span> if <span class="mi">\(\omega&gt;2r_{\text{s-SVD}}\)</span>. All these sequences lie in the window.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p"><em><span class="mi">\(\alpha&gt;2\)</span>, <span class="mi">\(\texp\ge1\)</span></em> (window of <a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a>). <span class="mi">\(\mathsf R\to\infty\)</span> if <span class="mi">\(\texp\le\alpha+1\)</span>, and <span class="mi">\(\mathsf R\to\pi\zeta(\alpha)J(p,\alpha)/(\zeta(\alpha/2)J(p,\alpha/2))\in(0,\infty)\)</span> if <span class="mi">\(\texp&gt;\alpha+1\)</span>; this limit exceeds <span class="mi">\(\pi/2\)</span> if <span class="mi">\(\alpha\ge4\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p"><em><span class="mi">\(1&lt;\alpha\le2\)</span>, <span class="mi">\(\texp\ge1\)</span></em> (window of <a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a>). <span class="mi">\(\mathsf R\to0\)</span> if <span class="mi">\(\texp&gt;\alpha+1\)</span>. If <span class="mi">\(\texp=\alpha+1\)</span> and <span class="mi">\(1&lt;\alpha&lt;2\)</span>, then <span class="mi">\(\mathsf R\to0\)</span>. If <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(\texp=3\)</span> and <span class="mi">\(\log(1/\epsilon)/\log N\to c_\infty\)</span>, then <span class="mi">\(0\le c_\infty\le1\)</span> and <span class="mi">\(\mathsf R\to\pi\zeta(2)c_\infty/(8J(5,1))\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p"><em><span class="mi">\(0&lt;\alpha\le1\)</span>, <span class="mi">\(\texp\ge1\)</span></em> (low-exponent window). <span class="mi">\(\mathsf R\to0\)</span>; more precisely <span class="mi">\(\mathsf R\)</span> is <span class="mi">\(O(\log(1/\epsilon)^{-2})\)</span>, <span class="mi">\(O(\epsilon^{(\texp-1)/(p-1)})\)</span>, <span class="mi">\(O(\sqrt\epsilon\log(1/\epsilon))\)</span> and <span class="mi">\(O(\sqrt\epsilon)\)</span> for <span class="mi">\(\texp=1\)</span>, <span class="mi">\(1&lt;\texp&lt;\alpha+1\)</span>, <span class="mi">\(\texp=\alpha+1\)</span> and <span class="mi">\(\texp&gt;\alpha+1\)</span> respectively.</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p"><em><span class="mi">\(1&lt;\alpha\le2\)</span>, <span class="mi">\(1\le\texp&lt;\alpha+1\)</span></em> (window of <a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a>). Put</div>
+<div class="md">\[
+e_\texp\defeq\frac{\alpha+1-\texp}{2(p-1)},\qquad \texp_c(\alpha)\defeq\frac{\alpha^2-2\alpha+3}{3-\alpha} ,
+\]</div>
+<div class="p">so that <span class="mi">\(1&lt;\texp_c(\alpha)&lt;\alpha+1\)</span> for <span class="mi">\(1&lt;\alpha&lt;2\)</span>, and <span class="mi">\(\texp_c(2)=3\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(a)</span><div class="li-body"><div class="p">If <span class="mi">\(1&lt;\alpha&lt;2\)</span> and <span class="mi">\(\texp_c(\alpha)\le\texp&lt;\alpha+1\)</span>, then <span class="mi">\(\mathsf R\to0\)</span> along every sequence with <span class="mi">\(N\to\infty\)</span>, <span class="mi">\(\epsilon\downarrow0\)</span> and <span class="mi">\(\epsilon N\to\infty\)</span>.</div></div></li><li><span class="li-mark">(b)</span><div class="li-body"><div class="p">If <span class="mi">\(1&lt;\alpha&lt;2\)</span> and <span class="mi">\(1\le\texp&lt;\texp_c(\alpha)\)</span>, put <span class="mi">\(\omega_c\defeq(2-\alpha)(p-1)/(\alpha+1-\texp)\in(0,1)\)</span>. For <span class="mi">\(\epsilon_N=N^{-\omega}\)</span> with <span class="mi">\(0&lt;\omega&lt;1\)</span>, <span class="mi">\(\mathsf R\to0\)</span> if <span class="mi">\(\omega&lt;\omega_c\)</span> and <span class="mi">\(\mathsf R\to\infty\)</span> if <span class="mi">\(\omega&gt;\omega_c\)</span>. For <span class="mi">\(\epsilon_N=1/\log N\)</span>, <span class="mi">\(\mathsf R\to0\)</span>.</div></div></li><li><span class="li-mark">(c)</span><div class="li-body"><div class="p">If <span class="mi">\(\alpha=2\)</span> and <span class="mi">\(1\le\texp&lt;3\)</span>, then <span class="mi">\(\mathsf R\to\infty\)</span> for <span class="mi">\(\epsilon_N=N^{-\omega}\)</span> with <span class="mi">\(0&lt;\omega&lt;1\)</span>, and <span class="mi">\(\mathsf R\to0\)</span> for <span class="mi">\(\epsilon_N=1/\log N\)</span>.</div></div></li></ol>
+<div class="p">All the sequences named in (b) and (c) lie in the window for large <span class="mi">\(N\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.prop.app-phase-winners.html" data-label="prop:app-phase-winners">Proposition SI.6</a>.</div><div class="p">For (i), <a class="ref" href="r.cor.app-phase-ratio.html" data-label="cor:app-phase-ratio">Corollary SI.3</a> gives <span class="mi">\(\mathsf R\asymp D_N\epsilon^{-1/(2r_{\text{s-SVD}})}\)</span>, and <span class="mi">\(\epsilon=\Xi_NN^{-(p-1)}\)</span> with <span class="mi">\((p-1)/(2r_{\text{s-SVD}})=\alpha/2\)</span> gives</div>
+<div class="md">\[
+\mathsf R\asymp D_N\,N^{\alpha/2}\,\Xi_N^{-1/(2r_{\text{s-SVD}})} .
+\]</div>
+<div class="p">The equivalents <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-DN-asymp" data-label="eqn:app-phase-DN-asymp">(SI.31)</a> give the five rows; for <span class="mi">\(\alpha&gt;2\)</span>, <span class="mi">\(D_N\)</span> has a positive limit. For <span class="mi">\(0&lt;\alpha&lt;1\)</span> the first row tends to <span class="mi">\(0\)</span> when <span class="mi">\(\Xi_N\to\infty\)</span>, and for <span class="mi">\(\alpha&gt;2\)</span> the last row tends to infinity because <span class="mi">\(\epsilon\downarrow0\)</span>. For <span class="mi">\(\alpha=1\)</span>, <span class="mi">\(p-1=r_{\text{s-SVD}}\)</span>, so <span class="mi">\(\Xi_N=(\log N)^b\to\infty\)</span> and <span class="mi">\(\mathsf R\asymp(\log N)^{1-b/(2r_{\text{s-SVD}})}\)</span>. For <span class="mi">\(1&lt;\alpha&lt;2\)</span>, <span class="mi">\(\Xi_N=N^{p-1-\omega}\to\infty\)</span> and</div>
+<div class="md">\[
+\mathsf R\asymp N^{\alpha-1}N^{-(p-1-\omega)/(2r_{\text{s-SVD}})}=N^{(\omega-\omega_c)/(2r_{\text{s-SVD}})} ,
+\]</div>
+<div class="p">with <span class="mi">\(\omega_c/(p-1)=(2-\alpha)/\alpha\in(0,1)\)</span>. For <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(\Xi_N=N^{p-1}(\log N)^{-\omega}\to\infty\)</span> and <span class="mi">\(\mathsf R\asymp(\log N)^{\omega/(2r_{\text{s-SVD}})-1}\)</span>. Positive powers of <span class="mi">\(N\)</span> dominate powers of <span class="mi">\(\log N\)</span>, which gives each limit and membership in the window.</div>
+<div class="p">For (ii), <span class="mi">\(D_N\to\pi\zeta(\alpha)/\zeta(\alpha/2)&gt;0\)</span>. The factor in <a class="ref" href="r.cor.app-phase-ratio.html#L-eqn:app-phase-ratio" data-label="eqn:app-phase-ratio">(SI.38)</a> tends to infinity for <span class="mi">\(\texp\le\alpha+1\)</span>, and for <span class="mi">\(\texp&gt;\alpha+1\)</span> the equivalent of <a class="ref" href="r.cor.app-phase-ratio.html" data-label="cor:app-phase-ratio">Corollary SI.3</a> gives the limit. If <span class="mi">\(\alpha\ge4\)</span>, <span class="mi">\(\zeta(\alpha)&gt;1\)</span> and <span class="mi">\(\zeta(\alpha/2)\le\zeta(2)&lt;2\)</span>, so <span class="mi">\(D_N\)</span> has limit above <span class="mi">\(\pi/2\)</span>, and <span class="mi">\(J(p,\alpha)\ge J(p,\alpha/2)\)</span> as in the proof of <a class="ref" href="r.cor.app-phase-fixed.html" data-label="cor:app-phase-fixed">Corollary SI.2</a>.</div>
+<div class="p">For (iii), <span class="mi">\(D_N\to0\)</span> by <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-DN-asymp" data-label="eqn:app-phase-DN-asymp">(SI.31)</a>, which gives the saturated limit. At <span class="mi">\(\texp=\alpha+1\)</span>, <span class="mi">\(\epsilon N\ge E_*\ge1\)</span> gives <span class="mi">\(\log(1/\epsilon)\le\log N\)</span>. For <span class="mi">\(1&lt;\alpha&lt;2\)</span>, <span class="mi">\(D_N\log N\asymp N^{\alpha/2-1}\log N\to0\)</span>. For <span class="mi">\(\alpha=2\)</span>, <span class="mi">\(2\sqrt{8\alpha}=8\)</span> and <span class="mi">\(D_N\sim\pi\zeta(2)/\log N\)</span>, which gives the limit, with <span class="mi">\(0\le c_\infty\le1\)</span>.</div>
+<div class="p">For (iv), <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-heights" data-label="eqn:app-phase-heights">(SI.29)</a> and <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-DN" data-label="eqn:app-phase-DN">(SI.27)</a> give the identity <span class="mi">\(D_N=\frac\pi2k_{N,\text{s-SVD}}\)</span>. At <span class="mi">\(\texp=1\)</span>, <span class="mi">\(r_{\text{s-SVD}}=1\)</span> and the height condition reads <span class="mi">\(k_{N,\text{s-SVD}}C_{\text{s-SVD}}\log(C_{\text{s-SVD}}/\sqrt\epsilon)\le\sqrt\epsilon\)</span>, so <span class="mi">\(k_{N,\text{s-SVD}}=O(\sqrt\epsilon/\log(1/\epsilon))\)</span> and <span class="mi">\(\mathsf R=O(\log(1/\epsilon)^{-2})\)</span> by <a class="ref" href="r.cor.app-phase-ratio.html#L-eqn:app-phase-ratio" data-label="eqn:app-phase-ratio">(SI.38)</a>. For <span class="mi">\(\texp&gt;1\)</span>, <span class="mi">\(r_{\text{s-SVD}}&gt;1\)</span> and <span class="mi">\(I_{r_{\text{s-SVD}}}(H)\ge I_{r_{\text{s-SVD}}}(1)&gt;0\)</span> once <span class="mi">\(H\ge1\)</span>, so <span class="mi">\(k_{N,\text{s-SVD}}=O(\sqrt\epsilon)\)</span>. In the branch <span class="mi">\(1&lt;\texp&lt;\alpha+1\)</span> the remaining exponent is <span class="mi">\(\frac12-\frac{\alpha+1-\texp}{2(p-1)}=\frac{\texp-1}{p-1}&gt;0\)</span>, and the last two branches give <span class="mi">\(O(\sqrt\epsilon\log(1/\epsilon))\)</span> and <span class="mi">\(O(\sqrt\epsilon)\)</span>.</div>
+<div class="p">For (v), the rows <span class="mi">\(1\le\texp&lt;\alpha+1\)</span> of <a class="ref" href="r.cor.app-phase-ratio.html#L-eqn:app-phase-ratio" data-label="eqn:app-phase-ratio">(SI.38)</a> have the common form</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-ratio-v"></span>\begin{equation}\tag{SI.57}
+\mathsf R\asymp D_N\,\epsilon^{-e_\texp}\,\ell_\epsilon,\qquad \ell_\epsilon\defeq\begin{cases}1/\log(1/\epsilon),&amp;\texp=1,\\ 1,&amp;1&lt;\texp&lt;\alpha+1,\end{cases}
+\end{equation}</div>
+<div class="p">since <span class="mi">\(e_1=\frac12\)</span>. By <a class="ref" href="r.prop.app-phase-prefactors.html#L-eqn:app-phase-DN-asymp" data-label="eqn:app-phase-DN-asymp">(SI.31)</a>, <span class="mi">\(D_N\asymp N^{\alpha/2-1}\)</span> for <span class="mi">\(1&lt;\alpha&lt;2\)</span> and <span class="mi">\(D_N\asymp1/\log N\)</span> for <span class="mi">\(\alpha=2\)</span>. The position of <span class="mi">\(\texp\)</span> relative to the curve <span class="mi">\(\texp_c\)</span> is the sign of one exponent. Expanding,</div>
+<div class="md">\[
+(\alpha-2)(p-1)+(\alpha+1-\texp)=(\alpha-2)(\alpha-1)+(\alpha-2)\texp+\alpha+1-\texp=\alpha^2-2\alpha+3-(3-\alpha)\texp ,
+\]</div>
+<div class="p">so that</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-curve"></span>\begin{equation}\tag{SI.58}
+\frac\alpha2-1+e_\texp=\frac{(3-\alpha)\big(\texp_c(\alpha)-\texp\big)}{2(p-1)} .
+\end{equation}</div>
+<div class="p">The bounds on <span class="mi">\(\texp_c\)</span> follow from</div>
+<div class="md">\[
+\texp_c(\alpha)-1=\frac{\alpha(\alpha-1)}{3-\alpha},\qquad \alpha+1-\texp_c(\alpha)=\frac{2\alpha(2-\alpha)}{3-\alpha} .
+\]</div>
+<div class="p">For (a), <span class="mi">\(\texp\ge\texp_c(\alpha)&gt;1\)</span>, so <span class="mi">\(\ell_\epsilon=1\)</span>, and <a class="ref" href="r.prop.app-phase-winners.html#L-eqn:app-phase-ratio-v" data-label="eqn:app-phase-ratio-v">(SI.57)</a> gives</div>
+<div class="md">\[
+\mathsf R\asymp N^{\alpha/2-1}\epsilon^{-e_\texp}=(\epsilon N)^{-e_\texp}\,N^{\alpha/2-1+e_\texp} .
+\]</div>
+<div class="p">By <a class="ref" href="r.prop.app-phase-winners.html#L-eqn:app-phase-curve" data-label="eqn:app-phase-curve">(SI.58)</a> the exponent of <span class="mi">\(N\)</span> is at most <span class="mi">\(0\)</span>, and <span class="mi">\((\epsilon N)^{-e_\texp}\to0\)</span> because <span class="mi">\(e_\texp&gt;0\)</span> and <span class="mi">\(\epsilon N\to\infty\)</span>.</div>
+<div class="p">For (b) with <span class="mi">\(\epsilon_N=N^{-\omega}\)</span>, <a class="ref" href="r.prop.app-phase-winners.html#L-eqn:app-phase-ratio-v" data-label="eqn:app-phase-ratio-v">(SI.57)</a> gives</div>
+<div class="md">\[
+\mathsf R\asymp N^{\alpha/2-1+\omega e_\texp}\,\ell_{\epsilon_N},\qquad \ell_{\epsilon_N}\in\Big\{1,\frac1{\omega\log N}\Big\} .
+\]</div>
+<div class="p">The exponent of <span class="mi">\(N\)</span> is negative exactly when <span class="mi">\(\omega&lt;(1-\alpha/2)/e_\texp=\omega_c\)</span>. By <a class="ref" href="r.prop.app-phase-winners.html#L-eqn:app-phase-curve" data-label="eqn:app-phase-curve">(SI.58)</a>, <span class="mi">\(\omega_c&lt;1\)</span> exactly when <span class="mi">\(\texp&lt;\texp_c(\alpha)\)</span>. A positive or negative power of <span class="mi">\(N\)</span> dominates the factor <span class="mi">\(\ell_{\epsilon_N}\)</span>, which gives both limits. For <span class="mi">\(\epsilon_N=1/\log N\)</span>,</div>
+<div class="md">\[
+\mathsf R\asymp N^{\alpha/2-1}(\log N)^{e_\texp}\ell_{\epsilon_N}\longrightarrow0 .
+\]</div>
+<div class="p">For (c), <span class="mi">\(D_N\asymp1/\log N\)</span>, and <a class="ref" href="r.prop.app-phase-winners.html#L-eqn:app-phase-ratio-v" data-label="eqn:app-phase-ratio-v">(SI.57)</a> gives</div>
+<div class="md">\[
+\mathsf R\asymp\frac{N^{\omega e_\texp}\ell_{\epsilon_N}}{\log N}\longrightarrow\infty\quad(\epsilon_N=N^{-\omega}),\qquad
+\mathsf R\asymp(\log N)^{e_\texp-1}\ell_{\epsilon_N}\longrightarrow0\quad(\epsilon_N=1/\log N),
+\]</div>
+<div class="p">where the second limit uses <span class="mi">\(e_\texp=(3-\texp)/(2(1+\texp))\le\frac12\)</span> for <span class="mi">\(\texp\ge1\)</span>.</div>
+<div class="p">Every named sequence has <span class="mi">\(N\to\infty\)</span>, <span class="mi">\(\epsilon_N\downarrow0\)</span> and <span class="mi">\(\epsilon_NN\to\infty\)</span> (<span class="mi">\(N^{1-\omega}\)</span> or <span class="mi">\(N/\log N\)</span>), so it lies in the window of <a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> for large <span class="mi">\(N\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.cor.app-phase-ratio.html" data-label="cor:app-phase-ratio">Corollary SI.3</a> <span class=muted>Ratio of the hitting times</span></li><li><a class="ref" href="r.prop.app-phase-prefactors.html" data-label="prop:app-phase-prefactors">Proposition SI.4</a> <span class=muted>Noise constants, kernels and clocks</span></li><li><a class="ref" href="r.cor.app-phase-fixed.html" data-label="cor:app-phase-fixed">Corollary SI.2</a> <span class=muted>Fixed dimension</span></li><li><a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> <span class=muted>Main covariance range</span></li><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-phase-windows.html" data-label="rem:app-phase-windows">Remark SI.3</a> <span class=muted>The windows cannot be dropped</span></li><li><a class="ref" href="r.rem.app-phase-momentum.html" data-label="rem:app-phase-momentum">Remark SI.5</a> <span class=muted>Momentum arrays</span></li><li><a class="ref" href="r.rem.app-phase-chord.html" data-label="rem:app-phase-chord">Remark SI.6</a> <span class=muted>Boundary lines and tie constants</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1066">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i (α ς T : ℝ) (hα : 0 &lt; α) (hς₁ : 1 - α &lt; ς) (hς₂ : ς &lt; 1)
+    (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseAWindowHolds α ς T Nst Est cLo cHi) :
+    ∃ dLo dHi : ℝ, 0 &lt; dLo ∧ dLo ≤ dHi ∧
+      ∀ (N B : ℕ) (ε : ℝ) (mS mG : RowModel (Fin N)) (QS QG : ℝ → ℝ),
+        PhaseWinA α ς T Nst Est N B ε → 2 ≤ N →
+        IsMatchedModel (svdArrays α ς N B) mS ε → IsVolterraSol mS QS →
+        IsMatchedModel (sgdArrays α ς N B) mG ε → IsVolterraSol mG QG →
+        Sandwich dLo dHi (winnersRateI α ς N ε) (phaseR T ε mS mG QS QG) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i_zero</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1127">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i_zero (α ς T : ℝ) (hα : 0 &lt; α) (hα1 : α &lt; 1)
+    (hς₁ : 1 - α &lt; ς) (hς₂ : ς &lt; 1) (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseAWindowHolds α ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      Tendsto (fun n =&gt; εs n * (Nseq n : ℝ) ^ (α + ς - 1)) atTop atTop →
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i_alpha1</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1194">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i_alpha1 (ς T b : ℝ) (hς₁ : 0 &lt; ς) (hς₂ : ς &lt; 1) (hb : 0 &lt; b)
+    (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseAWindowHolds 1 ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq 1 ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, εs n = logPowEps ((1 + ς - 1) / 1) b (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinA 1 ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      (b &lt; 2 * ((1 + ς - 1) / 1) →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop) ∧
+      (2 * ((1 + ς - 1) / 1) &lt; b →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i_mid</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1378">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i_mid (α ς T ω : ℝ) (hα1 : 1 &lt; α) (hα2 : α &lt; 2)
+    (hς₁ : 1 - α &lt; ς) (hς₂ : ς &lt; 1) (hω0 : 0 &lt; ω) (hωp : ω &lt; α + ς - 1) (hT : 4 ≤ T)
+    (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseAWindowHolds α ς T Nst Est cLo cHi) :
+    (0 &lt; (α + ς - 1) / α * (2 - α) ∧ (α + ς - 1) / α * (2 - α) &lt; α + ς - 1) ∧
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ n, εs n = powerEps ω (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinA α ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      (ω &lt; (α + ς - 1) / α * (2 - α) →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) ∧
+      ((α + ς - 1) / α * (2 - α) &lt; ω →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i_two</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1488">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i_two (ς T ω : ℝ) (hς₁ : -1 &lt; ς) (hς₂ : ς &lt; 1) (hω : 0 &lt; ω)
+    (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseAWindowHolds 2 ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq 2 ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, εs n = logEps ω (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinA 2 ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      (ω &lt; 2 * ((2 + ς - 1) / 2) →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) ∧
+      (2 * ((2 + ς - 1) / 2) &lt; ω →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_i_gt2</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1594">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_i_gt2 (α ς T : ℝ) (hα : 2 &lt; α) (hς₁ : 1 - α &lt; ς) (hς₂ : ς &lt; 1)
+    (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseAWindowHolds α ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, PhaseWinA α ς T Nst Est (Nseq n) (Bseq n) (εs n)) →
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L1960">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_ii (α ς T : ℝ) (hα : 2 &lt; α) (hς : 1 ≤ ς) (hT : 4 ≤ T)
+    (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseBWindowHolds α ς T Nst Est cLo cHi)
+    (hE : PhaseBEquivHolds α ς T Nst Est) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, PhaseWinB α ς T Nst Est (Nseq n) (Bseq n) (εs n)) →
+      (ς ≤ α + 1 →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop) ∧
+      (α + 1 &lt; ς →
+        0 &lt; winnersLimitII α ς ∧
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop
+          (𝓝 (winnersLimitII α ς))) ∧
+      (α + 1 &lt; ς → 4 ≤ α → Real.pi / 2 &lt; winnersLimitII α ς) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2068">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_iii (α ς T : ℝ) (hα1 : 1 &lt; α) (hα2 : α ≤ 2) (hς : 1 ≤ ς)
+    (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseBWindowHolds α ς T Nst Est cLo cHi)
+    (hE : PhaseBEquivHolds α ς T Nst Est) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, PhaseWinB α ς T Nst Est (Nseq n) (Bseq n) (εs n)) →
+      (α + 1 &lt; ς →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) ∧
+      (ς = α + 1 → α &lt; 2 →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) ∧
+      (α = 2 → ς = 3 → ∀ c : ℝ,
+        Tendsto (fun n =&gt; Real.log (1 / εs n) / Real.log (Nseq n : ℝ)) atTop (𝓝 c) →
+        0 ≤ c ∧ c ≤ 1 ∧
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop
+          (𝓝 (Real.pi * zetaR 2 * c / (8 * Jpq 5 1)))) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2369">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_iv (α ς T : ℝ) (hα : 0 &lt; α) (hα1 : α ≤ 1) (hς : 1 ≤ ς)
+    (hT : 4 ≤ T) :
+    ∃ C : ℝ, ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, PhaseLowWindow α ς T (Nseq n) (Bseq n) (εs n)) →
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0) ∧
+      (ς = 1 → ∀ᶠ n in atTop,
+        |phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)| ≤
+          C / Real.log (1 / εs n) ^ 2) ∧
+      (1 &lt; ς → ς &lt; α + 1 → ∀ᶠ n in atTop,
+        |phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)| ≤
+          C * εs n ^ ((ς - 1) / (α + ς - 1))) ∧
+      (ς = α + 1 → ∀ᶠ n in atTop,
+        |phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)| ≤
+          C * Real.sqrt (εs n) * Real.log (1 / εs n)) ∧
+      (α + 1 &lt; ς → ∀ᶠ n in atTop,
+        |phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)| ≤ C * Real.sqrt (εs n)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_tauc</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2569">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_tauc :
+    (∀ α : ℝ, 1 &lt; α → α &lt; 2 → 1 &lt; winnersTauC α ∧ winnersTauC α &lt; α + 1) ∧
+      winnersTauC 2 = 3 := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_v_a</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2654">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_v_a (α ς T : ℝ) (hα1 : 1 &lt; α) (hα2 : α &lt; 2)
+    (hς₁ : winnersTauC α ≤ ς) (hς₂ : ς &lt; α + 1) (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseBWindowHolds α ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      Tendsto (fun n =&gt; εs n * (Nseq n : ℝ)) atTop atTop →
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_v_b_pow</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2906">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_v_b_pow (α ς T ω : ℝ) (hα1 : 1 &lt; α) (hα2 : α &lt; 2)
+    (hς : 1 ≤ ς) (hςc : ς &lt; winnersTauC α) (hω0 : 0 &lt; ω) (hω1 : ω &lt; 1) (hT : 4 ≤ T)
+    (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseBWindowHolds α ς T Nst Est cLo cHi) :
+    0 &lt; winnersOmegaC α ς ∧ winnersOmegaC α ς &lt; 1 ∧
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ n, εs n = powerEps ω (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinB α ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      (ω &lt; winnersOmegaC α ς →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0)) ∧
+      (winnersOmegaC α ς &lt; ω →
+        Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_v_b_log</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2959">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_v_b_log (α ς T : ℝ) (hα1 : 1 &lt; α) (hα2 : α &lt; 2)
+    (hς : 1 ≤ ς) (hςc : ς &lt; winnersTauC α) (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseBWindowHolds α ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq α ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, εs n = invLogEps (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinB α ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_v_c_pow</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L2984">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_v_c_pow (ς T ω : ℝ) (hς : 1 ≤ ς) (hςc : ς &lt; 3) (hω0 : 0 &lt; ω)
+    (hω1 : ω &lt; 1) (hT : 4 ≤ T) (Nst : ℕ) (Est cLo cHi : ℝ)
+    (hW : PhaseBWindowHolds 2 ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq 2 ς Nseq Bseq εs mS mG QS QG →
+      (∀ n, εs n = powerEps ω (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinB 2 ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop atTop := by</pre></details><details class="decl"><summary><code>Muon.Phase.prop_app_phase_winners_v_c_log</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Winners.lean#L3013">source</a></summary><pre class="lean no-mj">theorem prop_app_phase_winners_v_c_log (ς T : ℝ) (hς : 1 ≤ ς) (hςc : ς &lt; 3) (hT : 4 ≤ T)
+    (Nst : ℕ) (Est cLo cHi : ℝ) (hW : PhaseBWindowHolds 2 ς T Nst Est cLo cHi) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εs : ℕ → ℝ) (mS mG : ∀ n, RowModel (Fin (Nseq n)))
+      (QS QG : ∀ n, ℝ → ℝ),
+      MatchedSeq 2 ς Nseq Bseq εs mS mG QS QG →
+      (∀ᶠ n in atTop, εs n = invLogEps (Nseq n)) →
+      (∀ᶠ n in atTop, PhaseWinB 2 ς T Nst Est (Nseq n) (Bseq n) (εs n)) ∧
+      Tendsto (fun n =&gt; phaseR T (εs n) (mS n) (mG n) (QS n) (QG n)) atTop (𝓝 0) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.6 (Gaussian moment bounds)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.6 (Gaussian moment bounds)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-moments"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class="thm-title">(Gaussian moment bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span>, <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent, let <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span> and <span class="mi">\(\max(\Nin,\Nout)\le\gamma_\star B\)</span>, let <span class="mi">\(\Ahat\in\R^{\Nout\times\Nin}\)</span> with <span class="mi">\(\norm{\Ahat}_\F=1\)</span>, and put <span class="mi">\(\mathsf u=\Sigmaout^{1/2}z/\sqrt B\)</span>, <span class="mi">\(\mathsf v=\Sigmain^{1/2}w/\sqrt B\)</span>, <span class="mi">\(\mathsf N=\norm{\mathsf u}^2+\norm{\mathsf v}^2\)</span> and <span class="mi">\(d=z^\T\Ahat w\)</span>. Then for every integer <span class="mi">\(p\ge1\)</span></div>
+<div class="md">\[
+\begin{gathered}
+\norm{\mathsf N}_p\le2C_\Sigma\gamma_\star\big((2p-1)!!\big)^{1/p},\qquad
+\norm{d}_{2p}\le\big((2p-1)!!\big)^{1/p},\\
+\big\|\abs d\,\norm{\mathsf u}\norm{\mathsf v}\big\|_2\le 15^{2/3}\,C_\Sigma\gamma_\star\le 7\,C_\Sigma\gamma_\star .
+\end{gathered}
+\]</div>
+<div class="p">Also, for any symmetric <span class="mi">\(A\in\R^{\Nout\times\Nout}\)</span>,</div>
+<div class="md">\[
+\EE[z^\T Az]=\Tr A,\qquad \Var(z^\T Az)=2\norm{A}_\F^2 .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The bound on <span class="mi">\(\mathsf N\)</span> reduces to the moments of <span class="mi">\(\norm z^2\)</span>. The covariance bound gives</div>
+<div class="md">\[
+\norm{\mathsf u}^2=\frac{z^\T\Sigmaout z}{B}\le\frac{C_\Sigma\norm z^2}{B},
+\]</div>
+<div class="p">and Jensen’s inequality for the convex function <span class="mi">\(x\mapsto x^p\)</span>, applied to the average of the <span class="mi">\(\Nout\)</span> coordinates, gives</div>
+<div class="md">\[
+\EE\Big(\frac{\norm z^2}{\Nout}\Big)^p\le\frac1{\Nout}\sum_{i=1}^{\Nout}\EE z_i^{2p}=(2p-1)!! .
+\]</div>
+<div class="p">Together,</div>
+<div class="md">\[
+\norm{\norm{\mathsf u}^2}_p\le C_\Sigma\,\frac{\Nout}{B}\,\big((2p-1)!!\big)^{1/p}\le C_\Sigma\gamma_\star\big((2p-1)!!\big)^{1/p},
+\]</div>
+<div class="p">the same bound holds for <span class="mi">\(\norm{\mathsf v}^2\)</span>, and the triangle inequality in <span class="mi">\(L^p\)</span> gives the bound on <span class="mi">\(\mathsf N\)</span>.</div>
+<div class="p">The bound on <span class="mi">\(d\)</span> is <a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a>(i).</div>
+<div class="p">The bound on the product is the generalized Hölder inequality with three exponents equal to <span class="mi">\(3\)</span>:</div>
+<div class="md">\[
+\EE\big[d^2\norm{\mathsf u}^2\norm{\mathsf v}^2\big]\le\norm{d^2}_3\,\norm{\norm{\mathsf u}^2}_3\,\norm{\norm{\mathsf v}^2}_3
+\le15^{2/3}\cdot\big(15^{1/3}C_\Sigma\gamma_\star\big)^2=15^{4/3}(C_\Sigma\gamma_\star)^2 ,
+\]</div>
+<div class="p">where the second inequality uses the bounds on <span class="mi">\(d\)</span> and on <span class="mi">\(\norm{\mathsf u}^2\)</span>, <span class="mi">\(\norm{\mathsf v}^2\)</span> with <span class="mi">\(p=3\)</span>:</div>
+<div class="md">\[
+\norm{d^2}_3=\norm d_6^2\le(5!!)^{2/3},\qquad
+\norm{\norm{\mathsf u}^2}_3,\ \norm{\norm{\mathsf v}^2}_3\le(5!!)^{1/3}C_\Sigma\gamma_\star .
+\]</div>
+<div class="p">Taking the square root gives the bound <span class="mi">\(15^{2/3}C_\Sigma\gamma_\star\)</span>, which is at most <span class="mi">\(7C_\Sigma\gamma_\star\)</span>.</div>
+<div class="p">The quadratic form is diagonalized by an orthogonal <span class="mi">\(O\)</span> with <span class="mi">\(A=O\diag(a)O^\T\)</span>:</div>
+<div class="md">\[
+z^\T Az=\sum_ia_i\,(O^\T z)_i^2 ,
+\]</div>
+<div class="p">a sum of independent terms with means <span class="mi">\(a_i\)</span> and variances <span class="mi">\(2a_i^2\)</span>, since <span class="mi">\(O^\T z\sim\mathcal N(0,\Id_{\Nout})\)</span> and a standard Gaussian square has variance <span class="mi">\(2\)</span>. Summing over <span class="mi">\(i\)</span> gives</div>
+<div class="md">\[
+\EE[z^\T Az]=\sum_ia_i=\Tr A,\qquad \Var(z^\T Az)=2\sum_ia_i^2=2\norm A_\F^2 . \qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-residual.html" data-label="lem:app-setup-residual">Lemma SA.7</a> <span class=muted>Residual law</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li><li><a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class=muted>Concentration of the deleted-sample scalars</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li><li><a class="ref" href="r.lem.app-drift-coeffmoments.html" data-label="lem:app-drift-coeffmoments">Lemma SC.2</a> <span class=muted>Conditional moments of the coefficients</span></li><li><a class="ref" href="r.lem.app-drift-rank.html" data-label="lem:app-drift-rank">Lemma SC.4</a> <span class=muted>Rank sensitivity of the conditional Gram coefficient</span></li><li><a class="ref" href="r.lem.app-vol-replacement.html" data-label="lem:app-vol-replacement">Lemma SD.6</a> <span class=muted>Replacement of the residuals</span></li><li><a class="ref" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a> <span class=muted>Moments of one batch</span></li><li><a class="ref" href="r.lem.app-dyn-coefficients.html" data-label="lem:app-dyn-coefficients">Lemma SE.10</a> <span class=muted>Derivative coefficients</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_moments_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L382">source</a></summary><pre class="lean no-mj">theorem lem_app_de_moments_i {m n : ℕ} (C : Covariances m n) (B : ℕ) (γ CSig : ℝ)
+    (hdim : (m : ℝ) ≤ γ * (B : ℝ) ∧ (n : ℝ) ≤ γ * (B : ℝ))
+    (hC : opNorm C.Sout ≤ CSig ∧ opNorm C.Sin ≤ CSig) :
+    ∀ p : ℕ, 1 ≤ p →
+      eLpNorm (momN C B) (p : ℝ≥0∞) (gaussPair m n) ≤
+        ENNReal.ofReal (2 * CSig * γ * ((Nat.doubleFactorial (2 * p - 1) : ℕ) : ℝ) ^ ((1 : ℝ) / p)) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_moments_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L440">source</a></summary><pre class="lean no-mj">theorem lem_app_de_moments_ii {m n : ℕ} (Ah : Mat m n) (hA : fro Ah = 1) :
+    ∀ p : ℕ, 1 ≤ p →
+      eLpNorm (fun x =&gt; resid Ah x) ((2 * p : ℕ) : ℝ≥0∞) (gaussPair m n) ≤
+        ENNReal.ofReal (((Nat.doubleFactorial (2 * p - 1) : ℕ) : ℝ) ^ ((1 : ℝ) / p)) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_moments_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L676">source</a></summary><pre class="lean no-mj">theorem lem_app_de_moments_iii {m n : ℕ} (C : Covariances m n) (B : ℕ) (γ CSig : ℝ)
+    (hdim : (m : ℝ) ≤ γ * (B : ℝ) ∧ (n : ℝ) ≤ γ * (B : ℝ)) (hγ : 0 ≤ γ)
+    (hC : opNorm C.Sout ≤ CSig ∧ opNorm C.Sin ≤ CSig) (Ah : Mat m n) (hA : fro Ah = 1) :
+    eLpNorm (fun x =&gt; |resid Ah x| * eucNorm (momU C B x) * eucNorm (momV C B x)) 2
+        (gaussPair m n) ≤ ENNReal.ofReal ((15 : ℝ) ^ ((2 : ℝ) / 3) * CSig * γ) ∧
+      (15 : ℝ) ^ ((2 : ℝ) / 3) * CSig * γ ≤ 7 * CSig * γ := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_moments_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L716">source</a></summary><pre class="lean no-mj">theorem lem_app_de_moments_iv {m : ℕ} (A : Mat m m) (hA : A.IsSymm) :
+    ∫ z, dotProduct z (Matrix.mulVec A z) ∂(Muon.Foundations.stdGaussianPi m) =
+      Matrix.trace A := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_moments_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L748">source</a></summary><pre class="lean no-mj">theorem lem_app_de_moments_v {m : ℕ} (A : Mat m m) (hA : A.IsSymm) :
+    variance (fun z : Vec m =&gt; dotProduct z (Matrix.mulVec A z))
+        (Muon.Foundations.stdGaussianPi m) =
+      2 * fro A ^ 2 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

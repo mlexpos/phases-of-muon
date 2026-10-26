@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.7 (Bessel bounds)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.7 (Bessel bounds)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-bessel"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> <span class="thm-title">(Bessel bounds)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span> and <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent of each other and of a <span class="mi">\(\sigma\)</span>-field <span class="mi">\(\mathcal G\)</span>, and let <span class="mi">\(e\)</span> be a real or complex random variable depending on <span class="mi">\(z\)</span>, <span class="mi">\(w\)</span> and <span class="mi">\(\mathcal G\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-bessel"></span>\begin{equation}\tag{SB.21}
+\begin{gathered}
+\norm{\EE_{\mathcal G}[(z\tensor w)\,e]}_\F\le\norm{e}_{2,\mathcal G},\qquad
+\norm{\EE_{\mathcal G}[(z\tensor z-\Id)\,e]}_\F\le\sqrt2\,\norm{e}_{2,\mathcal G},\\
+\norm{\EE_{\mathcal G}[(w\tensor w-\Id)\,e]}_\F\le\sqrt2\,\norm{e}_{2,\mathcal G}.
+\end{gathered}
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Since <span class="mi">\((z,w)\)</span> is independent of <span class="mi">\(\mathcal G\)</span>, it suffices to prove the inequalities with <span class="mi">\(\EE\)</span> in place of <span class="mi">\(\EE_{\mathcal G}\)</span>, in the <span class="mi">\(L^2\)</span> space of <span class="mi">\((z,w)\)</span>.</div>
+<div class="p">The inequalities are Bessel’s inequality for two orthonormal families. By the Gaussian fourth-moment identity <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-wick4" data-label="eqn:app-setup-wick4">(SA.30)</a> and the independence of <span class="mi">\(z\)</span> and <span class="mi">\(w\)</span>, the products <span class="mi">\(z_iw_l\)</span> (<span class="mi">\(i\le\Nout\)</span>, <span class="mi">\(l\le\Nin\)</span>) form an orthonormal family in <span class="mi">\(L^2\)</span>, and the variables <span class="mi">\((z_i^2-1)/\sqrt2\)</span> (<span class="mi">\(i\le\Nout\)</span>) and <span class="mi">\(z_iz_k\)</span> (<span class="mi">\(i&lt;k\)</span>) form another orthonormal family.</div>
+<div class="p">Bessel’s inequality for the first family gives the first bound:</div>
+<div class="md">\[
+\norm{\EE[(z\tensor w)\,e]}_\F^2=\sum_{i,l}\abs{\EE[z_iw_le]}^2\le\EE\abs e^2 .
+\]</div>
+<div class="p">Bessel’s inequality for the second family gives</div>
+<div class="md">\[
+\sum_{i&lt;k}\abs{\EE[z_iz_ke]}^2+\sum_i\frac{\abs{\EE[(z_i^2-1)e]}^2}{2}\le\EE\abs e^2 .
+\]</div>
+<div class="p">Each off-diagonal entry of the symmetric matrix <span class="mi">\(\EE[(z\tensor z-\Id)\,e]\)</span> occurs twice in its squared Frobenius norm, so</div>
+<div class="md">\[
+\norm{\EE[(z\tensor z-\Id)\,e]}_\F^2=2\sum_{i&lt;k}\abs{\EE[z_iz_ke]}^2+\sum_i\abs{\EE[(z_i^2-1)e]}^2\le2\,\EE\abs e^2 ,
+\]</div>
+<div class="p">which is the second bound. The third bound is the second with <span class="mi">\(w\)</span> in place of <span class="mi">\(z\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.thm.app-drift-mixed.html" data-label="thm:app-drift-mixed">Theorem SC.1</a> <span class=muted>Mixed resolvent closure and tail bound</span></li><li><a class="ref" href="r.lem.app-drift-multiplier.html" data-label="lem:app-drift-multiplier">Lemma SC.3</a> <span class=muted>Deletion with a bounded multiplier</span></li><li><a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class=muted>Response equation</span></li><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li><li><a class="ref" href="r.prop.app-dyn-reduction.html" data-label="prop:app-dyn-reduction">Proposition SE.2</a> <span class=muted>Causal resolvent reduction</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_bessel_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L1365">source</a></summary><pre class="lean no-mj">theorem lem_app_de_bessel_i {m n : ℕ} {𝕜 : Type*} [RCLike 𝕜] [MeasurableSpace 𝕜]
+    [BorelSpace 𝕜] (P : Measure Ω) [IsProbabilityMeasure P] (X : Ω → Vec m × Vec n)
+    (hX : P.map X = gaussPair m n) (G : MeasurableSpace Ω) (hG : G ≤ mΩ)
+    (hind : Indep (MeasurableSpace.comap X inferInstance) G P)
+    (e : Ω → 𝕜) (he : Measurable[MeasurableSpace.comap X inferInstance ⊔ G] e)
+    (he2 : MemLp e 2 P) :
+    ∀ᵐ ζ ∂P,
+      Real.sqrt (∑ i, ∑ l, ‖condExp G P
+          (fun ω' =&gt; (((X ω').1 i * (X ω').2 l : ℝ) : 𝕜) * e ω') ζ‖ ^ 2) ≤
+        Real.sqrt (condExp G P (fun ω' =&gt; ‖e ω'‖ ^ 2) ζ) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_bessel_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L1404">source</a></summary><pre class="lean no-mj">theorem lem_app_de_bessel_ii {m : ℕ} {𝕜 : Type*} [RCLike 𝕜] [MeasurableSpace 𝕜]
+    [BorelSpace 𝕜] (P : Measure Ω) [IsProbabilityMeasure P] {n : ℕ}
+    (X : Ω → Vec m × Vec n) (hX : P.map X = gaussPair m n) (G : MeasurableSpace Ω) (hG : G ≤ mΩ)
+    (hind : Indep (MeasurableSpace.comap X inferInstance) G P)
+    (e : Ω → 𝕜) (he : Measurable[MeasurableSpace.comap X inferInstance ⊔ G] e)
+    (he2 : MemLp e 2 P) :
+    ∀ᵐ ζ ∂P,
+      Real.sqrt (∑ i, ∑ k, ‖condExp G P
+          (fun ω' =&gt; ((((X ω').1 i * (X ω').1 k - (1 : Mat m m) i k : ℝ)) : 𝕜) * e ω') ζ‖ ^ 2) ≤
+        Real.sqrt 2 * Real.sqrt (condExp G P (fun ω' =&gt; ‖e ω'‖ ^ 2) ζ) := by</pre></details><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_bessel_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gaussian.lean#L1444">source</a></summary><pre class="lean no-mj">theorem lem_app_de_bessel_iii {m n : ℕ} {𝕜 : Type*} [RCLike 𝕜] [MeasurableSpace 𝕜]
+    [BorelSpace 𝕜] (P : Measure Ω) [IsProbabilityMeasure P] (X : Ω → Vec m × Vec n)
+    (hX : P.map X = gaussPair m n) (G : MeasurableSpace Ω) (hG : G ≤ mΩ)
+    (hind : Indep (MeasurableSpace.comap X inferInstance) G P)
+    (e : Ω → 𝕜) (he : Measurable[MeasurableSpace.comap X inferInstance ⊔ G] e)
+    (he2 : MemLp e 2 P) :
+    ∀ᵐ ζ ∂P,
+      Real.sqrt (∑ i, ∑ k, ‖condExp G P
+          (fun ω' =&gt; ((((X ω').2 i * (X ω').2 k - (1 : Mat n n) i k : ℝ)) : 𝕜) * e ω') ζ‖ ^ 2) ≤
+        Real.sqrt 2 * Real.sqrt (condExp G P (fun ω' =&gt; ‖e ω'‖ ^ 2) ζ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SF.8 (Small-aspect integrated volatility)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SF.8 (Small-aspect integrated volatility)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SF.html">Section SF</a> · The isotropic case · <a href="t.thm.app-iso-small-volatility.html">top-level result</a></div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-theorem" id="L-thm:app-iso-small-volatility"><div class="thm-head"><a class="thm-name" href="r.thm.app-iso-small-volatility.html" data-label="thm:app-iso-small-volatility">Theorem SF.8</a> <span class="thm-title">(Small-aspect integrated volatility)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\bmom\in(0,1)\)</span>, <span class="mi">\(\Nin=\Nout=N\)</span> and <span class="mi">\(\gamma=N/B\le(1+\bmom^2)/96\)</span>. Then for every <span class="mi">\(\ell\ge1\)</span></div>
+<div class="md">\[
+\big|\overline C_{1,\ell}(0)-\Omega(\bmom^\ell)\big|\le\frac{96\gamma}{1+\bmom^2}\,\Omega(\bmom^\ell),
+\]</div>
+<div class="p">and the zero-ridge volatility of <a class="ref" href="r.def.app-iso-vol-zero.html" data-label="def:app-iso-vol-zero">Definition SF.1</a> satisfies</div>
+<div class="md">\[
+\Big|\frac{\mathfrak v_{\mathrm{iso},\bmom}}N-V_\bmom\Big|\le\frac{96\gamma}{1+\bmom^2}\,\big(V_\bmom-1\big),\qquad
+\Big|\frac{\mathfrak v_{\mathrm{iso},\bmom}}{N\,V_\bmom}-1\Big|\le96\gamma .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof scales the zero-ridge double integral to the linear root and compares the integrands pointwise.</div>
+<div class="p"><em>Scaling.</em> Write <span class="mi">\(q_s\defeq q(-s)\)</span> and <span class="mi">\(\bar\gamma\defeq\sw2\gamma\)</span>. For <span class="mi">\(\xi&gt;0\)</span> put <span class="mi">\(y_\gamma(\xi)\defeq\sw2\,q_{\bar\gamma\xi^2}/\gamma\)</span>, and let <span class="mi">\(y\)</span> be the root of <span class="mi">\(xy=(1-y)^2\)</span>, <span class="mi">\(y&lt;1\)</span>, the case <span class="mi">\(r=1\)</span> of the closed form in the proof of <a class="ref" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a>. The sandwich of that proof with <span class="mi">\(\gamma_\wedge=\gamma\)</span>, which uses only <span class="mi">\(\varepsilon_1\le\frac12\)</span>, together with <span class="mi">\(q_c(s)=c^{-1}Y_{\gamma,\gamma}(s/c)\)</span> and the monotonicity of <span class="mi">\(Y_{\gamma,\gamma}\)</span>, gives</div>
+<div class="md">\[
+y(\xi^2)\le y_\gamma(\xi)\le(1-\varepsilon_1)^{-1}y(\xi^2),\qquad q_s\le\bar q=\frac{2\gamma}{\sw2},
+\qquad\varepsilon_1=6\gamma\frac{\sw4}{\sw2^2} .
+\]</div>
+<div class="p">Fix <span class="mi">\(\ell\ge1\)</span>, put <span class="mi">\(r\defeq\bmom^\ell\)</span>, and in <a class="ref" href="r.lem.app-iso-lag.html#L-eqn:app-iso-lag-integral" data-label="eqn:app-iso-lag-integral">(SF.52)</a> at <span class="mi">\(\ridge=0\)</span> substitute <span class="mi">\(x=\sqrt{\bar\gamma}\,\xi\)</span> and <span class="mi">\(y=\sqrt{\bar\gamma}\,\xi'\)</span>. With <span class="mi">\(\mathsf Y\defeq y_\gamma(\xi)y_\gamma(\xi')\)</span>, <span class="mi">\(\tilde b\defeq b_\ell/(r\sw2)\)</span> and <span class="mi">\(\eta\defeq X_\ell\)</span>, one has <span class="mi">\(q\,q'=\gamma^2\mathsf Y/\sw2^2\)</span> and <span class="mi">\(Z_\ell^2=r^2\tilde b^2\mathsf Y\)</span>, so that</div>
+<div class="md">\[
+\overline C_{1,\ell}(0)=\frac4{\pi^2}\int_0^\infty\!\!\int_0^\infty\frac{r\,\tilde b\,\mathsf Y}{(1-\eta)^2-r^2\tilde b^2\mathsf Y}\,\dif\xi\,\dif\xi' .
+\]</div>
+<div class="p"><em>Pointwise bounds.</em> Put <span class="mi">\(\delta\defeq2\varepsilon_1=12\gamma\sw4/\sw2^2=12\gamma(1-\bmom^2)/(1+\bmom^2)\)</span>. The inequality <span class="mi">\(\frac1{(1+a)(1+c)}\ge1-a-c\)</span> for <span class="mi">\(a,c\ge0\)</span>, inserted in the series <a class="ref" href="s.SG.html#L-eqn:app-pl-UV" data-label="eqn:app-pl-UV">(SG.14)</a>, gives</div>
+<div class="md">\[
+b_\ell\ge r\big(\sw2-3\sw4(q+r^2q')\big)\ge r\sw2(1-\delta),
+\]</div>
+<div class="p">so <span class="mi">\(\tilde b\in[1-\delta,1]\)</span> by <a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a>(i). By the same lemma and <span class="mi">\(q,q'\le\bar q\)</span>, <span class="mi">\(0\le\eta\le3r^2\sw4\bar q^2/\gamma\le\delta\)</span>. With <span class="mi">\(\mathsf Y_0\defeq y(\xi^2)y(\xi'^2)\le1\)</span>, the sandwich gives <span class="mi">\(\mathsf Y_0\le\mathsf Y\le(1-\delta)^{-2}\mathsf Y_0\)</span>. The hypothesis on <span class="mi">\(\gamma\)</span> is equivalent to <span class="mi">\(4\delta\le(1-\bmom^2)/2\)</span>. The integrand increases in <span class="mi">\(\tilde b\)</span>, in <span class="mi">\(\mathsf Y\)</span> and in <span class="mi">\(\eta\)</span>, its denominator being <span class="mi">\(\Delta_\ell&gt;0\)</span>. Put</div>
+<div class="md">\[
+\mathfrak f\defeq\frac{r\,\mathsf Y_0}{1-r^2\mathsf Y_0},\qquad 1-r^2\mathsf Y_0\ge1-\bmom^2 .
+\]</div>
+<div class="p">For the upper bound, evaluate at <span class="mi">\(\tilde b=1\)</span>, <span class="mi">\(\mathsf Y=(1-\delta)^{-2}\mathsf Y_0\)</span> and <span class="mi">\(\eta=\delta\)</span>, and use <span class="mi">\((1-\delta)^4\ge1-4\delta\)</span> and <span class="mi">\((1-x)^{-1}\le1+2x\)</span> for <span class="mi">\(x\le\frac12\)</span>:</div>
+<div class="md">\[
+\text{integrand}\le\frac{r\mathsf Y_0}{(1-\delta)^4-r^2\mathsf Y_0}\le\frac{r\mathsf Y_0}{1-r^2\mathsf Y_0-4\delta}
+\le\mathfrak f\Big(1+\frac{8\delta}{1-\bmom^2}\Big).
+\]</div>
+<div class="p">For the lower bound, evaluate at <span class="mi">\(\tilde b=1-\delta\)</span>, <span class="mi">\(\mathsf Y=\mathsf Y_0\)</span> and <span class="mi">\(\eta=0\)</span>, and use <span class="mi">\(1-r^2(1-\delta)^2\mathsf Y_0\le1-r^2\mathsf Y_0+2\delta\)</span>:</div>
+<div class="md">\[
+\text{integrand}\ge\frac{r(1-\delta)\mathsf Y_0}{1-r^2(1-\delta)^2\mathsf Y_0}
+\ge\mathfrak f\,(1-\delta)\Big(1-\frac{2\delta}{1-\bmom^2}\Big)\ge\mathfrak f\Big(1-\frac{3\delta}{1-\bmom^2}\Big).
+\]</div>
+<div class="p"><em>Limit kernel.</em> Expanding <span class="mi">\(\mathfrak f=\sum_{n\ge0}r^{2n+1}\mathsf Y_0^{n+1}\)</span> and integrating termwise, with <span class="mi">\(\xi=2\sinh\vartheta'\)</span> as in the proof of <a class="ref" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a>,</div>
+<div class="md">\[
+\frac4{\pi^2}\iint\mathfrak f\,\dif\xi\,\dif\xi'=\frac4{\pi^2}\sum_{n\ge0}r^{2n+1}\Big(\int_0^\infty y(\xi^2)^{n+1}\dif\xi\Big)^2,
+\]</div>
+<div class="md">\[
+\int_0^\infty y(\xi^2)^{n+1}\dif\xi=\int_0^\infty e^{-2(n+1)\vartheta'}\,2\cosh\vartheta'\,\dif\vartheta'=k_n .
+\]</div>
+<div class="p">The integral of <span class="mi">\(\mathfrak f\)</span> is therefore <span class="mi">\(\Omega(\bmom^\ell)\)</span>, and <span class="mi">\(8\delta/(1-\bmom^2)=96\gamma/(1+\bmom^2)\)</span> gives the lag bound.</div>
+<div class="p"><em>Summation.</em> By <a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a>(ii), <span class="mi">\(\mathfrak v_{\mathrm{iso},\bmom}/N=1+2\sum_{\ell\ge1}\overline C_{1,\ell}(0)\)</span>, and <span class="mi">\(V_\bmom=1+2\sum_{\ell\ge1}\Omega(\bmom^\ell)\)</span>. Summing the lag bounds gives the first volatility bound, and dividing by <span class="mi">\(V_\bmom\ge1\)</span> gives the second.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-iso-small-momentum.html" data-label="thm:app-iso-small-momentum">Theorem SF.7</a> <span class=muted>Small aspect ratios with momentum</span></li><li><a class="ref" href="r.lem.app-iso-lag.html" data-label="lem:app-iso-lag">Lemma SF.11</a> <span class=muted>Isotropic lag response</span></li><li><a class="ref" href="r.prop.app-iso-vol-momentum.html" data-label="prop:app-iso-vol-momentum">Proposition SF.3</a> <span class=muted>Zero-ridge limits with momentum</span></li><li><a class="ref" href="r.def.app-iso-vol-zero.html" data-label="def:app-iso-vol-zero">Definition SF.1</a> <span class=muted>Zero-ridge isotropic volatility</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.rem.app-iso-momentum.html" data-label="rem:app-iso-momentum">Remark SF.1</a> <span class=muted>Momentum as a change of batch and of step</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_volatility_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolRates.lean#L3581">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_volatility_i {β γ : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ0 : 0 &lt; γ) (hγ : γ ≤ (1 + β ^ 2) / 96) {ℓ : ℕ} (hℓ : 1 ≤ ℓ) :
+    |lagCoeff β γ 0 ℓ - volOmega (β ^ ℓ)| ≤ 96 * γ / (1 + β ^ 2) * volOmega (β ^ ℓ) :=</pre></details><details class="decl"><summary><code>Muon.Isotropic.thm_app_iso_small_volatility_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Isotropic/VolZeroRidge.lean#L99">source</a></summary><pre class="lean no-mj">theorem thm_app_iso_small_volatility_ii (cert : Muon.External.GaussianOpNorm) (γstar CSig : ℝ)
+    {N B : ℕ} (hB : 0 &lt; B) (hN : 0 &lt; N) {β : ℝ} (hβ0 : 0 &lt; β) (hβ1 : β &lt; 1)
+    (hγ : Muon.PowerLaw.gammaOf N B ≤ γstar) (hC1 : 1 ≤ CSig)
+    (hsmall : Muon.PowerLaw.gammaOf N B ≤ (1 + β ^ 2) / 96) :
+    hasIsoZeroRidgeVol cert γstar CSig β N N B (def_app_iso_vol_zero cert γstar CSig β N N B) ∧
+    |def_app_iso_vol_zero cert γstar CSig β N N B / (N : ℝ) - volFactor β|
+        ≤ 96 * Muon.PowerLaw.gammaOf N B / (1 + β ^ 2) * (volFactor β - 1) ∧
+    |def_app_iso_vol_zero cert γstar CSig β N N B / ((N : ℝ) * volFactor β) - 1|
+        ≤ 96 * Muon.PowerLaw.gammaOf N B := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianOpNorm"><code>GaussianOpNorm</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SI.10 (Low covariance exponents)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SI.10 (Low covariance exponents)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-phase-C"><div class="thm-head"><a class="thm-name" href="r.thm.app-phase-C.html" data-label="thm:app-phase-C">Theorem SI.10</a> <span class="thm-title">(Low covariance exponents)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(0&lt;\alpha\le1\)</span>, <span class="mi">\(\texp\ge1\)</span> and <span class="mi">\(T\ge4\)</span>. There are <span class="mi">\(0&lt;c_-\le c_+\)</span>, depending only on <span class="mi">\(\alpha\)</span>, <span class="mi">\(\texp\)</span> and <span class="mi">\(T\)</span>, such that for every <span class="mi">\((N,B,\epsilon)\)</span> in the low-exponent window <a class="ref" href="s.SI.html#L-eqn:app-phase-height" data-label="eqn:app-phase-height">(SI.33)</a>, and for both <span class="mi">\(j\)</span>, the first hit <span class="mi">\(\hat u_j\)</span> is attained and</div>
+<div class="md">\[
+c_-\le\frac{t^j_{T\epsilon}}{\mathcal S_jT_0^j\,\Pi_{r_j}(\epsilon)}\le c_+ .
+\]</div>
+<div class="p">Along every sequence with <span class="mi">\(N\to\infty\)</span> and <span class="mi">\(\epsilon\downarrow0\)</span> in this window, the equivalents <a class="ref" href="r.thm.app-phase-B.html#L-eqn:app-phase-equivalents" data-label="eqn:app-phase-equivalents">(SI.37)</a> hold.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-phase-C.html" data-label="thm:app-phase-C">Theorem SI.10</a>.</div><div class="p">Take <span class="mi">\(h_j\defeq C_j(1+u)^{-r_j}\)</span> and <span class="mi">\(H_j\defeq H_j(\epsilon)\)</span>. Each kernel is decreasing with maximum <span class="mi">\(k_{N,j}\)</span>, so for <span class="mi">\(u\le H_j\)</span></div>
+<div class="md">\[
+(g_j*h_j)(u)\le k_{N,j}\int_0^uh_j(v)\,\dif v\le k_{N,j}C_jI_{r_j}(H_j)\le\sqrt\epsilon
+\]</div>
+<div class="p">by <a class="ref" href="s.SI.html#L-eqn:app-phase-height" data-label="eqn:app-phase-height">(SI.33)</a>. This is hypothesis (b) of <a class="ref" href="r.lem.app-phase-square.html" data-label="lem:app-phase-square">Lemma SI.9</a>, which gives the hit <span class="mi">\(0&lt;\hat u_j\le H_j\)</span> and</div>
+<div class="md">\[
+\mathcal E_j\le\sqrt{2\epsilon}\,H_j\le\sqrt2\,C_j^{1/r_j}\epsilon^{(r_j-1)/(2r_j)} .
+\]</div>
+<div class="p">If <span class="mi">\(r_j&lt;1\)</span>, <a class="ref" href="s.SI.html#L-eqn:app-phase-height" data-label="eqn:app-phase-height">(SI.33)</a> gives <span class="mi">\(H_j\le(N/4)^{q_j}\)</span> and <a class="ref" href="r.lem.app-phase-clock-integral.html" data-label="lem:app-phase-clock-integral">Lemma SI.10</a>(i) applies; its upper bound is at most <span class="mi">\([C_j^{1/r_j}/(1-r_j)+\sqrt2C_j^{1/r_j}]\epsilon^{-(1-r_j)/(2r_j)}\)</span>. If <span class="mi">\(r_j=1\)</span>, then <span class="mi">\(H_jN^{-q_j}\le4^{-q_j}\)</span>, <span class="mi">\((1+H_j)\sqrt\epsilon=C_j\)</span> and <span class="mi">\(\mathcal E_j\le\sqrt2C_j\)</span>, and <a class="ref" href="r.lem.app-phase-clock-integral.html" data-label="lem:app-phase-clock-integral">Lemma SI.10</a>(ii) applies. If <span class="mi">\(r_j&gt;1\)</span>, <span class="mi">\(\mathcal E_j\le\sqrt2C_j^{1/r_j}\)</span> for <span class="mi">\(\epsilon&lt;1\)</span> and <span class="mi">\(\mathcal E_j\to0\)</span> as <span class="mi">\(\epsilon\downarrow0\)</span>, and <a class="ref" href="r.lem.app-phase-clock-integral.html" data-label="lem:app-phase-clock-integral">Lemma SI.10</a>(iii) applies. The conclusions follow as in the proof of <a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-square.html" data-label="lem:app-phase-square">Lemma SI.9</a> <span class=muted>Square supersolution</span></li><li><a class="ref" href="r.lem.app-phase-clock-integral.html" data-label="lem:app-phase-clock-integral">Lemma SI.10</a> <span class=muted>The clock integral</span></li><li><a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> <span class=muted>Main covariance range</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-map.html" data-label="thm:app-phase-map">Theorem SI.7</a> <span class=muted>Time to <span class="mi">\(T\epsilon\)</span> in the power-law phases</span></li><li><a class="ref" href="r.cor.app-phase-ratio.html" data-label="cor:app-phase-ratio">Corollary SI.3</a> <span class=muted>Ratio of the hitting times</span></li><li><a class="ref" href="r.rem.app-phase-windows.html" data-label="rem:app-phase-windows">Remark SI.3</a> <span class=muted>The windows cannot be dropped</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.thm_app_phase_C</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/PhaseTheorems.lean#L3987">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_C (α ς T : ℝ) (hα : 0 &lt; α) (hα1 : α ≤ 1) (hς : 1 ≤ ς) (hT : 4 ≤ T) :
+    ∃ cLo cHi : ℝ, 0 &lt; cLo ∧ cLo ≤ cHi ∧
+      ∀ (N B : ℕ) (ε : ℝ) (mS mG : RowModel (Fin N)) (QS QG : ℝ → ℝ),
+        PhaseLowWindow α ς T N B ε →
+        IsMatchedModel (svdArrays α ς N B) mS ε → IsVolterraSol mS QS →
+        IsMatchedModel (sgdArrays α ς N B) mG ε → IsVolterraSol mG QG →
+        (dimHit QS (svdT0 N B) T ε ≠ ⊤ ∧ dimHit QG (sgdT0 α N B) T ε ≠ ⊤) ∧
+        SandwichE cLo cHi ((svdArrays α ς N B).S * svdT0 N B *
+            phasePi (rq (α + ς) (α / 2)) ε) (stepHit mS QS T ε) ∧
+        SandwichE cLo cHi ((sgdArrays α ς N B).S * sgdT0 α N B *
+            phasePi (rq (α + ς) α) ε) (stepHit mG QG T ε) := by</pre></details><details class="decl"><summary><code>Muon.Phase.thm_app_phase_C_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/PhaseTheorems.lean#L4176">source</a></summary><pre class="lean no-mj">theorem thm_app_phase_C_ii (α ς T : ℝ) (hα : 0 &lt; α) (hα1 : α ≤ 1) (hς : 1 ≤ ς) (hT : 4 ≤ T) :
+    ∀ (Nseq Bseq : ℕ → ℕ) (εseq : ℕ → ℝ)
+      (mS mG : ∀ n, RowModel (Fin (Nseq n))) (QS QG : ∀ n, ℝ → ℝ),
+      Tendsto (fun n =&gt; (Nseq n : ℝ)) atTop atTop → Tendsto εseq atTop (𝓝 0) →
+      (∀ n, 0 &lt; εseq n) → (∀ n, 1 ≤ Nseq n) → (∀ n, Nseq n ≤ Bseq n) →
+      (∀ n, IsMatchedModel (svdArrays α ς (Nseq n) (Bseq n)) (mS n) (εseq n)) →
+      (∀ n, IsVolterraSol (mS n) (QS n)) →
+      (∀ n, IsMatchedModel (sgdArrays α ς (Nseq n) (Bseq n)) (mG n) (εseq n)) →
+      (∀ n, IsVolterraSol (mG n) (QG n)) →
+      (∀ᶠ n in atTop, PhaseLowWindow α ς T (Nseq n) (Bseq n) (εseq n)) →
+      (rq (α + ς) (α / 2) = 1 →
+        IsEquivalent atTop (fun n =&gt; (stepHit (mS n) (QS n) T (εseq n)).toReal)
+          (fun n =&gt; (svdArrays α ς (Nseq n) (Bseq n)).S * svdT0 (Nseq n) (Bseq n) /
+            (4 * Real.sqrt (8 * (α / 2))) * (εseq n) ^ (-(1 / 2 : ℝ)) *
+            Real.log (1 / εseq n))) ∧
+      (1 &lt; rq (α + ς) (α / 2) →
+        IsEquivalent atTop (fun n =&gt; (stepHit (mS n) (QS n) T (εseq n)).toReal)
+          (fun n =&gt; (svdArrays α ς (Nseq n) (Bseq n)).S * svdT0 (Nseq n) (Bseq n) *
+            Jpq (α + ς) (α / 2) / (2 * Real.sqrt (εseq n)))) ∧
+      (rq (α + ς) α = 1 →
+        IsEquivalent atTop (fun n =&gt; (stepHit (mG n) (QG n) T (εseq n)).toReal)
+          (fun n =&gt; (sgdArrays α ς (Nseq n) (Bseq n)).S * sgdT0 α (Nseq n) (Bseq n) /
+            (4 * Real.sqrt (8 * α)) * (εseq n) ^ (-(1 / 2 : ℝ)) *
+            Real.log (1 / εseq n))) ∧
+      (1 &lt; rq (α + ς) α →
+        IsEquivalent atTop (fun n =&gt; (stepHit (mG n) (QG n) T (εseq n)).toReal)
+          (fun n =&gt; (sgdArrays α ς (Nseq n) (Bseq n)).S * sgdT0 α (Nseq n) (Bseq n) *
+            Jpq (α + ς) α / (2 * Real.sqrt (εseq n)))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

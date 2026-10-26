@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SB.12 (Replacement of the deletion coefficients)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SB.12 (Replacement of the deletion coefficients)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-de-replace"><div class="thm-head"><a class="thm-name" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class="thm-title">(Replacement of the deletion coefficients)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(x\ge0\)</span> put <span class="mi">\(f_x(d)\defeq\frac{d}{1+xd^2}\)</span> and <span class="mi">\(\psi_x(d)\defeq\frac{d^2}{1+xd^2}\)</span>, and for a sample of age <span class="mi">\(j\)</span> and <span class="mi">\(s\in I\)</span> define the target coefficients</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-targets"></span>\begin{equation}\tag{SB.33}
+\check\alpha_{1,j}\defeq\emaw j\,f_{\emaw j^2q_B}(d_j),\qquad
+\check\alpha_{2,j}\defeq\emaw j^2\,\sigma_B\,\psi_{\emaw j^2q_B}(d_j),\qquad
+\check\alpha_{3,j}\defeq-s\,\emaw j^2\,\tilde\sigma_B\,\psi_{\emaw j^2q_B}(d_j).
+\end{equation}</div>
+<div class="p">There is a sequence <span class="mi">\(e_B\to0\)</span>, depending only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>, such that in every frozen-state model with the hypotheses stated before <a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a>, whatever its weights, its dimension and its normalized state <span class="mi">\(\Ahat\)</span>, for every age <span class="mi">\(j\)</span> and every <span class="mi">\(s\in I\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-replace"></span>\begin{equation}\tag{SB.34}
+\norm{\alpha_{1,j}-\check\alpha_{1,j}}_2\le\emaw j\,e_B,\qquad
+\norm{\alpha_{2,j}-\check\alpha_{2,j}}_2\le\emaw j^2\,e_B,\qquad
+\norm{\alpha_{3,j}-\check\alpha_{3,j}}_2\le\emaw j^2\,e_B .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Fix <span class="mi">\(j\)</span> with <span class="mi">\(\emaw j&gt;0\)</span> (for <span class="mi">\(\emaw j=0\)</span> both sides of <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-replace" data-label="eqn:app-de-replace">(SB.34)</a> vanish) and <span class="mi">\(s\in I\)</span>, and abbreviate <span class="mi">\(\varpi=\emaw j\)</span>, <span class="mi">\(d=d_j\)</span>, <span class="mi">\(\mathsf h=\varpi d\)</span> and</div>
+<div class="md">\[
+\check D\defeq1+\varpi^2q_Bd^2\ge1 .
+\]</div>
+<div class="p">We treat <span class="mi">\(\alpha_1\)</span> in full; the other two coefficients are handled at the end by the same argument with different numerators.</div>
+<div class="p">The deviation of the deleted-sample scalars from their expected values is collected in one random variable,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Xi"></span>\begin{equation}\tag{SB.35}
+\Xi\defeq s\sigma_B\abs{\tilde\sigma_B-\mathsf V}+s\mathsf V\abs{\sigma_B-\mathsf U}+(1+q_B)\abs{\mathsf C}+\mathsf C^2 ,
+\end{equation}</div>
+<div class="p">whose expectation is small. Indeed <span class="mi">\(s\sigma_B\le C_\Sigma\gamma_\star\)</span> by <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a>, and <span class="mi">\(\norm{s\mathsf V}_2\le\norm{\norm{\mathsf v}^2}_2\le C_I\)</span> by <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a>; so the Cauchy–Schwarz inequality and <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> give</div>
+<div class="md">\[
+\EE\,\Xi\le C_\Sigma\gamma_\star\norm{\tilde\sigma_B-\mathsf V}_2+\norm{s\mathsf V}_2\norm{\sigma_B-\mathsf U}_2+(1+q_I)\norm{\mathsf C}_2+\norm{\mathsf C}_2^2\le\frac{C_I}{\sqrt B}.
+\]</div>
+<div class="p">The numerators of the differences are linear in <span class="mi">\(\Xi\)</span> on bounded residuals. Using</div>
+<div class="md">\[
+q_B-s\mathsf U\mathsf V=s\sigma_B(\tilde\sigma_B-\mathsf V)+s\mathsf V(\sigma_B-\mathsf U),
+\]</div>
+<div class="p">direct expansion of <span class="mi">\(\Lambda=(1+\mathsf h\mathsf C)^2+s\mathsf h^2\mathsf U\mathsf V\)</span> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-num1"></span><span class="anchor" id="L-eqn:app-de-num2"></span>\begin{align}
+(1+\mathsf h\mathsf C)\check D-\Lambda
+&amp;=\varpi^2d^2\,(q_B-s\mathsf U\mathsf V)+\varpi^3d^3\mathsf Cq_B-\varpi d\mathsf C-\varpi^2d^2\mathsf C^2,
+\tag{SB.36}\\
+\Lambda-\check D&amp;=2\varpi d\mathsf C+\varpi^2d^2\mathsf C^2+\varpi^2d^2\,(s\mathsf U\mathsf V-q_B).
+\tag{SB.37}
+\end{align}</div>
+<div class="p">Fix a level <span class="mi">\(\mathsf m&gt;0\)</span>, which is sent to infinity at the end of the argument. Since <span class="mi">\(\varpi\le1\)</span> and <span class="mi">\(q_B\le q_I\)</span>, on the event <span class="mi">\(\{\abs d\le\mathsf m\}\)</span> both right sides are bounded in absolute value by <span class="mi">\((1+\mathsf m)^3\,\Xi\)</span>.</div>
+<div class="p">The normalized difference is small in probability. Let</div>
+<div class="md">\[
+Z\defeq\frac{\alpha_1}{\varpi}-\frac{\check\alpha_1}{\varpi}
+=\frac{d(1+\mathsf h\mathsf C)}{\Lambda}-\frac{d}{\check D}
+=\frac{d\,\big[(1+\mathsf h\mathsf C)\check D-\Lambda\big]}{\Lambda \check D},
+\]</div>
+<div class="p">and let <span class="mi">\(E\defeq\{\abs d\le\mathsf m\}\cap\{\Lambda\ge1/2\}\)</span>. On <span class="mi">\(E\)</span>, since <span class="mi">\(\check D\ge1\)</span> and by <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-num1" data-label="eqn:app-de-num1">(SB.36)</a>,</div>
+<div class="md">\[
+\abs Z\le\frac{\abs d\,\abs{(1+\mathsf h\mathsf C)\check D-\Lambda}}{\Lambda}\le2\mathsf m(1+\mathsf m)^3\,\Xi .
+\]</div>
+<div class="p">On the complement, either <span class="mi">\(\abs d&gt;\mathsf m\)</span>, or <span class="mi">\(\abs d\le\mathsf m\)</span> and <span class="mi">\(\Lambda&lt;1/2\le \check D-1/2\)</span>, so that <span class="mi">\(\abs{\Lambda-\check D}&gt;1/2\)</span>. Chebyshev’s inequality with <span class="mi">\(\EE d^2=1\)</span>, Markov’s inequality and <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-num2" data-label="eqn:app-de-num2">(SB.37)</a> give</div>
+<div class="md">\[
+\Pr(E^c)\le\Pr(\abs d&gt;\mathsf m)+\Pr\big(\abs d\le\mathsf m,\ \abs{\Lambda-\check D}&gt;1/2\big)
+\le\mathsf m^{-2}+2(1+\mathsf m)^3\,\EE\,\Xi .
+\]</div>
+<div class="p">Combining the two bounds, for every <span class="mi">\(a&gt;0\)</span>,</div>
+<div class="md">\[
+\Pr(\abs Z&gt;a)\le\Pr(E^c)+\Pr\big(E,\ 2\mathsf m(1+\mathsf m)^3\Xi&gt;a\big)
+\le\mathsf m^{-2}+2(1+\mathsf m)^3\,\EE\,\Xi+\frac{2\mathsf m(1+\mathsf m)^3\,\EE\,\Xi}{a}.
+\]</div>
+<div class="p">Convergence in probability is upgraded to <span class="mi">\(L^2\)</span> by a uniform fourth moment. By <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> with the factor <span class="mi">\(\varpi\)</span> removed and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a>, <span class="mi">\(\norm{\alpha_1/\varpi}_4\le C_I\)</span>, and <span class="mi">\(\norm{\check\alpha_1/\varpi}_4\le\norm d_4\le C_I\)</span>; hence <span class="mi">\(\norm Z_4\le C_I\)</span>. Splitting at level <span class="mi">\(a\)</span> and applying the Cauchy–Schwarz inequality to the second piece,</div>
+<div class="md">\[
+\begin{aligned}
+\EE Z^2&amp;=\EE\big[Z^2\mathbf 1_{\abs Z\le a}\big]+\EE\big[Z^2\mathbf 1_{\abs Z&gt;a}\big]
+\le a^2+\norm Z_4^2\,\Pr(\abs Z&gt;a)^{1/2}\\
+&amp;\le a^2+C_I\Big(\mathsf m^{-2}+C_I(1+\mathsf m)^4\big(1+a^{-1}\big)B^{-1/2}\Big)^{1/2},
+\end{aligned}
+\]</div>
+<div class="p">where the last step uses <span class="mi">\(\EE\,\Xi\le C_IB^{-1/2}\)</span> and <span class="mi">\(\mathsf m\le1+\mathsf m\)</span>. The right side does not depend on <span class="mi">\(j\)</span> or on <span class="mi">\(s\in I\)</span>. Taking first <span class="mi">\(B\to\infty\)</span>, then <span class="mi">\(\mathsf m\to\infty\)</span> and then <span class="mi">\(a\downarrow0\)</span> shows that</div>
+<div class="md">\[
+\sup_{j,\ s\in I}\frac{\norm{\alpha_{1,j}-\check\alpha_{1,j}}_2}{\emaw j}\longrightarrow0 .
+\]</div>
+<div class="p">The other two coefficients follow by the same argument. The normalized differences are</div>
+<div class="md">\[
+Z_2\defeq\frac{\alpha_2-\check\alpha_2}{\varpi^2}=\frac{d^2\big[\mathsf U\check D-\sigma_B\Lambda\big]}{\Lambda \check D},\qquad
+Z_3\defeq\frac{\alpha_3-\check\alpha_3}{\varpi^2}=-\frac{s\,d^2\big[\mathsf V\check D-\tilde\sigma_B\Lambda\big]}{\Lambda \check D},
+\]</div>
+<div class="p">whose numerators satisfy</div>
+<div class="md">\[
+\mathsf U\check D-\sigma_B\Lambda=(\mathsf U-\sigma_B)\check D+\sigma_B(\check D-\Lambda),\qquad
+\mathsf V\check D-\tilde\sigma_B\Lambda=(\mathsf V-\tilde\sigma_B)\check D+\tilde\sigma_B(\check D-\Lambda).
+\]</div>
+<div class="p">On <span class="mi">\(\{\abs d\le\mathsf m\}\)</span> these are bounded by <span class="mi">\((1+q_I\mathsf m^2)\abs{\mathsf U-\sigma_B}+C_I(1+\mathsf m)^3\Xi\)</span>, respectively the same expression with <span class="mi">\((\mathsf V,\tilde\sigma_B)\)</span>, and their expectations are at most <span class="mi">\(C_I(1+\mathsf m)^3B^{-1/2}\)</span> by <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a>. The fourth moments of <span class="mi">\(Z_2\)</span> and <span class="mi">\(Z_3\)</span> are bounded by <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> with the factor <span class="mi">\(\varpi^2\)</span> removed, together with <span class="mi">\(\norm{d^2}_4\le C_I\)</span>. The event decomposition and the <span class="mi">\(L^2\)</span> upgrade are then identical.</div>
+<div class="p">The sequence is defined from these bounds, not from the model. Every constant <span class="mi">\(C_I\)</span> above depends only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span>, since <a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a>, <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> involve neither <span class="mi">\(\norm{\Ahat}\)</span> nor the weights beyond <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>. Let <span class="mi">\(\epsilon_B(\mathsf m,a)\)</span> be the largest of the three right sides obtained for <span class="mi">\(\EE Z^2\)</span>, <span class="mi">\(\EE Z_2^2\)</span> and <span class="mi">\(\EE Z_3^2\)</span>, and put</div>
+<div class="md">\[
+e_B\defeq\inf_{\mathsf m\ge1,\ 0&lt;a\le1}\epsilon_B(\mathsf m,a)^{1/2}.
+\]</div>
+<div class="p">Then <span class="mi">\(e_B\)</span> depends only on <span class="mi">\((I,C_\Sigma,\gamma_\star)\)</span> and <span class="mi">\(B\)</span>, it bounds the three normalized errors for every model, every age and every <span class="mi">\(s\in I\)</span>, and <span class="mi">\(e_B\to0\)</span> by the order of limits used for <span class="mi">\(\alpha_1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li><li><a class="ref" href="r.lem.app-de-scalars.html" data-label="lem:app-de-scalars">Lemma SB.11</a> <span class=muted>Concentration of the deleted-sample scalars</span></li><li><a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class=muted>Coefficient bounds</span></li><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class=muted>Gram closure</span></li><li><a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> <span class=muted>Uniform Gaussian limit of the residual functional</span></li><li><a class="ref" href="r.lem.app-drift-derivatives.html" data-label="lem:app-drift-derivatives">Lemma SC.7</a> <span class=muted>Derivative bounds</span></li><li><a class="ref" href="r.lem.app-drift-targets.html" data-label="lem:app-drift-targets">Lemma SC.9</a> <span class=muted>Candidate-centered targets</span></li><li><a class="ref" href="r.lem.app-dyn-mean.html" data-label="lem:app-dyn-mean">Lemma SE.7</a> <span class=muted>Finite mean and susceptibility</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.lem_app_de_replace</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Concentration.lean#L3487">source</a></summary><pre class="lean no-mj">theorem lem_app_de_replace (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0)
+    (CSig γ : ℝ) :
+    ∃ e : ℕ → ℝ, Tendsto e atTop (𝓝 0) ∧
+      ∀ (m n B : ℕ) (w : ℕ → ℝ), WeightClass w →
+      ∀ (Ω' : Type) [MeasurableSpace Ω'] (P : Measure Ω') [IsProbabilityMeasure P]
+        (F : FrozenParams m n B) (S : FrozenSamples P m n B) (t : ℤ),
+        opNorm F.C.Sout ≤ CSig → opNorm F.C.Sin ≤ CSig →
+        (m : ℝ) ≤ γ * B → (n : ℝ) ≤ γ * B →
+        ∀ (j : ℕ), ∀ s ∈ I,
+          eLpNorm (fun ω =&gt; delAlpha1 w F S t j s ω - checkAlpha1 w F S t j s ω) 2 P
+              ≤ ENNReal.ofReal (w j * e B) ∧
+          eLpNorm (fun ω =&gt; delAlpha2 w F S t j s ω - checkAlpha2 w F S t j s ω) 2 P
+              ≤ ENNReal.ofReal (w j ^ 2 * e B) ∧
+          eLpNorm (fun ω =&gt; delAlpha3 w F S t j s ω - checkAlpha3 w F S t j s ω) 2 P
+              ≤ ENNReal.ofReal (w j ^ 2 * e B) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

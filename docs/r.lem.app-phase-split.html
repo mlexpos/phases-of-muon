@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.23 (Kernel with a slow part)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.23 (Kernel with a slow part)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-split"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-split.html" data-label="lem:app-phase-split">Lemma SI.23</a> <span class="thm-title">(Kernel with a slow part)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(g\ge0\)</span> be continuous with <span class="mi">\(\int_0^\infty g\le1\)</span>, and suppose that for <span class="mi">\(0\le v\le U_0\)</span></div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-template"></span>\begin{equation}\tag{SI.60}
+g(v)\le K_f(1+v)^{-\upsilon}+K_sN^{-q}\Big(\frac{1+v}{N^q}\Big)^{-\mathsf b},
+\end{equation}</div>
+<div class="p">with <span class="mi">\(K_f,K_s\ge0\)</span>, <span class="mi">\(\upsilon&gt;1\)</span>, <span class="mi">\(0\le\mathsf b&lt;1\)</span>, <span class="mi">\(N\ge1\)</span> and <span class="mi">\(q&gt;0\)</span>. Let <span class="mi">\(0&lt;r_0\le\upsilon\)</span>, <span class="mi">\(D\ge1\)</span>, <span class="mi">\(C&gt;0\)</span>, <span class="mi">\(h(u)\defeq C(1+u/D)^{-r_0}\)</span>, <span class="mi">\(\delta_\circ=1-(2/3)^{1/r_0}\)</span> and <span class="mi">\(\mathsf k_f\defeq K_f\delta_\circ^{-\upsilon}D^{1-\upsilon}b(r_0,\upsilon)\)</span>, with <span class="mi">\(b(r_0,\upsilon)\)</span> of <a class="ref" href="s.SI.html#L-eqn:app-phase-dilation" data-label="eqn:app-phase-dilation">(SI.55)</a>. Then for <span class="mi">\(0\le u\le U_0\)</span>,</div>
+<div class="md">\[
+(g*h)(u)\le\Big(\frac32+\mathsf k_f\Big)h(u)+K_s\delta_\circ^{-\mathsf b}N^{-q}\Big(\frac{D+u}{N^q}\Big)^{-\mathsf b}C\,D\,I_{r_0}(u/D),
+\]</div>
+<div class="p">and if <span class="mi">\(r_0&lt;1\)</span> the last term is at most <span class="mi">\(\frac{K_s\delta_\circ^{-\mathsf b}}{1-r_0}\big(\frac{D+u}{N^q}\big)^{1-\mathsf b}h(u)\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Fix <span class="mi">\(u\in(0,U_0]\)</span> and split the convolution at <span class="mi">\(v=\delta_\circ(D+u)\)</span>. For <span class="mi">\(0\le v\le\min\{u,\delta_\circ(D+u)\}\)</span> one has <span class="mi">\(D+u-v\ge(1-\delta_\circ)(D+u)\)</span>, so <span class="mi">\(h(u-v)\le(1-\delta_\circ)^{-r_0}h(u)=\frac32h(u)\)</span>, and the mass of <span class="mi">\(g\)</span> bounds this part by <span class="mi">\(\frac32h(u)\)</span>. For <span class="mi">\(\delta_\circ(D+u)&lt;v\le u\)</span> one has <span class="mi">\(1+v&gt;\delta_\circ(D+u)\)</span>, so <a class="ref" href="r.lem.app-phase-split.html#L-eqn:app-phase-template" data-label="eqn:app-phase-template">(SI.60)</a> gives</div>
+<div class="md">\[
+g(v)\le K_f\delta_\circ^{-\upsilon}(D+u)^{-\upsilon}+K_s\delta_\circ^{-\mathsf b}N^{-q}\Big(\frac{D+u}{N^q}\Big)^{-\mathsf b},
+\]</div>
+<div class="p">while <span class="mi">\(\int_0^uh=C\,D\,I_{r_0}(u/D)\)</span>. With <span class="mi">\(z=u/D\)</span> the fast part is at most</div>
+<div class="md">\[
+K_f\delta_\circ^{-\upsilon}D^{1-\upsilon}(1+z)^{r_0-\upsilon}I_{r_0}(z)\,h(u)\le\mathsf k_f\,h(u) ,
+\]</div>
+<div class="p">by the bound <span class="mi">\((1+z)^{r_0-\upsilon}I_{r_0}(z)\le b(r_0,\upsilon)\)</span> of the proof of <a class="ref" href="r.lem.app-phase-dilation.html" data-label="lem:app-phase-dilation">Lemma SI.14</a>. The slow part is the stated term. For <span class="mi">\(r_0&lt;1\)</span>, finally,</div>
+<div class="md">\[
+D\,I_{r_0}(u/D)\le\frac{D(1+u/D)^{1-r_0}}{1-r_0}=\frac{(D+u)(1+u/D)^{-r_0}}{1-r_0} ,
+\]</div>
+<div class="p">which gives the last assertion.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-dilation.html" data-label="lem:app-phase-dilation">Lemma SI.14</a> <span class=muted>Dilated envelope</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li><li><a class="ref" href="r.lem.app-phase-G-small.html" data-label="lem:app-phase-G-small">Lemma SI.24</a> <span class=muted><span class="sc">SignSGD</span> kernel below the critical exponent</span></li><li><a class="ref" href="r.lem.app-phase-templates.html" data-label="lem:app-phase-templates">Lemma SI.25</a> <span class=muted>Kernel templates</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_split</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/TwoPhase.lean#L1555">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_split
+    {g : ℝ → ℝ} (hgc : ContinuousOn g (Ici 0)) (hgnn : ∀ v ∈ Ici (0 : ℝ), 0 ≤ g v)
+    (hgi : IntegrableOn g (Ioi 0)) (hgint : ∫ v in Ioi (0 : ℝ), g v ≤ 1)
+    {Kf Ks υ b N q U0 D C r0 : ℝ} (hKf : 0 ≤ Kf) (hKs : 0 ≤ Ks) (hυ : 1 &lt; υ)
+    (hb0 : 0 ≤ b) (hb1 : b &lt; 1) (hN : 1 ≤ N) (hq : 0 &lt; q)
+    (hr0 : 0 &lt; r0) (hr0υ : r0 ≤ υ) (hD : 1 ≤ D) (hC : 0 &lt; C)
+    (htemp : phaseTemplate g N U0 q Kf Ks υ b) :
+    (∀ u : ℝ, 0 ≤ u → u ≤ U0 →
+        oneSidedConv (fun w =&gt; C * (1 + w / D) ^ (-r0)) g u
+          ≤ (3 / 2 + Kf * dilDelta r0 ^ (-υ) * D ^ (1 - υ) * dilB r0 υ) * (C * (1 + u / D) ^ (-r0))
+            + Ks * dilDelta r0 ^ (-b) * N ^ (-q) * ((D + u) / N ^ q) ^ (-b)
+              * (C * D * Ir r0 (u / D))) ∧
+      (r0 &lt; 1 → ∀ u : ℝ, 0 ≤ u → u ≤ U0 →
+        Ks * dilDelta r0 ^ (-b) * N ^ (-q) * ((D + u) / N ^ q) ^ (-b) * (C * D * Ir r0 (u / D))
+          ≤ Ks * dilDelta r0 ^ (-b) / (1 - r0) * ((D + u) / N ^ q) ^ (1 - b)
+            * (C * (1 + u / D) ^ (-r0))) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

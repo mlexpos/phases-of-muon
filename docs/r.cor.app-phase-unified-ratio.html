@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SI.6 (Ratio at every accuracy)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SI.6 (Ratio at every accuracy)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map · <a href="t.cor.app-phase-unified-ratio.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-phase-unified-ratio"><div class="thm-head"><a class="thm-name" href="r.cor.app-phase-unified-ratio.html" data-label="cor:app-phase-unified-ratio">Corollary SI.6</a> <span class="thm-title">(Ratio at every accuracy)</span></div><div class="thm-body"><div class="p">Fix <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(\texp\)</span> with <span class="mi">\(\alpha+\texp&gt;1\)</span>, and <span class="mi">\(T\ge4\)</span>, and let <span class="mi">\(N_0\)</span> and <span class="mi">\(\epsilon_0\)</span> be thresholds of <a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> valid for both models. If <span class="mi">\((\alpha,\texp,\text{s-SVD})\)</span> and <span class="mi">\((\alpha,\texp,\text{s-SGD})\)</span> both lie in <span class="mi">\(\mathcal U\)</span>, then for <span class="mi">\(N\ge N_0\)</span>, <span class="mi">\(B\ge N\)</span> and <span class="mi">\(0&lt;\epsilon&lt;\epsilon_0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-phase-ratioU"></span>\begin{equation}\tag{SI.49}
+\frac{t^{\text{s-SGD}}_{T\epsilon}}{t^{\text{s-SVD}}_{T\epsilon}}\asymp
+D_N\,\frac{\Upsilon_{\text{s-SGD}}(N,\epsilon)}{\Upsilon_{\text{s-SVD}}(N,\epsilon)} ,
+\end{equation}</div>
+<div class="p">and if moreover <span class="mi">\(\texp\notin\{1,\alpha+1\}\)</span>, the right side equals <span class="mi">\(D_N\max\{\epsilon,\epsilon_N\}^{-\chi}\)</span>. If only <span class="mi">\((\alpha,\texp,\text{s-SGD})\in\mathcal U\)</span>, the upper half of <a class="ref" href="r.cor.app-phase-unified-ratio.html#L-eqn:app-phase-ratioU" data-label="eqn:app-phase-ratioU">(SI.49)</a> holds; if only <span class="mi">\((\alpha,\texp,\text{s-SVD})\in\mathcal U\)</span>, the lower half holds. For <span class="mi">\(\epsilon=N^{-\omega}\)</span> with fixed <span class="mi">\(\omega&gt;0\)</span>,</div>
+<div class="md">\[
+D_N\,\frac{\Upsilon_{\text{s-SGD}}(N,\epsilon)}{\Upsilon_{\text{s-SVD}}(N,\epsilon)}\asymp N^{e_D+\chi\min\{\omega,p-1\}}\,(\log N)^{L},
+\]</div>
+<div class="p">with constants depending also on <span class="mi">\(\omega\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-phase-unified-ratio.html" data-label="cor:app-phase-unified-ratio">Corollary SI.6</a>.</div><div class="p">Divide the bounds of <a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a>, using <a class="ref" href="s.SI.html#L-eqn:app-phase-clockint" data-label="eqn:app-phase-clockint">(SI.41)</a>; the lower bounds hold for every model. If <span class="mi">\(r_j&lt;1\)</span>, then <span class="mi">\(1/(2r_j)&gt;\frac12\)</span>, so <span class="mi">\(e_j=1/(2r_j)\)</span> and <span class="mi">\((1-r_j)/(2r_j)=e_j-\frac12\)</span>; by <a class="ref" href="s.SI.html#L-eqn:app-phase-Upsilon-max" data-label="eqn:app-phase-Upsilon-max">(SI.46)</a>, <span class="mi">\(\Upsilon_j=\max\{\epsilon,\epsilon_N\}^{-(e_j-1/2)}\)</span>. If <span class="mi">\(r_j&gt;1\)</span>, then <span class="mi">\(e_j=\frac12\)</span> and <span class="mi">\(\Upsilon_j=1\)</span>, which is the same formula. For <span class="mi">\(\texp\notin\{1,\alpha+1\}\)</span> neither <span class="mi">\(r_j\)</span> equals <span class="mi">\(1\)</span>, so</div>
+<div class="md">\[
+\frac{\Upsilon_{\text{s-SGD}}}{\Upsilon_{\text{s-SVD}}}=\max\{\epsilon,\epsilon_N\}^{-(e_{\text{s-SGD}}-e_{\text{s-SVD}})}=\max\{\epsilon,\epsilon_N\}^{-\chi} .
+\]</div>
+<div class="p">For <span class="mi">\(\epsilon=N^{-\omega}\)</span> and <span class="mi">\(r_j&lt;1\)</span>,</div>
+<div class="md">\[
+\Upsilon_j=N^{\min\{\omega,p-1\}(1-r_j)/(2r_j)},
+\]</div>
+<div class="p">because <span class="mi">\(q_j(1-r_j)=(p-1)(1-r_j)/(2r_j)\)</span>. For <span class="mi">\(r_j\ge1\)</span>, <span class="mi">\(\Upsilon_j\asymp(\log N)^{[r_j=1]}\)</span>, with constants depending on <span class="mi">\(\omega\)</span>. Hence</div>
+<div class="md">\[
+\frac{\Upsilon_{\text{s-SGD}}}{\Upsilon_{\text{s-SVD}}}\asymp N^{\chi\min\{\omega,p-1\}}(\log N)^{[\texp=\alpha+1]-[\texp=1]} ,
+\]</div>
+<div class="p">and multiplying by <span class="mi">\(D_N\asymp N^{e_D}(\log N)^{[\alpha=1]-[\alpha=2]}\)</span> gives the last display.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-omega.html" data-label="thm:app-phase-omega">Theorem SI.15</a> <span class=muted>Accuracy-exponent map</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.cor_app_phase_unified_ratio_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Unified.lean#L3773">source</a></summary><pre class="lean no-mj">theorem cor_app_phase_unified_ratio_i (α ς T : ℝ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (hUs : phaseInU α ς .svd) (hUg : phaseInU α ς .sgd) :
+    ∃ (N0 : ℕ) (ε0 cLo cHi : ℝ), 0 &lt; ε0 ∧ 0 &lt; cLo ∧ cLo ≤ cHi ∧
+      ∀ (N B : ℕ) (ε : ℝ) (mS mG : RowModel (Fin N)) (QS QG : ℝ → ℝ),
+        N0 ≤ N → N ≤ B → 0 &lt; ε → ε &lt; ε0 →
+        IsMatchedModel (phaseKindArrays α ς N B .svd) mS ε → IsVolterraSol mS QS →
+        IsMatchedModel (phaseKindArrays α ς N B .sgd) mG ε → IsVolterraSol mG QG →
+        Sandwich cLo cHi
+          (phaseDN α N * (phaseUpsilon α ς N ε .sgd / phaseUpsilon α ς N ε .svd))
+          ((stepHit mG QG T ε).toReal / (stepHit mS QS T ε).toReal) := by</pre></details><details class="decl"><summary><code>Muon.Phase.cor_app_phase_unified_ratio_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Unified.lean#L3832">source</a></summary><pre class="lean no-mj">theorem cor_app_phase_unified_ratio_ii (α ς T : ℝ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (hUg : phaseInU α ς .sgd) :
+    ∃ (N0 : ℕ) (ε0 cHi : ℝ), 0 &lt; ε0 ∧ 0 &lt; cHi ∧
+      ∀ (N B : ℕ) (ε : ℝ) (mS mG : RowModel (Fin N)) (QS QG : ℝ → ℝ),
+        N0 ≤ N → N ≤ B → 0 &lt; ε → ε &lt; ε0 →
+        IsMatchedModel (phaseKindArrays α ς N B .svd) mS ε → IsVolterraSol mS QS →
+        IsMatchedModel (phaseKindArrays α ς N B .sgd) mG ε → IsVolterraSol mG QG →
+        0 &lt; (stepHit mS QS T ε).toReal ∧ stepHit mG QG T ε ≠ ⊤ ∧
+        (stepHit mG QG T ε).toReal / (stepHit mS QS T ε).toReal ≤
+          cHi * (phaseDN α N * (phaseUpsilon α ς N ε .sgd / phaseUpsilon α ς N ε .svd)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.cor_app_phase_unified_ratio_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Unified.lean#L3890">source</a></summary><pre class="lean no-mj">theorem cor_app_phase_unified_ratio_iii (α ς T : ℝ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (hT : 4 ≤ T)
+    (hUs : phaseInU α ς .svd) :
+    ∃ (N0 : ℕ) (ε0 cLo : ℝ), 0 &lt; ε0 ∧ 0 &lt; cLo ∧
+      ∀ (N B : ℕ) (ε : ℝ) (mS mG : RowModel (Fin N)) (QS QG : ℝ → ℝ),
+        N0 ≤ N → N ≤ B → 0 &lt; ε → ε &lt; ε0 →
+        IsMatchedModel (phaseKindArrays α ς N B .svd) mS ε → IsVolterraSol mS QS →
+        IsMatchedModel (phaseKindArrays α ς N B .sgd) mG ε → IsVolterraSol mG QG →
+        cLo * (phaseDN α N * (phaseUpsilon α ς N ε .sgd / phaseUpsilon α ς N ε .svd)) ≤
+          (stepHit mG QG T ε).toReal / (stepHit mS QS T ε).toReal := by</pre></details><details class="decl"><summary><code>Muon.Phase.cor_app_phase_unified_ratio_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Unified.lean#L4028">source</a></summary><pre class="lean no-mj">theorem cor_app_phase_unified_ratio_iv (α ς : ℝ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς)
+    (hς1 : ς ≠ 1) (hς2 : ς ≠ α + 1) (hUs : phaseInU α ς .svd) (hUg : phaseInU α ς .sgd)
+    (N : ℕ) (hN : 1 ≤ N) (ε : ℝ) (hε : 0 &lt; ε) :
+    phaseDN α N * (phaseUpsilon α ς N ε .sgd / phaseUpsilon α ς N ε .svd) =
+      phaseDN α N * (max ε (phaseEpsN (α + ς) N)) ^ (-(phaseChi α ς)) := by</pre></details><details class="decl"><summary><code>Muon.Phase.cor_app_phase_unified_ratio_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Unified.lean#L4317">source</a></summary><pre class="lean no-mj">theorem cor_app_phase_unified_ratio_v (α ς : ℝ) (hα : 0 &lt; α) (hp : 1 &lt; α + ς) (ω : ℝ) (hω : 0 &lt; ω) :
+    ∃ (N0 : ℕ) (cLo cHi : ℝ), 0 &lt; cLo ∧ cLo ≤ cHi ∧
+      ∀ N : ℕ, N0 ≤ N →
+        Sandwich cLo cHi
+          ((N : ℝ) ^ (phaseExpD α + phaseChi α ς * min ω (α + ς - 1)) *
+            (Real.log (N : ℝ)) ^ phaseLogPow α ς)
+          (phaseDN α N * (phaseUpsilon α ς N ((N : ℝ) ^ (-ω)) .sgd /
+            phaseUpsilon α ς N ((N : ℝ) ^ (-ω)) .svd)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

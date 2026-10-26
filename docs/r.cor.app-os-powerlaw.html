@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SH.5 (Power-law spectra)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SH.5 (Power-law spectra)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SH.html">Section SH</a> · Large-batch drift for a general spectrum · <a href="t.cor.app-os-powerlaw.html">top-level result</a></div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-os-powerlaw"><div class="thm-head"><a class="thm-name" href="r.cor.app-os-powerlaw.html" data-label="cor:app-os-powerlaw">Corollary SH.5</a> <span class="thm-title">(Power-law spectra)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\alpha&gt;0\)</span>, <span class="mi">\(N\ge1\)</span> and <span class="mi">\(c_N&gt;0\)</span>, let <span class="mi">\(\mu_k=c_Nk^{-\alpha}\)</span> for <span class="mi">\(1\le k\le N\)</span>, and put <span class="mi">\(\nu_N\defeq N^{-1}\sum_{k=1}^N\delta_{\mu_k}\)</span>. For <span class="mi">\(0&lt;x\le1\)</span> put</div>
+<div class="md">\[
+\Xi_\alpha(x)\defeq\int_0^\infty\varpi(y)\Big(\int_0^1\frac{y\,u^\alpha}{y\,u^\alpha+x^\alpha}\,\dif u\Big)^{1/2}\dif y .
+\]</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(1\le i\le N\)</span>,</div>
+<div class="md">\[
+0\le\chi_{\nu_N}(\mu_i)-\Xi_\alpha(i/N)\le N^{-1/2}.
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">If <span class="mi">\(i\le\varepsilon N\)</span> with <span class="mi">\(\varepsilon\in(0,1]\)</span>, then <span class="mi">\(1-2\varepsilon^{\alpha/(1+\alpha)}\le\chi_{\nu_N}(\mu_i)\le1\)</span>. Consequently, for every sequence <span class="mi">\(\varepsilon_N\to0\)</span>,</div>
+<div class="md">\[
+\max_{i\le\varepsilon_NN}\Big|\frac{\mathfrak d^{\rm os}_{\nu_N}(\mu_i)}{\sqrt{\mu_i/2}}-1\Big|\longrightarrow0 .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">The function <span class="mi">\(\Xi_\alpha\)</span> is nonincreasing on <span class="mi">\((0,1]\)</span>, and</div>
+<div class="md">\[
+1-\Xi_\alpha(x)\le2x^{\alpha/(1+\alpha)},\qquad \Xi_\alpha(x)\ge\frac{C_*}{\sqrt{2(1+\alpha)}} .
+\]</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every <span class="mi">\(1\le i\le N\)</span>,</div>
+<div class="md">\[
+\frac{C_*}{\sqrt{2(1+\alpha)}}\sqrt{\frac{\mu_i}2}\le\mathfrak d^{\rm os}_{\nu_N}(\mu_i)\le\sqrt{\frac{\mu_i}2}.
+\]</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">If <span class="mi">\(N^\alpha\ge2\)</span>, the acceleration of <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> for <span class="mi">\(\nu=\nu_N\)</span>, <span class="mi">\(\mu_+=\mu_1\)</span> and <span class="mi">\(\mu=\mu_N\)</span>, for which <span class="mi">\(\varkappa=N^\alpha\)</span>, satisfies</div>
+<div class="md">\[
+\frac{C_*}{\sqrt{2(1+\alpha)}}\,N^{\alpha/2}\le\mathcal A\le\frac{\sqrt2}{C_*}\,N^{\alpha/2}.
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">By <a class="ref" href="r.lem.app-os-scale.html" data-label="lem:app-os-scale">Lemma SH.14</a> with <span class="mi">\(a=N^\alpha/c_N\)</span>, the efficiencies <span class="mi">\(\chi_{\nu_N}(\mu_i)\)</span> do not change when <span class="mi">\(\mu_k\)</span> is replaced by <span class="mi">\((k/N)^{-\alpha}\)</span>, and neither does the mass <span class="mi">\(\nu_N([\delta\mu_i,\infty))\)</span> for <span class="mi">\(\delta&gt;0\)</span>. Parts (i) and (ii) concern only these quantities, so in their proofs <span class="mi">\(\mu_k=(k/N)^{-\alpha}\)</span>.</div>
+<div class="p">Part (i) compares a Riemann sum with its integral. For <span class="mi">\(c&gt;0\)</span>,</div>
+<div class="md">\[
+1-m_{\nu_N}(c)=\frac1N\sum_{k=1}^N\phi_c(k/N),\qquad \phi_c(u)\defeq\frac{c\,u^\alpha}{c\,u^\alpha+1},
+\]</div>
+<div class="p">and <span class="mi">\(\phi_c\)</span> is nondecreasing on <span class="mi">\([0,1]\)</span> with values in <span class="mi">\([0,1)\)</span>. For a nondecreasing <span class="mi">\(\phi\ge0\)</span> and <span class="mi">\(k&lt;N\)</span>,</div>
+<div class="md">\[
+\int_{(k-1)/N}^{k/N}\phi\le\frac{\phi(k/N)}N\le\int_{k/N}^{(k+1)/N}\phi .
+\]</div>
+<div class="p">Summing over <span class="mi">\(k\)</span>, with the last term <span class="mi">\(\phi_c(1)/N\)</span> kept separately, gives</div>
+<div class="md">\[
+0\le\frac1N\sum_{k=1}^N\phi_c(k/N)-\int_0^1\phi_c\le\frac{\phi_c(1)}N\le\frac1N .
+\]</div>
+<div class="p">Since <span class="mi">\(\abs{\sqrt a-\sqrt b}\le\sqrt{\abs{a-b}}\)</span> and <span class="mi">\(\int\varpi=1\)</span>, the definition <a class="ref" href="r.def.app-os-objects.html#L-eqn:app-os-chi" data-label="eqn:app-os-chi">(SH.7)</a> gives</div>
+<div class="md">\[
+0\le\chi_{\nu_N}(\mu)-\int_0^\infty\varpi(y)\Big(\int_0^1\phi_{\mu y}\Big)^{1/2}\dif y\le N^{-1/2}.
+\]</div>
+<div class="p">At <span class="mi">\(\mu=\mu_i=x^{-\alpha}\)</span> with <span class="mi">\(x=i/N\)</span> one has <span class="mi">\(\phi_{x^{-\alpha}y}(u)=y\,u^\alpha/(y\,u^\alpha+x^\alpha)\)</span>, which is (i).</div>
+<div class="p">Part (ii) is <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(i). The mass above <span class="mi">\(\delta\mu_i\)</span> is</div>
+<div class="md">\[
+\nu_N\big([\delta\mu_i,\infty)\big)=\frac1N\,\#\big\{k:\ k\le i\,\delta^{-1/\alpha}\big\}\le\varepsilon\,\delta^{-1/\alpha},
+\]</div>
+<div class="p">and the choice <span class="mi">\(\delta=\varepsilon^{\alpha/(1+\alpha)}\)</span> gives <span class="mi">\(1-\chi_{\nu_N}(\mu_i)\le2\varepsilon^{\alpha/(1+\alpha)}\)</span>. The uniform statement follows with <span class="mi">\(\varepsilon=\varepsilon_N\)</span> and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>.</div>
+<div class="p">Part (iii) identifies <span class="mi">\(\Xi_\alpha\)</span> with the efficiency of a limiting measure. Let <span class="mi">\(\nu_\infty\)</span> be the law of <span class="mi">\(U^{-\alpha}\)</span> with <span class="mi">\(U\)</span> uniform on <span class="mi">\((0,1)\)</span>. Then</div>
+<div class="md">\[
+1-m_{\nu_\infty}(c)=\int_0^1\frac{c\,\dif u}{c+u^{-\alpha}}=\int_0^1\phi_c,
+\qquad\text{so}\qquad \Xi_\alpha(x)=\chi_{\nu_\infty}(x^{-\alpha}).
+\]</div>
+<div class="p">Since <span class="mi">\(1-m_\nu\)</span> is nondecreasing, <span class="mi">\(\chi_\nu\)</span> is nondecreasing in <span class="mi">\(\mu\)</span>, and <span class="mi">\(\Xi_\alpha\)</span> is nonincreasing in <span class="mi">\(x\)</span>. The mass of <span class="mi">\(\nu_\infty\)</span> above <span class="mi">\(\delta x^{-\alpha}\)</span> is</div>
+<div class="md">\[
+\nu_\infty\big([\delta x^{-\alpha},\infty)\big)=\Pr\big(U\le x\,\delta^{-1/\alpha}\big)\le x\,\delta^{-1/\alpha},
+\]</div>
+<div class="p">and <a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a>(i) with <span class="mi">\(\delta=x^{\alpha/(1+\alpha)}\)</span> gives <span class="mi">\(1-\Xi_\alpha(x)\le2x^{\alpha/(1+\alpha)}\)</span>. Finally, since <span class="mi">\(u^\alpha+x^\alpha\le2\)</span> for <span class="mi">\(u,x\le1\)</span>,</div>
+<div class="md">\[
+1-m_{\nu_\infty}(x^{-\alpha})=\int_0^1\frac{u^\alpha\,\dif u}{u^\alpha+x^\alpha}\ge\int_0^1\frac{u^\alpha}2\,\dif u=\frac1{2(1+\alpha)},
+\]</div>
+<div class="p">and <a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a>(i) with <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>, which give <span class="mi">\(\chi_\nu(\mu)\ge C_*\sqrt{1-m_\nu(\mu)}\)</span>, yield <span class="mi">\(\Xi_\alpha(x)\ge C_*/\sqrt{2(1+\alpha)}\)</span>.</div>
+<div class="p">Part (iv) combines (i), (iii) and <a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a>: one has <span class="mi">\(\chi_{\nu_N}(\mu_i)\ge\Xi_\alpha(i/N)\ge C_*/\sqrt{2(1+\alpha)}\)</span> and <span class="mi">\(\chi_{\nu_N}\le1\)</span>.</div>
+<div class="p">Part (v) is <a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a>(i). The support of <span class="mi">\(\nu_N\)</span> lies in <span class="mi">\([0,\mu_1]\)</span>, the slowest mode satisfies <span class="mi">\(\mu_N=\mu_1N^{-\alpha}\le\mu_1/2\)</span>, and <span class="mi">\(\chi_{\nu_N}(\mu_N)\)</span> lies between <span class="mi">\(C_*/\sqrt{2(1+\alpha)}\)</span> and <span class="mi">\(1\)</span> by (iv).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-os-scale.html" data-label="lem:app-os-scale">Lemma SH.14</a> <span class=muted>Scale invariance</span></li><li><a class="ref" href="r.def.app-os-objects.html" data-label="def:app-os-objects">Definition SH.1</a> <span class=muted>Oversampled objects</span></li><li><a class="ref" href="r.prop.app-os-head.html" data-label="prop:app-os-head">Proposition SH.1</a> <span class=muted>Head modes</span></li><li><a class="ref" href="r.lem.app-os-repr.html" data-label="lem:app-os-repr">Lemma SH.8</a> <span class=muted>Representation of the profile</span></li><li><a class="ref" href="r.thm.app-os-sqrt.html" data-label="thm:app-os-sqrt">Theorem SH.2</a> <span class=muted>Square-root law</span></li><li><a class="ref" href="r.cor.app-os-accel.html" data-label="cor:app-os-accel">Corollary SH.4</a> <span class=muted>Acceleration of a slow mode</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Oversampled.plMu</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1247">source</a></summary><pre class="lean no-mj">def plMu (α c : ℝ) (k : ℕ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.plSpec</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1286">source</a></summary><pre class="lean no-mj">def plSpec (α c : ℝ) (N : ℕ) : Measure ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.plXi</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1325">source</a></summary><pre class="lean no-mj">def plXi (α x : ℝ) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_powerlaw_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1791">source</a></summary><pre class="lean no-mj">theorem cor_app_os_powerlaw_i {α c : ℝ} (hα : 0 &lt; α) (hc : 0 &lt; c) {N i : ℕ} (hi1 : 1 ≤ i)
+    (hiN : i ≤ N) :
+    0 ≤ sqrtEff (plSpec α c N) (plMu α c i) - plXi α ((i : ℝ) / N) ∧
+      sqrtEff (plSpec α c N) (plMu α c i) - plXi α ((i : ℝ) / N) ≤ 1 / Real.sqrt N := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_powerlaw_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L2154">source</a></summary><pre class="lean no-mj">theorem cor_app_os_powerlaw_ii {α c : ℝ} (hα : 0 &lt; α) (hc : 0 &lt; c) :
+    (∀ ε : ℝ, 0 &lt; ε → ε ≤ 1 → ∀ N i : ℕ, 1 ≤ i → i ≤ N → (i : ℝ) ≤ ε * N →
+      1 - 2 * ε ^ (α / (1 + α)) ≤ sqrtEff (plSpec α c N) (plMu α c i) ∧
+        sqrtEff (plSpec α c N) (plMu α c i) ≤ 1) ∧
+    ∀ cN : ℕ → ℝ, (∀ N, 0 &lt; cN N) → ∀ εN : ℕ → ℝ, Tendsto εN atTop (𝓝 0) →
+      Tendsto (fun N : ℕ =&gt; ⨆ i ∈ (Finset.Icc 1 N).filter (fun i : ℕ =&gt; (i : ℝ) ≤ εN N * N),
+        |dOsSq (plSpec α (cN N) N) (plMu α (cN N) i) / Real.sqrt (plMu α (cN N) i / 2) - 1|)
+        atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_powerlaw_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L1908">source</a></summary><pre class="lean no-mj">theorem cor_app_os_powerlaw_iii {α : ℝ} (hα : 0 &lt; α) :
+    AntitoneOn (plXi α) (Ioc 0 1) ∧
+      (∀ x ∈ Ioc (0 : ℝ) 1, 1 - plXi α x ≤ 2 * x ^ (α / (1 + α))) ∧
+      (∀ x ∈ Ioc (0 : ℝ) 1, cStar / Real.sqrt (2 * (1 + α)) ≤ plXi α x) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_powerlaw_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L2214">source</a></summary><pre class="lean no-mj">theorem cor_app_os_powerlaw_iv {α c : ℝ} (hα : 0 &lt; α) (hc : 0 &lt; c) {N i : ℕ} (hi1 : 1 ≤ i)
+    (hiN : i ≤ N) :
+    cStar / Real.sqrt (2 * (1 + α)) * Real.sqrt (plMu α c i / 2)
+        ≤ dOsSq (plSpec α c N) (plMu α c i) ∧
+      dOsSq (plSpec α c N) (plMu α c i) ≤ Real.sqrt (plMu α c i / 2) := by</pre></details><details class="decl"><summary><code>Muon.Oversampled.cor_app_os_powerlaw_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Oversampled/Examples.lean#L2275">source</a></summary><pre class="lean no-mj">theorem cor_app_os_powerlaw_v {α c : ℝ} (hα : 0 &lt; α) (hc : 0 &lt; c) {N : ℕ}
+    (hN : 2 ≤ (N : ℝ) ^ α) :
+    cStar / Real.sqrt (2 * (1 + α)) * (N : ℝ) ^ (α / 2)
+        ≤ accelA (plSpec α c N) (plMu α c 1) (plMu α c N) ∧
+      accelA (plSpec α c N) (plMu α c 1) (plMu α c N)
+        ≤ Real.sqrt 2 / cStar * (N : ℝ) ^ (α / 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

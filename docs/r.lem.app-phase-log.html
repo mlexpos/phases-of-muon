@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SI.17 (SignSVD kernel, α=2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SI.17 (SignSVD kernel, α=2)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SI.html">Section SI</a> · Deterministic model: Volterra analysis and the phase map</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-phase-log"><div class="thm-head"><a class="thm-name" href="r.lem.app-phase-log.html" data-label="lem:app-phase-log">Lemma SI.17</a> <span class="thm-title">(<span class="sc">SignSVD</span> kernel, <span class="mi">\(\alpha=2\)</span>)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(\alpha=2\)</span>, so <span class="mi">\(q=1\)</span> and <span class="mi">\(g=2L_{N,2,1}/H_N(1)\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">For every <span class="mi">\(v\ge0\)</span>,</div>
+<div class="md">\[
+g(v)\le\frac1{H_N(1)}\Big[\frac1{1+v}+\frac{16}{(1+v)^2}\Big] .
+\]</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For <span class="mi">\(0&lt;r&lt;1\)</span>, <span class="mi">\(C&gt;0\)</span> and <span class="mi">\(h(u)=C(1+u)^{-r}\)</span>,</div>
+<div class="md">\[
+\frac{(g*h)(u)}{h(u)}\le\frac{\log(1+u)+A^{\log}_r}{H_N(1)},\qquad A^{\log}_r\defeq2^r\Big(r+\frac1{1-r}\Big)+\frac{16}{1-r} .
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For <span class="mi">\(C&gt;0\)</span> and <span class="mi">\(h(u)=C(1+u)^{-1}\)</span>,</div>
+<div class="md">\[
+\frac{(g*h)(u)}{h(u)}\le\frac{2\log(1+u)+64}{H_N(1)} .
+\]</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For (i) and <span class="mi">\(v\ge1\)</span>, <a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a> with <span class="mi">\(p=2\)</span>, <span class="mi">\(q=1\)</span>, <span class="mi">\(a=2v\)</span> gives, since <span class="mi">\(\Gamma(1)=1\)</span> and <span class="mi">\(M_{2,1}=(2/e)^2&lt;1\)</span>,</div>
+<div class="md">\[
+2L_{N,2,1}(v)\le2L_{\infty,2,1}(v)\le\frac1v+\frac{M_{2,1}}{v^2}\le\frac1{1+v}+\frac2{(1+v)^2}+\frac4{(1+v)^2} ,
+\]</div>
+<div class="p">using <span class="mi">\(\frac1v-\frac1{1+v}=\frac1{v(1+v)}\le\frac2{(1+v)^2}\)</span> and <span class="mi">\(v^{-2}\le4(1+v)^{-2}\)</span> for <span class="mi">\(v\ge1\)</span>. For <span class="mi">\(0\le v\le1\)</span>, <span class="mi">\(2L_{N,2,1}(v)\le2\zeta(2)\le4\le16(1+v)^{-2}\)</span> by <a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a>. Dividing by <span class="mi">\(H_N(1)\)</span> proves (i).</div>
+<div class="p">For (ii), the kernel <span class="mi">\((1+v)^{-1}\)</span> gives</div>
+<div class="md">\[
+\frac{\big((1+\cdot)^{-1}*h\big)(u)}{h(u)}-\log(1+u)=\int_0^u\frac{\big((1+u)/(1+u-v)\big)^r-1}{1+v}\,\dif v\le\int_0^1\frac{(1-w)^{-r}-1}w\,\dif w ,
+\]</div>
+<div class="p">where <span class="mi">\(w=v/(1+u)\)</span> and <span class="mi">\(\dif v/(1+v)\le\dif w/w\)</span> with a nonnegative integrand. For <span class="mi">\(0&lt;w\le\frac12\)</span> the mean value theorem bounds the integrand by <span class="mi">\(r2^{r+1}\)</span>, and for <span class="mi">\(\frac12&lt;w&lt;1\)</span> it is at most <span class="mi">\(2(1-w)^{-r}\)</span>; the two integrals are at most <span class="mi">\(r2^r\)</span> and <span class="mi">\(2^r/(1-r)\)</span>. The kernel <span class="mi">\((1+v)^{-2}\)</span> is decreasing with integral at most <span class="mi">\(1\)</span>, so <a class="ref" href="r.lem.app-phase-mass.html" data-label="lem:app-phase-mass">Lemma SI.13</a> bounds its ratio by <span class="mi">\(1/(1-r)\)</span>. Part (i) then gives (ii).</div>
+<div class="p">For (iii), partial fractions give</div>
+<div class="md">\[
+(1+u)\int_0^u\frac{\dif v}{(1+v)(1+u-v)}=\frac{2(1+u)}{2+u}\log(1+u)\le2\log(1+u) .
+\]</div>
+<div class="p">For the second term split at <span class="mi">\(v=u/2\)</span>: on <span class="mi">\([0,u/2]\)</span>, <span class="mi">\(1+u-v\ge(1+u)/2\)</span>, and on <span class="mi">\([u/2,u]\)</span>, <span class="mi">\((1+v)^{-2}\le4(1+u)^{-2}\)</span>. Hence</div>
+<div class="md">\[
+(1+u)\int_0^u\frac{\dif v}{(1+v)^2(1+u-v)}\le2+\frac{4\log(1+u)}{1+u}\le2+\frac4e\le4 .
+\]</div>
+<div class="p">Part (i) then gives (iii).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-phase-laplace.html" data-label="lem:app-phase-laplace">Lemma SI.6</a> <span class=muted>Convergent power sums</span></li><li><a class="ref" href="r.lem.app-phase-harmonic.html" data-label="lem:app-phase-harmonic">Lemma SI.8</a> <span class=muted>Harmonic sums</span></li><li><a class="ref" href="r.lem.app-phase-mass.html" data-label="lem:app-phase-mass">Lemma SI.13</a> <span class=muted>Local mass</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.thm.app-phase-A.html" data-label="thm:app-phase-A">Theorem SI.8</a> <span class=muted>The range <span class="mi">\(\texp&lt;1\)</span></span></li><li><a class="ref" href="r.thm.app-phase-B.html" data-label="thm:app-phase-B">Theorem SI.9</a> <span class=muted>Main covariance range</span></li><li><a class="ref" href="r.thm.app-phase-unified.html" data-label="thm:app-phase-unified">Theorem SI.14</a> <span class=muted>Unified clock</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Phase.lem_app_phase_log_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Kernels.lean#L1718">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_log_i (N : ℕ) (hN : 1 ≤ N) :
+    ∀ v : ℝ, 0 ≤ v →
+      svdKernel 2 N v ≤ (1 / Hsum 1 N) * (1 / (1 + v) + 16 / (1 + v) ^ 2) := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_log_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Kernels.lean#L2134">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_log_ii (N : ℕ) (hN : 1 ≤ N) (r : ℝ) (hr0 : 0 &lt; r) (hr1 : r &lt; 1)
+    (C : ℝ) (hC : 0 &lt; C) :
+    ∀ u : ℝ, 0 ≤ u →
+      oneSidedConv (fun w =&gt; C * (1 + w) ^ (-r)) (svdKernel 2 N) u / (C * (1 + u) ^ (-r))
+        ≤ (Real.log (1 + u) + logAr r) / Hsum 1 N := by</pre></details><details class="decl"><summary><code>Muon.Phase.lem_app_phase_log_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Phase/Kernels.lean#L2260">source</a></summary><pre class="lean no-mj">theorem lem_app_phase_log_iii (N : ℕ) (hN : 1 ≤ N) (C : ℝ) (hC : 0 &lt; C) :
+    ∀ u : ℝ, 0 ≤ u →
+      oneSidedConv (fun w =&gt; C * (1 + w) ^ (-(1 : ℝ))) (svdKernel 2 N) u
+          / (C * (1 + u) ^ (-(1 : ℝ)))
+        ≤ (2 * Real.log (1 + u) + 64) / Hsum 1 N := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

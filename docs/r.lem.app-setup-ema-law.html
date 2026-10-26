@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SA.5 (Stationary EMA law)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SA.5 (Stationary EMA law)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-setup-ema-law"><div class="thm-head"><a class="thm-name" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a> <span class="thm-title">(Stationary EMA law)</span></div><div class="thm-body"><div class="p">In the frozen-state model, index the samples by time as above, and write <span class="mi">\(\Sigma_G\defeq\Cov(\operatorname{vec}\Gt)\)</span> for the batch covariance <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-batch-cov" data-label="eqn:app-setup-batch-cov">(SA.28)</a>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">The series <span class="mi">\(\Mt=\sum_{j\ge0}\emaw{j}G_{t+1-j}\)</span> and the sample series <span class="mi">\(\sum_{j,a}\emaw{j}\abs{d_{ja}}\norm{z_{ja}}\norm{w_{ja}}\)</span> converge absolutely.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For every integer <span class="mi">\(t\)</span>, <span class="mi">\(\Mt=\bmom M_{t-1}+(1-\bmom)\Gt\)</span>, and the sequence <span class="mi">\((\Mt)_{t\in\mathbb Z}\)</span> is strictly stationary.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p"><span class="mi">\(\EE\Mt=\EE\Gt\)</span>, <span class="mi">\(\Cov(\operatorname{vec}\Mt)=\sw2\,\Sigma_G\)</span>, and <span class="mi">\(\EE\norm{\Mt-\EE\Gt}_\F^2=\sw2\,\mathsf V_B\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">For every lag <span class="mi">\(\ell\ge0\)</span>, <span class="mi">\(\Cov(\operatorname{vec}\Mt,\operatorname{vec}M_{t+\ell})=\bmom^\ell\,\sw2\,\Sigma_G\)</span>.</div></div></li><li><span class="li-mark">(v)</span><div class="li-body"><div class="p">For every positive integer <span class="mi">\(T\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-block-cov"></span>\begin{equation}\tag{SA.31}
+\Cov\Big(\sum_{t=1}^T\operatorname{vec}(\Mt-\EE\Gt)\Big)
+=\sw2\Big[T+2\sum_{\ell=1}^{T-1}(T-\ell)\bmom^\ell\Big]\Sigma_G
+=\Big[T-\frac{2\bmom(1-\bmom^T)}{1-\bmom^2}\Big]\Sigma_G ,
+\end{equation}</div>
+<div class="p">the two-sided lag sum <span class="mi">\(\sum_{\ell\in\mathbb Z}\Cov(\operatorname{vec}\Mt,\operatorname{vec}M_{t+\ell})\)</span> converges absolutely and equals <span class="mi">\(\Sigma_G\)</span>, and <span class="mi">\(T^{-1}\Cov(\sum_{t\le T}\operatorname{vec}(\Mt-\EE\Gt))\to\Sigma_G\)</span> as <span class="mi">\(T\to\infty\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Part (i) holds because <span class="mi">\(\sum_j\emaw j=1\)</span> and the batches are identically distributed.</div>
+<div class="p">The recursion is a reindexing of the series:</div>
+<div class="md">\[
+\bmom M_{t-1}+(1-\bmom)\Gt=\sum_{j\ge0}(1-\bmom)\bmom^{j+1}G_{t-j}+(1-\bmom)G_{t+1}
+=\sum_{j\ge1}\emaw{j}G_{t+1-j}+\emaw0G_{t+1}=\Mt .
+\]</div>
+<div class="p">Strict stationarity holds because the batches are independent and identically distributed, so that a common shift of the times is a relabeling of the batches. This proves (ii).</div>
+<div class="p">The moments follow from the orthogonality of the centered batches. For <span class="mi">\(k\le l\)</span>, independence and centering give</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-orthogonality"></span>\begin{equation}\tag{SA.32}
+\EE\Big\|\sum_{j=k}^l\emaw{j}\big(G_{t+1-j}-\EE\Gt\big)\Big\|_\F^2=\mathsf V_B\sum_{j=k}^l\emaw{j}^2 .
+\end{equation}</div>
+<div class="p">The mean is <span class="mi">\(\sum_j\emaw j\,\EE\Gt=\EE\Gt\)</span> by <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>; the covariance is <span class="mi">\(\sum_j\emaw j^2\,\Sigma_G=\sw2\Sigma_G\)</span> by the same orthogonality; and the Frobenius variance is <a class="ref" href="r.lem.app-setup-ema-law.html#L-eqn:app-setup-orthogonality" data-label="eqn:app-setup-orthogonality">(SA.32)</a> with <span class="mi">\(k=0\)</span>, <span class="mi">\(l\to\infty\)</span>. This proves (iii).</div>
+<div class="p">The lag covariance follows from the decomposition of a later buffer into the past and a new part. By the reindexing of the series, for <span class="mi">\(\ell\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-lag-decomposition"></span>\begin{equation}\tag{SA.33}
+M_{t+\ell}=\bmom^\ell\,\Mt+\sum_{r=0}^{\ell-1}\emaw{r}\,G_{t+\ell+1-r},
+\end{equation}</div>
+<div class="p">where the finite sum involves only batches of times larger than <span class="mi">\(t+1\)</span> and is therefore independent of <span class="mi">\(\Mt\)</span>. Centering and bilinearity of the covariance give <span class="mi">\(\Cov(\operatorname{vec}\Mt,\operatorname{vec}M_{t+\ell})=\bmom^\ell\Cov(\operatorname{vec}\Mt)=\bmom^\ell\sw2\Sigma_G\)</span>. This proves (iv).</div>
+<div class="p">The block covariance is a sum over the <span class="mi">\(T^2\)</span> pairs of times. By (iii) and (iv), and the symmetry of the covariance under exchanging the two times,</div>
+<div class="md">\[
+\Cov\Big(\sum_{t=1}^T\operatorname{vec}(\Mt-\EE\Gt)\Big)=\sum_{t,t'=1}^T\bmom^{\abs{t-t'}}\sw2\Sigma_G
+=\sw2\Big[T+2\sum_{\ell=1}^{T-1}(T-\ell)\bmom^\ell\Big]\Sigma_G ,
+\]</div>
+<div class="p">which is the first form of <a class="ref" href="r.lem.app-setup-ema-law.html#L-eqn:app-setup-block-cov" data-label="eqn:app-setup-block-cov">(SA.31)</a>. The scalar identity</div>
+<div class="md">\[
+\sum_{\ell=1}^{T-1}(T-\ell)\bmom^\ell=\sum_{k=1}^{T-1}\sum_{\ell=1}^k\bmom^\ell=\frac{\bmom}{1-\bmom}\sum_{k=1}^{T-1}(1-\bmom^k)
+=\frac{T\bmom}{1-\bmom}-\frac{\bmom(1-\bmom^T)}{(1-\bmom)^2}
+\]</div>
+<div class="p">follows from writing <span class="mi">\(T-\ell\)</span> as the number of <span class="mi">\(k\)</span> with <span class="mi">\(\ell\le k\le T-1\)</span> and exchanging the order of summation, and inserting it with <span class="mi">\(\sw2=(1-\bmom)/(1+\bmom)\)</span> gives the second form. The two-sided lag sum converges absolutely by the geometric majorant <span class="mi">\(\bmom^{\abs\ell}\)</span> and equals</div>
+<div class="md">\[
+\sw2\Big(1+2\sum_{\ell\ge1}\bmom^\ell\Big)\Sigma_G=\frac{1-\bmom}{1+\bmom}\cdot\frac{1+\bmom}{1-\bmom}\,\Sigma_G=\Sigma_G ,
+\]</div>
+<div class="p">and the limit of <span class="mi">\(T^{-1}\)</span> times <a class="ref" href="r.lem.app-setup-ema-law.html#L-eqn:app-setup-block-cov" data-label="eqn:app-setup-block-cov">(SA.31)</a> is the same value. This proves (v).</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a> <span class=muted>Gaussian covariance of a batch</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.prop.app-setup-startup.html" data-label="prop:app-setup-startup">Proposition SA.6</a> <span class=muted>Startup and bias correction</span></li><li><a class="ref" href="r.rem.app-setup-linear-buffer.html" data-label="rem:app-setup-linear-buffer">Remark SA.3</a> <span class=muted>The linear buffer and the filtered update</span></li><li><a class="ref" href="r.lem.app-vol-square.html" data-label="lem:app-vol-square">Lemma SD.3</a> <span class=muted>Square truncation</span></li><li><a class="ref" href="r.thm.app-vol-lag-reduction.html" data-label="thm:app-vol-lag-reduction">Theorem SD.2</a> <span class=muted>Lag reduction</span></li><li><a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a> <span class=muted>Laws of the frozen chains</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.SigmaG</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L130">source</a></summary><pre class="lean no-mj">def SigmaG (S : FrozenSamples P m n B) (F : FrozenParams m n B) :
+    Fin m → Fin n → Fin m → Fin n → ℝ :=</pre></details><details class="decl"><summary><code>Muon.Setup.crossCovT</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L124">source</a></summary><pre class="lean no-mj">def crossCovT {m n : ℕ} (P : Measure Ω) (X Y : Ω → Mat m n) :
+    Fin m → Fin n → Fin m → Fin n → ℝ :=</pre></details><details class="decl"><summary><code>Muon.Setup.StrictlyStationary</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L146">source</a></summary><pre class="lean no-mj">def StrictlyStationary {E : Type*} [MeasurableSpace E] (P : Measure Ω) (X : ℤ → Ω → E) :
+    Prop :=</pre></details><details class="decl"><summary><code>Muon.Setup.blockSum</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L140">source</a></summary><pre class="lean no-mj">def blockSum (S : FrozenSamples P m n B) (F : FrozenParams m n B) (T : ℕ) : Ω → Mat m n :=</pre></details><details class="decl"><summary><code>Muon.Setup.eucNorm</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L39">source</a></summary><pre class="lean no-mj">def eucNorm {k : ℕ} (z : Vec k) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Setup.frozenVB</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L136">source</a></summary><pre class="lean no-mj">def frozenVB (S : FrozenSamples P m n B) (F : FrozenParams m n B) : ℝ :=</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_ema_law_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L1948">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_ema_law_i [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) :
+    (∀ᵐ ω ∂P, ∀ t : ℤ, Summable fun j : ℕ =&gt;
+        fro (emaW F.β j • frozenBatchG F S (t + 1 - (j : ℤ)) ω)) ∧
+      (∀ᵐ ω ∂P, ∀ t : ℤ, Summable fun p : ℕ × Fin B =&gt;
+        emaW F.β p.1 *
+          |dotProduct (S.zw (t + 1 - (p.1 : ℤ)) p.2 ω).1
+              (Matrix.mulVec F.A (S.zw (t + 1 - (p.1 : ℤ)) p.2 ω).2)| *
+          eucNorm (S.zw (t + 1 - (p.1 : ℤ)) p.2 ω).1 *
+          eucNorm (S.zw (t + 1 - (p.1 : ℤ)) p.2 ω).2) := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_ema_law_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L1990">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_ema_law_ii [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) :
+    (∀ᵐ ω ∂P, ∀ t : ℤ, frozenBuf F S t ω =
+        F.β • frozenBuf F S (t - 1) ω + (1 - F.β) • frozenBatchG F S (t + 1) ω) ∧
+      StrictlyStationary P (frozenBuf F S) := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_ema_law_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L2547">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_ema_law_iii [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (t : ℤ) :
+    mean P (frozenBuf F S t) = mean P (frozenBatchG F S (t + 1)) ∧
+      covT P (frozenBuf F S t) = sPow F.β 2 • SigmaG S F ∧
+      ∫ ω, (fro (frozenBuf F S t ω - mean P (frozenBatchG F S (t + 1)))) ^ 2 ∂P =
+        sPow F.β 2 * frozenVB S F := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_ema_law_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L2611">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_ema_law_iv [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (t : ℤ) (ℓ : ℕ) :
+    crossCovT P (frozenBuf F S t) (frozenBuf F S (t + (ℓ : ℤ))) =
+      (F.β ^ ℓ * sPow F.β 2) • SigmaG S F := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_ema_law_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L2859">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_ema_law_v [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) :
+    (∀ T : ℕ, 0 &lt; T →
+      (covT P (blockSum S F T) = (sPow F.β 2 * ((T : ℝ) +
+          2 * ∑ ℓ ∈ Finset.Ico 1 T, ((T : ℝ) - (ℓ : ℝ)) * F.β ^ ℓ)) • SigmaG S F ∧
+        covT P (blockSum S F T) = ((T : ℝ) - 2 * F.β * (1 - F.β ^ T) / (1 - F.β ^ 2)) •
+          SigmaG S F)) ∧
+    (∀ (t : ℤ) (i : Fin m) (j : Fin n) (k : Fin m) (l : Fin n),
+      Summable (fun ℓ : ℤ =&gt; |crossCovT P (frozenBuf F S t) (frozenBuf F S (t + ℓ)) i j k l|) ∧
+        HasSum (fun ℓ : ℤ =&gt; crossCovT P (frozenBuf F S t) (frozenBuf F S (t + ℓ)) i j k l)
+          (SigmaG S F i j k l)) ∧
+    Tendsto (fun T : ℕ =&gt; ((T : ℝ))⁻¹ • covT P (blockSum S F T)) atTop (𝓝 (SigmaG S F)) := by</pre></details><details class="decl"><summary><code>Muon.Setup.eqn_app_setup_orthogonality</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L1326">source</a></summary><pre class="lean no-mj">theorem eqn_app_setup_orthogonality [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) (t : ℤ) {k l : ℕ} (hkl : k ≤ l) :
+    ∫ ω, (fro (∑ j ∈ Finset.Icc k l,
+        emaW F.β j • (frozenBatchG F S (t + 1 - (j : ℤ)) ω - mean P (frozenBatchG F S 0)))) ^ 2
+      ∂P
+      = frozenVB S F * ∑ j ∈ Finset.Icc k l, emaW F.β j ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Setup.eqn_app_setup_lag_decomposition</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L1538">source</a></summary><pre class="lean no-mj">theorem eqn_app_setup_lag_decomposition [IsProbabilityMeasure P] (F : FrozenParams m n B)
+    (S : FrozenSamples P m n B) :
+    ∀ᵐ ω ∂P, ∀ (t : ℤ) (ℓ : ℕ), frozenBuf F S (t + (ℓ : ℤ)) ω =
+      F.β ^ ℓ • frozenBuf F S t ω
+        + ∑ r ∈ Finset.range ℓ, emaW F.β r • frozenBatchG F S (t + (ℓ : ℤ) + 1 - (r : ℤ)) ω := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

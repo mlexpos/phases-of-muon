@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SD.3 (Square truncation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SD.3 (Square truncation)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SD.html">Section SD</a> · Volatility: same-time and temporal</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-vol-square"><div class="thm-head"><a class="thm-name" href="r.lem.app-vol-square.html" data-label="lem:app-vol-square">Lemma SD.3</a> <span class="thm-title">(Square truncation)</span></div><div class="thm-body"><div class="p">For <span class="mi">\(\ridge&gt;0\)</span>, <span class="mi">\(T&gt;0\)</span> and <span class="mi">\(x\in\R\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-QT-scalar"></span>\begin{equation}\tag{SD.13}
+0\le\frac{\omega_{\ridge,T}(x)}{\omega_\ridge(x)}\le1\quad(x\ne0),\qquad
+\abs{\omega_\ridge(x)-\omega_{\ridge,T}(x)}\le\frac{2\abs x}{\pi T}.
+\end{equation}</div>
+<div class="p">Consequently, for random <span class="mi">\(K,H\in\R^{\Nout\times\Nin}\)</span> with <span class="mi">\(B^{-1}\EE\norm K_\F^2\le C_M\)</span> and <span class="mi">\(B^{-1}\EE\norm H_\F^2\le C_M\)</span>, and for <span class="mi">\(\norm F,\norm G\le1\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-vol-square"></span>\begin{equation}\tag{SD.14}
+\Big|\EE\,\mathcal K^{F,G}[\omega_\ridge,\omega_{\ridge'}](K,H)
+-\frac4{\pi^2}\int_0^T\!\!\int_0^T\EE\,\mathcal K^{F,G}_{\ridge+x^2,\ridge'+y^2}(K,H)\,dx\,dy\Big|
+\le\frac{4\sqrt{\gamma_\star C_M}}{\pi T}.
+\end{equation}</div>
+<div class="p">In the frozen-state model, <span class="mi">\(B^{-1}\EE\norm{\Mt}_\F^2\le C_M\defeq C_\Sigma^2(\gamma_\star+2)^2\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The scalar statements are the integral of <a class="ref" href="r.lem.app-setup-contour.html" data-label="lem:app-setup-contour">Lemma SA.3</a> split at <span class="mi">\(T\)</span>. For <span class="mi">\(x\ne0\)</span>,</div>
+<div class="md">\[
+\omega_\ridge(x)-\omega_{\ridge,T}(x)=\frac2\pi\int_T^\infty\frac{x}{x^2+\ridge+y^2}\,dy ,
+\]</div>
+<div class="p">which has the sign of <span class="mi">\(x\)</span> and absolute value at most <span class="mi">\(\frac2\pi\abs x\int_T^\infty y^{-2}dy=2\abs x/(\pi T)\)</span>; the truncated integral has the same sign and a smaller absolute value than the full one, which is <span class="mi">\(\omega_\ridge(x)\)</span> by the scalar identity in the proof of <a class="ref" href="r.lem.app-setup-contour.html" data-label="lem:app-setup-contour">Lemma SA.3</a>.</div>
+<div class="p">The matrix bound follows from the scalar one. Applied to the singular values, <a class="ref" href="r.lem.app-vol-square.html#L-eqn:app-vol-QT-scalar" data-label="eqn:app-vol-QT-scalar">(SD.13)</a> gives</div>
+<div class="md">\[
+\norm{\Qridge{\ridge,T}(K)}_\F\le\norm{\Qridge\ridge(K)}_\F\le\sqrt{\gamma_\star B},\qquad
+\norm{\Qridge\ridge(K)-\Qridge{\ridge,T}(K)}_\F\le\frac{2}{\pi T}\norm K_\F .
+\]</div>
+<div class="p">Telescoping the two arguments as in the proof of <a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a>,</div>
+<div class="md">\[
+\big|\mathcal K^{F,G}[\omega_\ridge,\omega_{\ridge'}](K,H)-\mathcal K^{F,G}[\omega_{\ridge,T},\omega_{\ridge',T}](K,H)\big|
+\le\frac{2\sqrt{\gamma_\star}}{\pi T}\Big(\frac{\norm K_\F}{\sqrt B}+\frac{\norm H_\F}{\sqrt B}\Big),
+\]</div>
+<div class="p">whose expectation is at most <span class="mi">\(4\sqrt{\gamma_\star C_M}/(\pi T)\)</span> by the Cauchy–Schwarz inequality. The truncated contraction is the double integral of the resolvent contractions, because <span class="mi">\(\Qridge{\ridge,T}\)</span> is the integral <a class="ref" href="s.SD.html#L-eqn:app-vol-QT" data-label="eqn:app-vol-QT">(SD.12)</a> and the trace is bilinear; this gives <a class="ref" href="r.lem.app-vol-square.html#L-eqn:app-vol-square" data-label="eqn:app-vol-square">(SD.14)</a>.</div>
+<div class="p">The second-moment bound is <a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a>(iii) with the bounds of <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(iv):</div>
+<div class="md">\[
+\begin{aligned}
+\frac1B\EE\norm{\Mt}_\F^2&amp;=\frac1B\Big(\norm{\EE\Gt}_\F^2+\sw2\mathsf V_B\Big)
+\le\frac{C_\Sigma^2}{B}+\frac{C_\Sigma^2}{B^2}\big(\Nout\Nin+2\Nout+2\Nin+3\big)\\
+&amp;\le C_\Sigma^2(\gamma_\star+2)^2=C_M ,
+\end{aligned}
+\]</div>
+<div class="p">using <span class="mi">\(\sw2\le1\)</span>, <span class="mi">\(\Nout,\Nin\le\gamma_\star B\)</span> and <span class="mi">\(B\ge1\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-setup-contour.html" data-label="lem:app-setup-contour">Lemma SA.3</a> <span class=muted>Integral representation</span></li><li><a class="ref" href="r.lem.app-vol-finite.html" data-label="lem:app-vol-finite">Lemma SD.2</a> <span class=muted>Finite bounds for tested contractions</span></li><li><a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a> <span class=muted>Stationary EMA law</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-vol-filtered-replacement.html" data-label="cor:app-vol-filtered-replacement">Corollary SD.1</a> <span class=muted>Replacement for the filtered updates</span></li><li><a class="ref" href="r.thm.app-vol-integrated.html" data-label="thm:app-vol-integrated">Theorem SD.4</a> <span class=muted>Integrated identification</span></li><li><a class="ref" href="r.lem.app-dyn-chains.html" data-label="lem:app-dyn-chains">Lemma SE.2</a> <span class=muted>Laws of the frozen chains</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_square_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L1513">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_square_i (ϱ T : ℝ) (hϱ : 0 &lt; ϱ) (hT : 0 &lt; T) :
+    (∀ x : ℝ, x ≠ 0 → 0 ≤ omegaT ϱ T x / omegaF ϱ x ∧ omegaT ϱ T x / omegaF ϱ x ≤ 1) ∧
+    ∀ x : ℝ, |omegaF ϱ x - omegaT ϱ T x| ≤ 2 * |x| / (Real.pi * T) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_square_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L2029">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_square_ii {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] {m n B : ℕ} (hB : 0 &lt; B) (γstar CM : ℝ)
+    (hdim : ((min m n : ℕ) : ℝ) ≤ γstar * B)
+    (F : Matrix (Fin m) (Fin m) ℝ) (G : Matrix (Fin n) (Fin n) ℝ)
+    (hF : opNorm F ≤ 1) (hG : opNorm G ≤ 1)
+    (K H : Ω → Mat m n)
+    (hK : ∀ i j, Measurable fun ω =&gt; K ω i j) (hH : ∀ i j, Measurable fun ω =&gt; H ω i j)
+    (hKm : ENNReal.ofReal ((B : ℝ)⁻¹) * ∫⁻ ω, ENNReal.ofReal (fro (K ω) ^ 2) ∂P ≤
+      ENNReal.ofReal CM)
+    (hHm : ENNReal.ofReal ((B : ℝ)⁻¹) * ∫⁻ ω, ENNReal.ofReal (fro (H ω) ^ 2) ∂P ≤
+      ENNReal.ofReal CM)
+    (ϱ ϱ' T : ℝ) (hϱ : 0 &lt; ϱ) (hϱ' : 0 &lt; ϱ') (hT : 0 &lt; T) :
+    |(∫ ω, contraction B F G (omegaF ϱ) (omegaF ϱ') (K ω) (H ω) ∂P) -
+        (4 / Real.pi ^ 2) * ∫ x in (0 : ℝ)..T, ∫ y in (0 : ℝ)..T,
+          ∫ ω, contraction B F G (iotaF (ϱ + x ^ 2)) (iotaF (ϱ' + y ^ 2)) (K ω) (H ω) ∂P|
+      ≤ 4 * Real.sqrt (γstar * CM) / (Real.pi * T) := by</pre></details><details class="decl"><summary><code>Muon.Volatility.lem_app_vol_square_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Volatility/OddSpectral.lean#L2404">source</a></summary><pre class="lean no-mj">theorem lem_app_vol_square_iii {Ω : Type*} [MeasurableSpace Ω] {P : Measure Ω}
+    [IsProbabilityMeasure P] {m n B : ℕ}
+    (Fp : Muon.Setup.FrozenParams m n B) (S : Muon.Setup.FrozenSamples P m n B)
+    (CSig γstar : ℝ) (hCout : opNorm Fp.C.Sout ≤ CSig) (hCin : opNorm Fp.C.Sin ≤ CSig)
+    (hm : (m : ℝ) ≤ γstar * B) (hn : (n : ℝ) ≤ γstar * B) (t : ℤ) :
+    ENNReal.ofReal ((B : ℝ)⁻¹) *
+        ∫⁻ ω, ENNReal.ofReal (fro (Muon.Setup.frozenBuf Fp S t ω) ^ 2) ∂P ≤
+      ENNReal.ofReal (CSig ^ 2 * (γstar + 2) ^ 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

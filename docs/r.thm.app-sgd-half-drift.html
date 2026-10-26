@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SJ.2 (Half-anisotropic drift)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SJ.2 (Half-anisotropic drift)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-sgd-half-drift"><div class="thm-head"><a class="thm-name" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a> <span class="thm-title">(Half-anisotropic drift)</span></div><div class="thm-body"><div class="p">In the Haar model of <a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> with <span class="mi">\(k\ge k_*\)</span>, there is an admissible constant <span class="mi">\(C_*\)</span> such that</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-half-drift"></span>\begin{equation}\tag{SJ.27}
+\EE_U\big\|U^\T M(U)-L_B\,\Lambda D\big\|_\F^2\le C_* ,
+\end{equation}</div>
+<div class="p">while the leading term satisfies</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-half-leading"></span>\begin{equation}\tag{SJ.28}
+b_-B\le\norm{L_B\Lambda D}_\F^2\le b_+B,\qquad b_-\defeq\frac{8c^2f_-^2}{\pi^3L^2f_+^2},\quad b_+\defeq\frac{2L^2f_+^2}{\pi c^2f_-^2}.
+\end{equation}</div>
+<div class="p">In particular the relative error of the mean update in <span class="mi">\(L^2(U)\)</span> Frobenius norm is at most <span class="mi">\(\sqrt{C_*/(b_-B)}\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The diagonal normalization of <a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> is replaced by the constant <span class="mi">\(\bar\mu\)</span>. Since <span class="mi">\(U^\T U\Lambda D=\Lambda D\)</span> and <span class="mi">\(\sqrt{2/\pi}\,\mathcal N_B/\sqrt{2\cR\bar\mu}=L_B\)</span>,</div>
+<div class="md">\[
+U^\T M-L_B\Lambda D=U^\T E+U^\T N,\qquad N\defeq\sqrt{\frac2\pi}\,\frac{\mathcal N_B}{\sqrt{2\cR}}\big(D_v^{-1/2}-\bar\mu^{-1/2}\Id\big)U\Lambda D .
+\]</div>
+<div class="p">The correction <span class="mi">\(N\)</span> is controlled by the fluctuation of the diagonal of <span class="mi">\(\Sigmaout\)</span>. On <span class="mi">\([c,L]\)</span> the derivative of <span class="mi">\(x^{-1/2}\)</span> is at most <span class="mi">\(\frac12c^{-3/2}\)</span> in absolute value, and the <span class="mi">\(p\)</span>th row of <span class="mi">\(U\Lambda D\)</span> has squared norm <span class="mi">\(e_p\defeq\omega_p^\T T_D\omega_p\)</span>. Hence</div>
+<div class="md">\[
+\EE_U\norm N_\F^2\le\frac{\frac2\pi B}{4P_-c^3}\sum_p\EE_U\big[(v_p-\bar\mu)^2e_p\big].
+\]</div>
+<div class="p">The two factors are dependent, and Cauchy–Schwarz with <a class="ref" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> gives</div>
+<div class="md">\[
+\EE_U\big[(v_p-\bar\mu)^2e_p\big]\le\big(\EE_U(v_p-\bar\mu)^4\,\EE_Ue_p^2\big)^{1/2}\le\Big(\frac{60L^4}{\Nout^2}\cdot\frac{3H_0^2}{\Nout^2}\Big)^{1/2}=\frac{\sqrt{180}\,L^2H_0}{\Nout^2}.
+\]</div>
+<div class="p">Summing over <span class="mi">\(\Nout\)</span> rows and using <span class="mi">\(B\le K\Nout\)</span> gives <span class="mi">\(\EE_U\norm N_\F^2\le C_N\defeq\frac2\pi K\sqrt{180}L^2H_0/(4P_-c^3)\)</span>.</div>
+<div class="p">Orthogonal invariance of the Frobenius norm, <span class="mi">\(\norm{X+Y}_\F^2\le2\norm X_\F^2+2\norm Y_\F^2\)</span> and <a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> give <a class="ref" href="r.thm.app-sgd-half-drift.html#L-eqn:app-sgd-half-drift" data-label="eqn:app-sgd-half-drift">(SJ.27)</a> with <span class="mi">\(C_*\defeq2C_E+2C_N\)</span>.</div>
+<div class="p">For <a class="ref" href="r.thm.app-sgd-half-drift.html#L-eqn:app-sgd-half-leading" data-label="eqn:app-sgd-half-leading">(SJ.28)</a>, write</div>
+<div class="md">\[
+\norm{L_B\Lambda D}_\F^2=\frac2\pi\,\frac{\mathcal N_B^2\,\norm{\Lambda D}_\F^2}{2\cR\,\bar\mu},
+\]</div>
+<div class="p">and use <span class="mi">\(c^2f_-^2\le\norm{\Lambda D}_\F^2\le L^2f_+^2\)</span>, <span class="mi">\(c^2f_-^2\le2\cR\bar\mu\le L^2f_+^2\)</span>, and <span class="mi">\(4B/\pi^2\le\mathcal N_B^2\le B\)</span> from <a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> <span class=muted>Coordinate errors in Frobenius norm</span></li><li><a class="ref" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> <span class=muted>Spherical moments</span></li><li><a class="ref" href="r.prop.app-sgd-batch-coefficient.html" data-label="prop:app-sgd-batch-coefficient">Proposition SJ.1</a> <span class=muted>The batch constant</span></li><li><a class="ref" href="r.def.app-sgd-state-law.html" data-label="def:app-sgd-state-law">Definition SJ.3</a> <span class=muted>Haar state law</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-sgd-half-pairings.html" data-label="cor:app-sgd-half-pairings">Corollary SJ.1</a> <span class=muted>Row and risk drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_half_drift_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L2573">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_half_drift_i (P : HaarParams) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ (n m B : ℕ) (μ : Fin n → ℝ) (D : Matrix (Fin n) (Fin m) ℝ)
+      (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)), IsOrthHaar ν →
+      def_app_sgd_state_law P n m B μ D → haarKStar P ≤ kOf n m B →
+      (∫⁻ U, ENNReal.ofReal (frobNorm (haarDriftErr B μ D U) ^ 2) ∂ν ≤ ENNReal.ofReal C) ∧
+      (∫⁻ U, ENNReal.ofReal (frobNorm (haarDriftErr B μ D U) ^ 2) ∂ν
+        ≤ ENNReal.ofReal (C / (haarBminus P * (B : ℝ))
+            * frobNorm (LB B μ D • (Matrix.diagonal μ * D)) ^ 2)) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.thm_app_sgd_half_drift_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L2714">source</a></summary><pre class="lean no-mj">theorem thm_app_sgd_half_drift_ii (P : HaarParams) (n m B : ℕ) (μ : Fin n → ℝ)
+    (D : Matrix (Fin n) (Fin m) ℝ) (hstate : def_app_sgd_state_law P n m B μ D)
+    (hk : haarKStar P ≤ kOf n m B) :
+    haarBminus P * (B : ℝ) ≤ frobNorm (LB B μ D • (Matrix.diagonal μ * D)) ^ 2 ∧
+    frobNorm (LB B μ D • (Matrix.diagonal μ * D)) ^ 2 ≤ haarBplus P * (B : ℝ) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

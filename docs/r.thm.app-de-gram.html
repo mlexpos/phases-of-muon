@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theorem SB.2 (Gram closure)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Theorem SB.2 (Gram closure)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SB.html">Section SB</a> · Deterministic equivalents for the EMA Gram resolvent</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-theorem" id="L-thm:app-de-gram"><div class="thm-head"><a class="thm-name" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a> <span class="thm-title">(Gram closure)</span></div><div class="thm-body"><div class="p">Under <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>, in the frozen-state model with a weight sequence <span class="mi">\(w\)</span> satisfying <a class="ref" href="s.SB.html#L-eqn:app-de-weightclass" data-label="eqn:app-de-weightclass">(SB.27)</a>, let <span class="mi">\((\sigma,\tilde\sigma,\tilde s_1,s_1)(z)\)</span> be the solution of the weighted system <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-system" data-label="eqn:app-de-system">(SB.2)</a> for the weights <span class="mi">\(w\)</span> and the spectral measures <a class="ref" href="s.SA.html#L-eqn:app-setup-spectral-measures" data-label="eqn:app-setup-spectral-measures">(SA.41)</a>, and let <span class="mi">\(\Rbar,\Rtbar\)</span> be as in <a class="ref" href="r.def.app-de-branch.html#L-eqn:app-de-Rbar" data-label="eqn:app-de-Rbar">(SB.3)</a>. Then for every compact <span class="mi">\(I\subset(0,\infty)\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-gram-closure"></span>\begin{equation}\tag{SB.28}
+\sup_{s\in I}\Big(\norm{\EE R(-s)-\Rbar(-s)}+\norm{\EE\widetilde R(-s)-\Rtbar(-s)}\Big)\longrightarrow0 .
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.thm.app-de-gram.html" data-label="thm:app-de-gram">Theorem SB.2</a>.</div><div class="p">We prove the output-side statement. The input side is the same argument applied to <span class="mi">\(\Mt^\T=\sum_{j,a}\mathsf h_{ja}\,\mathsf v_{ja}\tensor\mathsf u_{ja}\)</span>, with the roles of <span class="mi">\((\Sigmaout,z_{ja},\Ahat)\)</span> and <span class="mi">\((\Sigmain,w_{ja},\Ahat^\T)\)</span> exchanged; this exchange leaves <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> and every lemma above invariant, and it produces the same scalars <span class="mi">\((\sigma_B,\tilde\sigma_B,q_B)\)</span>. Fix <span class="mi">\(s\in I\)</span>; all bounds below are uniform in <span class="mi">\(s\in I\)</span>.</div>
+<div class="p"><em>Step 1: the deletion identity in expectation.</em> The starting point is the third identity of <a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a>,</div>
+<div class="md">\[
+\Id-sR(-s)=R(-s)\Mt\Mt^\T .
+\]</div>
+<div class="p">By <a class="ref" href="s.SB.html#L-eqn:app-de-M-samples" data-label="eqn:app-de-M-samples">(SB.26)</a>, the right side is a sum over samples,</div>
+<div class="md">\[
+R(-s)\Mt\Mt^\T=\sum_{j\ge0}\sum_{a=1}^B\big(\mathsf h_{ja}R(-s)\Mt\mathsf v_{ja}\big)\tensor\mathsf u_{ja} ,
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-RMv" data-label="eqn:app-de-deletion-RMv">(SB.15)</a>, applied to each sample with the deleted buffer <span class="mi">\(M_0^{(ja)}\)</span>, rewrites each term through the deleted resolvents:</div>
+<div class="md">\[
+R(-s)\Mt\Mt^\T=\sum_{j\ge0}\sum_{a=1}^B\big(-\alpha_{3,ja}R_0^{(ja)}\mathsf u_{ja}+\alpha_{1,ja}\mathsf X_0^{(ja)}\mathsf v_{ja}\big)\tensor\mathsf u_{ja} .
+\]</div>
+<div class="p">Taking expectations and using exchangeability within each age,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-step1"></span>\begin{equation}\tag{SB.38}
+\Id-s\,\mathcal P(s)=B\sum_{j\ge0}\EE\big[-\alpha_{3,j}\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)+\alpha_{1,j}\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big].
+\end{equation}</div>
+<div class="p"><em>Step 2: the Gram term.</em> Fix <span class="mi">\(j\)</span> and write</div>
+<div class="md">\[
+\varpi\defeq\emaw j,\qquad x\defeq\varpi^2q_B\in[0,q_I],\qquad \psi\defeq\psi_x .
+\]</div>
+<div class="p">Adding and subtracting the target coefficient <span class="mi">\(\check\alpha_{3,j}\)</span> of <a class="ref" href="r.lem.app-de-replace.html#L-eqn:app-de-targets" data-label="eqn:app-de-targets">(SB.33)</a> gives</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-step2-split"></span>\begin{equation}\tag{SB.39}
+\begin{aligned}
+B\,\EE\big[-\alpha_{3,j}R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]
+={}&amp;B\,\EE\big[(-\alpha_{3,j}+\check\alpha_{3,j})R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]\\
+&amp;+s\,\varpi^2\tilde\sigma_B\cdot B\,\EE\big[\psi(d_j)\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big].
+\end{aligned}
+\end{equation}</div>
+<div class="p">The first term of <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step2-split" data-label="eqn:app-de-step2-split">(SB.39)</a> is a replacement error, bounded by the Bessel inequality. Put <span class="mi">\(e\defeq-\alpha_{3,j}+\check\alpha_{3,j}\)</span> and write <span class="mi">\(\mathcal G=\mathcal G_{j1}\)</span>. We use the two identities</div>
+<div class="md">\[
+B\,\mathsf u_j\tensor\mathsf u_j=\Sigmaout^{1/2}(z_j\tensor z_j)\Sigmaout^{1/2},\qquad
+\EE_{\mathcal G}[(z_j\tensor z_j)\,e]=\EE_{\mathcal G}[(z_j\tensor z_j-\Id)\,e]+\Id\,\EE_{\mathcal G}e .
+\]</div>
+<div class="p">With <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> for the centered part and <span class="mi">\(\abs{\EE_{\mathcal G}e}\le\norm e_{2,\mathcal G}\)</span> for the second, they give</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-bessel-uu"></span>\begin{equation}\tag{SB.40}
+\big\|B\,\EE_{\mathcal G}[(\mathsf u_j\tensor\mathsf u_j)\,e]\big\|\le C_\Sigma\big(\sqrt2+1\big)\norm e_{2,\mathcal G}.
+\end{equation}</div>
+<div class="p">The matrix <span class="mi">\(R_0^{(j)}\)</span> is built from the samples other than <span class="mi">\((j,1)\)</span> and satisfies <span class="mi">\(\norm{R_0^{(j)}}\le1/s\)</span>, and <span class="mi">\(\EE\norm e_{2,\mathcal G}\le\norm e_2\)</span> by Jensen’s inequality. Hence, by the tower property, <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-bessel-uu" data-label="eqn:app-de-bessel-uu">(SB.40)</a> and <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[e\,R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]\Big\|
+=\Big\|\EE\big[R_0^{(j)}\,B\,\EE_{\mathcal G}[(\mathsf u_j\tensor\mathsf u_j)\,e]\big]\Big\|
+\le\frac{(1+\sqrt2)C_\Sigma}{s_-}\norm e_2\le C_I\,\varpi^2e_B .
+\]</div>
+<div class="p">The second derivative of <span class="mi">\(\psi_x\)</span> is bounded by <span class="mi">\(6\)</span>, by a scaling computation. For <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+\psi_x(d)=\frac1x\,\chi(\sqrt x\,d),\qquad \chi(y)\defeq\frac{y^2}{1+y^2},
+\]</div>
+<div class="p">so that</div>
+<div class="md">\[
+\psi_x''(d)=\chi''(\sqrt x\,d),\qquad \chi''(y)=\frac{2-6y^2}{(1+y^2)^3},\qquad \abs{\chi''(y)}\le\frac{2+6y^2}{(1+y^2)^3}\le6 ,
+\]</div>
+<div class="p">and at <span class="mi">\(x=0\)</span> the second derivative is the constant <span class="mi">\(\psi_0''=2\)</span>.</div>
+<div class="p">The second term of <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step2-split" data-label="eqn:app-de-step2-split">(SB.39)</a> factorizes by independence and is a Gaussian response. Since <span class="mi">\(R_0^{(j)}\)</span> is independent of <span class="mi">\((z_j,w_j)\)</span>, and with <span class="mi">\(d=z^\T\Ahat w\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+B\,\EE\big[\psi(d_j)R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]=\mathcal P_j(s)\,\Sigmaout^{1/2}\,\EE[(z\tensor z)\,\psi(d)]\,\Sigmaout^{1/2},\\
+\EE[(z\tensor z)\,\psi(d)]=\Id\,\EE\psi(d)+\EE[(z\tensor z-\Id)\,\psi(d)].
+\end{gathered}
+\]</div>
+<div class="p">The second summand is bounded by <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein2" data-label="eqn:app-de-stein2">(SB.23)</a> with <span class="mi">\(A=\Ahat\)</span> and <span class="mi">\(\norm{\Ahat}_\F=1\)</span>:</div>
+<div class="md">\[
+\norm{\EE[(z\tensor z-\Id)\,\psi(d)]}_\F\le\norm{\psi_x''}_\infty\norm{\Ahat}\le6\norm{\Ahat}.
+\]</div>
+<div class="p">The first summand equals <span class="mi">\(\Id\,\Jfun(x)\)</span> up to <span class="mi">\(r_B\)</span> by <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a>. Combining the two summands with <span class="mi">\(\norm{\mathcal P_j(s)}\le1/s_-\)</span>, <span class="mi">\(\norm{\Sigmaout}\le C_\Sigma\)</span> and <span class="mi">\(s\tilde\sigma_B\le C_\Sigma\gamma_\star\)</span> from <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a>,</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\Big\|s\,\varpi^2\tilde\sigma_B\cdot B\,\EE\big[\psi(d_j)R_0^{(j)}(\mathsf u_j\tensor\mathsf u_j)\big]-s\,\varpi^2\tilde\sigma_B\,\Jfun(\varpi^2q_B)\,\mathcal P_j(s)\Sigmaout\Big\|\\
+&amp;\qquad\le s\tilde\sigma_B\,\varpi^2\,\frac{C_\Sigma}{s_-}\big(r_B+6\norm{\Ahat}\big)\le C_I\varpi^2\big(r_B+\norm{\Ahat}\big).
+\end{aligned}
+\]</div>
+<div class="p"><em>Step 3: the mixed term.</em> The mixed term splits in the same way as the Gram term, with <span class="mi">\(f\defeq f_x\)</span> and <span class="mi">\(x=\varpi^2q_B\)</span>:</div>
+<div class="md">\[
+\begin{aligned}
+B\,\EE\big[\alpha_{1,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]
+={}&amp;B\,\EE\big[(\alpha_{1,j}-\check\alpha_{1,j})\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\\
+&amp;+\varpi\cdot B\,\EE\big[f(d_j)\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big].
+\end{aligned}
+\]</div>
+<div class="p">The replacement error is bounded by the first inequality of <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a>. Put <span class="mi">\(e\defeq\alpha_{1,j}-\check\alpha_{1,j}\)</span>, and use</div>
+<div class="md">\[
+B\,\mathsf v_j\tensor\mathsf u_j=\Sigmain^{1/2}(w_j\tensor z_j)\Sigmaout^{1/2}
+\]</div>
+<div class="p">and <span class="mi">\(\norm{\mathsf X_0^{(j)}}\le(2\sqrt{s_-})^{-1}\)</span>. The tower property, Jensen’s inequality and <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> give</div>
+<div class="md">\[
+\begin{aligned}
+\Big\|B\,\EE\big[e\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\Big\|
+&amp;\le\frac{1}{2\sqrt{s_-}}\,\EE\Big\|\Sigmain^{1/2}\,\EE_{\mathcal G}[(w_j\tensor z_j)\,e]\,\Sigmaout^{1/2}\Big\|_\F\\
+&amp;\le\frac{C_\Sigma}{2\sqrt{s_-}}\norm e_2\le C_I\,\varpi\,e_B .
+\end{aligned}
+\]</div>
+<div class="p">The first and third derivatives of <span class="mi">\(f=f_x\)</span> are bounded, by a scaling computation:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-f-derivatives"></span>\begin{equation}\tag{SB.41}
+\norm{f'}_\infty\le1,\qquad\norm{f'''}_\infty\le36x\le36q_I .
+\end{equation}</div>
+<div class="p">Indeed, for <span class="mi">\(x&gt;0\)</span>,</div>
+<div class="md">\[
+f_x(d)=\frac{1}{\sqrt x}\,\phi(\sqrt x\,d),\qquad \phi(y)\defeq\frac{y}{1+y^2},
+\]</div>
+<div class="p">so that, at <span class="mi">\(y=\sqrt x\,d\)</span>,</div>
+<div class="md">\[
+f_x'(d)=\phi'(y)=\frac{1-y^2}{(1+y^2)^2},\qquad
+f_x'''(d)=x\,\phi'''(y)=x\,\frac{-6y^4+36y^2-6}{(1+y^2)^4}.
+\]</div>
+<div class="p">The two numerators are bounded by the elementary inequalities</div>
+<div class="md">\[
+\abs{1-y^2}\le(1+y^2)^2,\qquad 6y^4+36y^2+6\le36(1+y^2)^2 .
+\]</div>
+<div class="p">At <span class="mi">\(x=0\)</span> the function <span class="mi">\(f_0\)</span> is the identity, whose first derivative is <span class="mi">\(1\)</span> and whose third derivative vanishes.</div>
+<div class="p">The main part is a Gaussian response whose leading term carries <span class="mi">\(\Ahat^\T\)</span>. Independence of <span class="mi">\(\mathsf X_0^{(j)}\)</span> from <span class="mi">\((z_j,w_j)\)</span> gives</div>
+<div class="md">\[
+B\,\EE\big[f(d_j)\,\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]=\EE\big[\mathsf X_0^{(j)}\big]\,\Sigmain^{1/2}\,\EE[(w\tensor z)\,f(d)]\,\Sigmaout^{1/2},
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-de-stein.html#L-eqn:app-de-stein1" data-label="eqn:app-de-stein1">(SB.22)</a> applied to <span class="mi">\((w,z,\Ahat^\T)\)</span>, with <span class="mi">\(\norm{\Ahat^\T}_\F=1\)</span> and the derivative bounds <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-f-derivatives" data-label="eqn:app-de-f-derivatives">(SB.41)</a>, gives</div>
+<div class="md">\[
+\norm{\EE[(w\tensor z)\,f(d)]}\le\norm{\Ahat^\T\,\EE f'(d)}+\norm{f'''}_\infty\norm{\Ahat}^2
+\le\norm{\Ahat}+36q_I\norm{\Ahat}^2 .
+\]</div>
+<div class="p">Here the spectral diffuseness <span class="mi">\(\norm{\Ahat}\to0\)</span> is used in operator norm: the leading term <span class="mi">\(\Ahat^\T\,\EE f'(d)\)</span> of the mixed response has Frobenius norm <span class="mi">\(\abs{\EE f'(d)}\)</span> but operator norm at most <span class="mi">\(\norm{\Ahat}\)</span>. Combining the two parts with <span class="mi">\(\norm{\EE[\mathsf X_0^{(j)}]}\le(2\sqrt{s_-})^{-1}\)</span> and <span class="mi">\(\norm{\Sigmaout},\norm{\Sigmain}\le C_\Sigma\)</span>,</div>
+<div class="md">\[
+\Big\|B\,\EE\big[\alpha_{1,j}\mathsf X_0^{(j)}(\mathsf v_j\tensor\mathsf u_j)\big]\Big\|\le C_I\,\varpi\,\big(e_B+\norm{\Ahat}+\norm{\Ahat}^2\big).
+\]</div>
+<div class="p"><em>Step 4: summation and the closure identity.</em> Summing the bounds of Steps 2 and 3 over <span class="mi">\(j\)</span> in <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-step1" data-label="eqn:app-de-step1">(SB.38)</a>, with the weight sums of <a class="ref" href="s.SA.html#L-eqn:app-setup-weights" data-label="eqn:app-setup-weights">(SA.18)</a>,</div>
+<div class="md">\[
+\Big\|\Id-s\,\mathcal P(s)-\sum_{j\ge0}s\,\emaw j^2\tilde\sigma_B\,\Jfun(\emaw j^2q_B)\,\mathcal P_j(s)\Sigmaout\Big\|
+\le C_I\big[\sw2(e_B+r_B+\norm{\Ahat})+e_B+\norm{\Ahat}+\norm{\Ahat}^2\big].
+\]</div>
+<div class="p">Next we replace <span class="mi">\(\mathcal P_j\)</span> by <span class="mi">\(\mathcal P\)</span>, at the cost of one deletion per age:</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-Pj-P"></span>\begin{equation}\tag{SB.42}
+\norm{\mathcal P(s)-\mathcal P_j(s)}\le\frac{C_I\,\emaw j}{B}.
+\end{equation}</div>
+<div class="p">Taking <span class="mi">\(\EE_{\mathcal G_{j1}}\)</span> in <a class="ref" href="r.lem.app-de-deletion.html#L-eqn:app-de-deletion-R" data-label="eqn:app-de-deletion-R">(SB.14)</a> and then the full expectation writes <span class="mi">\(\mathcal P(s)-\mathcal P_j(s)\)</span> as a sum of four terms, each an outer factor <span class="mi">\(R_0^{(j)}\)</span> or <span class="mi">\(\mathsf X_0^{(j)}\)</span> on either side of a conditional moment of a rank-one matrix. The outer factors satisfy <span class="mi">\(\norm{R_0^{(j)}}\le1/s_-\)</span> and <span class="mi">\(\norm{\mathsf X_0^{(j)}}\le(2\sqrt{s_-})^{-1}\)</span>. The conditional moments are bounded by <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-bessel-uu" data-label="eqn:app-de-bessel-uu">(SB.40)</a> and by its two analogues</div>
+<div class="md">\[
+B\,\norm{\EE_{\mathcal G}[(\mathsf v\tensor\mathsf v)\,e]}\le(1+\sqrt2)C_\Sigma\norm e_{2,\mathcal G},\qquad
+B\,\norm{\EE_{\mathcal G}[(\mathsf u\tensor\mathsf v)\,e]}_\F\le C_\Sigma\norm e_{2,\mathcal G},
+\]</div>
+<div class="p">which follow from <a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> in the same way, applied with <span class="mi">\(e=\alpha_{3,j},\alpha_{1,j},\alpha_{2,j}\)</span>. Since <span class="mi">\((d_j,\mathsf N_j)\)</span> are functions of the deleted sample only, <a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> and <a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> bound the conditional <span class="mi">\(L^2\)</span> norms of these three coefficients by <span class="mi">\(C_I\emaw j^2\)</span>, <span class="mi">\(C_I\emaw j\)</span> and <span class="mi">\(C_I\emaw j^2\)</span>. Multiplying the three kinds of bounds gives <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-Pj-P" data-label="eqn:app-de-Pj-P">(SB.42)</a>.</div>
+<div class="p">The replacement of <span class="mi">\(\mathcal P_j\)</span> by <span class="mi">\(\mathcal P\)</span> costs at most <span class="mi">\(C_I\sw3/B\)</span>. Since <span class="mi">\(s\tilde\sigma_B\Jfun\le C_\Sigma\gamma_\star\)</span> and <span class="mi">\(\norm{\Sigmaout}\le C_\Sigma\)</span>, <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-Pj-P" data-label="eqn:app-de-Pj-P">(SB.42)</a> gives</div>
+<div class="md">\[
+\Big\|\sum_{j\ge0}s\,\emaw j^2\tilde\sigma_B\,\Jfun(\emaw j^2q_B)\,\big(\mathcal P_j(s)-\mathcal P(s)\big)\Sigmaout\Big\|
+\le\sum_{j\ge0}C_\Sigma^2\gamma_\star\,\emaw j^2\,\frac{C_I\emaw j}{B}=\frac{C_I\sw3}{B}.
+\]</div>
+<div class="p">Writing</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-aB"></span>\begin{equation}\tag{SB.43}
+a_B(s)\defeq s\,\tilde\sigma_B(s)\,\Fw(q_B(s)),\qquad
+c_B(s)\defeq s\,\sigma_B(s)\,\Fw(q_B(s)),
+\end{equation}</div>
+<div class="p">and recalling <span class="mi">\(\Fw(q)=\sum_j\emaw j^2\Jfun(\emaw j^2q)\)</span>, we have shown</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-closure-error"></span>\begin{equation}\tag{SB.44}
+\begin{gathered}
+E_B(s)\defeq\Id-s\,\mathcal P(s)-a_B(s)\,\mathcal P(s)\Sigmaout,\\
+\sup_{s\in I}\norm{E_B(s)}\le C_I\big[e_B+r_B+\norm{\Ahat}+\norm{\Ahat}^2+B^{-1}\big]\longrightarrow0 ,
+\end{gathered}
+\end{equation}</div>
+<div class="p">by <a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> and <a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> and <a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a>.</div>
+<div class="p">The closure error controls the distance to the candidate resolvent. Since <span class="mi">\(\mathcal P(s)(s\Id+a_B\Sigmaout)=\Id-E_B(s)\)</span> and <span class="mi">\(a_B\ge0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-de-P-approx"></span>\begin{equation}\tag{SB.45}
+\norm{\mathcal P(s)-(s\Id+a_B(s)\Sigmaout)^{-1}}=\norm{E_B(s)(s\Id+a_B\Sigmaout)^{-1}}\le\frac{\norm{E_B(s)}}{s_-}.
+\end{equation}</div>
+<div class="p">The input-side argument gives in the same way</div>
+<div class="md">\[
+\norm{\EE\widetilde R(-s)-(s\Id+c_B(s)\Sigmain)^{-1}}\le\frac{\norm{\widetilde E_B(s)}}{s_-},
+\qquad \sup_{s\in I}\norm{\widetilde E_B(s)}\longrightarrow0 .
+\]</div>
+<div class="p"><em>Step 5: identification of the branch.</em> The tuple <span class="mi">\((\sigma_B,\tilde\sigma_B,a_B,c_B)(s)\)</span> is nonnegative and lies in the box of <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(iii) by <a class="ref" href="s.SB.html#L-eqn:app-de-qI" data-label="eqn:app-de-qI">(SB.31)</a> and <span class="mi">\(\Fw\le\sw2\)</span>. Its third and fourth residuals vanish by <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-aB" data-label="eqn:app-de-aB">(SB.43)</a>, and its first residual is</div>
+<div class="md">\[
+\begin{aligned}
+\Big|\sigma_B-\frac1B\Tr\big(\Sigmaout(s\Id+a_B\Sigmaout)^{-1}\big)\Big|
+&amp;=\Big|\frac1B\Tr\big(\Sigmaout(\mathcal P-(s\Id+a_B\Sigmaout)^{-1})\big)\Big|\\
+&amp;\le\frac{\Tr\Sigmaout}{B}\,\frac{\norm{E_B(s)}}{s_-}\le\frac{C_\Sigma\gamma_\star}{s_-}\norm{E_B(s)},
+\end{aligned}
+\]</div>
+<div class="p">with the same bound for the second residual in terms of <span class="mi">\(\widetilde E_B\)</span>. Both residuals tend to zero uniformly in <span class="mi">\(s\in I\)</span>. By <a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a>(iii), applied with <span class="mi">\((\nu,\tilde\nu)=(\nu_{\mathrm{out}},\nu_{\mathrm{in}})\in\mathcal K\)</span>,</div>
+<div class="md">\[
+\sup_{s\in I}\Big(\abs{\sigma_B-\sigma}+\abs{\tilde\sigma_B-\tilde\sigma}+\abs{a_B-\tilde s_1}+\abs{c_B-s_1}\Big)(-s)\longrightarrow0 .
+\]</div>
+<div class="p">The conclusion follows from the resolvent identity. For every <span class="mi">\(s\in I\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+&amp;\norm{(s\Id+a_B\Sigmaout)^{-1}-(s\Id+\tilde s_1\Sigmaout)^{-1}}\\
+&amp;\qquad=\norm{(s\Id+a_B\Sigmaout)^{-1}\,(\tilde s_1-a_B)\Sigmaout\,(s\Id+\tilde s_1\Sigmaout)^{-1}}
+\le\frac{C_\Sigma\abs{a_B-\tilde s_1}}{s_-^2},
+\end{aligned}
+\]</div>
+<div class="p">and together with <a class="ref" href="r.thm.app-de-gram.html#L-eqn:app-de-P-approx" data-label="eqn:app-de-P-approx">(SB.45)</a> and the triangle inequality,</div>
+<div class="md">\[
+\sup_{s\in I}\norm{\EE R(-s)-\Rbar(-s)}\le\sup_{s\in I}\Big(\frac{\norm{E_B(s)}}{s_-}+\frac{C_\Sigma\abs{a_B(s)-\tilde s_1(-s)}}{s_-^2}\Big)\longrightarrow0 .
+\]</div>
+<div class="p">The input side is identical.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.assum.app-setup-regime.html" data-label="assum:app-setup-regime">Assumption S3</a> <span class=muted>Spectrally diffuse proportional regime</span></li><li><a class="ref" href="r.lem.app-de-resolvent.html" data-label="lem:app-de-resolvent">Lemma SB.3</a> <span class=muted>Resolvent identities</span></li><li><a class="ref" href="r.lem.app-de-deletion.html" data-label="lem:app-de-deletion">Lemma SB.4</a> <span class=muted>Rank-two deletion</span></li><li><a class="ref" href="r.lem.app-de-replace.html" data-label="lem:app-de-replace">Lemma SB.12</a> <span class=muted>Replacement of the deletion coefficients</span></li><li><a class="ref" href="r.lem.app-de-bessel.html" data-label="lem:app-de-bessel">Lemma SB.7</a> <span class=muted>Bessel bounds</span></li><li><a class="ref" href="r.lem.app-de-stein.html" data-label="lem:app-de-stein">Lemma SB.8</a> <span class=muted>Gaussian response</span></li><li><a class="ref" href="r.lem.app-de-gaussian.html" data-label="lem:app-de-gaussian">Lemma SB.13</a> <span class=muted>Uniform Gaussian limit of the residual functional</span></li><li><a class="ref" href="r.lem.app-de-coeff.html" data-label="lem:app-de-coeff">Lemma SB.5</a> <span class=muted>Coefficient bounds</span></li><li><a class="ref" href="r.lem.app-de-moments.html" data-label="lem:app-de-moments">Lemma SB.6</a> <span class=muted>Gaussian moment bounds</span></li><li><a class="ref" href="r.thm.app-de-branch.html" data-label="thm:app-de-branch">Theorem SB.1</a> <span class=muted>The weighted branch</span></li><li><a class="ref" href="r.def.app-de-branch.html" data-label="def:app-de-branch">Definition SB.1</a> <span class=muted>Weighted fixed-point system</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.cor.app-de-trace.html" data-label="cor:app-de-trace">Corollary SB.1</a> <span class=muted>Trace closure with bounded tests</span></li><li><a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a> <span class=muted>Response equation</span></li><li><a class="ref" href="r.thm.app-vol-half-same.html" data-label="thm:app-vol-half-same">Theorem SD.1</a> <span class=muted>Same-time energies of rows and columns</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.DetEquiv.thm_app_de_gram</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/DetEquiv/Gram.lean#L4131">source</a></summary><pre class="lean no-mj">theorem thm_app_de_gram (R : SetupRegime) (w : ℕ → ℝ) (hw : WeightClass w)
+    {Ω : ℕ → Type} [∀ k, MeasurableSpace (Ω k)] (P : ∀ k, Measure (Ω k))
+    [∀ k, IsProbabilityMeasure (P k)]
+    (S : ∀ k, FrozenSamples (P k) (R.m k) (R.n k) (R.B k))
+    (νo νi : ∀ k, FiniteMeasure ℝ)
+    (hνo : ∀ k, (νo k : Measure ℝ) = nuOut (R.F k).C (R.B k))
+    (hνi : ∀ k, (νi k : Measure ℝ) = nuIn (R.F k).C (R.B k))
+    (t : ℤ) (I : Set ℝ) (hI : IsCompact I) (hIpos : I ⊆ Set.Ioi 0) :
+    Tendsto (fun k =&gt; ⨆ s ∈ I,
+      (opNorm (expRes w (R.F k) (S k) t s - Rbar (Fw w) (νo k) (νi k) (R.F k).C s) +
+        opNorm (expResT w (R.F k) (S k) t s - Rtbar (Fw w) (νo k) (νi k) (R.F k).C s)))
+      atTop (𝓝 0) :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proposition SJ.5 (One sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Proposition SJ.5 (One sample)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-proposition" id="L-prop:app-sgd-one-sample"><div class="thm-head"><a class="thm-name" href="r.prop.app-sgd-one-sample.html" data-label="prop:app-sgd-one-sample">Proposition SJ.5</a> <span class="thm-title">(One sample)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(B=1\)</span>, <span class="mi">\(\Nout\ge2\)</span>, <span class="mi">\(\Sigmaout=U\Lambda U^\T\)</span> with <span class="mi">\(U\)</span> Haar, <span class="mi">\(\Lambda=\diag(\mu_i)\succ0\)</span>, <span class="mi">\(\Sigmain=\Idin\)</span> and <span class="mi">\(u_i\defeq Ue_i\)</span>, and let the sample be <span class="mi">\(\Xout=U\Lambda^{1/2}z\)</span>, <span class="mi">\(\Xin=w\)</span> with <span class="mi">\((z,w)\)</span> standard Gaussian and independent of <span class="mi">\(U\)</span>. Let <span class="mi">\(\Delta\)</span> be any function of <span class="mi">\(U\)</span> with <span class="mi">\(\Delta\ne0\)</span> almost surely, and <span class="mi">\(S=\sign(G^\circ)\)</span>. Then</div>
+<div class="md">\[
+\EE\norm{S^\T u_i}^2=\Nin\,\EE\big[u_i^\T\Sigmaoutsign u_i\big]=\Nin\Big(1-\frac2\pi+\frac{2\Nout}\pi\,\EE\frac{\mu_ig_i^2}{\sum_l\mu_lg_l^2}\Big),
+\]</div>
+<div class="p">where <span class="mi">\((\Sigmaoutsign)_{kl}\defeq\frac2\pi\arcsin\big((\Sigmaout)_{kl}/\sqrt{(\Sigmaout)_{kk}(\Sigmaout)_{ll}}\big)\)</span> and <span class="mi">\(g\)</span> is a standard Gaussian vector in <span class="mi">\(\R^{\Nout}\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">For one sample the update factorizes. Given <span class="mi">\(U\)</span>, the vector <span class="mi">\(y=\Xout\)</span> has the nondegenerate law <span class="mi">\(\mathcal N(0,\Sigmaout)\)</span>, so its coordinates are nonzero almost surely, and so are those of <span class="mi">\(x=\Xin\)</span>. The residual <span class="mi">\(y^\T\Delta x\)</span> is, given <span class="mi">\(U\)</span> and <span class="mi">\(x\)</span>, Gaussian with variance <span class="mi">\(\norm{\Sigmaout^{1/2}\Delta x}^2\)</span>, which is positive almost surely because <span class="mi">\(\Delta\ne0\)</span>. Hence, entrywise,</div>
+<div class="md">\[
+S=\sign\big(y^\T\Delta x\big)\,\sign(y)\tensor\sign(x),
+\]</div>
+<div class="p">and therefore</div>
+<div class="md">\[
+\norm{S^\T u_i}^2=\big(u_i^\T\sign(y)\big)^2\norm{\sign(x)}^2=\Nin\big(u_i^\T\sign(y)\big)^2 .
+\]</div>
+<div class="p">The residual sign has disappeared, so the state no longer enters.</div>
+<div class="p">Given <span class="mi">\(U\)</span>, <a class="ref" href="r.lem.app-sgd-arcsine.html" data-label="lem:app-sgd-arcsine">Lemma SJ.1</a> applies to every pair of coordinates of <span class="mi">\(y\)</span>, whose variances <span class="mi">\((\Sigmaout)_{kk}\)</span> are positive, and gives <span class="mi">\(\EE[\sign(y)\tensor\sign(y)\mid U]=\Sigmaoutsign\)</span>. This is the first equality.</div>
+<div class="p">For the second, write <span class="mi">\(y=Ua\)</span> with <span class="mi">\(a=\Lambda^{1/2}g\)</span>, nonzero almost surely and independent of <span class="mi">\(U\)</span>. Then <span class="mi">\(u_i^\T\sign(y)=e_i^\T U^\T\sign(Ua)\)</span>, and <a class="ref" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> gives</div>
+<div class="md">\[
+\EE\big[(u_i^\T\sign(y))^2\,\big|\,g\big]=1-\frac2\pi+\frac{2\Nout}\pi\,\frac{\mu_ig_i^2}{\sum_l\mu_lg_l^2}.\qedhere
+\]</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-sgd-arcsine.html" data-label="lem:app-sgd-arcsine">Lemma SJ.1</a> <span class=muted>Arcsine law</span></li><li><a class="ref" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> <span class=muted>Haar sign matrix</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.prop_app_sgd_one_sample</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L2164">source</a></summary><pre class="lean no-mj">theorem prop_app_sgd_one_sample {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω)
+    [IsProbabilityMeasure P] (n m : ℕ) (hn : 2 ≤ n)
+    (ν : Measure (Matrix.orthogonalGroup (Fin n) ℝ)) (hν : IsOrthHaar ν)
+    (U : Ω → Matrix.orthogonalGroup (Fin n) ℝ) (hU : Measurable U) (hUlaw : P.map U = ν)
+    (Z : Ω → Fin n → ℝ) (W : Ω → Fin m → ℝ)
+    (hZW : P.map (fun ω =&gt; (Z ω, W ω)) = (stdGaussianPi n).prod (stdGaussianPi m))
+    (hind : IndepFun U (fun ω =&gt; (Z ω, W ω)) P)
+    (μ : Fin n → ℝ) (hμ : ∀ k, 0 &lt; μ k)
+    (Δfun : Matrix.orthogonalGroup (Fin n) ℝ → Matrix (Fin n) (Fin m) ℝ) (hΔ : Measurable Δfun)
+    (hΔ0 : ∀ᵐ ω ∂P, Δfun (U ω) ≠ 0) (i : Fin n) :
+    (∫ ω, ∑ j, (∑ k, oneSampleSign (Δfun (U ω)) (oneSampleBatch μ (U ω) (Z ω) (W ω)) k j
+          * (U ω : Matrix (Fin n) (Fin n) ℝ) k i) ^ 2 ∂P
+        = (m : ℝ) * ∫ ω, ∑ k, ∑ l, (U ω : Matrix (Fin n) (Fin n) ℝ) k i
+            * sigmaSignMat (haarSigmaOut (U ω) μ) k l * (U ω : Matrix (Fin n) (Fin n) ℝ) l i ∂P) ∧
+    (∫ ω, ∑ k, ∑ l, (U ω : Matrix (Fin n) (Fin n) ℝ) k i
+            * sigmaSignMat (haarSigmaOut (U ω) μ) k l * (U ω : Matrix (Fin n) (Fin n) ℝ) l i ∂P
+        = 1 - 2 / Real.pi + 2 * (n : ℝ) / Real.pi *
+            ∫ g, μ i * g i ^ 2 / ∑ l, μ l * g l ^ 2 ∂(stdGaussianPi n)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

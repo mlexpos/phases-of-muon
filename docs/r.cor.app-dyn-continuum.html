@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corollary SE.2 (Continuum equation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Corollary SE.2 (Continuum equation)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-corollary" id="L-cor:app-dyn-continuum"><div class="thm-head"><a class="thm-name" href="r.cor.app-dyn-continuum.html" data-label="cor:app-dyn-continuum">Corollary SE.2</a> <span class="thm-title">(Continuum equation)</span></div><div class="thm-body"><div class="p">Assume the hypotheses of <a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a>, and write <span class="mi">\(\mathfrak d_B\)</span>, <span class="mi">\(\zeta_B\)</span>, <span class="mi">\(\chi^{\mathrm{act}}_B\)</span>, <span class="mi">\(\chi^{\mathrm{ode}}_B\)</span> for the objects at the dimension indexed by <span class="mi">\(B\)</span>.</div>
+<ol class="enumerate"><li><span class="li-mark">(i)</span><div class="li-body"><div class="p">Every sequence of dimensions has a subsequence along which <span class="mi">\(\mathfrak d_B\to\mathfrak d_\infty\)</span> uniformly on <span class="mi">\(\mathbb K\)</span>, <span class="mi">\(\zeta_B\to\zeta_\infty\)</span> weakly and <span class="mi">\(\chi^{\mathrm{act}}_B(0)\to\chi_0\)</span> weakly.</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">Along any such subsequence, the measure equation</div>
+<div class="md"><span class="anchor" id="L-eqn:app-dyn-continuum"></span>\begin{equation}\tag{SE.14}
+\chi(\macrotime)=\chi_0+\int_0^\macrotime\Big(-\frac{2\macrostep\,\mathfrak d_\infty\,\chi(\sigma)}{\sqrt{\fRisk(\chi(\sigma))}}+\macrostep^2\zeta_\infty\Big)\dif\sigma
+\end{equation}</div>
+<div class="p">has a unique solution <span class="mi">\(\chi\)</span> on <span class="mi">\([0,T_\star]\)</span> among paths with values in <span class="mi">\(\mathfrak M\)</span> that are continuous for the bounded-Lipschitz norm, and</div>
+<div class="md">\[
+\sup_{\macrotime\le T_\star}\norm{\chi^{\mathrm{ode}}_B(\macrotime)-\chi(\macrotime)}_\BL\to0,\qquad
+\sup_{\macrotime\le T_\star}\norm{\chi^{\mathrm{act}}_B(\macrotime)-\chi(\macrotime)}_\BL\to0\ \text{in probability}.
+\]</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">Along any such subsequence, <span class="mi">\(\sup_{\macrotime\le T_\star}\abs{\cR(\lfloor B\macrotime\rfloor)-\fRisk(\chi(\macrotime))}\to0\)</span> in probability.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof of <a class="ref" href="r.cor.app-dyn-continuum.html" data-label="cor:app-dyn-continuum">Corollary SE.2</a>.</div><div class="p"><em>(i), compactness.</em> By <a class="ref" href="s.SE.html#L-eqn:app-dyn-coefficient-bounds" data-label="eqn:app-dyn-coefficient-bounds">(SE.6)</a> the functions <span class="mi">\(\mathfrak d_B\)</span> are uniformly bounded and uniformly Lipschitz on <span class="mi">\(\mathbb K\)</span>, so the Arzelà–Ascoli theorem [<a class="cite" href="bibliography.html#bib-rudin1976principles">55</a>, Theorem 7.25] gives a uniformly convergent subsequence. The measures <span class="mi">\(\zeta_B\)</span> are positive with masses at most <span class="mi">\(m_\zeta\)</span>, and <span class="mi">\(\chi^{\mathrm{act}}_B(0)\)</span> are positive with masses at most <span class="mi">\(E_\star\)</span>. Along a further subsequence the masses converge; if a limit mass is zero the measures tend to zero weakly, and otherwise the normalized measures are probability measures on the compact <span class="mi">\(\mathbb K\)</span>, hence tight, and Prokhorov’s theorem [<a class="cite" href="bibliography.html#bib-billingsley1999convergence">10</a>, Theorem 5.1] gives a weakly convergent subsequence.</div>
+<div class="p"><em>(ii), the limit data.</em> Fix a subsequence as in (i). The limit <span class="mi">\(\mathfrak d_\infty\)</span> satisfies the bounds <a class="ref" href="s.SE.html#L-eqn:app-dyn-coefficient-bounds" data-label="eqn:app-dyn-coefficient-bounds">(SE.6)</a>, which pass to uniform limits; <span class="mi">\(\zeta_\infty\)</span> is positive with mass at most <span class="mi">\(m_\zeta\)</span>; and <span class="mi">\(\chi_0\)</span> is positive, with <span class="mi">\(\chi_0(\mathbb K)\le E_\star\)</span> and <span class="mi">\(\fRisk(\chi_0)=\lim\cR(\Delta_0)\in[r_0,r_1]\)</span>, since <span class="mi">\(1\)</span> and <span class="mi">\(\mu\lambda\)</span> are continuous on <span class="mi">\(\mathbb K\)</span>. The field <span class="mi">\(\mathsf F_\infty(\chi)\defeq-2\macrostep\fRisk(\chi)^{-1/2}\mathfrak d_\infty\chi+\macrostep^2\zeta_\infty\)</span> therefore satisfies <a class="ref" href="r.lem.app-dyn-field.html" data-label="lem:app-dyn-field">Lemma SE.1</a> with the same constants, whose proof uses only these bounds.</div>
+<div class="p">Weak convergence of positive measures on <span class="mi">\(\mathbb K\)</span> with bounded masses is convergence in the bounded-Lipschitz norm. Indeed, if <span class="mi">\(c_B\to c\)</span> are the masses and <span class="mi">\(c&gt;0\)</span>, the normalized measures converge weakly, and Dudley’s theorem [<a class="cite" href="bibliography.html#bib-dudley2002real">22</a>, Theorem 11.3.3] gives convergence of their bounded-Lipschitz distance, which dominates ours up to a factor two; the difference of masses contributes <span class="mi">\(\abs{c_B-c}\)</span>. If <span class="mi">\(c=0\)</span> the norm is at most the mass. Hence <span class="mi">\(\norm{\zeta_B-\zeta_\infty}_\BL\to0\)</span> and <span class="mi">\(\norm{\chi^{\mathrm{act}}_B(0)-\chi_0}_\BL\to0\)</span>.</div>
+<div class="p"><em>(ii), the Cauchy bound.</em> For two dimensions <span class="mi">\(B,B'\)</span> of the subsequence write <span class="mi">\(\chi_B=\chi^{\mathrm{ode}}_B\)</span>, which lies in <span class="mi">\(\mathfrak M\)</span> on <span class="mi">\([0,T_\star]\)</span> by <a class="ref" href="r.prop.app-dyn-ode.html" data-label="prop:app-dyn-ode">Proposition SE.1</a>. Adding and subtracting <span class="mi">\(\mathsf F_B(\chi_{B'})\)</span>,</div>
+<div class="md">\[
+\norm{\mathsf F_B(\chi_{B'})-\mathsf F_{B'}(\chi_{B'})}_\BL\le\frac{2\macrostep(E_\star+1)}{\sqrt{r_0/2}}\norm{\mathfrak d_B-\mathfrak d_{B'}}_\infty+\macrostep^2\norm{\zeta_B-\zeta_{B'}}_\BL ,
+\]</div>
+<div class="p">and <a class="ref" href="r.lem.app-dyn-field.html" data-label="lem:app-dyn-field">Lemma SE.1</a>(iii) with Gronwall’s inequality give</div>
+<div class="md">\[
+\begin{aligned}
+\sup_{\macrotime\le T_\star}\norm{\chi_B(\macrotime)-\chi_{B'}(\macrotime)}_\BL\le e^{C_{\mathsf F}T_\star}\Big(&amp;\norm{\chi_B(0)-\chi_{B'}(0)}_\BL+CT_\star\norm{\mathfrak d_B-\mathfrak d_{B'}}_\infty\\
+&amp;+\macrostep^2T_\star\norm{\zeta_B-\zeta_{B'}}_\BL\Big),
+\end{aligned}
+\]</div>
+<div class="p">which tends to zero as <span class="mi">\(B,B'\to\infty\)</span> along the subsequence.</div>
+<div class="p"><em>(ii), the limit path.</em> For each <span class="mi">\(\macrotime\)</span>, the measures <span class="mi">\(\chi_B(\macrotime)\)</span> lie in <span class="mi">\(\mathfrak M\)</span>, so every subsequence has a weakly convergent subsequence, by Prokhorov’s theorem as in (i), and its limit is a limit in the bounded-Lipschitz norm. By the Cauchy bound all these limits coincide; call the common limit <span class="mi">\(\chi(\macrotime)\)</span>. The convergence is uniform in <span class="mi">\(\macrotime\le T_\star\)</span>, by the Cauchy bound, and <span class="mi">\(\chi(\macrotime)\in\mathfrak M\)</span>, because mass and risk are integrals of continuous functions. Each <span class="mi">\(\chi_B\)</span> is Lipschitz in total variation with constant <span class="mi">\(C_E\)</span>, by <a class="ref" href="r.lem.app-dyn-field.html" data-label="lem:app-dyn-field">Lemma SE.1</a>(i), so <span class="mi">\(\chi\)</span> is continuous for the bounded-Lipschitz norm.</div>
+<div class="p"><em>(ii), the equation.</em> For a test <span class="mi">\(\phi\)</span> of the unit ball and <span class="mi">\(\sigma\le T_\star\)</span>,</div>
+<div class="md">\[
+\begin{aligned}
+\Big|\int\phi\,\dif\big(\mathsf F_B(\chi_B(\sigma))-\mathsf F_\infty(\chi(\sigma))\big)\Big|
+\le{}&amp;C_{\mathsf F}\norm{\chi_B(\sigma)-\chi(\sigma)}_\BL\\
+&amp;+\frac{2\macrostep(E_\star+1)}{\sqrt{r_0/2}}\norm{\mathfrak d_B-\mathfrak d_\infty}_\infty+\macrostep^2\norm{\zeta_B-\zeta_\infty}_\BL ,
+\end{aligned}
+\]</div>
+<div class="p">which tends to zero uniformly in <span class="mi">\(\sigma\)</span>. Passing to the limit in <a class="ref" href="s.SE.html#L-eqn:app-dyn-ode-measure" data-label="eqn:app-dyn-ode-measure">(SE.9)</a> tested with <span class="mi">\(\phi\)</span> gives <a class="ref" href="r.cor.app-dyn-continuum.html#L-eqn:app-dyn-continuum" data-label="eqn:app-dyn-continuum">(SE.14)</a> tested with <span class="mi">\(\phi\)</span>. Bounded Lipschitz functions are dense in the continuous functions on <span class="mi">\(\mathbb K\)</span> for the uniform norm, so <a class="ref" href="r.cor.app-dyn-continuum.html#L-eqn:app-dyn-continuum" data-label="eqn:app-dyn-continuum">(SE.14)</a> holds against every continuous test.</div>
+<div class="p"><em>(ii), uniqueness and the actual measures.</em> If <span class="mi">\(\chi'\)</span> is another solution with values in <span class="mi">\(\mathfrak M\)</span>, continuous for the bounded-Lipschitz norm, then <span class="mi">\(\norm{\chi(\macrotime)-\chi'(\macrotime)}_\BL\le C_{\mathsf F}\int_0^\macrotime\norm{\chi(\sigma)-\chi'(\sigma)}_\BL\dif\sigma\)</span>, and Gronwall’s inequality gives <span class="mi">\(\chi=\chi'\)</span>. The statement for <span class="mi">\(\chi^{\mathrm{act}}_B\)</span> follows from <a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a>(ii) and the triangle inequality.</div>
+<div class="p"><em>(iii).</em> As in the proof of <a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a>(iii), <span class="mi">\(\abs{\cR(\lfloor B\macrotime\rfloor)-\fRisk(\chi(\macrotime))}\le\frac12(C_\Sigma^2+C_\Sigma)\norm{\chi^{\mathrm{act}}_B(\macrotime)-\chi(\macrotime)}_\BL\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-dyn-field.html" data-label="lem:app-dyn-field">Lemma SE.1</a> <span class=muted>The field</span></li><li><a class="ref" href="r.prop.app-dyn-ode.html" data-label="prop:app-dyn-ode">Proposition SE.1</a> <span class=muted>Well-posedness</span></li><li><a class="ref" href="r.thm.app-dyn-main.html" data-label="thm:app-dyn-main">Theorem SE.1</a> <span class=muted>Dynamical comparison</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Dynamics.cor_app_dyn_continuum_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Corollaries.lean#L969">source</a></summary><pre class="lean no-mj">theorem cor_app_dyn_continuum_i (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C)) (hB : Tendsto B atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k)) :
+    ∀ κ : ℕ → ℕ, StrictMono κ → ∃ ι : ℕ → ℕ, StrictMono ι ∧
+      ∃ (dinf : ℝ × ℝ → ℝ) (ζinf χ0 : Measure (ℝ × ℝ)),
+        contLimit hyp S c (fun n =&gt; κ (ι n)) dinf ζinf χ0 := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.cor_app_dyn_continuum_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Corollaries.lean#L2650">source</a></summary><pre class="lean no-mj">theorem cor_app_dyn_continuum_ii (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C)) (hB : Tendsto B atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (ι : ℕ → ℕ) (hι : StrictMono ι) (dinf : ℝ × ℝ → ℝ) (ζinf χ0 : Measure (ℝ × ℝ))
+    (hL : contLimit hyp S c ι dinf ζinf χ0)
+    (e : ∀ k : ℕ, ℝ → Fin (m k) → Fin (n k) → ℝ)
+    (he : ∀ k : ℕ, def_app_dyn_ode p (S k) (c k) (dev0 hyp k) (Tstar p) (e k)) :
+    (∃ χ : ℝ → Measure (ℝ × ℝ), eqn_app_dyn_continuum p dinf ζinf χ0 χ) ∧
+    (∀ χ χ' : ℝ → Measure (ℝ × ℝ), eqn_app_dyn_continuum p dinf ζinf χ0 χ →
+      eqn_app_dyn_continuum p dinf ζinf χ0 χ' → ∀ τ ∈ Icc 0 (Tstar p), χ τ = χ' τ) ∧
+    (∀ χ : ℝ → Measure (ℝ × ℝ), eqn_app_dyn_continuum p dinf ζinf χ0 χ →
+      (∀ n : ℕ, BddAbove ((fun τ =&gt; blDist p.CSig
+          (odeMeasure (((B (ι n) : ℕ) : ℝ)) (S (ι n)).μ (S (ι n)).lam (e (ι n) τ)) (χ τ)) ''
+        Icc 0 (Tstar p))) ∧
+      Tendsto (fun n : ℕ =&gt; sSup ((fun τ =&gt; blDist p.CSig
+          (odeMeasure (((B (ι n) : ℕ) : ℝ)) (S (ι n)).μ (S (ι n)).lam (e (ι n) τ)) (χ τ)) ''
+        Icc 0 (Tstar p))) atTop (𝓝 0)) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.cor_app_dyn_continuum_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Main.lean#L3232">source</a></summary><pre class="lean no-mj">theorem cor_app_dyn_continuum_iii (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare) (certQ : Muon.External.GaussianQuadFormLp) (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C)) (hB : Tendsto B atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (cert : Muon.External.GaussianOpNorm) (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k))
+    (ι : ℕ → ℕ) (hι : StrictMono ι) (dinf : ℝ × ℝ → ℝ) (ζinf χ0 : Measure (ℝ × ℝ))
+    (hL : contLimit hyp S c ι dinf ζinf χ0) :
+    ∀ χ : ℝ → Measure (ℝ × ℝ), eqn_app_dyn_continuum p dinf ζinf χ0 χ →
+      (∀ n : ℕ, ∀ ω : Ω, BddAbove ((fun τ =&gt; blDist p.CSig (actMeas hyp S (ι n) ω τ) (χ τ)) ''
+        Icc 0 (Tstar p))) ∧
+      ∀ ε &gt; 0, Tendsto (fun n : ℕ =&gt; P {ω | ε &lt; sSup ((fun τ =&gt; blDist p.CSig
+        (actMeas hyp S (ι n) ω τ) (χ τ)) '' Icc 0 (Tstar p))}) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.cor_app_dyn_continuum_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Main.lean#L3504">source</a></summary><pre class="lean no-mj">theorem cor_app_dyn_continuum_iv (certOp : Muon.External.GaussianOpNormL6) (certP : Muon.External.GaussianPoincare) (certQ : Muon.External.GaussianQuadFormLp) (F : ∀ k : ℕ, FrozenParams (m k) (n k) (B k))
+    (hyp : DynHyp p P m n B (fun k =&gt; (F k).C)) (hB : Tendsto B atTop atTop)
+    (S : ∀ k : ℕ, SpectralData (F k).C) (c : ∀ k : ℕ, DynCoeff p (S k) (B k))
+    (cert : Muon.External.GaussianOpNorm) (hc : ∀ k : ℕ, IsActualCoeff cert (F k) (S k) (c k))
+    (ι : ℕ → ℕ) (hι : StrictMono ι) (dinf : ℝ × ℝ → ℝ) (ζinf χ0 : Measure (ℝ × ℝ))
+    (hL : contLimit hyp S c ι dinf ζinf χ0) (χ : ℝ → Measure (ℝ × ℝ))
+    (hχ : eqn_app_dyn_continuum p dinf ζinf χ0 χ) :
+    (∀ n : ℕ, ∀ ω : Ω, BddAbove ((fun τ =&gt; |riskSigma (F (ι n)).C (errPath hyp (ι n)
+        ⌊((B (ι n) : ℕ) : ℝ) * τ⌋₊ ω) - riskOf (χ τ)|) '' Icc 0 (Tstar p))) ∧
+    ∀ ε &gt; 0, Tendsto (fun n : ℕ =&gt; P {ω | ε &lt; sSup ((fun τ =&gt; |riskSigma (F (ι n)).C (errPath hyp (ι n)
+        ⌊((B (ι n) : ℕ) : ℝ) * τ⌋₊ ω) - riskOf (χ τ)|) '' Icc 0 (Tstar p))}) atTop (𝓝 0) := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.contLimit</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Corollaries.lean#L112">source</a></summary><pre class="lean no-mj">def contLimit (hyp : DynHyp p P m n B C) (S : ∀ k : ℕ, SpectralData (C k))
+    (c : ∀ k : ℕ, DynCoeff p (S k) (B k)) (ι : ℕ → ℕ) (dinf : ℝ × ℝ → ℝ) (ζinf χ0 : Measure (ℝ × ℝ)) :
+    Prop :=</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

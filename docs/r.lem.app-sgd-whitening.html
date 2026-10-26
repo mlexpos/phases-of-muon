@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.8 (Whitening a coordinate)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.8 (Whitening a coordinate)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-whitening"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-whitening.html" data-label="lem:app-sgd-whitening">Lemma SJ.8</a> <span class="thm-title">(Whitening a coordinate)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(Q\)</span> be orthogonal with first column <span class="mi">\(\Sigma^{1/2}e_p/\sqrt{v_p}\)</span> and put <span class="mi">\(A\defeq Q^\T\Sigma^{1/2}\Delta\)</span>. Then <span class="mi">\(\norm A_\F^2=2\cR\)</span>, the entry <span class="mi">\(A_{1j}\)</span> equals <span class="mi">\(\mu_{pj}\)</span>, row <span class="mi">\(1\)</span> of <span class="mi">\(A\)</span> has squared norm <span class="mi">\(R_p\)</span>, column <span class="mi">\(j\)</span> of <span class="mi">\(A\)</span> has squared norm <span class="mi">\(C_j\)</span>, and <span class="mi">\(\sign(G^\circ_{pj})\)</span> has the law of <span class="mi">\(\sign(G^A_{1j})\)</span>, where <span class="mi">\(G^A\)</span> is the isotropic gradient of the state <span class="mi">\(A\)</span>. In particular <a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> applies to <span class="mi">\((p,j)\)</span> with <span class="mi">\(F^2=2\cR\)</span>, <span class="mi">\(\Delta_{ij}\)</span> replaced by <span class="mi">\(\mu_{pj}\)</span>, and <span class="mi">\(\norm{\bar A}_\F^2=2\cR-R_p-C_j+\mu_{pj}^2\)</span>, whenever this is at least <span class="mi">\(\cR/2\)</span> and <span class="mi">\(B\ge4\)</span>; its comparison term is</div>
+<div class="md">\[
+\sqrt{\frac2\pi}\,\mathcal N_B\frac{\mu_{pj}}{\sqrt{2\cR}}=\frac{\mathcal N_B\,(\Sigma\Delta)_{pj}}{\sqrt{\pi\cR\,v_p}} .
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">Represent the output feature as <span class="mi">\(y=\Sigma^{1/2}Qz\)</span> with <span class="mi">\(z\)</span> standard Gaussian. Since <span class="mi">\(Q^\T\Sigma^{1/2}e_p=\sqrt{v_p}\,e_1\)</span>, the coordinate is <span class="mi">\(y_p=\sqrt{v_p}\,z_1\)</span>, and the residual is <span class="mi">\(y^\T\Delta x=z^\T Ax\)</span>. Hence</div>
+<div class="md">\[
+\big(y^\T\Delta x\big)\,y_px_j=\sqrt{v_p}\,\big(z^\T Ax\big)\,z_1x_j ,
+\]</div>
+<div class="p">and the positive factor <span class="mi">\(\sqrt{v_p}\)</span> does not change the sign of the batch sum. Row <span class="mi">\(1\)</span> of <span class="mi">\(A\)</span> is <span class="mi">\(e_p^\T\Sigma\Delta/\sqrt{v_p}\)</span> and column <span class="mi">\(j\)</span> has squared norm <span class="mi">\(\Delta_{\cdot j}^\T\Sigma\Delta_{\cdot j}\)</span>, and <span class="mi">\(\norm A_\F^2=\Tr(\Sigma\Delta\Delta^\T)\)</span>. The deleted block has the squared norm left after removing row <span class="mi">\(1\)</span> and column <span class="mi">\(j\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.prop.app-sgd-coordinate.html" data-label="prop:app-sgd-coordinate">Proposition SJ.3</a> <span class=muted>Drift of one coordinate</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-sgd-deletion.html" data-label="lem:app-sgd-deletion">Lemma SJ.9</a> <span class=muted>Deletion estimates</span></li><li><a class="ref" href="r.prop.app-sgd-coordinate-sum.html" data-label="prop:app-sgd-coordinate-sum">Proposition SJ.6</a> <span class=muted>Coordinate errors in Frobenius norm</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_whitening_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L363">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_whitening_i {n m B : ℕ} (hN : 0 &lt; n) (Sg : Matrix (Fin n) (Fin n) ℝ)
+    (hSg : Sg.PosSemidef) (Δ : Matrix (Fin n) (Fin m) ℝ) (p : Fin n) (hp : 0 &lt; Sg p p)
+    (Q : Matrix (Fin n) (Fin n) ℝ) (hQ : Qᵀ * Q = 1)
+    (hQc : ∀ k, Q k ⟨0, hN⟩ = CFC.sqrt Sg k p / Real.sqrt (Sg p p)) (j : Fin m) :
+    (batchLaw n m B).map (fun β =&gt; Real.sign (physGrad Δ (linBatch (CFC.sqrt Sg) β) p j))
+      = (batchLaw n m B).map (fun β =&gt;
+          Real.sign (physGrad (whitenedState Sg Δ Q)
+            (linBatch (1 : Matrix (Fin n) (Fin n) ℝ) β) ⟨0, hN⟩ j)) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_whitening_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L489">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_whitening_ii {n m : ℕ} (hN : 0 &lt; n) (Sg : Matrix (Fin n) (Fin n) ℝ)
+    (hSg : Sg.PosSemidef) (Δ : Matrix (Fin n) (Fin m) ℝ) (p : Fin n) (hp : 0 &lt; Sg p p)
+    (Q : Matrix (Fin n) (Fin n) ℝ) (hQ : Qᵀ * Q = 1)
+    (hQc : ∀ k, Q k ⟨0, hN⟩ = CFC.sqrt Sg k p / Real.sqrt (Sg p p)) (j : Fin m) :
+    (∑ i, ∑ l, whitenedState Sg Δ Q i l ^ 2 = riskTwo Sg Δ) ∧
+    whitenedState Sg Δ Q ⟨0, hN⟩ j = whMu Sg Δ p j ∧
+    (∑ l, whitenedState Sg Δ Q ⟨0, hN⟩ l ^ 2 = whR Sg Δ p) ∧
+    (∑ i, whitenedState Sg Δ Q i j ^ 2 = whC Sg Δ j) := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_whitening_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HalfDrift.lean#L573">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_whitening_iii {n m B : ℕ} (hN : 0 &lt; n) (Sg : Matrix (Fin n) (Fin n) ℝ)
+    (hSg : Sg.PosSemidef) (Δ : Matrix (Fin n) (Fin m) ℝ) (p : Fin n) (hp : 0 &lt; Sg p p)
+    (Q : Matrix (Fin n) (Fin n) ℝ) (hQ : Qᵀ * Q = 1)
+    (hQc : ∀ k, Q k ⟨0, hN⟩ = CFC.sqrt Sg k p / Real.sqrt (Sg p p)) (j : Fin m) :
+    frobNorm (whitenedState Sg Δ Q) = Real.sqrt (riskTwo Sg Δ) ∧
+    (∑ k, ∑ l, sgdDeletedBlock (whitenedState Sg Δ Q) ⟨0, hN⟩ j k l ^ 2
+        = riskTwo Sg Δ - whR Sg Δ p - whC Sg Δ j + whMu Sg Δ p j ^ 2) ∧
+    (Real.sqrt (2 / Real.pi) * batchConst B * whMu Sg Δ p j / Real.sqrt (riskTwo Sg Δ)
+        = batchConst B * (Sg * Δ) p j / Real.sqrt (Real.pi * (riskTwo Sg Δ / 2) * Sg p p)) ∧
+    (4 ≤ B → riskTwo Sg Δ / 4 ≤ ∑ k, ∑ l, sgdDeletedBlock (whitenedState Sg Δ Q) ⟨0, hN⟩ j k l ^ 2 →
+        frobNorm (whitenedState Sg Δ Q) / 2
+          ≤ frobNorm (sgdDeletedBlock (whitenedState Sg Δ Q) ⟨0, hN⟩ j)) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

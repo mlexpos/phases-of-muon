@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SE.19 (Projection variance)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SE.19 (Projection variance)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SE.html">Section SE</a> · From the algorithm to the deterministic dynamics</div><div class="chips"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><div class="thm thm-lemma" id="L-lem:app-dyn-poincare"><div class="thm-head"><a class="thm-name" href="r.lem.app-dyn-poincare.html" data-label="lem:app-dyn-poincare">Lemma SE.19</a> <span class="thm-title">(Projection variance)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(D\)</span> be deterministic with <span class="mi">\(r_-\le\cR(D)\le r_+\)</span>, consider the stationary chain at <span class="mi">\((t,D)\)</span>, and let <span class="mi">\(T\in\R^{\Nout\times\Nin}\)</span> be deterministic. Then</div>
+<div class="md">\[
+\Var\langle T,V_r\rangle\le C\log^2(2B)\norm T_\F^2,\qquad
+\Var\Big\langle T,\sum_{r&lt;L}V_r\Big\rangle\le CL^2\log^2(2B)\norm T_\F^2 .
+\]</div>
+<div class="p">No bound on <span class="mi">\(\norm T\)</span> and no diffuseness of <span class="mi">\(D\)</span> is assumed.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">First keep only the batches of the relative times <span class="mi">\(r-J,\dots,r\)</span>, auxiliary batches included. The resulting update is a smooth function <span class="mi">\(f\)</span> of finitely many independent standard Gaussian coordinates, namely the whitened samples, and the Gaussian Poincaré inequality [<a class="cite" href="bibliography.html#bib-boucheron2013concentration">13</a>, Theorem 3.20] gives <span class="mi">\(\Var f\le\EE\norm{\nabla f}^2\)</span>.</div>
+<div class="p">The gradient is computed by the chain rule. Write <span class="mi">\(A_D\defeq\Sigmaout^{1/2}D\Sigmain^{1/2}\)</span>, so <span class="mi">\(\norm{A_D}_\F^2=2\cR(D)\le2r_+\)</span>, and let <span class="mi">\(\mathsf C\defeq D\Qridge\ell(N)^*[T]\)</span> be the adjoint of the derivative of the filter applied to <span class="mi">\(T\)</span>, at <span class="mi">\(\ell=\ridgephys(D)\)</span>; by <a class="ref" href="r.lem.app-dyn-second.html" data-label="lem:app-dyn-second">Lemma SE.5</a>(i), <span class="mi">\(\norm{\mathsf C}_\F\le\ell^{-1/2}\norm T_\F\)</span> pointwise. A sample <span class="mi">\((z,w)\)</span> of a batch of weight <span class="mi">\(\varpi\)</span> enters the buffer as <span class="mi">\(\varpi B^{-1}(z^\T A_Dw)\Sigmaout^{1/2}(z\tensor w)\Sigmain^{1/2}\)</span>, so with <span class="mi">\(\mathsf q_a\defeq z_a^\T\Sigmaout^{1/2}\mathsf C\,\Sigmain^{1/2}w_a\)</span> and <span class="mi">\(d_a=z_a^\T A_Dw_a\)</span>,</div>
+<div class="md">\[
+\begin{gathered}
+\nabla_{z_a}f=\frac\varpi B\big[(A_Dw_a)\,\mathsf q_a+d_a\,\Sigmaout^{1/2}\mathsf C\,\Sigmain^{1/2}w_a\big],\\
+\nabla_{w_a}f=\frac\varpi B\big[(A_D^\T z_a)\,\mathsf q_a+d_a\,\Sigmain^{1/2}\mathsf C^\T\Sigmaout^{1/2}z_a\big].
+\end{gathered}
+\]</div>
+<div class="p">With <span class="mi">\(Y\defeq\Sigmaout^{1/2}[z_1\cdots z_B]\)</span> and <span class="mi">\(X\defeq\Sigmain^{1/2}[w_1\cdots w_B]\)</span>, pointwise matrix inequalities give</div>
+<div class="md">\[
+\begin{gathered}
+\sum_a\mathsf q_a^2\le\max_a\norm{\Sigmain^{1/2}w_a}^2\,\norm{\mathsf C}_\F^2\norm Y^2,\\
+\sum_ad_a^2\norm{\Sigmaout^{1/2}\mathsf C\,\Sigmain^{1/2}w_a}^2\le C_\Sigma\max_ad_a^2\,\norm{\mathsf C}_\F^2\norm X^2,
+\end{gathered}
+\]</div>
+<div class="p">and the transposed bounds. Hence the squared gradient over one batch is at most</div>
+<div class="md">\[
+\begin{aligned}
+\frac{C\varpi^2}{B^2}\norm{\mathsf C}_\F^2\Big[&amp;\max_a\norm{A_Dw_a}^2\max_a\norm{w_a}^2\norm Y^2+\max_a\norm{A_D^\T z_a}^2\max_a\norm{z_a}^2\norm X^2\\
+&amp;+\max_ad_a^2\big(\norm X^2+\norm Y^2\big)\Big].
+\end{aligned}
+\]</div>
+<div class="p">In every fixed <span class="mi">\(L^p\)</span> norm, <span class="mi">\(\max_a\norm{A_Dw_a}^2\)</span> and <span class="mi">\(\max_a\norm{A_D^\T z_a}^2\)</span> are at most <span class="mi">\(C_p\log(2B)\)</span>, <span class="mi">\(\max_a\norm{w_a}^2\)</span>, <span class="mi">\(\max_a\norm{z_a}^2\)</span>, <span class="mi">\(\norm X^2\)</span> and <span class="mi">\(\norm Y^2\)</span> are at most <span class="mi">\(C_pB\)</span>, and <span class="mi">\(\max_ad_a^2\)</span> is at most <span class="mi">\(C_p\log^2(2B)\)</span>. These follow from <span class="mi">\(\norm{\norm{A_Dw}^2}_q\le\sum_ks_k(A_D)^2\norm{g^2}_q\le Cq\norm{A_D}_\F^2\)</span> (a diagonalization and Minkowski’s inequality), from <span class="mi">\(\norm{\norm w^2}_q\le C(\Nin+q)\)</span>, from the maximum over <span class="mi">\(B\)</span> samples taken with <span class="mi">\(q\asymp\log(2B)\)</span> as in the proof of <a class="ref" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a>(ii), and from the operator norm moments there. Hölder’s inequality, with no independence between <span class="mi">\(\mathsf C\)</span> and the samples, bounds the expected squared gradient over the batch by <span class="mi">\(C\varpi^2\log^2(2B)\norm T_\F^2\)</span>. Summing over the batches with <span class="mi">\(\sum_j\emaw j^2\le1\)</span> gives the first bound for the truncated update. As <span class="mi">\(J\to\infty\)</span> the truncated update converges to <span class="mi">\(V_r\)</span> in <span class="mi">\(L^2\)</span>, by <a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a>(ii), so the bound passes to <span class="mi">\(V_r\)</span>.</div>
+<div class="p">The second bound is the Cauchy–Schwarz inequality <span class="mi">\(\Var\sum_{r&lt;L}Y_r\le L\sum_{r&lt;L}\Var Y_r\)</span>.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Uses</h3><ul><li><a class="ref" href="r.lem.app-dyn-second.html" data-label="lem:app-dyn-second">Lemma SE.5</a> <span class=muted>Second-order filter estimates</span></li><li><a class="ref" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a> <span class=muted>Moments of one batch</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li></ul></div><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-dyn-martingale.html" data-label="lem:app-dyn-martingale">Lemma SE.20</a> <span class=muted>Block martingale</span></li><li><a class="ref" href="r.lem.app-dyn-prefix.html" data-label="lem:app-dyn-prefix">Lemma SE.21</a> <span class=muted>Delayed projections and prefixes</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-cited" title="Proved in Lean, assuming cited results"><span class="dot"></span>Proved in Lean, assuming cited results</span></div><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_poincare_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Concentration.lean#L3047">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_poincare_i (p : DynParams) (rlo rhi : ℝ) (hrlo : 0 &lt; rlo) (hle : rlo ≤ rhi)
+    (cert : Muon.External.GaussianPoincare)  (certOp : Muon.External.GaussianOpNormL6) :
+    ∃ K : ℝ, ∀ (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (m n B : ℕ) (S : DynSetup p P m n B) (t r : ℕ) (D T : Mat m n),
+      rlo ≤ riskSigma S.C D → riskSigma S.C D ≤ rhi →
+        MemLp (fun ω =&gt; frobIP T (stationaryV p S.C S.cs t D r ω)) 2 P ∧
+        variance (fun ω =&gt; frobIP T (stationaryV p S.C S.cs t D r ω)) P ≤
+          K * Real.log (2 * (B : ℝ)) ^ 2 * fro T ^ 2 := by</pre></details><details class="decl"><summary><code>Muon.Dynamics.lem_app_dyn_poincare_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Dynamics/Concentration.lean#L3241">source</a></summary><pre class="lean no-mj">theorem lem_app_dyn_poincare_ii (p : DynParams) (rlo rhi : ℝ) (hrlo : 0 &lt; rlo) (hle : rlo ≤ rhi)
+    (cert : Muon.External.GaussianPoincare)  (certOp : Muon.External.GaussianOpNormL6) :
+    ∃ K : ℝ, ∀ (Ω : Type) [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+      (m n B : ℕ) (S : DynSetup p P m n B) (t : ℕ) (D T : Mat m n),
+      rlo ≤ riskSigma S.C D → riskSigma S.C D ≤ rhi →
+        MemLp (fun ω =&gt; frobIP T (∑ r ∈ Finset.range (blockLen B), stationaryV p S.C S.cs t D r ω)) 2 P ∧
+        variance (fun ω =&gt; frobIP T (∑ r ∈ Finset.range (blockLen B), stationaryV p S.C S.cs t D r ω)) P ≤
+          K * (blockLen B : ℝ) ^ 2 * Real.log (2 * (B : ℝ)) ^ 2 * fro T ^ 2 := by</pre></details><div class="certs">Assumes the cited results: <a href="lean.html#cert-GaussianPoincare"><code>GaussianPoincare</code></a>.</div></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

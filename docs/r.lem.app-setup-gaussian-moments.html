@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SA.4 (Gaussian covariance of a batch)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SA.4 (Gaussian covariance of a batch)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SA.html">Section SA</a> · Setup: model, momentum, regularized SignSVD, normalization</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-setup-gaussian-moments"><div class="thm-head"><a class="thm-name" href="r.lem.app-setup-gaussian-moments.html" data-label="lem:app-setup-gaussian-moments">Lemma SA.4</a> <span class="thm-title">(Gaussian covariance of a batch)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(A\in\R^{\Nout\times\Nin}\)</span> be deterministic with <span class="mi">\(\norm A_\F=1\)</span>, let <span class="mi">\(z\sim\mathcal N(0,\Id_{\Nout})\)</span> and <span class="mi">\(w\sim\mathcal N(0,\Id_{\Nin})\)</span> be independent, and let <span class="mi">\(X\defeq(z^\T Aw)\,z\tensor w\)</span>. Then <span class="mi">\(\EE X=A\)</span>, and its covariance tensor <span class="mi">\(\mathcal C_{ij,kl}\defeq\Cov(X_{ij},X_{kl})\)</span> is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-tensor"></span>\begin{equation}\tag{SA.27}
+\mathcal C_{ij,kl}=\delta_{ik}\delta_{jl}+2(AA^\T)_{ik}\delta_{jl}+2\delta_{ik}(A^\T A)_{jl}+A_{ij}A_{kl}+2A_{il}A_{kj}.
+\end{equation}</div>
+<div class="p">Consequently, in the frozen-state model with <span class="mi">\(A=\Ahat\)</span>, the batches <span class="mi">\(G_{t+1-j}\)</span> are independent and identically distributed,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-batch-cov"></span>\begin{equation}\tag{SA.28}
+\begin{gathered}
+\EE\Gt=\Sigmaout^{1/2}\Ahat\Sigmain^{1/2},\\
+\Cov\big((\Gt)_{ij},(\Gt)_{kl}\big)=\frac1B\sum_{p,q,r,s}(\Sigmaout^{1/2})_{ip}(\Sigmain^{1/2})_{jq}\,\mathcal C_{pq,rs}\,(\Sigmaout^{1/2})_{kr}(\Sigmain^{1/2})_{ls},
+\end{gathered}
+\end{equation}</div>
+<div class="p">and the single-batch Frobenius variance is</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-VB"></span>\begin{equation}\tag{SA.29}
+\begin{aligned}
+\mathsf V_B&amp;\defeq\EE\norm{\Gt-\EE\Gt}_\F^2\\
+&amp;=\frac1B\Big\{\Tr\Sigmaout\Tr\Sigmain+2\Tr(\Sigmaout\Ahat\Ahat^\T)\Tr\Sigmain+2\Tr\Sigmaout\Tr(\Sigmain\Ahat^\T\Ahat)+3\norm{\EE\Gt}_\F^2\Big\}.
+\end{aligned}
+\end{equation}</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The mean is computed by independence of <span class="mi">\(z\)</span> and <span class="mi">\(w\)</span> and the second moments of standard normals:</div>
+<div class="md">\[
+\EE X_{ij}=\sum_{p,q}A_{pq}\,\EE[z_iz_p]\,\EE[w_jw_q]=A_{ij}.
+\]</div>
+<div class="p">The second moment is a sum over nine Wick pairings. Expanding the product,</div>
+<div class="md">\[
+\EE[X_{ij}X_{kl}]=\sum_{p,q,r,s}A_{pq}A_{rs}\,\EE[z_iz_kz_pz_r]\,\EE[w_jw_lw_qw_s],
+\]</div>
+<div class="p">and the fourth moments of independent standard normal coordinates are</div>
+<div class="md"><span class="anchor" id="L-eqn:app-setup-wick4"></span>\begin{equation}\tag{SA.30}
+\EE[z_iz_kz_pz_r]=\delta_{ik}\delta_{pr}+\delta_{ip}\delta_{kr}+\delta_{ir}\delta_{kp},
+\end{equation}</div>
+<div class="p">and likewise for <span class="mi">\(w\)</span>; this identity holds because an index appearing an odd number of times gives zero, two distinct pairs give <span class="mi">\(1\)</span>, and four equal indices give <span class="mi">\(\EE g^4=3\)</span>, which is the number of pairings. The product of the two three-term identities has nine terms. The term pairing <span class="mi">\((i,k)\)</span> with <span class="mi">\((j,l)\)</span> contributes <span class="mi">\(\delta_{ik}\delta_{jl}\sum_{p,q}A_{pq}^2=\delta_{ik}\delta_{jl}\)</span>. The two terms pairing <span class="mi">\((i,k)\)</span> in <span class="mi">\(z\)</span> with a crossed pairing in <span class="mi">\(w\)</span> contribute</div>
+<div class="md">\[
+\delta_{ik}\sum_pA_{pj}A_{pl}+\delta_{ik}\sum_pA_{pl}A_{pj}=2\delta_{ik}(A^\T A)_{jl},
+\]</div>
+<div class="p">and symmetrically the two terms with <span class="mi">\((j,l)\)</span> paired in <span class="mi">\(w\)</span> and a crossed pairing in <span class="mi">\(z\)</span> contribute <span class="mi">\(2(AA^\T)_{ik}\delta_{jl}\)</span>. The four terms with crossed pairings in both families contribute <span class="mi">\(A_{ij}A_{kl}+A_{il}A_{kj}+A_{kj}A_{il}+A_{kl}A_{ij}=2A_{ij}A_{kl}+2A_{il}A_{kj}\)</span>. Subtracting the product of the means <span class="mi">\(A_{ij}A_{kl}\)</span> gives <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-tensor" data-label="eqn:app-setup-tensor">(SA.27)</a>.</div>
+<div class="p">The batch statements follow from independence of the samples. The batch <span class="mi">\(\Gt\)</span> is the average over <span class="mi">\(a\)</span> of the independent, identically distributed matrices <span class="mi">\(\Sigmaout^{1/2}X_a\Sigmain^{1/2}\)</span>, where <span class="mi">\(X_a\)</span> is built from <span class="mi">\((z_a,w_a)\)</span> and <span class="mi">\(A=\Ahat\)</span>. Its mean is <span class="mi">\(\Sigmaout^{1/2}\Ahat\Sigmain^{1/2}\)</span>, and its covariance is <span class="mi">\(1/B\)</span> times the covariance of one transformed sample, which is <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-batch-cov" data-label="eqn:app-setup-batch-cov">(SA.28)</a> by the bilinearity of the covariance. Different batches use disjoint sets of samples and are therefore independent.</div>
+<div class="p">The Frobenius variance is a contraction of the tensor. For one sample,</div>
+<div class="md">\[
+\EE\norm{\Sigmaout^{1/2}(X-A)\Sigmain^{1/2}}_\F^2=\EE\Tr\big(\Sigmaout(X-A)\Sigmain(X-A)^\T\big)
+=\sum_{i,j,k,l}(\Sigmaout)_{ik}(\Sigmain)_{jl}\,\mathcal C_{ij,kl},
+\]</div>
+<div class="p">using the symmetry <span class="mi">\(\mathcal C_{ij,kl}=\mathcal C_{kl,ij}\)</span> and of the covariances. The five terms of <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-tensor" data-label="eqn:app-setup-tensor">(SA.27)</a> contract to</div>
+<div class="md">\[
+\begin{gathered}
+\Tr\Sigmaout\Tr\Sigmain,\qquad 2\Tr(\Sigmaout AA^\T)\Tr\Sigmain,\qquad 2\Tr\Sigmaout\Tr(\Sigmain A^\T A),\\
+\Tr(\Sigmaout A\Sigmain A^\T),\qquad 2\Tr(\Sigmaout A\Sigmain A^\T),
+\end{gathered}
+\]</div>
+<div class="p">where the last two use <span class="mi">\(\sum_{i,j,k,l}(\Sigmaout)_{ik}(\Sigmain)_{jl}A_{ij}A_{kl}=\sum_{i,k}(\Sigmaout)_{ik}(A\Sigmain A^\T)_{ik}\)</span> and the same value for <span class="mi">\(A_{il}A_{kj}\)</span> after exchanging the roles of <span class="mi">\(j\)</span> and <span class="mi">\(l\)</span>. Since <span class="mi">\(\Tr(\Sigmaout A\Sigmain A^\T)=\norm{\Sigmaout^{1/2}A\Sigmain^{1/2}}_\F^2=\norm{\EE\Gt}_\F^2\)</span> and <span class="mi">\(\mathsf V_B\)</span> is <span class="mi">\(1/B\)</span> times the one-sample variance, <a class="ref" href="r.lem.app-setup-gaussian-moments.html#L-eqn:app-setup-VB" data-label="eqn:app-setup-VB">(SA.29)</a> follows.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-setup-ema-law.html" data-label="lem:app-setup-ema-law">Lemma SA.5</a> <span class=muted>Stationary EMA law</span></li><li><a class="ref" href="r.lem.app-setup-truncation.html" data-label="lem:app-setup-truncation">Lemma SA.6</a> <span class=muted>History truncation and sample sensitivity</span></li><li><a class="ref" href="r.lem.app-de-variance.html" data-label="lem:app-de-variance">Lemma SB.10</a> <span class=muted>Variance of normalized traces</span></li><li><a class="ref" href="r.lem.app-dyn-batch.html" data-label="lem:app-dyn-batch">Lemma SE.3</a> <span class=muted>Moments of one batch</span></li><li><a class="ref" href="r.prop.app-iso-measure.html" data-label="prop:app-iso-measure">Proposition SF.6</a> <span class=muted>Existence of the isotropic measure pair</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.Setup.sampleX</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L110">source</a></summary><pre class="lean no-mj">def sampleX {m n : ℕ} (A : Mat m n) (z : Vec m) (w : Vec n) : Mat m n :=</pre></details><details class="decl"><summary><code>Muon.Setup.sampleTensor</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L115">source</a></summary><pre class="lean no-mj">def sampleTensor {m n : ℕ} (A : Mat m n) : Fin m → Fin n → Fin m → Fin n → ℝ :=</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_gaussian_moments_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L483">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_gaussian_moments_i [IsProbabilityMeasure P] {Z : Ω → Vec m} {W : Ω → Vec n}
+    (hZW : P.map (fun ω =&gt; (Z ω, W ω)) = (Muon.Foundations.stdGaussianPi m).prod
+      (Muon.Foundations.stdGaussianPi n))
+    (A : Mat m n) (hA : fro A = 1) :
+    mean P (fun ω =&gt; sampleX A (Z ω) (W ω)) = A := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_gaussian_moments_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L521">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_gaussian_moments_ii [IsProbabilityMeasure P] {Z : Ω → Vec m}
+    {W : Ω → Vec n}
+    (hZW : P.map (fun ω =&gt; (Z ω, W ω)) = (Muon.Foundations.stdGaussianPi m).prod
+      (Muon.Foundations.stdGaussianPi n))
+    (A : Mat m n) (hA : fro A = 1) :
+    covT P (fun ω =&gt; sampleX A (Z ω) (W ω)) = sampleTensor A := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_gaussian_moments_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L876">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_gaussian_moments_iii (F : FrozenParams m n B) (S : FrozenSamples P m n B) :
+    iIndepFun (fun s : ℤ =&gt; frozenBatchG F S s) P ∧
+      ∀ s s' : ℤ, P.map (frozenBatchG F S s) = P.map (frozenBatchG F S s') := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_gaussian_moments_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L928">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_gaussian_moments_iv (F : FrozenParams m n B) (S : FrozenSamples P m n B)
+    (s : ℤ) :
+    mean P (frozenBatchG F S s) = rOut F.C * F.A * rIn F.C ∧
+      ∀ (i : Fin m) (j : Fin n) (k : Fin m) (l : Fin n),
+        covT P (frozenBatchG F S s) i j k l =
+          (1 / (B : ℝ)) * ∑ p : Fin m, ∑ q : Fin n, ∑ r : Fin m, ∑ u : Fin n,
+            rOut F.C i p * rIn F.C j q * sampleTensor F.A p q r u *
+              rOut F.C k r * rIn F.C l u := by</pre></details><details class="decl"><summary><code>Muon.Setup.lem_app_setup_gaussian_moments_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/Setup/Frozen.lean#L1255">source</a></summary><pre class="lean no-mj">theorem lem_app_setup_gaussian_moments_v (F : FrozenParams m n B) (S : FrozenSamples P m n B) :
+    frozenVB S F = (1 / (B : ℝ)) *
+      (Matrix.trace F.C.Sout * Matrix.trace F.C.Sin
+        + 2 * Matrix.trace (F.C.Sout * (F.A * Matrix.transpose F.A)) * Matrix.trace F.C.Sin
+        + 2 * Matrix.trace F.C.Sout * Matrix.trace (F.C.Sin * (Matrix.transpose F.A * F.A))
+        + 3 * (fro (mean P (frozenBatchG F S 0))) ^ 2) := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>

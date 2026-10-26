@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemma SJ.6 (Spherical moments)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23e3e9f7' stroke='%232647a6'/%3E%3Ccircle cx='6.5' cy='6.5' r='2.6' fill='%232647a6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script>
+window.MathJax = {
+  loader: {load: ['[tex]/mathtools', '[tex]/boldsymbol']},
+  tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']],
+        processEnvironments: true, tags: 'none', packages: {'[+]': ['mathtools', 'boldsymbol']},
+        macros: {"EE": "\\operatorname{\\mathbb{E}}", "R": "\\mathbb{R}", "T": "\\top", "F": "\\mathrm{F}", "Bu": "B_{\\text{u}}", "defeq": "\\stackrel{\\mathrm{def}}{=}", "norm": ["\\|#1\\|", 1], "gin": "\\gamma_\\mathrm{in}", "gout": "\\gamma_\\mathrm{out}", "gmax": "\\gamma_\\mathrm{max}", "gmin": "\\gamma_\\mathrm{min}", "Res": "R", "Nin": "{N_\\mathrm{in}}", "Nout": "{N_\\mathrm{out}}", "bDelta": "\\Delta", "lr": "\\eta", "vec": ["#1", 1], "DEequiv": "\\overset{\\mathrm{de}}{=}", "Peq": "\\overset{\\Pr}{=}", "PP": "\\operatorname{\\mathbb{P}}", "VV": "\\operatorname{\\mathbb{V}}", "N": "\\mathbb{N}", "abs": ["|#1|", 1], "d": "\\mathop{}\\!\\mathrm{d}", "tensor": "\\otimes", "Xin": "x_\\mathrm{in}", "Xout": "x_\\mathrm{out}", "Sigmain": "{\\Sigma_\\mathrm{in}}", "Sigmaout": "{\\Sigma_\\mathrm{out}}", "Sigmainbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{in}}", "Sigmaoutbar": "\\overline{\\vec{\\Sigma}}_{\\mathrm{out}}", "Sigmainsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{in}}", "Sigmaoutsign": "{\\vec{\\Sigma}}^{\\mathrm{sign}}_{\\mathrm{out}}", "Idin": "I_\\mathrm{in}", "Idout": "I_\\mathrm{out}", "Wstar": "W^\\star", "Wt": "W_t", "Dt": "\\Delta_t", "U": "U", "uve": "u", "Gt": "G_{t+1}", "Gtilde": "\\widetilde{G}_{t+1}", "At": "\\vec{A}_t", "Ht": "H_t", "fD": "\\mathfrak{D}", "cR": "\\CMscr{R}", "res": "R", "cL": "\\CMscr{L}", "cF": "\\CMscr{F}", "cD": "\\CMscr{D}", "fb": "\\mathfrak{b}", "cV": "\\mathscr{V}", "fQ": "\\mathscr{Q}", "fRisk": "\\mathscr{R}", "fDrift": "\\mathscr{D}", "fVol": "\\mathscr{V}", "fri": "\\fQ", "dif": "\\mathrm{d}", "m": ["\\mathbf{#1}", 1], "sm": ["\\boldsymbol{#1}", 1], "dip": ["\\left\\langle\\left\\langle #1 \\right\\rangle\\right\\rangle", 1], "Tr": "\\operatorname{Tr}", "Id": "\\operatorname{Id}", "erfc": "\\operatorname{erfc}", "erfcx": "\\operatorname{erfcx}", "Img": "\\operatorname{Im}", "Ree": "\\operatorname{Re}", "rank": "\\operatorname{rank}", "sign": "\\operatorname{sign}", "Cov": "\\operatorname{Cov}", "Var": "\\operatorname{Var}", "diag": "\\operatorname{diag}", "sgn": "\\operatorname{sgn}", "bmom": "\\beta", "ridge": "\\varrho", "ridgephys": "\\varrho^{\\circ}", "Qridge": ["Q_{#1}", 1], "Mt": "M_t", "emaw": ["w_{#1}", 1], "sw": ["s_{#1}", 1], "texp": "\\varsigma", "resscale": "\\kappa", "Ahat": "\\widehat{A}_t", "Jfun": "J", "Fw": "F_{\\bmom}", "Lw": "L_{\\bmom}", "Rbar": "\\overline{R}", "Rtbar": "\\overline{\\widetilde R}", "Gtildebar": "\\overline{\\widetilde G}", "volraw": "\\mathfrak{v}^{(0)}", "macrostep": "h", "macrotime": "\\tau", "clock": "\\phi", "BL": "\\mathrm{BL}", "CMscr": "\\mathscr", "vast": "\\Bigg", "Vast": "\\Bigg", "LL": "{\\boldsymbol L}", "Im": "\\operatorname{Im}", "Re": "\\operatorname{Re}", "pce": "\\xi", "sle": "\\eta", "Muon": "\\textsf{Muon}", "SignSGD": "\\textsf{SignSGD}", "SignSVD": "\\textsf{SignSVD}", "Adam": "\\textsf{Adam}", "SignGD": "\\textsf{SignGD}", "xspace": ""}},
+  svg: {fontCache: 'global'},
+  options: {ignoreHtmlClass: 'no-mj', processHtmlClass: 'mj'},
+  startup: {typeset: true}
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
+<script src="site.js" defer></script>
+</head><body class="mj kind-statement">
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<main class="content" data-kind="statement" data-title="Lemma SJ.6 (Spherical moments)">
+<article class="stmt-page"><div class="eyebrow"><a href="s.SJ.html">Section SJ</a> · SignSGD: drift and volatility</div><div class="chips"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><div class="thm thm-lemma" id="L-lem:app-sgd-sphere"><div class="thm-head"><a class="thm-name" href="r.lem.app-sgd-sphere.html" data-label="lem:app-sgd-sphere">Lemma SJ.6</a> <span class="thm-title">(Spherical moments)</span></div><div class="thm-body"><div class="p">Let <span class="mi">\(v\)</span> be uniform on the unit sphere of <span class="mi">\(\R^n\)</span>, <span class="mi">\(n\ge2\)</span>. Then</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-l1"></span>\begin{equation}\tag{SJ.21}
+\EE\norm v_1^2=1+\frac{2(n-1)}\pi .
+\end{equation}</div>
+<div class="p">For a vector <span class="mi">\(a\)</span>, a positive semidefinite <span class="mi">\(T\)</span> and an integer <span class="mi">\(1\le q\le4\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-sphere"></span>\begin{equation}\tag{SJ.22}
+\EE\abs{v^\T a}^{2q}=\frac{(2q-1)!!\,\norm a^{2q}}{d_q(n)},\qquad \EE\big(v^\T Tv\big)^q\le\frac{(2q-1)!!\,(\Tr T)^q}{d_q(n)}.
+\end{equation}</div>
+<div class="p">For symmetric <span class="mi">\(H\)</span> with <span class="mi">\(\Tr H=0\)</span>,</div>
+<div class="md"><span class="anchor" id="L-eqn:app-sgd-sphere-four"></span>\begin{equation}\tag{SJ.23}
+\EE\big(v^\T Hv\big)^4=\frac{12(\Tr H^2)^2+48\Tr H^4}{d_4(n)} .
+\end{equation}</div>
+<div class="p">In particular, if <span class="mi">\(c\Id\preceq\Lambda\preceq L\Id\)</span> in dimension <span class="mi">\(n\)</span> and <span class="mi">\(\bar\mu=\Tr\Lambda/n\)</span>, then <span class="mi">\(\EE(v^\T\Lambda v-\bar\mu)^4\le60L^4/n^2\)</span>.</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">A standard Gaussian vector <span class="mi">\(g\)</span> in <span class="mi">\(\R^n\)</span> is <span class="mi">\(g=Rv\)</span> with radius <span class="mi">\(R\)</span> and direction <span class="mi">\(v\)</span> independent, and <span class="mi">\(\EE R^{2q}=d_q(n)\)</span> by the Gaussian moments of <span class="mi">\(\norm g^2\)</span>. Every identity follows by computing a Gaussian moment and dividing by <span class="mi">\(\EE R^{2q}\)</span>.</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-l1" data-label="eqn:app-sgd-l1">(SJ.21)</a>, <span class="mi">\(\EE R^2=n\)</span>, and <span class="mi">\(\EE\abs{g_ig_j}=2/\pi\)</span> for <span class="mi">\(i\ne j\)</span> gives <span class="mi">\(\EE\abs{v_iv_j}=2/(\pi n)\)</span>. Expanding the square of the <span class="mi">\(\ell^1\)</span> norm,</div>
+<div class="md">\[
+\EE\norm v_1^2=\sum_i\EE v_i^2+\sum_{i\ne j}\EE\abs{v_iv_j}=1+n(n-1)\frac2{\pi n}.
+\]</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-sphere" data-label="eqn:app-sgd-sphere">(SJ.22)</a>, rotation invariance gives <span class="mi">\(\EE\abs{g^\T a}^{2q}=(2q-1)!!\norm a^{2q}\)</span>. For <span class="mi">\(T\)</span>, write <span class="mi">\(g^\T Tg=\Tr T\sum_l\pi_lg_l^2\)</span> with weights <span class="mi">\(\pi_l\ge0\)</span> summing to <span class="mi">\(1\)</span>; Jensen’s inequality gives <span class="mi">\(\EE(\sum_l\pi_lg_l^2)^q\le(2q-1)!!\)</span>.</div>
+<div class="p">For <a class="ref" href="r.lem.app-sgd-sphere.html#L-eqn:app-sgd-sphere-four" data-label="eqn:app-sgd-sphere-four">(SJ.23)</a>, diagonalize <span class="mi">\(H\)</span> with eigenvalues <span class="mi">\(h_l\)</span> of sum zero. Then <span class="mi">\(g^\T Hg=\sum_lh_l(g_l^2-1)\)</span> is a sum of independent centered terms with <span class="mi">\(\EE(g_l^2-1)^2=2\)</span> and <span class="mi">\(\EE(g_l^2-1)^4=60\)</span>. Only multiplicities four and two-two survive in the fourth power:</div>
+<div class="md">\[
+\EE(g^\T Hg)^4=60\sum_lh_l^4+24\sum_{l&lt;l'}h_l^2h_{l'}^2=12(\Tr H^2)^2+48\Tr H^4 .
+\]</div>
+<div class="p">For <span class="mi">\(H=\Lambda-\bar\mu\Id\)</span>, <span class="mi">\(\norm H\le L\)</span>, so <span class="mi">\(\Tr H^2\le nL^2\)</span> and <span class="mi">\(\Tr H^4\le nL^4\)</span>, and <span class="mi">\(d_4(n)\ge n^4\)</span> gives the last bound.</div><div class="qed" aria-hidden="true">&#9633;</div></div></section><div class="dep-grid"><div class="deps"><h3>Used by</h3><ul><li><a class="ref" href="r.lem.app-sgd-haar-sign.html" data-label="lem:app-sgd-haar-sign">Lemma SJ.7</a> <span class=muted>Haar sign matrix</span></li><li><a class="ref" href="r.lem.app-sgd-deletion.html" data-label="lem:app-sgd-deletion">Lemma SJ.9</a> <span class=muted>Deletion estimates</span></li><li><a class="ref" href="r.thm.app-sgd-half-drift.html" data-label="thm:app-sgd-half-drift">Theorem SJ.2</a> <span class=muted>Half-anisotropic drift</span></li></ul></div></div><section class="lean-panel"><h2 class="panel-h">Lean</h2><div class="lean-status"><span class="chip lean-proved" title="Proved in Lean"><span class="dot"></span>Proved in Lean</span></div><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_sphere_i</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L125">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_sphere_i (n : ℕ) (hn : 2 ≤ n) :
+    ∫ v, (∑ i, |v i|) ^ 2 ∂(sphereGauss n) = 1 + 2 * ((n : ℝ) - 1) / Real.pi := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_sphere_ii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L224">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_sphere_ii (n q : ℕ) (hn : 2 ≤ n) (hq : 1 ≤ q ∧ q ≤ 4)
+    (a : Fin n → ℝ) :
+    ∫ v, |dotProduct v a| ^ (2 * q) ∂(sphereGauss n)
+      = ((Nat.doubleFactorial (2 * q - 1) : ℕ) : ℝ) * euclidNorm n a ^ (2 * q) / dq n q := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_sphere_iii</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L355">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_sphere_iii (n q : ℕ) (hn : 2 ≤ n) (hq : 1 ≤ q ∧ q ≤ 4)
+    (T : Matrix (Fin n) (Fin n) ℝ) (hT : T.PosSemidef) :
+    ∫ v, (dotProduct v (T.mulVec v)) ^ q ∂(sphereGauss n)
+      ≤ ((Nat.doubleFactorial (2 * q - 1) : ℕ) : ℝ) * (Matrix.trace T) ^ q / dq n q := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_sphere_iv</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L688">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_sphere_iv (n : ℕ) (hn : 2 ≤ n) (H : Matrix (Fin n) (Fin n) ℝ)
+    (hH : H.IsHermitian) (htr : Matrix.trace H = 0) :
+    ∫ v, (dotProduct v (H.mulVec v)) ^ 4 ∂(sphereGauss n)
+      = (12 * (Matrix.trace (H ^ 2)) ^ 2 + 48 * Matrix.trace (H ^ 4)) / dq n 4 := by</pre></details><details class="decl"><summary><code>Muon.SignSGD.lem_app_sgd_sphere_v</code> <a class="src" href="https://github.com/mlexpos/phases-of-muon/blob/main/lean/Muon/SignSGD/HaarTools.lean#L783">source</a></summary><pre class="lean no-mj">theorem lem_app_sgd_sphere_v (n : ℕ) (hn : 2 ≤ n) (c L : ℝ) (hc : 0 ≤ c)
+    (Λ : Matrix (Fin n) (Fin n) ℝ)
+    (hlo : (Λ - c • (1 : Matrix (Fin n) (Fin n) ℝ)).PosSemidef)
+    (hhi : (L • (1 : Matrix (Fin n) (Fin n) ℝ) - Λ).PosSemidef) :
+    ∫ v, (dotProduct v (Λ.mulVec v) - Matrix.trace Λ / (n : ℝ)) ^ 4 ∂(sphereGauss n)
+      ≤ 60 * L ^ 4 / (n : ℝ) ^ 2 := by</pre></details></section></article>
+</main>
+<footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
+</body></html>
