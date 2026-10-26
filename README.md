@@ -16,8 +16,8 @@ statement of the supplement by section and dependency depth.
 | Path | What it is |
 |---|---|
 | `docs/` | The static site, served by GitHub Pages from this folder. |
-| `docs/paper.pdf` | The paper, with an appendix that restates and sketches each result used in the main text. |
-| `docs/supplement.pdf` | The supplementary material: complete statements and proofs (sections SA–SN). |
+| `docs/paper.pdf` | The paper, with additional related work, numerics, finite-ridge and momentum experiments, followed by the proof overview and sketches. |
+| `docs/supplement.pdf` | The supplementary material: complete statements and proofs (sections SA–SJ), followed by the Lean formalization table. |
 | `lean/` | The Lean 4 formalization and its coverage audit. |
 
 Numbers such as Theorem SE.1 or equation (SE.12) refer to the supplement; unprefixed numbers
@@ -28,6 +28,8 @@ refer to the paper.
 The statements and proofs of the supplement were formalized in Lean 4 with Mathlib. The Lean
 sources are in `lean/`; the shared probability and random-matrix libraries they use are at
 https://github.com/mlexpos/alea-foundations.
+The four standard Gaussian inputs are proved there and supplied to the Muon interfaces by
+`lean/Muon/External/Discharge.lean`; they are included in the 345 proved formal targets.
 
 To build the formalization after cloning both public repositories:
 

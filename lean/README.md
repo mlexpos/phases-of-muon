@@ -18,3 +18,7 @@ Formalizes the appendix of *Phases of Muon* from the frozen camera-ready snapsho
 
 No axioms are permitted. Cited standard results are explicit hypotheses typed by
 `Muon.External` structures (see the campaign's `EXTERNAL-RESULTS.md`).
+All four Gaussian interfaces are supplied by the proved terms in
+`Muon/External/Discharge.lean`, using the accompanying `gaussian_foundations`
+dependency. The campaign's historical `proved-modulo-external` category therefore
+records a former integration stage; the paper and website count these results as proved.

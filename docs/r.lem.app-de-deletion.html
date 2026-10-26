@@ -81,7 +81,7 @@ S^{-1}+W=\begin{pmatrix}\mathsf U&amp;\mathsf C+\mathsf h^{-1}\\ \mathsf C+\math
 \det(S^{-1}+W)=-s\mathsf U\mathsf V-\big(\mathsf C+\mathsf h^{-1}\big)^2
 =-\frac{s\mathsf h^2\mathsf U\mathsf V+(1+\mathsf h\mathsf C)^2}{\mathsf h^2}=-\frac{\Lambda}{\mathsf h^2}.
 \]</div>
-<div class="p">Positivity of <span class="mi">\(\Lambda\)</span> follows from the positive definiteness of <span class="mi">\(R_0\)</span> and <span class="mi">\(\widetilde R_0\)</span>. Indeed <span class="mi">\(\mathsf U\ge0\)</span> and <span class="mi">\(\mathsf V\ge0\)</span>, with <span class="mi">\(\mathsf U=0\)</span> only if <span class="mi">\(\mathsf u=0\)</span> and <span class="mi">\(\mathsf V=0\)</span> only if <span class="mi">\(\mathsf v=0\)</span>. If <span class="mi">\(\mathsf u=0\)</span> or <span class="mi">\(\mathsf v=0\)</span>, then <span class="mi">\(\mathsf C\)</span> vanishes and <span class="mi">\(\Lambda=1\)</span>; otherwise <span class="mi">\(\Lambda\ge s\mathsf h^2\mathsf U\mathsf V&gt;0\)</span>. In particular <span class="mi">\(S^{-1}+W\)</span> is invertible, and the Sherman–Morrison–Woodbury formula [<a class="cite" href="bibliography.html#bib-golub2012matrix">26</a>, Section 2.1.4] gives</div>
+<div class="p">Positivity of <span class="mi">\(\Lambda\)</span> follows from the positive definiteness of <span class="mi">\(R_0\)</span> and <span class="mi">\(\widetilde R_0\)</span>. Indeed <span class="mi">\(\mathsf U\ge0\)</span> and <span class="mi">\(\mathsf V\ge0\)</span>, with <span class="mi">\(\mathsf U=0\)</span> only if <span class="mi">\(\mathsf u=0\)</span> and <span class="mi">\(\mathsf V=0\)</span> only if <span class="mi">\(\mathsf v=0\)</span>. If <span class="mi">\(\mathsf u=0\)</span> or <span class="mi">\(\mathsf v=0\)</span>, then <span class="mi">\(\mathsf C\)</span> vanishes and <span class="mi">\(\Lambda=1\)</span>; otherwise <span class="mi">\(\Lambda\ge s\mathsf h^2\mathsf U\mathsf V&gt;0\)</span>. In particular <span class="mi">\(S^{-1}+W\)</span> is invertible, and the Sherman–Morrison–Woodbury formula [<a class="cite" href="bibliography.html#bib-golub2012matrix">87</a>, Section 2.1.4] gives</div>
 <div class="md">\[
 \mathcal L(M)^{-1}=\mathcal L(M_0)^{-1}-\mathcal L(M_0)^{-1}P\,\Theta\,P^\T\mathcal L(M_0)^{-1},
 \]</div>
@@ -122,7 +122,7 @@ RM\mathsf v=R_0\mathsf u\,(\alpha_3\mathsf C+s\alpha_1\mathsf V)+\mathsf X_0\mat
 <div class="md">\[
 \mathcal L(M)=\mathcal L(M_0)\big(\Id+\mathcal L(M_0)^{-1}PSP^\T\big).
 \]</div>
-<div class="p">Sylvester’s identity <span class="mi">\(\det(\Id+XY)=\det(\Id+YX)\)</span> [<a class="cite" href="bibliography.html#bib-horn2013matrix">28</a>, Section 0.8.5], applied to the second factor, gives</div>
+<div class="p">Sylvester’s identity <span class="mi">\(\det(\Id+XY)=\det(\Id+YX)\)</span> [<a class="cite" href="bibliography.html#bib-horn2013matrix">88</a>, Section 0.8.5], applied to the second factor, gives</div>
 <div class="md">\[
 \begin{aligned}
 \det\mathcal L(M)&amp;=\det\mathcal L(M_0)\,\det(\Id_2+SW)
