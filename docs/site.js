@@ -51,6 +51,7 @@
       m.classList.remove("mi-wide");
       if (m.getBoundingClientRect().width > host.getBoundingClientRect().width) m.classList.add("mi-wide");
     });
+    window.dispatchEvent(new Event("proof-layout"));
   }
   if (window.MathJax || document.querySelector(".mi")) {
     var waitMJ = setInterval(function () {
@@ -123,6 +124,8 @@
       var main = doc.querySelector("main.content");
       var box = el.querySelector("main.content");
       box.innerHTML = main ? main.innerHTML : "<p>Page not found.</p>";
+      if (main && main.dataset.kind) el.classList.add("kind-" + main.dataset.kind);
+      if (window.initTheoremComparison) window.initTheoremComparison(box);
       entry.title = (main && main.getAttribute("data-title")) || doc.title;
       renderBars();
       el.querySelector(".sheet-close").focus({preventScroll: true});

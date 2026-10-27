@@ -5,11 +5,19 @@ Companion repository for *Phases of Muon: When Muon Eclipses SignSGD*
 
 **Read the proofs online:** https://mlexpos.github.io/phases-of-muon/
 
-The site starts from the results that the paper's main text uses. Each one has a page with
+The landing page directs readers to the paper for the results and their interpretation.
+The [proof explorer](https://mlexpos.github.io/phases-of-muon/results.html) starts from the results that the paper's main text uses. Each one has a page with
 its exact statement, the definitions it needs, what it means, and a sketch of its proof.
 From there you can open the full proof, and from the proof any lemma it uses. Each opens over
 the page you are on, and closing it returns you to where you were. A graph view shows every
 statement of the supplement by section and dependency depth.
+
+The [paper–Lean comparison](https://mlexpos.github.io/phases-of-muon/compare.html) places the
+dynamical comparison theorem (SE.1 in the supplement, H.1 in the paper) beside its four Lean
+statements and the structures containing their assumptions. Hover, click, or use the keyboard
+to highlight corresponding phrases and source lines. These are curated clause-level mappings;
+the written theorem is unchanged, and every Lean excerpt is verbatim source at the linked,
+immutable public revision. Saved selections can be shared through the page's `#match=…` URL.
 
 ## Contents
 

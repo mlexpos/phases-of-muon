@@ -19,8 +19,9 @@ window.MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" defer></script>
 <script src="site.js" defer></script>
+<script src="compare.js" defer></script>
 </head><body class="mj kind-engine">
-<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">proofs</span></a><nav><a href="index.html">Results</a><a href="s.SA.html">Supplement</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
+<header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">companion</span></a><nav aria-label="Main navigation"><a href="paper.pdf">Paper</a><a href="results.html">Proofs</a><a href="compare.html">Paper ↔ Lean</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
 <main class="content" data-kind="engine" data-title="E2: Drift: the expected regularized update">
 <article class="engine-page"><div class="eyebrow">Proof engine</div><h1>E2: Drift: the expected regularized update</h1><h3 id="L-sk:E2"><span class="h-num">SJ.12</span> Drift: the expected regularized update</h3>
 <div class="p">This engine computes the mean of the update in the frozen-state model (<a class="ref" href="s.SC.html" data-label="sec:app-drift">Section SC</a>), which is the input of every drift kernel. It works in the setting of <a class="ref" href="e.E1.html" data-label="sk:E1">Section G.1</a> and uses its output. It produces a deterministic matrix <span class="mi">\(\Gtildebar_\ridge\)</span>, whose entries in the eigenbases of the covariances are multiples of the corresponding entries of <span class="mi">\(\Dt\)</span>, with, for normalized ridges in a fixed interval <span class="mi">\([\ridge_-,\ridge_+]\subset(0,\infty)\)</span> (<a class="ref" href="r.thm.app-drift-mean.html" data-label="thm:app-drift-mean">Theorem SC.2</a>),</div>
