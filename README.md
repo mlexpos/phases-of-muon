@@ -26,6 +26,7 @@ immutable public revision. Saved selections can be shared through the page's `#m
 |---|---|
 | `docs/` | The static site, served by GitHub Pages from this folder. |
 | `docs/paper.pdf` | The paper, with additional related work, numerics, finite-ridge and momentum experiments, followed by the proof overview and sketches. |
+| [`docs/phases_of_muon_expanded_arxiv.tar.gz`](docs/phases_of_muon_expanded_arxiv.tar.gz) | Standalone arXiv sources for the expanded paper, with all supporting files and no separate supplement. Verified with TeX Live 2023 and 2025. |
 | `docs/supplement.pdf` | The supplementary material: complete statements and proofs (sections SA–SJ), followed by the Lean formalization table. |
 | `lean/` | The Lean 4 formalization and its coverage audit. |
 
