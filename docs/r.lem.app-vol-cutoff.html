@@ -32,7 +32,11 @@ window.MathJax = {
 &amp;\abs{\EE\,\mathcal K^{F,G}[f_1,f_2](M^{\mathrm g}_t,M^{\mathrm g}_{t+\ell})-\EE\,\mathcal K^{F,G}[f_1,f_2](\mathsf K_1,\mathsf K_2)}\\
 &amp;\qquad\le\sqrt3\,C_\Sigma\gamma_\star^{3/2}\big(\operatorname{Lip}(f_1)\norm{f_2}_\infty+\norm{f_1}_\infty\operatorname{Lip}(f_2)\big)\,\delta_{J,R}.
 \end{aligned}
-\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The differences are sums of independent centered sample terms. A sample term <span class="mi">\(B^{-1}\Sigmaout^{1/2}(z\tensor w)\Sigmain^{1/2}\)</span> has squared Frobenius norm with expectation <span class="mi">\(B^{-2}\Tr\Sigmaout\Tr\Sigmain\le C_\Sigma^2\gamma_\star^2\)</span>. In <span class="mi">\(M^{\mathrm g}_t-\mathsf K_1\)</span> the samples of age <span class="mi">\(j&gt;J\)</span> carry the weight <span class="mi">\(\emaw jg\)</span> and those of age <span class="mi">\(j\le J\)</span> carry <span class="mi">\(\emaw jg\mathbf 1_{\abs g&gt;R}\)</span>, so</div>
+\]</div></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The differences are sums of independent centered sample terms. A sample term</div>
+<div class="md">\[
+B^{-1}\Sigmaout^{1/2}(z\tensor w)\Sigmain^{1/2}
+\]</div>
+<div class="p">has squared Frobenius norm with expectation <span class="mi">\(B^{-2}\Tr\Sigmaout\Tr\Sigmain\le C_\Sigma^2\gamma_\star^2\)</span>. In <span class="mi">\(M^{\mathrm g}_t-\mathsf K_1\)</span> the samples of age <span class="mi">\(j&gt;J\)</span> carry the weight <span class="mi">\(\emaw jg\)</span> and those of age <span class="mi">\(j\le J\)</span> carry <span class="mi">\(\emaw jg\mathbf 1_{\abs g&gt;R}\)</span>, so</div>
 <div class="md">\[
 \frac1B\EE\norm{M^{\mathrm g}_t-\mathsf K_1}_\F^2\le C_\Sigma^2\gamma_\star^2\Big(\sum_{j&gt;J}\emaw j^2+\sum_{j\le J}\emaw j^2\tau_R\Big)\le C_\Sigma^2\gamma_\star^2\delta_{J,R}^2 .
 \]</div>

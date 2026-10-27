@@ -27,7 +27,11 @@ window.MathJax = {
 <div class="md"><span class="anchor" id="L-eqn:app-setup-risk-trace"></span>\begin{equation}\tag{SA.4}
 \EE d^2=\Var(d)=\Tr\big(\Sigmaout\Delta\Sigmain\Delta^\T\big)=\norm{\Delta}_\Sigma^2,
 \qquad \cR(W)=\tfrac12\norm{W-\Wstar}_\Sigma^2 .
-\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For deterministic <span class="mi">\(\Delta\)</span> and a batch of <span class="mi">\(B\)</span> independent copies, the gradient <span class="mi">\(G^\circ\defeq\frac1B\sum_ad_a^\circ\,\Xout^{(a)}\tensor\Xin^{(a)}\)</span> satisfies</div>
+\end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">For deterministic <span class="mi">\(\Delta\)</span> and a batch of <span class="mi">\(B\)</span> independent copies, the gradient</div>
+<div class="md">\[
+G^\circ\defeq\frac1B\sum_ad_a^\circ\,\Xout^{(a)}\tensor\Xin^{(a)}
+\]</div>
+<div class="p">satisfies</div>
 <div class="md"><span class="anchor" id="L-eqn:app-setup-gradient-matrix"></span>\begin{equation}\tag{SA.5}
 G^\circ=\frac1B\,Y\vec D^\circ X^\T,\qquad \EE G^\circ=\Sigmaout\Delta\Sigmain .
 \end{equation}</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">For the state <span class="mi">\(\Dt\)</span> at step <span class="mi">\(t\)</span> with <span class="mi">\(\EE\norm{\Dt}_\F^2&lt;\infty\)</span> and the fresh batch of step <span class="mi">\(t\)</span>, the residuals and the gradient of <a class="ref" href="r.def.app-setup-model.html#L-eqn:app-setup-gradient" data-label="eqn:app-setup-gradient">(SA.3)</a> satisfy</div>

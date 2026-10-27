@@ -38,7 +38,11 @@ window.MathJax = {
 <div class="md">\[
 \EE\big[f(d)\,z\tensor w\big]=\Ahat\,\EE f'(d)+O\big(\norm{\Ahat}^2\big),
 \]</div>
-<div class="p">and multiplying by <span class="mi">\(\Sigmaout^{1/2}\)</span> and <span class="mi">\(\Sigmain^{1/2}\)</span> turns <span class="mi">\(\Ahat\)</span> into the mean gradient <span class="mi">\(\EE\Gt=\Sigmaout\Dt\Sigmain/\sqrt{2\cR(t)}\)</span>. By Stein’s identity <span class="mi">\(\EE f'(d)\to\Jfun(\emaw j^2q)\)</span>, so the weights now enter to the first power, through <span class="mi">\(\Lw\)</span>. In the feedback term <span class="mi">\(\alpha_2\)</span> is replaced by its conditional mean, whose expected sum over ages, <span class="mi">\(b_B(s)\)</span>, tends to <span class="mi">\(\sigma\Fw(q)\)</span>. The result is the response equation (<a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a>)</div>
+<div class="p">and multiplying by <span class="mi">\(\Sigmaout^{1/2}\)</span> and <span class="mi">\(\Sigmain^{1/2}\)</span> turns <span class="mi">\(\Ahat\)</span> into the mean gradient</div>
+<div class="md">\[
+\EE\Gt=\Sigmaout\Dt\Sigmain/\sqrt{2\cR(t)}.
+\]</div>
+<div class="p">By Stein’s identity <span class="mi">\(\EE f'(d)\to\Jfun(\emaw j^2q)\)</span>, so the weights now enter to the first power, through <span class="mi">\(\Lw\)</span>. In the feedback term <span class="mi">\(\alpha_2\)</span> is replaced by its conditional mean, whose expected sum over ages, <span class="mi">\(b_B(s)\)</span>, tends to <span class="mi">\(\sigma\Fw(q)\)</span>. The result is the response equation (<a class="ref" href="r.prop.app-drift-response.html" data-label="prop:app-drift-response">Proposition SC.3</a>)</div>
 <div class="md">\[
 \mathcal H(s)\big(\Id+b_B(s)\,\Sigmain\big)=\Lw(q)\,\Rbar(-s)\,\EE\Gt+o(1)\quad\text{in Frobenius norm.}
 \]</div>

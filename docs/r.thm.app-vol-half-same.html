@@ -36,8 +36,10 @@ e_B\defeq\sup_{s\in I}\norm{\EE R(-s)-\Rbar(-s)},\qquad
 \end{gathered}
 \end{equation}</div></div></li><li><span class="li-mark">(ii)</span><div class="li-body"><div class="p">The expected row and column energies satisfy</div>
 <div class="md"><span class="anchor" id="L-eqn:app-vol-half-rows"></span>\begin{equation}\tag{SD.24}
-\sup_{\ridge\in I}\max_{1\le i\le\Nout}\Big|\EE\norm{{\mathsf S}_t(\ridge)^\T u_i}^2-\volraw_i(\ridge)\Big|\le\ridge_+\,e_B ,\qquad
+\begin{gathered}
+\sup_{\ridge\in I}\max_{1\le i\le\Nout}\Big|\EE\norm{{\mathsf S}_t(\ridge)^\T u_i}^2-\volraw_i(\ridge)\Big|\le\ridge_+\,e_B ,\\
 \sup_{\ridge\in I}\max_{1\le j\le\Nin}\Big|\EE\norm{{\mathsf S}_t(\ridge)v_j}^2-\widetilde{\mathfrak v}^{(0)}_j(\ridge)\Big|\le\ridge_+\,\tilde e_B ,
+\end{gathered}
 \end{equation}</div>
 <div class="p"><span class="mi">\({\mathsf S}_t(\ridge)^\T u_i=0\)</span> for every <span class="mi">\(i\)</span> with <span class="mi">\(\mu_i=0\)</span>, and <span class="mi">\({\mathsf S}_t(\ridge)v_j=0\)</span> for every <span class="mi">\(j\)</span> with <span class="mi">\(\lambda_j=0\)</span>.</div></div></li><li><span class="li-mark">(iii)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmain=\Id_{\Nin}\)</span>, the raw and centered totals <a class="ref" href="s.SD.html#L-eqn:app-vol-Z" data-label="eqn:app-vol-Z">(SD.19)</a> satisfy</div>
 <div class="md"><span class="anchor" id="L-eqn:app-vol-half-total"></span>\begin{equation}\tag{SD.25}
@@ -46,8 +48,10 @@ e_B\defeq\sup_{s\in I}\norm{\EE R(-s)-\Rbar(-s)},\qquad
 \end{equation}</div>
 <div class="p">and <span class="mi">\(\sup_{\ridge\in I}\abs{\EE Z(\ridge)-\overline Z(\ridge)}\le\gamma_\star C_\Sigma\ridge_+e_B\)</span>.</div></div></li><li><span class="li-mark">(iv)</span><div class="li-body"><div class="p">If <span class="mi">\(\Sigmaout=\Id_{\Nout}\)</span>, (iii) holds with the candidate <span class="mi">\(\overline Z\)</span> replaced by <span class="mi">\(B^{-1}\Tr\Sigmain-\ridge\,\tilde\sigma(-\ridge)\)</span> and <span class="mi">\(e_B\)</span> by <span class="mi">\(\tilde e_B\)</span>.</div></div></li></ol></div></div><section class="proof-block" id="proof"><div class="proof"><div class="proof-head">Proof.</div><div class="p">The proof rests on two exact identities. For <span class="mi">\(K\in\R^{\Nout\times\Nin}\)</span> and <span class="mi">\(\ridge&gt;0\)</span>,</div>
 <div class="md"><span class="anchor" id="L-eqn:app-vol-half-identity"></span>\begin{equation}\tag{SD.27}
-\Qridge\ridge(K)\Qridge\ridge(K)^\T=KK^\T\big(KK^\T+\ridge\Id\big)^{-1}=\Id-\ridge\,R_\ridge(K),\qquad
+\begin{gathered}
+\Qridge\ridge(K)\Qridge\ridge(K)^\T=KK^\T\big(KK^\T+\ridge\Id\big)^{-1}=\Id-\ridge\,R_\ridge(K),\\
 \Qridge\ridge(K)^\T\Qridge\ridge(K)=\Id-\ridge\,\widetilde R_\ridge(K).
+\end{gathered}
 \end{equation}</div>
 <div class="p">Indeed, in a singular value decomposition the first left side has the eigenvalue <span class="mi">\(s_k^2/(s_k^2+\ridge)=1-\ridge/(s_k^2+\ridge)\)</span> on the left singular vector <span class="mi">\(p_k\)</span> and vanishes on the left null space of <span class="mi">\(K\)</span>, where the right side is <span class="mi">\(1-\ridge/\ridge=0\)</span>. The second identity is the same computation on the right singular vectors.</div>
 <div class="p">Part (i) is the expectation of <a class="ref" href="r.thm.app-vol-half-same.html#L-eqn:app-vol-half-identity" data-label="eqn:app-vol-half-identity">(SD.27)</a>. With <span class="mi">\(K=\Mt\)</span> and <span class="mi">\(R_\ridge(\Mt)=R(-\ridge)\)</span>,</div>
