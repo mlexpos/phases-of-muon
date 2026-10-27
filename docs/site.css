@@ -258,29 +258,21 @@ ol.toc { list-style: none; padding: 0; font-family: var(--f-ui); font-size: 15px
   .sheet-page { display: none; }
 }
 
-/* Paper-first landing page. */
-.kind-landing .content > section { max-width: none; }
-.landing-hero { padding: 48px 0 58px; }
-.landing-hero .eyebrow { margin-bottom: 26px; }
-.landing-hero h1 { font-size: clamp(46px, 6.7vw, 76px); letter-spacing: -.035em; line-height: 1.05; margin-bottom: 20px; }
-.landing-hero h1 > span:last-child { display: block; font-size: clamp(23px, 3vw, 34px); font-weight: 400; letter-spacing: -.01em; margin-top: 13px; }
-.landing-authors { font-family: var(--f-ui); font-size: 15px; color: var(--ink-2); max-width: 52em; margin: 0 0 34px; }
-.landing-question { font-size: 26px; line-height: 1.3; margin: 0 0 12px; }
-.landing-lede { max-width: 38em; color: var(--ink-2); font-size: 20px; line-height: 1.55; margin: 0 0 28px; }
-.primary-link { display: inline-flex; align-items: center; gap: 48px; background: var(--accent); color: var(--sheet); font-family: var(--f-ui); font-weight: 500; font-size: 19px; padding: 13px 20px; border-radius: 3px; }
-.primary-link:hover { text-decoration: none; filter: brightness(1.15); }
-.landing-caption { color: var(--ink-2); font-family: var(--f-ui); font-size: 14px; margin: 12px 0 0; }
-.landing-guide { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; border-top: 1px solid var(--rule); padding: 40px 0; }
-.guide-intro h2 { font-size: 28px; line-height: 1.2; margin: 12px 0 20px; }
-.guide-intro p { color: var(--ink-2); font-size: 16px; }
-.guide-routes { border-top: 1px solid var(--rule); }
-.route { display: grid; grid-template-columns: 25px minmax(0, 1fr) 18px; gap: 15px; padding: 22px 2px; border-bottom: 1px solid var(--rule); color: var(--ink); }
-.route:hover { text-decoration: none; background: var(--accent-soft); }
-.route strong { display: block; font-family: var(--f-ui); font-size: 20px; font-weight: 500; line-height: 1.3; margin-bottom: 7px; }
-.route > span > span { display: block; color: var(--ink-2); font-size: 16px; line-height: 1.5; }
-.route-number { font-family: var(--f-mono); font-size: 12px; color: var(--ink-3); padding-top: 4px; }
-.landing-bottom { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 18px; font-size: 15px; color: var(--ink-2); }
-.landing-bottom p { margin: 0; }
+/* Research landing page: paper links, its abstract, and companion resources. */
+.kind-landing .content > section { max-width: 86ch; }
+.landing-hero { padding: 20px 0 24px; }
+.landing-hero .eyebrow { margin-bottom: 16px; }
+.landing-hero h1 { font-size: 38px; letter-spacing: -.015em; line-height: 1.18; margin-bottom: 16px; }
+.landing-hero h1 > span:last-child { display: block; font-size: 29px; font-weight: 400; letter-spacing: 0; margin-top: 5px; }
+.landing-authors { font-family: var(--f-ui); font-size: 15px; color: var(--ink-2); margin: 0 0 20px; }
+.landing-downloads { display: flex; flex-wrap: wrap; gap: 8px 26px; font-family: var(--f-ui); font-size: 17px; }
+.primary-link { font-weight: 600; }
+.landing-abstract, .landing-resources { border-top: 1px solid var(--rule); padding: 20px 0 12px; }
+.landing-abstract h2, .landing-resources h2 { margin: 0 0 14px; font-size: 22px; }
+.landing-abstract .p { line-height: 1.75; }
+.landing-resources p { margin: 0 0 16px; }
+.research-links { margin: 0; padding-left: 20px; }
+.research-links li { padding: 0 0 10px; }
 
 /* A theorem and its formal statements, with explicit correspondence controls. */
 .kind-compare .content, .kind-compare .topbar-in { max-width: 1500px; }
@@ -332,17 +324,13 @@ ol.toc { list-style: none; padding: 0; font-family: var(--f-ui); font-size: 15px
 .compare-after p { max-width: 95ch; }
 [hidden] { display: none !important; }
 @media (max-width: 900px) {
-  .landing-guide { gap: 30px; }
   .column-meta { display: none; }
   .compare-code { font-size: 11px; }
 }
 @media (max-width: 700px) {
-  .landing-hero { padding: 28px 0 40px; }
-  .landing-hero .eyebrow { font-size: 11px; margin-bottom: 20px; }
-  .landing-question { font-size: 23px; }
-  .landing-lede { font-size: 18px; }
-  .landing-guide { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
-  .guide-intro h2 { font-size: 26px; }
+  .landing-hero { padding: 10px 0 24px; }
+  .landing-hero h1 { font-size: 31px; }
+  .landing-hero h1 > span:last-child { font-size: 24px; }
   .comparison-grid { grid-template-columns: 1fr; }
   .comparison-scroll { height: 56vh; min-height: 300px; }
   .comparison-heading { min-height: 76px; }

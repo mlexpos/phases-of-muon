@@ -5,7 +5,8 @@ Companion repository for *Phases of Muon: When Muon Eclipses SignSGD*
 
 **Read the proofs online:** https://mlexpos.github.io/phases-of-muon/
 
-The landing page directs readers to the paper for the results and their interpretation.
+The landing page gives the paper's abstract, direct links to the paper and full proof
+supplement, and a description of the site's written proofs and Lean formalization.
 The [proof explorer](https://mlexpos.github.io/phases-of-muon/results.html) starts from the results that the paper's main text uses. Each one has a page with
 its exact statement, the definitions it needs, what it means, and a sketch of its proof.
 From there you can open the full proof, and from the proof any lemma it uses. Each opens over

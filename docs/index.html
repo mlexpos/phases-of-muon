@@ -24,24 +24,20 @@ window.MathJax = {
 <header class="topbar"><div class="topbar-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>Phases of <span class="sc">Muon</span><span class="brand-sub">companion</span></a><nav aria-label="Main navigation"><a href="paper.pdf">Paper</a><a href="results.html">Proofs</a><a href="compare.html">Paper ↔ Lean</a><a href="lean.html">Lean</a><a href="bibliography.html">References</a></nav></div></header>
 <main class="content" data-kind="landing" data-title="Phases of Muon · When Muon Eclipses SignSGD">
 <section class="landing-hero">
-<div class="eyebrow">NeurIPS 2026 · Research companion</div>
-<h1>Phases of <span class="sc">Muon</span><span>When Muon Eclipses SignSGD</span></h1>
+<div class="eyebrow">NeurIPS 2026</div>
+<h1>Phases of <span class="sc">Muon</span>:<span>When Muon Eclipses SignSGD</span></h1>
 <p class="landing-authors">E. Paquette · N. Marshall · L. Benigni · G. Wang · A. Agarwala · C. Paquette</p>
-<p class="landing-question">When does changing the optimizer help?</p>
-<p class="landing-lede">We study how data, batch size, and momentum shape the performance of Muon relative to SignSGD in a high-dimensional least-squares model.</p>
-<a class="primary-link" href="paper.pdf">Read the paper <span aria-hidden="true">↗</span></a>
-<p class="landing-caption">Start here for the results, experiments, and their interpretation.</p>
+<div class="landing-downloads"><a class="primary-link" href="paper.pdf">Paper (PDF)</a><a href="supplement.pdf">Full proofs (PDF)</a><a href="https://github.com/mlexpos/phases-of-muon">Source repository</a></div>
 </section>
-<section class="landing-guide" aria-labelledby="companion-title">
-<div class="guide-intro"><div class="eyebrow">Behind the results</div><h2 id="companion-title">Follow the argument.<br>Inspect the formal proof.</h2>
-<p>This website accompanies the paper. It provides the complete written proofs and supporting lemmas, together with the Lean statements and their machine-checked proofs.</p>
-<p>Read the paper first for the research story. Use the companion to follow a result through its dependencies, or to see how a mathematical statement is expressed in Lean.</p></div>
-<div class="guide-routes">
-<a class="route" href="results.html"><span class="route-number">01</span><span><strong>Explore the written proofs</strong><span>Start from a main result, read its proof sketch, then follow the full proof and the lemmas it uses.</span></span><span aria-hidden="true">↗</span></a>
-<a class="route" href="compare.html"><span class="route-number">02</span><span><strong>Compare paper and Lean</strong><span>Read a main theorem side by side with its formal statements. Select a phrase or a Lean line to highlight its counterpart.</span></span><span aria-hidden="true">↗</span></a>
-<a class="route" href="lean.html"><span class="route-number">03</span><span><strong>Inspect the formalization</strong><span>See what is proved in Lean, the supporting foundations, and the source code.</span></span><span aria-hidden="true">↗</span></a>
-</div></section>
-<section class="landing-bottom"><p>Prefer a single document? <a href="supplement.pdf">Download the complete proof supplement</a>.</p><a href="https://github.com/mlexpos/phases-of-muon">Source repository ↗</a></section>
+<section class="landing-abstract" aria-labelledby="abstract-title"><h2 id="abstract-title">Abstract</h2><div class="p"><span class="sc">Muon</span> and related spectral optimizers have recently demonstrated strong empirical performance as scalable stochastic methods, often outperforming <span class="sc">Adam</span>. Yet their behavior remains poorly understood. We analyze stochastic <span class="sc">Muon</span>, which orthogonalizes an exponential moving average of minibatch gradients, on a high-dimensional matrix-valued least squares problem, and we compare it with stochastic <span class="sc">SignSGD</span>, a simple baseline comparable to <span class="sc">Adam</span>. We derive explicit deterministic dynamics that provide a tractable framework for studying learning behavior. We show that <span class="sc">Muon</span> has non-linear sensitivity to the effective batch <span class="mi">\(B_{\rm eff}=B(1+\bmom)/(1-\bmom)\)</span>. With exact whitening and small <span class="mi">\(B_{\rm eff}\)</span> <span class="sc">Muon</span> fails to resolve smaller eigenmodes, slowing down convergence. Momentum and finite Newton–Shulz iterations can act as a ridge which lessen this effect. This behavior is in contrast with <span class="sc">SignSGD</span> which has no transition, leading to different optimal learning rates, but with matching convergence rate up to a constant factor in the isotropic setting. For anisotropic data, large batch setting <span class="sc">Muon</span> performs a square-root preconditioning with respect to the data covariance spectrum while <span class="sc">SignSGD</span> provides no preconditioning for generic covariances. We analyzed time to target loss in a power law covariance model and derive a phase diagram in the data exponent <span class="mi">\(\alpha\)</span> and target exponent <span class="mi">\(\texp\)</span>. <span class="sc">Muon</span> is favored for steep covariance spectra with rich targets (<span class="mi">\(\alpha&gt;2\)</span>, <span class="mi">\(\texp&lt;\alpha+1\)</span>), <span class="sc">SignSGD</span> is favored for flat spectra (<span class="mi">\(\alpha&lt;1\)</span>), and in other regions the winner depends on how the target loss scales with dimension. Our results shed light on why replacing <span class="sc">Adam</span> with <span class="sc">Muon</span> is not trivial even from a pure optimization perspective.</div></section>
+<section class="landing-resources" aria-labelledby="companion-title">
+<h2 id="companion-title">About this website</h2>
+<p>This website accompanies the paper and houses the complete written proofs, supporting lemmas, and Lean 4 formalization. The <a href="paper.pdf">paper</a> is the primary presentation of the results, their assumptions, and the numerical experiments. The material here provides the proof details and formal statements.</p>
+<ul class="research-links">
+<li><a class="route" href="results.html">Written proofs</a>: theorem statements, proof sketches, full proofs, and their dependencies.</li>
+<li><a class="route" href="lean.html">Lean formalization</a>: formalization coverage, proved foundations, and links to the Lean source.</li>
+<li><a class="route" href="compare.html">Written and Lean statements</a>: a side-by-side comparison of the dynamical comparison theorem with its Lean statements, with corresponding clauses highlighted.</li>
+</ul></section>
 </main>
 <footer class="foot"><div class="foot-in">Complete statements and proofs for <em>Phases of Muon: When Muon Eclipses SignSGD</em> (NeurIPS 2026). Numbers SA.1, (SE.12), &hellip; are those of the supplement PDF.</div></footer>
 </body></html>
